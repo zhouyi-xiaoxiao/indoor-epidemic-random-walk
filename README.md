@@ -114,8 +114,7 @@ takes 3 to 4 hours on one core and less than 1.5 GB of memory.
 Each part of the work was re-checked with separately written code, within the same project and on the same
 machine; this is not an external or third-party verification. The core re-implementations were written
 separately; some auxiliary checks reused modules of the analyses (re-runs, kernel comparisons, added
-comparisons). Where a re-check corrected a result, the corrected result is the one reported. What was checked and
-what was found is in [`notes/VERIFICATION.md`](notes/VERIFICATION.md).
+comparisons). The article reports the outputs of these checked implementations. The scope and results of the checks are in [`notes/VERIFICATION.md`](notes/VERIFICATION.md).
 
 The protocol records (`PREREGISTRATION.md`, power addenda, freeze records, the frozen code files and the post-hoc
 logs) and the protocol first proposed with the outbreak dataset (`code/bsc_outbreaks/PROTOCOL_PROPOSAL.md`) are
