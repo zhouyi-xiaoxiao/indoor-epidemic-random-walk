@@ -1,0 +1,15 @@
+== (A) threshold in the nonlinear model (office O1, D0 = 1) ==
+  R0 = 0.80 (beta = 0.07829, lambda1 = -0.02914): peak prevalence 1.000e-06, final attack fraction 3.860e-06
+  R0 = 0.95 (beta = 0.09297, lambda1 = -0.00729): peak prevalence 1.000e-06, final attack fraction 9.876e-06
+  R0 = 1.05 (beta = 0.10276, lambda1 = +0.00730): peak prevalence 3.942e-04, final attack fraction 5.093e-02
+  R0 = 1.20 (beta = 0.11744, lambda1 = +0.02920): peak prevalence 5.051e-03, final attack fraction 1.983e-01
+  R0 = 2.00 (beta = 0.19573, lambda1 = +0.14624): peak prevalence 1.086e-01, final attack fraction 7.262e-01
+== (B) well-mixed estimate < 1 < NGM R0  (two-zone 'side' office, D0 = 1) ==
+  beta<q>/gamma = 0.900, NGM R0 = 1.0757: final attack fraction 0.1244; 97.2% of infections occur in the workspace (69.2% of the area); same room with q = <q>: attack 1.00e-05
+== (C) early spatial profile vs Perron vector u (office O1) ==
+  D0 =     1, seed in far desk    : lambda1 = 0.6021, gap 0.0561/day; growth rate fitted for prevalence in [1e-9,1e-4]: 0.5485; TV(profile,u): 1.000 at t=0 -> 0.9808 at prevalence 1e-4 (t = 43.4 d) -> 0.9777 at prevalence 1e-2 (t = 51.9 d)
+  D0 =     1, seed in meeting room: lambda1 = 0.6021, gap 0.0561/day; growth rate fitted for prevalence in [1e-9,1e-4]: 0.6023; TV(profile,u): 0.962 at t=0 -> 0.0020 at prevalence 1e-4 (t = 39.6 d) -> 0.0068 at prevalence 1e-2 (t = 47.5 d)
+  D0 =    10, seed in far desk    : lambda1 = 0.5505, gap 0.0452/day; growth rate fitted for prevalence in [1e-9,1e-4]: 0.5293; TV(profile,u): 0.998 at t=0 -> 0.2351 at prevalence 1e-4 (t = 45.2 d) -> 0.1852 at prevalence 1e-2 (t = 53.8 d)
+  D0 =    10, seed in meeting room: lambda1 = 0.5505, gap 0.0452/day; growth rate fitted for prevalence in [1e-9,1e-4]: 0.5553; TV(profile,u): 0.982 at t=0 -> 0.0415 at prevalence 1e-4 (t = 42.4 d) -> 0.0157 at prevalence 1e-2 (t = 50.8 d)
+  D0 =   100, seed in far desk    : lambda1 = 0.5129, gap 0.5800/day; growth rate fitted for prevalence in [1e-9,1e-4]: 0.5129; TV(profile,u): 0.996 at t=0 -> 0.0000 at prevalence 1e-4 (t = 46.6 d) -> 0.0003 at prevalence 1e-2 (t = 55.6 d)
+  D0 =   100, seed in meeting room: lambda1 = 0.5129, gap 0.5800/day; growth rate fitted for prevalence in [1e-9,1e-4]: 0.5129; TV(profile,u): 0.995 at t=0 -> 0.0000 at prevalence 1e-4 (t = 46.4 d) -> 0.0003 at prevalence 1e-2 (t = 55.4 d)

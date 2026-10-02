@@ -1,0 +1,26 @@
+{
+ "frozen_at_utc": "2026-10-01T08:48:58.865312+00:00",
+ "frozen_at_local": "2026-10-01T09:48:58.874995+01:00",
+ "sha256": {
+  "PREREGISTRATION.md": "a434c9500d02ad68ccbb5f4cddd1adf3bae1514def731cd063ce5aff4332bdde",
+  "src/zonecore.py": "149ec35e330cb4ba141fe2e7ca0f57ef5ff4eb977ca426ea2f65c41efd1de836",
+  "src/analysis.py": "25c1e20f54b4d5f6c4233df1777af651bdef41baa477bd6cf2588c54e311c6b9",
+  "src/04_matsumoto.py": "30a87a7ac23c658107209cbbc3f07cf8ef526beb81e543ec20eaa6d60277ebcb",
+  "src/05_seoul_floors.py": "aae8a8a223c0111ee55462bfcade8568a33b5abaffb8b3d9a3db50a202887a88",
+  "src/02_power.py": "c67396651addee60aec40de7d164c80546a89363753a0a1419dcc031636847c8",
+  "src/01_lyon_mixing.py": "cddb8f476d19bd86efc3c6792f446d83e2f2d13172a981a0be43ecd6c7566fcd",
+  "src/00_convert_jld2.py": "541457c2c5f288e0b597919322fc40b954d333dfb0a45e9b0bf14866c9f6e512",
+  "data/derived/lyon_mixing.json": "565272aa0bad060784a90722d10a0fa26c3c01b5470dc6b763fb797d4052d9fc",
+  "results/power_A.jsonl": "61c1c4a0ae413e9bdb8da565206dd2395afb436856ebe47d94dd9859dcfac07c",
+  "results/power_B.jsonl": "9a3dad83a4be23490aca5b630850323342de3e70645cbcea6d22b718e278090e",
+  "data/raw/matsumoto/data_anonymizedstudents.jld2": "55b454bfde0be0ab1e92830a495362ddf138b879d657fade944dd5195ff8496f",
+  "data/raw/sociopatterns/primaryschool.csv.gz": "5c93d9f5a61ad44b3c90fb5146d42345ae86dd44d77bc5da2461989d3d547fc9",
+  "data/raw/park2020/PMC7392450.xml": "f328ba43a56aa49ec5e39ddc2f504ab33feef97e633a8f5a119198b960457216"
+ },
+ "note": "Frozen before any model was fitted to Matsumoto outcomes and before src/05_seoul_floors.py was executed. results/matsumoto_primary.json and results/seoul_floors.json did not exist at freeze time.",
+ "existing_results": [
+  "results/power_A.jsonl",
+  "results/power_B.jsonl",
+  "results/power_summary.json"
+ ]
+}

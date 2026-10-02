@@ -1,0 +1,997 @@
+{
+ "n_records": 27,
+ "n_columns": 51,
+ "sources": {
+  "n": 31,
+  "full": {
+   "n": 21,
+   "keys": [
+    "cai2020",
+    "chen2020tianjin",
+    "furuse2020",
+    "guenther2020",
+    "hershow2021",
+    "jang2020",
+    "katelaris2021",
+    "khanh2020",
+    "koh2020",
+    "kwon2020",
+    "lamhine2021",
+    "li2021",
+    "li2022twoclusters",
+    "lu2020",
+    "luo2020",
+    "mizumoto2020",
+    "ou2022",
+    "park2020",
+    "steinzamir2020",
+    "tian2021",
+    "weissberg2020"
+   ]
+  },
+  "manuscript": {
+   "n": 1,
+   "keys": [
+    "miller2021"
+   ]
+  },
+  "extraction": {
+   "n": 3,
+   "keys": [
+    "hamner2020",
+    "hu2021",
+    "shen2020"
+   ]
+  },
+  "abstract": {
+   "n": 6,
+   "keys": [
+    "jiang2021deptstore",
+    "lan2021",
+    "moser1979",
+    "nardell1991",
+    "nicholls2024",
+    "riley1978"
+   ]
+  }
+ },
+ "grades": {
+  "A": 8,
+  "B": 9,
+  "C": 8,
+  "X": 2
+ },
+ "grade_A": {
+  "ids": [
+   "C1",
+   "H1",
+   "R1",
+   "R2",
+   "T1",
+   "T2",
+   "T4",
+   "T5"
+  ],
+  "not_meeting_criteria": {
+   "C1": "exposure duration in hours and room size not reported",
+   "T4": "2,334 index patients pooled; cell denominators not printed",
+   "H1": "no seat or zone positions published"
+  },
+  "n_meeting_criteria": 5
+ },
+ "records_by_group": {
+  "Offices and workplaces": 5,
+  "Supermarket and retail": 4,
+  "Classrooms and class-like rooms": 5,
+  "Vehicle cabins (stand-ins for the metro carriage)": 7,
+  "Restaurants": 2,
+  "Choir and church": 2,
+  "Outside the scope of the model (recorded for reference)": 2
+ },
+ "records_without_denominator": [
+  "C4",
+  "S3",
+  "T7"
+ ],
+ "records_with_reported_rate_but_no_counts": [
+  "T6"
+ ],
+ "records_with_counts": 23,
+ "records": [
+  {
+   "id": "O1",
+   "k": 94,
+   "n": 216,
+   "attack_rate": 0.4351851851851852,
+   "ci95": [
+    0.3680521334877597,
+    0.5041220354315786
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "park2020"
+   ],
+   "scene": "office",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "O2",
+   "k": 8,
+   "n": 12,
+   "attack_rate": 0.6666666666666666,
+   "ci95": [
+    0.34887550641881554,
+    0.9007539088504167
+   ],
+   "alt": [
+    10,
+    12
+   ],
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "weissberg2020"
+   ],
+   "scene": "office",
+   "includes_index": false,
+   "exposure_duration_h": 11.0
+  },
+  {
+   "id": "O3",
+   "k": 22,
+   "n": 40,
+   "attack_rate": 0.55,
+   "ci95": [
+    0.3849067945340134,
+    0.70741164996012
+   ],
+   "alt": null,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "nicholls2024"
+   ],
+   "scene": "office",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "O4",
+   "k": 20,
+   "n": 78,
+   "attack_rate": 0.2564102564102564,
+   "ci95": [
+    0.16418971961401793,
+    0.3678582434606929
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "guenther2020"
+   ],
+   "scene": "office",
+   "includes_index": false,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "O5",
+   "k": 27,
+   "n": 67,
+   "attack_rate": 0.40298507462686567,
+   "ci95": [
+    0.2848738956241815,
+    0.529958654211971
+   ],
+   "alt": null,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "nardell1991"
+   ],
+   "scene": "office",
+   "includes_index": false,
+   "exposure_duration_h": 160.0
+  },
+  {
+   "id": "S1",
+   "k": 11,
+   "n": 120,
+   "attack_rate": 0.09166666666666666,
+   "ci95": [
+    0.04665226965524854,
+    0.15809854119583328
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "tian2021"
+   ],
+   "scene": "supermarket",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "S2",
+   "k": 6,
+   "n": 194,
+   "attack_rate": 0.030927835051546393,
+   "ci95": [
+    0.011432885568087227,
+    0.06609828772909164
+   ],
+   "alt": [
+    7,
+    194
+   ],
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "chen2020tianjin",
+    "li2022twoclusters",
+    "jiang2021deptstore"
+   ],
+   "scene": "supermarket",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "S3",
+   "k": null,
+   "n": null,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "cai2020"
+   ],
+   "scene": "supermarket",
+   "includes_index": false,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "S4",
+   "k": 21,
+   "n": 104,
+   "attack_rate": 0.20192307692307693,
+   "ci95": [
+    0.12955448742111048,
+    0.29194579938878873
+   ],
+   "alt": null,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "lan2021"
+   ],
+   "scene": "supermarket",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "C1",
+   "k": 12,
+   "n": 24,
+   "attack_rate": 0.5,
+   "ci95": [
+    0.291241779836212,
+    0.708758220163788
+   ],
+   "alt": null,
+   "grade": "A",
+   "grade_criteria_met": false,
+   "sources": [
+    "lamhine2021"
+   ],
+   "scene": "classroom",
+   "includes_index": false,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "C2",
+   "k": 153,
+   "n": 1161,
+   "attack_rate": 0.13178294573643412,
+   "ci95": [
+    0.11284715788812552,
+    0.15260549754277652
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "steinzamir2020"
+   ],
+   "scene": "classroom",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "C3",
+   "k": 5,
+   "n": 728,
+   "attack_rate": 0.006868131868131868,
+   "ci95": [
+    0.002233714079048247,
+    0.015954632835520118
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "hershow2021"
+   ],
+   "scene": "classroom",
+   "includes_index": false,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "C4",
+   "k": 28,
+   "n": null,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "riley1978"
+   ],
+   "scene": "classroom",
+   "includes_index": false,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "C5",
+   "k": 57,
+   "n": 217,
+   "attack_rate": 0.2626728110599078,
+   "ci95": [
+    0.20542479916248843,
+    0.3265297271322464
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "jang2020"
+   ],
+   "scene": "classroom",
+   "includes_index": false,
+   "exposure_duration_h": 0.83
+  },
+  {
+   "id": "T1",
+   "k": 23,
+   "n": 67,
+   "attack_rate": 0.34328358208955223,
+   "ci95": [
+    0.231533397751151,
+    0.4693829169297856
+   ],
+   "alt": null,
+   "grade": "A",
+   "grade_criteria_met": true,
+   "sources": [
+    "shen2020"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": 1.6666666666666667
+  },
+  {
+   "id": "T2",
+   "k": 7,
+   "n": 48,
+   "attack_rate": 0.14583333333333334,
+   "ci95": [
+    0.06070446936663695,
+    0.2776383400220281
+   ],
+   "alt": [
+    7,
+    46
+   ],
+   "grade": "A",
+   "grade_criteria_met": true,
+   "sources": [
+    "luo2020",
+    "ou2022"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": 2.5
+  },
+  {
+   "id": "T3",
+   "k": 2,
+   "n": 12,
+   "attack_rate": 0.16666666666666666,
+   "ci95": [
+    0.02086252546009238,
+    0.48413774868596704
+   ],
+   "alt": [
+    2,
+    17
+   ],
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "luo2020",
+    "ou2022"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": 1.0
+  },
+  {
+   "id": "T4",
+   "k": 234,
+   "n": 72093,
+   "attack_rate": 0.00324580749864758,
+   "ci95": [
+    0.002843775211808778,
+    0.0036886008236479044
+   ],
+   "alt": null,
+   "grade": "A",
+   "grade_criteria_met": false,
+   "sources": [
+    "hu2021"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": 2.1
+  },
+  {
+   "id": "T5",
+   "k": 12,
+   "n": 20,
+   "attack_rate": 0.6,
+   "ci95": [
+    0.3605425873074897,
+    0.8088099392746928
+   ],
+   "alt": null,
+   "grade": "A",
+   "grade_criteria_met": true,
+   "sources": [
+    "khanh2020"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": 10.0
+  },
+  {
+   "id": "T6",
+   "k": null,
+   "n": null,
+   "reported_attack_rate_pct": 72,
+   "aboard": 54,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "moser1979"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": 3.0
+  },
+  {
+   "id": "T7",
+   "k": null,
+   "n": null,
+   "grade": "C",
+   "grade_criteria_met": true,
+   "sources": [
+    "furuse2020"
+   ],
+   "scene": "metro",
+   "includes_index": false,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "R1",
+   "k": 5,
+   "n": 79,
+   "attack_rate": 0.06329113924050633,
+   "ci95": [
+    0.020867946146561834,
+    0.14155158261729167
+   ],
+   "alt": null,
+   "grade": "A",
+   "grade_criteria_met": true,
+   "sources": [
+    "li2021",
+    "lu2020"
+   ],
+   "scene": "restaurant",
+   "includes_index": false,
+   "exposure_duration_h": 1.37
+  },
+  {
+   "id": "R2",
+   "k": 2,
+   "n": 13,
+   "attack_rate": 0.15384615384615385,
+   "ci95": [
+    0.019206671982528473,
+    0.45447105567655766
+   ],
+   "alt": null,
+   "grade": "A",
+   "grade_criteria_met": true,
+   "sources": [
+    "kwon2020"
+   ],
+   "scene": "restaurant",
+   "includes_index": false,
+   "exposure_duration_h": 0.35
+  },
+  {
+   "id": "H1",
+   "k": 52,
+   "n": 60,
+   "attack_rate": 0.8666666666666667,
+   "ci95": [
+    0.7540777788695802,
+    0.9406355772946428
+   ],
+   "alt": [
+    32,
+    60
+   ],
+   "grade": "A",
+   "grade_criteria_met": false,
+   "sources": [
+    "hamner2020",
+    "miller2021"
+   ],
+   "scene": "choir",
+   "includes_index": false,
+   "exposure_duration_h": 2.5
+  },
+  {
+   "id": "H2",
+   "k": 12,
+   "n": 508,
+   "attack_rate": 0.023622047244094488,
+   "ci95": [
+    0.012264058883028624,
+    0.04089914458015091
+   ],
+   "alt": null,
+   "grade": "B",
+   "grade_criteria_met": true,
+   "sources": [
+    "katelaris2021"
+   ],
+   "scene": "choir",
+   "includes_index": false,
+   "exposure_duration_h": 1.0
+  },
+  {
+   "id": "X1",
+   "k": 634,
+   "n": 3711,
+   "attack_rate": 0.17084343842630018,
+   "ci95": [
+    0.15886219530485013,
+    0.18334544980872636
+   ],
+   "alt": null,
+   "grade": "X",
+   "grade_criteria_met": true,
+   "sources": [
+    "mizumoto2020"
+   ],
+   "scene": "out_of_scope",
+   "includes_index": true,
+   "exposure_duration_h": null
+  },
+  {
+   "id": "X2",
+   "k": 17758,
+   "n": 295000,
+   "attack_rate": 0.06019661016949152,
+   "ci95": [
+    0.059340933689023496,
+    0.06106093920591368
+   ],
+   "alt": null,
+   "grade": "X",
+   "grade_criteria_met": true,
+   "sources": [
+    "koh2020"
+   ],
+   "scene": "out_of_scope",
+   "includes_index": true,
+   "exposure_duration_h": null
+  }
+ ],
+ "other_pathogens": [
+  "C4",
+  "O5",
+  "T6"
+ ],
+ "records_resting_on_abstracts_only": [
+  "C4",
+  "O3",
+  "O5",
+  "S4",
+  "T6"
+ ],
+ "strata": [
+  {
+   "id": "O1",
+   "contrast": "north wing against south wing (mapped seats)",
+   "near": [
+    79,
+    137
+   ],
+   "far": [
+    4,
+    62
+   ],
+   "rr": 8.937956204379562,
+   "ci95": [
+    3.4268746974237456,
+    23.31192942988682
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 5.188212825314601e-13,
+   "log_rr": 2.1903069505640973,
+   "se": 0.48911136310358205
+  },
+  {
+   "id": "C1",
+   "contrast": "front two rows against back three rows",
+   "near": [
+    8,
+    10
+   ],
+   "far": [
+    4,
+    14
+   ],
+   "rr": 2.8000000000000003,
+   "ci95": [
+    1.156373901467402,
+    6.779814029053482
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 0.03607484183604792,
+   "log_rr": 1.0296194171811583,
+   "se": 0.4511889056386788
+  },
+  {
+   "id": "T1",
+   "contrast": "rows 5--11 (within about 2 m of the index) against rows 1--4 and 12--15",
+   "near": [
+    14,
+    33
+   ],
+   "far": [
+    9,
+    34
+   ],
+   "rr": 1.6026936026936027,
+   "ci95": [
+    0.8063613053106077,
+    3.1854539239399307
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 0.20412478423837427,
+   "log_rr": 0.4716857154287204,
+   "se": 0.3504638177198466
+  },
+  {
+   "id": "T1",
+   "contrast": "rows 6--10 against rows 1--5 and 11--15 (alternative split)",
+   "near": [
+    11,
+    23
+   ],
+   "far": [
+    12,
+    44
+   ],
+   "rr": 1.7536231884057973,
+   "ci95": [
+    0.9207675283524764,
+    3.3398161775067594
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 0.11033289172565708,
+   "log_rr": 0.5616840409994819,
+   "se": 0.32868965704078107
+  },
+  {
+   "id": "T2",
+   "contrast": "rear rows 8--13 (index zone) against front rows 1--7",
+   "near": [
+    3,
+    19
+   ],
+   "far": [
+    4,
+    26
+   ],
+   "rr": 1.026315789473684,
+   "ci95": [
+    0.2594588302190012,
+    4.059696479915187
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 1.0,
+   "log_rr": 0.02597548640326052,
+   "se": 0.7015983294766504
+  },
+  {
+   "id": "T5",
+   "contrast": "within 2 seats of the index against farther seats, business cabin",
+   "near": [
+    11,
+    12
+   ],
+   "far": [
+    1,
+    8
+   ],
+   "rr": 7.333333333333333,
+   "ci95": [
+    1.163110988047588,
+    46.23615315340609
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 0.000770024609033897,
+   "log_rr": 1.992430164690206,
+   "se": 0.9394550322265337
+  },
+  {
+   "id": "R1",
+   "contrast": "neighbouring tables against remote tables",
+   "near": [
+    5,
+    16
+   ],
+   "far": [
+    0,
+    63
+   ],
+   "rr": 41.411764705882355,
+   "ci95": [
+    2.406746179496355,
+    712.5530189536802
+   ],
+   "continuity_corrected": true,
+   "fisher_p": 0.00019381018714796197,
+   "log_rr": 3.7235650121018264,
+   "se": 1.451678219305648
+  },
+  {
+   "id": "R1",
+   "contrast": "same air-conditioning zone against other zones (alternative split)",
+   "near": [
+    5,
+    11
+   ],
+   "far": [
+    0,
+    68
+   ],
+   "rr": 63.25,
+   "ci95": [
+    3.7345658316301997,
+    1071.2255936465012
+   ],
+   "continuity_corrected": true,
+   "fisher_p": 2.0499154409880594e-05,
+   "log_rr": 4.1470951276076295,
+   "se": 1.4436038566246836
+  },
+  {
+   "id": "C2",
+   "contrast": "grades 7--9 against grades 10--12 (separate wings)",
+   "near": [
+    135,
+    581
+   ],
+   "far": [
+    18,
+    583
+   ],
+   "rr": 7.525817555938038,
+   "ci95": [
+    4.665231696485159,
+    12.140432366507515
+   ],
+   "continuity_corrected": false,
+   "fisher_p": 1.2840789858575812e-26,
+   "log_rr": 2.018339450040846,
+   "se": 0.24398058672952752
+  },
+  {
+   "id": "S1",
+   "contrast": "staff against customers",
+   "near": [
+    11,
+    120
+   ],
+   "far": [
+    0,
+    8224
+   ],
+   "rr": 1563.4297520661157,
+   "ci95": [
+    92.65256006893561,
+    26381.490029275952
+   ],
+   "continuity_corrected": true,
+   "fisher_p": 3.416768218544701e-21,
+   "log_rr": 7.354637245965981,
+   "se": 1.4417248275527825
+  }
+ ],
+ "heterogeneity": {
+  "events": [
+   "C1",
+   "T1",
+   "T2",
+   "T5"
+  ],
+  "cochran_Q": 3.772385734327073,
+  "dof": 3,
+  "p": 0.2871145132496477,
+  "pooled_rr": 1.9958793461077386,
+  "pooled_ci95": [
+   1.2267851623296708,
+   3.2471328204318226
+  ]
+ },
+ "coach_side_contrast": {
+  "near": [
+   6,
+   24
+  ],
+  "far": [
+   1,
+   20
+  ],
+  "rr": 5.0,
+  "ci95": [
+   0.6552533395468831,
+   38.153182122334314
+  ]
+ },
+ "negative_controls": [
+  {
+   "name": "Supermarket customers",
+   "record": "S1",
+   "k": 0,
+   "n": 8224,
+   "upper95_one_sided": 0.00036420071941998806,
+   "source": "tian2021"
+  },
+  {
+   "name": "Other bus travelling to the same event",
+   "record": "T1",
+   "k": 0,
+   "n": 60,
+   "upper95_one_sided": 0.04870291331009749,
+   "source": "shen2020"
+  },
+  {
+   "name": "Restaurant, remote tables",
+   "record": "R1",
+   "k": 0,
+   "n": 63,
+   "upper95_one_sided": 0.04643845148393822,
+   "source": "li2021"
+  },
+  {
+   "name": "Restaurant, other air-conditioning zones",
+   "record": "R1",
+   "k": 0,
+   "n": 68,
+   "upper95_one_sided": 0.043098564820088364,
+   "source": "li2021"
+  },
+  {
+   "name": "Flight, premium-economy cabin",
+   "record": "T5",
+   "k": 0,
+   "n": 35,
+   "upper95_one_sided": 0.08203163585667045,
+   "source": "khanh2020"
+  },
+  {
+   "name": "Tested school contacts, masked classrooms",
+   "record": "C3",
+   "k": 5,
+   "n": 728,
+   "upper95_one_sided": 0.014386357657616852,
+   "source": "hershow2021"
+  },
+  {
+   "name": "Call-centre building, floors 7--9",
+   "record": "O1",
+   "k": 1,
+   "n": 595,
+   "upper95_one_sided": 0.007947841914022157,
+   "source": "park2020"
+  }
+ ],
+ "negative_controls_note": {
+  "t1_other_groups": "unexposed bus 1: 0/60; other attendees of the same 150-min outdoor event: 7/172 (4.1%)"
+ },
+ "callcentre": {
+  "north": [
+   79,
+   137
+  ],
+  "south": [
+   4,
+   62
+  ],
+  "east_offices_case_seats": 1,
+  "desks_digitised_two_wings": 199,
+  "case_seats_mapped": 84,
+  "cases_reported": 94,
+  "cases_unmapped": 10,
+  "employees_floor": 216,
+  "desk_pitch_px": 32.5,
+  "rr": 8.937956204379562,
+  "rr_ci95": [
+   3.4268746974237456,
+   23.31192942988682
+  ],
+  "rr_all_unmapped_south": {
+   "rr": 2.553701772679875,
+   "ci95": [
+    1.575884410398775,
+    4.138243072115999
+   ]
+  },
+  "rr_all_unmapped_north": {
+   "rr": 10.069343065693431,
+   "ci95": [
+    3.871690208155338,
+    26.187960379954138
+   ]
+  },
+  "check_match": {
+   "bijection": true,
+   "desks_with_different_case_flag": 0,
+   "max_position_difference_px": 3.841874542459695
+  }
+ },
+ "train": {
+  "cells": 23,
+  "recovered_cases": 230,
+  "recovered_contacts": 72692,
+  "reported_cases": 234,
+  "reported_contacts": 72093,
+  "relative_difference_contacts": 0.008308712357649073,
+  "max_abs_error_pp_vs_printed": 0.011244487198261172,
+  "cell_n_min": 1033,
+  "cell_n_max": 5420,
+  "adjacent_seat": {
+   "k": 92,
+   "n": 2606,
+   "pct": 3.53
+  },
+  "cells_with_at_most_3_cases": 11,
+  "column_mean_error_pp_as_printed": 1.1697753868750513,
+  "column_mean_error_pp_realigned": 0.02442456283262573
+ },
+ "hazard_per_hour": {
+  "n_events": 9,
+  "min": 0.0239,
+  "max": 0.806,
+  "ratio": 33.72384937238494,
+  "ratio_confirmed_choir_only": 19.965989767628805
+ }
+}

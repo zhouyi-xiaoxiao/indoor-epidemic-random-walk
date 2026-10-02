@@ -1,0 +1,85 @@
+{
+ "callcentre_lattice": {
+  "desks": 137,
+  "distinct_sites": 113,
+  "sites_with_two_desks": 24,
+  "max_desks_per_site": 2
+ },
+ "mobility_gap": {
+  "walking_5pct_min": 1368.9,
+  "walking_max": 438048.0,
+  "log10_min": 3.1363717234923234,
+  "log10_max": 5.64152170181223,
+  "per_scene": {
+   "office": [
+    2433.6,
+    48672.0
+   ],
+   "supermarket": [
+    1368.9,
+    27378.0
+   ],
+   "classroom": [
+    5475.6,
+    109512.0
+   ],
+   "metro": [
+    21902.4,
+    438048.0
+   ]
+  }
+ },
+ "miller": {
+  "E_implied_at_0p5_m3_per_h": 2734.313349233566,
+  "E_at_1p0_m3_per_h": 1367.156674616783,
+  "miller_reported": "970 +- 390 quanta per hour (accepted manuscript, Table 1)"
+ },
+ "jerusalem": {
+  "grades": {
+   "7": [
+    40,
+    197
+   ],
+   "8": [
+    34,
+    197
+   ],
+   "9": [
+    61,
+    187
+   ],
+   "10": [
+    9,
+    200
+   ],
+   "11": [
+    6,
+    195
+   ],
+   "12": [
+    3,
+    188
+   ]
+  },
+  "junior_wing": [
+   135,
+   581
+  ],
+  "senior_wing": [
+   18,
+   583
+  ],
+  "tested": 1161
+ },
+ "flight_label": {
+  "underlined_less_than_2_seats_away": 2,
+  "greater_than_2_seats_away": 2,
+  "reading": "the source prints an underlined '<', i.e. '<= 2 seats away' against '> 2 seats away'"
+ },
+ "coach": {
+  "luo2020": 48,
+  "ou2022_dose_table": 46,
+  "ou2022_stratum_table": 45,
+  "strata": true
+ }
+}

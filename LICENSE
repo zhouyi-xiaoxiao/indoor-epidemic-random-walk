@@ -1,0 +1,95 @@
+This repository contains two kinds of material under two licences.
+
+===============================================================================
+1. Code -- MIT License
+===============================================================================
+
+Applies to the source code under code/ (Python, C and shell files: *.py, *.c,
+*.sh).
+
+Copyright (c) 2026 Xiaoxiao Zhouyi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+===============================================================================
+2. Text, figures and data -- Creative Commons Attribution 4.0 International
+===============================================================================
+
+Applies to paper.pdf, supplement.pdf, main.tex, supplement.tex, macros.tex,
+supplement.aux, repo_status.tex, sections/, figures/, refs.bib, data/, notes/,
+README.md, reproduce.md, VERSION, requirements.txt, and to
+everything under code/
+that is not source code: the documents (*.md) and the stored result and log
+files (*.json, *.csv, *.npy, *.npz, *.txt, *.log, *.out).
+
+Copyright (c) 2026 Xiaoxiao Zhouyi
+
+This material is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0). You may share and adapt it for any purpose,
+provided that you give appropriate credit, provide a link to the licence and
+indicate if changes were made.
+
+Licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:      https://creativecommons.org/licenses/by/4.0/
+
+Suggested credit: Xiaoxiao Zhouyi, "Random-walk SIR models of indoor
+epidemics: reproduction numbers, discrete individuals and pre-specified tests
+against outbreaks, contact records and tracer measurements" (2026),
+https://github.com/zhouyi-xiaoxiao/indoor-epidemic-random-walk
+
+===============================================================================
+3. Third-party material
+===============================================================================
+
+The licences above cover the author's own work. Some data files are derived
+from published sources, which must be credited when the files are reused:
+
+* data/bsc_outbreaks/tables/park2020_callcentre_seats_digitized.csv and
+  park2020_callcentre_epicurve_digitized.csv: digitised from Figs 1 and 2 of
+  Park et al., Emerging Infectious Diseases 26(8), 2020,
+  doi:10.3201/eid2608.201274.
+* data/bsc_outbreaks/tables/hu2021_train_attack_matrix.csv: transcribed from
+  Hu et al., Clinical Infectious Diseases 72(4), 2021,
+  doi:10.1093/cid/ciaa1057.
+* data/bsc_outbreaks/tables/li2021_restaurant_tables.csv: transcribed from
+  Li et al., Building and Environment 196, 2021,
+  doi:10.1016/j.buildenv.2021.107788, and Lu et al., Emerging Infectious
+  Diseases 26(7), 2020, doi:10.3201/eid2607.200764.
+* data/bsc_outbreaks/outbreaks.csv and outbreaks.json: numbers transcribed
+  from the 31 sources listed in data/bsc_outbreaks/sources.md.
+
+No source text or figure of a third party is included in this repository.
+
+===============================================================================
+4. Third-party data
+===============================================================================
+
+data/schools/matsumoto_students.csv is a tabular copy of data published by
+A. Endo and co-authors (github.com/akira-endo/schooldynamics_FluMatsumoto14-15)
+under the MIT License, Copyright (c) 2020 Akira Endo; the licence text is in
+data/schools/LICENSE_matsumoto.txt.
+
+data/tracer/kinahan_*.csv are extracts of the workbooks published by
+S. M. Kinahan and co-authors on figshare (doi:10.6084/m9.figshare.13537349.v1
+and doi:10.6084/m9.figshare.13537319.v1) under CC BY 4.0.
+
+The outbreak records, seat maps and the other tracer tables are numbers
+transcribed or digitised from the publications listed in the SOURCES.md and
+sources.md files next to them. The SocioPatterns contact records are not
+redistributed (see data/contacts/SOURCES.md).

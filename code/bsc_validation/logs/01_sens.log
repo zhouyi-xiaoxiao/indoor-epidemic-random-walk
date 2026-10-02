@@ -1,0 +1,43 @@
+2026-10-01 05:14:18 BST start T4:S-adj
+research/bsc_validation/scripts/01_calibrate.py:140: RuntimeWarning: divide by zero encountered in log
+  marg = mx + np.log(np.sum(np.exp(ll2 - mx) * kw[None, :], axis=1))
+T4 S-adj: M0 -260.74 | M1 -106.98 at D=0.158 | M2 -104.93 at D=10, kappa=15.79
+2026-10-01 05:14:22 BST done T4:S-adj
+2026-10-01 05:14:22 BST start T4:S-row
+research/bsc_validation/scripts/01_calibrate.py:140: RuntimeWarning: divide by zero encountered in log
+  marg = mx + np.log(np.sum(np.exp(ll2 - mx) * kw[None, :], axis=1))
+T4 S-row: M0 -41.66 | M1 -38.25 at D=2 | M2 -38.22 at D=100, kappa=13.12
+2026-10-01 05:14:25 BST done T4:S-row
+2026-10-01 05:14:25 BST start T4:S-logit
+research/bsc_validation/scripts/01_calibrate.py:140: RuntimeWarning: divide by zero encountered in log
+  marg = mx + np.log(np.sum(np.exp(ll2 - mx) * kw[None, :], axis=1))
+T4 S-logit: M0 -72.08 | M1 -33.82 at D=0.398 | M2 -33.62 at D=15.8, kappa=10.93
+2026-10-01 05:14:28 BST done T4:S-logit
+2026-10-01 05:14:28 BST start T4:S-pitch
+research/bsc_validation/scripts/01_calibrate.py:140: RuntimeWarning: divide by zero encountered in log
+  marg = mx + np.log(np.sum(np.exp(ll2 - mx) * kw[None, :], axis=1))
+T4 S-pitch: M0 -99.70 | M1 -92.82 at D=1 | M2 -92.92 at D=39.8, kappa=9.13
+2026-10-01 05:14:32 BST done T4:S-pitch
+2026-10-01 05:14:32 BST start R1:S-R1-upper
+R1 S-R1-upper M1: logL -4.606 at D=0.0794 (M0 -15.004)
+R1 S-R1-upper M2: logL -4.603 at D=0.251 (M0 -15.004)
+2026-10-01 05:14:38 BST done R1:S-R1-upper
+2026-10-01 05:14:38 BST start R1:S-R1-lower
+R1 S-R1-lower M1: logL -3.175 at D=0.631 (M0 -6.198)
+R1 S-R1-lower M2: logL -3.243 at D=2 (M0 -6.198)
+2026-10-01 05:14:45 BST done R1:S-R1-lower
+2026-10-01 05:14:45 BST start T4:S-aniso
+aniso theta 0.001 -72.22261233933723 -73.7823625043155
+aniso theta 0.0017782794100389228 -72.46550998989005 -71.78250408439034
+aniso theta 0.0031622776601683794 -72.1957123754602 -71.76773430754675
+aniso theta 0.005623413251903491 -72.10856767120504 -71.74689466492781
+aniso theta 0.01 -72.19806633691705 -71.72339997057836
+aniso theta 0.01778279410038923 -72.34031781128049 -71.70845751977632
+aniso theta 0.03162277660168379 -72.00807215680986 -71.57748742566568
+aniso theta 0.05623413251903491 -71.8729217759971 -71.42138985504205
+aniso theta 0.1 -71.87574318368276 -71.15129028592438
+aniso theta 0.1778279410038923 -71.06070281277167 -70.5512999369926
+aniso theta 0.31622776601683794 -70.6289590950789 -69.8569613761952
+aniso theta 0.5623413251903491 -70.40681887012948 -69.94162341389423
+aniso theta 1.0 -73.39357716753207 -72.97877327149865
+2026-10-01 05:14:56 BST done T4:S-aniso

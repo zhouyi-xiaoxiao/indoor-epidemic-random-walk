@@ -1,0 +1,507 @@
+% supp_protocol1.tex -- Supplementary Section S8: protocol of the first outbreak test, sensitivity analyses and post-hoc log.
+% Paths in "% src:" comments are relative to the repository root.
+% Every table row marked "generated" is pasted from data/appC_protocol_tables.tex, written by
+% code/appC_protocol_tables.py; every other number of this appendix is stored, with its source key,
+% in data/appC_protocol_numbers.json (same script).
+\section{Protocol of the first outbreak test, sensitivity analyses and post-hoc log}\label{appC_protocol:sec}
+
+This section documents the first test of Section~\ref{M-s8_outbreaks:sec} of the main text (the second test and the
+further analyses are documented in Section~\ref{appS_prot2:sec}): what was fixed before any model was run,
+the decision rule and its power, the sensitivity analyses, and every choice made after results had been seen.
+The protocol, its power addendum, the freeze record and the post-hoc log are released with the code as
+redacted copies: passages that do not concern the analyses of this article are omitted or reworded, and
+identifiers are renamed as in the rest of the repository; the repository lists every changed line
+(\texttt{code/REDACTIONS.md}). The SHA-256 hashes of the freeze records refer to the unredacted originals, which
+are kept by the author and can be provided to the editor and referees; the timing evidence, self-attested in any
+case, can therefore not be checked from the repository alone.
+The protocol file is named \texttt{PREREGISTRATION.md} and describes itself as a pre-registration; it was not
+lodged with any registry, and in this article it is called the protocol and its contents pre-specified.
+`The re-check' denotes the second pass of Section~\ref{M-s1_intro:sec}: a re-implementation of the whole
+analysis with separately written code, within the same project and on the same machine; where it corrected a
+result, the corrected result is the one reported. Where the frozen protocol texts speak of a
+`verifier', they mean this same-project re-check, not an independent party, and
+by `the analyst' they mean the first analysis (both passes were made by the author).
+% src: code/bsc_validation/README.md (PREREGISTRATION.md, PREREG_ADDENDUM_A1_power.md, PREREG_FREEZE.json, POSTHOC_LOG.md); notes/VERIFICATION.md (Section 4.5, first outbreak test, summary)
+
+\subsection{What was frozen, and the evidence for when}\label{appC_protocol:sec:freeze}
+
+The protocol was frozen on 1~October 2026 at 05:12:03 (British Summer Time, as are all times below). The
+freeze record holds the SHA-256 hashes of six files: the protocol text (hash beginning \texttt{632db9b7}), the
+modules that define the event geometries, the lattice kernels, the statistics and the interface to the exact
+simulator, and the file of hold-out stratum counts. Recomputed for this article on the unredacted originals,
+all six hashes match.
+% src: code/bsc_validation/PREREG_FREEZE.json (frozen_at, sha256); data/appC_protocol_numbers.json -> freeze.hash_basis ("hashes recomputed on the unredacted original files in the author's working tree"), freeze.hashes.*.sha256_recomputed_on_original, freeze.all_hashes_match (true, 6 files); a run in the public repository checks the redacted copies against code/REDACTIONS.json instead
+These files fix the observation model of every event (Table~\ref{appC_protocol:tab:obs}), the three models
+(Table~\ref{M-s8_outbreaks:tab:models}), the split into calibration and hold-out records, the estimation
+procedure, the metrics, the decision rule (Table~\ref{appC_protocol:tab:rule}) and twelve sensitivity
+analyses. Table~\ref{appC_protocol:tab:amend} lists how they depart from the protocol first proposed with the
+dataset, which is released as a redacted copy (\texttt{code/bsc\_outbreaks/PROTOCOL\_PROPOSAL.md}).
+% src: code/bsc_validation/PREREGISTRATION.md sections 2, 4, 5, 6, 8, 9
+
+The protocol text was last modified at 05:04:36. The first calibration run started at 05:13:30. The predictive
+distributions of the hold-out events and the power of the rule were stored at 05:15:43 and 05:15:46, by a
+script that does not read the hold-out counts, and the first comparison with those counts was stored at
+05:19:04. The intervals are minutes because the protocol, the code and the runs were prepared in one
+continuous stretch of work; the re-check (Section~\ref{M-s1_intro:sec}) was a separate, later pass.
+% src: data/appC_protocol_numbers.json -> freeze.file_times_local (PREREGISTRATION.md modified 05:04:36; PREREG_FREEZE.json created 05:12:03, modified 05:29:32; data/bsc_validation/02_predictive.json 05:15:43; data/bsc_validation/02_power.json 05:15:46; data/bsc_validation/03_holdout_shape.json 05:19:04; code/bsc_validation/src/valmod/predict.py modified 05:21:59), freeze.first_calibration_log_line ("2026-10-01 05:13:30 BST start T4:primary")
+
+Four limits apply. (i)~The protocol is \emph{data-aware} and only \emph{model-blind}: the outbreak
+counts had been read before the protocol was written, and the strata, the ventilation priors and the exclusion
+of the adjacent-seat cell were chosen with that knowledge. (ii)~The evidence for the order of events is
+file-system metadata alone. There is no version-control history, and the freeze record was itself rewritten at
+05:29:32, when the hashes were re-checked, so its time of freezing is self-reported. (iii)~The code that
+computes the hold-out predictions and applies the rule was written after the calibration results had been seen
+and is not among the hashed files; one module was edited at 05:21:59, after the hold-out counts had been read.
+The re-check re-ran the current code and recovered the stored predictive distributions exactly.
+(iv)~Two details differ from the protocol text: the $p$-value of A1 is computed by exact enumeration, not from
+20{,}000 Monte Carlo replicates, and the predictive distributions average 300 draws where the text says 400.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, items 1 and 13: partially confirmed); code/bsc_validation/PREREGISTRATION.md section 0
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{Changes to the protocol first proposed with the dataset, all made before any model was run. V1--V7
+  were required by the re-check of the dataset (Section~\ref{appB_dataset:sec}); D1--D6 were forced by
+  gaps in the data. The analyses S-\dots{} are those of Table~\ref{appC_protocol:tab:sensitivity}.}
+  \label{appC_protocol:tab:amend}
+  % src: code/bsc_validation/PREREGISTRATION.md sections 2.1, 2.2 (wording shortened); notes/VERIFICATION.md (Section 4.4, outbreak dataset)
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.43\textwidth}>{\raggedright\arraybackslash}p{0.47\textwidth}@{}}
+    \toprule
+    & Objection or gap & Amendment or consequence \\
+    \midrule
+    V1 & Restaurant counts are an upper bound: the first report states only that at least one member of each
+         of two neighbouring families was infected at the lunch \citep{lu2020} &
+         interval-censored likelihood (1--3 of 4 at one table, 1--2 of 7 at the other); the index case's own
+         table is excluded; S-R1-upper, S-R1-lower \\
+    V2 & Train cohort: companions inflate the risk, most of all in the adjacent seat \citep{hu2021} &
+         adjacent-seat cell excluded from the likelihood; no near-field factor transferred to hold-out
+         events; S-adj, S-row, S-nu \\
+    V3 & Three `grade A' records do not meet the grade criteria (classroom: no hours, no room size; trains:
+         pooled index cases, no denominators; choir: no positions) &
+         classroom size, hours and ventilation enter as explicit priors, and its test conditions on the class
+         total; trains used as a pooled cohort; choir used for level only \\
+    V4 & The pattern criterion first proposed ($|z|<1.96$ on the log risk ratio) is passed by any constant near/far
+         ratio between 1.16 and 3.19, and the level criterion by a constant hazard &
+         rule replaced by A1--A4 (Table~\ref{appC_protocol:tab:rule}); power computed before unblinding
+         (Table~\ref{appC_protocol:tab:power}) \\
+    V5 & The train table prints percentages and intervals but no cell denominators &
+         cell counts reconstructed (230/72{,}692 against the reported 234/72{,}093), binomial likelihood;
+         S-logit \\
+    V6 & `Three regimes' of proximity gradient are not established (heterogeneity $p=0.29$) &
+         no analysis assumes them \\
+    V7 & The contrast between the wings of the call centre depends on ten unmapped cases &
+         not used as a test; the join count inside the north wing is used \\
+    \addlinespace
+    D1 & Seat maps of the bus, the coach, the minibus, the aircraft cabin, the classroom and the restaurant
+         were not digitised &
+         published stratum sizes and index seat are used; the unknown occupied seats inside each stratum are
+         drawn at random and averaged over (300 configurations) \\
+    D2 & Meat-processing plant \citep{guenther2020}: appendix counts not transcribed & not evaluated \\
+    D3 & Jerusalem school \citep{steinzamir2020}: needs coupled rooms; no per-class denominators & not
+         evaluated \\
+    D4 & Sydney church \citep{katelaris2021}: no room dimensions & excluded from the level checks \\
+    D5 & A square lattice cannot place one seat per site in 3+2 seating &
+         rectangular lattice with one site per seat position and hop rates $D/a_x^2$, $D/a_y^2$ \\
+    D6 & Index seat on the flight not in the stored text of the source &
+         uniform over the 28 business-class seats; S-5K \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{Observation model of each event, as frozen. Lattices have reflecting walls and one site per seat
+  position; pitches are across $\times$ along the cabin. Strata are those of the sources, with their sizes in
+  brackets. The row pitches of the trains and the flight, the width of the bus, the classroom plan and hours,
+  and three ceiling heights are assumptions of the protocol, not data.}
+  \label{appC_protocol:tab:obs}
+  % src: code/bsc_validation/PREREGISTRATION.md section 4; code/bsc_validation/PREREG_ADDENDUM_A1_power.md section A1.5 (controls); data/misc_checks.json (callcentre_lattice: 137 desks on 113 sites; code/bsc_validation/src/valmod/events.py, build_O1)
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.09\textwidth}@{}}
+    \toprule
+    Event and role & Lattice & Index case & Statistic & Duration \\
+    \midrule
+    Trains \citep{hu2021}; calibration, vehicles &
+      $17\times6$ sites (3 seats, aisle, 2 seats); $0.5\times1.0$\,m &
+      every seat in turn &
+      attack rate in 23 seat-offset cells, model averaged over all seat pairs; 22 cells in the likelihood &
+      gamma, mean 2.1\,h, SD 1.8\,h \\
+    Restaurant \citep{lu2020,li2021}; calibration, rooms &
+      $17\times8$ sites, 1\,m; height 3.14\,m; 18 tables on a $6\times3$ grid &
+      index table &
+      censored counts at the two neighbouring tables, zero at the others; remote layout averaged over &
+      23--82\,min, per table \\
+    \addlinespace
+    Bus \citep{shen2020}; hold-out &
+      $15\times6$ sites (3 seats, aisle, 2 seats); $0.42\times0.75$\,m; height 2.0\,m &
+      row 8, middle of the 3-seat side &
+      rows 5--11 (33) against other rows (34) &
+      $2\times50$\,min \\
+    Coach \citep{ou2022}; hold-out &
+      $13\times5$ sites; $0.5\times0.877$\,m; $60.42\,\mathrm{m^3}$ &
+      seat 12D &
+      rear rows 8--13 (19) against front rows 1--7 (26) &
+      200\,min \\
+    Flight \citep{khanh2020}; hold-out &
+      business cabin $7\times6$ sites, $0.9\times1.1$\,m, inside a 46-row cabin &
+      uniform over 28 seats &
+      the 12 occupied seats nearest the index against the other 8 &
+      10\,h \\
+    Classroom \citep{lamhine2021}; hold-out &
+      $11\times13$ sites, 1\,m; 25 desks at 2-site pitch &
+      teacher, front centre &
+      front two rows (10) against back three (14) &
+      13\,h \\
+    Call centre \citep{park2020}; hold-out &
+      137 digitised desks of the north wing, each mapped to the nearest lattice site (113 distinct sites);
+      desk pitch uniform on 1.0--1.6\,m &
+      uniform over desks &
+      join-count $z$ of the final pattern of a chain of generations scaled to a mean of 79 cases; outbreaks
+      of 69--89 cases kept &
+      steady state \\
+    \addlinespace
+    Minibus \citep{ou2022}; level, same index as the coach &
+      $6\times4$ sites; $21.69\,\mathrm{m^3}$ & row 4 & cases among 17 exposed & 60\,min \\
+    Choir, office, restaurant, fitness classes \citep{hamner2020,weissberg2020,kwon2020,jang2020}; level &
+      volume only: 810; 1{,}890; 309; $180\,\mathrm{m^3}$ & -- (fitness classes: eight instructors, treated as
+      one index) &
+      implied emission from 52/60, 8/12, 2/13, 57/217 (57 derived from 26.3\pct) &
+      2.5\,h; 11\,h; 21\,min; 100\,min \\
+    Utah classrooms \citep{hershow2021}; level and control &
+      volume log-uniform on 180--$350\,\mathrm{m^3}$ & 51 index cases &
+      cases among 728 contacts, emission anchored on the train mean & 6.5--13\,h \\
+    Supermarket customers \citep{tian2021}; premium economy of the flight; one metro ride
+      \citep{furuse2020}; controls &
+      $6{,}000\,\mathrm{m^3}$; 30 sites of the cabin lattice; $148.5\,\mathrm{m^3}$ & -- &
+      predicted attack rate against the 95\,\% upper bound of 0/8{,}224 and of 0/35; probability of five or
+      more cases among 309 riders &
+      27\,min; 10\,h; 20\,min \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Decision rule and its power}\label{appC_protocol:sec:rule}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{Decision rule, evaluated separately for $\Mone$ and $\Mtwo$. $\Delta$ is the sum over the four
+  single events of the log-score difference to $\Mzero$. An event is `reproduced' if its two-sided predictive
+  $p$ is at least 0.05, and `discriminating' if $\Mzero$ has $p<0.05$. Whatever the outcome, the sentence may
+  name only settings for which a comparison was run, and no level agreement may be claimed beyond A3. The
+  outcome reached is W4 for both models (Table~\ref{s8_outbreaks:tab:verdict}).}
+  \label{appC_protocol:tab:rule}
+  % src: code/bsc_validation/PREREGISTRATION.md sections 6, 7.5, 8
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}
+    \toprule
+    \multicolumn{3}{@{}l}{\emph{Criteria}} \\
+    A1 & discrimination &
+         $\Delta>0$ with exact one-sided $p<0.05$ under $\Mzero$ \\
+    A2 & adequacy &
+         $p\ge0.05$ for each of bus, coach, flight and classroom, and the call-centre $z$ inside the central
+         95\,\% predictive interval \\
+    A3 & level checks &
+         counts of the minibus and of the Utah classrooms inside their 90\,\% predictive intervals \\
+    A4 & negative controls &
+         no control fails; a control fails if the probability that the predicted attack rate exceeds the
+         one-sided 95\,\% upper bound of the observation is above 0.5 \\
+    \midrule
+    \multicolumn{3}{@{}l}{\emph{Outcomes} (condition; sentence licensed)} \\
+    W1 & A1, A2 without failure, A3, A4, and power of A1 at least 0.8 &
+         `good out-of-sample agreement with the spatial patterns of documented outbreaks' \\
+    W2 & A1 and A4, at most one failure in A2 &
+         `after calibration, with one infectiousness parameter per event, the model reproduces out-of-sample
+         the near/far contrasts of [events]; it does not capture [event]' \\
+    W3 & A2 with at most one failure, A1 fails &
+         `consistent with the documented spatial contrasts, but not distinguishable from a well-mixed model
+         on these data' \\
+    W4 & two or more failures in A2 &
+         `reproduces [events] and fails [events]'; no general statement of agreement \\
+    W5 & A4 fails, or every discriminating event is not reproduced &
+         no statement of agreement \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{(a)~Power of the rule as computed before unblinding (frozen code), after calibration and before
+  any script read the hold-out counts:
+  probability of each result when the data are generated by the model in the column heading at its calibrated
+  posterior (exact enumeration over the joint outcomes of the four single-event tests, event totals fixed; the
+  call centre is not included). (b)~The rule applied to the observed data for the calibrated $\Mtwo$ and, by
+  the re-check after unblinding, for a model with no lattice and no calibration that assigns the same
+  near/far risk ratio to every event: pooled score $\Delta$, its one-sided $p$ under $\Mzero$, the two-sided
+  predictive $p$ of each event, and the events failing A2. Recomputed with the corrected propagator of
+  Section~\ref{M-s8_outbreaks:sec:holdout}, the entries of (a) change by at most 0.011: for $\Mone$, `A1 passes'
+  under a true $\Mtwo$ is 0.914; for $\Mtwo$, `A1 passes' is 0.0017 under $\Mzero$ and 0.998 under $\Mtwo$, and
+  `A1 and no A2 failure' under $\Mzero$ is 0.0001.}
+  % src: data/s8_first_test_exact.json (power.M1.M2.P_A1 0.9143; power.M2.M0.P_A1 0.00173, P_W1_like 0.000141; power.M2.M2.P_A1 0.9975); data/appC_protocol_numbers.json (power_corrected)
+  \label{appC_protocol:tab:power}
+  \begin{tabular}{@{}llccc@{}}
+    \toprule
+    (a) Judged model & Result & truth: $\Mzero$ & truth: $\Mone$ & truth: $\Mtwo$ \\
+    \midrule
+    % generated -- src: data/bsc_validation/02_power.json (M1.*, M2.*: P_A1, P_A2_nofail, P_A2_le1, P_W1_like)
+    $\Mone$ & A1 passes & $<10^{-4}$ & 1.000 & 0.903 \\
+     & no A2 failure & $<10^{-4}$ & 0.906 & 0.043 \\
+     & at most one A2 failure & 0.0081 & 0.997 & 0.778 \\
+     & A1 and no A2 failure & $<10^{-4}$ & 0.906 & 0.043 \\
+    \addlinespace
+    $\Mtwo$ & A1 passes & 0.0019 & 1.000 & 0.997 \\
+     & no A2 failure & 0.0003 & 0.069 & 0.874 \\
+     & at most one A2 failure & 0.022 & 0.758 & 0.994 \\
+     & A1 and no A2 failure & 0.0002 & 0.069 & 0.874 \\
+    \bottomrule
+  \end{tabular}
+
+  \medskip
+  \begin{tabular}{@{}lccccccl@{}}
+    \toprule
+    (b) Model & $\Delta$ & $p$ under $\Mzero$ & Bus & Coach & Flight & Classroom & Fails A2 \\
+    \midrule
+    % generated -- src: data/validation_checks/v05_generic.txt (constant ratios); data/s8_first_test_exact.json (primary.pooled.M2, primary.events.*.M2.p_two_sided; replaces data/bsc_validation/10_decision.json models.M2: +3.870, classroom 0.115)
+    $\Mtwo$ (calibrated) & $+2.83$ & $2.5\times10^{-4}$ & 0.38 & 0.0069 & 0.61 & 0.068 & coach \\
+    \addlinespace
+    constant ratio 1.5 & $+5.86$ & $4\times10^{-5}$ & 1.00 & 0.69 & 0.021 & 0.21 & flight \\
+    constant ratio 2 & $+7.63$ & $4\times10^{-5}$ & 0.59 & 0.41 & 0.14 & 0.66 & none \\
+    constant ratio 2.5 & $+7.74$ & $4\times10^{-5}$ & 0.27 & 0.22 & 0.30 & 1.00 & none \\
+    constant ratio 3 & $+7.09$ & $4\times10^{-5}$ & 0.088 & 0.18 & 0.58 & 1.00 & none \\
+    constant ratio 4 & $+4.75$ & $4\times10^{-5}$ & 0.014 & 0.056 & 1.00 & 0.24 & bus \\
+    constant ratio 5 & $+1.77$ & $4\times10^{-5}$ & 0.003 & 0.030 & 1.00 & 0.073 & bus, coach \\
+    constant ratio 8 & $-39.47$ & $6\times10^{-4}$ & $<0.001$ & 0.006 & 1.00 & $<0.001$ & bus, coach, classroom \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The rule of Table~\ref{appC_protocol:tab:rule} replaced a criterion that any constant near/far ratio between
+1.16 and 3.19 would have passed (amendment V4). Its power is in Table~\ref{appC_protocol:tab:power}(a). If the
+calibrated $\Mtwo$ were true it would pass A1 with probability 0.997, and A1 with no adequacy failure with
+probability 0.87; if the events were well mixed, a spatial model would pass A1 with probability at most 0.002.
+The re-check reproduced these three figures from its own predictive distributions (0.998, 0.877, 0.0019).
+With the corrected classroom distribution they are 0.998, 0.874 and 0.0017.
+% src: data/bsc_validation/02_power.json (M2.M2.P_A1 = 0.9974, M2.M2.P_W1_like = 0.8735, M2.M0.P_A1 = 0.0019, M1.M0.P_A1 = 4.2e-5); data/s8_first_test_exact.json (power.M2.M2.P_A1 0.9975, P_W1_like 0.8736; power.M2.M0.P_A1 0.0017); notes/VERIFICATION.md (Section 4.5, first outbreak test, item 2: partially confirmed)
+
+This power is against one alternative only, and the rule keeps the weakness it was meant to remove.
+Table~\ref{appC_protocol:tab:power}(b) applies it to a generic model with a constant near/far risk ratio. With
+a ratio of 2, 2.5 or 3 that model passes A1 with $\Delta=+7.1$ to $+7.7$, more than the $+2.83$ of the
+calibrated $\Mtwo$ ($+3.87$ with the frozen code and $+3.76$ in the re-check's own implementation, both with
+the numerical defect of the classroom), and has no single-event failure.
+Passing A1 therefore shows that a proximity gradient is present in these data; it does not show that the
+lattice kernel or its calibration predicts it. This comparison was made after unblinding and is not part of
+the protocol.
+% src: data/validation_checks/v05_generic.txt (RR = 2: +7.63; 2.5: +7.74; 3: +7.09; failures []; "M2 (re-check re-implementation): pooled 3.755, p 0.000153"); data/s8_first_test_exact.json (primary.pooled.M2.all: 2.835"); data/bsc_validation/10_decision.json (models.M2.A1.delta = 3.870)
+
+\subsection{Sensitivity analyses}\label{appC_protocol:sec:sensitivity}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{3.6pt}
+  \caption{The primary analysis and the eleven pre-specified sensitivity analyses of the pattern tests, for
+  $\Mtwo$, computed with the round-off-safe propagator (Section~\ref{M-s8_outbreaks:sec:holdout}; only the
+  classroom and $\Delta$ differ from the frozen code). For each hold-out event: predicted risk ratio (ratio
+  of the expected attack rates of the two strata) and two-sided predictive $p$. $\Dair$ is the mode of the
+  recalibrated mixing coefficient in $\sqmh$. Bold: the event is rejected ($p<0.05$), an A2 failure. $\Delta$:
+  pooled score against $\Mzero$; its one-sided $p$ under $\Mzero$ lies between $7\times10^{-5}$ and
+  $1.0\times10^{-3}$ in every row, so A1 fails only where $\Delta<0$.}
+  \label{appC_protocol:tab:sensitivity}
+  % src: data/s8_first_test_exact.json (sens.*.events.*.M2.{rr_pred,p}, sens.*.M2.{delta,failed,p_under_M0}); first analysis: data/bsc_validation/09_sensitivity.json; D_air: data/bsc_validation/01_cal_T4_*.json, 01_cal_R1_*.json (M2.D_hat, M2.theta_hat, n_cells); S-nu factor: 09_sensitivity.json (variants.S-nu.events.T1.M2_nu = 4.36)
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.31\textwidth}ccccc@{}}
+    \toprule
+    Variant & Change & Bus & Coach & Flight & Classroom & $\Delta$ \\
+    \midrule
+    primary & protocol as frozen; $\Dair=25$ (vehicles), $0.5$ (rooms) & 2.4; 0.38 & {\bfseries\boldmath 11; 0.0069} & 3.6; 0.61 & 5.5; 0.068 & $+2.83$ \\
+    S-adj & adjacent-seat cell put back (23 cells); $\Dair=10$ & {\bfseries\boldmath 5.4; 0.0084} & {\bfseries\boldmath 51; $3.2\times10^{-5}$} & 5.9; 1.00 & 5.5; 0.068 & $-4.86$ \\
+    S-row & whole index row excluded (18 cells); $\Dair=100$ & 1.3; 0.65 & 2.6; 0.31 & 1.9; 0.12 & 5.5; 0.068 & $+4.91$ \\
+    S-logit & logit-normal likelihood on printed intervals (19 cells); $\Dair=16$ & 2.8; 0.25 & {\bfseries\boldmath 15; 0.0024} & 4.1; 0.62 & 5.5; 0.068 & $+1.58$ \\
+    S-pitch & train row pitch 0.4\,m (source) instead of 1.0\,m; $\Dair=40$ & 1.6; 1.00 & 4.5; 0.075 & 2.5; 0.36 & 5.5; 0.068 & $+4.79$ \\
+    S-aniso & fitted seat-back factor on hops between rows ($\theta=0.32$); $\Dair=40$ & 2.6; 0.28 & {\bfseries\boldmath 13; 0.0051} & 3.0; 0.67 & 5.5; 0.068 & $+2.12$ \\
+    S-R1-upper & restaurant counts at their upper bound (3, 2); $\Dair=0.25$ & 2.4; 0.38 & {\bfseries\boldmath 11; 0.0069} & 3.6; 0.61 & {\bfseries\boldmath 6.4; 0.0051} & $+1.08$ \\
+    S-R1-lower & restaurant counts at their lower bound (1, 1); $\Dair=2.0$ & 2.4; 0.38 & {\bfseries\boldmath 11; 0.0069} & 3.6; 0.61 & 5.1; 0.11 & $+3.34$ \\
+    S-5K & flight: index case in seat 5K (recalled, not verified) & 2.4; 0.38 & {\bfseries\boldmath 11; 0.0069} & 3.3; 0.60 & 5.5; 0.068 & $+2.70$ \\
+    S-Luo & coach: 150\,min and 7/48 \citep{luo2020} & 2.4; 0.38 & {\bfseries\boldmath 11; 0.0065} & 3.6; 0.61 & 5.5; 0.068 & $+2.77$ \\
+    S-corner & classroom: teacher's desk in a front corner & 2.4; 0.38 & {\bfseries\boldmath 11; 0.0069} & 3.6; 0.61 & 2.6; 1.00 & $+6.11$ \\
+    S-nu & train adjacent-seat excess (factor 4.4) applied to adjacent seats of hold-out events & 2.5; 0.36 & {\bfseries\boldmath 12; 0.0046} & 3.6; 0.61 & 5.5; 0.068 & $+2.39$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The protocol lists twelve sensitivity analyses, never to be used to upgrade the primary outcome. Eleven bear
+on the pattern tests and, with the primary analysis, make the 12 variants of
+Table~\ref{appC_protocol:tab:sensitivity}; the twelfth concerns the choir
+(Section~\ref{appC_protocol:sec:posthoc}). The pooled test A1 is passed in 11 variants. It fails when the
+adjacent-seat cell of the train table is put back into the calibration (S-adj): the kernel steepens, the bus
+is rejected as well and $\Delta$ turns negative. The coach is rejected in 10 variants and passes in the two
+that flatten the train kernel, S-row and S-pitch. The classroom is rejected if the restaurant counts are taken
+at their upper bound; the flight is never rejected. The verdict thus turns on how the same-row cells of the
+train table are used, which is what the data cannot settle: companions and air produce the same excess.
+$\Mone$ in its closed form (unchanged by the correction) fails A1 in every variant except S-row ($\Delta$ from $-48.2$ to $-0.25$; $+2.63$
+in S-row, where it fails on the flight).
+% src: data/appC_protocol_numbers.json -> sensitivity (n_M2_A1_pass = 11, M2_A1_fail = [S-adj], n_coach_fail = 10, coach_pass = [S-row, S-pitch], classroom_fail = [S-R1-upper], flight_fail = [], M1_A1_pass = [S-row], M1_delta); data/bsc_validation/09_sensitivity.json (variants.S-row.M1.failed = [T5])
+Three checks added during the re-check, not pre-specified, change no verdict: the coach stays rejected when
+the train likelihood is tempered for its over-dispersion ($p=0.026$) or its ventilation rate is cut to a third
+($p=0.040$), and the flight stays compatible when the ventilation priors are scaled by $1/3$ or 3. With the
+corrected propagator the classroom stays compatible when its ventilation prior is scaled by $1/3$
+($p=0.11$) and is rejected when it is scaled by 3 ($p=0.045$); the pooled $\Delta$ is $+2.79$ and $+1.98$.
+% src: data/s8_outbreaks_v09_sens.txt (tempered by overdispersion 3.6: T2 p 0.0262, T1 p 0.57, T5 p 0.64; T2 ACH x0.33: T2 p 0.0401; ACH priors of T1, T5, C1 x0.33 / x3.0: T5 p 0.2029 / 1.0, T1 p 0.50 / 0.20; C1 p 0.16 / 0.17 and pooled delta +3.30 / +3.77 there are affected by the numerical defect); data/s8_first_test_exact.json (vent."ACH x0.33": C1 p 0.105, delta 2.789; vent."ACH x3.0": C1 p 0.0451, delta 1.977)
+Monte Carlo error is small except in the classroom: over five other seeds the predictive $p$ of $\Mtwo$ ranges
+over 0.37--0.40 (bus), 0.0054--0.0089 (coach), 0.60--0.61 (flight) and 0.050--0.097 (classroom, close to the
+limit 0.05), and $\Delta$ over $+2.64$ to $+3.50$.
+% src: data/s8_first_test_exact.json (mc[*].p, delta: C1 0.0503-0.0974, delta 2.638-3.497); data/bsc_validation/02c_mc_stability.json (first analysis: bus, coach, flight identical)
+
+In the pre-specified leave-one-event-out analysis, $\Dair$ is refitted on the other events of the class and
+the left-out event is scored against $\Mzero$. The difference is $+23.9$ for the trains, $+5.50$ for the
+flight, $+0.76$ for the bus and $-3.86$ for the coach. Taken alone the events prefer $0.1$, $25$, $63$ and
+$6{,}300\sqmh$ (flight, trains, bus, coach; the coach likelihood is flat up to the end of the grid at $10^4$,
+and the re-check's finer search puts the flight at 0.06).
+A common coefficient for the vehicles is rejected: the likelihood ratio is 9.52 on 3 degrees of freedom,
+$p=0.023$ (9.56 and the same $p$ in the re-check), with the common maximum at $40\sqmh$. The $p$-values of this
+paragraph are approximate: they refer the statistic to a chi-square distribution, whose regularity conditions
+fail when an event's maximum lies on the edge of the grid, as the coach's does, and each event has few cases. This test was
+added after the primary results had been seen (entry P10 below). For the two rooms it gives 3.07 on 1 degree
+of freedom ($p=0.080$; 3.12 with the frozen propagator); taken alone, the classroom prefers about $40\sqmh$.
+% src: data/bsc_validation/07_loo.json (classes.vehicle.M2.loo.*.delta = 23.90, 0.76, -3.86, 5.50; D_own_mode = 25.1, 63.1, 6310, 0.1; joint_D_mode 39.8); data/appC_protocol_numbers.json -> loo.vehicle (LR 9.52, p 0.0231), loo.room (LR 3.12, p 0.0772, first analysis); data/s8_first_test_exact.json (loo_room: LR 3.065, p 0.0800, C1 D_own_mode 39.8); data/appC_protocol_numbers.json -> loo.vehicle_check (LR 9.56, p 0.0227), loo.coach_curve (drop 0.002 from 2,500 to 1e4), loo.vehicle_check.D_alone (T5 0.063)
+
+\subsection{Level checks and negative controls}\label{appC_protocol:sec:levels}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{Level checks (A3) and negative controls (A4). Prediction: mean number of cases with the 90\,\%
+  predictive interval (A3), or median predicted attack rate (A4). The mask factor multiplies the dose in the
+  masked Utah classrooms; 0.35 is assumed, with a pre-specified range of 0.2--0.6. Last column: for A3, the
+  probability of at least the five observed cases in the re-check's re-run; for A4, the probability that
+  the prediction exceeds the bound, which must be above 0.5 for a failure.}
+  \label{appC_protocol:tab:levels}
+  % generated -- src: data/bsc_validation/04_level_controls.json (tied_T2_T3.*, C3.*, S1.M2_single_index, T5_PE.M2, T7.M2); last column of the Utah rows: data/validation_checks/v13_c3.txt
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}l>{\raggedright\arraybackslash}p{0.19\textwidth}@{}}
+    \toprule
+    Check & Model (mask factor) & Prediction & Verdict & \\
+    \midrule
+    A3: coach $\to$ minibus, 17 exposed, 2 observed & $\Mzero$ & 1.18 (0--3) & inside & \\
+     & $\Mone$ & 2.05 (0--5) & inside & \\
+     & $\Mtwo$ & 1.31 (0--4) & inside & \\
+    \addlinespace
+    A3: trains $\to$ Utah classrooms, 728 contacts, 5 observed & $\Mtwo$, factor 0.35 & 2.10 (0--5) & inside & $\Prob(X\ge5)=0.092$ \\
+     & $\Mtwo$, 0.2 & 1.17 (0--3) & outside & $\Prob(X\ge5)=0.016$ \\
+     & $\Mtwo$, 0.6 & 3.51 (0--8) & inside & $\Prob(X\ge5)=0.312$ \\
+     & $\Mtwo$, no masks & 5.82 (1--12) & inside & $\Prob(X\ge5)=0.633$ \\
+     & $\Mone$, factor 0.35 & 1.47 (0--4) & outside &  \\
+    \addlinespace
+    A4: supermarket customers, 0/8{,}224 (bound 0.0364\,\%) & $\Mzero$/$\Mtwo$ & 0.0011\,\% (95th percentile 0.0059\,\%) & pass & $\Prob(\text{exceed})=0.0002$ \\
+    A4: masked Utah classrooms, 5/728 (bound 1.44\,\%) & $\Mzero$/$\Mtwo$, 0.35 & 0.29\,\% & pass & $\Prob(\text{exceed})=0.0003$ \\
+    A4: premium economy of the flight, 0/35 (bound 8.2\,\%) & $\Mtwo$ & 0.31\,\% (95th percentile 18.6\,\%) & pass & $\Prob(\text{exceed})=0.16$ \\
+    A4: one 20-minute metro ride, 309 other riders & $\Mzero$/$\Mtwo$ & 0.032 expected cases & pass & 0 of 20{,}000 rides with $\ge5$ cases \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Both A3 and A4 are formally met by $\Mtwo$ (Table~\ref{appC_protocol:tab:levels}), and neither carries much
+weight. The Utah check passes at the assumed mask factor of 0.35 with the observation at the edge of the
+interval, and fails at 0.2, inside the pre-specified range; the factor was chosen knowing the observed 5/728.
+A negative control fails only if more than half of the predictive mass lies above the 95\,\% bound of the
+observation, which almost nothing can do: the premium-economy cabin passes although the 95th percentile of its
+predicted attack rate, 18.6\,\%, is more than twice the bound of 8.2\,\%. The metro control rests on the
+absence of reported rail clusters, although exposure on public transport is rarely traced.
+% src: data/bsc_validation/04_level_controls.json; data/validation_checks/v13_c3.txt (mask 0.2: P(X>=5) = 0.016); notes/VERIFICATION.md (Section 4.5, first outbreak test, item 10, further point 8); code/bsc_validation/PREREGISTRATION.md sections 7.4, 7.5
+The pre-specified dispersion test asks whether scaling by duration, volume and removal rate narrows the
+spread of implied infectiousness across four selected outbreaks (three single-index events and the Cheonan
+fitness classes, a cluster with eight infected instructors that is treated as one index case). The standard deviation of its
+logarithm is 0.88 with that scaling and 0.81 with a constant hazard per hour. The power of the test, stated
+before it was run, is 0.29: the result is uninformative.
+% src: data/bsc_validation/04_level_controls.json (dispersion.wells_riley.sd_log = 0.880, dispersion.constant_per_hour.sd_log = 0.813); data/bsc_validation/02_power.json (level_dispersion.power_perm_test = 0.2916)
+
+\subsection{Post-hoc log, a superseded analysis and a further sensitivity analysis}\label{appC_protocol:sec:posthoc}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{The eleven entries of the post-hoc log: every choice made after a model had been run against data,
+  with the time recorded in the log (self-reported). None was used to upgrade a conclusion. Last column: the
+  effect stated in the log and, in italics, the status after the re-check.}
+  \label{appC_protocol:tab:posthoc}
+  % src: code/bsc_validation/POSTHOC_LOG.md (P1-P11; wording shortened); italics: notes/VERIFICATION.md (Section 4.5, first outbreak test, items 8 and 11), data/validation_checks/callcentre_quadrature.json
+  \begin{tabular}{@{}ll>{\raggedright\arraybackslash}p{0.53\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+    \toprule
+    & Time & Item & Effect \\
+    \midrule
+    P1 & 05:12 & The header of the protocol gives a writing window of 05:00--05:40; the file was frozen at
+                 05:12:03 and not edited afterwards. & none \\
+    P2 & 05:17 & Geometry of three negative controls, the premium-economy average and the prior of the
+                 minibus check were missing from the protocol; fixed in the power addendum before the
+                 corresponding scripts existed. & none (not data-driven) \\
+    P3 & 05:18 & $\Mone$ in the exact simulator: the conditional distribution of near cases was first averaged
+                 with equal weight per posterior draw; corrected to weight each draw by its probability of
+                 producing the observed total. Found before the hold-out comparison was run. &
+                 $\Mone$ rows that use the simulator \\
+    P4 & 05:18 & Unplanned outcome of a pre-specified check: at the calibrated mobility $\Mone$ cannot reach
+                 the observed totals of the bus, the flight and the classroom
+                 (Table~\ref{s8_outbreaks:tab:m1}). Rule added: an event whose total is reached with
+                 probability below 0.01 counts as an A2 failure; the pooled score is reported with the
+                 simulator and with the closed form. & stricter for $\Mone$ \\
+    P5 & 05:26 & Call centre: the protocol did not say how posterior draws are combined. Pooling the retained
+                 outbreaks gave $\Prob(z\le z_{\mathrm{obs}})=0.031$ for $\Mtwo$ (inside the central 95\,\%
+                 interval), equal weight per draw 0.017 (outside); both reported. &
+                 conservative reading adopted. \emph{Superseded: 0.013 and 0.007 by quadrature, outside under
+                 both} \\
+    P6 & 05:22 & The call-centre test uses the closed-form kernel of $\Mone$, which overstates its reach; the
+                 exact rule is more local and would predict at least as much clustering. & $\Mone$ only \\
+    P7 & 05:20 & `Model risk ratio' is the ratio of expected stratum attack rates; its interval is that of
+                 the sample ratio. & presentation \\
+    P8 & 05:20 & Simplifications to stay within the run-time budget, fixed before the outputs were inspected
+                 (coarser grids for S-aniso and for leave-one-out; 4{,}000 simulations for the Utah check; no
+                 occupancy factor in the minibus check of $\Mone$). & negligible \\
+    P9 & 05:21 & The coach has 7 cases among 45 passengers in the pattern test and among 46 persons, with the
+                 driver, in the level check: two tables of the same source \citep{ou2022}. & none \\
+    P10 & 05:24 & Added after the primary results: five further seeds, a brute-force cross-check, the
+                 coefficient preferred by each event and the test of a common coefficient. &
+                 descriptive only \\
+    P11 & 05:28 & Reading of the outcome for $\Mtwo$: W2 as run, W4 under the conservative reading of P5; the
+                 W4 sentence was recommended. & wording. \emph{Superseded: W4 under either reading} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Table~\ref{appC_protocol:tab:posthoc} lists the log. The re-check overturned two of its entries; one further
+pre-specified sensitivity analysis is reported at the end of this section.
+
+\emph{The 40-draw call-centre analysis.} The Monte Carlo estimate of the protocol drew 40 values of $\Dair$ from the restaurant
+posterior and obtained $\Prob(z\le z_{\mathrm{obs}})=0.031$ or 0.017 according to the weighting (P5); the
+result was reported as borderline and the outcome for $\Mtwo$ as W2 `as run' (P11). This was an artefact of the
+small number of draws: three of the 40 had $\Dair>100\sqmh$, where the posterior expects 1.2. Integrating
+$\Prob(z\le z_{\mathrm{obs}}\mid\Dair)$ over the same posterior on a grid of 25 values gives 0.007 with equal
+weight and 0.013 with pooled weight. The observation is outside the central 95\,\% interval under both
+conventions, the call centre is a second adequacy failure of $\Mtwo$, and the outcome is W4 without any
+judgement. The value is sensitive to the arbitrary upper limit of the prior on $\log_{10}\Dair$, because the
+restaurant likelihood is flat towards the well-mixed limit: 0.004 and 0.007 (equal and pooled weight) for a
+limit of $10^{3}\sqmh$, 0.013 and 0.024 for $10^{6}$, below 0.025 in each case. The probabilities for $\Mone$ (0.056 and 0.040) are those of the 40-draw estimate
+and were not recomputed; $\Mone$ fails on three single events in any case.
+% src: data/bsc_validation/10_decision.json (models.M2.O1: 0.0313, 0.0166; models.M1.O1: 0.0556, 0.0396; outcome_as_run W2, outcome_conservative W4); data/validation_checks/callcentre_quadrature.json (equal_weight 0.0068, pooled_weight 0.0128; prior_upper_limit_sensitivity 1e3: 0.0037 / 0.0071, 1e6: 0.0127 / 0.0238; 25 grid points); data/checks/first_test.json: seoul_callcentre_M2 (40 draws, 3 with D > 100 m2/h, expected 1.2; grid of 25 points); notes/VERIFICATION.md (Section 4.5, first outbreak test, item 8: refuted)
+
+\emph{The choir with confirmed cases only.} The twelfth pre-specified sensitivity analysis counts the 32
+laboratory-confirmed cases of the choir rehearsal in place of the 52 that include 20 probable cases. It gives
+an implied emission of $1{,}034\qph$ against $2{,}734$. With it the spread of implied emission across the six events of the upper block of
+Table~\ref{s8_outbreaks:tab:levels} (five single-index events and the Cheonan cluster) falls from 76-fold to
+53-fold.
+% src: data/bsc_validation/04_level_controls.json (implied.H1.E_implied = 2734.3, E_implied_alt = 1034.3); data/appC_protocol_numbers.json -> levels.choir (spread_probable 76.0, spread_confirmed_only 53.4); notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 7); code/bsc_validation/PREREGISTRATION.md section 9 (S-H1-confirmed)
+
+\subsection{Software verification}\label{appC_protocol:sec:software}
+
+Before the freeze the code was tested on synthetic inputs only. The closed-form exposures of $\Mone$ and
+$\Mtwo$ agree with numerical quadrature of the matrix exponential of the lattice generator to
+$5\times10^{-15}$ and $9\times10^{-15}$; $\Mtwo$ with $\Dair\to\infty$ equals $\Mzero$ to $3\times10^{-10}$;
+and the conditional distribution of near cases agrees with enumeration to $2\times10^{-16}$.
+% src: data/bsc_validation/00_selftest.json (stamp 05:11:54; A_max_abs_err_M1 5.1e-15, A_max_abs_err_M2 9.1e-15, B_M2_Dinf_minus_M0 3.2e-10, C_cond_pmf_err 1.7e-16); code/bsc_validation/PREREG_FREEZE.json (note)
+The closed form of $\Mone$ was compared with the exact simulator for two walkers: it gives an infection
+probability of 0.0215 against $0.0209\pm0.0006$ at a small hazard, and 0.886 against $0.556\pm0.002$ at a
+hazard 100 times larger. It is
+exact only to first order, which is why the protocol required the simulator check that led to entry P4.
+% src: data/bsc_validation/00_selftest.json (E_pair: beta 0.2: 0.02152 vs 0.02088 +/- 0.00058; beta 20: 0.8865 vs 0.5558 +/- 0.0020)
+After unblinding, the exposures of $\Mtwo$ on the actual configurations of the coach, the flight and the
+classroom were recomputed by brute force (relative error at most $2\times10^{-14}$) and the conditional
+distributions by rejection sampling (largest difference 0.0012--0.0025, within Monte Carlo error).
+% src: data/bsc_validation/08_bruteforce_check.json (events.*.rel_err_exposure 1.2e-15, 2.8e-15, 2.0e-14; max_abs_diff_pmf 0.0025, 0.0013, 0.0012; mc_se_max 0.0018, 0.0017, 0.0012)
+Apart from the re-run of the analysis's own scripts (Section~\ref{appC_protocol:sec:freeze}, item (iii)), the re-check shares no code with the analysis. It obtains the propagator by numerical eigendecomposition
+of the generator and reproduces the train log-likelihoods to three decimals, the hold-out $p$-values to Monte
+Carlo accuracy (pooled $\Delta$ between $+3.76$ and $+3.79$ against $+3.87$), the power table and, with its
+own simulator, the ceiling of $\Mone$ on the bus (9.1 cases against 8.9). Both implementations computed the
+classroom with a mode sum and shared its numerical defect, which neither the brute-force check above (errors
+relative to the largest exposure) nor this comparison could reveal; the corrected values are those of
+Section~\ref{M-s8_outbreaks:sec:holdout}.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, items 4, 5, 7, 12: confirmed); data/bsc_validation/tables.md (Table V8: bus 8.9); code/appC_protocol_tables.py

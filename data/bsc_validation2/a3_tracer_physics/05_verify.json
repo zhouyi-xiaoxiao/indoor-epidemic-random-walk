@@ -1,0 +1,39 @@
+{
+ "steady_field_max_rel_diff": 1.1760575288490198e-13,
+ "coach_D_separate": 1258.9254117941778,
+ "coach_D_a3": 1258.9254117941675,
+ "coach_sse_at_min_and_wellmixed": [
+  0.10215800927172518,
+  0.16933114711541744
+ ],
+ "T5_P_pmf_enum_vs_a3_maxdiff": 1.96787031114809e-14,
+ "T5_P_prob_obs_enum": 0.06602982434138838,
+ "T2_KA_pmf_mc_vs_a3_maxdiff": 0.0013294285376401205,
+ "T2_mc_n": 64870,
+ "T2_M0_hypergeom_p_obs": 0.3192303064679695,
+ "R1_K2_prob_both_near_closed_form": 0.09517231868733665,
+ "R1_K2_a3": 0.09517231868733671,
+ "R1_K2_M0": 0.03894839337877313,
+ "CRR3_T5_maxdiff": 1.1102230246251565e-16,
+ "T4_M0_deviance_by_hand": 125.61165932187996,
+ "T4_total_and_exposed": [
+  138,
+  70086
+ ],
+ "pooled_P_vs_M0": {
+  "delta": 7.87291855586736,
+  "p_exact": 1.44091168157456e-06
+ },
+ "pooled_P_vs_M0_without_T5": {
+  "delta": 3.4111164400529392,
+  "p_exact": 0.0012741856601398201
+ },
+ "pooled_P_vs_M0_without_C1": {
+  "delta": 5.402830928245127,
+  "p_exact": 2.469959397736847e-05
+ },
+ "pooled_P_vs_M0_without_R1": {
+  "delta": 6.979466949610375,
+  "p_exact": 8.242448266330603e-06
+ }
+}

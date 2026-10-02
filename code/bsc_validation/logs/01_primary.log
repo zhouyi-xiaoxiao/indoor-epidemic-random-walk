@@ -1,0 +1,9 @@
+2026-10-01 05:13:30 BST start T4:primary
+research/bsc_validation/scripts/01_calibrate.py:140: RuntimeWarning: divide by zero encountered in log
+  marg = mx + np.log(np.sum(np.exp(ll2 - mx) * kw[None, :], axis=1))
+T4 primary: M0 -99.70 | M1 -73.12 at D=0.501 | M2 -72.97 at D=25.1, kappa=13.12
+2026-10-01 05:13:36 BST done T4:primary
+2026-10-01 05:13:36 BST start R1:primary
+R1 primary M1: logL -2.468 at D=0.2 (M0 -6.079)
+R1 primary M2: logL -2.476 at D=0.501 (M0 -6.079)
+2026-10-01 05:13:53 BST done R1:primary

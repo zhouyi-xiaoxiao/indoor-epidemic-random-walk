@@ -1,0 +1,55 @@
+{
+ "provenance": "Values recorded by the re-check of the theory (separately written code in code/bsc_theory/verify/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.1, that reports it.",
+ "values": {
+  "threshold_test": {
+   "n_instances": 600,
+   "max_residual": 2.1e-14,
+   "sign_failures": 0
+  },
+  "bounds_test": {
+   "n_instances": 3000,
+   "max_relative_violation_lower": 9e-16
+  },
+  "monotone_decrease_test": {
+   "n_instances": 400,
+   "n_mobility_values": 49,
+   "strict_decrease_failures": 0
+  },
+  "zone_bound_test": {
+   "n_zones": 1800
+  },
+  "edge_monotonicity_test": {
+   "n_edge_changes": 1200,
+   "max_change": 1.4e-14
+  },
+  "corridor_absorbing_ends": {
+   "ratio_mu_to_pi2D_over_L2": {
+    "L=3": 0.53,
+    "L=13": 0.86,
+    "L=100": 0.98
+   }
+  },
+  "office_layout_O1": {
+   "R0_D0_1": 5.109,
+   "elasticity_share_meeting_room_pct": 97.23,
+   "meeting_room_exit_time_days": 110.6
+  }
+ },
+ "item": {
+  "threshold_test.n_instances": "notes/VERIFICATION.md, Section 4.1, item 1",
+  "threshold_test.max_residual": "notes/VERIFICATION.md, Section 4.1, item 1",
+  "threshold_test.sign_failures": "notes/VERIFICATION.md, Section 4.1, item 1",
+  "bounds_test.n_instances": "notes/VERIFICATION.md, Section 4.1, item 3",
+  "bounds_test.max_relative_violation_lower": "notes/VERIFICATION.md, Section 4.1, item 3",
+  "monotone_decrease_test.n_instances": "notes/VERIFICATION.md, Section 4.1, item 4",
+  "monotone_decrease_test.n_mobility_values": "notes/VERIFICATION.md, Section 4.1, item 4",
+  "monotone_decrease_test.strict_decrease_failures": "notes/VERIFICATION.md, Section 4.1, item 4",
+  "zone_bound_test.n_zones": "notes/VERIFICATION.md, Section 4.1, item 6",
+  "edge_monotonicity_test.n_edge_changes": "notes/VERIFICATION.md, Section 4.1, item 7",
+  "edge_monotonicity_test.max_change": "notes/VERIFICATION.md, Section 4.1, item 7",
+  "corridor_absorbing_ends.ratio_mu_to_pi2D_over_L2": "notes/VERIFICATION.md, Section 4.1, item 9",
+  "office_layout_O1.R0_D0_1": "notes/VERIFICATION.md, Section 4.1, item 13",
+  "office_layout_O1.elasticity_share_meeting_room_pct": "notes/VERIFICATION.md, Section 4.1, item 11",
+  "office_layout_O1.meeting_room_exit_time_days": "notes/VERIFICATION.md, Section 4.1, item 16"
+ }
+}

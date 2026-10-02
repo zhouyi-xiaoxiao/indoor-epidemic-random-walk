@@ -1,0 +1,2 @@
+G {'n_rep': 20000, 'final_mean_noschedule': 23.691, 'final_mean_schedule': 23.61, 'z_final': 0.3060416941165845, 'offspring_noschedule': 1.8614, 'offspring_schedule': 1.87205, 'z_offspring': -0.5730689205081761, 'p_major_noschedule': 0.4996, 'p_major_schedule': 0.50005, 'onoff_exposure_theory': 1.6203764909330414, 'onoff_exposure_sim': np.float64(1.63069778920223), 'onoff_lo': np.float64(1.6088776003037868), 'onoff_hi': np.float64(1.6525179781006734), 'inroom_days_theory': 2.4928869091277566}
+--- test G done in 26.5 s

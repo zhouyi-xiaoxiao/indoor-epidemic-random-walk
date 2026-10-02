@@ -1,0 +1,4 @@
+trial 7 n=4: f(eig-stat)=-5.508e-08; pi_eig min 3.52e-20 |M pi_eig| 5.13e-03; pi_solve min 3.52e-20 |M pi_solve| 1.24e-08; f(solve-stat)=-5.495e-08; rate range [3.60e-12,1.16e+18] cond eigs [1.11127328e+00 1.60502380e+05]
+    mpmath: R0/lower - 1 = -3.084686955e-8  min pi = 3.5182e-20
+worst with eig-stat -5.507585287833905e-08
+robust adversarial min of R0/lower-1 (120 starts): -6.755707104844078e-13

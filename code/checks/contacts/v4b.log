@@ -1,0 +1,20 @@
+LyonSchool 1.5 1.0 real R 1.248 P 0.271 A 0.106 | rerun 1.243 0.269 0.103 | STATIC 1.280 0.267 0.103 True | TRAINdays 1.258 0.257 0.097 True
+LyonSchool 3.0 1.0 real R 1.948 P 0.533 A 0.403 | rerun 1.952 0.538 0.408 | STATIC 1.975 0.540 0.419 True | TRAINdays 1.962 0.536 0.426 True
+LyonSchool 1.5 4.0 real R 1.204 P 0.255 A 0.098 | rerun 1.209 0.255 0.099 | STATIC 1.242 0.250 0.099 True | TRAINdays 1.246 0.247 0.095 True
+LyonSchool 3.0 4.0 real R 1.946 P 0.563 A 0.431 | rerun 1.991 0.568 0.435 | STATIC 2.050 0.581 0.454 True | TRAINdays 2.011 0.579 0.464 True
+LyonSchool STATIC S-fam {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True} E 4 /4 totratio 0.975 | train-replay E 4 /4
+   stats {'S0_total': 57264.2, 'S1_mean_dur': 1.674, 'S1_frac_ge3': 0.163, 'S1_timefrac_ge15': 0.0, 'S2_burst': 0.078, 'S2_median_gap': 3.0, 'S2_recurrence': 0.853, 'S3_deg_mean': 42.262, 'S3_deg_cv': 0.551, 'S4_strength_cv': 0.536, 'S5_persistence': 0.824, 'S6_within_frac': 0.693}
+Thiers13 1.5 1.0 real R 0.828 P 0.023 A 0.016 | rerun 0.886 0.021 0.017 | STATIC 0.859 0.051 0.020 True | TRAINdays 0.891 0.050 0.019 True
+Thiers13 3.0 1.0 real R 1.239 P 0.234 A 0.071 | rerun 1.259 0.252 0.074 | STATIC 1.329 0.326 0.116 False | TRAINdays 1.274 0.287 0.096 False
+Thiers13 1.5 4.0 real R 0.891 P 0.022 A 0.017 | rerun 0.912 0.028 0.018 | STATIC 0.890 0.041 0.019 True | TRAINdays 0.995 0.062 0.023 False
+Thiers13 3.0 4.0 real R 1.380 P 0.298 A 0.094 | rerun 1.385 0.306 0.094 | STATIC 1.448 0.364 0.133 False | TRAINdays 1.447 0.367 0.139 False
+research/bsc_validation2/a2_contact_mobility/verify/v4_static.py:35: RuntimeWarning: Mean of empty slice
+  st={k:float(np.nanmean([s.get(k,np.nan) for s in sts])) for k in sts[0]}
+Thiers13 STATIC S-fam {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True} E 2 /4 totratio 0.940 | train-replay E 1 /4
+   stats {'S0_total': 70401.8, 'S1_mean_dur': 3.002, 'S1_frac_ge3': 0.437, 'S1_timefrac_ge15': 0.027, 'S2_burst': 0.203, 'S2_median_gap': 7.8, 'S2_recurrence': 0.855, 'S3_deg_mean': 11.741, 'S3_deg_cv': 0.471, 'S4_strength_cv': 0.808, 'S5_persistence': 0.677, 'S6_within_frac': 0.924}
+SFHH 1.5 1.0 real R 0.952 P 0.215 A 0.076 | rerun 0.959 0.212 0.074 | STATIC 0.936 0.220 0.073 True | TRAINdays 0.986 0.240 0.088 True
+SFHH 3.0 1.0 real R 1.505 P 0.428 A 0.269 | rerun 1.512 0.419 0.262 | STATIC 1.355 0.413 0.235 True | TRAINdays 1.480 0.419 0.259 True
+SFHH 1.5 4.0 real R 0.999 P 0.229 A 0.081 | rerun 0.964 0.221 0.079 | STATIC 0.903 0.218 0.072 True | TRAINdays 1.011 0.263 0.096 True
+SFHH 3.0 4.0 real R 1.623 P 0.480 A 0.304 | rerun 1.536 0.462 0.293 | STATIC 1.351 0.426 0.244 False | TRAINdays 1.561 0.458 0.279 True
+SFHH STATIC S-fam {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': None} E 3 /4 totratio 0.945 | train-replay E 4 /4
+   stats {'S0_total': 30203.6, 'S1_mean_dur': 3.063, 'S1_frac_ge3': 0.443, 'S1_timefrac_ge15': 0.035, 'S2_burst': 0.222, 'S2_median_gap': 7.0, 'S2_recurrence': 0.756, 'S3_deg_mean': 14.144, 'S3_deg_cv': 0.729, 'S4_strength_cv': 1.303, 'S5_persistence': 0.58, 'S6_within_frac': nan}

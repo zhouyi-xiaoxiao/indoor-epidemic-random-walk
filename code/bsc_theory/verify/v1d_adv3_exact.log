@@ -1,0 +1,2 @@
+clip 4.0: max over 40 optimised instances of EXACT-generator 60-digit R0(D2)-R0(D1) = 7.9654596e-59 (float64 objective there 2.072e-11; D1=54.6, D2=72.5)
+clip 8.0: max over 40 optimised instances of EXACT-generator 60-digit R0(D2)-R0(D1) = 0.0 (float64 objective there 1.453e-17; D1=8.34, D2=8.35)

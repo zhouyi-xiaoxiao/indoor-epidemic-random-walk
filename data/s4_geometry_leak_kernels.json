@@ -1,0 +1,177 @@
+{
+ "parameters": {
+  "beta": 0.5,
+  "gamma": 0.14,
+  "cells": 3,
+  "kernel_convention": "F = beta P^T Q, P row-stochastic; V_kappa = gamma I - (G - diag kappa)"
+ },
+ "a_uniform_q_neighbour_kernel_end_door": {
+  "R_room": 1.4348047526886998,
+  "mu_leak": 0.19806226419516174,
+  "nu": [
+   0.10757434232607624,
+   0.3492916954160897,
+   0.5431339622578342
+  ],
+  "formula_uniform_q": 1.4790174857000673,
+  "upper_bound": 1.4790174857000673,
+  "lower_bound": 1.4790174857000673,
+  "relative_difference_from_formula": -0.029893313256158183
+ },
+ "b_uniform_q_skew_kernel_end_door": {
+  "R_room": 1.6403216820038262,
+  "mu_leak": 0.19806226419516174,
+  "nu": [
+   0.10757434232607624,
+   0.3492916954160897,
+   0.5431339622578342
+  ],
+  "formula_uniform_q": 1.4790174857000673,
+  "upper_bound": 1.4790174857000673,
+  "lower_bound": 1.4790174857000673,
+  "excess_over_upper_bound": 0.10906172365325917
+ },
+ "c_prop_3_15_iv_kernel_q101_D0_0.01": {
+  "end door|kappa=0.0001": {
+   "R_room": 1.8901227534516734,
+   "lower_bound": 2.377774699270473,
+   "mu_leak": 3.314860281536681e-05,
+   "bound_holds": false
+  },
+  "end door|kappa=0.001": {
+   "R_room": 1.8845990028624027,
+   "lower_bound": 2.352230581732513,
+   "mu_leak": 0.00031528565394796577,
+   "bound_holds": false
+  },
+  "end door|kappa=0.01": {
+   "R_room": 1.8446703551803587,
+   "lower_bound": 2.291539128634736,
+   "mu_leak": 0.0019806226419516178,
+   "bound_holds": false
+  },
+  "end door|kappa=0.1": {
+   "R_room": 1.788644352793627,
+   "lower_bound": 2.4628291870571184,
+   "mu_leak": 0.0035519675787169277,
+   "bound_holds": false
+  },
+  "end door|kappa=1": {
+   "R_room": 1.7792965639405278,
+   "lower_bound": 2.509982496131186,
+   "mu_leak": 0.0037921027976765363,
+   "bound_holds": false
+  },
+  "middle door|kappa=0.0001": {
+   "R_room": 1.8906151585135416,
+   "lower_bound": 2.385667799638939,
+   "mu_leak": 3.3259341654727365e-05,
+   "bound_holds": false
+  },
+  "middle door|kappa=0.001": {
+   "R_room": 1.8893528183716073,
+   "lower_bound": 2.427316098182888,
+   "mu_leak": 0.000326009094506481,
+   "bound_holds": false
+  },
+  "middle door|kappa=0.01": {
+   "R_room": 1.8774703557312258,
+   "lower_bound": 2.7637999125101667,
+   "mu_leak": 0.002679491924311227,
+   "bound_holds": false
+  },
+  "middle door|kappa=0.1": {
+   "R_room": 1.8041237113402053,
+   "lower_bound": 3.3204301729022605,
+   "mu_leak": 0.008210916541997263,
+   "bound_holds": false
+  },
+  "middle door|kappa=1": {
+   "R_room": 1.6973532796317605,
+   "lower_bound": 3.337084715759633,
+   "mu_leak": 0.009802019006409729,
+   "bound_holds": false
+  }
+ },
+ "c_closed_room_limit": {
+  "beta_mean_q_over_gamma": 2.3809523809523805,
+  "R0_closed_formula": 1.8907563025210083
+ },
+ "d_office_door_against_mobility": {
+  "door_cell_xy": [
+   0,
+   6
+  ],
+  "n_cells": 234,
+  "door_hop_rate_at_D0_1": 1.5,
+  "kappa_mean_pi_for_kappa_1": 0.004273504273504274,
+  "fixed_kappa_1": {
+   "D0=1": {
+    "kappa": 1.0,
+    "mu_leak": 0.0013698690580907999,
+    "mu_over_D0": 0.0013698690580907999,
+    "R0_closed": 5.107294682670609,
+    "R_room": 5.107194487972098,
+    "R_room_over_R0": 0.9999803820408383
+   },
+   "D0=10": {
+    "kappa": 1.0,
+    "mu_leak": 0.0035648081108111515,
+    "mu_over_D0": 0.00035648081108111514,
+    "R0_closed": 4.676246636226538,
+    "R_room": 4.569104283048894,
+    "R_room_over_R0": 0.9770879593159992
+   },
+   "D0=100": {
+    "kappa": 1.0,
+    "mu_leak": 0.004191578001251495,
+    "mu_over_D0": 4.1915780012514954e-05,
+    "R0_closed": 4.645844524037341,
+    "R_room": 4.511034683403565,
+    "R_room_over_R0": 0.9709827050956447
+   },
+   "D0=2400": {
+    "kappa": 1.0,
+    "mu_leak": 0.004270034034451383,
+    "mu_over_D0": 1.7791808476880763e-06,
+    "R0_closed": 4.642980434528249,
+    "R_room": 4.505567372293239,
+    "R_room_over_R0": 0.9704041263639372
+   }
+  },
+  "kappa_equal_door_hop_rate": {
+   "D0=1": {
+    "kappa": 1.5,
+    "mu_leak": 0.0015208488778160544,
+    "mu_over_D0": 0.0015208488778160544,
+    "R0_closed": 5.107294682670609,
+    "R_room": 5.107180607858719,
+    "R_room_over_R0": 0.9999776643371926
+   },
+   "D0=10": {
+    "kappa": 15.0,
+    "mu_leak": 0.015208488778154559,
+    "mu_over_D0": 0.001520848877815456,
+    "R0_closed": 4.676246636226538,
+    "R_room": 4.284064446541493,
+    "R_room_over_R0": 0.9161331255184793
+   },
+   "D0=100": {
+    "kappa": 150.0,
+    "mu_leak": 0.15208488778158405,
+    "mu_over_D0": 0.0015208488778158404,
+    "R0_closed": 4.645844524037341,
+    "R_room": 2.2448347552694363,
+    "R_room_over_R0": 0.48319196728491154
+   },
+   "D0=2400": {
+    "kappa": 3600.0,
+    "mu_leak": 3.6500373067600833,
+    "mu_over_D0": 0.0015208488778167015,
+    "R0_closed": 4.642980434528249,
+    "R_room": 0.17277394865541523,
+    "R_room_over_R0": 0.037211862313817824
+   }
+  }
+ }
+}

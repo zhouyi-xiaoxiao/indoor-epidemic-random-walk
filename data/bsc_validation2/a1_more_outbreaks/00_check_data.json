@@ -1,0 +1,288 @@
+{
+ "events": {
+  "F1": {
+   "label": "CA112 (Olsen 2003)",
+   "sizes": [
+    17,
+    12,
+    36,
+    46
+   ],
+   "obs": [
+    4,
+    5,
+    7,
+    2
+   ],
+   "K": 18,
+   "n": 111,
+   "n_src": 1,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "F2": {
+   "label": "Chicago-Honolulu (Kenyon 1996)",
+   "sizes": [
+    13,
+    55
+   ],
+   "obs": [
+    4,
+    2
+   ],
+   "K": 6,
+   "n": 68,
+   "n_src": 1,
+   "near_bins": [
+    0
+   ]
+  },
+  "F3": {
+   "label": "LA-Auckland (Baker 2010)",
+   "sizes": [
+    49,
+    18,
+    24,
+    16
+   ],
+   "obs": [
+    3,
+    0,
+    0,
+    0
+   ],
+   "K": 3,
+   "n": 107,
+   "n_src": 9,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "F4": {
+   "label": "Cancun-Birmingham (Young 2014)",
+   "sizes": [
+    93,
+    33,
+    55,
+    35
+   ],
+   "obs": [
+    4,
+    1,
+    3,
+    1
+   ],
+   "K": 9,
+   "n": 216,
+   "n_src": 6,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "F5": {
+   "label": "Naha (Toyokawa 2022)",
+   "sizes": [
+    12,
+    11,
+    30,
+    87
+   ],
+   "obs": [
+    3,
+    4,
+    1,
+    6
+   ],
+   "K": 14,
+   "n": 140,
+   "n_src": 1,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "F6": {
+   "label": "Sydney-Perth (Speake 2020)",
+   "sizes": [
+    32,
+    14,
+    22,
+    30
+   ],
+   "obs": [
+    4,
+    4,
+    2,
+    1
+   ],
+   "K": 11,
+   "n": 98,
+   "n_src": 4,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "F7": {
+   "label": "EK448 (Swadi 2021)",
+   "sizes": [
+    4,
+    9,
+    71
+   ],
+   "obs": [
+    1,
+    3,
+    0
+   ],
+   "K": 4,
+   "n": 84,
+   "n_src": 2,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "F8": {
+   "label": "Tel Aviv-Frankfurt (Hoehl 2020)",
+   "sizes": [
+    15,
+    5,
+    17,
+    34
+   ],
+   "obs": [
+    2,
+    0,
+    0,
+    0
+   ],
+   "K": 2,
+   "n": 71,
+   "n_src": 7,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "W1": {
+   "label": "Ward 8A students (Wong 2004)",
+   "sizes": [
+    3,
+    8,
+    8
+   ],
+   "obs": [
+    3,
+    4,
+    0
+   ],
+   "K": 7,
+   "n": 19,
+   "n_src": 1,
+   "near_bins": [
+    0,
+    1
+   ]
+  },
+  "W2": {
+   "label": "Ward 8A inpatients (Yu 2005)",
+   "sizes": [
+    20,
+    21,
+    33
+   ],
+   "obs": [
+    13,
+    11,
+    6
+   ],
+   "K": 30,
+   "n": 74,
+   "n_src": 1,
+   "near_bins": [
+    0
+   ]
+  },
+  "P1": {
+   "label": "Meat plant (G\u00fcnther 2020)",
+   "sizes": [
+    9,
+    17,
+    22,
+    30
+   ],
+   "obs": [
+    5,
+    12,
+    1,
+    2
+   ],
+   "K": 20,
+   "n": 78,
+   "n_src": 1,
+   "near_bins": [
+    0,
+    1
+   ]
+  }
+ },
+ "checks": {
+  "F1_front3_plus_row": [
+   8,
+   23
+  ],
+  "F1_within2": [
+   9,
+   29
+  ],
+  "F1_beyond2": [
+   9,
+   82
+  ],
+  "F3_within2": [
+   3,
+   67
+  ],
+  "F3_beyond2": [
+   0,
+   40
+  ],
+  "F4_within2": [
+   5,
+   126
+  ],
+  "F4_beyond2": [
+   4,
+   90
+  ],
+  "F5_within2": [
+   7,
+   23
+  ],
+  "F5_beyond2": [
+   7,
+   117
+  ],
+  "F6_within2": [
+   8,
+   46
+  ],
+  "F6_beyond2": [
+   3,
+   52
+  ],
+  "F8_within2": [
+   2,
+   20
+  ],
+  "F8_beyond2": [
+   0,
+   51
+  ]
+ }
+}

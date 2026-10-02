@@ -1,0 +1,69 @@
+{
+ "title_en": "Open-plan office",
+ "title_zh": "开放式办公室",
+ "a_m": 1.5,
+ "size_m": [
+  30.0,
+  20.0
+ ],
+ "N_default": 100,
+ "map": [
+  "BWWWWWWWWCWWWWBMMMMM",
+  "WWWWWWWWWCWWWWBMMMMM",
+  "WWWWBWWWWCWWBWBMMMMM",
+  "WWWWWWWWWCWWWWBMMMMM",
+  "WWWWWWWBWCWWWWBMMMMM",
+  "WWWWWWWWWCWWWWBBMBBB",
+  "CCCCCCCCCCCCCCCCCCCC",
+  "WWWWWWWWWCWWWWCCWWWW",
+  "WWWWWWWBWCWWWWCWWWBW",
+  "WWWWWWWWWCWWWWCBBBBB",
+  "WWWWBWWWWCWWBWCBKKKK",
+  "WWWWWWWWWCWWWWCKKKKK",
+  "BWWWWWWWWCWWWWCBKKKK"
+ ],
+ "zones": {
+  "W": {
+   "name_en": "workstations",
+   "name_zh": "工位区",
+   "D": 0.3,
+   "q": 1.4
+  },
+  "C": {
+   "name_en": "corridor",
+   "name_zh": "走廊",
+   "D": 1.5,
+   "q": 0.8
+  },
+  "M": {
+   "name_en": "meeting room",
+   "name_zh": "会议室",
+   "D": 0.5,
+   "q": 1.5
+  },
+  "K": {
+   "name_en": "kitchen",
+   "name_zh": "茶水间",
+   "D": 1.0,
+   "q": 1.2
+  },
+  "B": {
+   "name_en": "barrier",
+   "name_zh": "障碍物",
+   "D": 0.0,
+   "q": 0.0,
+   "barrier": true
+  }
+ },
+ "dwell": "8 h",
+ "source": "illustrative assumption; area fractions W/C/M/K/B = 60/15/10/5/10 % reproduced exactly",
+ "nx": 20,
+ "ny": 13,
+ "zone_counts": {
+  "B": 26,
+  "W": 156,
+  "C": 39,
+  "M": 26,
+  "K": 13
+ }
+}

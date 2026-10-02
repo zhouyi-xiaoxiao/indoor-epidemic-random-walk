@@ -1,0 +1,21 @@
+== InVS13
+   RWhome: stats done 24s
+   epi R0=1.5,tau=1.0d done 31s
+   epi R0=3.0,tau=1.0d done 31s
+   epi R0=1.5,tau=4.0d done 31s
+   epi R0=3.0,tau=4.0d done 32s
+InVS13 34s {'REALtrain': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': True, 'S6_groups': True}, 'RWhome': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': True, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}}
+== LH10
+   RWhome: stats done 23s
+   epi R0=1.5,tau=1.0d done 26s
+   epi R0=3.0,tau=1.0d done 28s
+   epi R0=1.5,tau=4.0d done 32s
+   epi R0=3.0,tau=4.0d done 38s
+LH10 39s {'REALtrain': {'S0_level': False, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True}, 'RWhome': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': False}}
+== LyonSchool
+   RWhome: stats done 10s
+   epi R0=1.5,tau=1.0d done 38s
+   epi R0=3.0,tau=1.0d done 69s
+   epi R0=1.5,tau=4.0d done 155s
+   epi R0=3.0,tau=4.0d done 268s
+LyonSchool 269s {'REALtrain': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': None, 'S6_groups': True}, 'RWhome': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': False, 'E_epidemic': False}}

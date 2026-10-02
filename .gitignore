@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+# compiled simulator libraries (built on first use by code/bsc_sim/src/bsc_sim/sim.py and code/bsc_sim/verify/vlib.py)
+code/bsc_sim/build/
+*.dylib
+*.so
+# figures written by the research scripts before the used ones are copied to figures/ (see reproduce.md)
+code/bsc_theory/figures/
+code/bsc_sim/figures/
+code/bsc_outbreaks/figures/
+code/bsc_validation/figures/
+figures/*.png
+figures/fig_meanfield_interventions_*
+# second set: downloaded third-party files, intermediate tables, working figures
+code/bsc_validation2/*/data/raw/
+code/bsc_validation2/a1_more_outbreaks/figs/
+code/checks/outbreaks2/cache/
+data/bsc_validation2/a1_more_outbreaks/tab_*.npz
+# scratch directories of the validation scripts
+code/bsc_validation/.tmp/
+code/bsc_validation/.mplcache/
+# LaTeX
+*.aux
+# the labels of the Supplementary Material, read by main.tex (xr-hyper), so that main.tex compiles on its own
+!/supplement.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+main.log
+main.out
+main.pdf
+.DS_Store

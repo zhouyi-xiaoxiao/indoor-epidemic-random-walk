@@ -1,0 +1,85 @@
+== E1 two-zone ==
+  side     sym: counts {np.str_('C'): np.int64(80), np.str_('W'): np.int64(180)} <q>_pi=1.1923 lower 4.258 R0 5.0895 = 1.4251 b/g  lam1 0.6015
+  side     dep: counts {np.str_('C'): np.int64(80), np.str_('W'): np.int64(180)} <q>_pi=1.4375 lower 5.134 R0 5.2320 = 1.4650 b/g  lam1 0.6040
+  aisles   sym: counts {np.str_('C'): np.int64(80), np.str_('W'): np.int64(180)} <q>_pi=1.1923 lower 4.258 R0 4.3709 = 1.2238 b/g  lam1 0.5070
+  aisles   dep: counts {np.str_('C'): np.int64(80), np.str_('W'): np.int64(180)} <q>_pi=1.4375 lower 5.134 R0 5.1427 = 1.4399 b/g  lam1 0.5840
+  grid     sym: counts {np.str_('C'): np.int64(80), np.str_('W'): np.int64(180)} <q>_pi=1.1923 lower 4.258 R0 4.3598 = 1.2207 b/g  lam1 0.5110
+  grid     dep: counts {np.str_('C'): np.int64(80), np.str_('W'): np.int64(180)} <q>_pi=1.4375 lower 5.134 R0 5.1420 = 1.4398 b/g  lam1 0.5839
+  scatter  sym: counts {np.str_('C'): np.int64(78), np.str_('W'): np.int64(182)} <q>_pi=1.2000 lower 4.286 R0 4.3805 = 1.2266 b/g  lam1 0.5138
+  scatter  dep: counts {np.str_('C'): np.int64(78), np.str_('W'): np.int64(182)} <q>_pi=1.4396 lower 5.141 R0 5.1484 = 1.4416 b/g  lam1 0.5843
+== E2 office ==
+  O1 counts {np.str_('B'): np.int64(26), np.str_('C'): np.int64(39), np.str_('K'): np.int64(13), np.str_('M'): np.int64(26), np.str_('W'): np.int64(156)}
+  O1 sym: n=234 <q>_pi=1.3000 bounds [4.643,5.357] R0=5.1090 lam1=0.6021 doubling 1.15 d
+     modal diag max 4.9848 at n=1 mu1=0.00658; Galerkin N=1,2,3,5,10: 4.6429, 5.0265, 5.0887, 5.1007, 5.1064
+     zone M: mu_Z=0.00904 (1/mu = 110.6 d) bound 5.0322
+     zone W: mu_Z=0.01956 (1/mu = 51.1 d) bound 4.3870
+     zone K: mu_Z=0.25661 (1/mu = 3.9 d) bound 1.5128
+     large-D: 4.6429 + 0.4418/D0 ; small-D: 5.3571(1 - 0.0646 D0)
+     elasticity share: W: 0.0221, C: 0.0054, M: 0.9723, K: 0.0002
+     spectral gap of J: 0.0561
+     D0=100: R0=4.6473 (+0.095%)
+     D0=2430: R0=4.64304 (+0.0039%)
+     D0=48700: R0=4.64287 (+0.0002%)
+  O1 dep: n=234 <q>_pi=1.3787 bounds [4.924,5.357] R0=5.1602 lam1=0.6037 doubling 1.15 d
+  O2 counts {np.str_('B'): np.int64(26), np.str_('C'): np.int64(39), np.str_('K'): np.int64(13), np.str_('M'): np.int64(26), np.str_('W'): np.int64(156)}
+  O2 sym: n=234 <q>_pi=1.3000 bounds [4.643,5.357] R0=5.0407 lam1=0.5994 doubling 1.16 d
+     modal diag max 4.7319 at n=1 mu1=0.00715; Galerkin N=1,2,3,5,10: 4.6429, 4.7707, 5.0160, 5.0211, 5.0364
+     zone M: mu_Z=0.01373 (1/mu = 72.8 d) bound 4.8787
+     zone W: mu_Z=0.01414 (1/mu = 70.7 d) bound 4.5415
+     zone K: mu_Z=0.21530 (1/mu = 4.6 d) bound 1.6887
+     large-D: 4.6429 + 0.2455/D0 ; small-D: 5.3571(1 - 0.0981 D0)
+     elasticity share: W: 0.0222, C: 0.0091, M: 0.9684, K: 0.0003
+     spectral gap of J: 0.0185
+     D0=100: R0=4.6453 (+0.053%)
+     D0=2430: R0=4.64296 (+0.0022%)
+     D0=48700: R0=4.64286 (+0.0001%)
+  O2 dep: n=234 <q>_pi=1.3787 bounds [4.924,5.357] R0=5.1582 lam1=0.6033 doubling 1.15 d
+== E3 partitions (O1, sym) ==
+  base 5.1090; desk-desk edges 233
+  walls p=0.1: closed 23; R0 mean 5.1109 min 5.1095 -> +0.04%
+  walls p=0.3: closed 70; R0 mean 5.1157 min 5.1123 -> +0.13%
+  walls p=0.5: closed 116; R0 mean 5.1226 min 5.1217 -> +0.27%
+  walls p=1.0: closed 125; R0 mean 5.1220 min 5.1204 -> +0.25%
+  39 desks->obstacles: R0 5.1184 +- 0.0027 [5.1143,5.1253] -> +0.18%
+  q_W->0.5q_W at D0=1: 5.0905
+  same at D0=100: 3.0312 from 4.6473
+== E4 corridor D ==
+  O1 sym: x1 5.1090 x0.1 5.2188 x0.01 5.3252 x10 5.0511
+  O1 dep: x1 5.1602 x0.1 5.1235 x0.01 5.0892 x10 5.1726
+  aisles sym: x1 4.3709 x0.1 4.4484 x0.01 4.8507 x10 4.3624
+  aisles dep: x1 5.1427 x0.1 4.1796 x0.01 2.9401 x10 5.3336
+  side sym: x1 5.0895 x0.1 5.1441 x0.01 5.2636 x10 5.0805
+  side dep: x1 5.2320 x0.1 5.1148 x0.01 5.0719 x10 5.3353
+== E5 targeting (O1 sym) ==
+  D0=1 f=0.05: one-shot elasticity 4.7499; q-ranked 4.7480; random 4.9790 +- 0.0894
+  D0=1 f=0.1: one-shot elasticity 4.7480; q-ranked 4.7472; random 4.9267 +- 0.1157
+  D0=1 f=0.2: one-shot elasticity 4.7107; q-ranked 4.5029; random 4.6610 +- 0.1778
+  D0=1 f=0.5: one-shot elasticity 4.5195; q-ranked 3.6285; random 3.9018 +- 0.1381
+  D0=1 adaptive greedy: 12/234=5.1%: 4.7499, 24/234=10.3%: 4.5745, 36/234=15.4%: 4.4539, 48/234=20.5%: 4.2688, 60/234=25.6%: 4.1835, 72/234=30.8%: 4.1289, 84/234=35.9%: 4.0038, 96/234=41.0%: 3.8830, 108/234=46.2%: 3.7357, 120/234=51.3%: 3.5624, 132/234=56.4%: 3.4430
+     adaptive greedy with exactly 23 cells (9.8%): 4.5822
+     adaptive greedy with exactly 47 cells (20.1%): 4.2774
+     adaptive greedy with exactly 117 cells (50.0%): 3.5934
+  D0=100 f=0.05: one-shot elasticity 4.5104; q-ranked 4.5098; random 4.5286 +- 0.0063
+  D0=100 f=0.1: one-shot elasticity 4.3959; q-ranked 4.3952; random 4.4174 +- 0.0074
+  D0=100 f=0.2: one-shot elasticity 4.1351; q-ranked 4.1367; random 4.1850 +- 0.0099
+  D0=100 f=0.5: one-shot elasticity 3.3925; q-ranked 3.3775; random 3.4882 +- 0.0128
+  D0=100 adaptive greedy: 12/234=5.1%: 4.5104, 24/234=10.3%: 4.3796, 36/234=15.4%: 4.2532, 48/234=20.5%: 4.1226, 60/234=25.6%: 3.9924, 72/234=30.8%: 3.8627, 84/234=35.9%: 3.7338, 96/234=41.0%: 3.6040, 108/234=46.2%: 3.4742, 120/234=51.3%: 3.3451, 132/234=56.4%: 3.2157
+     adaptive greedy with exactly 23 cells (9.8%): 4.3904
+     adaptive greedy with exactly 47 cells (20.1%): 4.1333
+     adaptive greedy with exactly 117 cells (50.0%): 3.3772
+== E6 room size (D=0.5, uniform q) ==
+  L=3: reflecting 1.000000; one door mu=0.04025 ratio 0.7767; open side mu=0.09903 ratio 0.5857
+  L=13: reflecting 1.000000; one door mu=0.00160 ratio 0.9887; open side mu=0.00676 ratio 0.9539
+  L=20: reflecting 1.000000; one door mu=0.00063 ratio 0.9955; open side mu=0.00293 ratio 0.9795
+  L=40: reflecting 1.000000; one door mu=0.00014 ratio 0.9990; open side mu=0.00075 ratio 0.9947
+  one door L=8: L^2 mu_abs=1.3808, c=0.822; mu_kappa=9.2015e-03; series 9.0622e-03 (-1.51%)
+  one door L=16: L^2 mu_abs=1.0762, c=0.864; mu_kappa=2.0431e-03; series 2.0248e-03 (-0.90%)
+  one door L=32: L^2 mu_abs=0.8755, c=0.885; mu_kappa=4.5852e-04; series 4.5588e-04 (-0.58%)
+  one door L=64: L^2 mu_abs=0.7363, c=0.898; mu_kappa=1.0394e-04; series 1.0353e-04 (-0.39%)
+  one door L=128: L^2 mu_abs=0.6347, c=0.907; mu_kappa=2.3764e-05; series 2.3697e-05 (-0.28%)
+  dwell office: 0.1911; closed 4.286
+  dwell supermarket: 0.0112; closed 4.286
+  dwell classroom: 0.0311; closed 5.357
+  dwell metro: 0.0173; closed 8.929
+  SIR final size at R0=6: 0.9975
+runtime 64.0s

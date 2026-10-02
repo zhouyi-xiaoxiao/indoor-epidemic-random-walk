@@ -1,0 +1,41 @@
+{
+ "provenance": "Values recorded by the re-check of the second outbreak test (separately written code in code/checks/outbreaks2/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.6, that reports it.",
+ "values": {
+  "naha": {
+   "passengers_lost_to_follow_up_counted_as_non_cases": "about 22",
+   "near_group_of_source_within_two_rows_persons": 14,
+   "near_zone_used_rows_21_25_persons": 23,
+   "M2_adequacy_p_households_collapsed": 0.25
+  },
+  "ward_exact_beds": {
+   "change_of_pooled_Delta0": 0.13
+  },
+  "AF171": {
+   "n_cases": 2
+  },
+  "meat_processing_line": {
+   "M2_log_score_at_own_best_D": -9.46,
+   "own_best_D_m2_per_h": 40
+  },
+  "exponential_kernel": {
+   "aircraft_decay_length_m": {
+    "posterior": 2.5,
+    "interval": [
+     1.6,
+     5.7
+    ]
+   }
+  }
+ },
+ "item": {
+  "naha.passengers_lost_to_follow_up_counted_as_non_cases": "notes/VERIFICATION.md, Section 4.6, item 2",
+  "naha.near_group_of_source_within_two_rows_persons": "notes/VERIFICATION.md, Section 4.6, further point 7",
+  "naha.near_zone_used_rows_21_25_persons": "notes/VERIFICATION.md, Section 4.6, further point 7",
+  "naha.M2_adequacy_p_households_collapsed": "notes/VERIFICATION.md, Section 4.6, item 6",
+  "ward_exact_beds.change_of_pooled_Delta0": "notes/VERIFICATION.md, Section 4.6, item 2",
+  "AF171.n_cases": "notes/VERIFICATION.md, Section 4.6, item 16",
+  "meat_processing_line.M2_log_score_at_own_best_D": "notes/VERIFICATION.md, Section 4.6, item 7",
+  "meat_processing_line.own_best_D_m2_per_h": "notes/VERIFICATION.md, Section 4.6, item 7",
+  "exponential_kernel.aircraft_decay_length_m": "notes/VERIFICATION.md, Section 4.6, item 15"
+ }
+}

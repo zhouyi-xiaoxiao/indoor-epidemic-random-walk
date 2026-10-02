@@ -1,0 +1,338 @@
+% supp_r0.tex -- Supplementary Section S2: proofs and further results on the mean-field basic reproduction number.
+% Proofs follow code/bsc_theory/scripts (derivations checked there) in the article's notation (cells x, y; column
+% index = source cell).  Numbers: data/plan_theory_checks.json and data/s3_r0_checks.json.
+% Paths in "% src:" comments are relative to the repository root.
+\section{The basic reproduction number: proofs and further results}\label{appS_r0:sec}
+
+This section proves the statements of Section~\ref{M-s3_r0:sec} of the main text and gives the variational and modal
+forms of $\Rz$. Throughout, Assumption~\ref{M-s2_model:ass:A} holds, $\Vm=\gamma\Id-\gen$, the column index of a matrix
+is the source cell, and inequalities between vectors or matrices are entrywise. The proofs use only the standard facts
+of Lemma~\ref{s3_r0:lem:facts}, which are cited and not re-proved. On attribution (Section~\ref{M-s1_intro:sec} and
+Table~\ref{M-s1_intro:tab:known} of the main text): the monotone decrease of the growth bound with the dispersal rate is
+Lemma~3.4 of \citet{allen2007asymptotic}, as cited by \citet{gao2020fast}, whose Theorem~2.3 shows that $\Rz$ is
+strictly decreasing and strictly convex in the dispersal rate unless all patch reproduction numbers coincide; theorem
+numbers are those of the published version of \citet{gao2020fast}. Our proof of
+Theorem~\ref{M-s3_r0:thm:mobility}(c) follows the reduction-principle argument of \citet{altenberg2012resolvent}, which
+rests on the convexity theorem of \citet{cohen1981convexity}. The fast-mixing expansion of
+Proposition~\ref{M-s3_r0:prop:expansions}(i) has the form of the first-order correction obtained by
+\citet{tien2015disease} (their Section~4.2) for a network on which the pathogen moves: with equal decay rates their
+generalised group inverse is the group inverse of the movement generator, and their correction term becomes
+$\beta C/(\qmean\,\Dz)$ (their eqs.~(29)--(31) with transmissibilities $\beta q_x$ and stationary weights $\pi_x$).
+% src: published version of doi:10.1007/s00285-014-0791-x, Section 4.2, eqs. (29)-(35) (author copy read 2 October 2026)
+
+\subsection{Standard facts}\label{appS_r0:sec:facts}
+
+\begin{lemma}[Standard facts]\label{s3_r0:lem:facts}
+  A real square matrix is \emph{Metzler} if its off-diagonal entries are non-negative.
+  \begin{enumerate}[label=\textup{(P\arabic*)},leftmargin=*]
+    \item If $A$ is Metzler and irreducible, $\sabs(A)$ is a real, algebraically simple eigenvalue with
+      strictly positive right and left eigenvectors, and no other eigenvalue has a non-negative eigenvector.
+    \item If $A$ is Metzler, $v\ge 0$, $v\ne 0$ and $Av\ge\mu v$, then $\sabs(A)\ge\mu$.  In particular
+      $\sabs(A)\ge\sabs(A[Z,Z])$ for every principal submatrix.
+    \item If $A$ is Metzler and irreducible and $E\ge 0$, $E\ne 0$, then $\sabs(A+E)>\sabs(A)$.
+    \item If $0\le A\le B$ entrywise then $\srad(A)\le\srad(B)$, with strict inequality if moreover $B$ is
+      irreducible and $A\ne B$; $\srad(A)$ is an eigenvalue of $A\ge0$ with non-negative right and left eigenvectors.
+    \item Let $A$ have non-positive off-diagonal entries.  Then $A$ is a non-singular M-matrix iff
+      $\sabs(-A)<0$ iff $A^{-1}$ exists and $A^{-1}\ge0$.  If $A\le B$ are non-singular M-matrices then
+      $A^{-1}\ge B^{-1}\ge0$.  If all column sums of $A$ are positive, $A$ is a non-singular M-matrix.
+    \item For a Metzler matrix $A$, the map $v\mapsto\sabs(A+\diag v)$ is convex on $\mathbb{R}^{\ncell}$.
+      If $A$ is irreducible it is real-analytic, with gradient $\ell_xu_x/(\lvec^{\T}\uvec)$, where $\uvec,\lvec$ are the
+      right and left Perron vectors of $A+\diag v$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}[References]
+  For a Metzler matrix $A$ and $c$ large, $A+c\Id\ge0$ and $\sabs(A)=\srad(A+c\Id)-c$, so (P1)--(P4) are the
+  Perron--Frobenius theorem and its comparison corollaries \citep[Chapter~2]{berman1994nonnegative}; in (P1)
+  every eigenvalue $\lambda\ne\sabs(A)$ has $\operatorname{Re}\lambda<\sabs(A)$, because
+  $|\lambda+c|\le\srad(A+c\Id)=\sabs(A)+c$.  (P5) collects equivalent characterisations of non-singular M-matrices
+  \citep[Chapter~6]{berman1994nonnegative}; the inverse inequality follows from
+  $A^{-1}-B^{-1}=A^{-1}(B-A)B^{-1}$.  The convexity in (P6) is the theorem of \citet{cohen1981convexity} (for another
+  proof see \citet{kato1982superconvexity}); analyticity and the gradient are first-order perturbation theory of a simple
+  eigenvalue \citep[Chapter~II, \S1]{kato1995perturbation}.
+\end{proof}
+
+\subsection{Next-generation matrix, threshold and offspring numbers}
+
+\begin{proof}[Proof of Theorem~\ref{M-s3_r0:thm:ngm}]
+  (a) Since $\one^{\T}\gen=0$ and $\gen$ is irreducible, $\sabs(\gen)=0$ by (P1); hence
+  $\sabs(\gen-\gamma\Id)=-\gamma<0$ and $\Vm^{-1}=\int_0^\infty\e^{(\gen-\gamma\Id)t}\,\dd t$.  The integrand is
+  positive because $\e^{\gen t}=\e^{-ct}\e^{(\gen+c\Id)t}$ and all entries of the exponential series of the
+  irreducible non-negative matrix $\gen+c\Id$ are positive for $t>0$.  Recall $(\e^{\gen t})_{zx}=P_t(z\,|\,x)$.
+  An infective introduced in $x$ is still infectious and located in $z$ at time $t$ with probability
+  $\e^{-\gamma t}P_t(z\,|\,x)$; while there it makes infectious contacts at rate $\beta q_z$, each of which
+  lands in $y$ with probability $P_{zy}$ and, at the disease-free state, meets a susceptible with probability
+  $S_y/N^*_y=1$.
+
+  (b), (c) Some row $y$ of $\Fm$ is non-zero and $\Vm^{-1}>0$, so $K_{yy}>0$ and $\Rz\ge K_{yy}>0$ by (P4).
+  For $c\ge0$ put $\psi(c)=\sabs(\gen+c\Fm-\gamma\Id)$.  The matrix is Metzler and irreducible, so $\psi$ is
+  continuous and, by (P3), strictly increasing.  \emph{Claim: for $c>0$, $\psi(c)<0$ if and only if $c\,\Rz<1$.}
+  Let $A_c=\Vm-c\Fm$, a matrix with non-positive off-diagonal entries and $\sabs(-A_c)=\psi(c)$; note
+  $A_c=(\Id-c\ngm)\Vm$.  If $c\Rz<1$, then $(\Id-c\ngm)^{-1}=\sum_{k\ge0}(c\ngm)^k\ge0$, so
+  $A_c^{-1}=\Vm^{-1}(\Id-c\ngm)^{-1}\ge0$, and $\psi(c)<0$ by (P5).  Conversely, if $\psi(c)<0$, then $A_c^{-1}\ge0$
+  by (P5) and $(\Id-c\ngm)^{-1}=\Vm A_c^{-1}=(A_c+c\Fm)A_c^{-1}=\Id+c\Fm A_c^{-1}\ge\Id$.  Let $\zvec\ge0$,
+  $\zvec\ne0$ with $\zvec^{\T}\ngm=\Rz\zvec^{\T}$ (P4).  Then
+  $\zvec^{\T}=(1-c\Rz)\,\zvec^{\T}(\Id-c\ngm)^{-1}$, where $\zvec^{\T}(\Id-c\ngm)^{-1}\ge\zvec^{\T}$ is
+  non-negative and non-zero; hence $1-c\Rz>0$.  This proves the claim.  Therefore
+  $\{c\ge0:\psi(c)<0\}=[0,1/\Rz)$, and by continuity and strict monotonicity $1/\Rz$ is the unique zero of
+  $\psi$: this is (b) with $R=1/c$.  Statement (c) follows because $\lamone=\psi(1)$.
+
+  (d) By \eqref{M-s2_model:eq:meanfield} and $0\le S_y\le N^*_y$, $r(t):=\Jm I(t)-\dot I(t)\ge0$.  Variation of
+  constants gives $\e^{\Jm t}I(0)-I(t)=\int_0^t\e^{\Jm(t-s)}r(s)\,\dd s\ge0$, because $\e^{\Jm t}\ge0$ for a
+  Metzler matrix.  Let $\lvec>0$ be the left Perron vector of $\Jm$ (P1).  Then
+  $\lvec^{\T}I(t)\le\lvec^{\T}\e^{\Jm t}I(0)=\e^{\lamone t}\lvec^{\T}I(0)$, which is the stated bound with
+  $C=\max_x\ell_x/\min_x\ell_x$.  Finally, by (P1), $\e^{\Jm t}I(0)=\e^{\lamone t}\bigl[(\lvec^{\T}I(0)/\lvec^{\T}\uvec)\,\uvec+o(1)\bigr]$
+  with $\uvec>0$ the right Perron vector, and $\lamone>0$ when $\Rz>1$ by (c).
+\end{proof}
+
+\begin{remark}[What the threshold does not say]
+  In a closed SIR model the infectives vanish for every value of $\Rz$: $\one^{\T}R(t)$ is non-decreasing and
+  bounded by $\Npop$, so $\gamma\int_0^\infty\one^{\T}I\,\dd t\le\Npop$, and $\one^{\T}I(t)\to0$ because its
+  derivative is bounded.  The content of (d) is that for $\Rz<1$ there is no growth above
+  $C\e^{\lamone t}\one^{\T}I(0)$ at any time, whereas for $\Rz>1$ a small seed grows, at rate $\lamone$ in the
+  linearised model, until the depletion of susceptibles stops it.  We therefore do not say that the infection
+  `dies out if and only if $\Rz<1$'.
+\end{remark}
+
+\begin{remark}[Offspring map]
+  The column sums of $\ngm$ are the expected numbers of secondary cases of an index case introduced in cell
+  $x$ (the offspring number $\noff(x)$; the subscript distinguishes it from the number of cells $\ncell$).
+  For every row-stochastic kernel,
+  \begin{equation}\label{s3_r0:eq:offspringdetail}
+  \begin{gathered}
+    \noff(x)=\sum_yK_{yx}=\beta\bigl[\qvec^{\T}(\gamma\Id-\gen)^{-1}\bigr]_x=\beta\,\Exp_x\!\int_0^{\tau}q(X_t)\,\dd t ,\\
+    \frac{\beta\qmin}{\gamma}\le\noff(x)\le\frac{\beta\qmax}{\gamma},\qquad \sum_x\pi_x\noff(x)=\frac{\beta\qmean}{\gamma},
+  \end{gathered}
+  \end{equation}
+  where $X_t$ is the walk started at $x$ and $\tau$ its exponential infectious period (rate $\gamma$).
+  Indeed $\one^{\T}\ker^{\T}=\one^{\T}$ gives $\one^{\T}\Fm=\beta\qvec^{\T}$, the third expression is (a)
+  summed over $y$, the bounds follow from $\one^{\T}\Vm^{-1}=\gamma^{-1}\one^{\T}$ and $\Vm^{-1}\ge0$, and the
+  mean from $\Vm^{-1}\stat=\stat/\gamma$.  In the office scene at $\Dz=1\cellday$, $\noff(x)$ ranges from $3.995$
+  to $5.335$ over the cells, with uniform mean $4.643$.
+  % src: data/plan_theory_checks.json: office/D0=1/offspring_min, offspring_max, offspring_uniform_mean
+\end{remark}
+
+\subsection{Reversible movement: Rayleigh and modal formulas}
+
+\begin{theorem}[Rayleigh formula; reversible movement, same-cell kernel]\label{s3_r0:thm:rayleigh}
+  Let $\Fm=\beta\Qm$ and let $\gen$ satisfy detailed balance, $\pi_x\hop{x}{y}=\pi_y\hop{y}{x}$.  With
+  $c_{xy}=\pi_x\hop{x}{y}=c_{yx}$ and the Dirichlet form
+  $\dirich(v)=\tfrac12\sum_{x\ne y}c_{xy}\bigl(v_x/\sqrt{\pi_x}-v_y/\sqrt{\pi_y}\bigr)^2\ge0$,
+  \begin{equation}\label{s3_r0:eq:rayleigh}
+    \Rz=\max_{v\neq0}\frac{\beta\,v^{\T}\Qm v}{\gamma|v|^2+\dirich(v)},\qquad
+    \lamone=\max_{|v|=1}\bigl[\beta\,v^{\T}\Qm v-\dirich(v)\bigr]-\gamma .
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  Let $\Pi=\diag\stat$ and $A=\Pi^{-1/2}\gen\,\Pi^{1/2}$, so that $A_{yx}=c_{xy}/\sqrt{\pi_x\pi_y}$ for
+  $y\ne x$ and $A_{xx}=-\sum_{y\ne x}c_{xy}/\pi_x$.  Detailed balance makes $A$ symmetric, and with
+  $f_x=v_x/\sqrt{\pi_x}$,
+  $-v^{\T}Av=\sum_{x\ne y}c_{xy}f_x^2-\sum_{x\ne y}c_{xy}f_xf_y=\dirich(v)$.
+  Hence $B=\gamma\Id-A$ is symmetric positive definite with $v^{\T}Bv=\gamma|v|^2+\dirich(v)$.  Since $\Qm$
+  commutes with $\Pi$, $\Pi^{-1/2}\ngm\,\Pi^{1/2}=\beta\Qm B^{-1}$, which is similar to the symmetric positive
+  semi-definite matrix $B^{-1/2}\beta\Qm B^{-1/2}$.  The spectral radius of the latter is its largest
+  eigenvalue, $\max_{u\ne0}u^{\T}B^{-1/2}\beta\Qm B^{-1/2}u/|u|^2$, which becomes the first formula with
+  $v=B^{-1/2}u$.  The second is the Rayleigh--Ritz theorem \citep{horn2013matrix} for the symmetric matrix
+  $A+\beta\Qm-\gamma\Id$, which is similar to $\Jm$.
+\end{proof}
+
+\begin{corollary}[Modal formula]\label{s3_r0:cor:modal}
+  In the setting of Theorem~\ref{s3_r0:thm:rayleigh} let $0=\mu_0<\mu_1\le\dots\le\mu_{\ncell-1}$ and
+  $\phi_0=\sqrt{\stat},\phi_1,\dots$ be the eigenvalues and orthonormal eigenvectors of
+  $-\Pi^{-1/2}\gen\,\Pi^{1/2}$, $\Pi=\diag\stat$, and $\tilde q_{jk}=\phi_j^{\T}\Qm\phi_k$.  Then
+  \begin{equation}\label{s3_r0:eq:modal}
+    \Rz=\lambda_{\max}\bigl(\mathbf{R}\bigr),\qquad
+    \mathbf{R}_{jk}=\frac{\beta\,\tilde q_{jk}}{\sqrt{(\gamma+\mu_j)(\gamma+\mu_k)}},\quad j,k=0,\dots,\ncell-1 .
+  \end{equation}
+  If $\Rz^{(m)}$ is the largest eigenvalue of the leading $m\times m$ block, then
+  $\beta\qmean/\gamma=\Rz^{(1)}\le\Rz^{(2)}\le\dots\le\Rz^{(\ncell)}=\Rz$, and every diagonal entry satisfies
+  $\beta\tilde q_{jj}/(\gamma+\mu_j)\le\Rz$.
+\end{corollary}
+
+\begin{proof}
+  Insert $v=\sum_jc_j\phi_j$ in \eqref{s3_r0:eq:rayleigh}: $v^{\T}\Qm v=\sum_{j,k}c_j\tilde q_{jk}c_k$ and
+  $\gamma|v|^2+\dirich(v)=\sum_j(\gamma+\mu_j)c_j^2$.  With $d_j=\sqrt{\gamma+\mu_j}\,c_j$ the quotient is the
+  Rayleigh quotient $d^{\T}\mathbf{R}d/|d|^2$ of the symmetric matrix $\mathbf{R}$.  The largest eigenvalue of
+  a leading block is non-decreasing in its size by Cauchy interlacing \citep{horn2013matrix}; a diagonal entry
+  is the Rayleigh quotient at a coordinate vector; and $\mathbf{R}_{00}=\beta\sum_x\pi_xq_x/\gamma$.
+\end{proof}
+
+The largest diagonal entry of the modal matrix is thus a lower bound on $\Rz$, equal to $\Rz$ when $q$ is constant,
+because truncating the matrix to its diagonal drops the coupling between modes. In the office scene at
+$\Dz=1\cellday$ the largest diagonal term is $4.961$, the blocks of $3$ and $10$ modes give $5.080$ and $5.106$, and
+$\Rz=5.107$ (Fig.~\ref{appA_numerics:fig:checks}c).
+% src: data/plan_theory_checks.json: office/diagonal_modal_max, office/galerkin_R0_by_modes, office/D0=1/R0
+The mode expansion is therefore a rapidly convergent computational device once the coupling matrix
+$(\tilde q_{jk})$ is kept.
+
+\subsection{Bounds, mobility, zones and edges}
+
+\begin{proof}[Proof of Theorem~\ref{M-s3_r0:thm:bounds}]
+  \emph{Upper bounds.}  $\one^{\T}\Vm=\gamma\one^{\T}$ gives $\one^{\T}\Vm^{-1}=\gamma^{-1}\one^{\T}$: the
+  positive matrix $\Vm^{-1}$ has a positive left eigenvector with eigenvalue $1/\gamma$, so
+  $\srad(\Vm^{-1})=1/\gamma$ by (P1).  Since $0\le\ngm\le\beta\qmax\Vm^{-1}$, (P4) gives
+  $\Rz\le\beta\qmax/\gamma$, strictly if $q_x<\qmax$ for some $x$, because $\Vm^{-1}$ is irreducible.  For the
+  growth rate, $\Jm+E=\gen+(\beta\qmax-\gamma)\Id$ with $E=\beta(\qmax\Id-\Qm)\ge0$, so
+  $\lamone\le\beta\qmax-\gamma$, strictly if $E\ne0$ (P3).
+
+  \emph{Constant $q\equiv q_0$.}  $\ngm=\beta q_0\Vm^{-1}$ and $\Jm=\gen+(\beta q_0-\gamma)\Id$.
+
+  \emph{Lower bounds.}  Let $f(v)=\sabs(\gen+\diag v)$.  By (P6) $f$ is convex and differentiable; $f(0)=0$
+  with right and left Perron vectors $\stat$ and $\one$, so $\nabla f(0)=\stat$ and
+  $f(v)\ge\sum_x\pi_xv_x=:\langle v\rangle_\pi$ for all $v$.  With $v=\beta\qvec-\gamma\one$ this is
+  $\lamone\ge\beta\qmean-\gamma$.  With $v=\beta\qvec/\Rz-\gamma\one$, Theorem~\ref{M-s3_r0:thm:ngm}(b) gives
+  $0=f(v)\ge\beta\qmean/\Rz-\gamma$.  (For reversible movement, take $v=\sqrt{\stat}$ in
+  \eqref{s3_r0:eq:rayleigh}, for which $\dirich(v)=0$.)
+
+  \emph{Strictness.}  Suppose $\Rz=\beta\qmean/\gamma$ and put $v=\beta\qvec/\Rz-\gamma\one$, so that
+  $\langle v\rangle_\pi=0=f(v)$.  The function $g(t)=f(tv)$ is convex with $g(0)=0$ and $g'(0)=0$, hence
+  $g\ge0$; as $g(1)=0$, convexity gives $g\equiv0$ on $[0,1]$, and $g$ is real-analytic on $\mathbb{R}$, so
+  $g\equiv0$.  But (P2) gives $g(t)\ge\max_x(M_{xx}+tv_x)$, which is unbounded as $t\to\infty$ unless $v\le0$;
+  with $\langle v\rangle_\pi=0$ and $\stat>0$ this forces $v=0$, that is, $q$ constant.  The same argument
+  with $v=\beta(\qvec-\qmean\one)$ treats $\lamone$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{M-s3_r0:thm:mobility}]
+  (b) $\ngm(\Dz)=\beta\Qm(\gamma\Id-\Dz\genz)^{-1}\to\beta\Qm/\gamma$, and the spectral radius is continuous.
+
+  (a) Let $\mathbf{E}_0=\stat\one^{\T}$, the spectral projector of the simple eigenvalue $0$ of $\genz$, and
+  $\mathbf{Y}=(\mathbf{E}_0-\genz)^{-1}-\mathbf{E}_0$, the group inverse of $-\genz$.  (The inverse exists:
+  $(\mathbf{E}_0-\genz)v=0$ implies $\one^{\T}v=0$, then $\genz v=0$, then $v=0$.)  From
+  $(\mathbf{E}_0-\genz)\mathbf{E}_0=\mathbf{E}_0=\mathbf{E}_0(\mathbf{E}_0-\genz)$ one gets
+  $\mathbf{Y}\mathbf{E}_0=\mathbf{E}_0\mathbf{Y}=0$ and $-\genz\mathbf{Y}=\Id-\mathbf{E}_0$.  A direct
+  multiplication shows that for $\varepsilon=1/\Dz$ small
+  \begin{equation}\label{s3_r0:eq:resolvent}
+    (\gamma\Id-\Dz\genz)^{-1}=\varepsilon(\varepsilon\gamma\Id-\genz)^{-1}
+      =\frac{\mathbf{E}_0}{\gamma}+\varepsilon\,\mathbf{Y}(\Id+\varepsilon\gamma\mathbf{Y})^{-1},
+  \end{equation}
+  which is analytic in $\varepsilon$ at $\varepsilon=0$.  Hence $\ngm\to\beta\Qm\stat\one^{\T}/\gamma$, a matrix
+  of rank one whose non-zero eigenvalue is $\beta\one^{\T}\Qm\stat/\gamma=\beta\qmean/\gamma$.
+
+  (c) Fix $v\in\mathbb{R}^{\ncell}$ and let $g(t)=\sabs(\genz+t\diag v)$, which is convex and analytic by (P6),
+  with $g(0)=0$ and $g'(0)=\langle v\rangle_\pi$.  Since $\sabs$ is positively homogeneous,
+  $\varphi(D):=\sabs(D\genz+\diag v)=D\,g(1/D)$ for $D>0$, and $\varphi''(D)=g''(1/D)/D^3\ge0$: $\varphi$ is
+  convex.  Its derivative $\varphi'(D)=g(1/D)-g'(1/D)/D$ is non-decreasing and tends to $g(0)=0$ as
+  $D\to\infty$, so $\varphi'\le0$; and $\varphi(D)\to g'(0)=\langle v\rangle_\pi$.  With
+  $v=\beta\qvec-\gamma\one$ this is the statement for $\lamone$.
+
+  For $\Rz$, let $H(D,R)=\sabs(D\genz+\beta\Qm/R-\gamma\Id)$.  It is non-increasing in $D$ (just shown),
+  strictly decreasing in $R$ (P3), and $\Rz(D)$ is its unique zero in $R$
+  (Theorem~\ref{M-s3_r0:thm:ngm}(b)).  If $D_1<D_2$, then $H(D_1,\Rz(D_2))\ge H(D_2,\Rz(D_2))=0$, hence
+  $\Rz(D_1)\ge\Rz(D_2)$.  Suppose $\Rz(D_1)=\Rz(D_2)=:R$ and let $\varphi(D)=H(D,R)$.  Then
+  $\varphi(D_1)=\varphi(D_2)=0$ and $\varphi$ is non-increasing, so $\varphi\equiv0$ on $[D_1,D_2]$; as $\varphi'$ is non-decreasing and
+  non-positive, $\varphi'\equiv0$ on $[D_1,\infty)$, and $0=\lim_{D\to\infty}\varphi(D)=\beta\qmean/R-\gamma$.
+  This is equality in the lower bound of Theorem~\ref{M-s3_r0:thm:bounds} for the generator $D_1\genz$, which
+  forces $q$ to be constant.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{M-s3_r0:prop:expansions}]
+  (i) By \eqref{s3_r0:eq:resolvent}, $\ngm=\ngm(\varepsilon)$ is analytic at $\varepsilon=1/\Dz=0$, with
+  $\ngm(0)=\beta\Qm\stat\one^{\T}/\gamma$ and $\ngm'(0)=\beta\Qm\mathbf{Y}$.  The eigenvalue
+  $r_0=\beta\qmean/\gamma>0$ of the rank-one matrix $\ngm(0)$ is algebraically simple, with right eigenvector
+  $\Qm\stat$ and left eigenvector $\one$; the other eigenvalues are $0$.  By analytic perturbation theory of
+  a simple eigenvalue \citep[Chapter~II, \S1]{kato1995perturbation}, $\ngm(\varepsilon)$ has an analytic
+  eigenvalue $r(\varepsilon)$ with $r(0)=r_0$ and
+  $r'(0)=\one^{\T}\ngm'(0)\Qm\stat/(\one^{\T}\Qm\stat)=\beta\,\qvec^{\T}\mathbf{Y}\Qm\stat/\qmean$, while the
+  other eigenvalues tend to $0$; $r(\varepsilon)$ is real, being the only eigenvalue near $r_0$, and hence
+  $\Rz=r(\varepsilon)$ for small $\varepsilon>0$.  Put $\mathbf{y}=\mathbf{Y}\Qm\stat$.  Because
+  $\one^{\T}\mathbf{Y}=\one^{\T}\mathbf{E}_0\mathbf{Y}=0$ and $-\genz\mathbf{Y}=\Id-\mathbf{E}_0$, $\mathbf{y}$
+  solves the stated system, whose solution is unique since the kernel of $\genz$ is spanned by $\stat$.  $C\ge0$ by Theorem~\ref{M-s3_r0:thm:mobility}(c).  For symmetric
+  rates $\stat=\one/\ncell$ and $\mathbf{Y}=(-\genz)^{+}$.
+
+  (ii) $\ngm(\Dz)=(\beta/\gamma)\Qm(\Id-\Dz\genz/\gamma)^{-1}$ is analytic at $\Dz=0$, with
+  $\ngm(0)=(\beta/\gamma)\Qm$ and $\ngm'(0)=(\beta/\gamma^2)\Qm\genz$.  The diagonal matrix $\ngm(0)$ has the
+  semisimple eigenvalue $\varrho_0=\beta\qmax/\gamma$, whose eigenprojection is the coordinate projection
+  $\mathbf{E}_Z$ onto $Z$.  By the reduction process for a semisimple eigenvalue
+  \citep[Chapter~II, \S2]{kato1995perturbation}, the eigenvalues of $\ngm(\Dz)$ near $\varrho_0$ are
+  $\varrho_0+\Dz\,\sigma_j+o(\Dz)$, where the $\sigma_j$ are the eigenvalues of
+  $\mathbf{E}_Z\ngm'(0)\mathbf{E}_Z$ on the range of $\mathbf{E}_Z$, that is, of
+  $(\beta\qmax/\gamma^2)\,\genz[Z,Z]$.  All other eigenvalues stay near values $\beta q_x/\gamma<\varrho_0$, so
+  for small $\Dz$ the spectral radius is the largest modulus in this group,
+  $\varrho_0+\Dz\max_j\operatorname{Re}\sigma_j+o(\Dz)$, and the largest real part of the eigenvalues of
+  $\genz[Z,Z]$ is $\sabs(\genz[Z,Z])=-\mu^0_Z$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{M-s3_r0:prop:zone}]
+  $\muZ\ge0$ by (P2).  If $Z=\cells$ the claim is $\Rz\ge\beta\qmin/\gamma$, which follows from
+  $\ngm\ge\beta\qmin\Vm^{-1}$ and (P4).  Otherwise let $Z'=\cells\setminus Z$ and write $\Vm$ in blocks.  The
+  column sums of $\Vm_{ZZ}$ and of $\Vm_{Z'Z'}$ are at least $\gamma$, so both are non-singular M-matrices
+  (P5).  The block-inverse formula gives $(\Vm^{-1})_{ZZ}=S^{-1}$ with the Schur complement
+  $S=\Vm_{ZZ}-\Vm_{ZZ'}\Vm_{Z'Z'}^{-1}\Vm_{Z'Z}$.  Because $\Vm_{ZZ'},\Vm_{Z'Z}\le0$ and
+  $\Vm_{Z'Z'}^{-1}\ge0$, we have $S\le\Vm_{ZZ}$; $S$ has non-positive off-diagonal entries and
+  $S^{-1}=(\Vm^{-1})_{ZZ}\ge0$, so it is a non-singular M-matrix and $S^{-1}\ge\Vm_{ZZ}^{-1}\ge0$ by (P5).
+  Therefore $\ngm[Z,Z]=\beta\Qm_Z(\Vm^{-1})_{ZZ}\ge\beta q_Z\Vm_{ZZ}^{-1}$, and by (P4)
+  $\Rz\ge\srad(\ngm[Z,Z])\ge\beta q_Z\,\srad(\Vm_{ZZ}^{-1})$.  Finally $\Vm_{ZZ}=\gamma\Id-\gen[Z,Z]$, and the
+  Metzler matrix $\gen[Z,Z]$ has the eigenvalue $-\muZ$ with a non-negative eigenvector, so
+  $\srad(\Vm_{ZZ}^{-1})\ge1/(\gamma+\muZ)$.
+\end{proof}
+
+Together with Theorem~\ref{M-s3_r0:thm:bounds},
+$\max\bigl\{\beta\qmean/\gamma,\ \max_Z\beta q_Z/(\gamma+\muZ)\bigr\}\le\Rz\le\beta\qmax/\gamma$, and by
+Proposition~\ref{M-s3_r0:prop:expansions}(ii) the zone bound with $Z=\{x:q_x=\qmax\}$ is sharp to first order
+as $\Dz\to0$.
+
+\begin{proof}[Proof of Theorem~\ref{M-s3_r0:thm:edges}]
+  Symmetric rates satisfy detailed balance with uniform $\stat$, and
+  $\dirich(v)=\sum_{\{x,y\}}\hop{x}{y}(v_x-v_y)^2$, summed over edges, is non-decreasing in each edge rate
+  for every fixed $v$.  Both expressions in \eqref{s3_r0:eq:rayleigh} are therefore maxima of functions that
+  are non-increasing in each edge rate.  The harmonic mean $2D_xD_y/(D_x+D_y)$ is increasing in $D_x$ and
+  $D_y$, and closing an edge sets its rate to zero; the proof of Theorem~\ref{s3_r0:thm:rayleigh} does not use
+  irreducibility when the rates are symmetric.
+\end{proof}
+
+\subsection{Contact kernels}
+
+\begin{proof}[Proof of Proposition~\ref{M-s3_r0:prop:kernel}]
+  (i) $\Fm\ge0$, and $\Fm\ne0$ because the column of $\ker^{\T}\Qm$ belonging to a cell with $q_z>0$ is $q_z$
+  times a probability vector; Theorem~\ref{M-s3_r0:thm:ngm} was proved for such $\Fm$.
+
+  (ii) Let $\wvec\ge0$, $\wvec\ne0$ with $\ngm\wvec=\Rz\wvec$ (P4).  Multiplying by $\one^{\T}$ gives
+  $\sum_x\noff(x)w_x=\Rz\sum_xw_x$: $\Rz$ is a weighted mean of the column sums $\noff(x)$, which lie between
+  $\beta\qmin/\gamma$ and $\beta\qmax/\gamma$ by \eqref{M-s3_r0:eq:offspring} and equal $\beta q_0/\gamma$ when
+  $q\equiv q_0$.
+
+  (iii) By \eqref{s3_r0:eq:resolvent}, $\ngm\to\beta\ker^{\T}\Qm\stat\one^{\T}/\gamma$ as $\Dz\to\infty$, of
+  rank one with eigenvalue $\beta\one^{\T}\ker^{\T}\Qm\stat/\gamma=\beta\qmean/\gamma$; and
+  $\ngm\to\beta\ker^{\T}\Qm/\gamma$ as $\Dz\to0$.
+
+  (iv) In the example $\Fm e_1=\beta(\tfrac12,\tfrac12,0)^{\T}$, $\Fm e_2=0$,
+  $\Fm e_3=\beta(0,\tfrac12,\tfrac12)^{\T}$, and $\ngm$ commutes with the reflection that exchanges cells $1$
+  and $3$.  On the antisymmetric vector $d=(1,0,-1)^{\T}$, $\genz d=-d$ and $\Fm d=\tfrac12\beta d$, giving the
+  eigenvalue $\beta/(2(\gamma+\Dz))$.  On the symmetric subspace, spanned by $a=(1,0,1)^{\T}$ and
+  $b=(0,1,0)^{\T}$, $\Fm$ has rank one with range spanned by $f=\tfrac12a+b$, so the only non-zero eigenvalue
+  is $\beta$ times the $a$-coordinate of $\Vm^{-1}f$.  With $\genz a=-a+2b$ and $\genz b=a-2b$, solving the
+  $2\times2$ system gives
+  \[
+     \Rz(\Dz)=\frac{\beta}{\gamma}\,\frac{\gamma+4\Dz}{2\gamma+6\Dz},
+  \]
+  which is not smaller than the antisymmetric eigenvalue, equals $\beta/(2\gamma)$ at $\Dz=0$, increases strictly with
+  $\Dz$ and tends to $2\beta/(3\gamma)=\beta\langle q\rangle/\gamma$.
+\end{proof}
+% src: data/plan_theory_checks.json: checks/kernel_counterexample_q=[1.0, 0.0, 1.0] (0.500, 0.503, 0.529,
+%      0.614, 0.659, 0.666, 0.6667 at D0 = 0, 0.001, 0.01, 0.1, 1, 10, 1000 with gamma = 0.14);
+%      closed form checked to 8e-14 in data/s3_r0_checks.json: kernel_closed_form_max_abs_diff
+
+With $q=(1,0.2,1)$ the same
+three cells give $\Rz=0.620\,\beta/\gamma$ at $\Dz=0$ against $\beta\langle q\rangle/\gamma=0.733\,\beta/\gamma$.
+% src: data/plan_theory_checks.json: checks/kernel_counterexample_q=[1.0, 0.2, 1.0]
+
+\subsection{Further numbers for the office scene and their verification}\label{appS_r0:sec:numbers}
+
+At $\Dz=1\cellday$, between the two regimes of Proposition~\ref{M-s3_r0:prop:expansions}, the errors of the fast- and
+the slow-mixing expansion of the office scene are $0.17$ and $0.09$.
+% src: data/s3_r0_checks.json: office/expansions/rows (err_fast, err_slow)
+
+The statements of this section were tested on random instances of four families of generators (lattices with
+symmetric, departure-site and non-reversible rates, and dense matrices), and the proofs were re-derived and the
+computations re-implemented in the re-check (Section~\ref{appA_numerics:sec}). The worked-example numbers for the
+canonical scenes in Sections~\ref{M-s3_r0:sec:scenes}, \ref{M-s4_geometry:sec:hotspots} and~\ref{M-s4_geometry:sec:examples}
+of the main text and in Section~\ref{appS_geometry:sec} were computed after that re-check, which had checked the
+same quantities on another office layout (the first of the two alternative floor plans of
+Section~\ref{M-s3_r0:sec:scenes}: $\Rz=5.109$, a residence time of $110.6$ days in the meeting room and $97.2\pct$ of
+the elasticity there, against $5.107$, $114$ days and $98.1\pct$ in the canonical scene). On the canonical scenes it
+recomputed only $\Rz$ (the office at $\Dz=0.03$, $1$, $10$ and $100$, the other scenes at $\Dz=1$) and
+$\srad(\ngmone)$. The other worked-example numbers were cross-checked by a second script written as part of the
+same analysis, not by the re-check.
+% src: data/bsc_theory/verify_theorems.json: T2 (n_instances 2000, max_viol_upper 4.0e-14, max_viol_lower 2.3e-15)
+% src: data/checks/theory.json: office_layout_O1 (elasticity share M 97.23 %, R0 5.1090, 1/mu_M = 110.6 days); data/checks/simulation.json: office_mean_field_R0 (5.348 / 5.107 / 4.676 / 4.646), office_rho_K1, scene_mean_field_R0_D0_1_kernel_1m, scene_mean_field_R0_D0_1_same_cell (notes/VERIFICATION.md: Section 4.1, theory item 11, item 16; Section 4.2, simulations item 3, item 4, item 5); data/plan_theory_checks.json: office/D0=1/elasticity_share/M (0.981)

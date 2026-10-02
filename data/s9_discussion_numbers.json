@@ -1,0 +1,917 @@
+{
+ "office_R0_lower_bound": {
+  "value": 4.642857142857141,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.lower_bound"
+ },
+ "office_R0_upper_bound": {
+  "value": 5.357142857142857,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.upper_bound"
+ },
+ "office_R0_D0_1": {
+  "value": 5.107294682670594,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.D0=1.R0"
+ },
+ "office_excess_pct_D0_1": {
+  "value": 10.003270088290094,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.mobility_table[D0=1].excess_pct"
+ },
+ "office_excess_pct_D0_10": {
+  "value": 0.719158318725488,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.mobility_table[D0=10].excess_pct"
+ },
+ "office_excess_pct_D0_100": {
+  "value": 0.06434359465046224,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.mobility_table[D0=100].excess_pct"
+ },
+ "office_excess_pct_D0_2400": {
+  "value": 0.002655512916183156,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.mobility_table[D0=2400].excess_pct"
+ },
+ "office_excess_pct_D0_48700": {
+  "value": 0.0001308142580036531,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.mobility_table[D0=48700].excess_pct"
+ },
+ "office_meeting_room_exit_time_days": {
+  "value": 114.04393969396997,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.zone_bound_meeting_room.exit_time_days"
+ },
+ "office_R0_corridor_x1": {
+  "value": 5.107294682670609,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.corridor_multiplier_symmetric.x1"
+ },
+ "office_R0_corridor_x0.3": {
+  "value": 5.159195304807267,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.corridor_multiplier_symmetric.x0.3"
+ },
+ "office_R0_corridor_x0.1": {
+  "value": 5.2215799348319605,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.corridor_multiplier_symmetric.x0.1"
+ },
+ "office_R0_corridor_x0.01": {
+  "value": 5.325419862551637,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.corridor_multiplier_symmetric.x0.01"
+ },
+ "office_partitions_walls_10pct_change_pct": {
+  "value": 0.008866716926858587,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.partitions.walls_10pct.change_pct"
+ },
+ "office_partitions_walls_100pct_change_pct": {
+  "value": 0.07969943218366637,
+  "src": "data/plan_theory_checks.json",
+  "key": "office.partitions.walls_100pct.change_pct"
+ },
+ "physical_D0_walk5pct": {
+  "value": 2433.6000000000004,
+  "src": "data/bsc_theory/worked_examples.json",
+  "key": "E9_physical_D[walking 5% of the time: 0.05 * v^2 tau/2 (v=1.3 m/s, tau=1.5 s)].D0_lattice2_per_day"
+ },
+ "physical_D0_continuous": {
+  "value": 48672.0,
+  "src": "data/bsc_theory/worked_examples.json",
+  "key": "E9_physical_D[continuous walking: v^2 tau/2].D0_lattice2_per_day"
+ },
+ "office_counted_R": {
+  "value": 2.2615,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "office|D0=1|range1m.R_index_alone_mean"
+ },
+ "office_counted_R_se": {
+  "value": 0.05689180269253914,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "office|D0=1|range1m.R_index_alone_se"
+ },
+ "office_R1bar": {
+  "value": 2.2661316131497764,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "office|D0=1|range1m.R1_pair_uniform_index"
+ },
+ "office_p_major": {
+  "value": 0.496,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "office|D0=1|range1m.p_major"
+ },
+ "office_p_branching": {
+  "value": 0.7814099064363258,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "office|D0=1|range1m.p_major_branching"
+ },
+ "p_major_metro|D0=1|range1m": {
+  "value": 0.879,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|range1m.p_major"
+ },
+ "n_rep_metro|D0=1|range1m": {
+  "value": 2000,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|range1m.n_rep"
+ },
+ "p_major_metro|D0=1|samecell": {
+  "value": 0.0,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|samecell.p_major"
+ },
+ "n_rep_metro|D0=1|samecell": {
+  "value": 2000,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|samecell.n_rep"
+ },
+ "p_major_classroom|D0=1|range1m": {
+  "value": 0.614,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "classroom|D0=1|range1m.p_major"
+ },
+ "n_rep_classroom|D0=1|range1m": {
+  "value": 2000,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "classroom|D0=1|range1m.n_rep"
+ },
+ "p_major_classroom|D0=1|samecell": {
+  "value": 0.2755,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "classroom|D0=1|samecell.p_major"
+ },
+ "n_rep_classroom|D0=1|samecell": {
+  "value": 2000,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "classroom|D0=1|samecell.n_rep"
+ },
+ "metro_samecell_R0": {
+  "value": 9.836141564254097,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|samecell.R0_ngm"
+ },
+ "metro_samecell_R1bar": {
+  "value": 1.5137677042882498,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|samecell.R1_pair_uniform_index"
+ },
+ "metro_samecell_rhoK1": {
+  "value": 2.243696674016829,
+  "src": "data/bsc_sim/03_scenes.json",
+  "key": "metro|D0=1|samecell.R1_pair_ngm"
+ },
+ "metro_samecell_check_runs": {
+  "value": 3000,
+  "src": "code/bsc_sim/verify/v05_scenes.json",
+  "key": "metro|1.0|same.n"
+ },
+ "metro_samecell_check_p_major": {
+  "value": 0.0,
+  "src": "code/bsc_sim/verify/v05_scenes.json",
+  "key": "metro|1.0|same.p_major"
+ },
+ "office_8h_D0_1_R0_continuous": {
+  "value": 5.107294682670609,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.R0_continuous"
+ },
+ "office_8h_D0_1_R0_duty_cycle": {
+  "value": 1.7541252924183484,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.R0_duty_cycle"
+ },
+ "office_8h_D0_1_wellmixed_duty_cycle": {
+  "value": 1.547619047619047,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.wellmixed_duty_cycle"
+ },
+ "office_8h_D0_1_R1_pair_duty_cycle": {
+  "value": 0.8885499999683885,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.R1_pair_duty_cycle"
+ },
+ "office_8h_D0_1_sim_R_schedule": {
+  "value": 0.9182,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.sim_R_schedule"
+ },
+ "office_8h_D0_1_sim_R_schedule_lo": {
+  "value": 0.9014223425618993,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.sim_R_schedule_lo"
+ },
+ "office_8h_D0_1_sim_R_schedule_hi": {
+  "value": 0.9349776574381007,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.sim_R_schedule_hi"
+ },
+ "office_8h_D0_1_p_major": {
+  "value": 0.061,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.p_major"
+ },
+ "office_8h_D0_1_per_visit_meanfield": {
+  "value": 0.21168884409378336,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.per_visit_meanfield"
+ },
+ "office_8h_D0_1_per_visit_sim": {
+  "value": 0.175285,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=1.per_visit_sim"
+ },
+ "office_8h_D0_10_R0_continuous": {
+  "value": 4.676246636226544,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.R0_continuous"
+ },
+ "office_8h_D0_10_R0_duty_cycle": {
+  "value": 1.5959201519372417,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.R0_duty_cycle"
+ },
+ "office_8h_D0_10_wellmixed_duty_cycle": {
+  "value": 1.547619047619047,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.wellmixed_duty_cycle"
+ },
+ "office_8h_D0_10_R1_pair_duty_cycle": {
+  "value": 1.3349383069096534,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.R1_pair_duty_cycle"
+ },
+ "office_8h_D0_10_sim_R_schedule": {
+  "value": 1.4078,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.sim_R_schedule"
+ },
+ "office_8h_D0_10_sim_R_schedule_lo": {
+  "value": 1.3839074964635545,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.sim_R_schedule_lo"
+ },
+ "office_8h_D0_10_sim_R_schedule_hi": {
+  "value": 1.4316925035364454,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.sim_R_schedule_hi"
+ },
+ "office_8h_D0_10_p_major": {
+  "value": 0.302,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.p_major"
+ },
+ "office_8h_D0_10_per_visit_meanfield": {
+  "value": 0.21168884409378336,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.per_visit_meanfield"
+ },
+ "office_8h_D0_10_per_visit_sim": {
+  "value": 0.1983,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "office|D0=10.per_visit_sim"
+ },
+ "supermarket_per_visit_meanfield": {
+  "value": 0.008554414900352894,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "supermarket|D0=1.per_visit_meanfield"
+ },
+ "supermarket_visit_hours": {
+  "value": 0.45,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "supermarket|D0=1.visit_hours"
+ },
+ "classroom_per_visit_meanfield": {
+  "value": 0.027369419241537307,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "classroom|D0=1.per_visit_meanfield"
+ },
+ "classroom_visit_hours": {
+  "value": 1.0,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "classroom|D0=1.visit_hours"
+ },
+ "metro_per_visit_meanfield": {
+  "value": 0.017590916868663743,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "metro|D0=1.per_visit_meanfield"
+ },
+ "metro_visit_hours": {
+  "value": 0.3333333333333333,
+  "src": "data/bsc_sim/11_dwell_time.json",
+  "key": "metro|D0=1.visit_hours"
+ },
+ "office_8h_D0_1_counted_check_pooled": {
+  "value": [
+   0.928,
+   0.003
+  ],
+  "src": "notes/VERIFICATION.md",
+  "key": "Section 4.2, simulations.checks[item 13].reason"
+ },
+ "iv_D0_1_baseline_attack_all": {
+  "value": 0.23221499999999998,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|baseline|FD.attack_all_mean"
+ },
+ "iv_D0_1_partitions_attack_all": {
+  "value": 0.16587,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|partitions (+39 barrier cells)|FD.attack_all_mean"
+ },
+ "iv_D0_1_partitions_attack_change_pct": {
+  "value": -28.570505781280275,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "derived: ratio of the two above"
+ },
+ "iv_D0_1_baseline_R1bar": {
+  "value": 2.2661316131497764,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|baseline|FD.R1_pair_uniform"
+ },
+ "iv_D0_1_capacity_FD_R1bar": {
+  "value": 1.521396028340692,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|capacity 50 %|FD.R1_pair_uniform"
+ },
+ "iv_D0_1_capacity_DD_R1bar": {
+  "value": 1.1216206974175662,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|capacity 50 %|DD.R1_pair_uniform"
+ },
+ "iv_D0_1_capacity_FD_R0": {
+  "value": 5.107294682670609,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|capacity 50 %|FD.R0_ngm"
+ },
+ "iv_D0_1_capacity_DD_R0": {
+  "value": 2.5278529237460594,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|capacity 50 %|DD.R0_ngm"
+ },
+ "iv_D0_1_ventilation_R0": {
+  "value": 2.5536473413353047,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|ventilation q x 0.5|FD.R0_ngm"
+ },
+ "iv_D0_1_masks_R0": {
+  "value": 1.5321884048011893,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=1|masks beta x 0.3|FD.R0_ngm"
+ },
+ "iv_D0_10_baseline_attack_all": {
+  "value": 0.73679,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|baseline|FD.attack_all_mean"
+ },
+ "iv_D0_10_partitions_attack_all": {
+  "value": 0.6934649999999999,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|partitions (+39 barrier cells)|FD.attack_all_mean"
+ },
+ "iv_D0_10_partitions_attack_change_pct": {
+  "value": -5.8802372453480745,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "derived: ratio of the two above"
+ },
+ "iv_D0_10_baseline_R1bar": {
+  "value": 3.79338429642025,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|baseline|FD.R1_pair_uniform"
+ },
+ "iv_D0_10_capacity_FD_R1bar": {
+  "value": 3.21519103958436,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|capacity 50 %|FD.R1_pair_uniform"
+ },
+ "iv_D0_10_capacity_DD_R1bar": {
+  "value": 1.877533641662548,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|capacity 50 %|DD.R1_pair_uniform"
+ },
+ "iv_D0_10_capacity_FD_R0": {
+  "value": 4.676246636226544,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|capacity 50 %|FD.R0_ngm"
+ },
+ "iv_D0_10_capacity_DD_R0": {
+  "value": 2.314505910859603,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|capacity 50 %|DD.R0_ngm"
+ },
+ "iv_D0_10_ventilation_R0": {
+  "value": 2.338123318113272,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|ventilation q x 0.5|FD.R0_ngm"
+ },
+ "iv_D0_10_masks_R0": {
+  "value": 1.402873990867966,
+  "src": "data/bsc_sim/08_interventions.json",
+  "key": "office|D0=10|masks beta x 0.3|FD.R0_ngm"
+ },
+ "occupancy_D0_1_N_50_FD_R1bar": {
+  "value": 1.521396028340692,
+  "src": "data/bsc_sim/07_occupancy.json",
+  "key": "D0=1|N=50|FD.R1_pair_uniform"
+ },
+ "occupancy_D0_1_N_50_FD_R0": {
+  "value": 5.107294682670609,
+  "src": "data/bsc_sim/07_occupancy.json",
+  "key": "D0=1|N=50|FD.R0_ngm"
+ },
+ "occupancy_D0_1_N_100_FD_R1bar": {
+  "value": 2.2661316131497764,
+  "src": "data/bsc_sim/07_occupancy.json",
+  "key": "D0=1|N=100|FD.R1_pair_uniform"
+ },
+ "occupancy_D0_1_N_100_FD_R0": {
+  "value": 5.107294682670609,
+  "src": "data/bsc_sim/07_occupancy.json",
+  "key": "D0=1|N=100|FD.R0_ngm"
+ },
+ "occupancy_D0_1_N_400_FD_R1bar": {
+  "value": 3.6495908554559837,
+  "src": "data/bsc_sim/07_occupancy.json",
+  "key": "D0=1|N=400|FD.R1_pair_uniform"
+ },
+ "occupancy_D0_1_N_400_FD_R0": {
+  "value": 5.107294682670609,
+  "src": "data/bsc_sim/07_occupancy.json",
+  "key": "D0=1|N=400|FD.R0_ngm"
+ },
+ "barriers_attack_0": {
+  "value": [
+   0.6116385,
+   0.004000293523685611
+  ],
+  "src": "code/bsc_sim/verify/v08b_obstacles_many.json",
+  "key": "0.0.ar [mean, SE over layouts]"
+ },
+ "barriers_attack_10pct": {
+  "value": [
+   0.5642064999999999,
+   0.004944368028243645
+  ],
+  "src": "code/bsc_sim/verify/v08b_obstacles_many.json",
+  "key": "0.1.ar"
+ },
+ "barriers_diff_10pct_attack": {
+  "value": [
+   -0.04743199999999999,
+   0.003766906627255517
+  ],
+  "src": "code/bsc_sim/verify/v08b_obstacles_many.json",
+  "key": "diff_0.1_ar"
+ },
+ "barriers_diff_10pct_peak_day": {
+  "value": [
+   0.8171656402931298,
+   0.09649214551691641
+  ],
+  "src": "code/bsc_sim/verify/v08b_obstacles_many.json",
+  "key": "diff_0.1_pkt"
+ },
+ "het_D0_1_R0_ngm": {
+  "value": [
+   4.285714285714296,
+   4.972005917340051
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=1|N=100|c=0.0000 and c=0.5833: R0_ngm"
+ },
+ "het_D0_1_sim_R_perron": {
+  "value": [
+   2.75155,
+   2.1002
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=1|N=100|c=0.0000 and c=0.5833: sim_R_perron"
+ },
+ "het_D0_1_p_major": {
+  "value": [
+   0.5415,
+   0.4595
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=1|N=100|c=0.0000 and c=0.5833: p_major"
+ },
+ "het_D0_1_attack_all": {
+  "value": [
+   0.34743499999999994,
+   0.23085499999999995
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=1|N=100|c=0.0000 and c=0.5833: attack_all"
+ },
+ "het_D0_10_R0_ngm": {
+  "value": [
+   4.285714285714264,
+   4.426699155090114
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=10|N=100|c=0.0000 and c=0.5833: R0_ngm"
+ },
+ "het_D0_10_sim_R_perron": {
+  "value": [
+   3.6491,
+   3.5892
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=10|N=100|c=0.0000 and c=0.5833: sim_R_perron"
+ },
+ "het_D0_10_p_major": {
+  "value": [
+   0.748,
+   0.744
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=10|N=100|c=0.0000 and c=0.5833: p_major"
+ },
+ "het_D0_10_attack_all": {
+  "value": [
+   0.729195,
+   0.7169500000000001
+  ],
+  "src": "data/bsc_sim/05_heterogeneity.json",
+  "key": "D0=10|N=100|c=0.0000 and c=0.5833: attack_all"
+ },
+ "holdout_T1_M2_p": {
+  "value": 0.37770955211317436,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T1.M2.p_two_sided"
+ },
+ "holdout_T1_M0_p": {
+  "value": 0.20412478423837432,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T1.M0.p_two_sided"
+ },
+ "holdout_T1_M2_rr_pred": {
+  "value": 2.3916498764635814,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T1.M2.rr_pred"
+ },
+ "holdout_T1_rr_obs": {
+  "value": 1.6026936026936027,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T1.M2.rr_obs"
+ },
+ "holdout_T2_M2_p": {
+  "value": 0.006935514840695797,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T2.M2.p_two_sided"
+ },
+ "holdout_T2_M0_p": {
+  "value": 1.0,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T2.M0.p_two_sided"
+ },
+ "holdout_T2_M2_rr_pred": {
+  "value": 10.881454371718647,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T2.M2.rr_pred"
+ },
+ "holdout_T2_rr_obs": {
+  "value": 1.026315789473684,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T2.M2.rr_obs"
+ },
+ "holdout_T5_M2_p": {
+  "value": 0.6080510494061762,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T5.M2.p_two_sided"
+ },
+ "holdout_T5_M0_p": {
+  "value": 0.0007700246090338972,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T5.M0.p_two_sided"
+ },
+ "holdout_T5_M2_rr_pred": {
+  "value": 3.589924280298697,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T5.M2.rr_pred"
+ },
+ "holdout_T5_rr_obs": {
+  "value": 7.333333333333333,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.T5.M2.rr_obs"
+ },
+ "holdout_C1_M2_p": {
+  "value": 0.11488354653462357,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.C1.M2.p_two_sided"
+ },
+ "holdout_C1_M0_p": {
+  "value": 0.03607484183604792,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.C1.M0.p_two_sided"
+ },
+ "holdout_C1_M2_rr_pred": {
+  "value": 5.223655818204221,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.C1.M2.rr_pred"
+ },
+ "holdout_C1_rr_obs": {
+  "value": 2.8000000000000003,
+  "src": "data/bsc_validation/03_holdout_shape.json",
+  "key": "events.C1.M2.rr_obs"
+ },
+ "callcentre_quadrature": {
+  "value": {
+   "equal_weight": 0.006769122849058618,
+   "pooled_weight": 0.012751085280562938,
+   "prior_upper_limit_sensitivity": {
+    "1e2": {
+     "equal": 0.0008578020118565023,
+     "pooled": 0.0014861130638485823
+    },
+    "1e3": {
+     "equal": 0.0037320160591075148,
+     "pooled": 0.007067582800759041
+    },
+    "1e4": {
+     "equal": 0.006769122849058617,
+     "pooled": 0.012751085280562936
+    },
+    "1e6_flat_extension": {
+     "equal": 0.01271152044154937,
+     "pooled": 0.023768988452865562
+    }
+   },
+   "P_zero_at_all_grid_values_up_to_m2h": 5.623413251903491,
+   "weight_sensitivity_at_or_below_0.1": {
+    "retained_fraction_halved": 0.013655262473246726,
+    "retained_fraction_zero": 0.014697456503691921
+   },
+   "posterior_mass_at_or_below_0.1": 0.17909544325695262
+  },
+  "src": "data/validation_checks/callcentre_quadrature.json",
+  "key": "(scalar fields)"
+ },
+ "classroom_at_restaurant_mode": {
+  "value": {
+   "D_m2_per_h": 0.501,
+   "p": 0.0009
+  },
+  "src": "data/validation_checks/v11_breakdown.txt",
+  "key": "line 'at posterior mode'"
+ },
+ "classroom_with_train_coefficient": {
+  "value": {
+   "p": 0.593,
+   "expected_near_cases": 8.74
+  },
+  "src": "data/validation_checks/v11_breakdown.txt",
+  "key": "line 'C1 with the train-calibrated D_air'"
+ },
+ "coach_at_train_mode_p": {
+  "value": 0.0012,
+  "src": "data/validation_checks/v11_breakdown.txt",
+  "key": "line 'T2 at train posterior mode'"
+ },
+ "preferred_D_air_alone_m2_per_h": {
+  "value": {
+   "T1": 63.095734448019364,
+   "T2": 6309.573444801943,
+   "T5": 0.06309573444801933
+  },
+  "src": "data/validation_checks/v10_c1_loo.txt",
+  "key": "lines '<event> D preferred alone'"
+ },
+ "train_preferred_D_air": {
+  "value": 25.11886431509582,
+  "src": "data/validation_checks/v10_c1_loo.txt",
+  "key": "T4 preferred"
+ },
+ "common_D_test": {
+  "value": {
+   "LR": 9.559783182949957,
+   "df": 3,
+   "p": 0.022703799336940604
+  },
+  "src": "data/validation_checks/v10_c1_loo.txt",
+  "key": "line 'sum of maxima ... LR'"
+ },
+ "generic_constant_RR_model": {
+  "value": [
+   {
+    "RR": 1.5,
+    "pooled_delta": 5.86,
+    "failures": "['T5']"
+   },
+   {
+    "RR": 2.0,
+    "pooled_delta": 7.63,
+    "failures": "[]"
+   },
+   {
+    "RR": 2.5,
+    "pooled_delta": 7.74,
+    "failures": "[]"
+   },
+   {
+    "RR": 3.0,
+    "pooled_delta": 7.09,
+    "failures": "[]"
+   },
+   {
+    "RR": 4.0,
+    "pooled_delta": 4.75,
+    "failures": "['T1']"
+   },
+   {
+    "RR": 5.0,
+    "pooled_delta": 1.77,
+    "failures": "['T1', 'T2']"
+   },
+   {
+    "RR": 8.0,
+    "pooled_delta": -39.47,
+    "failures": "['T1', 'T2', 'C1']"
+   }
+  ],
+  "src": "data/validation_checks/v05_generic.txt",
+  "key": "lines 'constant RR='"
+ },
+ "M2_pooled_delta_check": {
+  "value": 3.7553379322425577,
+  "src": "data/validation_checks/v05_generic.txt",
+  "key": "first line"
+ },
+ "pooled_delta_without_flight": {
+  "value": -2.16,
+  "src": "data/validation_checks/v12_pooled_variants.txt",
+  "key": "line 'without T5'"
+ },
+ "M1_ceiling_bus_mean_total": {
+  "value": [
+   8.9,
+   7.5,
+   12.2
+  ],
+  "src": "data/bsc_validation/tables.md",
+  "key": "Table V8, row T1"
+ },
+ "emission_choir_quanta_per_h": {
+  "value": 2734.0,
+  "src": "data/bsc_validation/tables.md",
+  "key": "Table V10, row H1"
+ },
+ "emission_coach_quanta_per_h": {
+  "value": 36.0,
+  "src": "data/bsc_validation/tables.md",
+  "key": "Table V10, row T2"
+ },
+ "restaurant_tracer_vs_M2": {
+  "value": [
+   {
+    "table": "TB",
+    "tracer_rel": 0.87,
+    "M2_exposure_rel": 0.0013
+   },
+   {
+    "table": "TC",
+    "tracer_rel": 0.98,
+    "M2_exposure_rel": 0.0031
+   },
+   {
+    "table": "T10",
+    "tracer_rel": 0.55,
+    "M2_exposure_rel": 0.0
+   },
+   {
+    "table": "T15",
+    "tracer_rel": 0.58,
+    "M2_exposure_rel": 0.0
+   },
+   {
+    "table": "T16",
+    "tracer_rel": 0.7,
+    "M2_exposure_rel": 0.0
+   },
+   {
+    "table": "T17",
+    "tracer_rel": 0.86,
+    "M2_exposure_rel": 0.0
+   },
+   {
+    "table": "T18",
+    "tracer_rel": 0.73,
+    "M2_exposure_rel": 0.0009
+   }
+  ],
+  "src": "data/bsc_validation/tables.md",
+  "key": "Table V20"
+ },
+ "dataset_n_records": {
+  "value": 27,
+  "src": "data/bsc_outbreaks/outbreaks.json",
+  "key": "number of records"
+ },
+ "office_D0_1_counted_large_sample": {
+  "value": [
+   2.2647524999999993,
+   0.003897370467156723,
+   400000
+  ],
+  "src": "data/s5_pair_large_sample.json",
+  "key": "office|D0=1.mean, se, n_runs"
+ },
+ "office_D0_1_R1bar_exact": {
+  "value": 2.2661316131497764,
+  "src": "data/s5_pair_large_sample.json",
+  "key": "office|D0=1.R1bar_exact"
+ },
+ "office_D0_10_counted_large_sample": {
+  "value": [
+   3.793005000000001,
+   0.0063942986618173245,
+   400000
+  ],
+  "src": "data/s5_pair_large_sample.json",
+  "key": "office|D0=10.mean, se, n_runs"
+ },
+ "office_D0_10_R1bar_exact": {
+  "value": 3.79338429642025,
+  "src": "data/s5_pair_large_sample.json",
+  "key": "office|D0=10.R1bar_exact"
+ },
+ "office_D0_100_counted_large_sample": {
+  "value": [
+   4.339920000000001,
+   0.01451932405844786,
+   100000
+  ],
+  "src": "data/s5_pair_large_sample.json",
+  "key": "office|D0=100.mean, se, n_runs"
+ },
+ "office_D0_100_R1bar_exact": {
+  "value": 4.341068081816088,
+  "src": "data/s5_pair_large_sample.json",
+  "key": "office|D0=100.R1bar_exact"
+ },
+ "office_8h_D0_1_exact_start": {
+  "value": 0.929597741634112,
+  "src": "data/s7_interventions_schedule.json",
+  "key": "duty_exact|office|D0=1.exact_start"
+ },
+ "office_8h_D0_1_exact_uniform_phase": {
+  "value": 0.889193077982689,
+  "src": "data/s7_interventions_schedule.json",
+  "key": "duty_exact|office|D0=1.exact_uniform_phase"
+ },
+ "office_8h_D0_10_exact_start": {
+  "value": 1.3974980929116547,
+  "src": "data/s7_interventions_schedule.json",
+  "key": "duty_exact|office|D0=10.exact_start"
+ },
+ "office_8h_D0_10_exact_uniform_phase": {
+  "value": 1.335906238378156,
+  "src": "data/s7_interventions_schedule.json",
+  "key": "duty_exact|office|D0=10.exact_uniform_phase"
+ },
+ "office_meeting_room_residence_time_days": {
+  "value": 114.04393969396997,
+  "src": "data/s2_model_scenes.json",
+  "key": "office_regime.meeting_room_1_over_mu_Z_days"
+ },
+ "office_meeting_room_mean_exit_time_uniform_start_days": {
+  "value": 111.12645687645674,
+  "src": "data/s2_model_scenes.json",
+  "key": "office_regime.meeting_room_mean_exit_time_uniform_start_days"
+ },
+ "walking_mobility_range_cell2_per_day": {
+  "value": [
+   1368.9,
+   438048.0
+  ],
+  "src": "data/s2_model_scenes.json",
+  "key": "scenes.*.walking_5pct_D0_cell2_per_day (min), walking_D0_cell2_per_day (max)"
+ },
+ "office_barrier_cells_change_pct": {
+  "value": [
+   0.06512209751796671,
+   -1.0722348140353777,
+   -1.4933250076118454
+  ],
+  "src": "data/s4_geometry_barriers_leak.json",
+  "key": "A_partitions.barrier_cells_39_workstations.D0=*.change_pct"
+ },
+ "office_walls_change_pct_D0_1": {
+  "value": [
+   0.008866716926569929,
+   0.03790346573828707,
+   0.06371836669936126,
+   0.07969943218337772
+  ],
+  "src": "data/s4_geometry_barriers_leak.json",
+  "key": "A_partitions.walls.*.D0=1.change_pct"
+ },
+ "closed_form_max_rel_deviation_reflecting_walls": {
+  "value": 0.008990271874900091,
+  "src": "data/s5_pair_checks.json",
+  "key": "finite_size.max_abs_rel_dev_closed_vs_exact"
+ }
+}

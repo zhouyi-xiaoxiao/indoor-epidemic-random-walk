@@ -1,0 +1,32 @@
+source_key,how_check_opened_it,numbers_checked,result
+park2020,Europe PMC JATS full text (fetched 2026-10-01) + EID Fig. 1/2 JPEG (same MD5 as first analysis's copy),"94/216 = 43.5% (36.9-50.4); 97/1143; floors 7th 0/182, 8th 0/207, 9th 1/206, 10th 2/27; household SAR 16.2%; 'same side of the building'; Fig. 2 desk count; Fig. 1 onset counts",confirmed
+mizumoto2020,Europe PMC full text,"634 positive as at 20 Feb; 3,711 on board; asymptomatic proportion 17.9% (15.5-20.2)",confirmed; 18.6% absent
+koh2020,Europe PMC full text,"17 758 cases among est. 295 000 dormitory workers (88% of 20 198 national cases); one dormitory ~13 000 with 2526 cases (19.4%); Diamond Princess 712 (19.2%)",confirmed; no 90% attack rate
+furuse2020,Europe PMC full text,"3,184 cases, 61 clusters, 1 transportation-related (airplane); 712 cruise cases excluded",confirmed
+khanh2020,Europe PMC full text,"business class 13/21 (62%); <2 seats 11 pos/1 neg, >2 seats 1 pos/7 neg, RR 7.3 (1.2-46.2); ~10 h; premium economy 0/35; economy 2/145; crew 1/16",confirmed
+lamhine2021,Europe PMC full text,"24 students, 22 tested, 12 positive; 8/10 vs 4/14, p = 0.036; desks 6 ft apart, five rows; other grade 6 positive of 14 tested (18 students)",confirmed
+luo2020,Europe PMC full text,"coach 11.3 m x 2.5 m, 49 seats, 2.5 h; minibus 5.5 x 2.5 m, 18 seats, 1 h, 2/12; SAR 9/(48+12) = 15%; farthest infectees '7 rows (~4.5 m)'",confirmed
+ou2022,Europe PMC full text,"Table 1 rear rows 8-13 3/19, front rows 1-7 4/26, driver side 6/24 vs 1/20; Table 2 7/46 and 2/17, 200 and 60 min, 1.72 and 3.22 L/s per person; volumes 60.42 and 21.69 m3; 0.62 ACH idling; farthest case seat 1D at 9.46 m",confirmed (positions disagree with Luo 2020)
+li2021,Europe PMC full text,"431 m3 = 3.14 x 17 x 8.1 m; 18 tables, 89 patrons; Table 2 5/16 vs 0/63 and 5/11 vs 0/68; 0.56-0.77 ACH; Table 3 per-table values; overlap 53 and 75 min; up to 4.6 m; onset dates B1 1 Feb, B2 3 Feb, B3 5 Feb, C1 27 Jan, C2 31 Jan",confirmed
+lu2020,Europe PMC full text,"91 persons (83 customers, 8 staff); 145 m2; overlap 53 and 73 min; 'virus had been transmitted to >=1 member of family B and >=1 member of family C at the restaurant and ... further infections in families B and C resulted from within-family transmission'",confirmed; caveat NOT carried into the first analysis
+kwon2020,Europe PMC full text,"2/13 = 15.4%; 9.2 x 10.5 m = 96.6 m2; 6.5 m / 5 min and 4.8 m / 21 min; 1.0 and 1.2 m/s",confirmed
+katelaris2021,Europe PMC full text,"12/508 (2.4%); 5/215, 7/120, 0/173; 85% tested; 70-degree section, 1-15 m; loft 3.5 m; 5 cases possibly household",confirmed
+steinzamir2020,Europe PMC full text,"153/1,161 students (13.2%), staff 25/151 (16.6%); grade table 40/197, 34/197, 61/187, 9/200, 6/195, 3/188; 35-38 per class, 39-49 m2; separate wings",confirmed (senior-wing tested denominator is 580, not 583)
+hershow2021,Europe PMC full text,"51 index patients; 1,041 contacts, 735 tested; 5/728 = 0.7%; mask use 86%; 3 ft",confirmed
+jang2020,Europe PMC full text,"217 students, 26.3% (20.9-32.5); ~60 m2; 50 min; 830 contacts 4.10%; none in classes <5",confirmed (57 is derived)
+weissberg2020,Europe PMC full text,"13-member team, 700 m2 office, ~one quarter; 0.8 m; 67% (35-90) to 83% (52-98); 8 h + 3 h; air renewal 1 h / 15 min; household 39% (17-64)",confirmed
+guenther2020,Europe PMC full text,"20 out of 78 = 25.6%; 32 m x 8.5 m; 2,800 m2, 6.1 m; air exchange rate < 1; P = 2.33e-5 within 8 m; 147 in shift, 140 tested, 18 positive",confirmed
+tian2021,Europe PMC full text,"8437 screened: 93 relatives/friends, 120 employees, 8224 customers; 11 employees + 13 relatives/friends; no customer positive; 9.2% and 14.0%",confirmed
+chen2020tianjin,Europe PMC full text,"43 cases linked to Baodi store, 7 staff, 21 customers",confirmed
+li2022twoclusters,Europe PMC full text,"6 employees and 23 customers; ~3400 m2; ~200 employees; 194 quarantined",confirmed
+cai2020,Europe PMC full text,"7 cases in a floor-7 office; 7 mall staff floors B1-3; 10 customers; 11 close contacts; no denominators",confirmed
+hamner2020,CDC MMWR page as an automated text extraction + Europe PMC abstract,"61 attendees, 53 cases (33 confirmed, 20 probable); 53.3% / 86.7%; 2.5 h (40 + 50 + 15 + 45 min); six rows of 20 chairs, 6-10 inches apart",confirmed (abstract gives the counts; schedule and chairs from the extraction only)
+miller2021,White Rose accepted-manuscript PDF (downloaded by the re-check, pdftotext),"810 m3; 2.5 h; ventilation 0.3-1.0 per h, 0.7 central; 970 +/- 390 quanta/h; nobody within 3 m in front of index; 'broad spatial distribution of secondary infections'",confirmed
+shen2020,JAMA Netw page as an automated text extraction + Europe PMC abstract,"24/68 incl. index, 23/67 = 34.3% (24.1-46.3); bus 1 0/60; 7/172; zones 14/33 vs 9/34 (RR 1.6, 0.8-3.2) and 11/23 vs 12/44 (RR 1.8, 0.9-3.3); 50 min each way; row pitch 0.75 m; index row 8",confirmed; zone counts corroborated because Katz RR and CI recomputed from them reproduce the published 1.6 (0.8-3.2) and 1.8 (0.9-3.3)
+hu2021,OUP page as an automated text extraction + Europe PMC abstract,"2334 index, 234/72,093; mean 0.32%; adjacent 3.5% (2.9-4.3); same row 1.5% (1.3-1.8); Table 1 (23 cells); co-travel mean 2.1 h; +0.15%/h, +1.3%/h adjacent; 1/1342; row spacing 'approximate 0.4 meter'; limitation on family members/friends",confirmed; cell (k n) recovered from CIs sum to 230/72,692 (reported 234/72,093); companion-confounding caveat NOT carried into the first analysis
+nicholls2024,Europe PMC abstract only,"22/40 = 55%; CO2 typically <=1000 ppm; security office 6/9",confirmed at abstract level
+nardell1991,Europe PMC abstract only,"27/67 (40%); 4-wk exposure; 15 cfm per occupant; 13 qph",confirmed at abstract level
+riley1978,Europe PMC abstract only,"28 secondary cases in 14 classrooms; 60 cases; 97% vaccinated; 93 quanta/min",confirmed at abstract level
+moser1979,Europe PMC abstract only,"54 aboard; 3 h; 72% ill",confirmed at abstract level
+lan2021,Europe PMC abstract only,"21/104 (20%); OR 5.1 (1.1-24.8)",confirmed at abstract level
+jiang2021deptstore,Europe PMC (abstract; the 'full text' record holds only abstract + references),no counts used,nothing to check

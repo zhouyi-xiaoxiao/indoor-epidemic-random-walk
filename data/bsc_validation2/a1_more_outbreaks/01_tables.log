@@ -1,0 +1,58 @@
+F1 primary M0 (1, 1273) 0s
+F1 primary CRR (51, 1273) 0s
+F7 primary M0 (1, 15) 0s
+F2 primary M0 (1, 7) 0s
+F7 primary CRR (51, 15) 0s
+F2 primary CRR (51, 7) 0s
+F1 primary M2 (61, 1273) 1s
+F1 primary M1 (61, 1273) 1s
+F1 primary M3 (31, 11, 1273) 2s
+F3 primary M0 (1, 20) 0s
+F3 primary CRR (51, 20) 0s
+F3 primary M2 (61, 20) 0s
+F3 primary M1 (61, 20) 0s
+F3 primary M3 (31, 11, 20) 1s
+F2 primary M2 (61, 7) 4s
+F5 primary M0 (1, 666) 0s
+F5 primary CRR (51, 666) 0s
+F5 primary M2 (61, 666) 0s
+F7 primary M2 (61, 15) 4s
+F5 primary M1 (61, 666) 0s
+F5 primary M3 (31, 11, 666) 1s
+F6 primary M0 (1, 364) 0s
+F6 primary CRR (51, 364) 0s
+F2 primary M1 (61, 7) 7s
+F6 primary M2 (61, 364) 0s
+F6 primary M1 (61, 364) 0s
+F6 primary M3 (31, 11, 364) 1s
+F7 primary M1 (61, 15) 8s
+F8 primary M0 (1, 10) 0s
+F8 primary CRR (51, 10) 0s
+F8 primary M2 (61, 10) 0s
+F8 primary M1 (61, 10) 0s
+F8 primary M3 (31, 11, 10) 1s
+F4 primary M0 (1, 220) 0s
+F4 primary CRR (51, 220) 0s
+F4 primary M2 (61, 220) 0s
+F4 primary M1 (61, 220) 1s
+F4 primary M3 (31, 11, 220) 2s
+F2 primary M3 (31, 11, 7) 22s
+W2 primary M0 (1, 396) 12s
+W2 primary CRR (51, 396) 13s
+W2 primary M2 (61, 396) 13s
+W2 primary M1 (61, 396) 13s
+W2 primary M3 (31, 11, 396) 13s
+F7 primary M3 (31, 11, 15) 26s
+done F1 F3 F5 F6 F8 F4 W2
+P1 primary M0 (1, 1475) 0s
+P1 primary CRR (51, 1475) 0s
+W1 primary M0 (1, 26) 4s
+W1 primary CRR (51, 26) 4s
+W1 primary M2 (61, 26) 6s
+W1 primary M1 (61, 26) 8s
+P1 primary M2 (61, 1475) 7s
+W1 primary M3 (31, 11, 26) 14s
+done F2 W1
+P1 primary M1 (61, 1475) 14s
+P1 primary M3 (31, 11, 1475) 43s
+done F7 P1

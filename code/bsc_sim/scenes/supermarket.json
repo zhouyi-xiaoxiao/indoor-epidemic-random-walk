@@ -1,0 +1,78 @@
+{
+ "title_en": "Supermarket",
+ "title_zh": "中型超市",
+ "a_m": 2.0,
+ "size_m": [
+  50.0,
+  30.0
+ ],
+ "N_default": 150,
+ "map": [
+  "FFFFFFFFFFFFAAAAAAAAAAAAA",
+  "FFFFFFFFFFFFAAAAAAAAAAAAA",
+  "AAAAAAAAAAAAAAAAAAAAAAAAA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "ASBSBSBSBSBSASBSBSBSBSBSA",
+  "AAAAAAAAAAAAAAAAAAAAAAAAA",
+  "AAAAQBQBQBQBQBQBQBQAAAAAA",
+  "AAAAQBQBQBQBQBQBQBQAAAAAA",
+  "AAAAAAAAAAAAAAAAAAAAAAAAA",
+  "EEEEEEBBBBBBBBBBBBBEEEEEE"
+ ],
+ "zones": {
+  "S": {
+   "name_en": "shelf lanes",
+   "name_zh": "货架区",
+   "D": 0.4,
+   "q": 1.0
+  },
+  "A": {
+   "name_en": "main aisles",
+   "name_zh": "通道",
+   "D": 2.0,
+   "q": 0.6
+  },
+  "F": {
+   "name_en": "fresh produce",
+   "name_zh": "生鲜区",
+   "D": 0.3,
+   "q": 1.8
+  },
+  "Q": {
+   "name_en": "checkout queue",
+   "name_zh": "收银台",
+   "D": 0.1,
+   "q": 2.0
+  },
+  "E": {
+   "name_en": "entrance/exit",
+   "name_zh": "出入口",
+   "D": 1.5,
+   "q": 0.8
+  },
+  "B": {
+   "name_en": "shelf racks / counters",
+   "name_zh": "货架/柜台",
+   "D": 0.0,
+   "q": 0.0,
+   "barrier": true
+  }
+ },
+ "dwell": "27 min",
+ "source": "illustrative assumption; floor plan and barrier cells (shelf racks, counters) are a design choice",
+ "nx": 25,
+ "ny": 15,
+ "zone_counts": {
+  "F": 24,
+  "A": 142,
+  "S": 84,
+  "B": 97,
+  "Q": 16,
+  "E": 12
+ }
+}

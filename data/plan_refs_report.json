@@ -1,0 +1,1041 @@
+{
+ "giuggioli2020exact": {
+  "doi": "10.1103/PhysRevX.10.021045",
+  "source": "audited",
+  "crossref_title": "Exact Spatiotemporal Dynamics of Confined Lattice Random Walks in Arbitrary Dimensions: A Century after Smoluchowski and Pólya",
+  "title_match": true,
+  "error": null
+ },
+ "sarvaharman2020closed": {
+  "doi": "10.1103/PhysRevE.102.062124",
+  "source": "audited",
+  "crossref_title": "Closed-form solutions to the dynamics of confined biased lattice random walks in arbitrary dimensions",
+  "title_match": true,
+  "error": null
+ },
+ "giuggioli2022spatio": {
+  "doi": "10.1088/1751-8121/ac8587",
+  "source": "audited",
+  "crossref_title": "Spatio-temporal dynamics of random transmission events: from information sharing to epidemic spread",
+  "title_match": true,
+  "error": null
+ },
+ "sarvaharman2023particle": {
+  "doi": "10.1103/PhysRevResearch.5.043281",
+  "source": "audited",
+  "crossref_title": "Particle-environment interactions in arbitrary dimensions: A unifying analytic framework to model diffusion with inert spatial heterogeneities",
+  "title_match": true,
+  "error": null
+ },
+ "kay2022diffusion": {
+  "doi": "10.1103/PhysRevResearch.4.L032039",
+  "source": "audited",
+  "crossref_title": "Diffusion through permeable interfaces: Fundamental equations and their application to first-passage and local time statistics",
+  "title_match": true,
+  "error": null
+ },
+ "das2023dynamics": {
+  "doi": "10.1088/1742-5468/aca8f9",
+  "source": "audited",
+  "crossref_title": "Dynamics of lattice random walk within regions composed of different media and interfaces",
+  "title_match": true,
+  "error": null
+ },
+ "montroll1965random": {
+  "doi": "10.1063/1.1704269",
+  "source": "audited",
+  "crossref_title": "Random Walks on Lattices. II",
+  "title_match": true,
+  "error": null
+ },
+ "codling2008random": {
+  "doi": "10.1098/rsif.2008.0014",
+  "source": "audited",
+  "crossref_title": "Random walk models in biology",
+  "title_match": true,
+  "error": null
+ },
+ "patankar1980numerical": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "kermack1927contribution": {
+  "doi": "10.1098/rspa.1927.0118",
+  "source": "audited",
+  "crossref_title": "A contribution to the mathematical theory of epidemics",
+  "title_match": true,
+  "error": null
+ },
+ "heesterbeek2002brief": {
+  "doi": "10.1023/A:1016599411804",
+  "source": "audited",
+  "crossref_title": "A Brief History of R\n0 and a Recipe for its Calculation",
+  "title_match": true,
+  "error": null
+ },
+ "anderson1991infectious": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "keeling2008modeling": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "diekmann2013mathematical": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "diekmann1990definition": {
+  "doi": "10.1007/BF00178324",
+  "source": "audited",
+  "crossref_title": "On the definition and the computation of the basic reproduction ratio R 0 in models for infectious diseases in heterogeneous populations",
+  "title_match": true,
+  "error": null
+ },
+ "diekmann2010construction": {
+  "doi": "10.1098/rsif.2009.0386",
+  "source": "audited",
+  "crossref_title": "The construction of next-generation matrices for compartmental epidemic models",
+  "title_match": true,
+  "error": null
+ },
+ "vandendriessche2002reproduction": {
+  "doi": "10.1016/S0025-5564(02)00108-6",
+  "source": "audited",
+  "crossref_title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+  "title_match": true,
+  "error": null
+ },
+ "thieme2009spectral": {
+  "doi": "10.1137/080732870",
+  "source": "audited",
+  "crossref_title": "Spectral Bound and Reproduction Number for Infinite-Dimensional Population Structure and Time Heterogeneity",
+  "title_match": true,
+  "error": null
+ },
+ "wang2012basic": {
+  "doi": "10.1137/120872942",
+  "source": "audited",
+  "crossref_title": "Basic Reproduction Numbers for Reaction-Diffusion Epidemic Models",
+  "title_match": true,
+  "error": null
+ },
+ "allen2007asymptotic": {
+  "doi": "10.1137/060672522",
+  "source": "audited",
+  "crossref_title": "Asymptotic Profiles of the Steady States for an SIS Epidemic Patch Model",
+  "title_match": true,
+  "error": null
+ },
+ "allen2008asymptotic": {
+  "doi": "10.3934/dcds.2008.21.1",
+  "source": "audited",
+  "crossref_title": "Asymptotic profiles of the steady states for an SIS epidemic reaction-diffusion model",
+  "title_match": true,
+  "error": null
+ },
+ "gao2011sis": {
+  "doi": "10.1016/j.mbs.2011.05.001",
+  "source": "audited",
+  "crossref_title": "An SIS patch model with variable transmission coefficients",
+  "title_match": true,
+  "error": null
+ },
+ "gao2019travel": {
+  "doi": "10.1137/18M1211957",
+  "source": "audited",
+  "crossref_title": "Travel Frequency and Infectious Diseases",
+  "title_match": true,
+  "error": null
+ },
+ "gao2020fast": {
+  "doi": "10.1090/proc/14868",
+  "source": "audited",
+  "crossref_title": "Fast diffusion inhibits disease outbreaks",
+  "title_match": true,
+  "error": null
+ },
+ "altenberg2012resolvent": {
+  "doi": "10.1073/pnas.1113833109",
+  "source": "audited",
+  "crossref_title": "Resolvent positive linear operators exhibit the reduction phenomenon",
+  "title_match": true,
+  "error": null
+ },
+ "tien2015disease": {
+  "doi": "10.1007/s00285-014-0791-x",
+  "source": "audited",
+  "crossref_title": "Disease invasion on community networks with environmental pathogen movement",
+  "title_match": true,
+  "error": null
+ },
+ "wang2004epidemic": {
+  "doi": "10.1016/j.mbs.2002.11.001",
+  "source": "audited",
+  "crossref_title": "An epidemic model in a patchy environment",
+  "title_match": true,
+  "error": null
+ },
+ "arino2003multicity": {
+  "doi": "10.1080/08898480306720",
+  "source": "audited",
+  "crossref_title": "A multi-city epidemic model",
+  "title_match": true,
+  "error": null
+ },
+ "hasibeder1988population": {
+  "doi": "10.1016/0040-5809(88)90003-2",
+  "source": "audited",
+  "crossref_title": "Population dynamics of mosquito-borne disease: Persistence in a completely heterogeneous environment",
+  "title_match": true,
+  "error": null
+ },
+ "woolhouse1997heterogeneities": {
+  "doi": "10.1073/pnas.94.1.338",
+  "source": "audited",
+  "crossref_title": "Heterogeneities in the transmission of infectious agents: Implications for the design of control programs",
+  "title_match": true,
+  "error": null
+ },
+ "berman1994nonnegative": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "horn2013matrix": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "cantrell2003spatial": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "murray2003spatial": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "boccara1992automata": {
+  "doi": "10.1088/0305-4470/25/9/018",
+  "source": "audited",
+  "crossref_title": "Automata network SIR models for the spread of infectious diseases in populations of moving individuals",
+  "title_match": true,
+  "error": null
+ },
+ "rhodes1996persistence": {
+  "doi": "10.1006/jtbi.1996.0088",
+  "source": "audited",
+  "crossref_title": "Persistence and Dynamics in Lattice Models of Epidemic Spread",
+  "title_match": true,
+  "error": null
+ },
+ "gonzalez2004scaling": {
+  "doi": "10.1016/j.physa.2004.05.017",
+  "source": "audited",
+  "crossref_title": "Scaling of the propagation of epidemics in a system of mobile agents",
+  "title_match": true,
+  "error": null
+ },
+ "frasca2006dynamical": {
+  "doi": "10.1103/PhysRevE.74.036110",
+  "source": "audited",
+  "crossref_title": "Dynamical network model of infective mobile agents",
+  "title_match": true,
+  "error": null
+ },
+ "buscarino2008disease": {
+  "doi": "10.1209/0295-5075/82/38002",
+  "source": "audited",
+  "crossref_title": "Disease spreading in populations of moving agents",
+  "title_match": true,
+  "error": null
+ },
+ "peruani2008dynamics": {
+  "doi": "10.1103/PhysRevLett.100.168103",
+  "source": "audited",
+  "crossref_title": "Dynamics and Steady States in Excitable Mobile Agent Systems",
+  "title_match": true,
+  "error": null
+ },
+ "rodriguez2019particle": {
+  "doi": "10.1038/s41598-019-42871-x",
+  "source": "audited",
+  "crossref_title": "Particle velocity controls phase transitions in contagion dynamics",
+  "title_match": true,
+  "error": null
+ },
+ "colizza2007reaction": {
+  "doi": "10.1038/nphys560",
+  "source": "audited",
+  "crossref_title": "Reaction–diffusion processes and metapopulation models in heterogeneous networks",
+  "title_match": true,
+  "error": null
+ },
+ "colizza2007invasion": {
+  "doi": "10.1103/PhysRevLett.99.148701",
+  "source": "audited",
+  "crossref_title": "Invasion Threshold in Heterogeneous Metapopulation Networks",
+  "title_match": true,
+  "error": null
+ },
+ "belik2011natural": {
+  "doi": "10.1103/PhysRevX.1.011001",
+  "source": "audited",
+  "crossref_title": "Natural Human Mobility Patterns and Spatial Spread of Infectious Diseases",
+  "title_match": true,
+  "error": null
+ },
+ "balcan2011phase": {
+  "doi": "10.1038/nphys1944",
+  "source": "audited",
+  "crossref_title": "Phase transitions in contagion processes mediated by recurrent mobility patterns",
+  "title_match": true,
+  "error": null
+ },
+ "sattenspiel1995structured": {
+  "doi": "10.1016/0025-5564(94)00068-B",
+  "source": "audited",
+  "crossref_title": "A structured epidemic model incorporating geographic mobility among regions",
+  "title_match": true,
+  "error": null
+ },
+ "wang2014spatial": {
+  "doi": "10.1007/s11434-014-0499-8",
+  "source": "audited",
+  "crossref_title": "Spatial epidemiology of networked metapopulation: an overview",
+  "title_match": true,
+  "error": null
+ },
+ "keeling1999effects": {
+  "doi": "10.1098/rspb.1999.0716",
+  "source": "audited",
+  "crossref_title": "The effects of local spatial structure on epidemiological invasions",
+  "title_match": true,
+  "error": null
+ },
+ "durrett1994importance": {
+  "doi": "10.1006/tpbi.1994.1032",
+  "source": "audited",
+  "crossref_title": "The Importance of Being Discrete (and Spatial)",
+  "title_match": true,
+  "error": null
+ },
+ "kiss2017mathematics": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "ball1997epidemics": {
+  "doi": "10.1214/aoap/1034625252",
+  "source": "audited",
+  "crossref_title": "Epidemics with two levels of mixing",
+  "title_match": true,
+  "error": null
+ },
+ "andersson2000stochastic": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "whittle1955outcome": {
+  "doi": "10.1093/biomet/42.1-2.116",
+  "source": "audited",
+  "crossref_title": "THE OUTCOME OF A STOCHASTIC EPIDEMIC—A NOTE ON BAILEY'S PAPER",
+  "title_match": true,
+  "error": null
+ },
+ "allen2017primer": {
+  "doi": "10.1016/j.idm.2017.03.001",
+  "source": "audited",
+  "crossref_title": "A primer on stochastic epidemic models: Formulation, numerical simulation, and analysis",
+  "title_match": true,
+  "error": null
+ },
+ "lloydsmith2005superspreading": {
+  "doi": "10.1038/nature04153",
+  "source": "audited",
+  "crossref_title": "Superspreading and the effect of individual variation on disease emergence",
+  "title_match": true,
+  "error": null
+ },
+ "endo2020estimating": {
+  "doi": "10.12688/wellcomeopenres.15842.3",
+  "source": "audited",
+  "crossref_title": "Estimating the overdispersion in COVID-19 transmission using outbreak sizes outside China",
+  "title_match": true,
+  "error": null
+ },
+ "adam2020clustering": {
+  "doi": "10.1038/s41591-020-1092-0",
+  "source": "audited",
+  "crossref_title": "Clustering and superspreading potential of SARS-CoV-2 infections in Hong Kong",
+  "title_match": true,
+  "error": null
+ },
+ "gillespie1976general": {
+  "doi": "10.1016/0021-9991(76)90041-3",
+  "source": "audited",
+  "crossref_title": "A general method for numerically simulating the stochastic time evolution of coupled chemical reactions",
+  "title_match": true,
+  "error": null
+ },
+ "gillespie1977exact": {
+  "doi": "10.1021/j100540a008",
+  "source": "audited",
+  "crossref_title": "Exact stochastic simulation of coupled chemical reactions",
+  "title_match": true,
+  "error": null
+ },
+ "wells1955airborne": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "rudnick2003risk": {
+  "doi": "10.1034/j.1600-0668.2003.00189.x",
+  "source": "audited",
+  "crossref_title": "Risk of indoor airborne infection transmission estimated from carbon dioxide concentration",
+  "title_match": true,
+  "error": null
+ },
+ "gammaitoni1997using": {
+  "doi": "10.3201/eid0303.970310",
+  "source": "audited",
+  "crossref_title": "Using a Mathematical Model to Evaluate the Efficacy of TB Control Measures",
+  "title_match": true,
+  "error": null
+ },
+ "szeto2010review": {
+  "doi": "10.1111/j.1600-0668.2009.00621.x",
+  "source": "audited",
+  "crossref_title": "Review and comparison between the WellsâRiley and dose-response approaches to risk assessment of infectious respiratory diseases",
+  "title_match": true,
+  "error": null
+ },
+ "noakes2006modelling": {
+  "doi": "10.1017/S0950268806005875",
+  "source": "audited",
+  "crossref_title": "Modelling the transmission of airborne infections in enclosed spaces",
+  "title_match": true,
+  "error": null
+ },
+ "noakes2009mathematical": {
+  "doi": "10.1098/rsif.2009.0305.focus",
+  "source": "audited",
+  "crossref_title": "Mathematical models for assessing the role of airflow on the risk of airborne infection in hospital wards",
+  "title_match": true,
+  "error": null
+ },
+ "buonanno2020estimation": {
+  "doi": "10.1016/j.envint.2020.105794",
+  "source": "audited",
+  "crossref_title": "Estimation of airborne viral emission: Quanta emission rate of SARS-CoV-2 for infection risk assessment",
+  "title_match": true,
+  "error": null
+ },
+ "buonanno2020quantitative": {
+  "doi": "10.1016/j.envint.2020.106112",
+  "source": "audited",
+  "crossref_title": "Quantitative assessment of the risk of airborne transmission of SARS-CoV-2 infection: Prospective and retrospective applications",
+  "title_match": true,
+  "error": null
+ },
+ "bazant2021guideline": {
+  "doi": "10.1073/pnas.2018995118",
+  "source": "audited",
+  "crossref_title": "A guideline to limit indoor airborne transmission of COVID-19",
+  "title_match": true,
+  "error": null
+ },
+ "vuorinen2020modelling": {
+  "doi": "10.1016/j.ssci.2020.104866",
+  "source": "audited",
+  "crossref_title": "Modelling aerosol transport and virus exposure with numerical simulations in relation to SARS-CoV-2 transmission by inhalation indoors",
+  "title_match": true,
+  "error": null
+ },
+ "lau2022predicting": {
+  "doi": "10.1098/rspa.2021.0383",
+  "source": "audited",
+  "crossref_title": "Predicting the spatio-temporal infection risk in indoor spaces using an efficient airborne transmission model",
+  "title_match": true,
+  "error": null
+ },
+ "ying2021modelling": {
+  "doi": "10.1371/journal.pone.0249821",
+  "source": "audited",
+  "crossref_title": "Modelling COVID-19 transmission in supermarkets using an agent-based model",
+  "title_match": true,
+  "error": null
+ },
+ "namilae2017multiscale": {
+  "doi": "10.1103/PhysRevE.95.052320",
+  "source": "audited",
+  "crossref_title": "Multiscale model for pedestrian and infection dynamics during air travel",
+  "title_match": true,
+  "error": null
+ },
+ "xiao2021modeling": {
+  "doi": "10.1016/j.tranpol.2021.05.004",
+  "source": "audited",
+  "crossref_title": "Modeling indoor-level non-pharmaceutical interventions during the COVID-19 pandemic: A pedestrian dynamics-based microscopic simulation approach",
+  "title_match": true,
+  "error": null
+ },
+ "harweg2023agent": {
+  "doi": "10.1007/s10389-021-01489-y",
+  "source": "audited",
+  "crossref_title": "Agent-based simulation of pedestrian dynamics for exposure time estimation in epidemic risk assessment",
+  "title_match": true,
+  "error": null
+ },
+ "morawska2020minimise": {
+  "doi": "10.1016/j.envint.2020.105832",
+  "source": "audited",
+  "crossref_title": "How can airborne transmission of COVID-19 indoors be minimised?",
+  "title_match": true,
+  "error": null
+ },
+ "wang2021airborne": {
+  "doi": "10.1126/science.abd9149",
+  "source": "audited",
+  "crossref_title": "Airborne transmission of respiratory viruses",
+  "title_match": true,
+  "error": null
+ },
+ "chen2020short": {
+  "doi": "10.1016/j.buildenv.2020.106859",
+  "source": "audited",
+  "crossref_title": "Short-range airborne route dominates exposure of respiratory infection during close contact",
+  "title_match": true,
+  "error": null
+ },
+ "li2007role": {
+  "doi": "10.1111/j.1600-0668.2006.00445.x",
+  "source": "audited",
+  "crossref_title": "Role of ventilation in airborne transmission of infectious agents in the built environment ? a multidisciplinary systematic review",
+  "title_match": true,
+  "error": null
+ },
+ "qian2021indoor": {
+  "doi": "10.1111/ina.12766",
+  "source": "audited",
+  "crossref_title": "Indoor transmission of SARS‐CoV‐2",
+  "title_match": true,
+  "error": null
+ },
+ "leclerc2020settings": {
+  "doi": "10.12688/wellcomeopenres.15889.2",
+  "source": "audited",
+  "crossref_title": "What settings have been linked to SARS-CoV-2 transmission clusters?",
+  "title_match": true,
+  "error": null
+ },
+ "azimi2021mechanistic": {
+  "doi": "10.1073/pnas.2015482118",
+  "source": "audited",
+  "crossref_title": "Mechanistic transmission modeling of COVID-19 on the\n                    <i>Diamond Princess</i>\n                    cruise ship demonstrates the importance of aerosol transmission",
+  "title_match": true,
+  "error": null
+ },
+ "peng2021exhaled": {
+  "doi": "10.1021/acs.estlett.1c00183",
+  "source": "audited",
+  "crossref_title": "Exhaled CO\n                    <sub>2</sub>\n                    as a COVID-19 Infection Risk Proxy for Different Indoor Environments and Activities",
+  "title_match": true,
+  "error": null
+ },
+ "cheng2011modeling": {
+  "doi": "10.1021/es103080p",
+  "source": "audited",
+  "crossref_title": "Modeling Exposure Close to Air Pollution Sources in Naturally Ventilated Residences: Association of Turbulent Diffusion Coefficient with Air Change Rate",
+  "title_match": true,
+  "error": null
+ },
+ "chu2020physical": {
+  "doi": "10.1016/S0140-6736(20)31142-9",
+  "source": "audited",
+  "crossref_title": "Physical distancing, face masks, and eye protection to prevent person-to-person transmission of SARS-CoV-2 and COVID-19: a systematic review and meta-analysis",
+  "title_match": true,
+  "error": null
+ },
+ "weidmann1993transporttechnik": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "seyfried2005fundamental": {
+  "doi": "10.1088/1742-5468/2005/10/P10002",
+  "source": "audited",
+  "crossref_title": "The fundamental diagram of pedestrian movement revisited",
+  "title_match": true,
+  "error": null
+ },
+ "kubo1966fluctuation": {
+  "doi": "10.1088/0034-4885/29/1/306",
+  "source": "audited",
+  "crossref_title": "The fluctuation-dissipation theorem",
+  "title_match": true,
+  "error": null
+ },
+ "taylor1922diffusion": {
+  "doi": "10.1112/plms/s2-20.1.196",
+  "source": "audited",
+  "crossref_title": "Diffusion by Continuous Movements",
+  "title_match": true,
+  "error": null
+ },
+ "stehle2011high": {
+  "doi": "10.1371/journal.pone.0023176",
+  "source": "audited",
+  "crossref_title": "High-Resolution Measurements of Face-to-Face Contact Patterns in a Primary School",
+  "title_match": true,
+  "error": null
+ },
+ "genois2015data": {
+  "doi": "10.1017/nws.2015.10",
+  "source": "audited",
+  "crossref_title": "Data on face-to-face contacts in an office building suggest a low-cost vaccination strategy based on community linkers",
+  "title_match": true,
+  "error": null
+ },
+ "li2020early": {
+  "doi": "10.1056/NEJMoa2001316",
+  "source": "audited",
+  "crossref_title": "Early Transmission Dynamics in Wuhan, China, of Novel Coronavirus–Infected Pneumonia",
+  "title_match": true,
+  "error": null
+ },
+ "liu2020reproductive": {
+  "doi": "10.1093/jtm/taaa021",
+  "source": "audited",
+  "crossref_title": "The reproductive number of COVID-19 is higher compared to SARS coronavirus",
+  "title_match": true,
+  "error": null
+ },
+ "byrne2020inferred": {
+  "doi": "10.1136/bmjopen-2020-039856",
+  "source": "audited",
+  "crossref_title": "Inferred duration of infectious period of SARS-CoV-2: rapid scoping review and analysis of available evidence for asymptomatic and symptomatic COVID-19 cases",
+  "title_match": true,
+  "error": null
+ },
+ "he2020temporal": {
+  "doi": "10.1038/s41591-020-0869-5",
+  "source": "audited",
+  "crossref_title": "Temporal dynamics in viral shedding and transmissibility of COVID-19",
+  "title_match": true,
+  "error": null
+ },
+ "stauffer1994percolation": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "collins1949diffusion": {
+  "doi": "10.1016/0095-8522(49)90023-9",
+  "source": "audited",
+  "crossref_title": "Diffusion-controlled reaction rates",
+  "title_match": true,
+  "error": null
+ },
+ "redner2001guide": {
+  "doi": null,
+  "source": "audited",
+  "note": "no DOI (book, report or standard); verified by the references part"
+ },
+ "harris2020array": {
+  "doi": "10.1038/s41586-020-2649-2",
+  "source": "audited",
+  "crossref_title": "Array programming with NumPy",
+  "title_match": true,
+  "error": null
+ },
+ "virtanen2020scipy": {
+  "doi": "10.1038/s41592-019-0686-2",
+  "source": "audited",
+  "crossref_title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+  "title_match": true,
+  "error": null
+ },
+ "hunter2007matplotlib": {
+  "doi": "10.1109/MCSE.2007.55",
+  "source": "audited",
+  "crossref_title": "Matplotlib: A 2D Graphics Environment",
+  "title_match": true,
+  "error": null
+ },
+ "chen2020asymptotic": {
+  "doi": "10.1007/s00285-020-01497-8",
+  "source": "audited",
+  "crossref_title": "Asymptotic profiles of the steady states for an SIS epidemic patch model with asymmetric connectivity matrix",
+  "title_match": true,
+  "error": null
+ },
+ "cohen1981convexity": {
+  "doi": "10.1090/S0002-9939-1981-0601750-2",
+  "source": "crossref",
+  "crossref_title": "Convexity of the dominant eigenvalue of an essentially nonnegative matrix",
+  "title_match": true,
+  "journal": "Proceedings of the American Mathematical Society",
+  "year": 1981
+ },
+ "kato1982superconvexity": {
+  "doi": "10.1007/BF01318910",
+  "source": "crossref",
+  "crossref_title": "Superconvexity of the spectral radius, and convexity of the spectral bound and the type",
+  "title_match": true,
+  "journal": "Mathematische Zeitschrift",
+  "year": 1982
+ },
+ "darroch1967quasi": {
+  "doi": "10.2307/3212311",
+  "source": "crossref",
+  "crossref_title": "On quasi-stationary distributions in absorbing continuous-time finite Markov chains",
+  "title_match": true,
+  "journal": "Journal of Applied Probability",
+  "year": 1967
+ },
+ "schuss2007narrow": {
+  "doi": "10.1073/pnas.0706599104",
+  "source": "crossref",
+  "crossref_title": "The narrow escape problem for diffusion in cellular microdomains",
+  "title_match": true,
+  "journal": "Proceedings of the National Academy of Sciences",
+  "year": 2007
+ },
+ "skellam1951random": {
+  "doi": "10.1093/biomet/38.1-2.196",
+  "source": "crossref",
+  "crossref_title": "RANDOM DISPERSAL IN THEORETICAL POPULATIONS",
+  "title_match": true,
+  "journal": "Biometrika",
+  "year": 1951
+ },
+ "bacaer2006epidemic": {
+  "doi": "10.1007/s00285-006-0015-0",
+  "source": "crossref",
+  "crossref_title": "The epidemic threshold of vector-borne diseases with seasonality",
+  "title_match": true,
+  "journal": "Journal of Mathematical Biology",
+  "year": 2006
+ },
+ "wang2008threshold": {
+  "doi": "10.1007/s10884-008-9111-8",
+  "source": "crossref",
+  "crossref_title": "Threshold Dynamics for Compartmental Epidemic Models in Periodic Environments",
+  "title_match": true,
+  "journal": "Journal of Dynamics and Differential Equations",
+  "year": 2008
+ },
+ "blackman2021scrambled": {
+  "doi": "10.1145/3460772",
+  "source": "crossref",
+  "crossref_title": "Scrambled Linear Pseudorandom Number Generators",
+  "title_match": true,
+  "journal": "ACM Transactions on Mathematical Software",
+  "year": 2021
+ },
+ "moran1948interpretation": {
+  "doi": "10.1111/j.2517-6161.1948.tb00012.x",
+  "source": "crossref",
+  "crossref_title": "The Interpretation of Statistical Maps",
+  "title_match": true,
+  "journal": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+  "year": 1948
+ },
+ "szabo1984localized": {
+  "doi": "10.1007/BF01770356",
+  "source": "crossref",
+  "crossref_title": "Localized partial traps in diffusion processes and random walks",
+  "title_match": true,
+  "journal": "Journal of Statistical Physics",
+  "year": 1984
+ },
+ "kenkre2014theory": {
+  "doi": "10.1007/s11538-014-0042-8",
+  "source": "crossref",
+  "crossref_title": "Theory of the Transmission of Infection in the Spread of Epidemics: Interacting Random Walkers with and Without Confinement",
+  "title_match": true,
+  "journal": "Bulletin of Mathematical Biology",
+  "year": 2014
+ },
+ "sugaya2018analysis": {
+  "doi": "10.1007/s11538-018-0507-2",
+  "source": "crossref",
+  "crossref_title": "Analysis of Transmission of Infection in Epidemics: Confined Random Walkers in Dimensions Higher Than One",
+  "title_match": true,
+  "journal": "Bulletin of Mathematical Biology",
+  "year": 2018
+ },
+ "kenkre2021theory": {
+  "doi": "10.1017/9781108882279",
+  "source": "crossref",
+  "crossref_title": "Theory of the Spread of Epidemics and Movement Ecology of Animals",
+  "title_match": true,
+  "journal": "",
+  "year": 2021
+ },
+ "venkatram2021modeling": {
+  "doi": "10.1111/ina.12901",
+  "source": "crossref",
+  "crossref_title": "Modeling turbulent transport of aerosols inside rooms using eddy diffusivity",
+  "title_match": true,
+  "journal": "Indoor Air",
+  "year": 2021
+ },
+ "cai2020": {
+  "doi": "10.3201/eid2606.200412",
+  "source": "crossref",
+  "crossref_title": "Indirect Virus Transmission in Cluster of COVID-19 Cases, Wenzhou, China, 2020",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2020
+ },
+ "chen2020tianjin": {
+  "doi": "10.1016/j.ajic.2020.06.006",
+  "source": "crossref",
+  "crossref_title": "Epidemic characteristics of the COVID-19 outbreak in Tianjin, a well-developed city in China",
+  "title_match": true,
+  "journal": "American Journal of Infection Control",
+  "year": 2020
+ },
+ "furuse2020": {
+  "doi": "10.3201/eid2609.202272",
+  "source": "crossref",
+  "crossref_title": "Clusters of Coronavirus Disease in Communities, Japan, January–April 2020",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2020
+ },
+ "guenther2020": {
+  "doi": "10.15252/emmm.202013296",
+  "source": "crossref",
+  "crossref_title": "SARS‐CoV‐2 outbreak investigation in a German meat processing plant",
+  "title_match": true,
+  "journal": "EMBO Molecular Medicine",
+  "year": 2020
+ },
+ "hamner2020": {
+  "doi": "10.15585/mmwr.mm6919e6",
+  "source": "crossref",
+  "crossref_title": "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice — Skagit County, Washington, March 2020",
+  "title_match": true,
+  "journal": "MMWR. Morbidity and Mortality Weekly Report",
+  "year": 2020
+ },
+ "hershow2021": {
+  "doi": "10.15585/mmwr.mm7012e3",
+  "source": "crossref",
+  "crossref_title": "Low SARS-CoV-2 Transmission in Elementary Schools — Salt Lake County, Utah, December 3, 2020–January 31, 2021",
+  "title_match": true,
+  "journal": "MMWR. Morbidity and Mortality Weekly Report",
+  "year": 2021
+ },
+ "hu2021": {
+  "doi": "10.1093/cid/ciaa1057",
+  "source": "crossref",
+  "crossref_title": "Risk of Coronavirus Disease 2019 Transmission in Train Passengers: an Epidemiological and Modeling Study",
+  "title_match": true,
+  "journal": "Clinical Infectious Diseases",
+  "year": 2021
+ },
+ "jang2020": {
+  "doi": "10.3201/eid2608.200633",
+  "source": "crossref",
+  "crossref_title": "Cluster of Coronavirus Disease Associated with Fitness Dance Classes, South Korea",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2020
+ },
+ "jiang2021deptstore": {
+  "doi": "10.1007/s11783-021-1386-6",
+  "source": "crossref",
+  "crossref_title": "Aerosol transmission, an indispensable route of COVID-19 spread: case study of a department-store cluster",
+  "title_match": true,
+  "journal": "Frontiers of Environmental Science &amp; Engineering",
+  "year": 2021
+ },
+ "katelaris2021": {
+  "doi": "10.3201/eid2706.210465",
+  "source": "crossref",
+  "crossref_title": "Epidemiologic Evidence for Airborne Transmission of SARS-CoV-2 during Church Singing, Australia, 2020",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2021
+ },
+ "khanh2020": {
+  "doi": "10.3201/eid2611.203299",
+  "source": "crossref",
+  "crossref_title": "Transmission of SARS-CoV 2 During Long-Haul Flight",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2020
+ },
+ "koh2020": {
+  "doi": "10.1136/oemed-2020-106626",
+  "source": "crossref",
+  "crossref_title": "Migrant workers and COVID-19",
+  "title_match": true,
+  "journal": "Occupational and Environmental Medicine",
+  "year": 2020
+ },
+ "kwon2020": {
+  "doi": "10.3346/jkms.2020.35.e415",
+  "source": "crossref",
+  "crossref_title": "Evidence of Long-Distance Droplet Transmission of SARS-CoV-2 by Direct Air Flow in a Restaurant in Korea",
+  "title_match": true,
+  "journal": "Journal of Korean Medical Science",
+  "year": 2020
+ },
+ "lamhine2021": {
+  "doi": "10.15585/mmwr.mm7035e2",
+  "source": "crossref",
+  "crossref_title": "Outbreak Associated with SARS-CoV-2 B.1.617.2 (Delta) Variant in an Elementary School — Marin County, California, May–June 2021",
+  "title_match": true,
+  "journal": "MMWR. Morbidity and Mortality Weekly Report",
+  "year": 2021
+ },
+ "lan2021": {
+  "doi": "10.1136/oemed-2020-106774",
+  "source": "crossref",
+  "crossref_title": "Association between SARS-CoV-2 infection, exposure risk and mental health among a cohort of essential retail workers in the USA",
+  "title_match": true,
+  "journal": "Occupational and Environmental Medicine",
+  "year": 2021
+ },
+ "li2021": {
+  "doi": "10.1016/j.buildenv.2021.107788",
+  "source": "crossref",
+  "crossref_title": "Probable airborne transmission of SARS-CoV-2 in a poorly ventilated restaurant",
+  "title_match": true,
+  "journal": "Building and Environment",
+  "year": 2021
+ },
+ "li2022twoclusters": {
+  "doi": "10.3390/ijerph19084876",
+  "source": "crossref",
+  "crossref_title": "The Analysis of Patterns of Two COVID-19 Outbreak Clusters in China",
+  "title_match": true,
+  "journal": "International Journal of Environmental Research and Public Health",
+  "year": 2022
+ },
+ "lu2020": {
+  "doi": "10.3201/eid2607.200764",
+  "source": "crossref",
+  "crossref_title": "COVID-19 Outbreak Associated with Air Conditioning in Restaurant, Guangzhou, China, 2020",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2020
+ },
+ "luo2020": {
+  "doi": "10.1093/ofid/ofaa430",
+  "source": "crossref",
+  "crossref_title": "Transmission of SARS-CoV-2 in Public Transportation Vehicles: A Case Study in Hunan Province, China",
+  "title_match": true,
+  "journal": "Open Forum Infectious Diseases",
+  "year": 2020
+ },
+ "miller2021": {
+  "doi": "10.1111/ina.12751",
+  "source": "crossref",
+  "crossref_title": "Transmission of SARS‐CoV‐2 by inhalation of respiratory aerosol in the Skagit Valley Chorale superspreading event",
+  "title_match": true,
+  "journal": "Indoor Air",
+  "year": 2021
+ },
+ "mizumoto2020": {
+  "doi": "10.2807/1560-7917.ES.2020.25.10.2000180",
+  "source": "crossref",
+  "crossref_title": "Estimating the asymptomatic proportion of coronavirus disease 2019 (COVID-19) cases on board the Diamond Princess cruise ship, Yokohama, Japan, 2020",
+  "title_match": true,
+  "journal": "Eurosurveillance",
+  "year": 2020
+ },
+ "moser1979": {
+  "doi": "10.1093/oxfordjournals.aje.a112781",
+  "source": "crossref",
+  "crossref_title": "AN OUTBREAK OF INFLUENZA ABOARD A COMMERCIAL AIRLINER",
+  "title_match": true,
+  "journal": "American Journal of Epidemiology",
+  "year": 1979
+ },
+ "nardell1991": {
+  "doi": "10.1164/ajrccm/144.2.302",
+  "source": "crossref",
+  "crossref_title": "Airborne Infection: Theoretical Limits of Protection Achievable by Building Ventilation",
+  "title_match": true,
+  "journal": "American Review of Respiratory Disease",
+  "year": 1991
+ },
+ "nicholls2024": {
+  "doi": "10.1093/occmed/kqad100",
+  "source": "crossref",
+  "crossref_title": "An outbreak of SARS-CoV-2 in a public-facing office in England",
+  "title_match": true,
+  "journal": "Occupational Medicine",
+  "year": 2024
+ },
+ "ou2022": {
+  "doi": "10.1016/j.buildenv.2021.108414",
+  "source": "crossref",
+  "crossref_title": "Insufficient ventilation led to a probable long-range airborne transmission of SARS-CoV-2 on two buses",
+  "title_match": true,
+  "journal": "Building and Environment",
+  "year": 2022
+ },
+ "park2020": {
+  "doi": "10.3201/eid2608.201274",
+  "source": "crossref",
+  "crossref_title": "Coronavirus Disease Outbreak in Call Center, South Korea",
+  "title_match": true,
+  "journal": "Emerging Infectious Diseases",
+  "year": 2020
+ },
+ "riley1978": {
+  "doi": "10.1093/oxfordjournals.aje.a112560",
+  "source": "crossref",
+  "crossref_title": "AIRBORNE SPREAD OF MEASLES IN A SUBURBAN ELEMENTARY SCHOOL",
+  "title_match": true,
+  "journal": "American Journal of Epidemiology",
+  "year": 1978
+ },
+ "shen2020": {
+  "doi": "10.1001/jamainternmed.2020.5225",
+  "source": "crossref",
+  "crossref_title": "Community Outbreak Investigation of SARS-CoV-2 Transmission Among Bus Riders in Eastern China",
+  "title_match": true,
+  "journal": "JAMA Internal Medicine",
+  "year": 2020
+ },
+ "steinzamir2020": {
+  "doi": "10.2807/1560-7917.ES.2020.25.29.2001352",
+  "source": "crossref",
+  "crossref_title": "A large COVID-19 outbreak in a high school 10 days after schools’ reopening, Israel, May 2020",
+  "title_match": true,
+  "journal": "Eurosurveillance",
+  "year": 2020
+ },
+ "tian2021": {
+  "doi": "10.1186/s12889-021-10713-z",
+  "source": "crossref",
+  "crossref_title": "Epidemiological investigation and intergenerational clinical characteristics of 24 coronavirus disease patients associated with a supermarket cluster: a retrospective study",
+  "title_match": true,
+  "journal": "BMC Public Health",
+  "year": 2021
+ },
+ "weissberg2020": {
+  "doi": "10.1186/s13756-020-00861-z",
+  "source": "crossref",
+  "crossref_title": "Does respiratory co-infection facilitate dispersal of SARS-CoV-2? investigation of a super-spreading event in an open-space office",
+  "title_match": true,
+  "journal": "Antimicrobial Resistance &amp; Infection Control",
+  "year": 2020
+ }
+}

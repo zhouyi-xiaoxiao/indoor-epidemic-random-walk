@@ -1,0 +1,66 @@
+{
+ "title_en": "Classroom",
+ "title_zh": "教室",
+ "a_m": 1.0,
+ "size_m": [
+  15.0,
+  10.0
+ ],
+ "N_default": 80,
+ "map": [
+  "PPIddddddddddII",
+  "PPIddddddddddII",
+  "PPIddddddddddII",
+  "PPIddddddddddII",
+  "POIIIIIIIIIIIII",
+  "POIDDDDDDDDDDII",
+  "PPIDDDDDDDDDDII",
+  "PPIDDDDDDDDDDII",
+  "PPIDDDDDDDDDDII",
+  "PPIIIIIIIIIIIII"
+ ],
+ "zones": {
+  "d": {
+   "name_en": "desks (window side)",
+   "name_zh": "课桌区（靠窗）",
+   "D": 0.05,
+   "q": 1.2
+  },
+  "D": {
+   "name_en": "desks (inner)",
+   "name_zh": "课桌区（中央）",
+   "D": 0.05,
+   "q": 2.0
+  },
+  "P": {
+   "name_en": "platform",
+   "name_zh": "讲台",
+   "D": 0.8,
+   "q": 1.5
+  },
+  "I": {
+   "name_en": "aisles",
+   "name_zh": "过道",
+   "D": 0.2,
+   "q": 0.8
+  },
+  "O": {
+   "name_en": "obstacle",
+   "name_zh": "障碍物",
+   "D": 0.0,
+   "q": 0.0,
+   "barrier": true
+  }
+ },
+ "dwell": "50-75 min",
+ "source": "illustrative assumption; 80 desk cells, window block q=1.2, inner block q=2.0",
+ "nx": 15,
+ "ny": 10,
+ "zone_counts": {
+  "P": 18,
+  "I": 50,
+  "d": 40,
+  "O": 2,
+  "D": 40
+ }
+}

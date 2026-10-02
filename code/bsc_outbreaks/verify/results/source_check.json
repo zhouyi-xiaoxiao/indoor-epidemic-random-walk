@@ -1,0 +1,842 @@
+{
+ "cai2020": {
+  "doi": "10.3201/eid2606.200412",
+  "handle_responseCode": 1,
+  "handle_url": "http://wwwnc.cdc.gov/eid/article/26/6/20-0412_article.htm",
+  "crossref": {
+   "title": "Indirect Virus Transmission in Cluster of COVID-19 Cases, Wenzhou, China, 2020",
+   "first_author": "Cai",
+   "n_authors": 6,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2020,
+   "volume": "26",
+   "issue": "6",
+   "page": "1343-1345"
+  },
+  "epmc": {
+   "pmid": "32163030",
+   "pmcid": "PMC7258486",
+   "title": "Indirect Virus Transmission in Cluster of COVID-19 Cases, Wenzhou, China, 2020.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2020",
+   "authorString": "Cai J, Sun W, Huang J, Gamber M, Wu J, He G."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 9696
+ },
+ "chen2020tianjin": {
+  "doi": "10.1016/j.ajic.2020.06.006",
+  "handle_responseCode": 1,
+  "handle_url": "https://linkinghub.elsevier.com/retrieve/pii/S0196655320303679",
+  "crossref": {
+   "title": "Epidemic characteristics of the COVID-19 outbreak in Tianjin, a well-developed city in China",
+   "first_author": "Chen",
+   "n_authors": 3,
+   "journal": "American Journal of Infection Control",
+   "year": 2020,
+   "volume": "48",
+   "issue": "9",
+   "page": "1068-1073"
+  },
+  "epmc": {
+   "pmid": "32540369",
+   "pmcid": "PMC7291981",
+   "title": "Epidemic characteristics of the COVID-19 outbreak in Tianjin, a well-developed city in China.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "American journal of infection control",
+   "year": "2020",
+   "authorString": "Chen T, Guo S, Zhong P."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 35496
+ },
+ "furuse2020": {
+  "doi": "10.3201/eid2609.202272",
+  "handle_responseCode": 1,
+  "handle_url": "http://wwwnc.cdc.gov/eid/article/26/9/20-2272_article.htm",
+  "crossref": {
+   "title": "Clusters of Coronavirus Disease in Communities, Japan, January–April 2020",
+   "first_author": "Furuse",
+   "n_authors": 17,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2020,
+   "volume": "26",
+   "issue": "9",
+   "page": "2176-2179"
+  },
+  "epmc": {
+   "pmid": "32521222",
+   "pmcid": "PMC7454082",
+   "title": "Clusters of Coronavirus Disease in Communities, Japan, January-April 2020.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2020",
+   "authorString": "Furuse Y, Sando E, Tsuchiya N, Miyahara R, Yasuda I, Ko YK, Saito M, Morimoto K, Imamura T, Shobugawa Y, Nagata S, Jinda"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 15510
+ },
+ "guenther2020": {
+  "doi": "10.15252/emmm.202013296",
+  "handle_responseCode": 1,
+  "handle_url": "https://link.springer.com/10.15252/emmm.202013296",
+  "crossref": {
+   "title": "SARS‐CoV‐2 outbreak investigation in a German meat processing plant",
+   "first_author": "Günther",
+   "n_authors": 10,
+   "journal": "EMBO Molecular Medicine",
+   "year": 2020,
+   "volume": "12",
+   "issue": "12",
+   "page": "EMMM202013296"
+  },
+  "epmc": {
+   "pmid": "33012091",
+   "pmcid": "PMC7646008",
+   "title": "SARS-CoV-2 outbreak investigation in a German meat processing plant.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "EMBO molecular medicine",
+   "year": "2020",
+   "authorString": "Günther T, Czech-Sioli M, Indenbirken D, Robitaille A, Tenhaken P, Exner M, Ottinger M, Fischer N, Grundhoff A, Brinkman"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 47831
+ },
+ "hamner2020": {
+  "doi": "10.15585/mmwr.mm6919e6",
+  "handle_responseCode": 1,
+  "handle_url": "http://www.cdc.gov/mmwr/volumes/69/wr/mm6919e6.htm?s_cid=mm6919e6_w",
+  "crossref": {
+   "title": "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice — Skagit County, Washington, March 2020",
+   "first_author": "Hamner",
+   "n_authors": 12,
+   "journal": "MMWR. Morbidity and Mortality Weekly Report",
+   "year": 2020,
+   "volume": "69",
+   "issue": "19",
+   "page": "606-610"
+  },
+  "epmc": {
+   "pmid": "32407303",
+   "pmcid": null,
+   "title": "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice - Skagit County, Washington, March 2020.",
+   "isOpenAccess": "N",
+   "inEPMC": "N",
+   "journal": "MMWR. Morbidity and mortality weekly report",
+   "year": "2020",
+   "authorString": "Hamner L, Dubbel P, Capron I, Ross A, Jordan A, Lee J, Lynn J, Ball A, Narwal S, Russell S, Patrick D, Leibrand H."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0
+ },
+ "hershow2021": {
+  "doi": "10.15585/mmwr.mm7012e3",
+  "handle_responseCode": 1,
+  "handle_url": "http://www.cdc.gov/mmwr/volumes/70/wr/mm7012e3.htm?s_cid=mm7012e3_w",
+  "crossref": {
+   "title": "Low SARS-CoV-2 Transmission in Elementary Schools — Salt Lake County, Utah, December 3, 2020–January 31, 2021",
+   "first_author": "Hershow",
+   "n_authors": 28,
+   "journal": "MMWR. Morbidity and Mortality Weekly Report",
+   "year": 2021,
+   "volume": "70",
+   "issue": "12",
+   "page": "442-448"
+  },
+  "epmc": {
+   "pmid": "33764967",
+   "pmcid": "PMC7993560",
+   "title": "Low SARS-CoV-2 Transmission in Elementary Schools - Salt Lake County, Utah, December 3, 2020-January 31, 2021.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "MMWR. Morbidity and mortality weekly report",
+   "year": "2021",
+   "authorString": "Hershow RB, Wu K, Lewis NM, Milne AT, Currie D, Smith AR, Lloyd S, Orleans B, Young EL, Freeman B, Schwartz N, Bryant B,"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 34159
+ },
+ "hu2021": {
+  "doi": "10.1093/cid/ciaa1057",
+  "handle_responseCode": 1,
+  "handle_url": "https://academic.oup.com/cid/article/72/4/604/5877944",
+  "crossref": {
+   "title": "Risk of Coronavirus Disease 2019 Transmission in Train Passengers: an Epidemiological and Modeling Study",
+   "first_author": "Hu",
+   "n_authors": 12,
+   "journal": "Clinical Infectious Diseases",
+   "year": 2020,
+   "volume": "72",
+   "issue": "4",
+   "page": "604-610"
+  },
+  "epmc": {
+   "pmid": "32726405",
+   "pmcid": "PMC7454391",
+   "title": "Risk of Coronavirus Disease 2019 Transmission in Train Passengers: an Epidemiological and Modeling Study.",
+   "isOpenAccess": "N",
+   "inEPMC": "Y",
+   "journal": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+   "year": "2021",
+   "authorString": "Hu M, Lin H, Wang J, Xu C, Tatem AJ, Meng B, Zhang X, Liu Y, Wang P, Wu G, Xie H, Lai S."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0,
+  "fulltext_status": null
+ },
+ "jang2020": {
+  "doi": "10.3201/eid2608.200633",
+  "handle_responseCode": 1,
+  "handle_url": "http://wwwnc.cdc.gov/eid/article/26/8/20-0633_article.htm",
+  "crossref": {
+   "title": "Cluster of Coronavirus Disease Associated with Fitness Dance Classes, South Korea",
+   "first_author": "Jang",
+   "n_authors": 3,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2020,
+   "volume": "26",
+   "issue": "8",
+   "page": "1917-1920"
+  },
+  "epmc": {
+   "pmid": "32412896",
+   "pmcid": "PMC7392463",
+   "title": "Cluster of Coronavirus Disease Associated with Fitness Dance Classes, South Korea.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2020",
+   "authorString": "Jang S, Han SH, Rhee JY."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 10521
+ },
+ "jiang2021deptstore": {
+  "doi": "10.1007/s11783-021-1386-6",
+  "handle_responseCode": 1,
+  "handle_url": "https://link.springer.com/10.1007/s11783-021-1386-6",
+  "crossref": {
+   "title": "Aerosol transmission, an indispensable route of COVID-19 spread: case study of a department-store cluster",
+   "first_author": "Jiang",
+   "n_authors": 7,
+   "journal": "Frontiers of Environmental Science &amp; Engineering",
+   "year": 2020,
+   "volume": "15",
+   "issue": "3",
+   "page": "46"
+  },
+  "epmc": {
+   "pmid": "33391845",
+   "pmcid": "PMC7771204",
+   "title": "Aerosol transmission, an indispensable route of COVID-19 spread: case study of a department-store cluster.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Frontiers of environmental science & engineering",
+   "year": "2021",
+   "authorString": "Jiang G, Wang C, Song L, Wang X, Zhou Y, Fei C, Liu H."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 15979
+ },
+ "katelaris2021": {
+  "doi": "10.3201/eid2706.210465",
+  "handle_responseCode": 1,
+  "handle_url": "https://wwwnc.cdc.gov/eid/article/27/6/21-0465_article.htm",
+  "crossref": {
+   "title": "Epidemiologic Evidence for Airborne Transmission of SARS-CoV-2 during Church Singing, Australia, 2020",
+   "first_author": "Katelaris",
+   "n_authors": 9,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2021,
+   "volume": "27",
+   "issue": "6",
+   "page": "1677-1680"
+  },
+  "epmc": {
+   "pmid": "33818372",
+   "pmcid": "PMC8153858",
+   "title": "Epidemiologic Evidence for Airborne Transmission of SARS-CoV-2 during Church Singing, Australia, 2020.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2021",
+   "authorString": "Katelaris AL, Wells J, Clark P, Norton S, Rockett R, Arnott A, Sintchenko V, Corbett S, Bag SK."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 18196
+ },
+ "khanh2020": {
+  "doi": "10.3201/eid2611.203299",
+  "handle_responseCode": 1,
+  "handle_url": "http://wwwnc.cdc.gov/eid/article/26/11/20-3299_article.htm",
+  "crossref": {
+   "title": "Transmission of SARS-CoV 2 During Long-Haul Flight",
+   "first_author": "Khanh",
+   "n_authors": 14,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2020,
+   "volume": "26",
+   "issue": "11",
+   "page": "2617-2624"
+  },
+  "epmc": {
+   "pmid": "32946369",
+   "pmcid": "PMC7588538",
+   "title": "Transmission of SARS-CoV 2 During Long-Haul Flight.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2020",
+   "authorString": "Khanh NC, Thai PQ, Quach HL, Thi NH, Dinh PC, Duong TN, Mai LTQ, Nghia ND, Tu TA, Quang N, Quang TD, Nguyen TT, Nguyen T"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 39228
+ },
+ "koh2020": {
+  "doi": "10.1136/oemed-2020-106626",
+  "handle_responseCode": 1,
+  "handle_url": "https://oem.bmj.com/lookup/doi/10.1136/oemed-2020-106626",
+  "crossref": {
+   "title": "Migrant workers and COVID-19",
+   "first_author": "Koh",
+   "n_authors": 1,
+   "journal": "Occupational and Environmental Medicine",
+   "year": 2020,
+   "volume": "77",
+   "issue": "9",
+   "page": "634-636"
+  },
+  "epmc": {
+   "pmid": "32513832",
+   "pmcid": "PMC7476302",
+   "title": "Migrant workers and COVID-19.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Occupational and environmental medicine",
+   "year": "2020",
+   "authorString": "Koh D."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 17280
+ },
+ "kwon2020": {
+  "doi": "10.3346/jkms.2020.35.e415",
+  "handle_responseCode": 1,
+  "handle_url": "https://jkms.org/DOIx.php?id=10.3346/jkms.2020.35.e415",
+  "crossref": {
+   "title": "Evidence of Long-Distance Droplet Transmission of SARS-CoV-2 by Direct Air Flow in a Restaurant in Korea",
+   "first_author": "Kwon",
+   "n_authors": 6,
+   "journal": "Journal of Korean Medical Science",
+   "year": 2020,
+   "volume": "35",
+   "issue": "46",
+   "page": "e415"
+  },
+  "epmc": {
+   "pmid": "33258335",
+   "pmcid": "PMC7707926",
+   "title": "Evidence of Long-Distance Droplet Transmission of SARS-CoV-2 by Direct Air Flow in a Restaurant in Korea.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Journal of Korean medical science",
+   "year": "2020",
+   "authorString": "Kwon KS, Park JI, Park YJ, Jung DM, Ryu KW, Lee JH."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 26445
+ },
+ "lamhine2021": {
+  "doi": "10.15585/mmwr.mm7035e2",
+  "handle_responseCode": 1,
+  "handle_url": "http://www.cdc.gov/mmwr/volumes/70/wr/mm7035e2.htm?s_cid=mm7035e2_w",
+  "crossref": {
+   "title": "Outbreak Associated with SARS-CoV-2 B.1.617.2 (Delta) Variant in an Elementary School — Marin County, California, May–June 2021",
+   "first_author": "Lam-Hine",
+   "n_authors": 7,
+   "journal": "MMWR. Morbidity and Mortality Weekly Report",
+   "year": 2021,
+   "volume": "70",
+   "issue": "35",
+   "page": "1214-1219"
+  },
+  "epmc": {
+   "pmid": "34473683",
+   "pmcid": "PMC8422870",
+   "title": "Outbreak Associated with SARS-CoV-2 B.1.617.2 (Delta) Variant in an Elementary School - Marin County, California, May-June 2021.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "MMWR. Morbidity and mortality weekly report",
+   "year": "2021",
+   "authorString": "Lam-Hine T, McCurdy SA, Santora L, Duncan L, Corbett-Detig R, Kapusinszky B, Willis M."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 20254
+ },
+ "lan2021": {
+  "doi": "10.1136/oemed-2020-106774",
+  "handle_responseCode": 1,
+  "handle_url": "https://oem.bmj.com/lookup/doi/10.1136/oemed-2020-106774",
+  "crossref": {
+   "title": "Association between SARS-CoV-2 infection, exposure risk and mental health among a cohort of essential retail workers in the USA",
+   "first_author": "Lan",
+   "n_authors": 4,
+   "journal": "Occupational and Environmental Medicine",
+   "year": 2020,
+   "volume": "78",
+   "issue": "4",
+   "page": "237-243"
+  },
+  "epmc": {
+   "pmid": "33127659",
+   "pmcid": null,
+   "title": "Association between SARS-CoV-2 infection, exposure risk and mental health among a cohort of essential retail workers in the USA.",
+   "isOpenAccess": "N",
+   "inEPMC": "N",
+   "journal": "Occupational and environmental medicine",
+   "year": "2021",
+   "authorString": "Lan FY, Suharlim C, Kales SN, Yang J."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0
+ },
+ "li2021": {
+  "doi": "10.1016/j.buildenv.2021.107788",
+  "handle_responseCode": 1,
+  "handle_url": "https://linkinghub.elsevier.com/retrieve/pii/S0360132321001955",
+  "crossref": {
+   "title": "Probable airborne transmission of SARS-CoV-2 in a poorly ventilated restaurant",
+   "first_author": "Li",
+   "n_authors": 14,
+   "journal": "Building and Environment",
+   "year": 2021,
+   "volume": "196",
+   "issue": null,
+   "page": "107788"
+  },
+  "epmc": {
+   "pmid": "33746341",
+   "pmcid": "PMC7954773",
+   "title": "Probable airborne transmission of SARS-CoV-2 in a poorly ventilated restaurant.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Building and environment",
+   "year": "2021",
+   "authorString": "Li Y, Qian H, Hang J, Chen X, Cheng P, Ling H, Wang S, Liang P, Li J, Xiao S, Wei J, Liu L, Cowling BJ, Kang M."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 55389
+ },
+ "li2022twoclusters": {
+  "doi": "10.3390/ijerph19084876",
+  "handle_responseCode": 1,
+  "handle_url": "https://www.mdpi.com/1660-4601/19/8/4876",
+  "crossref": {
+   "title": "The Analysis of Patterns of Two COVID-19 Outbreak Clusters in China",
+   "first_author": "Li",
+   "n_authors": 7,
+   "journal": "International Journal of Environmental Research and Public Health",
+   "year": 2022,
+   "volume": "19",
+   "issue": "8",
+   "page": "4876"
+  },
+  "epmc": {
+   "pmid": "35457742",
+   "pmcid": "PMC9032159",
+   "title": "The Analysis of Patterns of Two COVID-19 Outbreak Clusters in China.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "International journal of environmental research and public health",
+   "year": "2022",
+   "authorString": "Li W, Gong J, Zhou J, Fan H, Qin C, Gong Y, Hu W."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 39477
+ },
+ "lu2020": {
+  "doi": "10.3201/eid2607.200764",
+  "handle_responseCode": 1,
+  "handle_url": "http://wwwnc.cdc.gov/eid/article/26/7/20-0764_article.htm",
+  "crossref": {
+   "title": "COVID-19 Outbreak Associated with Air Conditioning in Restaurant, Guangzhou, China, 2020",
+   "first_author": "Lu",
+   "n_authors": 10,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2020,
+   "volume": "26",
+   "issue": "7",
+   "page": "1628-1631"
+  },
+  "epmc": {
+   "pmid": "32240078",
+   "pmcid": "PMC7323555",
+   "title": "COVID-19 Outbreak Associated with Air Conditioning in Restaurant, Guangzhou, China, 2020.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2020",
+   "authorString": "Lu J, Gu J, Li K, Xu C, Su W, Lai Z, Zhou D, Yu C, Xu B, Yang Z."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 11036
+ },
+ "luo2020": {
+  "doi": "10.1093/ofid/ofaa430",
+  "handle_responseCode": 1,
+  "handle_url": "https://academic.oup.com/ofid/article/doi/10.1093/ofid/ofaa430/5905033",
+  "crossref": {
+   "title": "Transmission of SARS-CoV-2 in Public Transportation Vehicles: A Case Study in Hunan Province, China",
+   "first_author": "Luo",
+   "n_authors": 17,
+   "journal": "Open Forum Infectious Diseases",
+   "year": 2020,
+   "volume": "7",
+   "issue": "10",
+   "page": "ofaa430"
+  },
+  "epmc": {
+   "pmid": "33123609",
+   "pmcid": "PMC7543623",
+   "title": "Transmission of SARS-CoV-2 in Public Transportation Vehicles: A Case Study in Hunan Province, China.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Open forum infectious diseases",
+   "year": "2020",
+   "authorString": "Luo K, Lei Z, Hai Z, Xiao S, Rui J, Yang H, Jing X, Wang H, Xie Z, Luo P, Li W, Li Q, Tan H, Xu Z, Yang Y, Hu S, Chen T."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 16854
+ },
+ "miller2021": {
+  "doi": "10.1111/ina.12751",
+  "handle_responseCode": 1,
+  "handle_url": "https://onlinelibrary.wiley.com/doi/10.1111/ina.12751",
+  "crossref": {
+   "title": "Transmission of SARS‐CoV‐2 by inhalation of respiratory aerosol in the Skagit Valley Chorale superspreading event",
+   "first_author": "Miller",
+   "n_authors": 10,
+   "journal": "Indoor Air",
+   "year": 2020,
+   "volume": "31",
+   "issue": "2",
+   "page": "314-323"
+  },
+  "epmc": {
+   "pmid": "32979298",
+   "pmcid": "PMC7537089",
+   "title": "Transmission of SARS-CoV-2 by inhalation of respiratory aerosol in the Skagit Valley Chorale superspreading event.",
+   "isOpenAccess": "N",
+   "inEPMC": "Y",
+   "journal": "Indoor air",
+   "year": "2021",
+   "authorString": "Miller SL, Nazaroff WW, Jimenez JL, Boerstra A, Buonanno G, Dancer SJ, Kurnitski J, Marr LC, Morawska L, Noakes C."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0,
+  "fulltext_status": null
+ },
+ "mizumoto2020": {
+  "doi": "10.2807/1560-7917.ES.2020.25.10.2000180",
+  "handle_responseCode": 1,
+  "handle_url": "https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.10.2000180",
+  "crossref": {
+   "title": "Estimating the asymptomatic proportion of coronavirus disease 2019 (COVID-19) cases on board the Diamond Princess cruise ship, Yokohama, Japan, 2020",
+   "first_author": "Mizumoto",
+   "n_authors": 4,
+   "journal": "Eurosurveillance",
+   "year": 2020,
+   "volume": "25",
+   "issue": "10",
+   "page": null
+  },
+  "epmc": {
+   "pmid": "32183930",
+   "pmcid": "PMC7078829",
+   "title": "Estimating the asymptomatic proportion of coronavirus disease 2019 (COVID-19) cases on board the Diamond Princess cruise ship, Yokohama, Japan, 2020.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Euro surveillance : bulletin Europeen sur les maladies transmissibles = European communicable disease bulletin",
+   "year": "2020",
+   "authorString": "Mizumoto K, Kagaya K, Zarebski A, Chowell G."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 21373
+ },
+ "moser1979": {
+  "doi": "10.1093/oxfordjournals.aje.a112781",
+  "handle_responseCode": 1,
+  "handle_url": "https://academic.oup.com/aje/article/62223/AN",
+  "crossref": {
+   "title": "AN OUTBREAK OF INFLUENZA ABOARD A COMMERCIAL AIRLINER",
+   "first_author": "MOSER",
+   "n_authors": 6,
+   "journal": "American Journal of Epidemiology",
+   "year": 1979,
+   "volume": "110",
+   "issue": "1",
+   "page": "1-6"
+  },
+  "epmc": {
+   "pmid": "463858",
+   "pmcid": null,
+   "title": "An outbreak of influenza aboard a commercial airliner.",
+   "isOpenAccess": "N",
+   "inEPMC": "N",
+   "journal": "American journal of epidemiology",
+   "year": "1979",
+   "authorString": "Moser MR, Bender TR, Margolis HS, Noble GR, Kendal AP, Ritter DG."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0
+ },
+ "nardell1991": {
+  "doi": "10.1164/ajrccm/144.2.302",
+  "handle_responseCode": 1,
+  "handle_url": "https://academic.oup.com/ajrccm/article/144/2/302/8557490",
+  "crossref": {
+   "title": "Airborne Infection: Theoretical Limits of Protection Achievable by Building Ventilation",
+   "first_author": "Nardell",
+   "n_authors": 4,
+   "journal": "American Review of Respiratory Disease",
+   "year": 1991,
+   "volume": "144",
+   "issue": "2",
+   "page": "302-306"
+  },
+  "epmc": {
+   "pmid": "1907115",
+   "pmcid": null,
+   "title": "Airborne infection. Theoretical limits of protection achievable by building ventilation.",
+   "isOpenAccess": "N",
+   "inEPMC": "N",
+   "journal": "The American review of respiratory disease",
+   "year": "1991",
+   "authorString": "Nardell EA, Keegan J, Cheney SA, Etkind SC."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0
+ },
+ "nicholls2024": {
+  "doi": "10.1093/occmed/kqad100",
+  "handle_responseCode": 1,
+  "handle_url": "https://academic.oup.com/occmed/article/74/7/475/7468903",
+  "crossref": {
+   "title": "An outbreak of SARS-CoV-2 in a public-facing office in England",
+   "first_author": "Nicholls",
+   "n_authors": 14,
+   "journal": "Occupational Medicine",
+   "year": 2023,
+   "volume": "74",
+   "issue": "7",
+   "page": "475-485"
+  },
+  "epmc": {
+   "pmid": "38078549",
+   "pmcid": null,
+   "title": "An outbreak of SARS-CoV-2 in a public-facing office in England.",
+   "isOpenAccess": "N",
+   "inEPMC": "N",
+   "journal": "Occupational medicine (Oxford, England)",
+   "year": "2024",
+   "authorString": "Nicholls G, Atkinson B, van Veldhoven K, Nicholls I, Coldwell M, Clarke A, Atchison CJ, Raja AI, Bennett AM, Morgan D, P"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0
+ },
+ "ou2022": {
+  "doi": "10.1016/j.buildenv.2021.108414",
+  "handle_responseCode": 1,
+  "handle_url": "https://linkinghub.elsevier.com/retrieve/pii/S0360132321008118",
+  "crossref": {
+   "title": "Insufficient ventilation led to a probable long-range airborne transmission of SARS-CoV-2 on two buses",
+   "first_author": "Ou",
+   "n_authors": 18,
+   "journal": "Building and Environment",
+   "year": 2022,
+   "volume": "207",
+   "issue": null,
+   "page": "108414"
+  },
+  "epmc": {
+   "pmid": "34629689",
+   "pmcid": "PMC8487323",
+   "title": "Insufficient ventilation led to a probable long-range airborne transmission of SARS-CoV-2 on two buses.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Building and environment",
+   "year": "2022",
+   "authorString": "Ou C, Hu S, Luo K, Yang H, Hang J, Cheng P, Hai Z, Xiao S, Qian H, Xiao S, Jing X, Xie Z, Ling H, Liu L, Gao L, Deng Q, "
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 43810
+ },
+ "park2020": {
+  "doi": "10.3201/eid2608.201274",
+  "handle_responseCode": 1,
+  "handle_url": "http://wwwnc.cdc.gov/eid/article/26/8/20-1274_article.htm",
+  "crossref": {
+   "title": "Coronavirus Disease Outbreak in Call Center, South Korea",
+   "first_author": "Park",
+   "n_authors": 26,
+   "journal": "Emerging Infectious Diseases",
+   "year": 2020,
+   "volume": "26",
+   "issue": "8",
+   "page": "1666-1670"
+  },
+  "epmc": {
+   "pmid": "32324530",
+   "pmcid": "PMC7392450",
+   "title": "Coronavirus Disease Outbreak in Call Center, South Korea.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Emerging infectious diseases",
+   "year": "2020",
+   "authorString": "Park SY, Kim YM, Yi S, Lee S, Na BJ, Kim CB, Kim JI, Kim HS, Kim YB, Park Y, Huh IS, Kim HK, Yoon HJ, Jang H, Kim K, Cha"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 17430
+ },
+ "riley1978": {
+  "doi": "10.1093/oxfordjournals.aje.a112560",
+  "handle_responseCode": 1,
+  "handle_url": "https://academic.oup.com/aje/article/58522/AIRBORNE",
+  "crossref": {
+   "title": "AIRBORNE SPREAD OF MEASLES IN A SUBURBAN ELEMENTARY SCHOOL",
+   "first_author": "RILEY",
+   "n_authors": 3,
+   "journal": "American Journal of Epidemiology",
+   "year": 1978,
+   "volume": "107",
+   "issue": "5",
+   "page": "421-432"
+  },
+  "epmc": {
+   "pmid": "665658",
+   "pmcid": null,
+   "title": "Airborne spread of measles in a suburban elementary school.",
+   "isOpenAccess": "N",
+   "inEPMC": "N",
+   "journal": "American journal of epidemiology",
+   "year": "1978",
+   "authorString": "Riley EC, Murphy G, Riley RL."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0
+ },
+ "shen2020": {
+  "doi": "10.1001/jamainternmed.2020.5225",
+  "handle_responseCode": 1,
+  "handle_url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2770172",
+  "crossref": {
+   "title": "Community Outbreak Investigation of SARS-CoV-2 Transmission Among Bus Riders in Eastern China",
+   "first_author": "Shen",
+   "n_authors": 22,
+   "journal": "JAMA Internal Medicine",
+   "year": 2020,
+   "volume": "180",
+   "issue": "12",
+   "page": "1665"
+  },
+  "epmc": {
+   "pmid": "32870239",
+   "pmcid": "PMC7489377",
+   "title": "Community Outbreak Investigation of SARS-CoV-2 Transmission Among Bus Riders in Eastern China.",
+   "isOpenAccess": "N",
+   "inEPMC": "Y",
+   "journal": "JAMA internal medicine",
+   "year": "2020",
+   "authorString": "Shen Y, Li C, Dong H, Wang Z, Martinez L, Sun Z, Handel A, Chen Z, Chen E, Ebell MH, Wang F, Yi B, Wang H, Wang X, Wang "
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 0,
+  "fulltext_status": null
+ },
+ "steinzamir2020": {
+  "doi": "10.2807/1560-7917.ES.2020.25.29.2001352",
+  "handle_responseCode": 1,
+  "handle_url": "https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.29.2001352",
+  "crossref": {
+   "title": "A large COVID-19 outbreak in a high school 10 days after schools’ reopening, Israel, May 2020",
+   "first_author": "Stein-Zamir",
+   "n_authors": 8,
+   "journal": "Eurosurveillance",
+   "year": 2020,
+   "volume": "25",
+   "issue": "29",
+   "page": null
+  },
+  "epmc": {
+   "pmid": "32720636",
+   "pmcid": "PMC7384285",
+   "title": "A large COVID-19 outbreak in a high school 10 days after schools' reopening, Israel, May 2020.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Euro surveillance : bulletin Europeen sur les maladies transmissibles = European communicable disease bulletin",
+   "year": "2020",
+   "authorString": "Stein-Zamir C, Abramson N, Shoob H, Libal E, Bitan M, Cardash T, Cayam R, Miskin I."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 18857
+ },
+ "tian2021": {
+  "doi": "10.1186/s12889-021-10713-z",
+  "handle_responseCode": 1,
+  "handle_url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-021-10713-z",
+  "crossref": {
+   "title": "Epidemiological investigation and intergenerational clinical characteristics of 24 coronavirus disease patients associated with a supermarket cluster: a retrospective study",
+   "first_author": "Tian",
+   "n_authors": 17,
+   "journal": "BMC Public Health",
+   "year": 2021,
+   "volume": "21",
+   "issue": "1",
+   "page": "647"
+  },
+  "epmc": {
+   "pmid": "33794836",
+   "pmcid": "PMC8016429",
+   "title": "Epidemiological investigation and intergenerational clinical characteristics of 24 coronavirus disease patients associated with a supermarket cluster: a retrospective study.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "BMC public health",
+   "year": "2021",
+   "authorString": "Tian S, Wu M, Chang Z, Wang Y, Zhou G, Zhang W, Xing J, Tian H, Zhang X, Zou X, Zhang L, Liu M, Chen J, Han J, Ning K, C"
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 34011
+ },
+ "weissberg2020": {
+  "doi": "10.1186/s13756-020-00861-z",
+  "handle_responseCode": 1,
+  "handle_url": "https://aricjournal.biomedcentral.com/articles/10.1186/s13756-020-00861-z",
+  "crossref": {
+   "title": "Does respiratory co-infection facilitate dispersal of SARS-CoV-2? investigation of a super-spreading event in an open-space office",
+   "first_author": "Weissberg",
+   "n_authors": 10,
+   "journal": "Antimicrobial Resistance &amp; Infection Control",
+   "year": 2020,
+   "volume": "9",
+   "issue": "1",
+   "page": "191"
+  },
+  "epmc": {
+   "pmid": "33267855",
+   "pmcid": "PMC7708893",
+   "title": "Does respiratory co-infection facilitate dispersal of SARS-CoV-2? investigation of a super-spreading event in an open-space office.",
+   "isOpenAccess": "Y",
+   "inEPMC": "Y",
+   "journal": "Antimicrobial resistance and infection control",
+   "year": "2020",
+   "authorString": "Weissberg D, Böni J, Rampini SK, Kufner V, Zaheri M, Schreiber PW, Abela IA, Huber M, Sax H, Wolfensberger A."
+  },
+  "abstract_saved": true,
+  "fulltext_chars": 40916
+ }
+}

@@ -1,0 +1,22 @@
+F1 nfix M2 (61, 1273) 1s
+F1 nfix M3 (31, 11, 1273) 2s
+F2 nfix M2 (61, 7) 44s
+F2 nfix M3 (31, 11, 7) 72s
+F3 nfix M2 (61, 20) 14s
+F3 nfix M3 (31, 11, 20) 21s
+F4 nfix M2 (61, 220) 12s
+F4 nfix M3 (31, 11, 220) 18s
+F5 nfix M2 (61, 666) 2s
+F5 nfix M3 (31, 11, 666) 3s
+F6 nfix M2 (61, 364) 4s
+F6 nfix M3 (31, 11, 364) 6s
+F7 nfix M2 (61, 15) 273s
+F7 nfix M3 (31, 11, 15) 432s
+F8 nfix M2 (61, 10) 17s
+F8 nfix M3 (31, 11, 10) 26s
+W1 nfix M2 (61, 26) 33s
+W1 nfix M3 (31, 11, 26) 52s
+W2 nfix M2 (61, 396) 4s
+W2 nfix M3 (31, 11, 396) 6s
+P1 nfix M2 (61, 1475) 169s
+P1 nfix M3 (31, 11, 1475) 261s

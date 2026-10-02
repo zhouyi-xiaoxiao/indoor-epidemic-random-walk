@@ -1,0 +1,309 @@
+% m2_model.tex -- Main text, Section 2: Model, scenes and parameter regime.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers of the two tables and of Section 2.6: code/s2_model_scene_table.py ->
+% data/s2_model_scenes.json (cross-checked there against data/plan_theory_checks.json
+% to 2e-13) and data/s2_model_table_rows.tex (table rows as generated).
+\section{Model, scenes and parameter regime}\label{s2_model:sec}
+
+This section fixes the model: one movement rule, a mean-field model with a contact kernel, an individual-based
+model of which it is the mean field, and three reproduction numbers that must be kept apart. It then describes
+the four scenes and states the physical regime of the parameters. In Sections~\ref{s2_model:sec}--\ref{s6_scenes:sec}
+lengths are measured in lattice cells and time in days.
+
+\subsection{Movement on the lattice}\label{s2_model:sec:movement}
+
+The floor of a room is covered by a square lattice of spacing $a$. Cells occupied by walls, furniture or other
+barriers are removed; the remaining $\ncell$ walkable cells form the set $\cells$, and two walkable cells are
+neighbours if they share a side. Cell $x$ has a mobility (diffusion coefficient) $D_x=\Dz d_x>0$, where $\Dz$
+is the mobility scale and $d_x$ a dimensionless zone multiplier. A person in cell $x$ hops to a neighbouring
+cell $y$ at rate
+\begin{equation}\label{s2_model:eq:hop}
+  \hop{x}{y}=\hop{y}{x}=\frac{2D_xD_y}{D_x+D_y}\qquad\text{for neighbouring cells } x,y\in\cells ,
+\end{equation}
+the harmonic mean of the two mobilities. This is the interface coefficient of finite-volume discretisations
+of diffusion in composite media \citep{patankar1980numerical}: the net flow between two cells is
+$\hop{x}{y}$ times the difference of their occupation numbers, so that \eqref{s2_model:eq:hop} is a
+discretisation of Fickian diffusion, $\partial_t\rho=\nabla\!\cdot(D\nabla\rho)$, with reflecting walls. The
+movement generator is the $\ncell\times\ncell$ matrix
+\begin{equation}\label{s2_model:eq:generator}
+  M_{yx}=\hop{x}{y}\ (y\neq x),\qquad M_{xx}=-\sum_{y\neq x}\hop{x}{y},\qquad \one^{\T}\gen=0 ,
+\end{equation}
+with $M_{yx}=0$ if $x\ne y$ are not neighbours. The column index is the source cell: the vector of expected
+occupation numbers obeys $\dot N=\gen N$, and $\one^{\T}\gen=0$ says that nobody enters or leaves through the
+walls. Because $D_x=\Dz d_x$, we have $\gen=\Dz\genz$, where $\genz$ is the generator at $\Dz=1$. The
+propagator $P_t(y\,|\,x)=\bigl(\e^{\gen t}\bigr)_{yx}$ is the probability that a walker that started in cell
+$x$ is in cell $y$ at time $t$. Closed forms of the propagator are known for homogeneous rectangular lattices
+\citep{giuggioli2020exact}; for the heterogeneous scenes of this article every quantity is computed
+numerically from $\gen$.
+
+\begin{assumption}\label{s2_model:ass:A}
+  The walkable region is connected: $\gen$ is irreducible.  The population is at movement equilibrium,
+  $N_x(t)\equiv N^*_x=\Npop\,\pi_x$, where $\stat>0$ is the stationary distribution of $\gen$
+  ($\gen\stat=0$, $\one^{\T}\stat=1$; $\pi_x=1/\ncell$ for the symmetric rule \eqref{s2_model:eq:hop}).
+\end{assumption}
+
+Under rule \eqref{s2_model:eq:hop} the matrix $\gen$ is symmetric, so the uniform distribution is the
+stationary one and people do not accumulate in slow zones. The assumption is phrased with a general $\stat$
+because several results of Section~\ref{s3_r0:sec} hold for any irreducible generator. The harmonic mean is a
+modelling choice. A rule in which the rate depends on the departure cell only, $\hop{x}{y}=D_x$, is a different
+model: it satisfies detailed balance with $\pi_x\propto1/D_x$, so that people accumulate where they move
+slowly, and its continuum limit is $\partial_t\rho=\nabla^2(D\rho)$. With lengths in cells, $D_x$ is in
+\cdunit{}; in physical units the rate \eqref{s2_model:eq:hop} is $2D_xD_y/((D_x+D_y)a^2)$.
+
+\subsection{Mean-field model}\label{s2_model:sec:meanfield}
+
+An infective in cell $x$ makes infectious contacts at rate $\beta q_x$, where $\beta$ is the transmission rate
+and $q_x\ge0$ the dimensionless infection efficiency of the cell ($\Qm=\diag q$, $q\not\equiv0$). A contact
+lands in cell $y$ with probability $P_{xy}=P(y\,|\,x)$, where the contact kernel $\ker$ is row-stochastic, and
+reaches a person chosen uniformly among those present in $y$ (frequency-dependent incidence). Infectives
+recover at rate $\gamma$. With $S_y,I_y,R_y$ the expected numbers of susceptible, infective and recovered
+people in cell $y$,
+\begin{equation}\label{s2_model:eq:meanfield}
+\begin{aligned}
+  \dot S_y &= (\gen S)_y-\frac{S_y}{N^*_y}\,\beta\sum_{x}q_xP_{xy}I_x ,\qquad
+  \dot I_y = (\gen I)_y+\frac{S_y}{N^*_y}\,\beta\sum_{x}q_xP_{xy}I_x-\gamma I_y ,\\
+  \dot R_y &= (\gen R)_y+\gamma I_y .
+\end{aligned}
+\end{equation}
+The \emph{same-cell kernel} $\ker=\Id$ gives the local incidence $\beta q_yS_yI_y/N^*_y$; the
+system is then a susceptible--infective--recovered patch model with one patch per cell, and the results
+known for such models apply (Section~\ref{s3_r0:sec}). The simulations use the \emph{1\,m kernel}: $P(y\,|\,x)$
+is uniform over the walkable cells whose centres lie within 1\,m of the centre of $x$ (line of sight through
+barriers is not checked). It coincides with the same-cell kernel when $a>1$\,m; without it the lattice
+spacing would silently set the contact range, with cell areas from $0.25\,\mathrm{m}^2$ to $4\,\mathrm{m}^2$
+in the scenes below. The range of 1\,m is a modelling choice.
+% src: data/s2_model_scenes.json -> scenes.<name>.D0_cell2_per_day_in_m2_per_day (a^2 = 2.25, 4, 1, 0.25 m^2)
+
+Summing the three equations gives $\dot N=\gen N$ for $N=S+I+R$, so that $N_y(t)=N^*_y$ for all $t$ under
+Assumption~\ref{s2_model:ass:A}. Writing $S_y/N^*_y=1-(I_y+R_y)/N^*_y$,
+\begin{equation}\label{s2_model:eq:linear}
+  \dot I=\Jm I+O\bigl(|I|(|I|+|R|)\bigr),\qquad \Jm=\gen+\Fm-\gamma\Id,\qquad \Fm=\beta\,\ker^{\T}\Qm ,
+\end{equation}
+with $\Fm=\beta\Qm$ for the same-cell kernel. Two features of \eqref{s2_model:eq:linear} are used repeatedly.
+First, $\Jm$ contains neither the number of people nor their density: under frequency-dependent incidence,
+crowding does not enter the linearised dynamics. Second, the neglected term is
+$-\diag\bigl((I+R)/N^*\bigr)\Fm I\le0$, so that every solution of \eqref{s2_model:eq:meanfield} satisfies
+$\dot I\le\Jm I$ componentwise for all $t\ge0$.
+
+\subsection{Individual-based model}\label{s2_model:sec:ibm}
+
+The individual-based model has $\Npop$ people who perform independent continuous-time random walks on
+$\cells$ with generator $\gen$ (rule \eqref{s2_model:eq:hop}, uniform $\stat$) and who are placed
+independently and uniformly at time $0$. Each person is susceptible, infective or recovered. While an
+infective is located at $x$ and a susceptible at $y$, the infective infects that susceptible at rate
+\begin{equation}\label{s2_model:eq:pairhazard}
+  h(x,y)=\frac{\beta\,q_x\,P_{xy}}{\rhobar},\qquad \rhobar=\frac{\Npop-1}{\ncell}
+  \quad(\text{frequency-dependent calibration}),
+\end{equation}
+where $\rhobar$ is the mean number of \emph{other} people per cell. The other $\Npop-1$ walkers are
+independent and uniformly distributed, so the expected rate at which an infective at $x$ infects in a fully
+susceptible room at movement equilibrium is $\sum_{y}h(x,y)\,\rhobar=\beta q_x$, exactly the rate assumed in
+\eqref{s2_model:eq:meanfield}, for every $\Npop$. In the density-dependent (DD) calibration, used only in
+Section~\ref{s6_scenes:sec:interventions} and always labelled DD, $\rhobar$ in \eqref{s2_model:eq:pairhazard}
+is frozen at its value $\rhobar_{\mathrm{ref}}$ for a reference occupancy; the hazard of a pair is then fixed
+and the contact rate becomes $\beta q_x\rhobar/\rhobar_{\mathrm{ref}}$, proportional to occupancy. Infectives
+recover at rate $\gamma$: the model is of SIR type with an exponential infectious period of mean $1/\gamma$
+and no latent class.
+
+The process is a continuous-time Markov chain with three kinds of event --- a hop, a recovery, and the
+infection of a susceptible located at $y$, at rate $\sum h(x_i,y)$ summed over the current positions $x_i$ of
+the infectives --- and is simulated exactly by the direct method of
+\citet{gillespie1976general,gillespie1977exact}; there is no time step and hence no discretisation error. The
+infection tree (infector, generation, time and cell of every infection) is recorded, so that secondary cases
+are counted, not fitted. The algorithm and the verification of the simulator are in Supplementary
+Section~\ref{S-appA_numerics:sec}.
+
+Model \eqref{s2_model:eq:meanfield} is the mean-field approximation of this process: it replaces the numbers
+of susceptibles and infectives in each cell by their expectations and neglects their correlations. The two
+models agree on the infection pressure of a case: a case born at $x$ exerts the expected pressure
+$\beta\,\Exp_x\!\int_0^\tau q(X_t)\,\dd t$ over its infectious period $\tau$, which is the column sum
+$\noff(x)$ of the next-generation matrix of Section~\ref{s3_r0:sec}. What the mean field ignores is that a
+discrete person can be infected only once and that an infective keeps meeting the same few neighbours
+(Section~\ref{s5_pair:sec}). The approximation becomes accurate when many people share a contact
+neighbourhood and mobility is high. In the office scene with 1\pct{} of the people initially infective, the
+largest difference between the mean simulated prevalence curve and the solution of
+\eqref{s2_model:eq:meanfield}, both as fractions of $\Npop$, is $0.42$ for $\Npop=100$ and $\Dz=1$ (200 runs),
+$0.058$ for $\Npop=1000$ and $\Dz=10$ (200 runs), and $0.004$ for $\Npop=5000$ and $\Dz=100$ (40 runs; checked
+only by re-running the same code).
+% src: data/bsc_sim/01_validation.json -> F_meanfield_limit (max_abs_diff_curve 0.4226, 0.0585, 0.0037; n_rep 200, 200, 40; I0 = 1, 10, 50)
+% src: notes/VERIFICATION.md -> Section 4.2, simulations, summary ("Not re-simulated separately")
+The normalisation \eqref{s2_model:eq:pairhazard} by the mean number of \emph{other} people matters. A rule that
+divides instead by the instantaneous number of all people in the cell, the infective included, defines a
+different process in which an infective alone in its cell transmits to nobody; at the occupancies of the
+scenes it is sub-critical (Supplementary Remark~\ref{S-s5_pair:rem:encounter}).
+
+\subsection{Three reproduction numbers}\label{s2_model:sec:numbers}
+
+Three quantities are called reproduction numbers in this article.
+\begin{enumerate}
+  \item The \emph{basic reproduction number} $\Rz=\srad(\ngm)$ of the mean-field model, the spectral radius of
+    the next-generation matrix $\ngm=\Fm(\gamma\Id-\gen)^{-1}$ (Theorem~\ref{s3_r0:thm:ngm}). It is the threshold
+    of \eqref{s2_model:eq:linear}: $\Rz>1$ if and only if the growth rate $\lamone=\sabs(\Jm)$ is positive.
+  \item The \emph{pair-level} numbers of the individual-based model (Definition~\ref{s5_pair:def:R1}):
+    $\Rone(x)$, the expected number of secondary cases of a lone index case born at $x$ when the other
+    $\Npop-1$ people are susceptible and only the index transmits; its average $\Ronebar$ over a uniformly
+    placed index; and the spectral radius $\srad(\ngmone)$ of a pair-level next-generation matrix. $\Rone(x)$ is
+    exact for the first generation. None of the three is a threshold quantity
+    (Remark~\ref{s5_pair:rem:threshold}).
+  \item The \emph{counted} number $\Rhat$: the mean number of people infected directly by the index case in
+    simulation, read from the infection tree. It depends on the law of the index cell (uniform, or weighted
+    by the Perron vector of $\ngm$) and on whether later cases also transmit and so compete for susceptibles;
+    both are stated wherever $\Rhat$ is quoted.
+\end{enumerate}
+In the office scene at $\Dz=1$ they are $\Rz=5.107$, $\Ronebar=2.266$ and $\Rhat=2.265\pm0.004$ (standard
+error; 400{,}000 runs, uniform index, only the index transmits).
+% src: data/s5_pair_large_sample.json -> office|D0=1 (R0_ngm 5.1073, R1bar_exact 2.2661, mean 2.2648, se 0.0039, n_runs 400000)
+
+\subsection{The four scenes}\label{s2_model:sec:scenes}
+
+\begin{table}[tbp]
+\centering
+\caption{The four scenes: lattice size in cells, spacing $a$, number $\ncell$ of walkable cells, number
+$\Npop$ of people, mean number $\rhobar=(\Npop-1)/\ncell$ of other people per cell, means over the walkable
+cells of the mobility multiplier $d=D/\Dz$ and of the infection efficiency $q$, the well-mixed value
+$\beta\langle q\rangle/\gamma$ and the upper bound $\beta\qmax/\gamma$ of $\Rz$ for $\beta=0.5\perday$ and
+$\gamma=0.14\perday$, and the mean number of cells in the 1\,m contact kernel (1.0 means the same-cell
+kernel). The zone values of $d$ and $q$ are in Supplementary Table~\ref{S-s2_model:tab:zones}; all of them are
+illustrative assumptions, and none is a measurement.}
+\label{s2_model:tab:scenes}
+\small
+% src: data/s2_model_scenes.json -> scenes.<name> (rows as generated in data/s2_model_table_rows.tex);
+%      scene definitions code/bsc_sim/scenes/{office,supermarket,classroom,metro}.json
+\begin{tabular}{@{}lcrrrcccccc@{}}
+\toprule
+Scene & lattice & $a$ (m) & $\ncell$ & $\Npop$ & $\rhobar$ & $\langle d\rangle$ & $\langle q\rangle$
+  & $\beta\langle q\rangle/\gamma$ & $\beta\qmax/\gamma$ & kernel cells \\
+\midrule
+Office & $20\times13$ & 1.5 & 234 & 100 & 0.423 & 0.561 & 1.300 & 4.643 & 5.357 & 1.0 \\
+Supermarket & $25\times15$ & 2 & 278 & 150 & 0.536 & 1.239 & 0.914 & 3.263 & 7.143 & 1.0 \\
+Classroom & $15\times10$ & 1 & 148 & 80 & 0.534 & 0.192 & 1.318 & 4.706 & 7.143 & 4.6 \\
+Metro carriage & $45\times6$ & 0.5 & 270 & 310 & 1.144 & 0.028 & 2.536 & 9.056 & 10.000 & 11.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.84\textwidth]{fig3_scene_maps_en}
+\caption{Floor plans of the four scenes. Each small square is one lattice cell of side $a$; colours mark
+the zones, whose mobility multiplier $D/\Dz$ and infection efficiency $q$ are given in the legends; dark
+cells are barriers and are not part of $\cells$. The panel titles give the lattice size in cells, the
+spacing $a$ and the number of people $\Npop$. The arrangement of the zones and the zone values are
+illustrative assumptions (see text).}
+% src: figures/fig3_scene_maps_{en,zh}.pdf, script code/bsc_sim/experiments/20_figures.py (fig_scenes), scenes code/bsc_sim/scenes/*.json
+\label{s2_model:fig:scenes}
+\end{figure}
+
+The model is evaluated on four scenes: an open-plan office, a supermarket, a classroom and a metro carriage
+(Table~\ref{s2_model:tab:scenes}, Fig.~\ref{s2_model:fig:scenes}). The same scene files are used for the
+theory and for the simulations. The lattice sizes and spacings, the zones with their values of $d$ and $q$,
+the numbers of people and the arrangement of the zones on the floor are illustrative assumptions; they are not
+measurements and are not derived from any standard. In the office the zones cover 60, 15, 10, 5 and 10\,\% of
+the 260 cells of the floor (workstations, corridor, meeting room, kitchen and barriers; the 234 walkable cells
+exclude the barriers); in the supermarket shelf racks and
+counters act as barriers; the classroom desks are split into a window block ($q=1.2$) and an inner block
+($q=2.0$); and the carriage has doors, seats and grab rails.
+% src: code/bsc_sim/scenes/office.json (zone_counts 156, 39, 26, 13, 26 of 260 cells); code/bsc_sim/scenes/supermarket.json, classroom.json, metro.json
+The metro mobilities follow a crowding rule $d=c\,n_{\mathrm{d}}^{-\eta}$ with $\eta=2$ in the standing area
+and $\eta=1$ elsewhere, evaluated at the crowd density $n_{\mathrm{d}}=310/67.5\,\mathrm{m}^2=4.59$ people per
+$\mathrm{m}^2$; their area
+mean is $0.028$.
+% src: data/s2_model_scenes.json -> scenes.metro (density_used_for_metro_rule_per_m2 4.5926, d_mean 0.0282, zones); code/bsc_sim/scenes/metro.json (D_coef, D_exp)
+The quantity that enters the bounds of Section~\ref{s3_r0:sec} is the mean of $q$ over walkable cells, which
+is $1.300$, $0.914$, $1.318$ and $2.536$. The 1\,m kernel is the same-cell kernel in the office and the
+supermarket; it contains the cell and up to four neighbours in the classroom ($4.6$ cells on average) and up
+to 13 cells in the carriage ($11.1$ on average). Results for the same-cell kernel in these two scenes are
+reported alongside as a sensitivity case.
+% src: data/s2_model_scenes.json -> scenes.<name>.q_mean; scenes.<name>.kernel1m_cells_mean (1.0, 1.0, 4.62, 11.13), kernel1m_cells_max (1, 1, 5, 13)
+
+\subsection{Parameters and physical regime}\label{s2_model:sec:regime}
+
+The default epidemiological parameters are $\beta=0.5\perday$ and $\gamma=0.14\perday$, a mean infectious
+period of $7.1$ days and $\beta/\gamma=3.571$. They are illustrative values and are not calibrated to any
+disease or dataset. The same holds for the default mobility scale $\Dz=1\cellday$, and this value matters
+for every result below. It is used as a reference low-mobility value at which the spatial effects of the model
+are visible; most results are also given at $\Dz=10$ and
+$100\cellday$, and $\Rz$ of every scene at walking mobility (Table~\ref{s2_model:tab:regime}).
+% src: data/s2_model_scenes.json -> beta, gamma, beta_over_gamma (3.5714), office_regime.infectious_period_days (7.14)
+
+\paragraph{What $\Dz=1$ means.} In the office ($a=1.5$\,m), $\Dz=1\cellday$ is $2.25\,\mathrm{m}^2$ per day.
+The root-mean-square displacement $\sqrt{4Dt}$ of a walker with $d=1$ is then $3$\,m in a day and $8$\,m in a
+mean infectious period, in a room of $30\,\mathrm{m}\times19.5\,\mathrm{m}$. A walker in the meeting room of
+this scene (26 cells) leaves it at the principal rate $\muZ=0.00877\perday$: its residence time $1/\muZ$ is
+$114$ days, sixteen infectious periods. In the metro carriage at $\Dz=1$ a passenger makes on average $0.075$
+hops of $0.5$\,m per day: the carriage is frozen on the time scale of an infectious period.
+% src: data/s2_model_scenes.json -> office_regime (D0_m2_per_day 2.25, rms_m_per_day_D0 3.0, rms_m_per_infectious_period_D0 8.02), scenes.office.floor_m
+% src: data/s2_model_scenes.json -> office_regime (meeting_room_mu_Z_per_day 0.008769, meeting_room_1_over_mu_Z_days 114.04)
+% src: data/s2_model_scenes.json -> scenes.metro.hop_rate_mean_per_day_D0=1 (0.0749)
+
+\paragraph{Walking mobility.} For a walker whose velocity autocorrelation decays as
+$\langle\mathbf{v}(0)\cdot\mathbf{v}(t)\rangle=v^2\e^{-t/\tau}$, the diffusion coefficient in two dimensions
+is $D=\tfrac12\int_0^\infty\langle\mathbf{v}(0)\cdot\mathbf{v}(t)\rangle\,\dd t=v^2\tau/2$
+\citep{taylor1922diffusion,kubo1966fluctuation}. With an assumed walking speed $v=1.3\,\mathrm{m\,s^{-1}}$, a
+typical value for pedestrians \citep{weidmann1993transporttechnik}, and an assumed persistence time
+$\tau=1.5$\,s, this gives $D=1.27\,\mathrm{m^2\,s^{-1}}$, that is, $4.9\times10^{4}\cellday$ for $a=1.5$\,m,
+and $2.4\times10^{3}\cellday$ if people walk 5\,\% of the time. Over the four scenes these walking values lie
+between $1.4\times10^{3}$ and $4.4\times10^{5}\cellday$ (Table~\ref{s2_model:tab:regime}): $\Dz=1$ is three to
+almost six orders of magnitude below the mobility of people who walk.
+% src: data/s2_model_scenes.json -> walking (D_m2_per_s 1.2675), scenes.office (walking_D0_cell2_per_day 48672, walking_5pct_D0_cell2_per_day 2433.6); same values in data/bsc_theory/worked_examples.json -> E9_physical_D
+% src: data/s2_model_scenes.json -> scenes.<name>.walking_5pct_D0_cell2_per_day (smallest: supermarket 1368.9), walking_D0_cell2_per_day (largest: metro 438048); log10: 3.14 to 5.64 (data/misc_checks.json -> mobility_gap)
+
+\begin{table}[tbp]
+\centering
+\caption{Basic reproduction number $\Rz$ of the mean-field model ($\beta=0.5\perday$,
+$\gamma=0.14\perday$) for the mobility scales $\Dz$ (in \cdunit) used in this article and for walking
+mobility; in brackets and in the columns headed `excess', the excess of $\Rz$ over the well-mixed value
+$\beta\langle q\rangle/\gamma$ in per cent. For the office and the supermarket the 1\,m kernel is the
+same-cell kernel; for the classroom and the metro carriage both kernels are given.
+The walking values of $\Dz$ are $v^2\tau/2$ with $v=1.3\,\mathrm{m\,s^{-1}}$ and $\tau=1.5$\,s, converted
+with the lattice spacing of each scene, for people who walk 5\pct{} of the time and all the time.}
+\label{s2_model:tab:regime}
+\footnotesize
+% src: data/s2_model_scenes.json -> scenes.<name>.R0_1m, scenes.<name>.R0_samecell (rows as generated in
+%      data/s2_model_table_rows.tex); D0 = 1, 10, 100 agree with data/plan_theory_checks.json ->
+%      scenes.<name>.R0_1m_D0=*, R0_samecell_D0=*
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llcccccccc@{}}
+\toprule
+ & & & \multicolumn{3}{c}{$\Rz$ (excess, \%) at $\Dz=$}
+ & \multicolumn{2}{c}{walking 5\pct} & \multicolumn{2}{c}{walking} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-8}\cmidrule(l){9-10}
+Scene & kernel & $\beta\langle q\rangle/\gamma$ & 1 & 10 & 100 & $\Dz$ & excess & $\Dz$ & excess \\
+\midrule
+Office & same cell & 4.643 & 5.107 (10.0) & 4.676 (0.72) & 4.646 (0.06) & $2.4\times10^{3}$ & 0.0026 & $4.9\times10^{4}$ & 0.00013 \\
+Supermarket & same cell & 3.263 & 4.394 (34.6) & 3.391 (3.93) & 3.275 (0.37) & $1.4\times10^{3}$ & 0.0268 & $2.7\times10^{4}$ & 0.00134 \\
+Classroom & 1\,m & 4.706 & 5.866 (24.7) & 4.931 (4.79) & 4.731 (0.53) & $5.5\times10^{3}$ & 0.0098 & $1.1\times10^{5}$ & 0.00049 \\
+ & same cell &  & 6.182 (31.4) & 4.960 (5.42) & 4.733 (0.57) & $5.5\times10^{3}$ & 0.0105 & $1.1\times10^{5}$ & 0.00053 \\
+Metro carriage & 1\,m & 9.056 & 9.241 (2.1) & 9.164 (1.20) & 9.078 (0.25) & $2.2\times10^{4}$ & 0.0013 & $4.4\times10^{5}$ & 0.00006 \\
+ & same cell &  & 9.836 (8.6) & 9.308 (2.79) & 9.086 (0.33) & $2.2\times10^{4}$ & 0.0016 & $4.4\times10^{5}$ & 0.00008 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Consequence.} At $\Dz=1$ the heterogeneity of $q$ raises $\Rz$ above the well-mixed value
+$\beta\langle q\rangle/\gamma$ by $2$ to $35\pct$ (1\,m kernel), depending on the scene. At walking mobility
+the excess is below $0.003\pct$ in the office and below $0.03\pct$ in every scene: in the mean-field model a
+closed room in which people walk is well mixed, and $\Rz=\beta\langle q\rangle/\gamma$ for all practical
+purposes.
+% src: data/s2_model_scenes.json -> scenes.<name>.R0_1m.*.excess_over_wellmixed_pct (D0=1: 10.0, 34.6, 24.7, 2.05;
+%      walking_5pct: 0.0026, 0.0268, 0.0098, 0.0013; walking: 0.00013, 0.00134, 0.00049, 0.00006);
+%      office at D0 = 2400 and 48700 in data/plan_theory_checks.json -> office.mobility_table (0.0027, 0.00013)
+All spatial effects in closed rooms reported in Sections~\ref{s3_r0:sec}--\ref{s6_scenes:sec} are large only at
+low mobility, and this holds for the pair-level correction of Section~\ref{s5_pair:sec} as well. Leaks through
+a localised door are the exception: their effect grows with mobility (Section~\ref{s4_geometry:sec:leaky}).
+Results are therefore given for the low default $\Dz=1$ and for $\Dz=10$ and $100$, where the room approaches
+the well-mixed limit; the later sections refer back to this paragraph and do not repeat it. A small $\Dz$
+could be read as a stand-in for people who stay at a desk or a seat, but a random walk without home positions
+is not an adequate model of such people: a slow walker drifts away and does not return, and the stationary
+occupancy is uniform over all walkable cells, corridors and aisles included. Section~\ref{s8b_evidence:sec:contacts}
+shows the consequence against recorded contacts, at the mobility that matches recorded contact durations: a
+free walk calibrated to the amount and duration of contact in six indoor settings gives each person too many
+partners in five of the six settings and no group structure in any.
+
+\paragraph{Closed room.} Unless stated otherwise, each scene is a closed room occupied 24 hours a day by the
+same $\Npop$ people for the whole epidemic. This is an idealisation for the office and the classroom, and it
+is not a physical scenario for the supermarket and the metro carriage, for which the scene files assume visits
+of 27 and 20 minutes;
+% src: code/bsc_sim/scenes/supermarket.json, metro.json ("dwell")
+Section~\ref{s6_scenes:sec:interventions} gives the corresponding numbers per visit and for a room that is
+occupied during part of the day.

@@ -1,0 +1,22 @@
+{
+ "provenance": "Values recorded by the re-check of the first outbreak test (separately written code in code/bsc_validation/verify/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.5, that reports it.",
+ "values": {
+  "seoul_callcentre_M2": {
+   "n_posterior_draws": 40,
+   "draws_with_D_above_100_m2_per_h": 3,
+   "expected_number_of_such_draws": 1.2,
+   "grid_points": 25,
+   "lattice_refinement_factors_checked": [
+    2,
+    3
+   ]
+  }
+ },
+ "item": {
+  "seoul_callcentre_M2.n_posterior_draws": "notes/VERIFICATION.md, Section 4.5, item 8",
+  "seoul_callcentre_M2.draws_with_D_above_100_m2_per_h": "notes/VERIFICATION.md, Section 4.5, item 8",
+  "seoul_callcentre_M2.expected_number_of_such_draws": "notes/VERIFICATION.md, Section 4.5, item 8",
+  "seoul_callcentre_M2.grid_points": "notes/VERIFICATION.md, Section 4.5, item 8",
+  "seoul_callcentre_M2.lattice_refinement_factors_checked": "notes/VERIFICATION.md, Section 4.5, item 8"
+ }
+}

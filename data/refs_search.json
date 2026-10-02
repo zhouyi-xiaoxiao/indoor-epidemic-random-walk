@@ -1,0 +1,1512 @@
+{
+ "retrieved": "2026-10-01",
+ "crossref": {
+  "kesten2005spread": {
+   "doi": "10.1214/009117905000000413",
+   "title": "The spread of a rumor or infection in a moving population",
+   "authors": [
+    "Kesten, Harry",
+    "Sidoravicius, Vladas"
+   ],
+   "journal": "The Annals of Probability",
+   "volume": "33",
+   "issue": "6",
+   "pages": null,
+   "article_number": null,
+   "year": 2005,
+   "type": "journal-article"
+  },
+  "kesten2006phase": {
+   "doi": "10.1215/ijm/1258059486",
+   "title": "A phase transition in a model for the spread of an infection",
+   "authors": [
+    "Kesten, Harry",
+    "Sidoravicius, Vladas"
+   ],
+   "journal": "Illinois Journal of Mathematics",
+   "volume": "50",
+   "issue": "1-4",
+   "pages": null,
+   "article_number": null,
+   "year": 2006,
+   "type": "journal-article"
+  },
+  "kesten2008shape": {
+   "doi": "10.4007/annals.2008.167.701",
+   "title": "A shape theorem for the spread of an infection",
+   "authors": [
+    "Kesten, Harry",
+    "Sidoravicius, Vladas"
+   ],
+   "journal": "Annals of Mathematics",
+   "volume": "167",
+   "issue": "3",
+   "pages": "701-766",
+   "article_number": null,
+   "year": 2008,
+   "type": "journal-article"
+  },
+  "maia2007diffusive": {
+   "doi": "10.1088/0953-8984/19/6/065143",
+   "title": "Diffusive epidemic process: theory and simulation",
+   "authors": [
+    "Maia, Daniel Souza",
+    "Dickman, Ronald"
+   ],
+   "journal": "Journal of Physics: Condensed Matter",
+   "volume": "19",
+   "issue": "6",
+   "pages": "065143",
+   "article_number": null,
+   "year": 2007,
+   "type": "journal-article"
+  },
+  "tien2015disease": {
+   "doi": "10.1007/s00285-014-0791-x",
+   "title": "Disease invasion on community networks with environmental pathogen movement",
+   "authors": [
+    "Tien, Joseph H.",
+    "Shuai, Zhisheng",
+    "Eisenberg, Marisa C.",
+    "van den Driessche, P."
+   ],
+   "journal": "Journal of Mathematical Biology",
+   "volume": "70",
+   "issue": "5",
+   "pages": "1065-1092",
+   "article_number": null,
+   "year": 2014,
+   "type": "journal-article"
+  },
+  "bichara2015sis": {
+   "doi": "10.1007/s11538-015-0113-5",
+   "title": "SIS and SIR Epidemic Models Under Virtual Dispersal",
+   "authors": [
+    "Bichara, Derdei",
+    "Kang, Yun",
+    "Castillo-Chavez, Carlos",
+    "Horan, Richard",
+    "Perrings, Charles"
+   ],
+   "journal": "Bulletin of Mathematical Biology",
+   "volume": "77",
+   "issue": "11",
+   "pages": "2004-2034",
+   "article_number": null,
+   "year": 2015,
+   "type": "journal-article"
+  },
+  "peng2022practical": {
+   "doi": "10.1021/acs.est.1c06531",
+   "title": "Practical Indicators for Risk of Airborne Transmission in Shared Indoor Environments and Their Application to COVID-19 Outbreaks",
+   "authors": [
+    "Peng, Z.",
+    "Rojas, A.L. Pineda",
+    "Kropff, E.",
+    "Bahnfleth, W.",
+    "Buonanno, G.",
+    "Dancer, S.J.",
+    "Kurnitski, J.",
+    "Li, Y.",
+    "Loomans, M.G.L.C.",
+    "Marr, L.C.",
+    "Morawska, L.",
+    "Nazaroff, W.",
+    "Noakes, C.",
+    "Querol, X.",
+    "Sekhar, C.",
+    "Tellier, R.",
+    "Greenhalgh, T.",
+    "Bourouiba, L.",
+    "Boerstra, A.",
+    "Tang, J.W.",
+    "Miller, S.L.",
+    "Jimenez, J.L."
+   ],
+   "journal": "Environmental Science &amp; Technology",
+   "volume": "56",
+   "issue": "2",
+   "pages": "1125-1137",
+   "article_number": null,
+   "year": 2022,
+   "type": "journal-article"
+  },
+  "cohen1981convexity": {
+   "doi": "10.1090/s0002-9939-1981-0601750-2",
+   "title": "Convexity of the dominant eigenvalue of an essentially nonnegative matrix",
+   "authors": [
+    "Cohen, Joel E."
+   ],
+   "journal": "Proceedings of the American Mathematical Society",
+   "volume": "81",
+   "issue": "4",
+   "pages": "657-657",
+   "article_number": null,
+   "year": 1981,
+   "type": "journal-article"
+  },
+  "shen2020": {
+   "doi": "10.1001/jamainternmed.2020.5225",
+   "title": "Community Outbreak Investigation of SARS-CoV-2 Transmission Among Bus Riders in Eastern China",
+   "authors": [
+    "Shen, Ye",
+    "Li, Changwei",
+    "Dong, Hongjun",
+    "Wang, Zhen",
+    "Martinez, Leonardo",
+    "Sun, Zhou",
+    "Handel, Andreas",
+    "Chen, Zhiping",
+    "Chen, Enfu",
+    "Ebell, Mark H.",
+    "Wang, Fan",
+    "Yi, Bo",
+    "Wang, Haibin",
+    "Wang, Xiaoxiao",
+    "Wang, Aihong",
+    "Chen, Bingbing",
+    "Qi, Yanling",
+    "Liang, Lirong",
+    "Li, Yang",
+    "Ling, Feng",
+    "Chen, Junfang",
+    "Xu, Guozhang"
+   ],
+   "journal": "JAMA Internal Medicine",
+   "volume": "180",
+   "issue": "12",
+   "pages": "1665",
+   "article_number": null,
+   "year": 2020,
+   "type": "journal-article"
+  },
+  "mizumoto2020": {
+   "doi": "10.2807/1560-7917.ES.2020.25.10.2000180",
+   "title": "Estimating the asymptomatic proportion of coronavirus disease 2019 (COVID-19) cases on board the Diamond Princess cruise ship, Yokohama, Japan, 2020",
+   "authors": [
+    "Mizumoto, Kenji",
+    "Kagaya, Katsushi",
+    "Zarebski, Alexander",
+    "Chowell, Gerardo"
+   ],
+   "journal": "Eurosurveillance",
+   "volume": "25",
+   "issue": "10",
+   "pages": null,
+   "article_number": null,
+   "year": 2020,
+   "type": "journal-article"
+  },
+  "steinzamir2020": {
+   "doi": "10.2807/1560-7917.ES.2020.25.29.2001352",
+   "title": "A large COVID-19 outbreak in a high school 10 days after schools’ reopening, Israel, May 2020",
+   "authors": [
+    "Stein-Zamir, Chen",
+    "Abramson, Nitza",
+    "Shoob, Hanna",
+    "Libal, Erez",
+    "Bitan, Menachem",
+    "Cardash, Tanya",
+    "Cayam, Refael",
+    "Miskin, Ian"
+   ],
+   "journal": "Eurosurveillance",
+   "volume": "25",
+   "issue": "29",
+   "pages": null,
+   "article_number": null,
+   "year": 2020,
+   "type": "journal-article"
+  },
+  "gao2020fast": {
+   "doi": "10.1090/proc/14868",
+   "title": "Fast diffusion inhibits disease outbreaks",
+   "authors": [
+    "Gao, Daozhou",
+    "Dong, Chao-Ping"
+   ],
+   "journal": "Proceedings of the American Mathematical Society",
+   "volume": "148",
+   "issue": "4",
+   "pages": "1709-1722",
+   "article_number": null,
+   "year": 2019,
+   "type": "journal-article"
+  },
+  "allen2007asymptotic": {
+   "doi": "10.1137/060672522",
+   "title": "Asymptotic Profiles of the Steady States for an SIS Epidemic Patch Model",
+   "authors": [
+    "Allen, L. J. S.",
+    "Bolker, B. M.",
+    "Lou, Y.",
+    "Nevai, A. L."
+   ],
+   "journal": "SIAM Journal on Applied Mathematics",
+   "volume": "67",
+   "issue": "5",
+   "pages": "1283-1309",
+   "article_number": null,
+   "year": 2007,
+   "type": "journal-article"
+  },
+  "gao2011sis": {
+   "doi": "10.1016/j.mbs.2011.05.001",
+   "title": "An SIS patch model with variable transmission coefficients",
+   "authors": [
+    "Gao, Daozhou",
+    "Ruan, Shigui"
+   ],
+   "journal": "Mathematical Biosciences",
+   "volume": "232",
+   "issue": "2",
+   "pages": "110-115",
+   "article_number": null,
+   "year": 2011,
+   "type": "journal-article"
+  },
+  "carvalho2025generalized": {
+   "doi": "10.1088/1742-5468/ad9f4d",
+   "title": "",
+   "authors": [],
+   "journal": "",
+   "volume": null,
+   "issue": null,
+   "pages": null,
+   "article_number": null,
+   "year": null,
+   "type": null
+  }
+ },
+ "searches": [
+  {
+   "engine": "crossref",
+   "query": "spread of a rumor or infection in a moving population random walks",
+   "total_results": 2040961,
+   "first": [
+    {
+     "title": "The spread of a rumor or infection in a moving population",
+     "doi": "10.1214/009117905000000413",
+     "year": 2005,
+     "journal": "The Annals of Probability"
+    },
+    {
+     "title": "On Some Random Walks Driven by Spread-Out Measures",
+     "doi": "10.1017/9781316576571.017",
+     "year": 2017,
+     "journal": "Groups, Graphs and Random Walks"
+    },
+    {
+     "title": "Local survival of spread of infection among biased random walks",
+     "doi": "10.1214/22-ejp861",
+     "year": 2022,
+     "journal": "Electronic Journal of Probability"
+    },
+    {
+     "title": "Random walks in random conductances: Decoupling and spread of infection",
+     "doi": "10.1016/j.spa.2018.09.016",
+     "year": 2019,
+     "journal": "Stochastic Processes and their Applications"
+    },
+    {
+     "title": "Causal pathways, random walks, and tortuous paths: Moving from the descriptive to the etiological in psychiatry",
+     "doi": "10.1093/med/9780198796022.003.0041",
+     "year": 2017,
+     "journal": "Oxford Medicine Online"
+    },
+    {
+     "title": "Comments on “Causal pathways, random walks, and tortuous paths: moving from the descriptive to the etiological in psychiatry”",
+     "doi": "10.1093/med/9780198796022.003.0042",
+     "year": 2017,
+     "journal": "Oxford Medicine Online"
+    },
+    {
+     "title": "Introduction to “Causal pathways, random walks and tortuous paths: Moving from the descriptive to the etiological in psychiatry”",
+     "doi": "10.1093/med/9780198796022.003.0040",
+     "year": 2017,
+     "journal": "Oxford Medicine Online"
+    },
+    {
+     "title": "Fast rumor source identification via random walks",
+     "doi": "10.1007/s13278-016-0373-6",
+     "year": 2016,
+     "journal": "Social Network Analysis and Mining"
+    },
+    {
+     "title": "Results on Branching Random Walks and Rumor Processes via Germ Order",
+     "doi": "10.1111/sjos.70084",
+     "year": 2026,
+     "journal": "Scandinavian Journal of Statistics"
+    },
+    {
+     "title": "Psychological Motivations in Rumor Spread",
+     "doi": "10.4324/9781315128795-10",
+     "year": 2017,
+     "journal": "Rumor Mills"
+    },
+    {
+     "title": "Random Walks And Random Flights",
+     "doi": "10.1093/oso/9780198537885.003.0002",
+     "year": 1995,
+     "journal": "Random Walks And Random Environments"
+    },
+    {
+     "title": "Escalators and moving walks. Code of practice for safe working on escalators and moving walks",
+     "doi": "10.3403/00480770u",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Escalators and moving walks. Code of practice for safe working on escalators and moving walks",
+     "doi": "10.3403/03142637",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Random Walks",
+     "doi": "10.1515/9780773566743-004",
+     "year": 1997,
+     "journal": "Random Walks"
+    },
+    {
+     "title": "Escalators and moving walks. Code of practice for safe working on escalators and moving walks",
+     "doi": "10.3403/30228481",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Chapter 7. Other Random Walks",
+     "doi": "10.1515/9781400820023-010",
+     "year": 1984,
+     "journal": "Random Walks in Biology"
+    },
+    {
+     "title": "Continuous-Time Random Walks",
+     "doi": "10.1093/oso/9780198537885.003.0005",
+     "year": 1995,
+     "journal": "Random Walks And Random Environments"
+    },
+    {
+     "title": "Other Random Walks",
+     "doi": "10.2307/jj.32726718.13",
+     "year": 2025,
+     "journal": "Random Walks in Biology"
+    },
+    {
+     "title": "Sisyphus random walks in the presence of moving traps",
+     "doi": "10.1016/j.aop.2021.168613",
+     "year": 2021,
+     "journal": "Annals of Physics"
+    },
+    {
+     "title": "Energy performance of lifts, escalators and moving walks",
+     "doi": "10.3403/30282193",
+     "year": null,
+     "journal": ""
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "diffusive epidemic process",
+   "total_results": 1377834,
+   "first": [
+    {
+     "title": "Universal Behaviors in the Diffusive Epidemic Process and in Fully Developed Turbulence",
+     "doi": "10.1007/978-3-030-39871-2_2",
+     "year": 2020,
+     "journal": "Springer Theses"
+    },
+    {
+     "title": "Non-perturbative renormalisation group approach to some out of equilibrium systems : diffusive epidemic process and fully developped turbulence",
+     "doi": "10.70675/b880a1a3z9c2dz4e44z85b3z5f98f6f017a3",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Subdiffusive Activity Spreading in the Diffusive Epidemic Process",
+     "doi": "10.1103/physrevlett.128.078302",
+     "year": 2022,
+     "journal": "Physical Review Letters"
+    },
+    {
+     "title": "Nonperturbative renormalization group for the diffusive epidemic process",
+     "doi": "10.1103/physreve.96.022137",
+     "year": 2017,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "Diffusive epidemic process: theory and simulation",
+     "doi": "10.1088/0953-8984/19/6/065143",
+     "year": 2007,
+     "journal": "Journal of Physics: Condensed Matter"
+    },
+    {
+     "title": "Critical behavior of a one-dimensional diffusive epidemic process",
+     "doi": "10.1103/physreve.63.066118",
+     "year": 2001,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "Non-perturbative Renormalization Group Approach to Some Out-of-Equilibrium Systems",
+     "doi": "10.1007/978-3-030-39871-2",
+     "year": 2020,
+     "journal": "Springer Theses"
+    },
+    {
+     "title": "Hyperuniformity of initial conditions and critical decay of a diffusive epidemic process belonging to the Manna class",
+     "doi": "10.1103/physreve.96.012146",
+     "year": 2017,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "Diffusive epidemic process in 3D: a two-species reaction–diffusion phase transition",
+     "doi": "10.1088/1742-5468/abe701",
+     "year": 2021,
+     "journal": "Journal of Statistical Mechanics: Theory and Experiment"
+    },
+    {
+     "title": "Modified diffusive epidemic process on Apollonian networks",
+     "doi": "10.1007/s10867-023-09634-2",
+     "year": 2023,
+     "journal": "Journal of Biological Physics"
+    },
+    {
+     "title": "ON THE DIFFUSIVE EPIDEMIC MODEL SEI WITH IMMIGRATIONS",
+     "doi": "10.33184/mnkuomsh2t-2022-09-28.163",
+     "year": 2022,
+     "journal": "Уфимская осенняя математическая школа - 2022. 2 часть"
+    },
+    {
+     "title": "Modified Diffusive Epidemic Process on the Apollonian Network",
+     "doi": "10.21203/rs.3.rs-2117579/v1",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "On a cross-diffusive SIS epidemic model with power-like nonlinear incidence",
+     "doi": "10.21203/rs.3.rs-2800336/v1",
+     "year": 2023,
+     "journal": ""
+    },
+    {
+     "title": "General Conclusion",
+     "doi": "10.1007/978-3-030-39871-2_6",
+     "year": 2020,
+     "journal": "Springer Theses"
+    },
+    {
+     "title": "General Introduction",
+     "doi": "10.1007/978-3-030-39871-2_1",
+     "year": 2020,
+     "journal": "Springer Theses"
+    },
+    {
+     "title": "The nature of the absorbing-state phase transition in the diffusive epidemic process",
+     "doi": "10.1088/1751-8113/41/40/405002",
+     "year": 2008,
+     "journal": "Journal of Physics A: Mathematical and Theoretical"
+    },
+    {
+     "title": "Stationary and dynamical critical behavior of the three-dimensional Diffusive Epidemic Process",
+     "doi": "10.1016/j.physa.2018.11.032",
+     "year": 2019,
+     "journal": "Physica A: Statistical Mechanics and its Applications"
+    },
+    {
+     "title": "Critical properties of the diffusive epidemic process obtained via an automatic search technique",
+     "doi": "10.1088/1742-5468/2010/04/p04027",
+     "year": 2010,
+     "journal": "Journal of Statistical Mechanics: Theory and Experiment"
+    },
+    {
+     "title": "Monte Carlo study of the critical behavior of a diffusive epidemic process",
+     "doi": "10.1016/s0378-4371(01)00050-4",
+     "year": 2001,
+     "journal": "Physica A: Statistical Mechanics and its Applications"
+    },
+    {
+     "title": "The diffusive SIS epidemic model with mass action infection mechanism on an evolving domain",
+     "doi": "10.21203/rs.3.rs-8945300/v1",
+     "year": 2026,
+     "journal": ""
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "infection independent random walkers lattice phase transition recovery",
+   "total_results": 3535386,
+   "first": [
+    {
+     "title": "Coloring of a one-dimensional lattice by two independent random walkers",
+     "doi": "10.1016/0378-4371(95)00424-6",
+     "year": 1996,
+     "journal": "Physica A: Statistical Mechanics and its Applications"
+    },
+    {
+     "title": "Exploration properties of biased evanescent random walkers on a one-dimensional lattice",
+     "doi": "10.1063/1.4996526",
+     "year": 2017,
+     "journal": "AIP Conference Proceedings"
+    },
+    {
+     "title": "Network formed by movements of random walkers on a Bethe lattice",
+     "doi": "10.1088/1742-6596/490/1/012189",
+     "year": 2014,
+     "journal": "Journal of Physics: Conference Series"
+    },
+    {
+     "title": "New gauge-independent transition dividing the confinement phase in the lattice gauge-adjoint scalar model",
+     "doi": "10.22323/1.453.0373",
+     "year": 2024,
+     "journal": "Proceedings of The 40th International Symposium on Lattice Field Theory — PoS(LATTICE2023)"
+    },
+    {
+     "title": "Local limit theorems for sums of independent integer-valued lattice random variables",
+     "doi": "10.58837/chula.the.2021.232",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Lattice random walks for sets of random walkers. First passage times",
+     "doi": "10.1007/bf01014427",
+     "year": 1980,
+     "journal": "Journal of Statistical Physics"
+    },
+    {
+     "title": "Chiral phase transition in a chiral random matrix model with three flavors",
+     "doi": "10.22323/1.091.0222",
+     "year": 2010,
+     "journal": "Proceedings of The XXVII International Symposium on Lattice Field Theory — PoS(LAT2009)"
+    },
+    {
+     "title": "Interface dynamics in directional solidification: A lattice simulation with biased random walkers",
+     "doi": "10.1103/physreva.35.1877",
+     "year": 1987,
+     "journal": "Physical Review A"
+    },
+    {
+     "title": "New gauge-independent transition separating confinement-Higgs phase in the lattice gauge-fundamental scalar model",
+     "doi": "10.22323/1.453.0383",
+     "year": 2024,
+     "journal": "Proceedings of The 40th International Symposium on Lattice Field Theory — PoS(LATTICE2023)"
+    },
+    {
+     "title": "Random Phase Approximation for Periodic Systems Employing Direct Coulomb Lattice Summation",
+     "doi": "10.1021/acs.jctc.6b01146.s001",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Phase transition in random tensors with multiple independent spikes",
+     "doi": "10.1214/20-aap1636",
+     "year": 2021,
+     "journal": "The Annals of Applied Probability"
+    },
+    {
+     "title": "Random Walkers",
+     "doi": "10.1017/9781009580656.008",
+     "year": 2025,
+     "journal": "Probability Theory for Quantitative Scientists"
+    },
+    {
+     "title": "Reversible Phase Transition between Vortex Lattice and Hexagonal Polar Skyrmion Crystals",
+     "doi": "10.1021/acs.nanolett.3c02852.s001",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Lattice covering by two random walkers in one dimension",
+     "doi": "10.1016/s0378-4371(97)00608-0",
+     "year": 1998,
+     "journal": "Physica A: Statistical Mechanics and its Applications"
+    },
+    {
+     "title": "Quantum computational supremacy in the sampling of bosonic random walkers on a one-dimensional lattice",
+     "doi": "10.1088/1367-2630/ab0610",
+     "year": 2019,
+     "journal": "New Journal of Physics"
+    },
+    {
+     "title": "Lyapunov exponent of random walkers on a bond-disordered lattice",
+     "doi": "10.1016/s0378-4371(97)00386-5",
+     "year": 1997,
+     "journal": "Physica A: Statistical Mechanics and its Applications"
+    },
+    {
+     "title": "On transition of distributions of sums of independent identically distributed random variables from one lattice to another in the generalised allocation scheme",
+     "doi": "10.1515/156939206779218023",
+     "year": 2006,
+     "journal": "Discrete Mathematics and Applications"
+    },
+    {
+     "title": "Gauge-independent transition dividing the confinement phase in the lattice SU(2) gauge-adjoint scalar model",
+     "doi": "10.1103/physrevd.110.034508",
+     "year": 2024,
+     "journal": "Physical Review D"
+    },
+    {
+     "title": "Phase Transition for the Erdős-Rényi Random Graph",
+     "doi": "10.1017/9781316779422.006",
+     "year": 2016,
+     "journal": "Random Graphs and Complex Networks"
+    },
+    {
+     "title": "Clock Recovery from Random Binary Signals",
+     "doi": "10.1109/9780470545331.ch27",
+     "year": 2009,
+     "journal": "Monolithic Phase-Locked Loops and Clock Recovery Circuits"
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "epidemic random walkers lattice basic reproduction number",
+   "total_results": 1392287,
+   "first": [
+    {
+     "title": "Studies on the basic reproduction number in stochastic epidemic models with random perturbations",
+     "doi": "10.1186/s13662-021-03445-2",
+     "year": 2021,
+     "journal": "Advances in Difference Equations"
+    },
+    {
+     "title": "Correction to: Studies on the basic reproduction number in stochastic epidemic models with random perturbations",
+     "doi": "10.1186/s13662-021-03554-y",
+     "year": 2021,
+     "journal": "Advances in Difference Equations"
+    },
+    {
+     "title": "Analysis of Epidemic Model Using Basic Reproduction Number",
+     "doi": "10.2139/ssrn.3166500",
+     "year": 2018,
+     "journal": "SSRN Electronic Journal"
+    },
+    {
+     "title": "Basic reproduction number of epidemic models on sparse networks",
+     "doi": "10.1103/physreve.106.034318",
+     "year": 2022,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "APPENDIX 1",
+     "doi": "10.2307/j.ctt1dr35hf.12",
+     "year": 2015,
+     "journal": "The Population Biology of Tuberculosis"
+    },
+    {
+     "title": "Estimating epidemic exponential growth rate and basic reproduction number",
+     "doi": "10.1016/j.idm.2019.12.009",
+     "year": 2020,
+     "journal": "Infectious Disease Modelling"
+    },
+    {
+     "title": "APPENDIX 1. Derivation of the Basic Case Reproduction Number and Epidemic Doubling Time",
+     "doi": "10.1515/9781400866571-011",
+     "year": 2015,
+     "journal": "The Population Biology of Tuberculosis"
+    },
+    {
+     "title": "Bayesian estimation of the basic reproduction number in stochastic epidemic\n        models",
+     "doi": "10.1214/08-ba328",
+     "year": 2008,
+     "journal": "Bayesian Analysis"
+    },
+    {
+     "title": "Number of distinct sites visited by<b><i>N</i></b>random walkers on a Euclidean lattice",
+     "doi": "10.1103/physreve.61.2340",
+     "year": 2000,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "The Influence of Basic Reproduction Number on Pattern Formations in a Spatial Epidemic Model with The Susceptible Cross-diffusion",
+     "doi": "10.7176/mtm/11-4-02",
+     "year": 2021,
+     "journal": "Mathematical Theory and Modeling"
+    },
+    {
+     "title": "On the Reproduction Number in Epidemic",
+     "doi": "10.2139/ssrn.3694932",
+     "year": 2020,
+     "journal": ""
+    },
+    {
+     "title": "The Computational Approach for the Basic Reproduction Number of Epidemic Models on Complex Networks",
+     "doi": "10.1109/access.2019.2898639",
+     "year": 2019,
+     "journal": "IEEE Access"
+    },
+    {
+     "title": "The basic reproduction number and the probability of extinction for a dynamic epidemic model",
+     "doi": "10.1016/j.mbs.2012.01.002",
+     "year": 2012,
+     "journal": "Mathematical Biosciences"
+    },
+    {
+     "title": "Vicious random walkers in the limit of a large number of walkers",
+     "doi": "10.1007/bf01016779",
+     "year": 1989,
+     "journal": "Journal of Statistical Physics"
+    },
+    {
+     "title": "The Basic Reproduction Number as a Predictor for Epidemic Outbreaks in Temporal Networks",
+     "doi": "10.1371/journal.pone.0120567",
+     "year": 2015,
+     "journal": "PLOS ONE"
+    },
+    {
+     "title": "The basic reproduction number",
+     "doi": "10.23943/princeton/9780691155395.003.0007",
+     "year": 2012,
+     "journal": "Mathematical Tools for Understanding Infectious Disease Dynamics"
+    },
+    {
+     "title": "Exploration properties of biased evanescent random walkers on a one-dimensional lattice",
+     "doi": "10.1063/1.4996526",
+     "year": 2017,
+     "journal": "AIP Conference Proceedings"
+    },
+    {
+     "title": "Are the SIR and SEIR models suitable to estimate the basic reproduction number for the CoViD-19 epidemic?",
+     "doi": "10.1101/2020.10.11.20210831",
+     "year": 2020,
+     "journal": ""
+    },
+    {
+     "title": "Numerical approximation of the basic reproduction number for a class of age-structured epidemic models",
+     "doi": "10.1016/j.aml.2017.04.031",
+     "year": 2017,
+     "journal": "Applied Mathematics Letters"
+    },
+    {
+     "title": "Some properties of an estimator for the basic reproduction number of the general epidemic model",
+     "doi": "10.1016/s0025-5564(99)00009-7",
+     "year": 1999,
+     "journal": "Mathematical Biosciences"
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "two random walkers transmission of infection confinement",
+   "total_results": 3176173,
+   "first": [
+    {
+     "title": "Theory of the Transmission of Infection in the Spread of Epidemics: Interacting Random Walkers with and Without Confinement",
+     "doi": "10.1007/s11538-014-0042-8",
+     "year": 2014,
+     "journal": "Bulletin of Mathematical Biology"
+    },
+    {
+     "title": "Analysis of Transmission of Infection in Epidemics: Confined Random Walkers in Dimensions Higher Than One",
+     "doi": "10.1007/s11538-018-0507-2",
+     "year": 2018,
+     "journal": "Bulletin of Mathematical Biology"
+    },
+    {
+     "title": "Magnetic Actuation of Surface Walkers: The Effects of Confinement and Inertia",
+     "doi": "10.1021/acs.langmuir.9b03487.s001",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Mean first-passage times of non-Markovian random walkers in confinement",
+     "doi": "10.1038/nature18272",
+     "year": 2016,
+     "journal": "Nature"
+    },
+    {
+     "title": "Are Two‐Station Biased Random Walkers Always Potential Molecular Motors?",
+     "doi": "10.1002/cphc.201402557",
+     "year": 2014,
+     "journal": "ChemPhysChem"
+    },
+    {
+     "title": "Random walk with two interacting walkers",
+     "doi": "10.1063/1.431086",
+     "year": 1975,
+     "journal": "The Journal of Chemical Physics"
+    },
+    {
+     "title": "Quantum photonic gates with two-dimensional random walkers",
+     "doi": "10.1364/oe.550032",
+     "year": 2025,
+     "journal": "Optics Express"
+    },
+    {
+     "title": "Random Walkers",
+     "doi": "10.1017/9781009580656.008",
+     "year": 2025,
+     "journal": "Probability Theory for Quantitative Scientists"
+    },
+    {
+     "title": "Contact statistics in populations of noninteracting random walkers in two dimensions",
+     "doi": "10.1103/physreve.105.014103",
+     "year": 2022,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "Homogenization Scales in Residential Segregation Through Random Walkers",
+     "doi": "10.2139/ssrn.4993130",
+     "year": 2024,
+     "journal": ""
+    },
+    {
+     "title": "First Meeting Time Formula of Two Random Walkers toward Understanding Epidemic Information Dissemination",
+     "doi": "10.1109/compsac.2017.130",
+     "year": 2017,
+     "journal": "2017 IEEE 41st Annual Computer Software and Applications Conference (COMPSAC)"
+    },
+    {
+     "title": "Trapping of biological random walkers Part 3: Two-dimensional heat equation as the foundation for translating catch number into absolute pest density",
+     "doi": "10.1603/ice.2016.112820",
+     "year": 2016,
+     "journal": "2016 International Congress of Entomology"
+    },
+    {
+     "title": "Kinematics of persistent random walkers with two distinct modes of motion",
+     "doi": "10.1103/physreve.106.034105",
+     "year": 2022,
+     "journal": "Physical Review E"
+    },
+    {
+     "title": "Two-level quantum walkers on directed graphs. II. Application to quantum random access memory",
+     "doi": "10.1103/physreva.107.022416",
+     "year": 2023,
+     "journal": "Physical Review A"
+    },
+    {
+     "title": "Vicious random walkers in the limit of a large number of walkers",
+     "doi": "10.1007/bf01016779",
+     "year": 1989,
+     "journal": "Journal of Statistical Physics"
+    },
+    {
+     "title": "Spin Model of Two Random Walkers in Complex Networks",
+     "doi": "10.1007/978-3-319-72150-7_45",
+     "year": 2017,
+     "journal": "Studies in Computational Intelligence"
+    },
+    {
+     "title": "Multivalent Random Walkers — A Model for Deoxyribozyme Walkers",
+     "doi": "10.1007/978-3-642-23638-9_14",
+     "year": 2011,
+     "journal": "Lecture Notes in Computer Science"
+    },
+    {
+     "title": "Lattice covering by two random walkers in one dimension",
+     "doi": "10.1016/s0378-4371(97)00608-0",
+     "year": 1998,
+     "journal": "Physica A: Statistical Mechanics and its Applications"
+    },
+    {
+     "title": "VICIOUS RANDOM WALKERS AND TRUNCATED HAAR UNITARIES",
+     "doi": "10.1142/9789812835277_0015",
+     "year": 2008,
+     "journal": "Quantum Probability and Related Topics"
+    },
+    {
+     "title": "Enhancing the speed of DNA walkers through soft confinement",
+     "doi": "10.1038/s41598-025-93269-x",
+     "year": 2025,
+     "journal": "Scientific Reports"
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "SIS patch model basic reproduction number monotone dispersal rate",
+   "total_results": 4707871,
+   "first": [
+    {
+     "title": "Asymptotic behavior of the basic reproduction number in an age-structured SIS epidemic patch model",
+     "doi": "10.1007/s00285-023-01979-5",
+     "year": 2023,
+     "journal": "Journal of Mathematical Biology"
+    },
+    {
+     "title": "Analysis of a two-patch SIS model with saturating contact rate and one- directing population dispersal",
+     "doi": "10.3934/mbe.2022523",
+     "year": 2022,
+     "journal": "Mathematical Biosciences and Engineering"
+    },
+    {
+     "title": "Effect of the Number of Patches in a Multi-patch SIRS Model with Fast Migration on the Basic Reproduction Rate",
+     "doi": "10.1007/s10441-008-9036-y",
+     "year": 2008,
+     "journal": "Acta Biotheoretica"
+    },
+    {
+     "title": "Figure 2: Estimated values of the basic reproduction number and case ascertainment rate.",
+     "doi": "10.7717/peerj.4583/fig-2",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Basic reproduction number of a multi-patch SVI model represented as a star graph topology",
+     "doi": "10.1063/1.5064234",
+     "year": 2018,
+     "journal": "AIP Conference Proceedings"
+    },
+    {
+     "title": "SEIHCRD Model for COVID-19 Spread Scenarios, Disease Predictions and Estimates the Basic Reproduction Number, Case Fatality Rate, Hospital, and ICU Beds Requirement",
+     "doi": "10.32604/cmes.2020.012503",
+     "year": 2020,
+     "journal": "Computer Modeling in Engineering &amp; Sciences"
+    },
+    {
+     "title": "SEIHCRD Model for COVID-19 spread scenarios, disease predictions and estimates the basic reproduction number, case fatality rate, hospital, and ICU beds requirement",
+     "doi": "10.1101/2020.07.24.20161752",
+     "year": 2020,
+     "journal": ""
+    },
+    {
+     "title": "Analysis of a Hand-Foot-Mouth Disease Model with Standard Incidence Rate and Estimation for Basic Reproduction Number",
+     "doi": "10.3390/mca22020029",
+     "year": 2017,
+     "journal": "Mathematical and Computational Applications"
+    },
+    {
+     "title": "Dynamics and calculation of the basic reproduction number for a nonlocal dispersal epidemic model with air pollution",
+     "doi": "10.1007/s12190-023-01867-7",
+     "year": 2023,
+     "journal": "Journal of Applied Mathematics and Computing"
+    },
+    {
+     "title": "The basic reproduction number",
+     "doi": "10.23943/princeton/9780691155395.003.0007",
+     "year": 2012,
+     "journal": "Mathematical Tools for Understanding Infectious Disease Dynamics"
+    },
+    {
+     "title": "Estimating epidemic exponential growth rate and basic reproduction number",
+     "doi": "10.1016/j.idm.2019.12.009",
+     "year": 2020,
+     "journal": "Infectious Disease Modelling"
+    },
+    {
+     "title": "A note about the invariance of the basic reproduction number for stochastically perturbed SIS models",
+     "doi": "10.1111/sapm.12483",
+     "year": 2022,
+     "journal": "Studies in Applied Mathematics"
+    },
+    {
+     "title": "Analysis of Epidemic Model Using Basic Reproduction Number",
+     "doi": "10.2139/ssrn.3166500",
+     "year": 2018,
+     "journal": "SSRN Electronic Journal"
+    },
+    {
+     "title": "Rnaught: Estimate the Basic Reproduction Number (R0)",
+     "doi": "10.32614/cran.package.rnaught",
+     "year": 2025,
+     "journal": "CRAN: Contributed Packages"
+    },
+    {
+     "title": "A Semigroup-Theoretic Approach to the Basic Reproduction Number for an Age-Structured SIR Model",
+     "doi": "10.2139/ssrn.6810316",
+     "year": 2026,
+     "journal": ""
+    },
+    {
+     "title": "A Semigroup-Theoretic Approach to the Basic Reproduction Number for an Age-Structured SIR Model",
+     "doi": "10.2139/ssrn.6810338",
+     "year": 2026,
+     "journal": ""
+    },
+    {
+     "title": "Dynamics of an SIS patch model with delayed media impact",
+     "doi": "10.21203/rs.3.rs-3423402/v1",
+     "year": 2023,
+     "journal": ""
+    },
+    {
+     "title": "Canard explosion of a singularly perturbed SIS epidemic model with a non-monotone incidence rate and a logistic-type population birth rate",
+     "doi": "10.1016/j.cnsns.2025.109547",
+     "year": 2026,
+     "journal": "Communications in Nonlinear Science and Numerical Simulation"
+    },
+    {
+     "title": "The Basic Reproduction Number of an Infectious Disease in a Stable Population: The Impact of Population Growth Rate on the Eradication Threshold",
+     "doi": "10.1051/mmnp:2008050",
+     "year": 2008,
+     "journal": "Mathematical Modelling of Natural Phenomena"
+    },
+    {
+     "title": "",
+     "doi": "10.7287/peerj.preprints.26540v1/supp-1",
+     "year": null,
+     "journal": "Supplemental Information 1: A two patch dispersal system made of two 1.5 mL microtubes connected by a silicon pipe, filled with nutritive medium, used to quantify dispersal rate from cells inoculated in the start patch and allowed to move freely during 6 h"
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "basic reproduction number fast dispersal limit patch model expansion",
+   "total_results": 4731798,
+   "first": [
+    {
+     "title": "Effect of the Number of Patches in a Multi-patch SIRS Model with Fast Migration on the Basic Reproduction Rate",
+     "doi": "10.1007/s10441-008-9036-y",
+     "year": 2008,
+     "journal": "Acta Biotheoretica"
+    },
+    {
+     "title": "Basic reproduction number of a multi-patch SVI model represented as a star graph topology",
+     "doi": "10.1063/1.5064234",
+     "year": 2018,
+     "journal": "AIP Conference Proceedings"
+    },
+    {
+     "title": "Asymptotic behavior of the basic reproduction number in an age-structured SIS epidemic patch model",
+     "doi": "10.1007/s00285-023-01979-5",
+     "year": 2023,
+     "journal": "Journal of Mathematical Biology"
+    },
+    {
+     "title": "Dynamics and calculation of the basic reproduction number for a nonlocal dispersal epidemic model with air pollution",
+     "doi": "10.1007/s12190-023-01867-7",
+     "year": 2023,
+     "journal": "Journal of Applied Mathematics and Computing"
+    },
+    {
+     "title": "The basic reproduction number",
+     "doi": "10.23943/princeton/9780691155395.003.0007",
+     "year": 2012,
+     "journal": "Mathematical Tools for Understanding Infectious Disease Dynamics"
+    },
+    {
+     "title": "Analysis of Epidemic Model Using Basic Reproduction Number",
+     "doi": "10.2139/ssrn.3166500",
+     "year": 2018,
+     "journal": "SSRN Electronic Journal"
+    },
+    {
+     "title": "Rnaught: Estimate the Basic Reproduction Number (R0)",
+     "doi": "10.32614/cran.package.rnaught",
+     "year": 2025,
+     "journal": "CRAN: Contributed Packages"
+    },
+    {
+     "title": "A Semigroup-Theoretic Approach to the Basic Reproduction Number for an Age-Structured SIR Model",
+     "doi": "10.2139/ssrn.6810316",
+     "year": 2026,
+     "journal": ""
+    },
+    {
+     "title": "A Semigroup-Theoretic Approach to the Basic Reproduction Number for an Age-Structured SIR Model",
+     "doi": "10.2139/ssrn.6810338",
+     "year": 2026,
+     "journal": ""
+    },
+    {
+     "title": "Basic Reproduction Number",
+     "doi": "10.3238/arztebl.2010.0276a",
+     "year": 2010,
+     "journal": "Deutsches Ärzteblatt international"
+    },
+    {
+     "title": "Limit theorems related to beta-expansion and continued fraction expansion",
+     "doi": "10.1016/j.jnt.2015.11.028",
+     "year": 2016,
+     "journal": "Journal of Number Theory"
+    },
+    {
+     "title": "Dispersal in multi-patch metapopulations: The impact of patch number and network topology",
+     "doi": "10.1016/j.jtbi.2025.112331",
+     "year": 2026,
+     "journal": "Journal of Theoretical Biology"
+    },
+    {
+     "title": "Dispersal and fire limit Arctic shrub expansion",
+     "doi": "10.21203/rs.3.rs-1048197/v1",
+     "year": 2021,
+     "journal": ""
+    },
+    {
+     "title": "Asymptotic behavior of the basic reproduction number for periodic nonlocal dispersal operators and applications",
+     "doi": "10.1007/s00285-025-02192-2",
+     "year": 2025,
+     "journal": "Journal of Mathematical Biology"
+    },
+    {
+     "title": "Figure 2: Estimated values of the basic reproduction number and case ascertainment rate.",
+     "doi": "10.7717/peerj.4583/fig-2",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "A superinfection model on malaria transmission: analysis on the invasion basic reproduction number",
+     "doi": "10.28919/cmbn/5612",
+     "year": 2021,
+     "journal": "Communications in Mathematical Biology and Neuroscience"
+    },
+    {
+     "title": "The Influence of Basic Reproduction Number on Pattern Formations in a Spatial Epidemic Model with The Susceptible Cross-diffusion",
+     "doi": "10.7176/mtm/11-4-02",
+     "year": 2021,
+     "journal": "Mathematical Theory and Modeling"
+    },
+    {
+     "title": "Basic Reproduction Number of Rabies Model with Stage Structure",
+     "doi": "10.1007/s10440-014-9937-5",
+     "year": 2014,
+     "journal": "Acta Applicandae Mathematicae"
+    },
+    {
+     "title": "A Logistic Curve in the SEIR Model and the Basic Reproduction Number of COVID-19 in Japan",
+     "doi": "10.1101/2022.09.18.22279896",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Basic reproduction number",
+     "doi": "10.53347/rid-74833",
+     "year": 2020,
+     "journal": "Radiopaedia.org"
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "residence time patch epidemic model virtual dispersal",
+   "total_results": 5426628,
+   "first": [
+    {
+     "title": "Resource Allocation in Two-Patch Epidemic Model with State-Dependent Dispersal Behaviors Using Optimal Control",
+     "doi": "10.3390/pr8091087",
+     "year": 2020,
+     "journal": "Processes"
+    },
+    {
+     "title": "Optimal Control for Resource Allocation in a Multi-Patch Epidemic Model with Human Dispersal Behavior",
+     "doi": "10.5614/cbms.2025.8.1.1",
+     "year": 2025,
+     "journal": "Communication in Biomathematical Sciences"
+    },
+    {
+     "title": "Impact of disease on a two-patch eco-epidemic model in presence of prey dispersal",
+     "doi": "10.1515/cmb-2022-0139",
+     "year": 2022,
+     "journal": "Computational and Mathematical Biophysics"
+    },
+    {
+     "title": "Relative prevalence-based dispersal in an epidemic patch model",
+     "doi": "10.1007/s00285-023-01887-8",
+     "year": 2023,
+     "journal": "Journal of Mathematical Biology"
+    },
+    {
+     "title": "Optimal Control of Epidemic Spread in a Metapopulation Model Based on Residence Time and Mobility Data",
+     "doi": "10.2139/ssrn.6155429",
+     "year": 2026,
+     "journal": ""
+    },
+    {
+     "title": "Optimal control for resource allocation in a multi-patch epidemic model with gravity model-based human dispersal behavior",
+     "doi": "10.1016/j.rico.2025.100648",
+     "year": 2026,
+     "journal": "Results in Control and Optimization"
+    },
+    {
+     "title": "Threshold dynamics in a time-delayed epidemic model with dispersal",
+     "doi": "10.1016/j.mbs.2009.01.004",
+     "year": 2009,
+     "journal": "Mathematical Biosciences"
+    },
+    {
+     "title": "Supplemental Information 1: Population density in the local patch at the time of first effective dispersal.",
+     "doi": "10.7717/peerj.18790/supp-1",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Patch residence time and parasitism of Aphelinus asychis: a simulation model",
+     "doi": "10.1016/0304-3800(93)90028-q",
+     "year": 1993,
+     "journal": "Ecological Modelling"
+    },
+    {
+     "title": "On the dynamics of an epidemic patch model with mass‐action transmission mechanism and asymmetric dispersal patterns",
+     "doi": "10.1111/sapm.12674",
+     "year": 2024,
+     "journal": "Studies in Applied Mathematics"
+    },
+    {
+     "title": "Dynamical analysis of an SIS epidemic model with migration and residence time",
+     "doi": "10.1142/s1793524521500236",
+     "year": 2021,
+     "journal": "International Journal of Biomathematics"
+    },
+    {
+     "title": "The impact of patch encounter rate on patch residence time of female parasitoids increases with patch quality",
+     "doi": "10.1111/j.1365-2311.2007.00984.x",
+     "year": 2008,
+     "journal": "Ecological Entomology"
+    },
+    {
+     "title": "Threshold dynamics of a time-periodic nonlocal dispersal SIS epidemic model with Neumann boundary conditions",
+     "doi": "10.1016/j.jde.2023.07.008",
+     "year": 2023,
+     "journal": "Journal of Differential Equations"
+    },
+    {
+     "title": "Optimal patch residence time in egg parasitoids: innate versus learned estimate of patch quality",
+     "doi": "10.1007/s00442-003-1469-z",
+     "year": 2004,
+     "journal": "Oecologia"
+    },
+    {
+     "title": "The Effect of Time Delay in a Two-Patch Model with Random Dispersal",
+     "doi": "10.1007/s11538-013-9921-7",
+     "year": 2013,
+     "journal": "Bulletin of Mathematical Biology"
+    },
+    {
+     "title": "Traveling waves for a nonlocal dispersal SIR epidemic model with the mass action infection mechanism",
+     "doi": "10.22541/au.162574125.58522999/v1",
+     "year": 2021,
+     "journal": ""
+    },
+    {
+     "title": "Traveling wave solutions in a nonlocal dispersal SIR epidemic model with nonlocal time-delay and general nonlinear incidences",
+     "doi": "10.1142/s1793524523500456",
+     "year": 2023,
+     "journal": "International Journal of Biomathematics"
+    },
+    {
+     "title": "Threshold dynamics and asymptotic profiles of a time-periodic nonlocal dispersal SIS epidemic model with Dirichlet boundary conditions",
+     "doi": "10.1016/j.jde.2024.07.035",
+     "year": 2024,
+     "journal": "Journal of Differential Equations"
+    },
+    {
+     "title": "Gravity Model Approach to Model Epidemic with Human Dispersal Behaviors",
+     "doi": "10.5614/cbms.2024.7.2.5",
+     "year": 2024,
+     "journal": "Communication in Biomathematical Sciences"
+    },
+    {
+     "title": "Predictive Model for Particle Residence Time Distributions in Riser Reactors. Part 1: Model Development and Validation",
+     "doi": "10.1021/acssuschemeng.6b02384.s001",
+     "year": null,
+     "journal": ""
+    }
+   ]
+  },
+  {
+   "engine": "crossref",
+   "query": "indoor airborne transmission outbreaks compilation risk indicators",
+   "total_results": 2479333,
+   "first": [
+    {
+     "title": "Practical Indicators for Risk of Airborne Transmission in Shared Indoor Environments and Their Application to COVID-19 Outbreaks",
+     "doi": "10.1021/acs.est.1c06531.s001",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Risk of indoor airborne infection transmission estimated from carbon dioxide concentration",
+     "doi": "10.1034/j.1600-0668.2003.00189.x",
+     "year": 2003,
+     "journal": "Indoor Air"
+    },
+    {
+     "title": "Review for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v1/review2",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Review for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v2/review1",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Review for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v2/review2",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Review for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v1/review1",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Decision letter for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v3/decision1",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Decision letter for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v1/decision1",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Decision letter for \"Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces\"",
+     "doi": "10.1111/ina.13025/v2/decision1",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "The Facility Infection Risk Estimator™: A web application tool for comparing indoor risk mitigation strategies by estimating airborne transmission risk",
+     "doi": "10.1177/1420326x211039544",
+     "year": 2021,
+     "journal": "Indoor and Built Environment"
+    },
+    {
+     "title": "Systematic way to understand and classify the shared‐room airborne transmission risk of indoor spaces",
+     "doi": "10.1111/ina.13025",
+     "year": 2022,
+     "journal": "Indoor Air"
+    },
+    {
+     "title": "Practical Indicators for Risk of Airborne Transmission in Shared Indoor Environments and Their Application to COVID-19 Outbreaks",
+     "doi": "10.1021/acs.est.1c06531",
+     "year": 2022,
+     "journal": "Environmental Science &amp; Technology"
+    },
+    {
+     "title": "Practical Indicators for Risk of Airborne Transmission in Shared Indoor Environments and their Application to COVID-19 Outbreaks",
+     "doi": "10.1101/2021.04.21.21255898",
+     "year": 2021,
+     "journal": ""
+    },
+    {
+     "title": "A Probabilistic Transmission Dynamic Model to Assess Indoor Airborne Infection Risks",
+     "doi": "10.1111/j.1539-6924.2005.00663.x",
+     "year": 2005,
+     "journal": "Risk Analysis"
+    },
+    {
+     "title": "An agent-based modelling framework for assessing SARS-CoV-2 indoor airborne transmission risk",
+     "doi": "10.1101/2022.07.28.22278138",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "Review for \"Beyond well‐mixed: A simple probabilistic model of airborne disease transmission in indoor spaces\"",
+     "doi": "10.1111/ina.13015/v2/review2",
+     "year": 2022,
+     "journal": ""
+    },
+    {
+     "title": "A bacteriophage recovery methodology for indoor airborne viral infection risk assessment",
+     "doi": "10.14711/thesis-b1084094",
+     "year": null,
+     "journal": ""
+    },
+    {
+     "title": "Monitoring carbon dioxide to quantify the risk of indoor airborne transmission of COVID-19",
+     "doi": "10.1101/2021.04.04.21254903",
+     "year": 2021,
+     "journal": ""
+    },
+    {
+     "title": "Recognizing and controlling airborne transmission of SARS‐CoV‐2 in indoor environments",
+     "doi": "10.1111/ina.12697",
+     "year": 2020,
+     "journal": "Indoor Air"
+    },
+    {
+     "title": "Scalable Poly(organosiloxane)-Modified Air Filtration Media for Reducing Indoor Airborne Transmission of SARS-CoV2 and Other Contagions",
+     "doi": "10.1021/acsestengg.6c00372.s001",
+     "year": null,
+     "journal": ""
+    }
+   ]
+  },
+  {
+   "engine": "arxiv",
+   "query": "all:\"diffusive epidemic process\"",
+   "total_results": 7,
+   "first": [
+    {
+     "id": "http://arxiv.org/abs/2105.14871v1",
+     "title": "Subdiffusive Activity Spreading in the Diffusive Epidemic Process"
+    },
+    {
+     "id": "http://arxiv.org/abs/2004.08002v1",
+     "title": "The Diffusive Epidemic Process on Barabasi-Albert Networks"
+    },
+    {
+     "id": "http://arxiv.org/abs/2503.19272v2",
+     "title": "Diffusive Epidemic Process with quenched disorder"
+    },
+    {
+     "id": "http://arxiv.org/abs/1612.03122v2",
+     "title": "Non-Perturbative Renormalization Group for the Diffusive Epidemic Process"
+    },
+    {
+     "id": "http://arxiv.org/abs/cond-mat/0608162v1",
+     "title": "Diffusive epidemic process: theory and simulation"
+    },
+    {
+     "id": "http://arxiv.org/abs/2407.08175v2",
+     "title": "Generalized Diffusive Epidemic Process with Permanent Immunity in Two Dimensions"
+    },
+    {
+     "id": "http://arxiv.org/abs/2110.14141v1",
+     "title": "Modified Epidemic Diffusive Process on the Apollonian Network"
+    }
+   ]
+  },
+  {
+   "engine": "arxiv",
+   "query": "ti:infection AND ti:\"random walks\"",
+   "total_results": 5,
+   "first": [
+    {
+     "id": "http://arxiv.org/abs/1701.08021v2",
+     "title": "Random walks in random conductances: decoupling and spread of infection"
+    },
+    {
+     "id": "http://arxiv.org/abs/2010.02765v2",
+     "title": "Local survival of spread of infection among biased random walks"
+    },
+    {
+     "id": "http://arxiv.org/abs/1807.01195v1",
+     "title": "Reduced mobility of infected agents suppresses but lengthens disease in biased random walk"
+    },
+    {
+     "id": "http://arxiv.org/abs/2006.12212v4",
+     "title": "A random walk Monte Carlo simulation study of COVID-19-like infection spread"
+    },
+    {
+     "id": "http://arxiv.org/abs/2201.05667v1",
+     "title": "Towards predicting COVID-19 infection waves: A random-walk Monte Carlo simulation approach"
+    }
+   ]
+  },
+  {
+   "engine": "arxiv",
+   "query": "ti:epidemic AND abs:\"random walkers\" AND abs:lattice",
+   "total_results": 0,
+   "first": []
+  }
+ ],
+ "manual_checks": {
+  "date": "2026-10-01",
+  "kesten2005spread": "Pages 2402-2462: journal reference of arXiv:math/0312496 (arXiv API). Crossref has no page field.",
+  "kesten2006phase": "Pages 547-634: Project Euclid page of the DOI. Model as stated in the abstract of arXiv:math/0410371: independent continuous-time random walks on Z^d, a healthy particle becomes infected when it meets an infected one, infected particles recuperate at a rate lambda; there is a critical recuperation rate below which the infection survives with positive probability and above which it dies out.",
+  "maia2007diffusive": "Abstract (OpenAlex): continuous absorbing-state phase transition of the one-dimensional diffusive epidemic process studied by mean-field theory and Monte Carlo simulation; two species hop on a lattice, with recovery and infection on contact; particle number conserved.",
+  "carvalho2025generalized": "Abstract (arXiv:2407.08175): walkers on a two-dimensional lattice, infection between individuals on the same node, recovery with permanent immunity; a phase transition in the dynamic-percolation universality class controlled by the population size. Found by the arXiv query on the diffusive epidemic process; journal data from Crossref.",
+  "tien2015disease": "Cited for the 1/d expansion of R0 at fast dispersal on the authority of the Discussion of Gao & Dong (2020, published version): Tien et al. derived the limit of R0 as the dispersal rate tends to infinity and a difference of order 1/d_I through a Laurent series. The paper of Tien et al. itself was not read (title, authors, journal, pages from Crossref).",
+  "bichara2015sis": "Abstract (arXiv:1503.08881): multi-group epidemic framework in which the risk of infection is a function of residence times in patches; R0 computed as a function of the residence-times matrix.",
+  "peng2022practical": "Abstract (OpenAlex): risk parameters combining emission rate, breathing rate, masking, ventilation and removal rates, occupancy and duration, applied to documented COVID-19 outbreaks and to measles, influenza and tuberculosis outbreaks.",
+  "gao2020fast": "Published version (Proc. Amer. Math. Soc. 148 (2020) 1709-1722, PDF on ams.org) read: Theorem 2.1 (symmetric connectivity), Theorem 2.3 (R0 strictly decreasing and strictly convex in the dispersal rate, irreducible connectivity), Theorem 3.3 (min patch number < R0(infinity) < R0(d) < max patch number; its proof credits the min/max statement to Gao & Ruan 2011), Corollary 3.5 (spectral bound s(F - V), 'a generalization of Lemma 3.4 in Allen et al.'), Introduction (Allen et al.: global stability of the disease-free equilibrium for R0 < 1, unique endemic equilibrium for R0 > 1, conjecture that R0 decreases with the dispersal rate; Gao 2019 proved it for symmetric connectivity), assumption (B2) (Proposition 2.2 of Gao & Ruan: R0 independent of movement when the patch numbers coincide). The numbering is the same as in arXiv:1907.12229v1.",
+  "allen2007asymptotic": "Not read (no access). Statements attributed to it in the article follow the account in Gao & Dong (2020).",
+  "cohen1981convexity": "Pages 657-658 on the publisher's page (ams.org); Crossref gives 657-657.",
+  "shen2020": "Pages 1665-1671 (PubMed 32870239); Crossref gives the first page only.",
+  "mizumoto2020": "Article number 2000180 (PubMed 32183930).",
+  "steinzamir2020": "Article number 2001352 (PubMed 32720636).",
+  "moser1979": "PubMed 463858 (abstract): a jet airliner with 54 persons aboard, delayed three hours; within 72 hours 72 per cent of the passengers became ill.",
+  "miller2021": "Accepted manuscript, Table 1: probability of infection sampled uniformly on 53-87 %, volumetric breathing rate uniform on 0.65-1.38 m3/h, loss rates 0.3-1.0 (ventilation), 0.3-1.5 (deposition), 0-0.63 (inactivation) per hour; result 970 +- 390 quanta per hour; sensitivity runs at 1.0 m3/h."
+ }
+}

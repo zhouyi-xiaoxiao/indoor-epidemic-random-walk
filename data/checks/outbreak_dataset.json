@@ -1,0 +1,13 @@
+{
+ "provenance": "Values recorded by the re-check of the outbreak dataset (separately written code in code/bsc_outbreaks/verify/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.4, that reports it.",
+ "values": {
+  "jerusalem_senior_wing": {
+   "persons": 583,
+   "tested": 580
+  }
+ },
+ "item": {
+  "jerusalem_senior_wing.persons": "notes/VERIFICATION.md, Section 4.4, further point 9",
+  "jerusalem_senior_wing.tested": "notes/VERIFICATION.md, Section 4.4, further point 9"
+ }
+}

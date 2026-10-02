@@ -1,0 +1,89 @@
+{
+ "outbreaks": {
+  "frozen_at": "2026-10-01T09:42:01+0100",
+  "addendum_at": "2026-10-01T09:52:41+0100",
+  "protocol": {
+   "n_files": 4,
+   "n_present": 4,
+   "all_match": true
+  },
+  "addendum": {
+   "n_files": 6,
+   "n_present": 6,
+   "all_match": true
+  },
+  "times": {
+   "protocol": "09:41:14",
+   "calibration": "09:51:33",
+   "power": "09:52:12",
+   "holdout": "09:53:08",
+   "corrected": "10:42:53"
+  }
+ },
+ "contacts": {
+  "frozen_at_utc": "2026-10-01T08:23:27.059458Z",
+  "second_freeze_utc": "2026-10-01T09:34:24.235502Z",
+  "protocol": {
+   "n_files": 8,
+   "n_present": 8,
+   "all_match": true
+  },
+  "second": {
+   "n_files": 26,
+   "n_present": 26,
+   "all_match": true
+  },
+  "note": "the second record also holds the hash of the post-hoc log up to its item 12; the log was continued afterwards, so that hash is not compared here",
+  "times": {
+   "protocol": "09:23:26",
+   "first_result": "09:24:00",
+   "first_confirmatory": "10:35:34"
+  }
+ },
+ "tracer": {
+  "frozen_at": "2026-10-01T09:18:16+01:00",
+  "before_unblinding_at": "2026-10-01T09:44:43+01:00",
+  "protocol": {
+   "n_files": 23,
+   "n_present": 23,
+   "all_match": true
+  },
+  "before_unblinding": {
+   "n_files": 10,
+   "n_present": 10,
+   "all_match": true
+  },
+  "extension_at": "2026-10-01T10:24:56+0100",
+  "extension": {
+   "n_files": 7,
+   "n_present": 7,
+   "all_match": true
+  },
+  "extension_before_unblinding_at": "2026-10-01T10:26:01+0100",
+  "extension_before_unblinding": {
+   "n_files": 4,
+   "n_present": 4,
+   "all_match": true
+  },
+  "times": {
+   "protocol": "09:18:00",
+   "kernels": "09:28:17",
+   "evaluation": "09:49:08",
+   "extension_protocol": "10:24:56",
+   "extension_evaluation": "10:26:09"
+  }
+ },
+ "zones": {
+  "frozen_at": "2026-10-01T09:48:58.874995+01:00",
+  "protocol": {
+   "n_files": 14,
+   "n_present": 14,
+   "all_match": true
+  },
+  "times": {
+   "protocol": "09:48:58",
+   "schools": "09:56:44",
+   "floors": "10:21:08"
+  }
+ }
+}

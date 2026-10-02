@@ -1,0 +1,418 @@
+% supp_geometry.tex -- Supplementary Section S3: room size, leaks and hotspot maps; proofs and worked examples.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers: data/plan_theory_checks.json, data/bsc_theory/worked_examples.json and
+% fig2_room_size_data.json, data/s4_geometry_checks.json, s4_geometry_barriers_leak.json and
+% s4_geometry_leak_kernels.json.
+\section{Room size, leaks and hotspot maps: proofs and worked examples}\label{appS_geometry:sec}
+
+This section proves the statements of Section~\ref{M-s4_geometry:sec} of the main text and gives the details of the
+leaky room and the worked examples on the office scene. Throughout, (P1)--(P6) are the facts of
+Lemma~\ref{s3_r0:lem:facts}, and $\boldsymbol{\delta}_x$ denotes the unit vector of cell $x$.
+
+\subsection{Closed and leaky rooms}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig_room_size_leak_en}
+  \caption{Room size and leaks in the mean-field model with uniform $q$ ($\beta q=0.5\perday$,
+  $\gamma=0.14\perday$, same-cell kernel). (a) Ratio of the reproduction number to $\beta q/\gamma$ for
+  $L\times L$ rooms with $D=0.5\cellday$: closed room with reflecting walls (circles; identical for every
+  $D$), room with one door cell with exit rate $\kappa=D$ (squares) and room with one side fully open
+  ($\kappa=D$ in each cell along that side; triangles). (b) Corridor of $L$ cells with absorbing ends, hop rate
+  $w=D=1\perday$, $q=1$: $\Rroom=\srad(\ngm)$ computed numerically (circles), the closed form
+  \eqref{M-s4_geometry:eq:corridor} (solid) and its continuum limit $\beta q/(\gamma+\pi^2D/L^2)$ (dotted); the
+  dashed line is the closed-room value $\beta q/\gamma$. Numbers in Table~\ref{s4_geometry:tab:leak}.}
+  % src: data/bsc_theory/fig2_room_size_data.json; drawn by code/plan_fig_theory.py
+  \label{s4_geometry:fig:leak}
+\end{figure}
+
+\begin{proof}[Proof of Theorem~\ref{M-s4_geometry:thm:closed}]
+  Since $\ker$ is row-stochastic, $\ker\one=\one$, so $\one^{\T}\Fm=\beta q_0\,\one^{\T}\ker^{\T}=\beta q_0\,\one^{\T}$.
+  Since $\one^{\T}\gen=0$, $\one^{\T}\Vm=\gamma\one^{\T}$ and $\one^{\T}\Vm^{-1}=\gamma^{-1}\one^{\T}$. Hence
+  $\one^{\T}\ngm=(\beta q_0/\gamma)\,\one^{\T}$: all column sums of $\ngm$, which are the offspring numbers
+  $\noff(x)$ of \eqref{M-s3_r0:eq:offspring}, equal $\beta q_0/\gamma$. By (P4) there is $\wvec\ge0$, $\wvec\ne0$,
+  with $\ngm\wvec=\srad(\ngm)\wvec$; then
+  $\srad(\ngm)\,\one^{\T}\wvec=\one^{\T}\ngm\wvec=(\beta q_0/\gamma)\,\one^{\T}\wvec$ and $\one^{\T}\wvec>0$, so
+  $\Rz=\beta q_0/\gamma$. Likewise $\one^{\T}\Jm=(\beta q_0-\gamma)\one^{\T}$. The matrix $\Jm^{\T}$ is Metzler
+  and irreducible (because $\gen$ is, and $\Fm\ge0$) and has the positive eigenvector $\one$, so by (P1) the
+  corresponding eigenvalue is $\sabs(\Jm^{\T})=\lamone$. The argument uses only the irreducibility of $\gen$
+  and $\one^{\T}\gen=0$, neither of which depends on the size or shape of $\cells$, on the mobilities or on
+  the hopping rule.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{M-s4_geometry:thm:leaky}]
+  (1) $\genk$ has the off-diagonal entries of $\gen$, so it is Metzler and irreducible. $\Vm_\kappa$ has
+  non-positive off-diagonal entries and column sums $\gamma+\kappa_x>0$, so by (P5) it is a non-singular
+  M-matrix, $\sabs(\genk-\gamma\Id)<0$ and
+  $\Vm_\kappa^{-1}=\int_0^\infty\e^{-\gamma t}\e^{\genk t}\,\dd t>0$, where $(\e^{\genk t})_{yx}$ is the
+  probability that a person who started in $x$ is still in the room, in cell $y$, at time $t$. These are the
+  only properties of $\gen$ and $\Vm$ used in the proof of Theorem~\ref{M-s3_r0:thm:ngm}(a)--(c), which applies
+  verbatim.
+
+  (2) By (P1), $\sabs(\gen)=0$, because $\one^{\T}\gen=0$ with $\one>0$. (P3) with $A=\genk$ and
+  $E=\diag\kappa$ gives $0=\sabs(\gen)>\sabs(\genk)$, and the same argument applied to $\kappa\le\kappa'$ gives
+  the monotonicity. The function $f(v)=\sabs(\gen+\diag v)$ is convex with $f(0)=0$ and gradient $\stat$ at
+  $v=0$ (P6; the Perron vectors of $\gen$ are $\stat$ and $\one$), so $f(v)\ge\sum_x\pi_xv_x$; $v=-\kappa$ gives
+  $-\muk\ge-\sum_x\pi_x\kappa_x$. For the limit write $\mu(k)$ for $\muk$ with $\kappa=k\one_\Delta$ and
+  $\Delta^c=\cells\setminus\Delta$. The principal submatrix of $\genk$ on $\Delta^c$ does not depend on $k$, so
+  (P2) gives $\mu(k)\le\mu^{\mathrm{abs}}_\Delta$; being non-decreasing, $\mu(k)\uparrow\mu^*\le\mu^{\mathrm{abs}}_\Delta$.
+  Let $\uvec_k\ge0$, $\one^{\T}\uvec_k=1$, be the Perron vector. Row $x\in\Delta$ of
+  $(\gen-k\diag\one_\Delta)\uvec_k=-\mu(k)\uvec_k$ reads
+  $u_k(x)=\sum_{y\ne x}M_{xy}u_k(y)/(k-\mu(k)-M_{xx})\to0$. Any limit point $\uvec^*$ of $(\uvec_k)$ therefore
+  vanishes on $\Delta$, is non-negative and non-zero on $\Delta^c$ and satisfies
+  $\gen[\Delta^c,\Delta^c]\uvec^*=-\mu^*\uvec^*$ there; hence $-\mu^*\le\sabs(\gen[\Delta^c,\Delta^c])$, that is
+  $\mu^*\ge\mu^{\mathrm{abs}}_\Delta$.
+
+  (3) $\Vm_\kappa\uvec_\kappa=(\gamma+\muk)\uvec_\kappa$, so the positive matrix $\Vm_\kappa^{-1}$ has the
+  positive eigenvector $\uvec_\kappa$ with eigenvalue $1/(\gamma+\muk)$, which is its spectral radius by (P1)
+  and (P4); and $\beta\Qm\Vm_\kappa^{-1}=\beta q_0\Vm_\kappa^{-1}$.
+
+  (4) The upper bound follows from $0\le\beta\Qm\Vm_\kappa^{-1}\le\beta\qmax\Vm_\kappa^{-1}$, (P4) and (3). For
+  the lower bound, $f_\kappa(v)=\sabs(\genk+\diag v)$ is convex with $f_\kappa(0)=-\muk$ and gradient $\nu$ at
+  $v=0$ (P6), so $f_\kappa(v)\ge-\muk+\sum_x\nu_xv_x$. By (1), $f_\kappa(v)=0$ for
+  $v=\beta\qvec/\Rroom-\gamma\one$, which gives $0\ge-\muk+\beta\langle q\rangle_\nu/\Rroom-\gamma$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{M-s4_geometry:cor:cases}]
+  (a) $\genk=\gen-T^{-1}\Id$ has the Perron vectors $\stat$ and $\one$ of $\gen$, so $\muk=1/T$, $\nu=\stat$ and
+  $\Vm_\kappa=(\gamma+1/T)\Id-\gen$; the expected number of infections is the identity
+  $\sum_x\pi_x\noff(x)=\beta\qmean/\gamma$ of \eqref{M-s3_r0:eq:offspring} with $\gamma+1/T$ in place of
+  $\gamma$. The form of $\Vm_\kappa$ does not involve the kernel, so for $\Fm=\beta\ker^{\T}\Qm$ the next-generation
+  matrix is that of the closed room with $\gamma+1/T$ in place of $\gamma$, and Theorem~\ref{M-s4_geometry:thm:closed}
+  gives the last statement. (b) $\genk=-w\,\mathbf{T}_L$, where
+  $\mathbf{T}_L$ is the $L\times L$ tridiagonal matrix with $2$ on the diagonal and $-1$ beside it. Its
+  eigenvalues are $2-2\cos(j\pi/(L+1))$ with eigenvectors $(\sin(j\pi x/(L+1)))_{x=1}^{L}$, $j=1,\dots,L$; the
+  eigenvector for $j=1$ is positive, hence the Perron vector by (P1). Then apply
+  Theorem~\ref{M-s4_geometry:thm:leaky}(3).
+\end{proof}
+
+\begin{remark}[Other kernels and a localised door]\label{s4_geometry:rem:kernels}
+  With a localised door, parts (3) and (4) of Theorem~\ref{M-s4_geometry:thm:leaky} do not extend to other
+  contact kernels ($\Rroom:=\srad(\beta\ker^{\T}\Qm\Vm_\kappa^{-1})$). Take three cells in a row, hop rate
+  $1\perday$ between neighbours, a door with $\kappa=1\perday$ at one end ($\muk=0.198\perday$), $q\equiv1$,
+  $\beta=0.5\perday$ and $\gamma=0.14\perday$, so that the formula of part (3) gives $1.479$. With $\ker$ uniform
+  over a cell and its neighbours, $\Rroom=1.435$ ($-3.0\,\%$); with the rows of $\ker$ equal to $(0,0,1)$,
+  $(0,1,0)$, $(0,0,1)$ and the door at cell~1 (the cell whose contacts land in cell~3), $\Rroom=1.640$, which
+exceeds the upper bound of part (4) by $10.9\,\%$ (with the door at cell~3 it is $1.127$, within the bounds). The lower bound
+  fails by continuity: as $\kappa\to0$, $\Rroom\to\Rz$ and the lower bound tends to $\beta\qmean/\gamma$,
+  which the kernel of Proposition~\ref{M-s3_r0:prop:kernel}(iv) violates. In that example with hop rate
+  $0.01\perday$ and a door with $\kappa=0.01\perday$ at one end, $\Rroom=1.845$ against a lower bound of $2.292$.
+\end{remark}
+% src: data/s4_geometry_leak_kernels.json (a_uniform_q_neighbour_kernel_end_door: R_room 1.4348, formula 1.4790, mu_leak 0.19806, -2.99 %; b_uniform_q_skew_kernel_end_door: R_room 1.6403, excess 10.91 %; c_prop_3_15_iv_kernel_q101_D0_0.01."end door|kappa=0.01": R_room 1.8447, lower_bound 2.2915; bound fails at every kappa from 1e-4 to 1); door position of the skewed kernel: door at cell 1 gives 1.6403, at cell 3 1.1267 (recomputed with the rows of P and the generator stated in the remark)
+
+For heterogeneous $q$ and a localised door the substitution $\gamma\to\gamma+\muk$ is not exact, and only
+the bounds of Theorem~\ref{M-s4_geometry:thm:leaky}(4) hold. In the office scene with one door cell at the end
+of a corridor arm, $\kappa=1\perday$ and $\Dz=1\cellday$ give $\Rroom=5.107$ where the substitution gives
+$5.060$ ($\muk=0.00137\perday$); with $\kappa=100\perday$ and $\Dz=10$, $\Rroom=4.220$ where the substitution
+gives $4.133$, which is below the lower bound $\beta\langle q\rangle_\nu/(\gamma+\muk)=4.139$ (upper bound
+$4.730$). A door at the end of the corridor removes people from a low-$q$ zone, so the walk conditioned to
+stay is weighted towards higher $q$ ($\langle q\rangle_\nu=1.306$ and $1.313$ in the two cases, against
+$\langle q\rangle=1.300$) than under a uniform leak at the same rate, for which the substitution is exact
+(Corollary~\ref{M-s4_geometry:cor:cases}a).
+% src: data/s4_geometry_barriers_leak.json: B_leak_heterogeneous_q/cases/"D0=1|kappa=1" (R_room 5.1072,
+%      R_substitution 5.0598, mu_leak 0.00137), "D0=10|kappa=100" (R_room 4.2201, R_substitution 4.1331, lower_bound
+%      4.1386, upper_bound 4.7297; q_mean_nu 1.3060, 1.3125); uniform_leak_T_8h (substitution exact to 1e-15); random_nonreversible (1500
+%      instances: bounds never violated; the substitution lies below the lower bound in 455)
+
+The lattice leak rate of the corridor of Corollary~\ref{M-s4_geometry:cor:cases}(b) is $0.53$, $0.86$ and $0.98$ of its
+continuum limit $\pi^2D/L^2$ at $L=3$, $13$ and $100$ (Fig.~\ref{s4_geometry:fig:leak}b).
+% src: data/s4_geometry_checks.json: A_room_size_and_leaks/corridor_w1_q1/{3,13,100}/ratio_to_continuum
+%      (0.534, 0.859, 0.980); same values in data/checks/theory.json: corridor_absorbing_ends (0.53, 0.86, 0.98;
+%      notes/VERIFICATION.md: Section 4.1, theory, item 9)
+
+\begin{observation}[One-door square room]\label{s4_geometry:obs:door}
+  For an $L\times L$ room with hop rate $D$ and one absorbing door cell in the middle of a boundary row, the
+  leak rate is
+  $\mu^{\mathrm{abs}}\approx\pi D/\bigl(L^2\ln(L/c)\bigr)$ with a fitted $c$ that rises from $0.82$ at $L=8$ to
+  $0.91$ at $L=128$ and has not converged. For a door cell with finite exit rate $\kappa=D$,
+  $1/\muk\approx1/\mu^{\mathrm{abs}}+1/\langle\kappa\rangle_\pi$ (search time plus exit time), with a relative
+  error in $\muk$ that falls from $1.5\,\%$ at $L=8$ to $0.3\,\%$ at $L=128$.
+\end{observation}
+% src: data/bsc_theory/worked_examples.json: E6_room_size/narrow_escape (c_fit 0.822, 0.864, 0.885,
+%      0.898, 0.907; series_rel_err -1.51, -0.90, -0.58, -0.39, -0.28 %); reproduced with separately written code in
+%      code/bsc_theory/verify/v2_examples.log and data/s4_geometry_checks.json: A_room_size_and_leaks/one_door_D1
+The logarithm is that of the two-dimensional narrow-escape law \citep{schuss2007narrow}; we have not proved
+either statement.
+
+\begin{table}[tbp]
+  \centering
+  \caption{Square rooms of side $L$ cells with uniform $q$ and $D=0.5\cellday$ ($\gamma=0.14\perday$): leak
+  rate $\muk$ (per day) and ratio of the reproduction number to $\beta q/\gamma$, which by
+  Theorem~\ref{M-s4_geometry:thm:leaky}(3) equals $\gamma/(\gamma+\muk)$. The door cell lies in the middle of
+  one side; `one side open' means $\kappa=D$ in every cell along one side.}
+  \label{s4_geometry:tab:leak}
+  \small
+  \begin{tabular}{@{}rccccc@{}}
+    \toprule
+        & closed room & \multicolumn{2}{c}{one door cell ($\kappa=D$)} & \multicolumn{2}{c}{one side open} \\
+    \cmidrule(lr){2-2}\cmidrule(lr){3-4}\cmidrule(l){5-6}
+    $L$ & ratio & $\muk$ & ratio & $\muk$ & ratio \\
+    \midrule
+    3   & 1.000 & 0.0403  & 0.777 & 0.0990  & 0.586 \\
+    13  & 1.000 & 0.00160 & 0.989 & 0.00676 & 0.954 \\
+    20  & 1.000 & 0.00063 & 0.996 & 0.00293 & 0.979 \\
+    40  & 1.000 & 0.00014 & 0.999 & 0.00075 & 0.995 \\
+    \bottomrule
+  \end{tabular}
+  % src: data/bsc_theory/worked_examples.json: E6_room_size/{3,13,20,40}
+  %      (reflecting, one_door_mu, one_door_ratio, open_wall_mu, open_wall_ratio);
+  %      recomputed with separately written code in data/s4_geometry_checks.json: A_room_size_and_leaks/square_rooms_D0.5
+  %      (largest deviation 3e-6). Note: open_wall_ratio at L = 20 is 0.97947, i.e. 0.979.
+\end{table}
+
+Table~\ref{s4_geometry:tab:leak} gives the leak rates of square rooms. They are small ($\muk\le0.1\perday$, residence times $1/\muk$ from
+$10$ days to $19$ years) only because $D=0.5\cellday$. For a fixed geometry and a door whose exit rate is itself
+a hop rate ($\kappa=D$, as in Table~\ref{s4_geometry:tab:leak}) $\muk$ is proportional to the mobility scale, so at
+$D=2.4\times10^{3}\cellday$ (Section~\ref{M-s2_model:sec:regime}) the same residence times
+would lie between $3$ minutes and $1.5$ days. A door with a fixed exit rate $\kappa$ behaves differently: its
+leak rate grows with mobility but stays below $\langle\kappa\rangle_\pi$
+(Theorem~\ref{M-s4_geometry:thm:leaky}(2)). In the office with one door cell at the end of a corridor arm and
+$\kappa=1\perday$, $\muk=0.00137$, $0.00356$, $0.00419$ and $0.00427\perday$ at $\Dz=1$, $10$, $100$ and
+$2{,}400$, against the cap $1/234=0.00427\perday$, and $\Rroom/\Rz=0.99998$, $0.977$, $0.971$ and $0.970$; with
+$\kappa$ equal to the hop rate of the door cell, $\muk=0.00152\,\Dz$ and $\Rroom/\Rz$ falls to $0.916$,
+$0.483$ and $0.037$ at $\Dz=10$, $100$ and $2{,}400$. For applications the dwell time $T$ should therefore be an
+input, as in Corollary~\ref{M-s4_geometry:cor:cases}(a), not the output of a random walk towards a door.
+% src: data/s4_geometry_checks.json: A_room_size_and_leaks/residence_days_range_D0.5 (10.1 d, 7041 d = 19.3 yr),
+%      max_mu_D0.5 (0.099), residence_range_at_D2400 (3.0 min, 1.47 d); data/s4_geometry_leak_kernels.json
+%      (d_office_door_against_mobility: fixed_kappa_1 mu_leak 0.00137, 0.00356, 0.00419, 0.00427, R_room_over_R0 0.99998, 0.977, 0.971, 0.970;
+%      kappa_mean_pi_for_kappa_1 0.004274 (234 cells); kappa_equal_door_hop_rate mu_over_D0 0.001521, R_room_over_R0 0.916, 0.483, 0.037)
+
+\subsection{Hotspot maps}\label{appS_geometry:sec:hotspot}
+
+\begin{proof}[Proof of Theorem~\ref{M-s4_geometry:thm:hotspots}]
+  (i) By (P1), $\lamone$ is a simple eigenvalue of $\Jm$ with spectral projector
+  $\uvec\lvec^{\T}/(\lvec^{\T}\uvec)$. For $c>\max_x|J_{xx}|$ the matrix $\Jm+c\Id$ is non-negative and
+  irreducible with a positive diagonal, hence primitive \citep{berman1994nonnegative}, so every other
+  eigenvalue $\lambda$ of $\Jm$
+  satisfies $|\lambda+c|<\lamone+c$ and thus $\operatorname{Re}\lambda<\lamone$: $\delta>0$. On the
+  complementary invariant subspace $\e^{\Jm t}$ is $O(\e^{(\lamone-\delta')t})$ for every $\delta'<\delta$, and
+  for $\delta'=\delta$ when $\Jm$ is diagonalisable; for reversible movement $\Jm$ is similar to the symmetric
+  matrix $\Pi^{-1/2}\Jm\,\Pi^{1/2}$. If $q\equiv q_0$, $\Jm\stat=(\beta q_0-\gamma)\stat$ and $\stat>0$, so
+  $\uvec=\stat$ by (P1). Conversely, $\Jm\stat=\lamone\stat$ reads $(\beta q_x-\gamma)\pi_x=\lamone\pi_x$ for all
+  $x$, so $q$ is constant.
+
+  (ii) $\ngm=\beta\Qm\Vm^{-1}>0$ entrywise, so $\ngm$ is primitive and $\ngm^{g}/\Rz^{g}\to\wvec\zvec^{\T}/(\zvec^{\T}\wvec)$.
+  Put $\xi=\Vm^{-1}\wvec>0$; then $\beta\Qm\xi=\ngm\wvec=\Rz\wvec=\Rz\Vm\xi$, so $\xi$ solves the stated
+  problem and $\wvec=\beta\Qm\xi/\Rz$. Any other solution $\xi'$ gives an eigenvector $\Vm\xi'$ of $\ngm$ for
+  the simple eigenvalue $\Rz$, hence $\xi'\propto\xi$. Finally $\Vm\stat=\gamma\stat$ gives
+  $\ngm\stat=\beta\Qm\stat/\gamma$.
+
+  (iii) For a simple eigenvalue \citep{horn2013matrix},
+  $\partial\Rz/\partial q_x=\zvec^{\T}(\partial\ngm/\partial q_x)\wvec/(\zvec^{\T}\wvec)$ with
+  $\partial\ngm/\partial q_x=\beta\boldsymbol{\delta}_x\boldsymbol{\delta}_x^{\T}\Vm^{-1}$, so that
+  $\zvec^{\T}(\partial\ngm/\partial q_x)\wvec=\beta z_x\xi_x=\Rz z_xw_x/q_x$. This is the formula for $e_x$;
+  the $e_x$ are positive and sum to one. Next, let $\mathbf{A}=\gen+\beta\Qm/\Rz-\gamma\Id$. Then
+  $\mathbf{A}\xi=0$ and, multiplying $\zvec^{\T}\ngm=\Rz\zvec^{\T}$ by $\Vm$ from the right,
+  $\zvec^{\T}\mathbf{A}=0$: $\xi$ and $\zvec$ are the right and left Perron vectors of $\mathbf{A}$, and
+  \begin{equation}\label{s4_geometry:eq:theta}
+     e_x=\frac{q_x\theta_x}{\sum_yq_y\theta_y},\qquad \theta_x=\frac{z_x\xi_x}{\zvec^{\T}\xi} ,
+  \end{equation}
+  where by (P6) $\theta$ is the gradient of $f(v)=\sabs(\gen+\diag v)$ at $v_0=\beta\qvec/\Rz-\gamma\one$.
+  Detailed balance reads $\gen\Pi=\Pi\gen^{\T}$, so $\mathbf{A}^{\T}=\Pi^{-1}\mathbf{A}\Pi$ and
+  $\mathbf{A}^{\T}\Pi^{-1}\xi=0$: $\zvec\propto\Pi^{-1}\xi$ and $e_x\propto q_x\xi_x^2/\pi_x$.
+
+  (iv) \emph{Fast mixing.} $\stat\one^{\T}$ is the spectral projector of $\genz$ for its simple eigenvalue $0$,
+  and $\genz$ is invertible on the complementary invariant subspace, so
+  $\Vm^{-1}=\gamma^{-1}\stat\one^{\T}+\Dz^{-1}(\gamma/\Dz-\genz)^{-1}(\Id-\stat\one^{\T})\to\gamma^{-1}\stat\one^{\T}$
+  and $\ngm\to(\beta/\gamma)\Qm\stat\one^{\T}$. The limit has the simple eigenvalue $\beta\qmean/\gamma$ with
+  right eigenvector $\Qm\stat$ and left eigenvector $\one$; the eigenvectors of a simple eigenvalue depend
+  continuously on the matrix, which gives the limits of $\wvec$ and of $e_x=z_xw_x/(\zvec^{\T}\wvec)$. In the
+  same way $\Jm/\Dz\to\genz$, whose Perron vector is $\stat$.
+
+  \emph{Slow mixing.} As $\Dz\to0$, $\ngm\to\beta\Qm/\gamma$, $\Jm\to\beta\Qm-\gamma\Id$, $\Rz\to\beta\qmax/\gamma$ and
+  $\lamone\to\beta\qmax-\gamma$. The vectors $\uvec$ lie in the unit simplex, and every limit point $\uvec^*$
+  satisfies $(\beta q_x-\gamma)u^*_x=(\beta\qmax-\gamma)u^*_x$, so it vanishes outside $Z$; the same argument
+  applies to $\wvec$. The limiting eigenvalue is degenerate when $Z$ has several cells, so for $\evec$ we use
+  \eqref{s4_geometry:eq:theta} and convexity instead. Because $\one^{\T}(\gen+\diag v)\le(\max_yv_y)\one^{\T}$,
+  pairing with a non-negative right Perron vector gives $f(v)\le\max_yv_y$; and by (P2),
+  $f(v)\ge\max_y(v_y+M_{yy})\ge\max_yv_y-\Dz c$ with $c=\max_y|(\genz)_{yy}|$. Let
+  $m=\max_y(v_0)_y=\beta\qmax/\Rz-\gamma$. Since $f(v_0)=0$ by Theorem~\ref{M-s3_r0:thm:ngm}(b), $0\le m\le\Dz c$.
+  For $x\notin Z$ and $t=\beta(\qmax-q_x)/\Rz>0$ the vector $v_0+t\boldsymbol{\delta}_x$ still has maximum $m$,
+  so the tangent inequality for the convex function $f$ gives
+  $t\,\theta_x\le f(v_0+t\boldsymbol{\delta}_x)-f(v_0)\le m\le\Dz c$. As $\Rz\le\beta\qmax/\gamma$,
+  $t\ge\gamma(1-q_x/\qmax)$, hence $\theta_x\le\Dz c/\bigl(\gamma(1-q_x/\qmax)\bigr)$, and
+  $e_x\le(q_x/\qmin)\,\theta_x\to0$.
+\end{proof}
+
+\begin{remark}[Transients]\label{s4_geometry:rem:transient}
+  The prevalence map $\uvec$ is reached after a time of order $1/\delta$, whereas the exponential phase started
+  by one index case among $\Npop$ people lasts about $\ln\Npop/\lamone$. When $1/\delta$ is not small compared
+  with $\ln\Npop/\lamone$, the early pattern depends on where the index case sits and is given by the
+  seed-specific transient $\e^{\Jm t}I(0)$. The part of an outbreak that has not yet left a zone $Z$ with
+  uniform $q$ evolves by $\e^{\Jm[Z,Z]t}$ and grows at the zone rate
+  $\sabs(\Jm[Z,Z])=\beta q_Z-\gamma-\muZ\le\lamone$ (cf.\ Proposition~\ref{M-s3_r0:prop:zone}). The threshold
+  statement of Theorem~\ref{M-s3_r0:thm:ngm} is unaffected.
+\end{remark}
+
+In the office scene at $\Dz=1\cellday$ (Fig.~\ref{M-s4_geometry:fig:hotspots}),
+the expected number of secondary cases of an index case, $\noff(x)$, ranges from $3.995$ to $5.335$ over the
+starting cell.
+% src: data/plan_theory_checks.json: office/D0=1/{offspring_min,offspring_max}
+The elasticity share of the meeting room falls to $20.8\,\%$ at $\Dz=10$ and $13.4\,\%$ at $\Dz=100\cellday$,
+close to its limit $q_x\pi_x/\qmean$ summed over the room, $12.8\,\%$; the prevalence share falls to
+$50.3\,\%$ and $12.4\,\%$.
+% src: data/plan_theory_checks.json: office/D0=10, office/D0=100 (elasticity_share/M, prevalence_share_u/M);
+%      limit: data/s4_geometry_checks.json: C_office_hotspot_identities/meeting_room_share_limit_e_and_w
+The first generation of a uniformly placed index case puts $12.8\,\%$ of its infections in the meeting room
+at every mobility (Theorem~\ref{M-s4_geometry:thm:hotspots}(ii)), against $79.2\,\%$ asymptotically at
+$\Dz=1\cellday$.
+% src: data/plan_theory_checks.json: office/D0=1/first_generation_share_uniform_index/M
+
+The transient of Remark~\ref{s4_geometry:rem:transient} matters in this scene. At $\Dz=1\cellday$ the gap is
+$\delta=0.061\perday$ ($1/\delta=16$ days), while $\lamone=0.602\perday$ and $\ln100/\lamone=7.6$ days. In the
+linearised dynamics, a point seed at a workstation far from the meeting room grows at $0.553\perday$ while
+the total rises from $10^2$ to $10^4$ times the seed, between the workstation-zone rate $0.531\perday$ and
+$\lamone$, and its spatial distribution is then still at total-variation distance $0.996$ from $\uvec$; a seed
+in the meeting room grows at $0.605\perday$ and is at distance $0.026$.
+% src: data/plan_theory_checks.json: office/D0=1/gap, office/transient_linear/{D0=1|far_workstation,
+%      D0=1|meeting_room}/{fitted_rate_1e2_to_1e4,tv_to_u};
+% src: data/s4_geometry_checks.json: D_derived/{mixing_time_1_over_gap_days,
+%      linear_phase_ln100_over_lambda1_days,workstation_zone_growth_rate}
+At $\Dz=100\cellday$ ($\delta=0.537\perday$) the distance is below $10^{-4}$ from either seed.
+% src: data/plan_theory_checks.json: office/transient_linear/D0=100|* (1.8e-5, 5.9e-5), office/D0=100/gap
+
+\subsection{Worked examples on the office scene}\label{appS_geometry:sec:examples}\label{s4_geometry:sec:examplesdetail}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig_s4_interventions_en}
+  \caption{Mean-field $\Rz$ of the office scene under interventions
+  ($\beta=0.5\perday$, $\gamma=0.14\perday$, same-cell kernel). (a) Corridor mobility multiplied by a factor,
+  for the symmetric rule \eqref{M-s2_model:eq:hop} and for a departure-site rule; dotted line: upper bound $\beta\qmax/\gamma$. (b) Change of $\Rz$ at $\Dz=1$, $10$ and
+  $100\cellday$ when walls close a fraction of the $242$ edges between workstation cells (symbols: mean and
+  standard deviation over $20$ random draws that keep the room connected; the last point closes as many edges
+  as connectivity allows), and when $39$ workstation cells are turned into barrier cells (dashed lines: means
+  over $40$ draws). Walls never lower $\Rz$ (Theorem~\ref{M-s3_r0:thm:edges}); barrier cells, which remove
+  floor with $q$ above the mean, lower it at $\Dz=10$ and $100$. (c), (d) Targeted ventilation, $q\to q/2$ on a
+  fraction of the floor, at $\Dz=1$ and $\Dz=100\cellday$: cells chosen by the elasticity map recomputed after
+  every six cells, by the baseline elasticity ranking without recomputation, by highest $q$ first (ties
+  broken at random) and at random (means and standard deviations over $30$ draws).}
+  % src: data/plan_theory_checks.json (office/targeted_ventilation), data/plan_corridor_sweep.json
+  %      and data/s4_geometry_barriers_leak.json (A_partitions; panel b); drawn by
+  %      code/s4_geometry_fig_interventions.py
+  \label{s4_geometry:fig:interventions}
+\end{figure}
+
+\begin{table}[tbp]
+  \centering
+  \caption{Worked examples on the office scene (mean-field model, same-cell kernel; baseline $\Rz=5.107$,
+  $4.676$ and $4.646$ at $\Dz=1$, $10$ and $100\cellday$; bounds $4.643\le\Rz\le5.357$): interventions on
+  movement (walls: mean over $20$ random draws; barrier cells: mean over $40$ draws, which lowers the
+  well-mixed value $\beta\langle q\rangle/\gamma$ of the remaining floor from $4.643$ to $4.571$) and uniform
+  measures. Targeted ventilation is in Table~\ref{s4_geometry:tab:targeting}.}
+  % src: data/plan_theory_checks.json: office/D0=1/R0, office/D0=100/R0, office/lower_bound, office/upper_bound
+  \label{s4_geometry:tab:office}
+  \small
+  \setlength{\tabcolsep}{4.5pt}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+     & $\Rz$ at $\Dz=1$ & \multicolumn{3}{c}{change of $\Rz$ (\%) at $\Dz=$} \\
+    \cmidrule(l){3-5}
+    Intervention & & 1 & 10 & 100 \\
+    \midrule
+    corridor mobility $\times0.3$ & 5.159 & $+1.0$ & & \\
+    corridor mobility $\times0.1$ & 5.222 & $+2.2$ & & \\
+    corridor mobility $\times0.01$ & 5.325 & $+4.3$ & & \\
+    walls on 24 of the 242 workstation--workstation edges & 5.1077 & $+0.009$ & $+0.023$ & $+0.003$ \\
+    walls on 73 edges & 5.1092 & $+0.038$ & $+0.105$ & $+0.013$ \\
+    walls on 121 edges & 5.1105 & $+0.064$ & $+0.53$ & $+0.056$ \\
+    walls on 142 edges (as many as keep the room connected) & 5.1114 & $+0.080$ & $+0.68$ & $+0.070$ \\
+    39 workstation cells made barrier cells & 5.1106 & $+0.065$ & $-1.07$ & $-1.49$ \\
+    $q\to q/2$ in every cell & 2.554 & \multicolumn{3}{c}{$\times0.5$ (exact)} \\
+    $\beta\to0.3\beta$ and $q\to q/2$ in every cell & 0.766 & \multicolumn{3}{c}{$\times0.15$ (exact)} \\
+    \bottomrule
+  \end{tabular}
+  % src: data/plan_theory_checks.json: office/corridor_multiplier_symmetric;
+  %      data/s4_geometry_barriers_leak.json: A_partitions/walls/{walls_10pct,walls_30pct,walls_50pct,walls_100pct}
+  %      and A_partitions/barrier_cells_39_workstations (D0=1, D0=10, D0=100: mean, change_pct; same random draws as
+  %      plan_theory_checks.json: office/partitions, whose D0 = 1 means are reproduced to 1e-9);
+  %      uniform scalings: data/s4_geometry_checks.json: D_derived
+
+\end{table}
+
+\begin{table}[tbp]
+  \centering
+  \caption{Targeted ventilation in the office scene (mean-field model, same-cell kernel): $\Rz$ after
+  $q\to q/2$ on a fraction of the floor, at equal treated area for four placement rules (as in
+  Fig.~\ref{s4_geometry:fig:interventions}c,d; mean $\pm$ standard deviation over $30$ draws). Baseline
+  $\Rz=5.107$ at $\Dz=1$ and $4.646$ at $\Dz=100\cellday$.}
+  \label{s4_geometry:tab:targeting}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{@{}rrcccc@{}}
+    \toprule
+    $\Dz$ & treated area (cells) & recomputed elasticity & highest $q$ first & random cells & baseline ranking, \\
+          &                      &                       &                   &              & not recomputed \\
+    \midrule
+    1   & 10\pct{} (23)  & 4.515 & $4.699\pm0.0002$ & $4.867\pm0.131$ & 4.700 \\
+    1   & 20\,\% (47)  & 4.231 & $4.449\pm0.041$ & $4.680\pm0.182$ & 4.688 \\
+    1   & 50\,\% (117) & 3.468 & $3.764\pm0.019$ & $3.921\pm0.209$ & 4.602 \\
+    1   & 75\,\% (176) & 2.821 & $3.712\pm0.003$ & $3.302\pm0.196$ & 4.291 \\
+    1   & 100\,\% (234) & 2.554 & 2.554 & 2.554 & 2.554 \\
+    \addlinespace
+    100 & 10\,\% (23)  & 4.390 & $4.395\pm0.0003$ & $4.416\pm0.009$ & 4.396 \\
+    100 & 20\,\% (47)  & 4.130 & $4.137\pm0.001$ & $4.182\pm0.014$ & 4.135 \\
+    100 & 50\,\% (117) & 3.377 & $3.379\pm0.001$ & $3.487\pm0.015$ & 3.388 \\
+    100 & 75\,\% (176) & 2.746 & $2.747\pm0.0003$ & $2.900\pm0.011$ & 2.750 \\
+    100 & 100\,\% (234) & 2.323 & 2.323 & 2.323 & 2.323 \\
+    \bottomrule
+  \end{tabular}
+  % src: data/plan_theory_checks.json: office/targeted_ventilation/{D0=1,D0=100}/rows
+  %      (adaptive, highest_q_mean +- highest_q_sd, random_mean +- random_sd, one_shot)
+\end{table}
+
+Table~\ref{s4_geometry:tab:office} and Fig.~\ref{s4_geometry:fig:interventions} give what the mean-field model says
+about interventions on the office scene.
+
+\emph{Slower corridors raise $\Rz$.} Multiplying the corridor mobility by $0.1$ moves $\Rz$ from $5.107$ to
+$5.222$, and by $0.01$ to $5.325$, as Theorem~\ref{M-s3_r0:thm:edges} requires: less movement means less mixing
+between high-$q$ and low-$q$ cells. Under a departure-site rule (hop rate $D_x$ from cell $x$) the same change
+lowers $\Rz$ ($5.169$, $5.127$ and $5.095$ at multipliers $1$, $0.1$ and $0.01$), but only because people then
+accumulate in the slowed corridor, where $q$ is lowest ($\qmean$ falls from $1.379$ to $1.218$ and $0.911$).
+That is an occupancy effect in a different model.
+% src: data/plan_theory_checks.json: office/corridor_multiplier_symmetric,
+%      office/corridor_multiplier_departure_reading (R0, q_mean_pi)
+
+\emph{Walls cannot lower $\Rz$; barrier cells change the mean of $q$.} Two kinds of partition
+must be kept apart. A wall closes edges and leaves the set of cells unchanged, so
+Theorem~\ref{M-s3_r0:thm:edges} applies: closing between $10\pct$ of the workstation--workstation edges and
+as many as connectivity allows raises $\Rz$ by $0.009\pct$ to $0.080\pct$ at $\Dz=1$, by $0.02\pct$ to
+$0.68\pct$ at $\Dz=10$ and by $0.003\pct$ to $0.070\pct$ at $\Dz=100\cellday$, and none of the $80$ draws
+lies below the baseline at any of the three mobilities. A barrier cell removes floor, and with it its $q$,
+which the theorem does not cover. Turning $39$ workstation cells ($q=1.4$, above the mean $1.30$) into
+barriers lowers the well-mixed value $\beta\langle q\rangle/\gamma$ of the remaining floor from $4.643$ to
+$4.571$ ($-1.5\pct$). At $\Dz=1$, where $\Rz$ is pinned by the meeting room, the net change is $+0.065\pct$
+(all $40$ draws above the baseline); at $\Dz=10$ and $100$ it is $-1.07\pct$ and $-1.49\pct$ (all $40$
+draws below). These are numerical results for this floor plan, not consequences of a theorem.
+% src: data/s4_geometry_barriers_leak.json: A_partitions/walls/*/D0=*/{change_pct,n_below_baseline} (0 in all
+%      12 sets of 20 draws; 4 x 20 = 80 draws per mobility), A_partitions/barrier_cells_39_workstations
+%      (wellmixed_after 4.5714, wellmixed_change_pct -1.54; D0=1: +0.065, 40 above; D0=10: -1.07, 40 below;
+%      D0=100: -1.49, 40 below)
+
+\emph{Targeted ventilation helps at low mobility, if the map is recomputed.} Here ventilation is an input: $q$
+is halved by assumption on the treated cells (Fig.~\ref{s4_geometry:fig:interventions}c,d; numbers in
+Table~\ref{s4_geometry:tab:targeting}). At $\Dz=1\cellday$ and equal treated area, choosing cells by the
+elasticity map and recomputing it after every six cells gives an $\Rz$ that is lower than for random
+placement by $0.35$ to $0.48$ between $5\pct$ and $75\pct$ treated area, and lower than for `highest $q$
+first' by $0.18$ at $10\pct$ and $0.30$ at $50\pct$.
+% src: data/s4_geometry_checks.json: D_derived/targeted_ventilation/D0=1/*/gain_recomputed_vs_random
+%      (0.359, 0.352, 0.449, 0.409, 0.453, 0.482); Table rows for the differences to highest-q (4.699-4.515, 3.764-3.468)
+The recomputation is essential, because the hotspot moves once the leading zone has been treated: a ranking
+by the baseline elasticity that is not recomputed is no better than random placement from $20\pct$ treated
+area on ($4.688$ against $4.680\pm0.182$) and clearly worse at $50\pct$ ($4.602$ against $3.921\pm0.209$).
+% src: data/plan_theory_checks.json: office/targeted_ventilation/D0=1/rows (one_shot, random_mean, random_sd);
+%      data/s4_geometry_checks.json: C_office_hotspot_identities/targeting_explanations_D0=1
+At $\Dz=100\cellday$ the four rules differ by at most $0.11$ up to $50\pct$ treated area: in a well-mixed room
+$e_x=q_x\pi_x/\qmean$ and targeting reduces to treating the cells with the largest $q$. For discrete
+individuals at $\Dz=1\cellday$ the placement makes no measurable difference
+(Section~\ref{M-s6_scenes:sec:interventions}).
+% src: data/s4_geometry_checks.json: D_derived/targeted_ventilation/D0=100/*/spread (max 0.110 up to 50 %; 0.154 at 75 %)
+% src: data/bsc_sim/08_interventions.json: office|D0=1|{hotspot,coldspot,pair-level hotspot} ventilation
+%      (25 % of cells)|FD: R1_pair_uniform 2.075 / 2.090 / 2.062
+
+\emph{Uniform measures scale $\Rz$ exactly.} Because $\ngm=\beta\Qm\Vm^{-1}$, multiplying $\beta$ by
+$s_\beta$ and every $q_x$ by $s_q$ multiplies $\Rz$ by $s_\beta s_q$ for every geometry and mobility. Halving $q$ everywhere gives
+$2.554$; a mask factor $\beta\to0.3\beta$ together with it gives $0.15\times5.107=0.766$. The product is
+plain proportionality and involves no interaction between the two measures.
+% src: data/plan_theory_checks.json: office/targeted_ventilation/D0=1/rows[fraction=1.0]/adaptive (2.5536);
+%      data/s4_geometry_checks.json: D_derived/{uniform_q_half,uniform_mask0.3_and_q_half}

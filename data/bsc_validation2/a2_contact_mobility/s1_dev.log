@@ -1,0 +1,30 @@
+== InVS13
+   WM: stats done 0s
+   BLOCK: stats done 0s
+   RW0: stats done 3s
+   RWhet: stats done 7s
+   epi R0=1.5,tau=1.0d done 13s
+   epi R0=3.0,tau=1.0d done 14s
+   epi R0=1.5,tau=4.0d done 16s
+   epi R0=3.0,tau=4.0d done 19s
+InVS13 19s {'REALtrain': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': True, 'S6_groups': True}, 'WM': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}, 'BLOCK': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': True, 'E_epidemic': False}, 'RW0': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}, 'RWhet': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}}
+== LyonSchool
+   WM: stats done 1s
+   BLOCK: stats done 1s
+   RW0: stats done 2s
+   RWhet: stats done 3s
+   epi R0=1.5,tau=1.0d done 84s
+   epi R0=3.0,tau=1.0d done 161s
+   epi R0=1.5,tau=4.0d done 457s
+   epi R0=3.0,tau=4.0d done 797s
+LyonSchool 797s {'REALtrain': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': None, 'S6_groups': True}, 'WM': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}, 'BLOCK': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': False}, 'RW0': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}, 'RWhet': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': False, 'S6_groups': False, 'E_epidemic': False}}
+== LH10
+   WM: stats done 0s
+   BLOCK: stats done 0s
+   RW0: stats done 2s
+   RWhet: stats done 5s
+   epi R0=1.5,tau=1.0d done 13s
+   epi R0=3.0,tau=1.0d done 17s
+   epi R0=1.5,tau=4.0d done 33s
+   epi R0=3.0,tau=4.0d done 52s
+LH10 52s {'REALtrain': {'S0_level': False, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True}, 'WM': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': False, 'E_epidemic': False}, 'BLOCK': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': False}, 'RW0': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': False, 'E_epidemic': False}, 'RWhet': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': False, 'E_epidemic': False}}

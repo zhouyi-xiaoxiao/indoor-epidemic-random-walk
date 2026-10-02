@@ -1,0 +1,8 @@
+{"check":"re-check with separately written code, 2026-10-01",
+ "data":"all 10 raw files re-downloaded from sociopatterns.org/assets/data, SHA-256 identical (dl_sha256.txt)",
+ "freeze":"PREREG hashes match; first real-data output 33 s after freeze (run takes 19 s); FIX_FREEZE precedes all s3 outputs; POSTHOC prefix up to item 12 matches hash; s1/s2d/s3d outputs re-run bit-identical (v2_rerun.py)",
+ "reimplementation":"vlib.py/v1.py: observed statistics identical on InVS13, Thiers13, LH10; RW0 statistics and SIR within Monte-Carlo noise",
+ "static_null_E_scenarios_passed":{"InVS13":0,"LyonSchool":4,"LH10":0,"InVS15":3,"Thiers13":2,"SFHH":3},
+ "train_days_replay_E_scenarios_passed":{"InVS13":2,"LyonSchool":4,"LH10":4,"InVS15":3,"Thiers13":1,"SFHH":4},
+ "self_power_true_model_refit":{"RWstickO":"E passed 1/4 replicates, per-dataset A1 0/4, 3/4 degenerate fits","RWclus":"E passed 0/3, A1 0/3, 1/3 degenerate"},
+ "files":["vlib.py","v1.py","v1_*.json","v2_rerun.py","v3_tables.py","v4_static.py","v4_static_*.json","v5_selfpower.py","v5_selfpower.json","v5c_selfpower.py","v5c_selfpower.json"]}

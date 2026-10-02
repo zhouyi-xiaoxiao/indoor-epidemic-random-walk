@@ -1,0 +1,85 @@
+{
+ "check_counts": {
+  "n": 10923,
+  "infected": 2548,
+  "schools": 29,
+  "classes": 455
+ },
+ "check_dispersion": 3.383034361704994,
+ "school_attack_rate_range": [
+  0.0,
+  0.22684310018903592,
+  0.5833333333333334
+ ],
+ "school_size_range": [
+  12,
+  352.0,
+  799
+ ],
+ "class_attack_rate_quantiles": [
+  0.0,
+  0.09307359307359307,
+  0.2,
+  0.34782608695652173,
+  1.0
+ ],
+ "class_size_median": 25.0,
+ "schools_Z_ahead_of_H": [
+  27,
+  29
+ ],
+ "max_school_contrib_H": 108.29874837685475,
+ "sum_H": 798.4350485587444,
+ "leave_one_out_range_H": [
+  690.1363001818896,
+  799.6074687215934
+ ],
+ "schools_Z_ahead_of_X": [
+  24,
+  29
+ ],
+ "max_school_contrib_X": 54.501455839241316,
+ "sum_X": 211.1079641477585,
+ "leave_one_out_range_X": [
+  156.6065083085172,
+  216.30446800687267
+ ],
+ "schools_Z_ahead_of_C": [
+  16,
+  29
+ ],
+ "max_school_contrib_C": 13.41514368839762,
+ "sum_C": 18.819611870748783,
+ "leave_one_out_range_C": [
+  5.404468182351163,
+  22.596875155710475
+ ],
+ "rho_implied_by_Lyon_per_class_quantiles": [
+  16.232512934739884,
+  40.767966383552526,
+  61.81149289772343,
+  81.9556367982564,
+  111.24416181153124
+ ],
+ "rho_implied_weighted_mean_log": 57.355946939326756,
+ "rho_lyon_own_school": 29.996238632785435,
+ "rho_fitted_C": {
+  "full": 36.63778899984397,
+  "cal_odd": 26.633823106509087,
+  "cal_even": 56.481030646353375
+ },
+ "AIC": {
+  "H": 31158.007951287305,
+  "X": 30016.6179103498,
+  "Z": 29596.279476758533,
+  "C": 29571.10046886335,
+  "F": 29557.567272067412
+ },
+ "seoul_wings": {
+  "L_north": 0.8595379152817055,
+  "L_south": 0.06669137449867216,
+  "coupling_first_generation": 0.10417966517044519,
+  "coupling_cumulative": -0.05418442108919808,
+  "note": "cumulative form gives a negative coupling (boundary 0): not identifiable; first-generation form gives the share of time in common floor space that would reproduce the split. Fitted, not tested."
+ }
+}

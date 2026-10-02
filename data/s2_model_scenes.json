@@ -1,0 +1,515 @@
+{
+ "beta": 0.5,
+ "gamma": 0.14,
+ "beta_over_gamma": 3.571428571428571,
+ "scenes": {
+  "office": {
+   "lattice": [
+    20,
+    13
+   ],
+   "a_m": 1.5,
+   "floor_m": [
+    30.0,
+    19.5
+   ],
+   "cells_total": 260,
+   "cells_walkable": 234,
+   "cells_barrier": 26,
+   "N": 100,
+   "people_per_cell": 0.42735042735042733,
+   "rho_bar": 0.4230769230769231,
+   "people_per_m2_walkable": 0.1899335232668566,
+   "density_used_for_metro_rule_per_m2": 0.16666666666666666,
+   "zones": {
+    "W": {
+     "name": "workstations",
+     "cells": 156,
+     "d": 0.3,
+     "q": 1.4
+    },
+    "C": {
+     "name": "corridor",
+     "cells": 39,
+     "d": 1.5,
+     "q": 0.8
+    },
+    "M": {
+     "name": "meeting room",
+     "cells": 26,
+     "d": 0.5,
+     "q": 1.5
+    },
+    "K": {
+     "name": "kitchen",
+     "cells": 13,
+     "d": 1.0,
+     "q": 1.2
+    },
+    "B": {
+     "name": "barrier",
+     "cells": 26,
+     "barrier": true
+    }
+   },
+   "q_mean": 1.2999999999999996,
+   "q_min": 0.8,
+   "q_max": 1.5,
+   "d_mean": 0.561111111111111,
+   "d_min": 0.3,
+   "d_max": 1.5,
+   "R0_wellmixed": 4.642857142857141,
+   "R0_frozen_samecell": 5.357142857142857,
+   "kernel1m_cells_mean": 1.0,
+   "kernel1m_cells_max": 1,
+   "kernel1m_is_samecell": true,
+   "hop_rate_mean_per_day_D0=1": 1.7354700854700853,
+   "hop_rate_min_per_day_D0=1": 0.3,
+   "hop_rate_max_per_day_D0=1": 6.0,
+   "D0_cell2_per_day_in_m2_per_day": 2.25,
+   "rms_displacement_m_per_day_at_D0=1": 3.0,
+   "walking_D0_cell2_per_day": 48672.0,
+   "walking_5pct_D0_cell2_per_day": 2433.6,
+   "D0=1_below_walking_factor": 48672.0,
+   "D0=1_below_5pct_walking_factor": 2433.6,
+   "R0_1m": {
+    "D0=1": {
+     "D0": 1.0,
+     "R0": 5.107294682670609,
+     "excess_over_wellmixed_pct": 10.003270088290094
+    },
+    "D0=10": {
+     "D0": 10.0,
+     "R0": 4.676246636226544,
+     "excess_over_wellmixed_pct": 0.7191583187256212
+    },
+    "D0=100": {
+     "D0": 100.0,
+     "R0": 4.64584452403739,
+     "excess_over_wellmixed_pct": 0.06434359465152806
+    },
+    "walking_5pct": {
+     "D0": 2433.6,
+     "R0": 4.642978731596683,
+     "excess_over_wellmixed_pct": 0.002618834390144542
+    },
+    "walking": {
+     "D0": 48672.0,
+     "R0": 4.642863219949112,
+     "excess_over_wellmixed_pct": 0.00013089121169151952
+    }
+   }
+  },
+  "supermarket": {
+   "lattice": [
+    25,
+    15
+   ],
+   "a_m": 2.0,
+   "floor_m": [
+    50.0,
+    30.0
+   ],
+   "cells_total": 375,
+   "cells_walkable": 278,
+   "cells_barrier": 97,
+   "N": 150,
+   "people_per_cell": 0.539568345323741,
+   "rho_bar": 0.5359712230215827,
+   "people_per_m2_walkable": 0.13489208633093525,
+   "density_used_for_metro_rule_per_m2": 0.1,
+   "zones": {
+    "S": {
+     "name": "shelf lanes",
+     "cells": 84,
+     "d": 0.4,
+     "q": 1.0
+    },
+    "A": {
+     "name": "main aisles",
+     "cells": 142,
+     "d": 2.0,
+     "q": 0.6
+    },
+    "F": {
+     "name": "fresh produce",
+     "cells": 24,
+     "d": 0.3,
+     "q": 1.8
+    },
+    "Q": {
+     "name": "checkout queue",
+     "cells": 16,
+     "d": 0.1,
+     "q": 2.0
+    },
+    "E": {
+     "name": "entrance/exit",
+     "cells": 12,
+     "d": 1.5,
+     "q": 0.8
+    },
+    "B": {
+     "name": "shelf racks / counters",
+     "cells": 97,
+     "barrier": true
+    }
+   },
+   "q_mean": 0.9136690647482012,
+   "q_min": 0.6,
+   "q_max": 2.0,
+   "d_mean": 1.2388489208633096,
+   "d_min": 0.1,
+   "d_max": 2.0,
+   "R0_wellmixed": 3.2631038026721466,
+   "R0_frozen_samecell": 7.142857142857142,
+   "kernel1m_cells_mean": 1.0,
+   "kernel1m_cells_max": 1,
+   "kernel1m_is_samecell": true,
+   "hop_rate_mean_per_day_D0=1": 3.634186812041051,
+   "hop_rate_min_per_day_D0=1": 0.2904761904761905,
+   "hop_rate_max_per_day_D0=1": 8.0,
+   "D0_cell2_per_day_in_m2_per_day": 4.0,
+   "rms_displacement_m_per_day_at_D0=1": 4.0,
+   "walking_D0_cell2_per_day": 27378.0,
+   "walking_5pct_D0_cell2_per_day": 1368.9,
+   "D0=1_below_walking_factor": 27378.0,
+   "D0=1_below_5pct_walking_factor": 1368.9,
+   "R0_1m": {
+    "D0=1": {
+     "D0": 1.0,
+     "R0": 4.39354171351221,
+     "excess_over_wellmixed_pct": 34.6430263699963
+    },
+    "D0=10": {
+     "D0": 10.0,
+     "R0": 3.39123733107769,
+     "excess_over_wellmixed_pct": 3.9267377366486222
+    },
+    "D0=100": {
+     "D0": 100.0,
+     "R0": 3.2751645601162127,
+     "excess_over_wellmixed_pct": 0.3696099840339029
+    },
+    "walking_5pct": {
+     "D0": 1368.9,
+     "R0": 3.2639784856849254,
+     "excess_over_wellmixed_pct": 0.026805246344374645
+    },
+    "walking": {
+     "D0": 27378.0,
+     "R0": 3.2631475126948923,
+     "excess_over_wellmixed_pct": 0.0013395229017776344
+    }
+   }
+  },
+  "classroom": {
+   "lattice": [
+    15,
+    10
+   ],
+   "a_m": 1.0,
+   "floor_m": [
+    15.0,
+    10.0
+   ],
+   "cells_total": 150,
+   "cells_walkable": 148,
+   "cells_barrier": 2,
+   "N": 80,
+   "people_per_cell": 0.5405405405405406,
+   "rho_bar": 0.5337837837837838,
+   "people_per_m2_walkable": 0.5405405405405406,
+   "density_used_for_metro_rule_per_m2": 0.5333333333333333,
+   "zones": {
+    "d": {
+     "name": "desks (window side)",
+     "cells": 40,
+     "d": 0.05,
+     "q": 1.2
+    },
+    "D": {
+     "name": "desks (inner)",
+     "cells": 40,
+     "d": 0.05,
+     "q": 2.0
+    },
+    "P": {
+     "name": "platform",
+     "cells": 18,
+     "d": 0.8,
+     "q": 1.5
+    },
+    "I": {
+     "name": "aisles",
+     "cells": 50,
+     "d": 0.2,
+     "q": 0.8
+    },
+    "O": {
+     "name": "obstacle",
+     "cells": 2,
+     "barrier": true
+    }
+   },
+   "q_mean": 1.3175675675675675,
+   "q_min": 0.8,
+   "q_max": 2.0,
+   "d_mean": 0.19189189189189187,
+   "d_min": 0.05,
+   "d_max": 0.8,
+   "R0_wellmixed": 4.705598455598455,
+   "R0_frozen_samecell": 7.142857142857142,
+   "kernel1m_cells_mean": 4.621621621621622,
+   "kernel1m_cells_max": 5,
+   "kernel1m_is_samecell": false,
+   "hop_rate_mean_per_day_D0=1": 0.5816216216216217,
+   "hop_rate_min_per_day_D0=1": 0.15000000000000002,
+   "hop_rate_max_per_day_D0=1": 2.7200000000000006,
+   "D0_cell2_per_day_in_m2_per_day": 1.0,
+   "rms_displacement_m_per_day_at_D0=1": 2.0,
+   "walking_D0_cell2_per_day": 109512.0,
+   "walking_5pct_D0_cell2_per_day": 5475.6,
+   "D0=1_below_walking_factor": 109512.0,
+   "D0=1_below_5pct_walking_factor": 5475.6,
+   "R0_1m": {
+    "D0=1": {
+     "D0": 1.0,
+     "R0": 5.8660661311851445,
+     "excess_over_wellmixed_pct": 24.661425885288413
+    },
+    "D0=10": {
+     "D0": 10.0,
+     "R0": 4.9310409046248385,
+     "excess_over_wellmixed_pct": 4.790941070591459
+    },
+    "D0=100": {
+     "D0": 100.0,
+     "R0": 4.7305526790440275,
+     "excess_over_wellmixed_pct": 0.5303092408125654
+    },
+    "walking_5pct": {
+     "D0": 5475.6,
+     "R0": 4.706060641821704,
+     "excess_over_wellmixed_pct": 0.009822049790475518
+    },
+    "walking": {
+     "D0": 109512.0,
+     "R0": 4.705621570738924,
+     "excess_over_wellmixed_pct": 0.0004912263697587349
+    }
+   },
+   "R0_samecell": {
+    "D0=1": {
+     "D0": 1.0,
+     "R0": 6.1819730241006905,
+     "excess_over_wellmixed_pct": 31.37485236858084
+    },
+    "D0=10": {
+     "D0": 10.0,
+     "R0": 4.9604820228092406,
+     "excess_over_wellmixed_pct": 5.416602577033314
+    },
+    "D0=100": {
+     "D0": 100.0,
+     "R0": 4.732532085069584,
+     "excess_over_wellmixed_pct": 0.5723741565556884
+    },
+    "walking_5pct": {
+     "D0": 5475.6,
+     "R0": 4.706094640419827,
+     "excess_over_wellmixed_pct": 0.010544563588532618
+    },
+    "walking": {
+     "D0": 109512.0,
+     "R0": 4.705623268741332,
+     "excess_over_wellmixed_pct": 0.0005273110978532003
+    }
+   }
+  },
+  "metro": {
+   "lattice": [
+    45,
+    6
+   ],
+   "a_m": 0.5,
+   "floor_m": [
+    22.5,
+    3.0
+   ],
+   "cells_total": 270,
+   "cells_walkable": 270,
+   "cells_barrier": 0,
+   "N": 310,
+   "people_per_cell": 1.1481481481481481,
+   "rho_bar": 1.1444444444444444,
+   "people_per_m2_walkable": 4.592592592592593,
+   "density_used_for_metro_rule_per_m2": 4.592592592592593,
+   "zones": {
+    "T": {
+     "name": "seats",
+     "cells": 60,
+     "d": 0.00435483870967742,
+     "q": 2.5
+    },
+    "N": {
+     "name": "standing area",
+     "cells": 132,
+     "d": 0.004741155046826223,
+     "q": 2.8
+    },
+    "G": {
+     "name": "doors",
+     "cells": 60,
+     "d": 0.10887096774193548,
+     "q": 2.0
+    },
+    "R": {
+     "name": "grab rails",
+     "cells": 18,
+     "d": 0.010887096774193548,
+     "q": 2.5
+    }
+   },
+   "q_mean": 2.535555555555556,
+   "q_min": 2.0,
+   "q_max": 2.8,
+   "d_mean": 0.02820499479708637,
+   "d_min": 0.00435483870967742,
+   "d_max": 0.10887096774193548,
+   "R0_wellmixed": 9.055555555555555,
+   "R0_frozen_samecell": 9.999999999999998,
+   "kernel1m_cells_mean": 11.125925925925927,
+   "kernel1m_cells_max": 13,
+   "kernel1m_is_samecell": false,
+   "hop_rate_mean_per_day_D0=1": 0.07489824102496992,
+   "hop_rate_min_per_day_D0=1": 0.00889463195914809,
+   "hop_rate_max_per_day_D0=1": 0.3464076246334311,
+   "D0_cell2_per_day_in_m2_per_day": 0.25,
+   "rms_displacement_m_per_day_at_D0=1": 1.0,
+   "walking_D0_cell2_per_day": 438048.0,
+   "walking_5pct_D0_cell2_per_day": 21902.4,
+   "D0=1_below_walking_factor": 438048.0,
+   "D0=1_below_5pct_walking_factor": 21902.4,
+   "R0_1m": {
+    "D0=1": {
+     "D0": 1.0,
+     "R0": 9.241328906132667,
+     "excess_over_wellmixed_pct": 2.051484852998775
+    },
+    "D0=10": {
+     "D0": 10.0,
+     "R0": 9.16427187932903,
+     "excess_over_wellmixed_pct": 1.2005483606886802
+    },
+    "D0=100": {
+     "D0": 100.0,
+     "R0": 9.077771863349044,
+     "excess_over_wellmixed_pct": 0.2453334602962043
+    },
+    "walking_5pct": {
+     "D0": 21902.4,
+     "R0": 9.055670652319444,
+     "excess_over_wellmixed_pct": 0.0012710072085919677
+    },
+    "walking": {
+     "D0": 438048.0,
+     "R0": 9.055561313699345,
+     "excess_over_wellmixed_pct": 6.358686392982094e-05
+    }
+   },
+   "R0_samecell": {
+    "D0=1": {
+     "D0": 1.0,
+     "R0": 9.836141564254145,
+     "excess_over_wellmixed_pct": 8.619968194217552
+    },
+    "D0=10": {
+     "D0": 10.0,
+     "R0": 9.308117353117446,
+     "excess_over_wellmixed_pct": 2.7890259853460275
+    },
+    "D0=100": {
+     "D0": 100.0,
+     "R0": 9.08578373905232,
+     "excess_over_wellmixed_pct": 0.3338081613139643
+    },
+    "walking_5pct": {
+     "D0": 21902.4,
+     "R0": 9.05569622006651,
+     "excess_over_wellmixed_pct": 0.0015533504277298604
+    },
+    "walking": {
+     "D0": 438048.0,
+     "R0": 9.055562589258608,
+     "excess_over_wellmixed_pct": 7.767279444070851e-05
+    }
+   }
+  }
+ },
+ "walking": {
+  "v_m_per_s": 1.3,
+  "tau_s": 1.5,
+  "walk_fraction": 0.05,
+  "D_m2_per_s": 1.2675,
+  "D_m2_per_day": 109512.0
+ },
+ "office_regime": {
+  "D0_m2_per_day": 2.25,
+  "rms_m_per_day_D0": 3.0,
+  "rms_m_per_day_workstation_d=0.3": 1.6431676725154982,
+  "rms_m_per_infectious_period_D0": 8.017837257372731,
+  "meeting_room_cells": 26,
+  "meeting_room_mu_Z_per_day": 0.008768550110452512,
+  "meeting_room_1_over_mu_Z_days": 114.04393969396997,
+  "meeting_room_mean_exit_time_uniform_start_days": 111.12645687645674,
+  "infectious_period_days": 7.142857142857142,
+  "workstation_cells": 156
+ },
+ "alone_probability": {
+  "office_N100_n234": {
+   "people_per_cell": 0.42735042735042733,
+   "p_alone": 0.6544346685995402
+  },
+  "uniform_20x20_N100": {
+   "people_per_cell": 0.25,
+   "p_alone": 0.7805083103656368
+  }
+ },
+ "crosscheck": {
+  "office": {
+   "q_mean_diff": 0.0,
+   "d_mean_diff": 0.0,
+   "kernel_cells_diff": 0.0,
+   "R0_D0=1_diff": 0.0,
+   "R0_D0=10_diff": 6.217248937900877e-15,
+   "R0_D0=100_diff": 4.884981308350689e-14
+  },
+  "supermarket": {
+   "q_mean_diff": 0.0,
+   "d_mean_diff": 0.0,
+   "kernel_cells_diff": 0.0,
+   "R0_D0=1_diff": 0.0,
+   "R0_D0=10_diff": 1.199040866595169e-14,
+   "R0_D0=100_diff": 1.9539925233402755e-13
+  },
+  "classroom": {
+   "q_mean_diff": 0.0,
+   "d_mean_diff": 0.0,
+   "kernel_cells_diff": 0.0,
+   "R0_D0=1_diff": 0.0,
+   "R0_D0=10_diff": 1.0658141036401503e-14,
+   "R0_D0=100_diff": -3.552713678800501e-15
+  },
+  "metro": {
+   "q_mean_diff": 0.0,
+   "d_mean_diff": 0.0,
+   "kernel_cells_diff": 0.0,
+   "R0_D0=1_diff": 0.0,
+   "R0_D0=10_diff": 4.440892098500626e-14,
+   "R0_D0=100_diff": 4.796163466380676e-14
+  },
+  "office_mu_Z_diff": 0.0
+ },
+ "crosscheck_max_abs_diff": 1.9539925233402755e-13
+}

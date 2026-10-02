@@ -1,0 +1,21 @@
+{
+ "frozen_at": "2026-10-01 05:12:03 BST",
+ "note": "Frozen before any transmission model was run against any outbreak count. Only scripts/00_selftest.py (synthetic inputs) had been executed.",
+ "sha256": {
+  "PREREGISTRATION.md": "632db9b7b00796a4694d54ef533c3a3a89a3779fe18381a6a456d942b3a3f585",
+  "src/valmod/events.py": "1cbd9cc5a1e7bc4676e1c82625ffd49488b2cf4efec8e27e990038e24a88a432",
+  "src/valmod/lattice.py": "25369ff046c7cb403422dde3cd8b369282a6fe6d305dcfaa0b05f3869049fc0f",
+  "src/valmod/stats.py": "8eddf7c4a147bdd380a827732ff8ca305e26ef4109a3c26ea099b65ef46248fa",
+  "src/valmod/exact.py": "4d365d1503ff5898237023c73364a1e3aa503833a17c7ba0d04a5cc0625036d6",
+  "data/heldout_outcomes.json": "04edc06e97d52234fb4effbdab62ca11ad9e0a5d5e95247a1b4df446f4207af1"
+ },
+ "verified_unchanged_at": "2026-10-01 05:29:32 BST",
+ "verified": {
+  "PREREGISTRATION.md": true,
+  "src/valmod/events.py": true,
+  "src/valmod/lattice.py": true,
+  "src/valmod/stats.py": true,
+  "src/valmod/exact.py": true,
+  "data/heldout_outcomes.json": true
+ }
+}

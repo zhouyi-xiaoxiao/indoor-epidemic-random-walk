@@ -1,0 +1,20 @@
+{
+ "ladder_all6": {
+  "WM": "A0/A3",
+  "BLOCK": "A0/A3",
+  "RW0": "A0/A3",
+  "RWhet": "A0/A3",
+  "RWclus": "A0/A3",
+  "RWstickZ": "A0/A3",
+  "RWstickO": "A0/A3"
+ },
+ "ladder_conf": {
+  "WM": "A0/A3",
+  "BLOCK": "A0/A3",
+  "RW0": "A0/A3",
+  "RWhet": "A0/A3",
+  "RWclus": "A0/A3",
+  "RWstickZ": "A0/A3",
+  "RWstickO": "A0/A3"
+ }
+}

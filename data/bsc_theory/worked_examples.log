@@ -1,0 +1,92 @@
+== E1. Two-zone office (W: D=0.3, q=1.5, ~70%; C: D=2.0, q=0.5, ~30%) ==
+  side     symmetric: <q>_pi = 1.1923; bounds [4.258, 5.357]; R0(D0=1) = 5.0895 = 1.4251 beta/gamma; lambda1 = 0.6015/day
+  side     departure: <q>_pi = 1.4375; bounds [5.134, 5.357]; R0(D0=1) = 5.2320 = 1.4650 beta/gamma; lambda1 = 0.6040/day
+  aisles   symmetric: <q>_pi = 1.1923; bounds [4.258, 5.357]; R0(D0=1) = 4.3709 = 1.2238 beta/gamma; lambda1 = 0.5070/day
+  aisles   departure: <q>_pi = 1.4375; bounds [5.134, 5.357]; R0(D0=1) = 5.1427 = 1.4399 beta/gamma; lambda1 = 0.5840/day
+  grid     symmetric: <q>_pi = 1.1923; bounds [4.258, 5.357]; R0(D0=1) = 4.3598 = 1.2207 beta/gamma; lambda1 = 0.5110/day
+  grid     departure: <q>_pi = 1.4375; bounds [5.134, 5.357]; R0(D0=1) = 5.1420 = 1.4398 beta/gamma; lambda1 = 0.5839/day
+  scatter  symmetric: <q>_pi = 1.2000; bounds [4.286, 5.357]; R0(D0=1) = 4.3805 = 1.2266 beta/gamma; lambda1 = 0.5138/day
+  scatter  departure: <q>_pi = 1.4396; bounds [5.141, 5.357]; R0(D0=1) = 5.1484 = 1.4416 beta/gamma; lambda1 = 0.5843/day
+== E2. Full office scene (zone counts W156 C39 M26 K13 B26) ==
+  O1 symmetric: n = 234; <q>_pi = 1.3000; bounds [4.643, 5.357]; R0(D0=1) = 5.1090; lambda1 = 0.6021/day (doubling 1.15 d)
+     largest diagonal modal term max_n beta<phi_n|q|phi_n>/(gamma+mu_n) = 4.9848 (attained at n = 1); mu_1 = 0.00658/day
+     Galerkin (Ritz) R0 with N slowest modes: N=1: 4.6429, N=2: 5.0265, N=3: 5.0887, N=5: 5.1007, N=10: 5.1064, N=20: 5.1077, N=50: 5.1085, N=100: 5.1087, N=234: 5.1090
+     zone bound, Z = all 'M' cells: mu_Z = 0.00904/day -> R0 >= 5.0322
+     zone bound, Z = all 'W' cells: mu_Z = 0.01956/day -> R0 >= 4.3870
+     zone bound, Z = all 'K' cells: mu_Z = 0.25661/day -> R0 >= 1.5128
+     large-D expansion: R0 ~ 4.6429 + 0.4418/D0;  small-D: R0 ~ 5.3571 (1 - 0.0646 D0)
+     elasticity share by zone {'W': 0.02208957247231859, 'C': 0.0054265487826808834, 'M': 0.9722541011625292, 'K': 0.00022977758247141988} vs area share {'W': 0.6666666666666666, 'C': 0.16666666666666666, 'M': 0.1111111111111111, 'K': 0.05555555555555555}
+  O1 departure: n = 234; <q>_pi = 1.3787; bounds [4.924, 5.357]; R0(D0=1) = 5.1602; lambda1 = 0.6037/day (doubling 1.15 d)
+  O2 symmetric: n = 234; <q>_pi = 1.3000; bounds [4.643, 5.357]; R0(D0=1) = 5.0407; lambda1 = 0.5994/day (doubling 1.16 d)
+     largest diagonal modal term max_n beta<phi_n|q|phi_n>/(gamma+mu_n) = 4.7319 (attained at n = 1); mu_1 = 0.00715/day
+     Galerkin (Ritz) R0 with N slowest modes: N=1: 4.6429, N=2: 4.7707, N=3: 5.0160, N=5: 5.0211, N=10: 5.0364, N=20: 5.0387, N=50: 5.0397, N=100: 5.0403, N=234: 5.0407
+     zone bound, Z = all 'M' cells: mu_Z = 0.01373/day -> R0 >= 4.8787
+     zone bound, Z = all 'W' cells: mu_Z = 0.01414/day -> R0 >= 4.5415
+     zone bound, Z = all 'K' cells: mu_Z = 0.21530/day -> R0 >= 1.6887
+     large-D expansion: R0 ~ 4.6429 + 0.2455/D0;  small-D: R0 ~ 5.3571 (1 - 0.0981 D0)
+     elasticity share by zone {'W': 0.02217432508339267, 'C': 0.009137913508620329, 'M': 0.9683938651361871, 'K': 0.0002938962717999257} vs area share {'W': 0.6666666666666666, 'C': 0.16666666666666666, 'M': 0.1111111111111111, 'K': 0.05555555555555555}
+  O2 departure: n = 234; <q>_pi = 1.3787; bounds [4.924, 5.357]; R0(D0=1) = 5.1582; lambda1 = 0.6033/day (doubling 1.15 d)
+== E3. Partitions ==
+  baseline O1: R0 = 5.1090; 233 desk-desk edges
+  (i) walls on 10% of desk-desk edges (23 edges closed, room kept connected): R0 = 5.1115 +- 0.0020 (min 5.1097, n = 20) -> change +0.05%
+  (i) walls on 20% of desk-desk edges (47 edges closed, room kept connected): R0 = 5.1131 +- 0.0018 (min 5.1102, n = 20) -> change +0.08%
+  (i) walls on 30% of desk-desk edges (70 edges closed, room kept connected): R0 = 5.1170 +- 0.0026 (min 5.1121, n = 20) -> change +0.16%
+  (i) walls on 40% of desk-desk edges (93 edges closed, room kept connected): R0 = 5.1189 +- 0.0020 (min 5.1157, n = 20) -> change +0.19%
+  (i) walls on 50% of desk-desk edges (116 edges closed, room kept connected): R0 = 5.1220 +- 0.0016 (min 5.1187, n = 20) -> change +0.26%
+  (i) walls on 100% of desk-desk edges (125 edges closed, room kept connected): R0 = 5.1226 +- 0.0012 (min 5.1201, n = 20) -> change +0.27%
+  (iii) 39 desk cells -> obstacles (+15% of 260): R0 = 5.1182 +- 0.0028 [5.1130, 5.1250] (n = 40); change +0.18%; new lower bound beta<q>/gamma = 4.5714
+  (iv) partitions as droplet barriers at desks (q_W -> c q_W): c=1.0: R0=5.1090, c=0.75: R0=5.0959, c=0.5: R0=5.0905, c=0.25: R0=5.0871, c=0.0: R0=5.0848
+       acting on desks alone at D0 = 1, the meeting room (q = 1.5) keeps R0 >= 5.085
+       at D0 = 100 (fast mixing): c=1.0: R0=4.6473, c=0.75: R0=3.8248, c=0.5: R0=3.0312, c=0.25: R0=2.3030, c=0.0: R0=1.7247
+  (v) ventilation q->0.5q + 50% capacity + partitions (30% edges): R0 = 0.5 x 5.1170 = 2.5585 (capacity has no effect under frequency-dependent incidence)
+      masks (beta->0.3beta) + ventilation (q->0.5q): R0 = 0.15 x 5.1090 = 0.7663
+== E4. 'Strategy 2': lower D in the connecting corridors ==
+  O1               symmetric: R0 at corridor-D x1 = 5.1090, x0.1 = 5.2188, x0.01 = 5.3252, x10 = 5.0511   (monotone in c: decreasing)
+  O1               departure: R0 at corridor-D x1 = 5.1602, x0.1 = 5.1235, x0.01 = 5.0892, x10 = 5.1726   (monotone in c: increasing)
+  two_zone_side    symmetric: R0 at corridor-D x1 = 5.0895, x0.1 = 5.1441, x0.01 = 5.2636, x10 = 5.0805   (monotone in c: decreasing)
+  two_zone_side    departure: R0 at corridor-D x1 = 5.2320, x0.1 = 5.1148, x0.01 = 5.0719, x10 = 5.3353   (monotone in c: increasing)
+  two_zone_aisles  symmetric: R0 at corridor-D x1 = 4.3709, x0.1 = 4.4484, x0.01 = 4.8507, x10 = 4.3624   (monotone in c: decreasing)
+  two_zone_aisles  departure: R0 at corridor-D x1 = 5.1427, x0.1 = 4.1796, x0.01 = 2.9401, x10 = 5.3336   (monotone in c: increasing)
+== E5. Targeted ventilation guided by the hotspot (elasticity) map, office O1 ==
+  D0 = 1: baseline R0 = 5.1090
+     treat   5% of cells (q -> 0.5q): adaptive elasticity-greedy 4.7499 (at 5%) | one-shot elasticity rank 4.7499 | q-ranked 4.7487 | random 5.0091 +- 0.0651
+     treat  10% of cells (q -> 0.5q): adaptive elasticity-greedy 4.5745 (at 10%) | one-shot elasticity rank 4.7480 | q-ranked 4.7478 | random 4.8675 +- 0.1209
+     treat  20% of cells (q -> 0.5q): adaptive elasticity-greedy 4.2688 (at 21%) | one-shot elasticity rank 4.7107 | q-ranked 4.4844 | random 4.6480 +- 0.1603
+     treat  30% of cells (q -> 0.5q): adaptive elasticity-greedy 4.1289 (at 31%) | one-shot elasticity rank 4.6430 | q-ranked 4.1581 | random 4.3863 +- 0.1625
+     treat  40% of cells (q -> 0.5q): adaptive elasticity-greedy 3.8830 (at 41%) | one-shot elasticity rank 4.5775 | q-ranked 3.8484 | random 4.1914 +- 0.1577
+     treat  50% of cells (q -> 0.5q): adaptive elasticity-greedy 3.5624 (at 51%) | one-shot elasticity rank 4.5195 | q-ranked 3.5825 | random 3.9552 +- 0.1981
+     treat  75% of cells (q -> 0.5q): adaptive elasticity-greedy 2.8019 (at 77%) | one-shot elasticity rank 4.1792 | q-ranked 3.0472 | random 3.3101 +- 0.1575
+     treat 100% of cells (q -> 0.5q): adaptive elasticity-greedy 2.5545 (at 100%) | one-shot elasticity rank 2.5545 | q-ranked 2.5545 | random 2.5545 +- 0.0000
+  D0 = 100: baseline R0 = 4.6473
+     treat   5% of cells (q -> 0.5q): adaptive elasticity-greedy 4.5104 (at 5%) | one-shot elasticity rank 4.5104 | q-ranked 4.5099 | random 4.5287 +- 0.0048
+     treat  10% of cells (q -> 0.5q): adaptive elasticity-greedy 4.3796 (at 10%) | one-shot elasticity rank 4.3959 | q-ranked 4.3955 | random 4.4222 +- 0.0086
+     treat  20% of cells (q -> 0.5q): adaptive elasticity-greedy 4.1226 (at 21%) | one-shot elasticity rank 4.1351 | q-ranked 4.1366 | random 4.1803 +- 0.0100
+     treat  30% of cells (q -> 0.5q): adaptive elasticity-greedy 3.8627 (at 31%) | one-shot elasticity rank 3.8889 | q-ranked 3.8867 | random 3.9511 +- 0.0117
+     treat  40% of cells (q -> 0.5q): adaptive elasticity-greedy 3.6040 (at 41%) | one-shot elasticity rank 3.6342 | q-ranked 3.6261 | random 3.7154 +- 0.0138
+     treat  50% of cells (q -> 0.5q): adaptive elasticity-greedy 3.3451 (at 51%) | one-shot elasticity rank 3.3925 | q-ranked 3.3787 | random 3.4838 +- 0.0154
+     treat  75% of cells (q -> 0.5q): adaptive elasticity-greedy 2.7019 (at 77%) | one-shot elasticity rank 2.7478 | q-ranked 2.7446 | random 2.8991 +- 0.0126
+     treat 100% of cells (q -> 0.5q): adaptive elasticity-greedy 2.3236 (at 100%) | one-shot elasticity rank 2.3236 | q-ranked 2.3236 | random 2.3236 +- 0.0000
+== E6. Room size: reflecting walls vs a door (leak) ==
+  square rooms (D = 0.5, gamma = 0.14, uniform q): ratio R0/R0_inf
+   L =  3: reflecting 1.000000 | one door cell: mu = 0.04025, ratio 0.7767 | one open wall: mu = 0.09903 (continuum pi^2 D/(4L^2) = 0.13708), ratio 0.5857
+   L = 13: reflecting 1.000000 | one door cell: mu = 0.00160, ratio 0.9887 | one open wall: mu = 0.00676 (continuum pi^2 D/(4L^2) = 0.00730), ratio 0.9539
+   L = 20: reflecting 1.000000 | one door cell: mu = 0.00063, ratio 0.9955 | one open wall: mu = 0.00293 (continuum pi^2 D/(4L^2) = 0.00308), ratio 0.9795
+   L = 40: reflecting 1.000000 | one door cell: mu = 0.00014, ratio 0.9990 | one open wall: mu = 0.00075 (continuum pi^2 D/(4L^2) = 0.00077), ratio 0.9947
+   one door, D = 1, L =   8: absorbing door cell L^2 mu_abs = 1.3808 = pi/ln(L/c), c = 0.822; door exit rate kappa = w: mu = 9.2015e-03; series formula (1/mu_abs + 1/<kappa>_pi)^-1 = 9.0622e-03 (rel. err -1.51%)
+   one door, D = 1, L =  16: absorbing door cell L^2 mu_abs = 1.0762 = pi/ln(L/c), c = 0.864; door exit rate kappa = w: mu = 2.0431e-03; series formula (1/mu_abs + 1/<kappa>_pi)^-1 = 2.0248e-03 (rel. err -0.90%)
+   one door, D = 1, L =  32: absorbing door cell L^2 mu_abs = 0.8755 = pi/ln(L/c), c = 0.885; door exit rate kappa = w: mu = 4.5852e-04; series formula (1/mu_abs + 1/<kappa>_pi)^-1 = 4.5588e-04 (rel. err -0.58%)
+   one door, D = 1, L =  64: absorbing door cell L^2 mu_abs = 0.7363 = pi/ln(L/c), c = 0.898; door exit rate kappa = w: mu = 1.0394e-04; series formula (1/mu_abs + 1/<kappa>_pi)^-1 = 1.0353e-04 (rel. err -0.39%)
+   one door, D = 1, L = 128: absorbing door cell L^2 mu_abs = 0.6347 = pi/ln(L/c), c = 0.907; door exit rate kappa = w: mu = 2.3764e-05; series formula (1/mu_abs + 1/<kappa>_pi)^-1 = 2.3697e-05 (rel. err -0.28%)
+  uniform exit rate 1/T (dwell time T): R = beta <q>/(gamma + 1/T); dwell times and mean q of the scenes
+   office     : T =  480 min, q = 1.2: R per visit = 0.1911; closed-room value beta q/gamma = 4.286
+   supermarket: T =   27 min, q = 1.2: R per visit = 0.0112; closed-room value beta q/gamma = 4.286
+   classroom  : T =   60 min, q = 1.5: R per visit = 0.0311; closed-room value beta q/gamma = 5.357
+   metro      : T =   20 min, q = 2.5: R per visit = 0.0173; closed-room value beta q/gamma = 8.929
+== E7. Uniform q = 1.68 (call-centre example) ==
+  R0 = beta q/gamma = 6.0000 for every layout and D (lattice check with D=0.2, 10% obstacles: 6.000000); SIR final size at R0=6: 0.9975
+== E9. How large is D? (Green-Kubo: D = v^2 tau / 2 in 2-D) ==
+  default D0 = 1 lattice^2/day: D0 = 1 lattice^2/day -> R0 = 5.1090 (+10.040% above beta<q>/gamma = 4.6429)
+  D0 = 100: D0 = 100 lattice^2/day -> R0 = 4.6473 (+0.095% above beta<q>/gamma = 4.6429)
+  walking 5% of the time: 0.05 * v^2 tau/2 (v=1.3 m/s, tau=1.5 s): D0 = 2.43e+03 lattice^2/day -> R0 = 4.6430 (+0.004% above beta<q>/gamma = 4.6429)
+  continuous walking: v^2 tau/2: D0 = 4.87e+04 lattice^2/day -> R0 = 4.6429 (+0.000% above beta<q>/gamma = 4.6429)
+runtime 349.3 s

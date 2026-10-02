@@ -1,0 +1,452 @@
+% supp_verification.tex -- Supplementary Section S11: numerical verification of the theorems and of the simulator;
+% the re-checks of the analyses; reproducibility.
+% Every number carries a "% src:" comment; paths are relative to the repository root.
+% Numbers recomputed for this section: code/appA_numerics_checks.py
+%   -> data/appA_numerics_checks.json (keys derived / adversarial / simulator).
+\section{Verification of the theorems, the simulator and the analyses}\label{appA_numerics:sec}
+
+The statements of Sections~\ref{M-s3_r0:sec} and~\ref{M-s4_geometry:sec} of the main text are proved in
+Sections~\ref{appS_r0:sec} and~\ref{appS_geometry:sec}. This section records
+the numerical tests that were run in addition, as a guard against errors in the proofs and in the code, and
+the tests of the stochastic simulator used in Sections~\ref{M-s5_pair:sec} and~\ref{M-s6_scenes:sec}. Most
+tests were carried out twice, by two sets of programs: the programs that produced the results of the article,
+and a second set written separately for checking (the directories named \texttt{verify} in the repository),
+which was also used to search for counter-examples. The second set does not call the first, except that the
+schedule test of Section~\ref{s7_interventions:sec:time} and a timing benchmark run the production simulator;
+other exceptions are stated. Monte Carlo uncertainties are standard
+errors unless a 95\,\% interval is given in brackets.
+
+\subsection{Scope of the re-checks}\label{appA_numerics:sec:scope}
+
+Each strand of this work was re-checked with separately written code, within the same project and on the same
+machine (Section~\ref{M-s1_intro:sec} of the main text). The re-check re-derived the proofs, re-implemented the
+computations, including a second exact simulator, retyped the outbreak counts from the sources and searched for
+counter-examples. Its core re-implementations were written separately; where it re-ran the analyses, compared
+kernels or added comparisons, it reused modules of the analyses (data loaders of the contact and tracer analyses,
+event geometries, the transcribed seat maps, the simulator for timing benchmarks and schedules). It was not carried
+out by anyone independent of the project. The re-checks of the outbreak dataset and of the five tests are described
+where their results are reported (Sections~\ref{appB_dataset:sec}--\ref{appS_prot2:sec}); this section describes
+those of the theorems and of the simulator.
+% src: notes/VERIFICATION.md (Section 4.1, theory, Section 4.2, simulations); notes/VERIFICATION.md (Section 4.4, outbreak dataset); notes/VERIFICATION.md (Section 4.5, first outbreak test); notes/VERIFICATION.md (Section 4.6, second outbreak test, Section 4.7, contact records, Section 4.8, tracer measurements, Section 4.9, zone level)
+
+\subsection{Random-instance tests of the theorems}\label{appA_numerics:sec:theorems}
+
+The tests of Table~\ref{appA_numerics:tab:theorems} use random instances drawn with a fixed seed and without
+any tuning: connected lattices of $3$--$8$ by $3$--$8$ cells with a random fraction of the cells (up to about $30\,\%$)
+removed, and
+four families of movement generators, namely symmetric rates built from log-normal cell mobilities,
+the departure-site rule (reversible with a non-uniform stationary distribution), non-reversible rates
+(independent log-normal rates in the two directions of every edge), and dense irreducible generators of order
+$3$--$11$ that are not lattices. The efficiency $q$ is log-normal, zoned with two to four levels, uniform with
+about $30\,\%$ of zeros, or uniform on $[0.5,2]$; $\beta\in[0.02,3]\perday$ and $\gamma\in[0.05,2]\perday$.
+% src: code/bsc_theory/scripts/verify_theorems.py (functions random_lattice, random_q, random_instance)
+All computations are in double precision with dense eigen-solvers; the whole table takes 38\,s.
+% src: data/bsc_theory/verify_theorems.json: runtime_s = 37.6
+Figure~\ref{appA_numerics:fig:checks} shows the instances of the threshold and of the bounds tests.
+
+\begin{table}[tbp]
+\centering
+\caption{Random-instance tests of the statements of Sections~\ref{M-s3_r0:sec} and~\ref{M-s4_geometry:sec}.
+Deviations are relative unless stated; a `violation' is the amount by which an inequality fails
+(positive values of the order of $10^{-14}$ are rounding errors of double precision).}
+\label{appA_numerics:tab:theorems}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.9cm}p{6.0cm}p{6.2cm}@{}}
+\toprule
+Statement & Test & Worst case over all instances\\
+\midrule
+Theorem~\ref{M-s3_r0:thm:ngm}(b) &
+ $\bigl|\sabs(\gen+\Fm/\Rz-\gamma\Id)\bigr|$; 400 instances (103 symmetric, 119 departure-site, 96
+ non-reversible, 82 dense) & $1.3\times10^{-14}$\\
+% src: data/bsc_theory/verify_theorems.json: T1 (n_instances, kinds, max_abs_root_residual)
+\addlinespace[3pt]
+Theorem~\ref{M-s3_r0:thm:ngm}(c) &
+ sign of $\Rz-1$ against sign of $\lamone$; $\lamone$ after replacing $\beta$ by $\beta/\Rz$; same 400
+ instances & 0 sign failures; $|\lamone|\le1.3\times10^{-14}$\\
+% src: data/bsc_theory/verify_theorems.json: T1 (sign_failures, max_abs_lambda_at_threshold)
+\addlinespace[3pt]
+Theorem~\ref{M-s3_r0:thm:ngm}(a) &
+ $\Vm^{-1}$ against Gauss--Laguerre quadrature of $\int_0^\infty\e^{-\gamma t}\e^{\gen t}\,\dd t$ (one
+ instance, 18 cells); Monte Carlo sojourn times of one infective, $4\times10^{6}$ infectious periods on a
+ $3\times4$ lattice & $3.1\times10^{-6}$; largest $|z|=1.57$, root-mean-square $z=1.05$ over the 12 cells\\
+% src: data/bsc_theory/verify_theorems.json: T1d_laplace_rel_err, T1e_mc (nrep, max_abs_z, rms_z)
+\addlinespace[3pt]
+Theorem~\ref{s3_r0:thm:rayleigh}, Corollary~\ref{s3_r0:cor:modal} &
+ Rayleigh value against $\srad(\ngm)$; largest diagonal modal term against $\Rz$; monotonicity of the
+ truncated modal formula; 150 symmetric and 100 departure-site instances &
+ $8.0\times10^{-15}$ and $1.3\times10^{-14}$; diagonal term never above $\Rz$ (closest: $0.04\,\%$ below);
+ 0 monotonicity failures\\
+% src: data/bsc_theory/verify_theorems.json: T1f (max_rel_rayleigh_err, max_rel_modal_minus_R0 = -3.96e-4,
+%      ritz_monotone_failures), T1f_departure
+\addlinespace[3pt]
+Theorem~\ref{M-s3_r0:thm:bounds} &
+ both bounds on $\Rz$ and on $\lamone$; 2{,}000 instances &
+ violation $\le4.0\times10^{-14}$; for non-constant $q$ the gaps to the lower and upper bound are at least
+ $1.1\times10^{-6}$ and $1.2\times10^{-3}$; constant $q$: $9.5\times10^{-15}$\\
+% src: data/bsc_theory/verify_theorems.json: T2 (max_viol_lower 2.3e-15, max_viol_upper 4.0e-14,
+%      min_gap_lower, min_gap_upper, const_q_rel_err)
+\addlinespace[3pt]
+Theorem~\ref{M-s3_r0:thm:mobility} &
+ $\Rz(\Dz)$ at 41 values of $\Dz$ from $10^{-4}$ to $10^{4}$, limits at $\Dz=10^{\pm9}$, convexity of
+ $\lamone(\Dz)$; 300 instances &
+ strictly decreasing in every instance with non-constant $q$; largest increase in the other instances
+ $2.7\times10^{-12}$; limits to $3.8\times10^{-6}$ and $2.6\times10^{-7}$; convexity violation
+ $1.3\times10^{-15}$\\
+% src: data/bsc_theory/verify_theorems.json: T3 (max_rel_increase, strict_failures = 0,
+%      limit_inf_rel_err, limit_zero_rel_err, convex_monotone_violation); grid: verify_theorems.py, Dgrid
+\addlinespace[3pt]
+Proposition~\ref{M-s3_r0:prop:expansions} &
+ ratio of the errors of each expansion at two values of $\Dz$ a factor 10 apart (100 for a second-order
+ remainder) & median 99.9 (fast mixing, 227 instances) and 99.5 (slow mixing, 299 instances)\\
+% src: data/bsc_theory/verify_theorems.json: T3 (largeD_ratio_median, smallD_ratio_median);
+%      instance counts: data/bsc_theory/verify_theorems.log
+\addlinespace[3pt]
+Proposition~\ref{M-s3_r0:prop:zone} &
+ 878 random zones in 300 instances of all four families & no violation\\
+% src: data/bsc_theory/verify_theorems.json: T3p (zone_trials, max_rel_violation_zone = 0.0)
+\addlinespace[3pt]
+Theorem~\ref{M-s3_r0:thm:edges} &
+ 900 increases of one edge rate by a factor 1--20, symmetric rates &
+ largest increase of $\Rz$: $7.3\times10^{-16}$\\
+% src: data/bsc_theory/verify_theorems.json: T3p (edge_trials, max_rel_increase_edge)
+\addlinespace[3pt]
+Theorem~\ref{M-s4_geometry:thm:closed}, Proposition~\ref{M-s3_r0:prop:kernel}(ii) &
+ uniform $q$: 500 instances, square rooms of side 3 to 40, and 300 instances with random contact kernels &
+ $8.3\times10^{-15}$; $\Rz=3.571429$ for every side; kernels: $5.8\times10^{-15}$, no violation of
+ $\beta\qmin/\gamma\le\Rz\le\beta\qmax/\gamma$\\
+% src: data/bsc_theory/verify_theorems.json: T4a_uniform_q_rel_err, T4a_size_scan, remarks_kernel
+\addlinespace[3pt]
+Theorem~\ref{M-s4_geometry:thm:leaky} &
+ 400 instances with random door cells and exit rates; corridors of 3 to 100 cells with absorbing ends &
+ part (3): $2.1\times10^{-14}$; parts (2) and (4): violation $\le1.9\times10^{-15}$; absorbing limit (exit
+ rate $10^{9}$): $1.3\times10^{-6}$; corridor formula: absolute error below $10^{-15}$\\
+% src: data/bsc_theory/verify_theorems.json: T4b (uniform_q_rel_err, mu_upper_violation = 0,
+%      mu_monotone_violation = 0, absorbing_limit_err, het_lower_violation = 0, het_upper_violation), T4d_1d;
+%      corridor: data/appA_numerics_checks.json: derived/theorems/corridor_max_abs_err
+\addlinespace[3pt]
+Theorem~\ref{M-s4_geometry:thm:hotspots} &
+ 200 instances: long-time profile against $\uvec$; iterated generations against $\wvec$; $\sum_xe_x$;
+ elasticity against central finite differences; reversible formula &
+ $5.9\times10^{-14}$; $4.5\times10^{-14}$; $|\sum_xe_x-1|\le4.4\times10^{-16}$; $3.9\times10^{-5}$;
+ $2.5\times10^{-14}$\\
+% src: data/bsc_theory/verify_theorems.json: T5 (early_profile_err, generation_profile_err,
+%      elasticity_sum_err, elasticity_fd_err, symmetric_qx2_err)
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig_theorem_checks_en}
+\caption{Numerical checks of Section~\ref{M-s3_r0:sec}. (a)~Growth rate $\lamone/\gamma$ against $\Rz$ for the
+400 random instances of the threshold test, by generator family; all points lie in the two quadrants allowed
+by Theorem~\ref{M-s3_r0:thm:ngm}(c). (b)~Position of $\Rz$ between the lower bound $\beta\qmean/\gamma$ (0) and
+the upper bound $\beta\qmax/\gamma$ (1) of Theorem~\ref{M-s3_r0:thm:bounds} for the 1{,}996 of the 2{,}000 instances
+in which $q$ is not constant (stacked by family, colours as in (a)). (c)~Office scene, $\Dz=1\cellday$,
+$\beta=0.5\perday$, $\gamma=0.14\perday$: largest eigenvalue of the leading block of the modal matrix of
+Corollary~\ref{s3_r0:cor:modal} against the number $m$ of modes retained, which rises from $\beta\langle q\rangle/\gamma=4.643$ to $\Rz=5.107$ (dashed); the star is the
+largest diagonal term, $4.961$, which is a lower bound (Corollary~\ref{s3_r0:cor:modal}).}
+% src: data/bsc_theory/T1_points.npy, T2_positions.npy (1996 rows:
+%      data/appA_numerics_checks.json: derived/theorems/T2_nonconstant_q);
+%      data/plan_theory_checks.json: office/galerkin_R0_by_modes, office/diagonal_modal_max;
+%      figure script code/plan_fig_theory.py (fig_theorem_checks)
+\label{appA_numerics:fig:checks}
+\end{figure}
+
+The table also shows why symmetric rates are assumed in Theorem~\ref{M-s3_r0:thm:edges}: under the
+departure-site rule, tripling the mobility of one cell raised $\Rz$ in 201, lowered it in 98 and left it unchanged (to $10^{-10}$) in one of 300
+instances.
+% src: data/bsc_theory/verify_theorems.json: T3p (departure_up, departure_down)
+
+\subsection{Re-implementation and searches for counter-examples}
+\label{appA_numerics:sec:adversarial}
+
+The second set of programs has its own generators and eigen-solvers and other seeds. It repeated the tests on
+600 instances for the threshold (residual $2.1\times10^{-14}$, 0 sign failures), 3{,}000 for the bounds
+(violation $9\times10^{-16}$), 400 instances and 49 mobility values for the monotone decrease (no increase),
+1{,}800 zones (no violation) and 1{,}200 edge changes ($1.4\times10^{-14}$), with the same conclusions for the
+leaky room and the hotspot maps.
+% src: code/bsc_theory/verify/v1_theorems.log, v1_part2.log; data/checks/theory.json: threshold_test (600, 2.1e-14, 0),
+%      bounds_test (3000, 9e-16), monotone_decrease_test (400, 49), zone_bound_test (1800), edge_monotonicity_test
+%      (1200, 1.4e-14); notes/VERIFICATION.md: Section 4.1, theory (item 1, item 3, item 4, item 6, item 7, item 9, item 11)
+(One check of the absorbing limit first stopped on a floating-point tolerance at exit rate $10^{9}$ and passed
+when repeated with $10^{6}$.)
+% src: code/bsc_theory/verify/v1_theorems.log (AssertionError), v1_part2.log (first line)
+
+Random instances rarely come near equality, so an optimiser (Nelder--Mead, random restarts) was used to
+\emph{minimise} $\Rz/(\beta\qmean/\gamma)-1$ and to \emph{maximise} $\Rz(D_2)-\Rz(D_1)$, $D_2>D_1$, over
+non-reversible dense generators of order 3--5 and over $q$. The first searches reported apparent violations of
+$-6\times10^{-2}$ for the lower bound and $+5\times10^{-4}$ for the monotonicity.
+% src: code/bsc_theory/verify/v1_theorems.log (adversarial min -6.110e-02; adversarial max 5.201e-04)
+Both were numerical artefacts. In the first, the stationary vector had been taken from an ill-conditioned
+eigen-solve and the optimiser had pushed the rates over 30 orders of magnitude; with the stationary vector
+from a linear solve and rates between $\e^{-12}$ and $\e^{12}$, the minimum over 120 optimised instances is
+$-7\times10^{-13}$.
+% src: code/bsc_theory/verify/v1b_adv.log (rate range 3.6e-12 .. 1.2e18; robust minimum -6.76e-13)
+In the second, the increases occurred at condition numbers of $\Vm$ near $10^{12}$, where a generator
+assembled in double precision is no longer exactly conservative. In a new search in which every optimised
+instance was evaluated in 60-digit arithmetic \citep{mpmath2023} with a generator whose column sums vanish
+exactly, the largest value of $\Rz(D_2)-\Rz(D_1)$ over 80 instances (rates between $\e^{-8}$ and $\e^{8}$) was
+$8\times10^{-59}$.
+% src: code/bsc_theory/verify/v1c_adv3.log (cond(V) = 2.2e12), v1d_adv3_exact.log (7.97e-59 and 0.0;
+%      40 instances each with rates within e^{+-4} and e^{+-8})
+We repeated both searches with other seeds and evaluated every optimised instance in 60-digit arithmetic.
+For the lower bound, the double-precision minimum over 120 instances was $-5\times10^{-14}$, and the exact
+values were all positive, the smallest being $2\times10^{-18}$. For the monotonicity, with rates confined to
+$[\e^{-c},\e^{c}]$ for $c=4$, $8$ and $15$ (40 instances each), double precision reported increases
+up to $1.2\times10^{-6}$, whereas the exact difference was positive in a single instance, by
+$1.5\times10^{-62}$, which is zero at the working precision.
+% src: data/appA_numerics_checks.json: adversarial/lower_bound/clip12 (min_float64 = -4.8e-14,
+%      min_exact = 1.9e-18, n_exact_negative = 0), adversarial/monotonicity/clip4, clip8, clip15
+%      (max_float64 up to 1.15e-6; max_exact 1.46e-62, -1.0e-16, -2.0e-17; n_exact_positive 1, 0, 0)
+The practical lesson is one of numerical hygiene: a generator assembled in double precision loses exact
+conservation, $\one^{\T}\gen=0$, once the products of mobility scale and hop rates span more than about ten
+orders of magnitude, and its stationary vector should be obtained from a linear solve; otherwise the theorems
+appear to fail, in the searches above by amounts between $10^{-8}$ and $10^{-2}$. The tests of
+Table~\ref{appA_numerics:tab:theorems} use log-normal rates of unit order and mobility scales between
+$10^{-4}$ and $10^{4}$ ($10^{\pm9}$ only for the two limits, whose deviations are correspondingly larger).
+% src: notes/VERIFICATION.md: Section 4.1, theory, further point 3; magnitudes: the logs cited
+%      above (-6.1e-2, -5.5e-8, 5.2e-4, 5.8e-5) and appA_numerics_checks.json: adversarial (5.0e-7, 1.2e-6);
+%      ranges: code/bsc_theory/scripts/verify_theorems.py (random_instance, Dgrid, Rinf, Rzero)
+
+\subsection{Nonlinear mean-field model}\label{appA_numerics:sec:nonlinear}
+
+The threshold statement concerns the linearisation, so the full system \eqref{M-s2_model:eq:meanfield} was
+integrated as well (LSODA, relative tolerance $10^{-9}$), from a spatially uniform seed of $10^{-6}$ of the
+population. These runs used one of the two alternative office layouts of Section~\ref{M-s3_r0:sec} (same zone
+fractions as the office scene; $\Rz=5.109$ against $5.107$ at the default parameters) and a $20\times13$
+two-zone room, not the canonical scenes, and were not repeated on them.
+% src: code/bsc_theory/scripts/nonlinear_check.py (office_O1, two_zone("side"), seed 1e-6, rtol 1e-9);
+%      data/plan_theory_checks.json: alternative_layouts/O1/R0_D0_1 = 5.109, office/D0=1/R0 = 5.107
+With $\beta$ rescaled so that $\Rz=0.80$ and $0.95$, the prevalence never exceeds the seed and the final
+attack fraction is $3.9\times10^{-6}$ and $9.9\times10^{-6}$; for $\Rz=1.05$, $1.20$ and $2.00$ it is
+$5.1\,\%$, $19.8\,\%$ and $72.6\,\%$.
+% src: data/bsc_theory/nonlinear_check.json: A_threshold (final_attack, peak_prevalence)
+In the two-zone room (workspace $q=1.5$ on $69.2\,\%$ of the floor at mobility $0.3\,\Dz$, corridor band
+$q=0.5$ at $2\,\Dz$, $\Dz=1\cellday$) with $\beta$ chosen so that the well-mixed estimate
+$\beta\langle q\rangle/\gamma$ equals $0.900$, the reproduction number is $\Rz=1.076$ and an outbreak occurs:
+the attack fraction is $12.4\,\%$, with $97.2\,\%$ of the infections generated in the workspace, whereas the
+same room with $q$ replaced by its mean has no outbreak (attack fraction $1.0\times10^{-5}$).
+% src: data/bsc_theory/nonlinear_check.json: B_heterogeneity (well_mixed, R0 = 1.0757,
+%      final_attack_heterogeneous = 0.1244, share_of_infections_in_workspace = 0.9725, area_share_workspace = 0.692,
+%      final_attack_homogenised = 1.0e-5); layout: code/bsc_theory/scripts/layouts.py (D_TWO, Q_TWO)
+The second implementation returned the same values to the digits quoted.
+% src: code/bsc_theory/verify/v3_dynamics.log, lines (A) and (B)
+
+\subsection{The simulator}\label{appA_numerics:sec:algorithm}
+
+The individual-based model of Section~\ref{M-s2_model:sec:ibm} is a continuous-time Markov chain and is
+simulated without time discretisation by the direct method of \citet{gillespie1976general,gillespie1977exact}
+(Fig.~\ref{appA_numerics:fig:algorithm}). The production code is a C~routine called from Python. It keeps,
+for every cell $y$, the exposure field $E_y=\sum_{i\ \mathrm{infective}}h(x_i,y)$ and the propensity
+$n_S(y)\,E_y$, updates them incrementally at each hop, and recomputes them from scratch after every infection
+and recovery and after every 20{,}000 hops, which bounds the accumulation of rounding errors. Every replicate
+has its own xoshiro256** stream \citep{blackman2021scrambled} derived from the seed of the batch and the
+replicate index.
+% src: code/bsc_sim/src/bsc_sim/gillespie.c (upd_site, recompute_inf, hop_since >= 20000, rng_seed)
+
+\begin{figure}[tbp]
+\centering
+\fbox{\begin{minipage}{0.94\textwidth}\small
+\textbf{State.} Cells $x_i\in\cells$ and states $\sigma_i\in\{\mathrm{S},\mathrm{I},\mathrm{R}\}$ of the
+$\Npop$ people; time $t$.\\[2pt]
+\textbf{Initialisation.} Positions independent and uniform on $\cells$ (the stationary law); person~1 is the
+index case, infective at $t=0$, at its own position or in a prescribed or randomly drawn cell (several
+initial infectives in test~F of Table~\ref{appA_numerics:tab:simulator}).\\[2pt]
+\textbf{Loop,} while at least one person is infective and $t<t_{\max}$:
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=2pt]
+  \item Compute the total rates of hops, $H=\sum_i\sum_y\hop{x_i}{y}$, of recoveries, $\gamma\,n_I$, and of
+        infections, $A=\chi(t)\sum_{i\in\mathrm{I}}\sum_{j\in\mathrm{S}}h(x_i,x_j)$, where $n_I$ is the number of
+        infectives, the sums in $A$ run over infective people $i$ and susceptible people $j$, $h$ is the pair
+        hazard \eqref{M-s2_model:eq:pairhazard} and $\chi(t)$ the schedule multiplier ($\chi\equiv1$ without
+        schedule).
+  \item Draw a waiting time $\Delta t$ from the exponential distribution with rate $H+\gamma n_I+A$. If
+        $t+\Delta t$ lies beyond the
+        end of the current schedule segment, move $t$ to that boundary, switch to the rates of the next
+        segment and return to step~1 (exact, because the rates are constant within a segment).
+  \item Set $t\leftarrow t+\Delta t$ and choose the type of event with probabilities proportional to
+        $H$, $\gamma n_I$, $A$:\\
+        \emph{hop}: a person $i$ chosen with probability proportional to its exit rate moves to a neighbour $y$
+        chosen with probability proportional to $\hop{x_i}{y}$;\\
+        \emph{recovery}: a uniformly chosen infective becomes removed;\\
+        \emph{infection}: a pair $(i,j)$ is chosen with probability proportional to $h(x_i,x_j)$; $j$ becomes
+        infective, and its infector $i$, generation $g_j=g_i+1$, time and cell are recorded. With the option
+        $g_{\max}$, a person of generation above $g_{\max}$ is counted as infected but does not transmit.
+\end{enumerate}
+\textbf{Output.} Final size, infection tree, numbers of susceptible and infective people on a time grid, and
+the exposure $\int_0^{\infty}\chi(t)\sum_{j\ne1}h(x_1,x_j)\,\mathbf{1}[\sigma_1=\mathrm{I}]\,\dd t$ of the index case.
+\end{minipage}}
+\caption{Exact event-driven simulation of one epidemic. The per-cell rule of Remark~\ref{s5_pair:rem:encounter} is obtained by
+replacing the infection rate $A$ by $\sum_y\beta q_y\,n_S(y)\,n_I(y)/n_{\mathrm{tot}}(y)$, with $n_S(y)$,
+$n_I(y)$ and $n_{\mathrm{tot}}(y)$ the numbers of susceptible people, of infectives and of all people in cell
+$y$.}
+% src: code/bsc_sim/src/bsc_sim/refsim.py (reference implementation of exactly these steps),
+%      code/bsc_sim/src/bsc_sim/gillespie.c (potential_rate = exposure integrand; mode 1 = per-cell rule)
+\label{appA_numerics:fig:algorithm}
+\end{figure}
+
+Because the infection tree is recorded, secondary cases are counted and not fitted; with $g_{\max}=0$ only the
+index case transmits, which measures $\Rone$ without interference from later cases. The \emph{exposure} of the
+index case is the time integral of the rate at which it would infect if everybody within its contact
+neighbourhood were susceptible; its expectation for an index case born in cell $x$ is the offspring number
+$\noff(x)$ of \eqref{M-s3_r0:eq:offspring}, so that it equals $\Rz$ when $x$ is drawn from the incidence map
+$\wvec$. This identity ties the simulator to the next-generation matrix without any approximation.
+
+\subsection{Validation of the simulator}\label{appA_numerics:sec:validation}
+
+Table~\ref{appA_numerics:tab:simulator} lists seven tests; Fig.~\ref{appA_numerics:fig:validation} shows
+three of them.
+
+\begin{table}[tbp]
+\centering
+\caption{Tests of the simulator. $\beta=0.5\perday$, $\gamma=0.14\perday$; scenes with their default
+occupancy and $\Dz=1\cellday$ unless stated; $z$ is a difference in units of its standard error.}
+\label{appA_numerics:tab:simulator}
+\footnotesize
+\begin{tabular}{@{}p{0.3cm}p{6.5cm}p{8.3cm}@{}}
+\toprule
+ & Test & Result\\
+\midrule
+A & C~routine against a separately written pure-Python implementation of
+    Fig.~\ref{appA_numerics:fig:algorithm} (own code and generator); $4\times3$ lattice with one barrier, two
+    $q$ zones, two mobility zones, 10 people; $20{,}000$ against $1{,}500$ runs; same-cell kernel, kernel of
+    radius one cell, the per-cell rule of Remark~\ref{s5_pair:rem:encounter}, and $g_{\max}=0$ &
+    mean final size $6.101$ against $6.065$, $6.776$ against $6.755$, $3.157$ against $3.106$, $3.190$
+    against $3.240$; $|z|\le1.31$ for the eight means compared; $\chi^2$ of the final-size histograms $3.6$
+    to $10.4$ on 9 degrees of freedom ($p\ge0.32$)\\
+% src: data/bsc_sim/01_validation.json: A_c_vs_python; p-values and max |z|:
+%      data/appA_numerics_checks.json: derived/A
+\addlinespace[3pt]
+B & one cell, 40 people: Markovian SIR epidemic with pair hazard $\beta/39$, whose final-size law is computed
+    exactly by recursion on the embedded jump chain \citep[cf.][]{andersson2000stochastic}; $40{,}000$ runs &
+    mean final size $27.769\pm0.084$ against $27.808$; probability of at most 3 cases $0.2725$ against
+    $0.2719$; $\chi^2=39.8$ on 39 degrees of freedom ($p=0.44$); larger samples in the text\\
+% src: data/bsc_sim/01_validation.json: B_wellmixed_exact; p-value: appA_numerics_checks.json: derived/B
+\addlinespace[3pt]
+C & exposure identity; office scene (same-cell kernel) and classroom (1\,m kernel); $40{,}000$ runs for random
+    index cells, $10{,}000$ for fixed cells &
+    office: index from $\wvec$, $5.055$ ($4.996$--$5.115$) against $\Rz=5.107$; uniform index, $4.681$
+    ($4.625$--$4.737$) against $\beta\langle q\rangle/\gamma=4.643$; cells with largest and smallest $\noff(x)$,
+    $5.449$ ($5.318$--$5.581$) against $5.335$ and $3.962$ ($3.864$--$4.060$) against $3.995$.
+    Classroom: $5.855$ ($5.787$--$5.922$) against $5.866$; $4.697$ ($4.640$--$4.753$) against $4.706$; $6.939$
+    ($6.787$--$7.090$) against $6.892$; $3.010$ ($2.936$--$3.084$) against $3.029$. Largest $|z|=1.72$\\
+% src: data/bsc_sim/01_validation.json: C_exposure_identity; max |z|: appA_numerics_checks.json: derived/C
+\addlinespace[3pt]
+D & counted secondary cases with $g_{\max}=0$ and a uniformly placed index case against $\Ronebar$ from the
+    exact pair solve \eqref{M-s5_pair:eq:pair}; nine configurations, $20{,}000$ runs each &
+    office, $\Dz=0.1$, $1$, $10$, $100$: $0.899$, $2.293$, $3.821$, $4.372$ against $0.895$, $2.266$, $3.793$,
+    $4.341$; supermarket $1.985$ against $1.990$; classroom $1.576$ against $1.559$ (same cell) and $2.568$
+    against $2.581$ (1\,m); metro $1.517$ against $1.514$ and $5.549$ against $5.584$. All nine values of
+    $\Ronebar$ lie inside the 95\,\% intervals; $|z|\le1.52$; differences at most $1.2\,\%$. The mean-field
+    values $\beta\langle q\rangle/\gamma$ are $4.643$, $3.263$, $4.706$ and $9.056$\\
+% src: data/bsc_sim/01_validation.json: D_pair_theory; summary: appA_numerics_checks.json: derived/D
+\addlinespace[3pt]
+E & per-cell rule of Remark~\ref{s5_pair:rem:encounter}, 100 people, $20{,}000$ runs &
+    secondary cases of the index case $0.690$ ($0.676$--$0.704$) in the office scene and $0.382$
+    ($0.372$--$0.392$) in a uniform $20\times20$ room; mean final size $2.6$ and $1.6$ people
+    (Remark~\ref{s5_pair:rem:encounter})\\
+% src: data/bsc_sim/01_validation.json: test E (per-cell rule)
+\addlinespace[3pt]
+F & mean-field limit: office scene, $1\,\%$ initially infective; mean prevalence curve against the lattice
+    system \eqref{M-s2_model:eq:meanfield} &
+    largest absolute difference of the curves $0.423$ ($\Npop=100$, $\Dz=1$; 200 runs), $0.058$
+    ($\Npop=1000$, $\Dz=10$; 200 runs), $0.004$ ($\Npop=5000$, $\Dz=100$; 40 runs); final size $0.9898$
+    against $0.9900$ in the last case\\
+% src: data/bsc_sim/01_validation.json: F_meanfield_limit (max_abs_diff_curve, sim_final_mean, ode_final)
+\addlinespace[3pt]
+G & schedules, office scene: (i)~three identical segments per day against no schedule, $20{,}000$ runs each;
+    (ii)~room occupied during the first third of each day, $40{,}000$ runs &
+    (i)~mean final size $23.61$ against $23.69$ people ($|z|=0.31$), secondary cases of the index $1.872$
+    against $1.861$ ($|z|=0.57$), fraction of major outbreaks $0.5001$ against $0.4996$; (ii)~exposure $1.631$
+    ($1.609$--$1.653$) against $\beta\langle q\rangle\times2.493\ \mathrm{days}=1.620$\\
+% src: data/bsc_sim/01_validation.json: G_schedules
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{figA_validation_en}
+\caption{Validation of the simulator. (a)~Test~B: final-size distribution of the one-cell model with 40
+people, simulation ($40{,}000$ runs) and exact law. (b)~Test~D: counted secondary cases of a uniformly placed
+index case ($g_{\max}=0$, $20{,}000$ runs per point; the 95\,\% intervals are about the size of the symbols)
+against
+$\Ronebar$ from the pair solve (circles) and against the mean-field value
+$\beta\langle q\rangle/\gamma$ (squares), for the nine configurations of
+Table~\ref{appA_numerics:tab:simulator}. (c)~Test~F: mean prevalence in the office scene with $1\,\%$ initially
+infective for three combinations of the number of people $\Npop$ and the mobility scale $\Dz$
+(\cdunit{}), and the mean-field solution for $\Dz=100$ (dashed).}
+% src: code/bsc_sim/experiments/21_figures_more.py (fig_validation) <- data/bsc_sim/01_validation.json,
+%      01_B_finalsize.npz, 01_F_curves.npz
+\label{appA_numerics:fig:validation}
+\end{figure}
+
+Tests~A to~D and~G establish that the code simulates the stated model; test~C in addition shows that the
+simulator and $\ngm$ describe the same model, so that the gap between $\Ronebar$ and the mean-field value
+in test~D (ratios $0.17$ to $0.93$) is a property of discrete individuals and not of the code. Test~F shows the
+convergence to the mean-field model, and how far the default parameters are from it.
+% src: data/appA_numerics_checks.json: derived/D/rows/ratio_to_meanfield (0.167 ... 0.935)
+
+\paragraph{Second simulator.} The checking programs contain a separate exact simulator: it recomputes all
+rates from scratch at every event, selects an infection as an (infective, kernel cell) pair, uses another
+random-number generator, and has its own scene parser, next-generation matrix and pair solver.
+% src: code/bsc_sim/verify/vsim.c (header), vlib.py; notes/VERIFICATION.md: Section 4.2, simulations (item 1)
+On the lattice of test~A it gives $2.1818\pm0.0045$ counted secondary cases against $2.1782$ from its pair
+solve (same-cell kernel; $200{,}000$ runs), $2.5138\pm0.0050$ against $2.5163$ (radius-one kernel), and
+exposures $4.419\pm0.012$ and $4.425\pm0.011$ against $4.416$.
+% src: code/bsc_sim/verify/v02_simcheck.json: small_rad0.0, small_rad1.0, small_expo0.0, small_expo1.0
+In square rooms of side 4 to 20 with $D=0.51$, $1$ and $10\cellday$ its counts agree with its pair solve
+within $1.65$ standard errors in seven configurations ($60{,}000$ to $200{,}000$ runs each).
+% src: code/bsc_sim/verify/v04_finite.json, v04.log; max |z|: appA_numerics_checks.json: derived/check_v04
+Re-run for this section on the office scene, it gives an exposure of $4.627\pm0.009$ for a uniform index case
+against $4.643$ ($400{,}000$ runs; $z=-1.7$) and $5.105\pm0.014$ for an index case drawn from $\wvec$ against
+$\Rz=5.107$ ($200{,}000$ runs).
+% src: data/appA_numerics_checks.json: simulator/office_exposure (uniform_index, perron_index)
+In about 25 configurations in all the two simulators agree within sampling error, the largest differences
+being $1.6$ to $2.3$ standard errors (outbreak probability and peak day in the metro scene, outbreak
+probability in the office at $\Dz=10$), and the stored results that were re-run from their seeds were
+reproduced bit for bit. Two items were not re-simulated with the second simulator: the scene results at $\Dz=100$
+and the run with $5{,}000$ people of test~F, which was only repeated with the same code and another seed
+(largest difference $0.007$).
+% src: data/checks/simulation.json: second_simulator (about 25 configurations; 1.6, 2.3), first_analysis_test_F (0.007),
+%      not_resimulated_with_second_simulator; notes/VERIFICATION.md: Section 4.2, simulations (item 1, item 4, summary)
+
+\paragraph{The exact final-size law with larger samples.} On the one-cell model the second simulator's own
+batch of $40{,}000$ runs gave a mean of $27.872\pm0.084$ and $\chi^2=55.7$ on 39 degrees of freedom
+($p=0.040$).
+% src: code/bsc_sim/verify/v02_simcheck.json: wellmixed; p-value: appA_numerics_checks.json: derived/check_v02
+To find out whether this signals a defect, both simulators were run $4\times10^{6}$ times. The second
+simulator then agreed with the exact law (mean $27.812\pm0.008$, $\chi^2=45.4$, $p=0.22$), but the mean of
+the production code lay $2.6$ standard errors above the exact value ($27.830\pm0.008$; $\chi^2=30.2$,
+$p=0.84$). A further $2\times10^{7}$ runs of each with other seeds gave $27.805\pm0.004$ ($0.7$ standard errors
+below; $\chi^2=44.2$, $p=0.26$) for the production code and $27.811\pm0.004$ ($\chi^2=32.2$, $p=0.77$) for the
+second simulator. Over all $2.4\times10^{7}$ runs the means are $27.8096\pm0.0034$ and $27.8110\pm0.0034$
+against the exact $27.8082$, with $\chi^2=34.1$ ($p=0.69$) and $37.4$ ($p=0.54$). We conclude that both
+deviations were sampling fluctuations; they are reported because they were observed.
+% src: data/appA_numerics_checks.json: simulator/wellmixed (article and second: stage1/pooled,
+%      stage2/pooled, combined; exact_mean = 27.8082)
+
+\subsection{Reproducibility}\label{appA_numerics:sec:repro}
+
+All random numbers come from generators with fixed seeds that are set in the source of each script (for
+example $20261001$ for the theorem tests and one seed per validation test), so that re-running a script
+reproduces its stored output.
+% src: code/bsc_theory/scripts/verify_theorems.py; code/bsc_theory/verify/v1_theorems.py, v1b_adv.py,
+%      v1d_adv3_exact.py; code/bsc_sim/experiments/01_validate.py; code/appA_numerics_checks.py
+The computations used Python~3.14.6 with NumPy~2.5.3 \citep{harris2020array}, SciPy~1.18.1
+\citep{virtanen2020scipy}, Matplotlib~3.11.2 \citep{hunter2007matplotlib} and mpmath~1.3.0
+\citep{mpmath2023}; the C~routines were compiled with Apple clang~21 at optimisation level~2.
+% src: data/appA_numerics_checks.json: derived/environment
+On one core of a laptop (Apple M4~Pro) the production simulator needs $0.5$\,ms for one epidemic in the
+office scene ($100$ people, $\Dz=1\cellday$, about $5{,}900$ events), against $1.8$\,s for the pure-Python
+reference implementation; the validation tests take about 8~minutes, the theorem tests 38~seconds, the script
+of this section about 9~minutes, and all simulation experiments of the article 3 to 4~hours, with a peak
+memory use below $1.5$\,GB.
+% src: data/appA_numerics_checks.json: derived/timing (c_core_ms_per_office_epidemic = 0.51,
+%      events_per_office_epidemic = 5949, python_reference_s_per_office_epidemic = 1.79), adversarial/runtime_s,
+%      simulator/runtime_s; reproduce.md, Section 2.2 (8 min; 3-4 h; 1.5 GB)
+In the repository \citep{zhouyi2026code}, \texttt{code} holds the simulator (the C~routine, its Python front
+end, the reference implementation and the deterministic solvers), one script per experiment, the theorem
+tests, the checking programs and one script per section of this article; \texttt{data} holds the output of
+every script, mostly as JSON files, which are the primary record from which all tables and figures are
+generated; and \texttt{reproduce.md} gives the command for each of them.

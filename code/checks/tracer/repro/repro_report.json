@@ -1,0 +1,22 @@
+{
+ "01_kernels.json": {
+  "n_differences": 0,
+  "first": []
+ },
+ "02_predictions.json": {
+  "n_differences": 0,
+  "first": []
+ },
+ "03_power.json": {
+  "n_differences": 0,
+  "first": []
+ },
+ "04_evaluation.json": {
+  "n_differences": 0,
+  "first": []
+ },
+ "05_descriptive.json": {
+  "n_differences": 0,
+  "first": []
+ }
+}

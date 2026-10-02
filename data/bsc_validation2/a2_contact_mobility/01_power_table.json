@@ -1,0 +1,386 @@
+{
+ "WM|WM": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 1.0,
+   "S3_degree": 1.0,
+   "S4_heterogeneity": 1.0,
+   "S5_persistence": 1.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   7,
+   7,
+   7,
+   7
+  ],
+  "epi_pass_count": [
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "WM|BLOCK": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 1.0,
+   "S3_degree": 1.0,
+   "S4_heterogeneity": 1.0,
+   "S5_persistence": 1.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   7,
+   7,
+   7,
+   7
+  ],
+  "epi_pass_count": [
+   4,
+   3,
+   4,
+   3
+  ]
+ },
+ "WM|RW0": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.0,
+   "S5_persistence": 0.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 0.0
+  },
+  "nS": [
+   3,
+   3,
+   3,
+   3
+  ],
+  "epi_pass_count": [
+   2,
+   2,
+   1,
+   0
+  ]
+ },
+ "WM|RWhet": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.0,
+   "S5_persistence": 0.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 0.25
+  },
+  "nS": [
+   3,
+   3,
+   3,
+   3
+  ],
+  "epi_pass_count": [
+   3,
+   1,
+   1,
+   0
+  ]
+ },
+ "BLOCK|WM": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 1.0,
+   "S4_heterogeneity": 1.0,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   4,
+   4,
+   4,
+   4
+  ],
+  "epi_pass_count": [
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "BLOCK|BLOCK": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 1.0,
+   "S3_degree": 1.0,
+   "S4_heterogeneity": 1.0,
+   "S5_persistence": 1.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   7,
+   7,
+   7,
+   7
+  ],
+  "epi_pass_count": [
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "BLOCK|RW0": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.25,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.0,
+   "E_epidemic": 0.75
+  },
+  "nS": [
+   2,
+   3,
+   2,
+   2
+  ],
+  "epi_pass_count": [
+   3,
+   3,
+   4,
+   2
+  ]
+ },
+ "BLOCK|RWhet": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.25,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   2,
+   3,
+   2,
+   2
+  ],
+  "epi_pass_count": [
+   3,
+   3,
+   3,
+   4
+  ]
+ },
+ "RW0|WM": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.25,
+   "S5_persistence": 0.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 0.5
+  },
+  "nS": [
+   3,
+   3,
+   3,
+   4
+  ],
+  "epi_pass_count": [
+   2,
+   2,
+   3,
+   3
+  ]
+ },
+ "RW0|BLOCK": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.25,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.75,
+   "E_epidemic": 0.5
+  },
+  "nS": [
+   3,
+   3,
+   3,
+   3
+  ],
+  "epi_pass_count": [
+   2,
+   2,
+   3,
+   4
+  ]
+ },
+ "RW0|RW0": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 1.0,
+   "S3_degree": 1.0,
+   "S4_heterogeneity": 1.0,
+   "S5_persistence": 1.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   7,
+   7,
+   7,
+   7
+  ],
+  "epi_pass_count": [
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "RW0|RWhet": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 1.0,
+   "S2_intercontact": 1.0,
+   "S3_degree": 1.0,
+   "S4_heterogeneity": 1.0,
+   "S5_persistence": 1.0,
+   "S6_groups": 1.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   7,
+   7,
+   7,
+   7
+  ],
+  "epi_pass_count": [
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "SYN|WM": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 0.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.0,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.0,
+   "E_epidemic": 0.0
+  },
+  "nS": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "epi_pass_count": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "SYN|BLOCK": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 0.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.0,
+   "S5_persistence": 0.75,
+   "S6_groups": 1.0,
+   "E_epidemic": 0.0
+  },
+  "nS": [
+   3,
+   2,
+   3,
+   3
+  ],
+  "epi_pass_count": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "SYN|RW0": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 0.0,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.0,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.0,
+   "E_epidemic": 0.0
+  },
+  "nS": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "epi_pass_count": [
+   0,
+   1,
+   0,
+   0
+  ]
+ },
+ "SYN|RWhet": {
+  "fam_pass": {
+   "S0_level": 1.0,
+   "S1_duration": 0.5,
+   "S2_intercontact": 0.0,
+   "S3_degree": 0.0,
+   "S4_heterogeneity": 0.25,
+   "S5_persistence": 0.0,
+   "S6_groups": 0.0,
+   "E_epidemic": 1.0
+  },
+  "nS": [
+   2,
+   1,
+   3,
+   1
+  ],
+  "epi_pass_count": [
+   4,
+   3,
+   3,
+   4
+  ]
+ }
+}

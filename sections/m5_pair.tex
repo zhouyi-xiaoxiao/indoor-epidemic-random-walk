@@ -1,0 +1,250 @@
+% m5_pair.tex -- Main text, Section 5: discrete individuals, pair-level theory.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers not stored verbatim in the research directories are recomputed by code/s5_pair_checks.py
+% -> data/s5_pair_checks.json (table bodies: data/s5_pair_tables.tex).  Proofs:
+% Supplementary Section S4.
+\section{Discrete individuals: a pair-level theory}\label{s5_pair:sec}
+
+The next-generation matrix of Section~\ref{s3_r0:sec} counts infectious \emph{contacts}: its column sum
+$\noff(x)$, eq.~\eqref{s3_r0:eq:offspring}, is the expected time-integrated transmission rate of a case born in
+cell $x$. In the mean-field model every contact meets a fresh susceptible. In the individual-based model of
+Section~\ref{s2_model:sec:ibm} this is not so: each person can be infected only once, and an infective who moves
+slowly keeps meeting the same few neighbours, so that later contacts with a person already infected are
+wasted. This local saturation of contacts is classical. It is the reason why epidemics with household
+structure need reproduction numbers defined for groups and not for individuals \citep{ball1997epidemics},
+why pair approximations on lattices and networks predict slower invasion than mass action
+\citep{keeling1999effects}, and more generally why discrete spatial models differ from their mean-field
+equations \citep{durrett1994importance}. At the default parameters (0.43 people per cell, $\Dz=1\cellday$) the
+effect is a factor of two: a lone index case in the office scene infects on average $2.27$ people, against
+$\Rz=5.11$.
+% src: data/bsc_sim/02_mobility.json (D0_1.0: R1_pair_uniform_index 2.266, R0_ngm 5.107)
+
+Treating infection as a reaction between two random walkers is not new. \citet{kenkre2014theory} and
+\citet{sugaya2018analysis} computed the infection probability of a pair of walkers with and without
+confinement, and the approach is developed in the monograph of \citet{kenkre2021theory}. Closest to what
+follows, \citet{giuggioli2022spatio} map transmission at co-location onto a partially absorbing site of the
+two-walker lattice walk in discrete time. For one infected walker among $W$ susceptible walkers with
+uniformly random initial positions and a geometric infectious period they obtain the mean number of
+secondary infections as $W$ times the position-averaged generating function of the transmission
+probability (their Section~6), call it the basic reproduction number, and check it against simulations in a
+square domain with reflecting walls. The number $\Ronebar$ defined below is the continuous-time counterpart
+of that quantity. The solution technique for one partially absorbing site goes back to
+\citet{szabo1984localized}; lattice formulations with several reactive defects are given by
+\citet{giuggioli2020exact} and \citet{giuggioli2022spatio}, and the analogous formalism for inert
+heterogeneities by \citet{sarvaharman2023particle}. What is added here is listed in Section~\ref{s1_intro:sec}.
+% src: data/refs_search.json (searches; Crossref abstracts of giuggioli2022spatio and sarvaharman2023particle: reactive against inert heterogeneities)
+
+\subsection{The pair problem}\label{s5_pair:sec:pair}
+
+Throughout this section movement follows the symmetric rule \eqref{s2_model:eq:hop}, so that $\gen$ is
+symmetric and $\pi_x=1/\ncell$, and the $\Npop$ people start independently from the uniform distribution.
+One of them, the index case, becomes infectious at time $0$ in cell $x$ and stays infectious for a time
+$\tau$ that is exponential with rate $\gamma$ and independent of the movement. Consider one other person,
+who is in cell $y$ at time $0$. The pair $Z_t=(X_t,Y_t)$ is a Markov chain on $\cells\times\cells$ with
+generator $\mathcal{M}=\gen\otimes\Id+\Id\otimes\gen$ (column index = source state). While the pair is in
+state $(x',y')$ the index infects the other person at the rate $h(x',y')=\beta q_{x'}P_{x'y'}/\rhobar$ of
+eq.~\eqref{s2_model:eq:pairhazard}, where $\rhobar=(\Npop-1)/\ncell$.
+
+\begin{proposition}[Pair infection probability]\label{s5_pair:prop:pair}
+  Let $p(x,y)$ be the probability that the index case infects the given other person before recovering, when
+  no one else transmits.  With $\mathcal{M}=\gen\otimes\Id+\Id\otimes\gen$ and $\mathbf{H}=\diag\,h$ on
+  $\cells\times\cells$,
+  \begin{equation}\label{s5_pair:eq:pair}
+     \one-p=\gamma\bigl(\gamma\Id+\mathbf{H}-\mathcal{M}^{\T}\bigr)^{-1}\one .
+  \end{equation}
+\end{proposition}
+
+Equation \eqref{s5_pair:eq:pair} is the Feynman--Kac formula
+$1-p(z)=\Exp_z\exp\bigl(-\int_0^{\tau}h(Z_t)\,\dd t\bigr)$ for the pair chain killed at rate $\gamma+h$:
+infection is a partially absorbing defect of the two-walker process. Since $\gen$ is symmetric, the matrix in
+\eqref{s5_pair:eq:pair} is symmetric positive definite, and the system is solved by conjugate gradients on the
+$\ncell^2$ pair states ($54{,}756$ for the office scene).
+
+\begin{definition}[Pair-level reproduction numbers]\label{s5_pair:def:R1}
+  $\Rone(x)=(\Npop-1)\,\ncell^{-1}\sum_{y}p(x,y)$ is the expected number of secondary cases of a lone index case
+  born at $x$ when the other $\Npop-1$ people are susceptible, independent and uniformly distributed and only
+  the index transmits; $\Ronebar=\ncell^{-1}\sum_x\Rone(x)$.  The pair-level next-generation matrix
+  $\ngmone$ has entries $(K_1)_{zx}$ = expected number of people infected by that index case \emph{while they
+  are located in cell $z$}; its column sums are $\Rone(x)$.
+\end{definition}
+
+$\Rone(x)$ is exact for the individual-based model: the $\Npop-1$ pairs formed by the index and each other
+person are identically distributed, and although they are dependent (they share the index's path and
+infectious period) expectations add. When later cases also transmit, the index infects at most as many
+people, since some are infected by others first. $\ngmone$ is obtained from $\ncell$ further linear solves;
+for the scenes of this article all of them take a few seconds.
+% src: data/s5_pair_checks.json (saturation/*/seconds: 0.9-4.7 s for K, K1 and p)
+
+\begin{proposition}[Saturation]\label{s5_pair:prop:saturation}
+  For every scene, every row-stochastic contact kernel and every $\Npop\ge2$,
+  $0\le(K_1)_{zx}\le K_{zx}$ for all $z,x$, with strict inequality wherever $K_{zx}>0$.  Consequently
+  $\Rone(x)<\noff(x)$ for every $x$, $\Ronebar<\beta\langle q\rangle/\gamma$ and $\srad(\ngmone)\le\Rz$.
+\end{proposition}
+
+The mean-field matrix thus counts exposure, and the pair-level matrix discounts the exposure of people who
+are already infected. For the same-cell kernel Theorem~\ref{s3_r0:thm:bounds} gives
+$\Ronebar<\beta\langle q\rangle/\gamma\le\Rz$: a uniformly placed lone index case infects fewer people than
+even the well-mixed lower bound of $\Rz$.
+
+\subsection{Homogeneous periodic rooms: a closed form}\label{s5_pair:sec:closed}
+
+\begin{proposition}[Homogeneous periodic room]\label{s5_pair:prop:torus}
+  On an $L_1\times L_2$ periodic lattice with hop rate $D$ to each of the four neighbours, uniform $q$ and the
+  same-cell kernel, let $h_0=\beta q/\rhobar$.  Then $p(x,y)=h_0\,g(y-x)/(1+h_0\,\gz)$, where
+  $g(r)=\int_0^\infty\e^{-\gamma t}\,\Prob(\text{relative walk at }0\text{ at time }t\mid\text{start at }r)\,\dd t$
+  and $\gz=g(0)$, and
+  \begin{equation}\label{s5_pair:eq:R1}
+     \Rone=\frac{\beta q/\gamma}{1+(\beta q/\rhobar)\,\gz},\qquad
+     \gz=\frac1{\ncell}\sum_{k}\frac{1}{\gamma+2\mu_k},\qquad
+     \mu_k=2D\,(2-\cos k_1-\cos k_2),
+  \end{equation}
+  where $k=(k_1,k_2)$ runs over $\tfrac{2\pi}{L_1}\{0,\dots,L_1-1\}\times\tfrac{2\pi}{L_2}\{0,\dots,L_2-1\}$.
+  $\Rone$ is increasing in $D$ and in $\rhobar$.  Limits: $D\to\infty$ at fixed $\ncell$:
+  $\Rone\to(\beta q/\gamma)/\bigl(1+\beta q/(\gamma(\Npop-1))\bigr)$; $D\to0$: $\Rone\to\rhobar h_0/(h_0+\gamma)$.
+\end{proposition}
+
+Formula \eqref{s5_pair:eq:R1} has the structure of a renewal argument. If infectious contacts with the given
+person continued after infection, their expected number would be $h_0\,g(r)$, the mean-field exposure. Given
+that there is at least one contact, the pair is co-located at that moment and the expected number of contacts
+is $1+h_0\gz$. The ratio of the two is the probability of at least one contact. The two limits are the
+Markovian epidemic in a well-mixed population of $\Npop$ people, where each pair interacts at rate
+$\beta q/(\Npop-1)$, and a frozen room, where the index infects only the $\rhobar$ people who share its cell
+on average, each with probability $h_0/(h_0+\gamma)$. A direct solve of \eqref{s5_pair:eq:pair} on four
+periodic lattices reproduces \eqref{s5_pair:eq:R1} to 13 digits.
+% src: data/s5_pair_checks.json (torus: abs_err <= 7e-14); data/plan_theory_checks.json
+%      (checks/torus_L5_N11: 2.316775601727); code/bsc_sim/verify/v04_finite.json (torus_L6_D1.0, torus_L8_D0.51)
+
+\begin{corollary}[Infinite floor]\label{s5_pair:cor:infinite}
+  For $L_1,L_2\to\infty$ at fixed $\rhobar$,
+  $\gz=\dfrac{2}{\pi}\,\dfrac{\mathcal{K}(k_*)}{\gamma+8D}$ with modulus $k_*=\dfrac{8D}{\gamma+8D}$, where
+  $\mathcal{K}$ is the complete elliptic integral of the first kind.  In particular $\Rone<\beta q/\gamma$ for
+  every finite $D$: the correction does not vanish for large rooms.
+\end{corollary}
+
+For $8D\gg\gamma$ the logarithmic singularity of $\mathcal{K}$ gives $\gz\approx\ln(64D/\gamma)/(8\pi D)$: the
+correction decays with mobility only as $\ln D/D$, which reflects the recurrence of the planar walk.
+
+\begin{observation}[Reflecting walls]\label{s5_pair:obs:reflecting}
+  For a rectangular room with reflecting walls, formula \eqref{s5_pair:eq:R1} with
+  $\mu_k=2D(2-\cos(k_1\pi/L_1)-\cos(k_2\pi/L_2))$, $k_i=0,\dots,L_i-1$ (cell-averaged $\gz$) reproduces
+  $\Ronebar$ from the exact pair solve \eqref{s5_pair:eq:pair} to within $0.9\,\%$ for $L=4,\dots,28$ and
+  $D=0.51,1,10$ (largest deviation at $D=0.51$, $L=7$).
+\end{observation}
+% src: data/bsc_sim/02_finite_size.json (pair_closed_form, pair_exact);
+%      data/s5_pair_checks.json (finite_size: max 0.90 % at D0.51_L7; by D: 0.90 %, 0.46 %, 0.02 %)
+
+\subsection{The form of a finite-size effect}\label{s5_pair:sec:finite}
+
+For the mean-field model a closed room has no size effect (Theorem~\ref{s4_geometry:thm:closed}). Discrete
+people do show a size effect, and \eqref{s5_pair:eq:R1} is its form. Fig.~\ref{s5_pair:fig:finite} (numbers in
+Supplementary Table~\ref{S-s5_pair:tab:finite}) compares the mean-field number, the closed form, the exact pair
+solve and simulation in homogeneous $L\times L$ rooms with $0.381$ other people per cell (99 people on the 260
+cells of a $20\times13$ lattice without barriers; the office scene, with 234 walkable cells, has $0.423$).
+% src: data/bsc_sim/02_finite_size.json (rho_bar = 99/260); data/s2_model_scenes.json -> scenes.office.rho_bar (0.4231)
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig5_1_finite_size_en}
+\caption{Finite-size effect for discrete people. Homogeneous $L\times L$ rooms with reflecting walls, $q=1$,
+same-cell kernel, $\rhobar\approx0.381$ others per cell ($\Npop=7$ at $L=4$ to $610$ at $L=40$), mobility
+(a) $D=1$ and (b) $D=10\cellday$. Black line: mean-field $\Rz=\beta q/\gamma=3.571$. Blue line: closed form
+\eqref{s5_pair:eq:R1} with the reflecting-wall spectrum; crosses: exact pair solve \eqref{s5_pair:eq:pair}
+($L\le28$); dotted line: infinite lattice (Corollary~\ref{s5_pair:cor:infinite}). Circles: counted secondary
+cases $\Rhat$ of a uniformly placed index case when only the index transmits, 20{,}000 runs per point, bars are
+95\pct{} confidence intervals.}
+\label{s5_pair:fig:finite}
+% src: data/bsc_sim/02_finite_size.json; figure script code/fig_finite_size.py
+\end{figure}
+
+At $D=1$ a lone index case infects on average $1.88$ people in a $4\times4$ room with 7 people, $2.60$ in a
+$20\times20$ room with 153 people and $2.71$ on an infinite floor at the same occupancy, against $3.57$ in the
+mean-field model at every size. The correction is a lattice Green's function. It decreases with mobility: at
+$L=10$ the counted number rises from $2.46$ at $D=1$ to $3.10$ at $D=10$. And it does not vanish as
+$L\to\infty$: the infinite-floor value is $76\,\%$ of $\beta q/\gamma$ at $D=1$ and $96\,\%$ at $D=10$. The cause
+is the repeated meeting of the same people, in a small room because there are few of them and on a large floor
+because a slow planar walker returns to its neighbours; nothing leaks through the walls. The closed form lies
+inside the 95\,\% interval of the counted value in 23 of the 24 rooms scanned, and the exact solve in 19 of
+the 21 rooms for which it was computed; the second simulator agrees with the exact solve within $1.7$ standard
+errors in the seven rooms re-run, including the two exceptions.
+% src: data/bsc_sim/02_finite_size.json; data/s5_pair_checks.json
+%      (finite_size/ratio_to_meanfield: D1.0_Linf 0.759, D10.0_Linf 0.958; closed_outside_sim_ci, exact_outside_sim_ci;
+%      finite_size_check: z between -1.35 and 1.65); code/bsc_sim/verify/v04_finite.json
+
+\subsection{Mobility: opposite trends at the two levels}\label{s5_pair:sec:mobility}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.72\textwidth]{fig5_5_R_vs_mobility_en}
+\caption{Reproduction numbers of the office scene against the mobility scale $\Dz$ ($\Npop=100$, same-cell
+kernel, $\beta=0.5\perday$, $\gamma=0.14\perday$). Black line: mean-field $\Rz=\srad(\ngm)$; grey band: its
+bounds $\beta\langle q\rangle/\gamma=4.643$ and $\beta\qmax/\gamma=5.357$. Solid blue line: the spectral
+radius $\srad(\ngmone)$ of the pair-level next-generation matrix; dashed blue line: the average $\Ronebar$
+over a uniformly placed index case, which is lower at small $\Dz$. Circles: counted secondary cases $\Rhat$ of an
+index case born according to the Perron vector of $\ngmone$ when only the index transmits. Triangles: number
+of second-generation cases divided by the number of first-generation cases when the index and its direct
+cases transmit. Bars are 95\pct{} confidence intervals; numbers of runs and values in
+Supplementary Table~\ref{S-s5_pair:tab:mobility}. The dotted line marks the value one.}
+\label{s5_pair:fig:mobility}
+% src: data/bsc_sim/02_mobility.json; figure script code/bsc_sim/experiments/21_figures_more.py
+\end{figure}
+
+The mean-field $\Rz$ of the office scene decreases with mobility (Theorem~\ref{s3_r0:thm:mobility}), from
+$5.35$ at $\Dz=0.03$ to $4.64$ at $\Dz=1000$; the pair-level numbers increase, $\Ronebar$ from $0.59$ to $4.42$:
+a faster index case meets more distinct people (Fig.~\ref{s5_pair:fig:mobility}). At $\Dz=1$, $\Ronebar=2.27$
+is $44\,\%$ of $\Rz=5.11$; at $\Dz=10$ it is $81\,\%$ and at $\Dz=100$ it is $93\,\%$. At $\Dz=1000$,
+$\Ronebar=4.425$ is close to $(\beta\langle q\rangle/\gamma)/\bigl(1+\beta\langle q\rangle/(\gamma(\Npop-1))\bigr)=4.435$,
+the value for a well-mixed population of 100 people (compare the limit $D\to\infty$ in
+Proposition~\ref{s5_pair:prop:torus}). Counted secondary cases agree: samples of 400{,}000, 400{,}000 and
+100{,}000 runs give $2.265\pm0.004$, $3.793\pm0.006$ and $4.340\pm0.015$ at $\Dz=1$, $10$ and $100$, against
+$\Ronebar=2.266$, $3.793$ and $4.341$.
+% src: data/bsc_sim/02_mobility.json; data/s5_pair_checks.json (mobility: R1bar_over_R0
+%      0.444, 0.811, 0.934; office_wellmixed_finite_population 4.4349)
+% src: data/s5_pair_large_sample.json (office|D0=1: mean 2.2648, se 0.0039; office|D0=10: 3.7930, 0.0064; office|D0=100: 4.3399, 0.0145)
+On the infinite homogeneous lattice at $\rhobar=0.381$ and $\beta q=0.5\perday$ the ratio $\Rone/\Rz$ is $0.5$
+at $D=0.24$, $0.9$ at $D=3.5$ and $0.99$ at $D=52\cellday$ (Supplementary Fig.~\ref{S-s5_pair:fig:validity}). The
+mean-field number is therefore adequate when many people share a contact neighbourhood or when people move far
+enough during an infectious period to meet new ones; the scenes at $\Dz=1$ satisfy neither condition. At
+$\Dz\approx2.4\times10^3\cellday$ (Section~\ref{s2_model:sec:regime}) the ratio on the infinite lattice is
+$0.9997$, and what remains in a finite room is the well-mixed finite-population factor.
+% src: data/s5_pair_checks.json (infinite: D_for_ratio_*; D=2400 ratio 0.99970)
+
+\subsection{Later generations: not a threshold}\label{s5_pair:sec:threshold}
+
+The pair level is exact for the first generation and stops there. A secondary case is not a lone index case:
+it starts in or next to the cell of its infector, who cannot be infected again, and near the other cases its
+infector has caused, so part of its neighbourhood is already used up. In the office at $\Dz=1$ the second
+generation is $1.63$ ($1.61$--$1.65$) times the first, against $\srad(\ngmone)=2.32$. The ratio of these two
+numbers is $0.50$ at $\Dz=0.03$, $0.70$ at $\Dz=1$ and $0.80$--$0.81$ for $\Dz\ge10$; the last value is that
+of a well-mixed population of 100, in which the index and its direct cases compete for the same susceptibles
+($0.81$ in $200{,}000$ runs of the well-mixed model with the same design).
+% src: data/bsc_sim/02_mobility.json (sim_gen2_over_gen1, R1_pair_ngm); data/s5_pair_checks.json
+%      (mobility: gen_ratio_over_rhoK1; wellmixed_generation_ratio: 3.589 / 4.435 = 0.809)
+
+\begin{remark}[$\Rone$ and $\srad(\ngmone)$ are not threshold quantities]\label{s5_pair:rem:threshold}
+Neither $\Ronebar>1$ nor $\srad(\ngmone)>1$ implies that large outbreaks are possible. In the metro
+carriage with the same-cell kernel at $\Dz=1$ ($310$ people on $270$ cells; in the median cell a passenger
+waits 48 days between hops) $\srad(\ngmone)=2.24$ and $\Ronebar=1.51$, and the counted number of secondary cases of a lone index
+case is $1.52$ ($1.49$--$1.54$; 20{,}000 runs). Yet the second generation is $0.61$ times the first, and no
+outbreak reached $10\pct$ of the passengers in 2{,}000 runs of one simulator and 3{,}000 of another (mean
+attack rate $1.1\pct$): the index infects the people in its own cell, and they have no one left to infect. The
+mean-field value for the same case is $\Rz=9.84$. An intervention must therefore not be judged by
+`$\Rone<1$', and $\srad(\ngmone)$ should not be read as a basic reproduction number of the discrete
+system. That a threshold exists for infection among lattice random walkers is known: rigorously for
+independent walkers on $\mathbb{Z}^d$ with recovery and reinfection \citep{kesten2006phase}, and from
+simulations of the diffusive epidemic process, including its variant with permanent immunity
+\citep{maia2007diffusive,carvalho2025generalized}. Those results concern infinite or large homogeneous
+lattices and do not give a computable threshold for the small heterogeneous rooms considered here. No
+quantity in this article predicts the threshold or the final size of the individual-based model at low
+mobility; these are obtained by simulation in Section~\ref{s6_scenes:sec}.
+\end{remark}
+% src: data/bsc_sim/03_scenes.json (metro|D0=1|samecell: R1_pair_ngm 2.2437, R1_pair_uniform_index 1.5138,
+%      R0_ngm 9.836, n_major 0 of 2000, attack_all_mean 0.0112, gen2_over_gen1 0.608);
+%      code/bsc_sim/verify/v05_scenes.json (metro|1.0|same: 0 of 3000, gen2_over_gen1 0.609);
+%      data/bsc_sim/01_validation.json (D_pair_theory, metro same cell: 1.517, 1.495-1.539);
+%      data/s5_pair_checks.json (saturation/metro: rho_K1 2.2437, R1bar 1.5138, median_cell_time_between_hops_days 48.5)
+
+In summary, three numbers describe the first steps of an outbreak among discrete people at low mobility, and
+they must be kept apart: the mean-field $\Rz$, which counts exposure and whose matrix bounds the pair-level
+one from above (Proposition~\ref{s5_pair:prop:saturation}); the pair-level $\Rone(x)$, which is the exact
+expected number of people a lone index case infects; and the growth from one generation to the next, which
+is lower again and for which we have no formula.

@@ -1,0 +1,4 @@
+office|D0=1|pair-level hotspot ventilation (25 % of cells)|FD R0=4.66 R1=2.06 Rsim=2.10 Pmaj=0.430 AR=0.188 peak|maj=0.118
+office|D0=10|pair-level hotspot ventilation (25 % of cells)|FD R0=4.27 R1=3.33 Rsim=3.26 Pmaj=0.718 AR=0.682 peak|maj=0.353
+classroom|D0=1|pair-level hotspot ventilation (25 % of cells)|FD R0=5.49 R1=2.30 Rsim=2.28 Pmaj=0.553 AR=0.205 peak|maj=0.128
+classroom|D0=10|pair-level hotspot ventilation (25 % of cells)|FD R0=3.89 R1=3.17 Rsim=3.13 Pmaj=0.704 AR=0.637 peak|maj=0.303

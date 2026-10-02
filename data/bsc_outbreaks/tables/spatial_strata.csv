@@ -1,0 +1,26 @@
+outbreak_id,stratum,d_min_m,d_max_m,n_exposed,n_infected,attack_rate,ci95_low,ci95_high,source_key,note
+O1_seoul_callcentre,north wing desks (digitized),,,137,79,0.5766423,0.4893572,0.660541,park2020,derived from Fig. 2; index position unknown; 84 of 94 cases have a seat in the figure
+O1_seoul_callcentre,south wing desks (digitized),,,62,4,0.0645161,0.0178567,0.1570281,park2020,derived from Fig. 2
+C1_marin_classroom,front two rows (nearest teacher),,,10,8,0.8,0.4439045,0.9747893,lamhine2021,desks 1.83 m apart
+C1_marin_classroom,back three rows,,,14,4,0.2857143,0.0838893,0.5810353,lamhine2021,desks 1.83 m apart
+T1_zhejiang_bus,rows 5-11 (within ~2 m of index row 8),0.0,2.25,33,14,0.4242424,0.2547618,0.607847,shen2020,row pitch 0.75 m; classification 1
+T1_zhejiang_bus,rows 1-4 and 12-15,2.25,5.25,34,9,0.2647059,0.1288174,0.4436154,shen2020,classification 1
+T1_zhejiang_bus,rows 6-10 (within 2 rows),0.0,1.5,23,11,0.4782609,0.2681962,0.694122,shen2020,classification 2 (alternative split of the same 67 passengers)
+T1_zhejiang_bus,rows 1-5 and 11-15,1.5,5.25,44,12,0.2727273,0.1495768,0.4278964,shen2020,classification 2
+T2_hunan_coach,rear seats rows 8-13 (index zone),,,19,3,0.1578947,0.0338262,0.3957846,ou2022,Ou 2022 Table 1 (45 other passengers)
+T2_hunan_coach,front seats rows 1-7,,,26,4,0.1538462,0.0435635,0.3486788,ou2022,Ou 2022 Table 1
+T5_vn54_flight,"business class, '≤2 seats away' (within ~2 m)",0.0,2.0,12,11,0.9166667,0.6152038,0.9978924,khanh2020,'within 2 meters ... approximated in business class to be ≤2 seats away'
+T5_vn54_flight,"business class, '>2 seats away'",2.0,,8,1,0.125,0.0031597,0.5265097,khanh2020,
+T5_vn54_flight,premium economy (separate cabin),,,35,0,0.0,0.0,0.1000324,khanh2020,
+T5_vn54_flight,economy (separate cabin),,,145,2,0.0137931,0.0016748,0.0489358,khanh2020,possibly unrelated infections
+R1_guangzhou_restaurant,"immediate neighbouring tables (TB, TC, T18)",1.0,4.6,16,5,0.3125,0.11017,0.5866206,li2021,table A excluded
+R1_guangzhou_restaurant,remote tables (T04-T17),,,63,0,0.0,0.0,0.0568724,li2021,
+R1_guangzhou_restaurant,"ABC air-conditioning zone, non-A tables (TB, TC)",1.0,4.6,11,5,0.4545455,0.1674881,0.7662064,li2021,alternative split of the same 79 patrons
+R1_guangzhou_restaurant,other air-conditioning zones,,,68,0,0.0,0.0,0.052803,li2021,
+R2_jeonju_restaurant,"in air-conditioner jet path, 4.8-6.5 m",4.8,6.5,,2,,,,kwon2020,zone denominator not reported; 2/13 overall
+H2_sydney_church,"70-degree sector below index, 1-15 m",1.0,15.0,,12,,,,katelaris2021,sector denominator not reported; 12/508 overall
+O4_german_meatplant,fixed stations around index (all distances plotted),0.0,,78,20,0.2564103,0.1641897,0.3678582,guenther2020,'>60%' within 8 m; counts in Appendix Table S2 not transcribed
+C2_jerusalem_highschool,grades 7-9 (junior wing),,,581,135,0.232358,0.1985899,0.2688732,steinzamir2020,sum of 40/197 + 34/197 + 61/187
+C2_jerusalem_highschool,grades 10-12 (senior wing),,,583,18,0.0308748,0.0183989,0.0483577,steinzamir2020,sum of 9/200 + 6/195 + 3/188
+S1_liaocheng_supermarket,employees (shift-long exposure),,,120,11,0.0916667,0.0466523,0.1580985,tian2021,includes primary case(s)
+S1_liaocheng_supermarket,customers (short visits),,,8224,0,0.0,0.0,0.0004484,tian2021,

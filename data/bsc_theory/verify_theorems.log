@@ -1,0 +1,75 @@
+== Theorem 1: NGM, sign equivalence, root characterisation ==
+instances 400 by kind {'symmetric': 103, 'dense': 82, 'nonrev': 96, 'departure': 119}
+max |s(M+bQ/R0-g)|           = 1.347e-14
+sign(R0-1) != sign(lambda1)  : 0 failures
+max |lambda1| at beta/R0     = 1.286e-14
+max imag part of Perron root = 0.000e+00
+-- Theorem 1(d): K = beta Q * Laplace transform of the propagator at gamma
+n=18: rel. error of Laguerre-quadrature Laplace transform vs (gamma-M)^-1 = 3.11e-06
+max |1^T V^-1 - 1/gamma| = 6.66e-16
+-- Theorem 1(e): Monte-Carlo sojourn times of one infective vs V^-1 column
+3x4 lattice, 4000000 lifetimes: max |MC sojourn - V^-1[:,s0]| = 2.11e-04 (entries ~ 0.119); z-scores (batch-means SE): max |z| = 1.57, rms z = 1.05; sum MC = 1.4285 vs 1/gamma = 1.4286
+-- Theorem 1'(f): Rayleigh/Ritz (symmetric generators)
+max rel |R0_generalised - R0_NGM|      = 8.03e-15
+max rel (largest diag. modal - R0)    = -3.96e-04   (<= 0 : modal formula is a LOWER bound)
+Ritz not monotone in #modes            : 0 failures;  full-basis rel err 6.78e-14
+departure model: max(asymmetry of Pi^-1/2 M Pi^1/2, rel err Rayleigh vs NGM) = 1.29e-14
+== Theorem 2: beta<q>_pi/gamma <= R0 <= beta q_max/gamma, equality iff q constant ==
+instances 2000; max relative violation of lower bound 2.32e-15, of upper bound 4.01e-14
+non-constant q: min relative gap to lower 1.12e-06, to upper 1.16e-03 (strict)
+constant q: max rel |R0 - beta q/gamma| = 9.47e-15
+  symmetric : n=477, normalised position (R0-lo)/(hi-lo): min 0.001 median 0.199 max 0.792
+  departure : n=500, normalised position (R0-lo)/(hi-lo): min 0.000 median 0.299 max 0.848
+  nonrev    : n=508, normalised position (R0-lo)/(hi-lo): min 0.002 median 0.243 max 0.951
+  dense     : n=511, normalised position (R0-lo)/(hi-lo): min 0.000 median 0.039 max 0.509
+== Theorem 3: mobility limits, monotonicity, asymptotics ==
+instances 300; max increase of R0 between successive D (relative) = 2.65e-12 (<=0 up to rounding)
+strict-decrease failures (non-constant q): 0
+D->inf: max rel |R0 - beta<q>_pi/gamma| = 3.76e-06;  D->0: max rel |R0 - beta q_max/gamma| = 2.57e-07
+growth rate lambda1(D): max violation of convexity / monotonicity = 1.30e-15
+large-D expansion error ratio err(30 s_L)/err(300 s_L): median 99.9 (expect 100), [98.4, 102.0] (n=227)
+small-D expansion error ratio err(0.01 s_S)/err(0.001 s_S): median 99.5 (expect 100), [96.4, 101.0] (n=299)
+-- Theorem 3': edge-wise monotonicity (symmetric) and zone lower bound
+symmetric: raising one edge rate, max rel increase of R0 over 900 trials = 7.27e-16 (<= 0)
+departure model: raising D at one cell -> R0 up in 201, down in 98 of 300 trials (no monotonicity)
+zone bound beta q_Z/(gamma+mu_Z) <= R0: max rel violation over 878 random zones = 0.00e+00
+== Theorem 4: geometry; leaky room ==
+(a) uniform q, any geometry/generator: max rel |R0 - beta q/gamma| = 8.26e-15 (500 instances)
+   L=  3: R0 = 3.571429 (beta q/gamma = 3.571429), lambda1 = 0.360000
+   L=  5: R0 = 3.571429 (beta q/gamma = 3.571429), lambda1 = 0.360000
+   L= 10: R0 = 3.571429 (beta q/gamma = 3.571429), lambda1 = 0.360000
+   L= 13: R0 = 3.571429 (beta q/gamma = 3.571429), lambda1 = 0.360000
+   L= 20: R0 = 3.571429 (beta q/gamma = 3.571429), lambda1 = 0.360000
+   L= 40: R0 = 3.571429 (beta q/gamma = 3.571429), lambda1 = 0.360000
+(b) leaky, uniform q: max rel |R0 - beta q/(gamma+mu_kappa)| = 2.12e-14
+    mu_kappa <= <kappa>_pi: max rel violation 0.00e+00;  mu increasing in kappa: max rel violation 0.00e+00
+    absorbing limit kappa->inf: max rel |mu - mu_Dirichlet| (and mu_kappa <= mu_Dirichlet) = 1.30e-06
+(c) leaky, heterogeneous q: beta<q>_nu/(gamma+mu) <= R0 <= beta q_max/(gamma+mu): violations 0.00e+00, 1.89e-15
+(d) 1-D corridor, both end cells open to the outside with exit rate w (= absorbing neighbours)
+   L=  3: mu = 0.585786, 2w(1-cos(pi/(L+1))) = 0.585786, pi^2 D/L^2 = 1.096623; R0_room = 0.6889, with pi^2 D/L^2: 0.4043
+   L=  5: mu = 0.267949, 2w(1-cos(pi/(L+1))) = 0.267949, pi^2 D/L^2 = 0.394784; R0_room = 1.2256, with pi^2 D/L^2: 0.9350
+   L= 10: mu = 0.081014, 2w(1-cos(pi/(L+1))) = 0.081014, pi^2 D/L^2 = 0.098696; R0_room = 2.2623, with pi^2 D/L^2: 2.0947
+   L= 13: mu = 0.050144, 2w(1-cos(pi/(L+1))) = 0.050144, pi^2 D/L^2 = 0.058400; R0_room = 2.6296, with pi^2 D/L^2: 2.5202
+   L= 20: mu = 0.022338, 2w(1-cos(pi/(L+1))) = 0.022338, pi^2 D/L^2 = 0.024674; R0_room = 3.0800, with pi^2 D/L^2: 3.0363
+   L= 40: mu = 0.005868, 2w(1-cos(pi/(L+1))) = 0.005868, pi^2 D/L^2 = 0.006169; R0_room = 3.4277, with pi^2 D/L^2: 3.4207
+   L=100: mu = 0.000967, 2w(1-cos(pi/(L+1))) = 0.000967, pi^2 D/L^2 = 0.000987; R0_room = 3.5469, with pi^2 D/L^2: 3.5464
+== Theorem 5: hotspot maps ==
+(i)  early-time profile -> Perron vector u of M+bQ-g: max rel err 5.89e-14
+(ii) generation profile K^g -> w: max rel err 4.47e-14
+(iii) elasticities: |sum e - 1| <= 4.44e-16; finite-difference check max rel err 3.87e-05
+(iv) symmetric case e_r ~ q_r x_r^2: max rel err 2.53e-14
+(v) D->inf: max|u - pi| = 1.54e-08;  D->0: mass of u on argmax q = 1.000000
+== Remarks: kernels / encounter-weighted q ==
+kernel models: uniform q -> R0 = beta q/gamma, max rel err 5.85e-15; beta q_min/gamma <= R0 <= beta q_max/gamma violations 0.00e+00, 0.00e+00
+== Closed forms quoted in the text ==
+  interior block 7x5: mu_Z = 0.294133089186, closed form 0.294133089186, pi^2 w[(lx+1)^-2+(ly+1)^-2] = 0.2999
+  interior block 10x2: mu_Z = 0.756709836940, closed form 0.756709836940, pi^2 w[(lx+1)^-2+(ly+1)^-2] = 0.8247
+  interior block 3x12: mu_Z = 0.450731961942, closed form 0.450731961942, pi^2 w[(lx+1)^-2+(ly+1)^-2] = 0.4727
+  block 7x5 with one side on a wall: mu_Z = 0.163278491424, closed form 0.163278491424
+  symmetric rates: C = q^T x vs (1/n) dq^T (-M0)^+ dq, max rel. difference over 50 instances = 6.99e-15
+  encounter factor c(N=100, cells=234) = 0.1848; annealed R0 with q=1.4: 0.924
+  encounter factor c(N=100, cells=260) = 0.1685; annealed R0 with q=1.4: 0.843
+  encounter factor c(N=100, cells=400) = 0.1142; annealed R0 with q=1.0: 0.408
+  encounter factor c(N=400, cells=260) = 0.4891; annealed R0 with q=1.4: 2.446
+  encounter factor c(N=1600, cells=260) = 0.8378; annealed R0 with q=1.4: 4.189
+total runtime 37.6 s

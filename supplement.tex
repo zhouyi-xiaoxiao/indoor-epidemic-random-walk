@@ -1,0 +1,82 @@
+% supplement.tex -- Supplementary Material of the article (main.tex).
+% Compile after main.tex (one latexmk at a time):  latexmk -pdf main.tex; latexmk -pdf supplement.tex; latexmk -pdf main.tex
+% Cross-references to the main text use xr-hyper with the prefix M- (main.aux).  Sections, equations, figures,
+% tables and theorem-like statements of this document are numbered with the prefix S.
+% Every quantitative statement carries a comment  % src: <path> (<key>); paths are relative to the repository root.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array,longtable,multirow}
+\usepackage{enumitem}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xcolor}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\externaldocument[M-]{main}
+
+\usepackage[section]{placeins}
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{2.8em}
+\setlength{\cftsubsecnumwidth}{3.6em}
+
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.80}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
+\hypersetup{pdftitle={Supplementary Material: Random-walk SIR models of indoor epidemics},
+  pdfauthor={Xiaoxiao Zhouyi}}
+
+\graphicspath{{figures/}}
+\input{macros}
+
+% S-prefixed numbering
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\title{Supplementary Material for\\[4pt]
+Random-walk SIR models of indoor epidemics:\\ reproduction numbers, discrete individuals and\\
+pre-specified tests against outbreaks, contact records\\ and tracer measurements}
+\author{Xiaoxiao Zhouyi}
+\date{\vspace{-1.5ex}2026\vspace{-2ex}}
+
+\begin{document}
+\maketitle
+
+\noindent References to equations, figures, tables, sections and statements without the prefix S are to the main
+text. The repository named in the main text holds the code and data behind every number; each number in the
+LaTeX source of this document carries a comment naming the file and key it comes from.
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\input{sections/supp_model}
+\input{sections/supp_r0}
+\input{sections/supp_geometry}
+\input{sections/supp_pair}
+\input{sections/supp_sim}
+\input{sections/supp_datasets}
+\input{sections/supp_firsttest}
+\input{sections/supp_protocol1}
+\input{sections/supp_further}
+\input{sections/supp_protocol2}
+\input{sections/supp_verification}
+
+{\small\setlength{\bibsep}{1pt plus 0.5pt}
+\bibliographystyle{plainnat}
+\bibliography{refs}}
+
+\end{document}

@@ -1,0 +1,11 @@
+mean-field (continuum) value beta q/gamma = 5.0000;  room 20x13 = 260 cells, uniform q = 1.4
+  N =  100 (occupancy 0.38/cell), D0 =   0.1, rule = local: offspring mean = 0.564 +- 0.014 (annealed prediction 0.843; mean-field 5.000); P(no secondary case) = 0.614  [28 s]
+  N =  100 (occupancy 0.38/cell), D0 =   0.1, rule = mean : offspring mean = 1.282 +- 0.024 (annealed prediction 4.950; mean-field 5.000); P(no secondary case) = 0.383  [52 s]
+  N =  100 (occupancy 0.38/cell), D0 =   1.0, rule = local: offspring mean = 0.761 +- 0.018 (annealed prediction 0.843; mean-field 5.000); P(no secondary case) = 0.563  [75 s]
+  N =  100 (occupancy 0.38/cell), D0 =   1.0, rule = mean : offspring mean = 3.149 +- 0.054 (annealed prediction 4.950; mean-field 5.000); P(no secondary case) = 0.234  [97 s]
+  N =  100 (occupancy 0.38/cell), D0 =  10.0, rule = local: offspring mean = 0.843 +- 0.020 (annealed prediction 0.843; mean-field 5.000); P(no secondary case) = 0.545  [140 s]
+  N =  100 (occupancy 0.38/cell), D0 =  10.0, rule = mean : offspring mean = 4.498 +- 0.074 (annealed prediction 4.950; mean-field 5.000); P(no secondary case) = 0.169  [293 s]
+  N =  400 (occupancy 1.54/cell), D0 =  10.0, rule = local: offspring mean = 2.325 +- 0.062 (annealed prediction 2.446; mean-field 5.000); P(no secondary case) = 0.301  [426 s]
+  N =  400 (occupancy 1.54/cell), D0 =  10.0, rule = mean : offspring mean = 4.827 +- 0.119 (annealed prediction 4.987; mean-field 5.000); P(no secondary case) = 0.172  [549 s]
+  N = 1600 (occupancy 6.15/cell), D0 =  10.0, rule = local: offspring mean = 4.234 +- 0.169 (annealed prediction 4.189; mean-field 5.000); P(no secondary case) = 0.195  [703 s]
+  N = 1600 (occupancy 6.15/cell), D0 =  10.0, rule = mean : offspring mean = 4.925 +- 0.188 (annealed prediction 4.997; mean-field 5.000); P(no secondary case) = 0.177  [829 s]

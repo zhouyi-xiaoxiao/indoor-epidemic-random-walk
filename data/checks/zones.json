@@ -1,0 +1,41 @@
+{
+ "provenance": "Values recorded by the re-check of the zone level (separately written code in code/checks/zones/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.9, that reports it.",
+ "values": {
+  "respondents_share_of_enrolled_pct": 82,
+  "single_class_grades": {
+   "n_grades": 36,
+   "n_pupils": 453
+  },
+  "generic_ratio_model_at_fitted_ratio": {
+   "passes_of_full_rule": "6/16",
+   "ratio": 37
+  },
+  "generic_ratio_model_at_ratio_10_and_100": {
+   "passes": [
+    "0/8",
+    "0/8"
+   ]
+  },
+  "full_data_log_likelihood_advantage_of_constant_ratio_model": 13.6,
+  "seoul_by_floor": {
+   "prior_30_to_120_min_predictive_interval": [
+    7,
+    81
+   ],
+   "prior_10_to_60_min_predictive_interval": [
+    1,
+    39
+   ]
+  }
+ },
+ "item": {
+  "respondents_share_of_enrolled_pct": "notes/VERIFICATION.md, Section 4.9, further point 6",
+  "single_class_grades": "notes/VERIFICATION.md, Section 4.9, further point 7",
+  "generic_ratio_model_at_fitted_ratio.passes_of_full_rule": "notes/VERIFICATION.md, Section 4.9, item 7",
+  "generic_ratio_model_at_fitted_ratio.ratio": "notes/VERIFICATION.md, Section 4.9, item 7",
+  "generic_ratio_model_at_ratio_10_and_100.passes": "notes/VERIFICATION.md, Section 4.9, item 7",
+  "full_data_log_likelihood_advantage_of_constant_ratio_model": "notes/VERIFICATION.md, Section 4.9, item 8",
+  "seoul_by_floor.prior_30_to_120_min_predictive_interval": "notes/VERIFICATION.md, Section 4.9, item 11",
+  "seoul_by_floor.prior_10_to_60_min_predictive_interval": "notes/VERIFICATION.md, Section 4.9, item 11"
+ }
+}

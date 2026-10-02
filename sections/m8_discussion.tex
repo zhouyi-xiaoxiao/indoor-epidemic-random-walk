@@ -1,0 +1,163 @@
+% m8_discussion.tex -- Main text, Section 8: discussion and conclusions.
+% No new computation is made in this section.  Every number is quoted from a results file of the research
+% directories or of the article-level scripts; the `% src:` paths are relative to the repository root.  Most
+% of them are collected, with file and key, by code/s9_discussion_numbers.py ->
+% data/s9_discussion_numbers.json.
+\section{Discussion and conclusions}\label{s9_discussion:sec}
+
+\subsection{What stands}\label{s9_discussion:sec:stands}
+
+\emph{The mean-field theory.} For the reaction--diffusion model, $\Rz=\srad(\ngm)$
+(Theorem~\ref{s3_r0:thm:ngm}). With the same-cell kernel it lies between $\beta\qmean/\gamma$ and
+$\beta\qmax/\gamma$ (Theorem~\ref{s3_r0:thm:bounds}) and decreases with the mobility scale
+(Theorem~\ref{s3_r0:thm:mobility}); for other contact kernels the lower bound and the monotonicity can fail
+(Proposition~\ref{s3_r0:prop:kernel}). In a closed room with uniform $q$ it equals $\beta q/\gamma$ whatever
+the size, shape, barriers or mobility (Theorem~\ref{s4_geometry:thm:closed}), and a leak at rate $\muk$ replaces
+$\gamma$ by $\gamma+\muk$ under the conditions of Theorem~\ref{s4_geometry:thm:leaky}. These statements are known
+for epidemic patch models
+\citep{diekmann1990definition,vandendriessche2002reproduction,allen2007asymptotic,gao2011sis,gao2019travel,gao2020fast,chen2020asymptotic,altenberg2012resolvent},
+and loss through a leak is the classical critical-patch-size mechanism
+\citep{skellam1951random,cantrell2003spatial}. What is added here is their statement for the indoor lattice
+model, with the condition under which each holds and counter-examples where it does not.
+
+\emph{The pair-level description.} It applies the two-walker theory of transmission
+\citep{kenkre2014theory,giuggioli2022spatio} with an occupancy-normalised hazard. $\Rone(x)$ is exact for
+the first generation of a lone index case. It accounts for the gap between the counted number of secondary cases
+in the office scene, $\Rhat=2.265\pm0.004$, and $\Rz=5.11$ ($\Ronebar=2.27$; $\Dz=1\cellday$, 100 people), and for
+the rise of the counted number with mobility while $\Rz$ falls. The closed form is proved for periodic rooms and
+the infinite floor; for rooms with reflecting walls it is an approximation, within $1\pct$ in the cases tested.
+% src: data/s5_pair_large_sample.json (office|D0=1: mean 2.2648, se 0.0039, R1bar_exact 2.2661, R0_ngm 5.1073); data/s5_pair_checks.json (finite_size: max deviation 0.90 %)
+
+\emph{The simulator} has been checked against exact results and against a separately written implementation;
+the scene and intervention results are obtained from it. Barriers, occupancy and schedules are outputs of these simulations; the
+reductions of infection efficiency called ventilation and masks are inputs.
+
+\emph{The data and the tests.} The two datasets hold 38 records of documented outbreaks and exposure cohorts
+(35 distinct outbreaks), among them eleven records of ten outbreaks with transcribed seat or position data. Two
+pre-specified out-of-sample tests compare two spatial models with a well-mixed model on 18 of the records (22 with
+the level checks and negative controls of the first test), and
+three further pre-specified analyses confront the model with recorded contacts in six indoor settings, tracer
+measurements and an influenza epidemic in 29 schools. Every primary analysis was re-checked with separately
+written code within the same project (parts of the re-check reused data loaders, event geometries and seat maps
+of the analyses) and is reported as it stands after that re-check; the
+exceptions (analyses not re-run, and comparisons added post hoc) are named where they occur and in the register
+of tests. The protocols were written with the data known, were frozen by file hashes on the author's machine and
+were not lodged with a registry.
+% src: data/bsc_outbreaks/outbreaks.json (27 records); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1 (11 events); notes/VERIFICATION.md (Section 4.5, first outbreak test, summary: outcome W4 for M1 and for M2)
+
+\subsection{Limits}\label{s9_discussion:sec:limits}
+
+\paragraph{Physical regime.} Every spatial effect in a closed room reported in
+Sections~\ref{s3_r0:sec}--\ref{s6_scenes:sec} is large only near the default $\Dz=1\cellday$, which is three to
+almost six orders of magnitude below estimates of walking mobility, depending on the scene. In the office scene
+$\Rz$ exceeds the well-mixed value $\beta\langle q\rangle/\gamma$ by $10.0\,\%$ at $\Dz=1$, by $0.72\,\%$ at
+$\Dz=10$, by $0.06\,\%$ at $\Dz=100$ and by less than $0.003\,\%$ at $\Dz=2.4\times10^{3}\cellday$: at realistic
+mobility the mean-field model of a closed room is a well-mixed model. Leaks through a localised door are the
+exception; their effect grows with mobility, and they should be modelled by an input dwell time.
+% src: data/bsc_theory/worked_examples.json (E9_physical_D: 2433.6 and 48672 cell^2/day); data/plan_theory_checks.json (office.mobility_table: excess_pct 10.003, 0.719, 0.0643, 0.00266)
+
+\paragraph{Movement model.} A random walk without home positions is not how people at desks behave: at
+$\Dz=1$ the residence time in the meeting room of the office scene is 114 days. Calibrated to the amount and the
+mean duration of contact in six indoor settings, the walk gives each person too many partners (in five of the six
+settings), too equal a share of contact and no group structure, and an epidemic simulated on its contacts over-predicts the secondary cases of
+the index case in all 24 scenarios, by 25 to 72\pct{} on average per setting, as a well-mixed model does. That a
+memoryless walk misses the bursty statistics of face-to-face contact was known \citep{starnini2013modeling};
+what is added here is the epidemic consequence and the comparison with models without space. Walkers anchored
+to home cells are the natural next model; the corresponding two-walker problem has been treated by
+\citet{kenkre2014theory} and \citet{sugaya2018analysis}, and the consequences of anchoring for the reproduction
+numbers of Sections~\ref{s3_r0:sec}--\ref{s5_pair:sec} have not been computed.
+% src: data/s2_model_scenes.json (office_regime: meeting_room_1_over_mu_Z_days 114.04); data/v2_numbers.json (con.model.RW0: n_cells_over 24, ratio_min 1.25, ratio_max 1.72; con.model.WM)
+
+\paragraph{No threshold theory for discrete individuals.} $\Rone$ and $\srad(\ngmone)$ are not threshold
+quantities, and the mean-field branching probability of a major outbreak in the office scene is 0.78, against
+0.50 simulated. For walkers on infinite or large homogeneous lattices the existence of a threshold is established
+\citep{kesten2006phase,maia2007diffusive,carvalho2025generalized}; what is missing is a computable threshold, and a
+final size, for small heterogeneous rooms. A moment closure beyond pairs \citep{keeling1999effects,kiss2017mathematics}
+is one possible next step.
+% src: data/bsc_sim/03_scenes.json (office|D0=1|range1m: p_major_branching 0.7814, p_major 0.496)
+
+\paragraph{Modelling choices that change conclusions.} The first is the contact kernel: at $\Dz=1$ the simulated
+probability of a major outbreak in the metro scene is 0.88 with the 1\,m kernel and zero with the same-cell
+kernel, and the lower bound $\beta\qmean/\gamma\le\Rz$ and the monotonicity in mobility require the same-cell
+kernel. The second is the incidence law, frequency-dependent or density-dependent
+\citep{anderson1991infectious,keeling2008modeling}: halving the occupancy of the office leaves the mean-field $\Rz$
+at 5.11 under the first and lowers it to 2.53 under the second.
+% src: data/bsc_sim/03_scenes.json (p_major: metro|D0=1|range1m 0.879, metro|D0=1|samecell 0.0)
+% src: data/bsc_sim/08_interventions.json (office|D0=1|capacity 50 %|FD: R0_ngm 5.107; office|D0=1|capacity 50 %|DD: R0_ngm 2.528)
+
+\paragraph{Airborne transport.} A non-local term (here an airborne one) or exposure outside the modelled event is
+needed to reach the observed attack rates of seated events, and the one added here ($\Mtwo$) is a standard
+diffusing-aerosol model \citep{venkatram2021modeling,lau2022predicting}. Its isotropic kernel fails where airflow
+is directed or recirculating, as on the Hunan coach and in the Guangzhou restaurant; coefficients fitted to
+outbreaks are not a property of the air; and with a measured coefficient the kernel cannot produce the steep
+gradients that close-range exposure, companions seated together or directed airflow produce.
+
+\paragraph{Parameters, data and protocols.} The values $\beta=0.5\perday$ and $\gamma=0.14\perday$ and the zone
+values of $q$ and $D$ are illustrative and not calibrated; at these values the model cannot produce the attack
+rates of short seated outbreaks (Section~\ref{s8b_evidence:sec:overall}). All scenes are closed rooms with an SIR course, an
+exponential infectious period, no latent period and one index case. In every test the level was fitted, not
+predicted. Most of the 38 records are investigated outbreaks, which over-represent highly infectious index cases
+\citep{lloydsmith2005superspreading,endo2020estimating}; strata are small (the positive result of the first test
+rests on 20 passengers, and the five held-out events of the second have 2 to 20 cases each); seat maps were
+transcribed by eye from published figures; six sources of the first dataset were read as abstracts only; the
+tracer coefficients of the cabin, the carriage and the rooms are transferred from another airframe, other rolling
+stock and two houses; and the zone-level test has one pathogen, one type of setting, mixing measured over two
+days in a school of another country, and no household term. All protocols were written with the data
+already known, and their timing is attested by file hashes and file times on the author's machine only. As
+Section~\ref{s8b_evidence:sec:overall} sets out, heterogeneous mobility is untested by data.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 4); data/v2_tab_holdout2.tex; data/appB_dataset_numbers.json -> sources (abstract 6)
+
+\subsection{What would change the verdict}\label{s9_discussion:sec:next}
+
+Four kinds of data would, and none of them was available. The first is a dataset with a \emph{measured mobility
+field}: tracked positions, or dwell times by zone, together with infection or contact outcomes; without it the
+heterogeneity of mobility cannot be tested, and neither $\Dz$ nor the anchoring of walkers can be calibrated. The
+second, for the airborne term against generic gradients, is a set of outbreaks with exposure known seat by seat
+and three or more distance strata chosen before the outcomes are seen, large enough to separate a diffusive kernel
+from a step function; the test on four flights had a power of 0.82 and returned a tie. The third, for anchored
+walkers, is a fitting procedure that recovers its own synthetic truth, followed by a fresh confirmatory set of
+contact records. The fourth, for zones, is an outbreak with denominators by zone and mixing measured independently
+in the same population. Any such test should be registered with a third party before the data are examined, and
+must beat the generic benchmarks of this article, which were not beaten here: a constant near/far risk ratio of 2
+to 4 for distance, a static network of pair contact rates for contacts, and rough shares of 0.7, 0.1 and 0.2 for
+the group, the next level and the rest for zones (the last two post hoc).
+% src: data/v2_numbers.json (out2.power.registered_air; out2.rr_pooled."all 11 events"; con.check.static_total; zone.check.hazard_bound)
+
+\subsection{A practical reading, with reservations}\label{s9_discussion:sec:practice}
+
+Nothing below is validated against data; these are properties of the model, not recommendations. Uniform
+reductions of $q$ or $\beta$ scale $\Rz$ in proportion, and the factors are inputs, not predictions. With
+symmetric hop rates and a fixed set of cells, slowing or closing connections cannot lower the mean-field $\Rz$
+(Theorem~\ref{s3_r0:thm:edges}); removing floor cells changes $\langle q\rangle$ and, in the office scene, shifts
+$\Rz$ by $+0.07\pct$ at $\Dz=1$ and by $-1.1\pct$ and $-1.5\pct$ at $\Dz=10$ and $100$. Barriers, separation of
+zones and capacity limits reduce simulated outbreaks appreciably only at low mobility and occupancy, through the
+discreteness of individuals, which is absent from the mean field and fades as occupancy grows; because $\Rone$ is
+not a threshold, `$\Rone<1$' is not a control criterion. Residence time dominates: an 8-hour day divides the
+office $\Rz$ by almost three, and the expected number of infections caused during one visit is 0.21 for an office
+day, 0.027 for a one-hour lecture, 0.018 for a 20-minute metro ride and 0.0086 for a 27-minute supermarket visit
+(mean field).
+% src: data/s4_geometry_barriers_leak.json (A_partitions.barrier_cells_39_workstations: change_pct +0.065, -1.07, -1.49 at D0 = 1, 10, 100)
+% src: data/bsc_sim/11_dwell_time.json (office|D0=1: R0_continuous 5.107, R0_duty_cycle 1.754; per_visit_meanfield: office 0.2117, classroom 0.0274, metro 0.0176, supermarket 0.0086)
+
+\subsection{Conclusions}\label{s9_discussion:sec:conclusions}
+
+Three consequences follow. First, a lattice random-walk model of a closed room has, for uniform efficiency, no
+size effect in its mean-field reproduction number and, at the mobility of people who walk, hardly any spatial
+effect at all: what the floor plan contributes is the area-weighted mean of $q$, and what matters beyond it is how
+long people stay.
+% src: data/s2_model_scenes.json (scenes.<name>.R0_1m.walking_5pct.excess_over_wellmixed_pct below 0.03); data/bsc_sim/11_dwell_time.json (office R0_duty_cycle 1.754 against R0_continuous 5.107)
+Second, where spatial effects are large, at low mobility and low occupancy, the mean-field number is the wrong
+guide for discrete people. The pair-level number gives the first generation exactly, but neither it nor any other
+quantity computed here is a threshold, so outbreak probabilities and sizes have to be simulated; and the sign of an
+intervention can differ between the two levels (separation of zones raises $\Rz$ and lowers simulated outbreaks).
+% src: data/bsc_sim/05_heterogeneity.json (D0=1|N=100: R0_ngm 4.286 -> 4.972, attack_all 0.347 -> 0.231); data/bsc_sim/03_scenes.json (metro|D0=1|samecell: R1_pair_ngm 2.2437, n_major 0)
+Third, confronted with 22 of 38 records of documented outbreaks, recorded contacts in six settings, tracer
+measurements and an epidemic in 29 schools, the model does not show general agreement. The same-site model is not
+supported. The extension with a diffusing aerosol predicts the decline of risk with distance better than a
+well-mixed model, as does the closed form of the same-site model (a pass that, by the protocol, does not bear on
+the same-site model; and a criterion that outbreaks with a constant near/far ratio would meet with probability
+0.65 to 0.73), but the pre-specified pooled comparison favours a constant ratio of near to far risk, mostly
+through one event whose near zone was chosen on the same data, and on four held-out flights the two are tied. What
+these tests give in the end is a set of benchmarks that a spatial model of indoor transmission has to beat, and a
+list of the data that would be needed to test the heterogeneity of mobility at all.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, summary: statement that the evidence supports; further point 5); notes/VERIFICATION.md section 4.10 (statement); data/v2_numbers.json (out2.pooled.M2.all: delta0 14.351, deltaC -9.150; out2.pooled.M1.all: delta0 15.446, deltaC -8.055; out2.pooled.plant_share_of_deltaC 0.916; out2.power.registered: CRR P_B1 0.652; out2.power.corrected: CRR B1 0.732)

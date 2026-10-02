@@ -1,0 +1,25 @@
+C1 D=    0.01  median implied E=  1.43e+16 q/h  model RR= 2.39  pmf(obs)=0.299  p=1.000
+C1 D=  0.0251  median implied E=  1.02e+16 q/h  model RR= 3.69  pmf(obs)=0.389  p=0.482
+C1 D=  0.0631  median implied E=  5.32e+14 q/h  model RR= 5.27  pmf(obs)=0.103  p=0.103
+C1 D=   0.158  median implied E=  6.13e+11 q/h  model RR= 6.51  pmf(obs)=0.000  p=0.000
+C1 D=   0.398  median implied E=  1.14e+09 q/h  model RR= 6.48  pmf(obs)=0.001  p=0.001
+C1 D=       1  median implied E=  5.72e+06 q/h  model RR= 6.35  pmf(obs)=0.002  p=0.002
+C1 D=    2.51  median implied E=  1.06e+05 q/h  model RR= 6.03  pmf(obs)=0.010  p=0.010
+C1 D=    6.31  median implied E=  6.72e+03 q/h  model RR= 5.39  pmf(obs)=0.049  p=0.051
+C1 D=    15.8  median implied E=  1.27e+03 q/h  model RR= 4.27  pmf(obs)=0.193  p=0.234
+C1 D=    39.8  median implied E=       516 q/h  model RR= 3.03  pmf(obs)=0.341  p=1.000
+C1 D=     100  median implied E=       338 q/h  model RR= 2.10  pmf(obs)=0.279  p=0.690
+C1 D=     251  median implied E=       285 q/h  model RR= 1.53  pmf(obs)=0.129  p=0.237
+C1 D=     631  median implied E=       269 q/h  model RR= 1.24  pmf(obs)=0.053  p=0.101
+C1 D=1.58e+03  median implied E=       264 q/h  model RR= 1.10  pmf(obs)=0.029  p=0.042
+C1 D=3.98e+03  median implied E=       262 q/h  model RR= 1.04  pmf(obs)=0.021  p=0.037
+C1 D=   1e+04  median implied E=       262 q/h  model RR= 1.02  pmf(obs)=0.018  p=0.036
+posterior mass (R1-calibrated D_air) with C1 median implied emission > 1000 q/h: 0.910
+posterior mass (R1-calibrated D_air) with C1 median implied emission > 10000 q/h: 0.805
+posterior mass (R1-calibrated D_air) with C1 median implied emission > 100000 q/h: 0.708
+restricted to implied E <= 1e4 q/h: D >= 6.309573444801936
+T1 D preferred alone 63.095734448019364 max logL -1.6190459259145733
+T2 D preferred alone 6309.573444801943 max logL -1.1412022269816722
+T5 D preferred alone 0.06309573444801933 max logL -0.466564146558433
+T4 preferred 25.11886431509582 -73.53019518572923
+sum of maxima -76.75700748518392 common-D max -81.5368990766589 at D 39.810717055349734 LR 9.559783182949957 p(3 df) 0.022703799336940604

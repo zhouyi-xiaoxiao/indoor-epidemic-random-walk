@@ -1,0 +1,5639 @@
+{
+ "10.1103/physrevx.10.021045": {
+  "title": "Exact Spatiotemporal Dynamics of Confined Lattice Random Walks in Arbitrary Dimensions: A Century after Smoluchowski and Pólya",
+  "container": "Physical Review X",
+  "authors": [
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   }
+  ],
+  "volume": "10",
+  "issue": "2",
+  "page": "",
+  "article_number": "021045",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1103/physrevx.10.021045",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1103/physreve.102.062124": {
+  "title": "Closed-form solutions to the dynamics of confined biased lattice random walks in arbitrary dimensions",
+  "container": "Physical Review E",
+  "authors": [
+   {
+    "family": "Sarvaharman",
+    "given": "Seeralan"
+   },
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   }
+  ],
+  "volume": "102",
+  "issue": "6",
+  "page": "",
+  "article_number": "062124",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1103/physreve.102.062124",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1088/1751-8121/ac8587": {
+  "title": "Spatio-temporal dynamics of random transmission events: from information sharing to epidemic spread",
+  "container": "Journal of Physics A: Mathematical and Theoretical",
+  "authors": [
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   },
+   {
+    "family": "Sarvaharman",
+    "given": "Seeralan"
+   }
+  ],
+  "volume": "55",
+  "issue": "37",
+  "page": "375005",
+  "article_number": "",
+  "year": 2022,
+  "type": "journal-article",
+  "doi": "10.1088/1751-8121/ac8587",
+  "publisher": "IOP Publishing"
+ },
+ "10.1103/physrevresearch.5.043281": {
+  "title": "Particle-environment interactions in arbitrary dimensions: A unifying analytic framework to model diffusion with inert spatial heterogeneities",
+  "container": "Physical Review Research",
+  "authors": [
+   {
+    "family": "Sarvaharman",
+    "given": "Seeralan"
+   },
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   }
+  ],
+  "volume": "5",
+  "issue": "4",
+  "page": "",
+  "article_number": "043281",
+  "year": 2023,
+  "type": "journal-article",
+  "doi": "10.1103/physrevresearch.5.043281",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1103/physrevresearch.4.l032039": {
+  "title": "Diffusion through permeable interfaces: Fundamental equations and their application to first-passage and local time statistics",
+  "container": "Physical Review Research",
+  "authors": [
+   {
+    "family": "Kay",
+    "given": "Toby"
+   },
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   }
+  ],
+  "volume": "4",
+  "issue": "3",
+  "page": "",
+  "article_number": "L032039",
+  "year": 2022,
+  "type": "journal-article",
+  "doi": "10.1103/physrevresearch.4.l032039",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1088/1742-5468/aca8f9": {
+  "title": "Dynamics of lattice random walk within regions composed of different media and interfaces",
+  "container": "Journal of Statistical Mechanics: Theory and Experiment",
+  "authors": [
+   {
+    "family": "Das",
+    "given": "Debraj"
+   },
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   }
+  ],
+  "volume": "2023",
+  "issue": "1",
+  "page": "013201",
+  "article_number": "",
+  "year": 2023,
+  "type": "journal-article",
+  "doi": "10.1088/1742-5468/aca8f9",
+  "publisher": "IOP Publishing"
+ },
+ "10.1063/1.1704269": {
+  "title": "Random Walks on Lattices. II",
+  "container": "Journal of Mathematical Physics",
+  "authors": [
+   {
+    "family": "Montroll",
+    "given": "Elliott W."
+   },
+   {
+    "family": "Weiss",
+    "given": "George H."
+   }
+  ],
+  "volume": "6",
+  "issue": "2",
+  "page": "167-181",
+  "article_number": "",
+  "year": 1965,
+  "type": "journal-article",
+  "doi": "10.1063/1.1704269",
+  "publisher": "AIP Publishing"
+ },
+ "10.1098/rsif.2008.0014": {
+  "title": "Random walk models in biology",
+  "container": "Journal of The Royal Society Interface",
+  "authors": [
+   {
+    "family": "Codling",
+    "given": "Edward A"
+   },
+   {
+    "family": "Plank",
+    "given": "Michael J"
+   },
+   {
+    "family": "Benhamou",
+    "given": "Simon"
+   }
+  ],
+  "volume": "5",
+  "issue": "25",
+  "page": "813-834",
+  "article_number": "",
+  "year": 2008,
+  "type": "journal-article",
+  "doi": "10.1098/rsif.2008.0014",
+  "publisher": "The Royal Society"
+ },
+ "10.1098/rspa.1927.0118": {
+  "title": "A contribution to the mathematical theory of epidemics",
+  "container": "Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character",
+  "authors": [
+   {
+    "family": "Kermack",
+    "given": "William Ogilvy"
+   },
+   {
+    "family": "McKendrick",
+    "given": "A. G."
+   }
+  ],
+  "volume": "115",
+  "issue": "772",
+  "page": "700-721",
+  "article_number": "",
+  "year": 1927,
+  "type": "journal-article",
+  "doi": "10.1098/rspa.1927.0118",
+  "publisher": "The Royal Society"
+ },
+ "10.1023/a:1016599411804": {
+  "title": "A Brief History of R\n0 and a Recipe for its Calculation",
+  "container": "Acta Biotheoretica",
+  "authors": [
+   {
+    "family": "Heesterbeek",
+    "given": "J.A.P."
+   }
+  ],
+  "volume": "50",
+  "issue": "3",
+  "page": "189-204",
+  "article_number": "",
+  "year": 2002,
+  "type": "journal-article",
+  "doi": "10.1023/a:1016599411804",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1007/bf00178324": {
+  "title": "On the definition and the computation of the basic reproduction ratio R 0 in models for infectious diseases in heterogeneous populations",
+  "container": "Journal of Mathematical Biology",
+  "authors": [
+   {
+    "family": "Diekmann",
+    "given": "O."
+   },
+   {
+    "family": "Heesterbeek",
+    "given": "J.A.P."
+   },
+   {
+    "family": "Metz",
+    "given": "J.A.J."
+   }
+  ],
+  "volume": "28",
+  "issue": "4",
+  "page": "",
+  "article_number": "",
+  "year": 1990,
+  "type": "journal-article",
+  "doi": "10.1007/bf00178324",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1098/rsif.2009.0386": {
+  "title": "The construction of next-generation matrices for compartmental epidemic models",
+  "container": "Journal of The Royal Society Interface",
+  "authors": [
+   {
+    "family": "Diekmann",
+    "given": "O."
+   },
+   {
+    "family": "Heesterbeek",
+    "given": "J. A. P."
+   },
+   {
+    "family": "Roberts",
+    "given": "M. G."
+   }
+  ],
+  "volume": "7",
+  "issue": "47",
+  "page": "873-885",
+  "article_number": "",
+  "year": 2010,
+  "type": "journal-article",
+  "doi": "10.1098/rsif.2009.0386",
+  "publisher": "The Royal Society"
+ },
+ "10.1016/s0025-5564(02)00108-6": {
+  "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+  "container": "Mathematical Biosciences",
+  "authors": [
+   {
+    "family": "van den Driessche",
+    "given": "P."
+   },
+   {
+    "family": "Watmough",
+    "given": "James"
+   }
+  ],
+  "volume": "180",
+  "issue": "1-2",
+  "page": "29-48",
+  "article_number": "",
+  "year": 2002,
+  "type": "journal-article",
+  "doi": "10.1016/s0025-5564(02)00108-6",
+  "publisher": "Elsevier BV"
+ },
+ "10.1137/080732870": {
+  "title": "Spectral Bound and Reproduction Number for Infinite-Dimensional Population Structure and Time Heterogeneity",
+  "container": "SIAM Journal on Applied Mathematics",
+  "authors": [
+   {
+    "family": "Thieme",
+    "given": "Horst R."
+   }
+  ],
+  "volume": "70",
+  "issue": "1",
+  "page": "188-211",
+  "article_number": "",
+  "year": 2009,
+  "type": "journal-article",
+  "doi": "10.1137/080732870",
+  "publisher": "Society for Industrial & Applied Mathematics (SIAM)"
+ },
+ "10.1137/120872942": {
+  "title": "Basic Reproduction Numbers for Reaction-Diffusion Epidemic Models",
+  "container": "SIAM Journal on Applied Dynamical Systems",
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Wendi"
+   },
+   {
+    "family": "Zhao",
+    "given": "Xiao-Qiang"
+   }
+  ],
+  "volume": "11",
+  "issue": "4",
+  "page": "1652-1673",
+  "article_number": "",
+  "year": 2012,
+  "type": "journal-article",
+  "doi": "10.1137/120872942",
+  "publisher": "Society for Industrial & Applied Mathematics (SIAM)"
+ },
+ "10.1137/060672522": {
+  "title": "Asymptotic Profiles of the Steady States for an SIS Epidemic Patch Model",
+  "container": "SIAM Journal on Applied Mathematics",
+  "authors": [
+   {
+    "family": "Allen",
+    "given": "L. J. S."
+   },
+   {
+    "family": "Bolker",
+    "given": "B. M."
+   },
+   {
+    "family": "Lou",
+    "given": "Y."
+   },
+   {
+    "family": "Nevai",
+    "given": "A. L."
+   }
+  ],
+  "volume": "67",
+  "issue": "5",
+  "page": "1283-1309",
+  "article_number": "",
+  "year": 2007,
+  "type": "journal-article",
+  "doi": "10.1137/060672522",
+  "publisher": "Society for Industrial & Applied Mathematics (SIAM)"
+ },
+ "10.3934/dcds.2008.21.1": {
+  "title": "Asymptotic profiles of the steady states for an SIS epidemic reaction-diffusion model",
+  "container": "Discrete and Continuous Dynamical Systems",
+  "authors": [
+   {
+    "family": "Allen",
+    "given": "Linda J. S."
+   },
+   {
+    "family": "Bolker",
+    "given": "B. M."
+   },
+   {
+    "family": "Lou",
+    "given": "Yuan"
+   },
+   {
+    "family": "Nevai",
+    "given": "A. L."
+   }
+  ],
+  "volume": "20",
+  "issue": "1",
+  "page": "1-20",
+  "article_number": "",
+  "year": 2008,
+  "type": "journal-article",
+  "doi": "10.3934/dcds.2008.21.1",
+  "publisher": "American Institute of Mathematical Sciences (AIMS)"
+ },
+ "10.1016/j.mbs.2011.05.001": {
+  "title": "An SIS patch model with variable transmission coefficients",
+  "container": "Mathematical Biosciences",
+  "authors": [
+   {
+    "family": "Gao",
+    "given": "Daozhou"
+   },
+   {
+    "family": "Ruan",
+    "given": "Shigui"
+   }
+  ],
+  "volume": "232",
+  "issue": "2",
+  "page": "110-115",
+  "article_number": "",
+  "year": 2011,
+  "type": "journal-article",
+  "doi": "10.1016/j.mbs.2011.05.001",
+  "publisher": "Elsevier BV"
+ },
+ "10.1137/18m1211957": {
+  "title": "Travel Frequency and Infectious Diseases",
+  "container": "SIAM Journal on Applied Mathematics",
+  "authors": [
+   {
+    "family": "Gao",
+    "given": "Daozhou"
+   }
+  ],
+  "volume": "79",
+  "issue": "4",
+  "page": "1581-1606",
+  "article_number": "",
+  "year": 2019,
+  "type": "journal-article",
+  "doi": "10.1137/18m1211957",
+  "publisher": "Society for Industrial & Applied Mathematics (SIAM)"
+ },
+ "10.1090/proc/14868": {
+  "title": "Fast diffusion inhibits disease outbreaks",
+  "container": "Proceedings of the American Mathematical Society",
+  "authors": [
+   {
+    "family": "Gao",
+    "given": "Daozhou"
+   },
+   {
+    "family": "Dong",
+    "given": "Chao-Ping"
+   }
+  ],
+  "volume": "148",
+  "issue": "4",
+  "page": "1709-1722",
+  "article_number": "",
+  "year": 2019,
+  "type": "journal-article",
+  "doi": "10.1090/proc/14868",
+  "publisher": "American Mathematical Society (AMS)"
+ },
+ "10.1073/pnas.1113833109": {
+  "title": "Resolvent positive linear operators exhibit the reduction phenomenon",
+  "container": "Proceedings of the National Academy of Sciences",
+  "authors": [
+   {
+    "family": "Altenberg",
+    "given": "Lee"
+   }
+  ],
+  "volume": "109",
+  "issue": "10",
+  "page": "3705-3710",
+  "article_number": "",
+  "year": 2012,
+  "type": "journal-article",
+  "doi": "10.1073/pnas.1113833109",
+  "publisher": "National Academy of Sciences"
+ },
+ "10.1007/s00285-014-0791-x": {
+  "title": "Disease invasion on community networks with environmental pathogen movement",
+  "container": "Journal of Mathematical Biology",
+  "authors": [
+   {
+    "family": "Tien",
+    "given": "Joseph H."
+   },
+   {
+    "family": "Shuai",
+    "given": "Zhisheng"
+   },
+   {
+    "family": "Eisenberg",
+    "given": "Marisa C."
+   },
+   {
+    "family": "van den Driessche",
+    "given": "P."
+   }
+  ],
+  "volume": "70",
+  "issue": "5",
+  "page": "1065-1092",
+  "article_number": "",
+  "year": 2015,
+  "type": "journal-article",
+  "doi": "10.1007/s00285-014-0791-x",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1016/j.mbs.2002.11.001": {
+  "title": "An epidemic model in a patchy environment",
+  "container": "Mathematical Biosciences",
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Wendi"
+   },
+   {
+    "family": "Zhao",
+    "given": "Xiao-Qiang"
+   }
+  ],
+  "volume": "190",
+  "issue": "1",
+  "page": "97-112",
+  "article_number": "",
+  "year": 2004,
+  "type": "journal-article",
+  "doi": "10.1016/j.mbs.2002.11.001",
+  "publisher": "Elsevier BV"
+ },
+ "10.1080/08898480306720": {
+  "title": "A multi-city epidemic model",
+  "container": "Mathematical Population Studies",
+  "authors": [
+   {
+    "family": "Arino",
+    "given": "Julien"
+   },
+   {
+    "family": "van den Driessche",
+    "given": "P."
+   }
+  ],
+  "volume": "10",
+  "issue": "3",
+  "page": "175-193",
+  "article_number": "",
+  "year": 2003,
+  "type": "journal-article",
+  "doi": "10.1080/08898480306720",
+  "publisher": "Informa UK Limited"
+ },
+ "10.1016/0040-5809(88)90003-2": {
+  "title": "Population dynamics of mosquito-borne disease: Persistence in a completely heterogeneous environment",
+  "container": "Theoretical Population Biology",
+  "authors": [
+   {
+    "family": "Hasibeder",
+    "given": "Günther"
+   },
+   {
+    "family": "Dye",
+    "given": "Christopher"
+   }
+  ],
+  "volume": "33",
+  "issue": "1",
+  "page": "31-53",
+  "article_number": "",
+  "year": 1988,
+  "type": "journal-article",
+  "doi": "10.1016/0040-5809(88)90003-2",
+  "publisher": "Elsevier BV"
+ },
+ "10.1073/pnas.94.1.338": {
+  "title": "Heterogeneities in the transmission of infectious agents: Implications for the design of control programs",
+  "container": "Proceedings of the National Academy of Sciences",
+  "authors": [
+   {
+    "family": "Woolhouse",
+    "given": "M. E. J."
+   },
+   {
+    "family": "Dye",
+    "given": "C."
+   },
+   {
+    "family": "Etard",
+    "given": "J.-F."
+   },
+   {
+    "family": "Smith",
+    "given": "T."
+   },
+   {
+    "family": "Charlwood",
+    "given": "J. D."
+   },
+   {
+    "family": "Garnett",
+    "given": "G. P."
+   },
+   {
+    "family": "Hagan",
+    "given": "P."
+   },
+   {
+    "family": "Hii",
+    "given": "J. L. K."
+   },
+   {
+    "family": "Ndhlovu",
+    "given": "P. D."
+   },
+   {
+    "family": "Quinnell",
+    "given": "R. J."
+   },
+   {
+    "family": "Watts",
+    "given": "C. H."
+   },
+   {
+    "family": "Chandiwana",
+    "given": "S. K."
+   },
+   {
+    "family": "Anderson",
+    "given": "R. M."
+   }
+  ],
+  "volume": "94",
+  "issue": "1",
+  "page": "338-342",
+  "article_number": "",
+  "year": 1997,
+  "type": "journal-article",
+  "doi": "10.1073/pnas.94.1.338",
+  "publisher": "National Academy of Sciences"
+ },
+ "10.1088/0305-4470/25/9/018": {
+  "title": "Automata network SIR models for the spread of infectious diseases in populations of moving individuals",
+  "container": "Journal of Physics A: Mathematical and General",
+  "authors": [
+   {
+    "family": "Boccara",
+    "given": "N"
+   },
+   {
+    "family": "Cheong",
+    "given": "K"
+   }
+  ],
+  "volume": "25",
+  "issue": "9",
+  "page": "2447-2461",
+  "article_number": "",
+  "year": 1992,
+  "type": "journal-article",
+  "doi": "10.1088/0305-4470/25/9/018",
+  "publisher": "IOP Publishing"
+ },
+ "10.1006/jtbi.1996.0088": {
+  "title": "Persistence and Dynamics in Lattice Models of Epidemic Spread",
+  "container": "Journal of Theoretical Biology",
+  "authors": [
+   {
+    "family": "Rhodes",
+    "given": "C.J"
+   },
+   {
+    "family": "Anderson",
+    "given": "R.M"
+   }
+  ],
+  "volume": "180",
+  "issue": "2",
+  "page": "125-133",
+  "article_number": "",
+  "year": 1996,
+  "type": "journal-article",
+  "doi": "10.1006/jtbi.1996.0088",
+  "publisher": "Elsevier BV"
+ },
+ "10.1016/j.physa.2004.05.017": {
+  "title": "Scaling of the propagation of epidemics in a system of mobile agents",
+  "container": "Physica A: Statistical Mechanics and its Applications",
+  "authors": [
+   {
+    "family": "González",
+    "given": "M.C"
+   },
+   {
+    "family": "Herrmann",
+    "given": "H.J"
+   }
+  ],
+  "volume": "340",
+  "issue": "4",
+  "page": "741-748",
+  "article_number": "",
+  "year": 2004,
+  "type": "journal-article",
+  "doi": "10.1016/j.physa.2004.05.017",
+  "publisher": "Elsevier BV"
+ },
+ "10.1103/physreve.74.036110": {
+  "title": "Dynamical network model of infective mobile agents",
+  "container": "Physical Review E",
+  "authors": [
+   {
+    "family": "Frasca",
+    "given": "Mattia"
+   },
+   {
+    "family": "Buscarino",
+    "given": "Arturo"
+   },
+   {
+    "family": "Rizzo",
+    "given": "Alessandro"
+   },
+   {
+    "family": "Fortuna",
+    "given": "Luigi"
+   },
+   {
+    "family": "Boccaletti",
+    "given": "Stefano"
+   }
+  ],
+  "volume": "74",
+  "issue": "3",
+  "page": "",
+  "article_number": "036110",
+  "year": 2006,
+  "type": "journal-article",
+  "doi": "10.1103/physreve.74.036110",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1209/0295-5075/82/38002": {
+  "title": "Disease spreading in populations of moving agents",
+  "container": "EPL (Europhysics Letters)",
+  "authors": [
+   {
+    "family": "Buscarino",
+    "given": "A."
+   },
+   {
+    "family": "Fortuna",
+    "given": "L."
+   },
+   {
+    "family": "Frasca",
+    "given": "M."
+   },
+   {
+    "family": "Latora",
+    "given": "V."
+   }
+  ],
+  "volume": "82",
+  "issue": "3",
+  "page": "38002",
+  "article_number": "",
+  "year": 2008,
+  "type": "journal-article",
+  "doi": "10.1209/0295-5075/82/38002",
+  "publisher": "IOP Publishing"
+ },
+ "10.1103/physrevlett.100.168103": {
+  "title": "Dynamics and Steady States in Excitable Mobile Agent Systems",
+  "container": "Physical Review Letters",
+  "authors": [
+   {
+    "family": "Peruani",
+    "given": "Fernando"
+   },
+   {
+    "family": "Sibona",
+    "given": "Gustavo J."
+   }
+  ],
+  "volume": "100",
+  "issue": "16",
+  "page": "",
+  "article_number": "168103",
+  "year": 2008,
+  "type": "journal-article",
+  "doi": "10.1103/physrevlett.100.168103",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1038/s41598-019-42871-x": {
+  "title": "Particle velocity controls phase transitions in contagion dynamics",
+  "container": "Scientific Reports",
+  "authors": [
+   {
+    "family": "Rodríguez",
+    "given": "Jorge P."
+   },
+   {
+    "family": "Ghanbarnejad",
+    "given": "Fakhteh"
+   },
+   {
+    "family": "Eguíluz",
+    "given": "Víctor M."
+   }
+  ],
+  "volume": "9",
+  "issue": "1",
+  "page": "",
+  "article_number": "6463",
+  "year": 2019,
+  "type": "journal-article",
+  "doi": "10.1038/s41598-019-42871-x",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1038/nphys560": {
+  "title": "Reaction–diffusion processes and metapopulation models in heterogeneous networks",
+  "container": "Nature Physics",
+  "authors": [
+   {
+    "family": "Colizza",
+    "given": "Vittoria"
+   },
+   {
+    "family": "Pastor-Satorras",
+    "given": "Romualdo"
+   },
+   {
+    "family": "Vespignani",
+    "given": "Alessandro"
+   }
+  ],
+  "volume": "3",
+  "issue": "4",
+  "page": "276-282",
+  "article_number": "",
+  "year": 2007,
+  "type": "journal-article",
+  "doi": "10.1038/nphys560",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1103/physrevlett.99.148701": {
+  "title": "Invasion Threshold in Heterogeneous Metapopulation Networks",
+  "container": "Physical Review Letters",
+  "authors": [
+   {
+    "family": "Colizza",
+    "given": "Vittoria"
+   },
+   {
+    "family": "Vespignani",
+    "given": "Alessandro"
+   }
+  ],
+  "volume": "99",
+  "issue": "14",
+  "page": "",
+  "article_number": "148701",
+  "year": 2007,
+  "type": "journal-article",
+  "doi": "10.1103/physrevlett.99.148701",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1103/physrevx.1.011001": {
+  "title": "Natural Human Mobility Patterns and Spatial Spread of Infectious Diseases",
+  "container": "Physical Review X",
+  "authors": [
+   {
+    "family": "Belik",
+    "given": "Vitaly"
+   },
+   {
+    "family": "Geisel",
+    "given": "Theo"
+   },
+   {
+    "family": "Brockmann",
+    "given": "Dirk"
+   }
+  ],
+  "volume": "1",
+  "issue": "1",
+  "page": "",
+  "article_number": "011001",
+  "year": 2011,
+  "type": "journal-article",
+  "doi": "10.1103/physrevx.1.011001",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1038/nphys1944": {
+  "title": "Phase transitions in contagion processes mediated by recurrent mobility patterns",
+  "container": "Nature Physics",
+  "authors": [
+   {
+    "family": "Balcan",
+    "given": "Duygu"
+   },
+   {
+    "family": "Vespignani",
+    "given": "Alessandro"
+   }
+  ],
+  "volume": "7",
+  "issue": "7",
+  "page": "581-586",
+  "article_number": "",
+  "year": 2011,
+  "type": "journal-article",
+  "doi": "10.1038/nphys1944",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1016/0025-5564(94)00068-b": {
+  "title": "A structured epidemic model incorporating geographic mobility among regions",
+  "container": "Mathematical Biosciences",
+  "authors": [
+   {
+    "family": "Sattenspiel",
+    "given": "Lisa"
+   },
+   {
+    "family": "Dietz",
+    "given": "Klaus"
+   }
+  ],
+  "volume": "128",
+  "issue": "1-2",
+  "page": "71-91",
+  "article_number": "",
+  "year": 1995,
+  "type": "journal-article",
+  "doi": "10.1016/0025-5564(94)00068-b",
+  "publisher": "Elsevier BV"
+ },
+ "10.1007/s11434-014-0499-8": {
+  "title": "Spatial epidemiology of networked metapopulation: an overview",
+  "container": "Chinese Science Bulletin",
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Lin"
+   },
+   {
+    "family": "Li",
+    "given": "Xiang"
+   }
+  ],
+  "volume": "59",
+  "issue": "28",
+  "page": "3511-3522",
+  "article_number": "",
+  "year": 2014,
+  "type": "journal-article",
+  "doi": "10.1007/s11434-014-0499-8",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1098/rspb.1999.0716": {
+  "title": "The effects of local spatial structure on epidemiological invasions",
+  "container": "Proceedings of the Royal Society of London. Series B: Biological Sciences",
+  "authors": [
+   {
+    "family": "Keeling",
+    "given": "M. J."
+   }
+  ],
+  "volume": "266",
+  "issue": "1421",
+  "page": "859-867",
+  "article_number": "",
+  "year": 1999,
+  "type": "journal-article",
+  "doi": "10.1098/rspb.1999.0716",
+  "publisher": "The Royal Society"
+ },
+ "10.1214/aoap/1034625252": {
+  "title": "Epidemics with two levels of mixing",
+  "container": "The Annals of Applied Probability",
+  "authors": [
+   {
+    "family": "Ball",
+    "given": "Frank"
+   },
+   {
+    "family": "Mollison",
+    "given": "Denis"
+   },
+   {
+    "family": "Scalia-Tomba",
+    "given": "Gianpaolo"
+   }
+  ],
+  "volume": "7",
+  "issue": "1",
+  "page": "",
+  "article_number": "",
+  "year": 1997,
+  "type": "journal-article",
+  "doi": "10.1214/aoap/1034625252",
+  "publisher": "Institute of Mathematical Statistics"
+ },
+ "10.1093/biomet/42.1-2.116": {
+  "title": "THE OUTCOME OF A STOCHASTIC EPIDEMIC—A NOTE ON BAILEY'S PAPER",
+  "container": "Biometrika",
+  "authors": [
+   {
+    "family": "WHITTLE",
+    "given": "P."
+   }
+  ],
+  "volume": "42",
+  "issue": "1-2",
+  "page": "116-122",
+  "article_number": "",
+  "year": 1955,
+  "type": "journal-article",
+  "doi": "10.1093/biomet/42.1-2.116",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1016/j.idm.2017.03.001": {
+  "title": "A primer on stochastic epidemic models: Formulation, numerical simulation, and analysis",
+  "container": "Infectious Disease Modelling",
+  "authors": [
+   {
+    "family": "Allen",
+    "given": "Linda J.S."
+   }
+  ],
+  "volume": "2",
+  "issue": "2",
+  "page": "128-142",
+  "article_number": "",
+  "year": 2017,
+  "type": "journal-article",
+  "doi": "10.1016/j.idm.2017.03.001",
+  "publisher": "Elsevier BV"
+ },
+ "10.1038/nature04153": {
+  "title": "Superspreading and the effect of individual variation on disease emergence",
+  "container": "Nature",
+  "authors": [
+   {
+    "family": "Lloyd-Smith",
+    "given": "J. O."
+   },
+   {
+    "family": "Schreiber",
+    "given": "S. J."
+   },
+   {
+    "family": "Kopp",
+    "given": "P. E."
+   },
+   {
+    "family": "Getz",
+    "given": "W. M."
+   }
+  ],
+  "volume": "438",
+  "issue": "7066",
+  "page": "355-359",
+  "article_number": "",
+  "year": 2005,
+  "type": "journal-article",
+  "doi": "10.1038/nature04153",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.12688/wellcomeopenres.15842.3": {
+  "title": "Estimating the overdispersion in COVID-19 transmission using outbreak sizes outside China",
+  "container": "Wellcome Open Research",
+  "authors": [
+   {
+    "family": "Endo",
+    "given": "Akira"
+   },
+   {
+    "family": "Centre for the Mathematical Modelling of Infectious Diseases COVID-19 Working Group",
+    "given": ""
+   },
+   {
+    "family": "Abbott",
+    "given": "Sam"
+   },
+   {
+    "family": "Kucharski",
+    "given": "Adam J."
+   },
+   {
+    "family": "Funk",
+    "given": "Sebastian"
+   }
+  ],
+  "volume": "5",
+  "issue": "",
+  "page": "67",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.12688/wellcomeopenres.15842.3",
+  "publisher": "F1000 Research Ltd"
+ },
+ "10.1038/s41591-020-1092-0": {
+  "title": "Clustering and superspreading potential of SARS-CoV-2 infections in Hong Kong",
+  "container": "Nature Medicine",
+  "authors": [
+   {
+    "family": "Adam",
+    "given": "Dillon C."
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Wong",
+    "given": "Jessica Y."
+   },
+   {
+    "family": "Lau",
+    "given": "Eric H. Y."
+   },
+   {
+    "family": "Tsang",
+    "given": "Tim K."
+   },
+   {
+    "family": "Cauchemez",
+    "given": "Simon"
+   },
+   {
+    "family": "Leung",
+    "given": "Gabriel M."
+   },
+   {
+    "family": "Cowling",
+    "given": "Benjamin J."
+   }
+  ],
+  "volume": "26",
+  "issue": "11",
+  "page": "1714-1719",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1038/s41591-020-1092-0",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1016/0021-9991(76)90041-3": {
+  "title": "A general method for numerically simulating the stochastic time evolution of coupled chemical reactions",
+  "container": "Journal of Computational Physics",
+  "authors": [
+   {
+    "family": "Gillespie",
+    "given": "Daniel T"
+   }
+  ],
+  "volume": "22",
+  "issue": "4",
+  "page": "403-434",
+  "article_number": "",
+  "year": 1976,
+  "type": "journal-article",
+  "doi": "10.1016/0021-9991(76)90041-3",
+  "publisher": "Elsevier BV"
+ },
+ "10.1021/j100540a008": {
+  "title": "Exact stochastic simulation of coupled chemical reactions",
+  "container": "The Journal of Physical Chemistry",
+  "authors": [
+   {
+    "family": "Gillespie",
+    "given": "Daniel T."
+   }
+  ],
+  "volume": "81",
+  "issue": "25",
+  "page": "2340-2361",
+  "article_number": "",
+  "year": 1977,
+  "type": "journal-article",
+  "doi": "10.1021/j100540a008",
+  "publisher": "American Chemical Society (ACS)"
+ },
+ "10.1034/j.1600-0668.2003.00189.x": {
+  "title": "Risk of indoor airborne infection transmission estimated from carbon dioxide concentration",
+  "container": "Indoor Air",
+  "authors": [
+   {
+    "family": "Rudnick",
+    "given": "S. N."
+   },
+   {
+    "family": "Milton",
+    "given": "D. K."
+   }
+  ],
+  "volume": "13",
+  "issue": "3",
+  "page": "237-245",
+  "article_number": "",
+  "year": 2003,
+  "type": "journal-article",
+  "doi": "10.1034/j.1600-0668.2003.00189.x",
+  "publisher": "Wiley"
+ },
+ "10.3201/eid0303.970310": {
+  "title": "Using a Mathematical Model to Evaluate the Efficacy of TB Control Measures",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Gammaitoni",
+    "given": "Laura"
+   },
+   {
+    "family": "Nucci",
+    "given": "Maria Clara"
+   }
+  ],
+  "volume": "3",
+  "issue": "3",
+  "page": "335-342",
+  "article_number": "",
+  "year": 1997,
+  "type": "journal-article",
+  "doi": "10.3201/eid0303.970310",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.1111/j.1600-0668.2009.00621.x": {
+  "title": "Review and comparison between the WellsâRiley and dose-response approaches to risk assessment of infectious respiratory diseases",
+  "container": "Indoor Air",
+  "authors": [
+   {
+    "family": "Sze To",
+    "given": "G. N."
+   },
+   {
+    "family": "Chao",
+    "given": "C. Y. H."
+   }
+  ],
+  "volume": "20",
+  "issue": "1",
+  "page": "2-16",
+  "article_number": "",
+  "year": 2010,
+  "type": "journal-article",
+  "doi": "10.1111/j.1600-0668.2009.00621.x",
+  "publisher": "Wiley"
+ },
+ "10.1017/s0950268806005875": {
+  "title": "Modelling the transmission of airborne infections in enclosed spaces",
+  "container": "Epidemiology and Infection",
+  "authors": [
+   {
+    "family": "NOAKES",
+    "given": "C. J."
+   },
+   {
+    "family": "BEGGS",
+    "given": "C. B."
+   },
+   {
+    "family": "SLEIGH",
+    "given": "P. A."
+   },
+   {
+    "family": "KERR",
+    "given": "K. G."
+   }
+  ],
+  "volume": "134",
+  "issue": "5",
+  "page": "1082-1091",
+  "article_number": "",
+  "year": 2006,
+  "type": "journal-article",
+  "doi": "10.1017/s0950268806005875",
+  "publisher": "Cambridge University Press (CUP)"
+ },
+ "10.1098/rsif.2009.0305.focus": {
+  "title": "Mathematical models for assessing the role of airflow on the risk of airborne infection in hospital wards",
+  "container": "Journal of The Royal Society Interface",
+  "authors": [
+   {
+    "family": "Noakes",
+    "given": "Catherine J."
+   },
+   {
+    "family": "Sleigh",
+    "given": "P. Andrew"
+   }
+  ],
+  "volume": "6",
+  "issue": "suppl_6",
+  "page": "",
+  "article_number": "",
+  "year": 2009,
+  "type": "journal-article",
+  "doi": "10.1098/rsif.2009.0305.focus",
+  "publisher": "The Royal Society"
+ },
+ "10.1016/j.envint.2020.105794": {
+  "title": "Estimation of airborne viral emission: Quanta emission rate of SARS-CoV-2 for infection risk assessment",
+  "container": "Environment International",
+  "authors": [
+   {
+    "family": "Buonanno",
+    "given": "G."
+   },
+   {
+    "family": "Stabile",
+    "given": "L."
+   },
+   {
+    "family": "Morawska",
+    "given": "L."
+   }
+  ],
+  "volume": "141",
+  "issue": "",
+  "page": "105794",
+  "article_number": "105794",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/j.envint.2020.105794",
+  "publisher": "Elsevier BV"
+ },
+ "10.1016/j.envint.2020.106112": {
+  "title": "Quantitative assessment of the risk of airborne transmission of SARS-CoV-2 infection: Prospective and retrospective applications",
+  "container": "Environment International",
+  "authors": [
+   {
+    "family": "Buonanno",
+    "given": "G."
+   },
+   {
+    "family": "Morawska",
+    "given": "L."
+   },
+   {
+    "family": "Stabile",
+    "given": "L."
+   }
+  ],
+  "volume": "145",
+  "issue": "",
+  "page": "106112",
+  "article_number": "106112",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/j.envint.2020.106112",
+  "publisher": "Elsevier BV"
+ },
+ "10.1073/pnas.2018995118": {
+  "title": "A guideline to limit indoor airborne transmission of COVID-19",
+  "container": "Proceedings of the National Academy of Sciences",
+  "authors": [
+   {
+    "family": "Bazant",
+    "given": "Martin Z."
+   },
+   {
+    "family": "Bush",
+    "given": "John W. M."
+   }
+  ],
+  "volume": "118",
+  "issue": "17",
+  "page": "",
+  "article_number": "e2018995118",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1073/pnas.2018995118",
+  "publisher": "National Academy of Sciences"
+ },
+ "10.1016/j.ssci.2020.104866": {
+  "title": "Modelling aerosol transport and virus exposure with numerical simulations in relation to SARS-CoV-2 transmission by inhalation indoors",
+  "container": "Safety Science",
+  "authors": [
+   {
+    "family": "Vuorinen",
+    "given": "Ville"
+   },
+   {
+    "family": "Aarnio",
+    "given": "Mia"
+   },
+   {
+    "family": "Alava",
+    "given": "Mikko"
+   },
+   {
+    "family": "Alopaeus",
+    "given": "Ville"
+   },
+   {
+    "family": "Atanasova",
+    "given": "Nina"
+   },
+   {
+    "family": "Auvinen",
+    "given": "Mikko"
+   },
+   {
+    "family": "Balasubramanian",
+    "given": "Nallannan"
+   },
+   {
+    "family": "Bordbar",
+    "given": "Hadi"
+   },
+   {
+    "family": "Erästö",
+    "given": "Panu"
+   },
+   {
+    "family": "Grande",
+    "given": "Rafael"
+   },
+   {
+    "family": "Hayward",
+    "given": "Nick"
+   },
+   {
+    "family": "Hellsten",
+    "given": "Antti"
+   },
+   {
+    "family": "Hostikka",
+    "given": "Simo"
+   },
+   {
+    "family": "Hokkanen",
+    "given": "Jyrki"
+   },
+   {
+    "family": "Kaario",
+    "given": "Ossi"
+   },
+   {
+    "family": "Karvinen",
+    "given": "Aku"
+   },
+   {
+    "family": "Kivistö",
+    "given": "Ilkka"
+   },
+   {
+    "family": "Korhonen",
+    "given": "Marko"
+   },
+   {
+    "family": "Kosonen",
+    "given": "Risto"
+   },
+   {
+    "family": "Kuusela",
+    "given": "Janne"
+   },
+   {
+    "family": "Lestinen",
+    "given": "Sami"
+   },
+   {
+    "family": "Laurila",
+    "given": "Erkki"
+   },
+   {
+    "family": "Nieminen",
+    "given": "Heikki J."
+   },
+   {
+    "family": "Peltonen",
+    "given": "Petteri"
+   },
+   {
+    "family": "Pokki",
+    "given": "Juho"
+   },
+   {
+    "family": "Puisto",
+    "given": "Antti"
+   },
+   {
+    "family": "Råback",
+    "given": "Peter"
+   },
+   {
+    "family": "Salmenjoki",
+    "given": "Henri"
+   },
+   {
+    "family": "Sironen",
+    "given": "Tarja"
+   },
+   {
+    "family": "Österberg",
+    "given": "Monika"
+   }
+  ],
+  "volume": "130",
+  "issue": "",
+  "page": "104866",
+  "article_number": "104866",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/j.ssci.2020.104866",
+  "publisher": "Elsevier BV"
+ },
+ "10.1098/rspa.2021.0383": {
+  "title": "Predicting the spatio-temporal infection risk in indoor spaces using an efficient airborne transmission model",
+  "container": "Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences",
+  "authors": [
+   {
+    "family": "Lau",
+    "given": "Zechariah"
+   },
+   {
+    "family": "Griffiths",
+    "given": "Ian M."
+   },
+   {
+    "family": "English",
+    "given": "Aaron"
+   },
+   {
+    "family": "Kaouri",
+    "given": "Katerina"
+   }
+  ],
+  "volume": "478",
+  "issue": "2259",
+  "page": "",
+  "article_number": "20210383",
+  "year": 2022,
+  "type": "journal-article",
+  "doi": "10.1098/rspa.2021.0383",
+  "publisher": "The Royal Society"
+ },
+ "10.1371/journal.pone.0249821": {
+  "title": "Modelling COVID-19 transmission in supermarkets using an agent-based model",
+  "container": "PLOS ONE",
+  "authors": [
+   {
+    "family": "Ying",
+    "given": "Fabian"
+   },
+   {
+    "family": "O’Clery",
+    "given": "Neave"
+   }
+  ],
+  "volume": "16",
+  "issue": "4",
+  "page": "e0249821",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1371/journal.pone.0249821",
+  "publisher": "Public Library of Science (PLoS)"
+ },
+ "10.1103/physreve.95.052320": {
+  "title": "Multiscale model for pedestrian and infection dynamics during air travel",
+  "container": "Physical Review E",
+  "authors": [
+   {
+    "family": "Namilae",
+    "given": "Sirish"
+   },
+   {
+    "family": "Derjany",
+    "given": "Pierrot"
+   },
+   {
+    "family": "Mubayi",
+    "given": "Anuj"
+   },
+   {
+    "family": "Scotch",
+    "given": "Mathew"
+   },
+   {
+    "family": "Srinivasan",
+    "given": "Ashok"
+   }
+  ],
+  "volume": "95",
+  "issue": "5",
+  "page": "",
+  "article_number": "052320",
+  "year": 2017,
+  "type": "journal-article",
+  "doi": "10.1103/physreve.95.052320",
+  "publisher": "American Physical Society (APS)"
+ },
+ "10.1016/j.tranpol.2021.05.004": {
+  "title": "Modeling indoor-level non-pharmaceutical interventions during the COVID-19 pandemic: A pedestrian dynamics-based microscopic simulation approach",
+  "container": "Transport Policy",
+  "authors": [
+   {
+    "family": "Xiao",
+    "given": "Yao"
+   },
+   {
+    "family": "Yang",
+    "given": "Mofeng"
+   },
+   {
+    "family": "Zhu",
+    "given": "Zheng"
+   },
+   {
+    "family": "Yang",
+    "given": "Hai"
+   },
+   {
+    "family": "Zhang",
+    "given": "Lei"
+   },
+   {
+    "family": "Ghader",
+    "given": "Sepehr"
+   }
+  ],
+  "volume": "109",
+  "issue": "",
+  "page": "12-23",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1016/j.tranpol.2021.05.004",
+  "publisher": "Elsevier BV"
+ },
+ "10.1007/s10389-021-01489-y": {
+  "title": "Agent-based simulation of pedestrian dynamics for exposure time estimation in epidemic risk assessment",
+  "container": "Journal of Public Health",
+  "authors": [
+   {
+    "family": "Harweg",
+    "given": "Thomas"
+   },
+   {
+    "family": "Bachmann",
+    "given": "Daniel"
+   },
+   {
+    "family": "Weichert",
+    "given": "Frank"
+   }
+  ],
+  "volume": "31",
+  "issue": "2",
+  "page": "221-228",
+  "article_number": "",
+  "year": 2023,
+  "type": "journal-article",
+  "doi": "10.1007/s10389-021-01489-y",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1016/j.envint.2020.105832": {
+  "title": "How can airborne transmission of COVID-19 indoors be minimised?",
+  "container": "Environment International",
+  "authors": [
+   {
+    "family": "Morawska",
+    "given": "Lidia"
+   },
+   {
+    "family": "Tang",
+    "given": "Julian W."
+   },
+   {
+    "family": "Bahnfleth",
+    "given": "William"
+   },
+   {
+    "family": "Bluyssen",
+    "given": "Philomena M."
+   },
+   {
+    "family": "Boerstra",
+    "given": "Atze"
+   },
+   {
+    "family": "Buonanno",
+    "given": "Giorgio"
+   },
+   {
+    "family": "Cao",
+    "given": "Junji"
+   },
+   {
+    "family": "Dancer",
+    "given": "Stephanie"
+   },
+   {
+    "family": "Floto",
+    "given": "Andres"
+   },
+   {
+    "family": "Franchimon",
+    "given": "Francesco"
+   },
+   {
+    "family": "Haworth",
+    "given": "Charles"
+   },
+   {
+    "family": "Hogeling",
+    "given": "Jaap"
+   },
+   {
+    "family": "Isaxon",
+    "given": "Christina"
+   },
+   {
+    "family": "Jimenez",
+    "given": "Jose L."
+   },
+   {
+    "family": "Kurnitski",
+    "given": "Jarek"
+   },
+   {
+    "family": "Li",
+    "given": "Yuguo"
+   },
+   {
+    "family": "Loomans",
+    "given": "Marcel"
+   },
+   {
+    "family": "Marks",
+    "given": "Guy"
+   },
+   {
+    "family": "Marr",
+    "given": "Linsey C."
+   },
+   {
+    "family": "Mazzarella",
+    "given": "Livio"
+   },
+   {
+    "family": "Melikov",
+    "given": "Arsen Krikor"
+   },
+   {
+    "family": "Miller",
+    "given": "Shelly"
+   },
+   {
+    "family": "Milton",
+    "given": "Donald K."
+   },
+   {
+    "family": "Nazaroff",
+    "given": "William"
+   },
+   {
+    "family": "Nielsen",
+    "given": "Peter V."
+   },
+   {
+    "family": "Noakes",
+    "given": "Catherine"
+   },
+   {
+    "family": "Peccia",
+    "given": "Jordan"
+   },
+   {
+    "family": "Querol",
+    "given": "Xavier"
+   },
+   {
+    "family": "Sekhar",
+    "given": "Chandra"
+   },
+   {
+    "family": "Seppänen",
+    "given": "Olli"
+   },
+   {
+    "family": "Tanabe",
+    "given": "Shin-ichi"
+   },
+   {
+    "family": "Tellier",
+    "given": "Raymond"
+   },
+   {
+    "family": "Tham",
+    "given": "Kwok Wai"
+   },
+   {
+    "family": "Wargocki",
+    "given": "Pawel"
+   },
+   {
+    "family": "Wierzbicka",
+    "given": "Aneta"
+   },
+   {
+    "family": "Yao",
+    "given": "Maosheng"
+   }
+  ],
+  "volume": "142",
+  "issue": "",
+  "page": "105832",
+  "article_number": "105832",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/j.envint.2020.105832",
+  "publisher": "Elsevier BV"
+ },
+ "10.1126/science.abd9149": {
+  "title": "Airborne transmission of respiratory viruses",
+  "container": "Science",
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Chia C."
+   },
+   {
+    "family": "Prather",
+    "given": "Kimberly A."
+   },
+   {
+    "family": "Sznitman",
+    "given": "Josué"
+   },
+   {
+    "family": "Jimenez",
+    "given": "Jose L."
+   },
+   {
+    "family": "Lakdawala",
+    "given": "Seema S."
+   },
+   {
+    "family": "Tufekci",
+    "given": "Zeynep"
+   },
+   {
+    "family": "Marr",
+    "given": "Linsey C."
+   }
+  ],
+  "volume": "373",
+  "issue": "6558",
+  "page": "",
+  "article_number": "eabd9149",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1126/science.abd9149",
+  "publisher": "American Association for the Advancement of Science (AAAS)"
+ },
+ "10.1016/j.buildenv.2020.106859": {
+  "title": "Short-range airborne route dominates exposure of respiratory infection during close contact",
+  "container": "Building and Environment",
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "Wenzhao"
+   },
+   {
+    "family": "Zhang",
+    "given": "Nan"
+   },
+   {
+    "family": "Wei",
+    "given": "Jianjian"
+   },
+   {
+    "family": "Yen",
+    "given": "Hui-Ling"
+   },
+   {
+    "family": "Li",
+    "given": "Yuguo"
+   }
+  ],
+  "volume": "176",
+  "issue": "",
+  "page": "106859",
+  "article_number": "106859",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/j.buildenv.2020.106859",
+  "publisher": "Elsevier BV"
+ },
+ "10.1111/j.1600-0668.2006.00445.x": {
+  "title": "Role of ventilation in airborne transmission of infectious agents in the built environment ? a multidisciplinary systematic review",
+  "container": "Indoor Air",
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Y."
+   },
+   {
+    "family": "Leung",
+    "given": "G. M."
+   },
+   {
+    "family": "Tang",
+    "given": "J. W."
+   },
+   {
+    "family": "Yang",
+    "given": "X."
+   },
+   {
+    "family": "Chao",
+    "given": "C. Y. H."
+   },
+   {
+    "family": "Lin",
+    "given": "J. Z."
+   },
+   {
+    "family": "Lu",
+    "given": "J. W."
+   },
+   {
+    "family": "Nielsen",
+    "given": "P. V."
+   },
+   {
+    "family": "Niu",
+    "given": "J."
+   },
+   {
+    "family": "Qian",
+    "given": "H."
+   },
+   {
+    "family": "Sleigh",
+    "given": "A. C."
+   },
+   {
+    "family": "Su",
+    "given": "H.-J. J."
+   },
+   {
+    "family": "Sundell",
+    "given": "J."
+   },
+   {
+    "family": "Wong",
+    "given": "T. W."
+   },
+   {
+    "family": "Yuen",
+    "given": "P. L."
+   }
+  ],
+  "volume": "17",
+  "issue": "1",
+  "page": "2-18",
+  "article_number": "",
+  "year": 2007,
+  "type": "journal-article",
+  "doi": "10.1111/j.1600-0668.2006.00445.x",
+  "publisher": "Wiley"
+ },
+ "10.1111/ina.12766": {
+  "title": "Indoor transmission of SARS‐CoV‐2",
+  "container": "Indoor Air",
+  "authors": [
+   {
+    "family": "Qian",
+    "given": "Hua"
+   },
+   {
+    "family": "Miao",
+    "given": "Te"
+   },
+   {
+    "family": "Liu",
+    "given": "Li"
+   },
+   {
+    "family": "Zheng",
+    "given": "Xiaohong"
+   },
+   {
+    "family": "Luo",
+    "given": "Danting"
+   },
+   {
+    "family": "Li",
+    "given": "Yuguo"
+   }
+  ],
+  "volume": "31",
+  "issue": "3",
+  "page": "639-645",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1111/ina.12766",
+  "publisher": "Wiley"
+ },
+ "10.12688/wellcomeopenres.15889.2": {
+  "title": "What settings have been linked to SARS-CoV-2 transmission clusters?",
+  "container": "Wellcome Open Research",
+  "authors": [
+   {
+    "family": "Leclerc",
+    "given": "Quentin J."
+   },
+   {
+    "family": "Fuller",
+    "given": "Naomi M."
+   },
+   {
+    "family": "Knight",
+    "given": "Lisa E."
+   },
+   {
+    "family": "CMMID COVID-19 Working Group",
+    "given": ""
+   },
+   {
+    "family": "Funk",
+    "given": "Sebastian"
+   },
+   {
+    "family": "Knight",
+    "given": "Gwenan M."
+   }
+  ],
+  "volume": "5",
+  "issue": "",
+  "page": "83",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.12688/wellcomeopenres.15889.2",
+  "publisher": "F1000 Research Ltd"
+ },
+ "10.1073/pnas.2015482118": {
+  "title": "Mechanistic transmission modeling of COVID-19 on the\n                    <i>Diamond Princess</i>\n                    cruise ship demonstrates the importance of aerosol transmission",
+  "container": "Proceedings of the National Academy of Sciences",
+  "authors": [
+   {
+    "family": "Azimi",
+    "given": "Parham"
+   },
+   {
+    "family": "Keshavarz",
+    "given": "Zahra"
+   },
+   {
+    "family": "Cedeno Laurent",
+    "given": "Jose Guillermo"
+   },
+   {
+    "family": "Stephens",
+    "given": "Brent"
+   },
+   {
+    "family": "Allen",
+    "given": "Joseph G."
+   }
+  ],
+  "volume": "118",
+  "issue": "8",
+  "page": "",
+  "article_number": "e2015482118",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1073/pnas.2015482118",
+  "publisher": "National Academy of Sciences"
+ },
+ "10.1021/acs.estlett.1c00183": {
+  "title": "Exhaled CO\n                    <sub>2</sub>\n                    as a COVID-19 Infection Risk Proxy for Different Indoor Environments and Activities",
+  "container": "Environmental Science &amp; Technology Letters",
+  "authors": [
+   {
+    "family": "Peng",
+    "given": "Zhe"
+   },
+   {
+    "family": "Jimenez",
+    "given": "Jose L."
+   }
+  ],
+  "volume": "8",
+  "issue": "5",
+  "page": "392-397",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1021/acs.estlett.1c00183",
+  "publisher": "American Chemical Society (ACS)"
+ },
+ "10.1021/es103080p": {
+  "title": "Modeling Exposure Close to Air Pollution Sources in Naturally Ventilated Residences: Association of Turbulent Diffusion Coefficient with Air Change Rate",
+  "container": "Environmental Science &amp; Technology",
+  "authors": [
+   {
+    "family": "Cheng",
+    "given": "Kai-Chung"
+   },
+   {
+    "family": "Acevedo-Bolton",
+    "given": "Viviana"
+   },
+   {
+    "family": "Jiang",
+    "given": "Ruo-Ting"
+   },
+   {
+    "family": "Klepeis",
+    "given": "Neil E."
+   },
+   {
+    "family": "Ott",
+    "given": "Wayne R."
+   },
+   {
+    "family": "Fringer",
+    "given": "Oliver B."
+   },
+   {
+    "family": "Hildemann",
+    "given": "Lynn M."
+   }
+  ],
+  "volume": "45",
+  "issue": "9",
+  "page": "4016-4022",
+  "article_number": "",
+  "year": 2011,
+  "type": "journal-article",
+  "doi": "10.1021/es103080p",
+  "publisher": "American Chemical Society (ACS)"
+ },
+ "10.1016/s0140-6736(20)31142-9": {
+  "title": "Physical distancing, face masks, and eye protection to prevent person-to-person transmission of SARS-CoV-2 and COVID-19: a systematic review and meta-analysis",
+  "container": "The Lancet",
+  "authors": [
+   {
+    "family": "Chu",
+    "given": "Derek K"
+   },
+   {
+    "family": "Akl",
+    "given": "Elie A"
+   },
+   {
+    "family": "Duda",
+    "given": "Stephanie"
+   },
+   {
+    "family": "Solo",
+    "given": "Karla"
+   },
+   {
+    "family": "Yaacoub",
+    "given": "Sally"
+   },
+   {
+    "family": "Schünemann",
+    "given": "Holger J"
+   },
+   {
+    "family": "Chu",
+    "given": "Derek K"
+   },
+   {
+    "family": "Akl",
+    "given": "Elie A"
+   },
+   {
+    "family": "El-harakeh",
+    "given": "Amena"
+   },
+   {
+    "family": "Bognanni",
+    "given": "Antonio"
+   },
+   {
+    "family": "Lotfi",
+    "given": "Tamara"
+   },
+   {
+    "family": "Loeb",
+    "given": "Mark"
+   },
+   {
+    "family": "Hajizadeh",
+    "given": "Anisa"
+   },
+   {
+    "family": "Bak",
+    "given": "Anna"
+   },
+   {
+    "family": "Izcovich",
+    "given": "Ariel"
+   },
+   {
+    "family": "Cuello-Garcia",
+    "given": "Carlos A"
+   },
+   {
+    "family": "Chen",
+    "given": "Chen"
+   },
+   {
+    "family": "Harris",
+    "given": "David J"
+   },
+   {
+    "family": "Borowiack",
+    "given": "Ewa"
+   },
+   {
+    "family": "Chamseddine",
+    "given": "Fatimah"
+   },
+   {
+    "family": "Schünemann",
+    "given": "Finn"
+   },
+   {
+    "family": "Morgano",
+    "given": "Gian Paolo"
+   },
+   {
+    "family": "Muti Schünemann",
+    "given": "Giovanna E U"
+   },
+   {
+    "family": "Chen",
+    "given": "Guang"
+   },
+   {
+    "family": "Zhao",
+    "given": "Hong"
+   },
+   {
+    "family": "Neumann",
+    "given": "Ignacio"
+   },
+   {
+    "family": "Chan",
+    "given": "Jeffrey"
+   },
+   {
+    "family": "Khabsa",
+    "given": "Joanne"
+   },
+   {
+    "family": "Hneiny",
+    "given": "Layal"
+   },
+   {
+    "family": "Harrison",
+    "given": "Leila"
+   },
+   {
+    "family": "Smith",
+    "given": "Maureen"
+   },
+   {
+    "family": "Rizk",
+    "given": "Nesrine"
+   },
+   {
+    "family": "Giorgi Rossi",
+    "given": "Paolo"
+   },
+   {
+    "family": "AbiHanna",
+    "given": "Pierre"
+   },
+   {
+    "family": "El-khoury",
+    "given": "Rayane"
+   },
+   {
+    "family": "Stalteri",
+    "given": "Rosa"
+   },
+   {
+    "family": "Baldeh",
+    "given": "Tejan"
+   },
+   {
+    "family": "Piggott",
+    "given": "Thomas"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yuan"
+   },
+   {
+    "family": "Saad",
+    "given": "Zahra"
+   },
+   {
+    "family": "Khamis",
+    "given": "Assem"
+   },
+   {
+    "family": "Reinap",
+    "given": "Marge"
+   },
+   {
+    "family": "Duda",
+    "given": "Stephanie"
+   },
+   {
+    "family": "Solo",
+    "given": "Karla"
+   },
+   {
+    "family": "Yaacoub",
+    "given": "Sally"
+   },
+   {
+    "family": "Schünemann",
+    "given": "Holger J"
+   }
+  ],
+  "volume": "395",
+  "issue": "10242",
+  "page": "1973-1987",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/s0140-6736(20)31142-9",
+  "publisher": "Elsevier BV"
+ },
+ "10.1088/1742-5468/2005/10/p10002": {
+  "title": "The fundamental diagram of pedestrian movement revisited",
+  "container": "Journal of Statistical Mechanics: Theory and Experiment",
+  "authors": [
+   {
+    "family": "Seyfried",
+    "given": "Armin"
+   },
+   {
+    "family": "Steffen",
+    "given": "Bernhard"
+   },
+   {
+    "family": "Klingsch",
+    "given": "Wolfram"
+   },
+   {
+    "family": "Boltes",
+    "given": "Maik"
+   }
+  ],
+  "volume": "2005",
+  "issue": "10",
+  "page": "P10002-P10002",
+  "article_number": "",
+  "year": 2005,
+  "type": "journal-article",
+  "doi": "10.1088/1742-5468/2005/10/p10002",
+  "publisher": "IOP Publishing"
+ },
+ "10.1088/0034-4885/29/1/306": {
+  "title": "The fluctuation-dissipation theorem",
+  "container": "Reports on Progress in Physics",
+  "authors": [
+   {
+    "family": "Kubo",
+    "given": "R"
+   }
+  ],
+  "volume": "29",
+  "issue": "1",
+  "page": "255-284",
+  "article_number": "306",
+  "year": 1966,
+  "type": "journal-article",
+  "doi": "10.1088/0034-4885/29/1/306",
+  "publisher": "IOP Publishing"
+ },
+ "10.1112/plms/s2-20.1.196": {
+  "title": "Diffusion by Continuous Movements",
+  "container": "Proceedings of the London Mathematical Society",
+  "authors": [
+   {
+    "family": "Taylor",
+    "given": "G. I."
+   }
+  ],
+  "volume": "s2-20",
+  "issue": "1",
+  "page": "196-212",
+  "article_number": "",
+  "year": 1922,
+  "type": "journal-article",
+  "doi": "10.1112/plms/s2-20.1.196",
+  "publisher": "Wiley"
+ },
+ "10.1371/journal.pone.0023176": {
+  "title": "High-Resolution Measurements of Face-to-Face Contact Patterns in a Primary School",
+  "container": "PLoS ONE",
+  "authors": [
+   {
+    "family": "Stehlé",
+    "given": "Juliette"
+   },
+   {
+    "family": "Voirin",
+    "given": "Nicolas"
+   },
+   {
+    "family": "Barrat",
+    "given": "Alain"
+   },
+   {
+    "family": "Cattuto",
+    "given": "Ciro"
+   },
+   {
+    "family": "Isella",
+    "given": "Lorenzo"
+   },
+   {
+    "family": "Pinton",
+    "given": "Jean-François"
+   },
+   {
+    "family": "Quaggiotto",
+    "given": "Marco"
+   },
+   {
+    "family": "Van den Broeck",
+    "given": "Wouter"
+   },
+   {
+    "family": "Régis",
+    "given": "Corinne"
+   },
+   {
+    "family": "Lina",
+    "given": "Bruno"
+   },
+   {
+    "family": "Vanhems",
+    "given": "Philippe"
+   }
+  ],
+  "volume": "6",
+  "issue": "8",
+  "page": "e23176",
+  "article_number": "",
+  "year": 2011,
+  "type": "journal-article",
+  "doi": "10.1371/journal.pone.0023176",
+  "publisher": "Public Library of Science (PLoS)"
+ },
+ "10.1017/nws.2015.10": {
+  "title": "Data on face-to-face contacts in an office building suggest a low-cost vaccination strategy based on community linkers",
+  "container": "Network Science",
+  "authors": [
+   {
+    "family": "GÉNOIS",
+    "given": "MATHIEU"
+   },
+   {
+    "family": "VESTERGAARD",
+    "given": "CHRISTIAN L."
+   },
+   {
+    "family": "FOURNET",
+    "given": "JULIE"
+   },
+   {
+    "family": "PANISSON",
+    "given": "ANDRÉ"
+   },
+   {
+    "family": "BONMARIN",
+    "given": "ISABELLE"
+   },
+   {
+    "family": "BARRAT",
+    "given": "ALAIN"
+   }
+  ],
+  "volume": "3",
+  "issue": "3",
+  "page": "326-347",
+  "article_number": "",
+  "year": 2015,
+  "type": "journal-article",
+  "doi": "10.1017/nws.2015.10",
+  "publisher": "Cambridge University Press (CUP)"
+ },
+ "10.1056/nejmoa2001316": {
+  "title": "Early Transmission Dynamics in Wuhan, China, of Novel Coronavirus–Infected Pneumonia",
+  "container": "New England Journal of Medicine",
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Qun"
+   },
+   {
+    "family": "Guan",
+    "given": "Xuhua"
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Wang",
+    "given": "Xiaoye"
+   },
+   {
+    "family": "Zhou",
+    "given": "Lei"
+   },
+   {
+    "family": "Tong",
+    "given": "Yeqing"
+   },
+   {
+    "family": "Ren",
+    "given": "Ruiqi"
+   },
+   {
+    "family": "Leung",
+    "given": "Kathy S.M."
+   },
+   {
+    "family": "Lau",
+    "given": "Eric H.Y."
+   },
+   {
+    "family": "Wong",
+    "given": "Jessica Y."
+   },
+   {
+    "family": "Xing",
+    "given": "Xuesen"
+   },
+   {
+    "family": "Xiang",
+    "given": "Nijuan"
+   },
+   {
+    "family": "Wu",
+    "given": "Yang"
+   },
+   {
+    "family": "Li",
+    "given": "Chao"
+   },
+   {
+    "family": "Chen",
+    "given": "Qi"
+   },
+   {
+    "family": "Li",
+    "given": "Dan"
+   },
+   {
+    "family": "Liu",
+    "given": "Tian"
+   },
+   {
+    "family": "Zhao",
+    "given": "Jing"
+   },
+   {
+    "family": "Liu",
+    "given": "Man"
+   },
+   {
+    "family": "Tu",
+    "given": "Wenxiao"
+   },
+   {
+    "family": "Chen",
+    "given": "Chuding"
+   },
+   {
+    "family": "Jin",
+    "given": "Lianmei"
+   },
+   {
+    "family": "Yang",
+    "given": "Rui"
+   },
+   {
+    "family": "Wang",
+    "given": "Qi"
+   },
+   {
+    "family": "Zhou",
+    "given": "Suhua"
+   },
+   {
+    "family": "Wang",
+    "given": "Rui"
+   },
+   {
+    "family": "Liu",
+    "given": "Hui"
+   },
+   {
+    "family": "Luo",
+    "given": "Yinbo"
+   },
+   {
+    "family": "Liu",
+    "given": "Yuan"
+   },
+   {
+    "family": "Shao",
+    "given": "Ge"
+   },
+   {
+    "family": "Li",
+    "given": "Huan"
+   },
+   {
+    "family": "Tao",
+    "given": "Zhongfa"
+   },
+   {
+    "family": "Yang",
+    "given": "Yang"
+   },
+   {
+    "family": "Deng",
+    "given": "Zhiqiang"
+   },
+   {
+    "family": "Liu",
+    "given": "Boxi"
+   },
+   {
+    "family": "Ma",
+    "given": "Zhitao"
+   },
+   {
+    "family": "Zhang",
+    "given": "Yanping"
+   },
+   {
+    "family": "Shi",
+    "given": "Guoqing"
+   },
+   {
+    "family": "Lam",
+    "given": "Tommy T.Y."
+   },
+   {
+    "family": "Wu",
+    "given": "Joseph T."
+   },
+   {
+    "family": "Gao",
+    "given": "George F."
+   },
+   {
+    "family": "Cowling",
+    "given": "Benjamin J."
+   },
+   {
+    "family": "Yang",
+    "given": "Bo"
+   },
+   {
+    "family": "Leung",
+    "given": "Gabriel M."
+   },
+   {
+    "family": "Feng",
+    "given": "Zijian"
+   }
+  ],
+  "volume": "382",
+  "issue": "13",
+  "page": "1199-1207",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1056/nejmoa2001316",
+  "publisher": "Massachusetts Medical Society"
+ },
+ "10.1093/jtm/taaa021": {
+  "title": "The reproductive number of COVID-19 is higher compared to SARS coronavirus",
+  "container": "Journal of Travel Medicine",
+  "authors": [
+   {
+    "family": "Liu",
+    "given": "Ying"
+   },
+   {
+    "family": "Gayle",
+    "given": "Albert A"
+   },
+   {
+    "family": "Wilder-Smith",
+    "given": "Annelies"
+   },
+   {
+    "family": "Rocklöv",
+    "given": "Joacim"
+   }
+  ],
+  "volume": "27",
+  "issue": "2",
+  "page": "",
+  "article_number": "taaa021",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1093/jtm/taaa021",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1136/bmjopen-2020-039856": {
+  "title": "Inferred duration of infectious period of SARS-CoV-2: rapid scoping review and analysis of available evidence for asymptomatic and symptomatic COVID-19 cases",
+  "container": "BMJ Open",
+  "authors": [
+   {
+    "family": "Byrne",
+    "given": "Andrew William"
+   },
+   {
+    "family": "McEvoy",
+    "given": "David"
+   },
+   {
+    "family": "Collins",
+    "given": "Aine B"
+   },
+   {
+    "family": "Hunt",
+    "given": "Kevin"
+   },
+   {
+    "family": "Casey",
+    "given": "Miriam"
+   },
+   {
+    "family": "Barber",
+    "given": "Ann"
+   },
+   {
+    "family": "Butler",
+    "given": "Francis"
+   },
+   {
+    "family": "Griffin",
+    "given": "John"
+   },
+   {
+    "family": "Lane",
+    "given": "Elizabeth A"
+   },
+   {
+    "family": "McAloon",
+    "given": "Conor"
+   },
+   {
+    "family": "O'Brien",
+    "given": "Kirsty"
+   },
+   {
+    "family": "Wall",
+    "given": "Patrick"
+   },
+   {
+    "family": "Walsh",
+    "given": "Kieran A"
+   },
+   {
+    "family": "More",
+    "given": "Simon J"
+   }
+  ],
+  "volume": "10",
+  "issue": "8",
+  "page": "e039856",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1136/bmjopen-2020-039856",
+  "publisher": "BMJ"
+ },
+ "10.1038/s41591-020-0869-5": {
+  "title": "Temporal dynamics in viral shedding and transmissibility of COVID-19",
+  "container": "Nature Medicine",
+  "authors": [
+   {
+    "family": "He",
+    "given": "Xi"
+   },
+   {
+    "family": "Lau",
+    "given": "Eric H. Y."
+   },
+   {
+    "family": "Wu",
+    "given": "Peng"
+   },
+   {
+    "family": "Deng",
+    "given": "Xilong"
+   },
+   {
+    "family": "Wang",
+    "given": "Jian"
+   },
+   {
+    "family": "Hao",
+    "given": "Xinxin"
+   },
+   {
+    "family": "Lau",
+    "given": "Yiu Chung"
+   },
+   {
+    "family": "Wong",
+    "given": "Jessica Y."
+   },
+   {
+    "family": "Guan",
+    "given": "Yujuan"
+   },
+   {
+    "family": "Tan",
+    "given": "Xinghua"
+   },
+   {
+    "family": "Mo",
+    "given": "Xiaoneng"
+   },
+   {
+    "family": "Chen",
+    "given": "Yanqing"
+   },
+   {
+    "family": "Liao",
+    "given": "Baolin"
+   },
+   {
+    "family": "Chen",
+    "given": "Weilie"
+   },
+   {
+    "family": "Hu",
+    "given": "Fengyu"
+   },
+   {
+    "family": "Zhang",
+    "given": "Qing"
+   },
+   {
+    "family": "Zhong",
+    "given": "Mingqiu"
+   },
+   {
+    "family": "Wu",
+    "given": "Yanrong"
+   },
+   {
+    "family": "Zhao",
+    "given": "Lingzhai"
+   },
+   {
+    "family": "Zhang",
+    "given": "Fuchun"
+   },
+   {
+    "family": "Cowling",
+    "given": "Benjamin J."
+   },
+   {
+    "family": "Li",
+    "given": "Fang"
+   },
+   {
+    "family": "Leung",
+    "given": "Gabriel M."
+   }
+  ],
+  "volume": "26",
+  "issue": "5",
+  "page": "672-675",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1038/s41591-020-0869-5",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1016/0095-8522(49)90023-9": {
+  "title": "Diffusion-controlled reaction rates",
+  "container": "Journal of Colloid Science",
+  "authors": [
+   {
+    "family": "Collins",
+    "given": "Frank C"
+   },
+   {
+    "family": "Kimball",
+    "given": "George E"
+   }
+  ],
+  "volume": "4",
+  "issue": "4",
+  "page": "425-437",
+  "article_number": "",
+  "year": 1949,
+  "type": "journal-article",
+  "doi": "10.1016/0095-8522(49)90023-9",
+  "publisher": "Elsevier BV"
+ },
+ "10.1038/s41586-020-2649-2": {
+  "title": "Array programming with NumPy",
+  "container": "Nature",
+  "authors": [
+   {
+    "family": "Harris",
+    "given": "Charles R."
+   },
+   {
+    "family": "Millman",
+    "given": "K. Jarrod"
+   },
+   {
+    "family": "van der Walt",
+    "given": "Stéfan J."
+   },
+   {
+    "family": "Gommers",
+    "given": "Ralf"
+   },
+   {
+    "family": "Virtanen",
+    "given": "Pauli"
+   },
+   {
+    "family": "Cournapeau",
+    "given": "David"
+   },
+   {
+    "family": "Wieser",
+    "given": "Eric"
+   },
+   {
+    "family": "Taylor",
+    "given": "Julian"
+   },
+   {
+    "family": "Berg",
+    "given": "Sebastian"
+   },
+   {
+    "family": "Smith",
+    "given": "Nathaniel J."
+   },
+   {
+    "family": "Kern",
+    "given": "Robert"
+   },
+   {
+    "family": "Picus",
+    "given": "Matti"
+   },
+   {
+    "family": "Hoyer",
+    "given": "Stephan"
+   },
+   {
+    "family": "van Kerkwijk",
+    "given": "Marten H."
+   },
+   {
+    "family": "Brett",
+    "given": "Matthew"
+   },
+   {
+    "family": "Haldane",
+    "given": "Allan"
+   },
+   {
+    "family": "del Río",
+    "given": "Jaime Fernández"
+   },
+   {
+    "family": "Wiebe",
+    "given": "Mark"
+   },
+   {
+    "family": "Peterson",
+    "given": "Pearu"
+   },
+   {
+    "family": "Gérard-Marchant",
+    "given": "Pierre"
+   },
+   {
+    "family": "Sheppard",
+    "given": "Kevin"
+   },
+   {
+    "family": "Reddy",
+    "given": "Tyler"
+   },
+   {
+    "family": "Weckesser",
+    "given": "Warren"
+   },
+   {
+    "family": "Abbasi",
+    "given": "Hameer"
+   },
+   {
+    "family": "Gohlke",
+    "given": "Christoph"
+   },
+   {
+    "family": "Oliphant",
+    "given": "Travis E."
+   }
+  ],
+  "volume": "585",
+  "issue": "7825",
+  "page": "357-362",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1038/s41586-020-2649-2",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1038/s41592-019-0686-2": {
+  "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+  "container": "Nature Methods",
+  "authors": [
+   {
+    "family": "Virtanen",
+    "given": "Pauli"
+   },
+   {
+    "family": "Gommers",
+    "given": "Ralf"
+   },
+   {
+    "family": "Oliphant",
+    "given": "Travis E."
+   },
+   {
+    "family": "Haberland",
+    "given": "Matt"
+   },
+   {
+    "family": "Reddy",
+    "given": "Tyler"
+   },
+   {
+    "family": "Cournapeau",
+    "given": "David"
+   },
+   {
+    "family": "Burovski",
+    "given": "Evgeni"
+   },
+   {
+    "family": "Peterson",
+    "given": "Pearu"
+   },
+   {
+    "family": "Weckesser",
+    "given": "Warren"
+   },
+   {
+    "family": "Bright",
+    "given": "Jonathan"
+   },
+   {
+    "family": "van der Walt",
+    "given": "Stéfan J."
+   },
+   {
+    "family": "Brett",
+    "given": "Matthew"
+   },
+   {
+    "family": "Wilson",
+    "given": "Joshua"
+   },
+   {
+    "family": "Millman",
+    "given": "K. Jarrod"
+   },
+   {
+    "family": "Mayorov",
+    "given": "Nikolay"
+   },
+   {
+    "family": "Nelson",
+    "given": "Andrew R. J."
+   },
+   {
+    "family": "Jones",
+    "given": "Eric"
+   },
+   {
+    "family": "Kern",
+    "given": "Robert"
+   },
+   {
+    "family": "Larson",
+    "given": "Eric"
+   },
+   {
+    "family": "Carey",
+    "given": "C J"
+   },
+   {
+    "family": "Polat",
+    "given": "İlhan"
+   },
+   {
+    "family": "Feng",
+    "given": "Yu"
+   },
+   {
+    "family": "Moore",
+    "given": "Eric W."
+   },
+   {
+    "family": "VanderPlas",
+    "given": "Jake"
+   },
+   {
+    "family": "Laxalde",
+    "given": "Denis"
+   },
+   {
+    "family": "Perktold",
+    "given": "Josef"
+   },
+   {
+    "family": "Cimrman",
+    "given": "Robert"
+   },
+   {
+    "family": "Henriksen",
+    "given": "Ian"
+   },
+   {
+    "family": "Quintero",
+    "given": "E. A."
+   },
+   {
+    "family": "Harris",
+    "given": "Charles R."
+   },
+   {
+    "family": "Archibald",
+    "given": "Anne M."
+   },
+   {
+    "family": "Ribeiro",
+    "given": "Antônio H."
+   },
+   {
+    "family": "Pedregosa",
+    "given": "Fabian"
+   },
+   {
+    "family": "van Mulbregt",
+    "given": "Paul"
+   },
+   {
+    "family": "SciPy 1.0 Contributors",
+    "given": ""
+   },
+   {
+    "family": "Vijaykumar",
+    "given": "Aditya"
+   },
+   {
+    "family": "Bardelli",
+    "given": "Alessandro Pietro"
+   },
+   {
+    "family": "Rothberg",
+    "given": "Alex"
+   },
+   {
+    "family": "Hilboll",
+    "given": "Andreas"
+   },
+   {
+    "family": "Kloeckner",
+    "given": "Andreas"
+   },
+   {
+    "family": "Scopatz",
+    "given": "Anthony"
+   },
+   {
+    "family": "Lee",
+    "given": "Antony"
+   },
+   {
+    "family": "Rokem",
+    "given": "Ariel"
+   },
+   {
+    "family": "Woods",
+    "given": "C. Nathan"
+   },
+   {
+    "family": "Fulton",
+    "given": "Chad"
+   },
+   {
+    "family": "Masson",
+    "given": "Charles"
+   },
+   {
+    "family": "Häggström",
+    "given": "Christian"
+   },
+   {
+    "family": "Fitzgerald",
+    "given": "Clark"
+   },
+   {
+    "family": "Nicholson",
+    "given": "David A."
+   },
+   {
+    "family": "Hagen",
+    "given": "David R."
+   },
+   {
+    "family": "Pasechnik",
+    "given": "Dmitrii V."
+   },
+   {
+    "family": "Olivetti",
+    "given": "Emanuele"
+   },
+   {
+    "family": "Martin",
+    "given": "Eric"
+   },
+   {
+    "family": "Wieser",
+    "given": "Eric"
+   },
+   {
+    "family": "Silva",
+    "given": "Fabrice"
+   },
+   {
+    "family": "Lenders",
+    "given": "Felix"
+   },
+   {
+    "family": "Wilhelm",
+    "given": "Florian"
+   },
+   {
+    "family": "Young",
+    "given": "G."
+   },
+   {
+    "family": "Price",
+    "given": "Gavin A."
+   },
+   {
+    "family": "Ingold",
+    "given": "Gert-Ludwig"
+   },
+   {
+    "family": "Allen",
+    "given": "Gregory E."
+   },
+   {
+    "family": "Lee",
+    "given": "Gregory R."
+   },
+   {
+    "family": "Audren",
+    "given": "Hervé"
+   },
+   {
+    "family": "Probst",
+    "given": "Irvin"
+   },
+   {
+    "family": "Dietrich",
+    "given": "Jörg P."
+   },
+   {
+    "family": "Silterra",
+    "given": "Jacob"
+   },
+   {
+    "family": "Webber",
+    "given": "James T"
+   },
+   {
+    "family": "Slavič",
+    "given": "Janko"
+   },
+   {
+    "family": "Nothman",
+    "given": "Joel"
+   },
+   {
+    "family": "Buchner",
+    "given": "Johannes"
+   },
+   {
+    "family": "Kulick",
+    "given": "Johannes"
+   },
+   {
+    "family": "Schönberger",
+    "given": "Johannes L."
+   },
+   {
+    "family": "de Miranda Cardoso",
+    "given": "José Vinícius"
+   },
+   {
+    "family": "Reimer",
+    "given": "Joscha"
+   },
+   {
+    "family": "Harrington",
+    "given": "Joseph"
+   },
+   {
+    "family": "Rodríguez",
+    "given": "Juan Luis Cano"
+   },
+   {
+    "family": "Nunez-Iglesias",
+    "given": "Juan"
+   },
+   {
+    "family": "Kuczynski",
+    "given": "Justin"
+   },
+   {
+    "family": "Tritz",
+    "given": "Kevin"
+   },
+   {
+    "family": "Thoma",
+    "given": "Martin"
+   },
+   {
+    "family": "Newville",
+    "given": "Matthew"
+   },
+   {
+    "family": "Kümmerer",
+    "given": "Matthias"
+   },
+   {
+    "family": "Bolingbroke",
+    "given": "Maximilian"
+   },
+   {
+    "family": "Tartre",
+    "given": "Michael"
+   },
+   {
+    "family": "Pak",
+    "given": "Mikhail"
+   },
+   {
+    "family": "Smith",
+    "given": "Nathaniel J."
+   },
+   {
+    "family": "Nowaczyk",
+    "given": "Nikolai"
+   },
+   {
+    "family": "Shebanov",
+    "given": "Nikolay"
+   },
+   {
+    "family": "Pavlyk",
+    "given": "Oleksandr"
+   },
+   {
+    "family": "Brodtkorb",
+    "given": "Per A."
+   },
+   {
+    "family": "Lee",
+    "given": "Perry"
+   },
+   {
+    "family": "McGibbon",
+    "given": "Robert T."
+   },
+   {
+    "family": "Feldbauer",
+    "given": "Roman"
+   },
+   {
+    "family": "Lewis",
+    "given": "Sam"
+   },
+   {
+    "family": "Tygier",
+    "given": "Sam"
+   },
+   {
+    "family": "Sievert",
+    "given": "Scott"
+   },
+   {
+    "family": "Vigna",
+    "given": "Sebastiano"
+   },
+   {
+    "family": "Peterson",
+    "given": "Stefan"
+   },
+   {
+    "family": "More",
+    "given": "Surhud"
+   },
+   {
+    "family": "Pudlik",
+    "given": "Tadeusz"
+   },
+   {
+    "family": "Oshima",
+    "given": "Takuya"
+   },
+   {
+    "family": "Pingel",
+    "given": "Thomas J."
+   },
+   {
+    "family": "Robitaille",
+    "given": "Thomas P."
+   },
+   {
+    "family": "Spura",
+    "given": "Thomas"
+   },
+   {
+    "family": "Jones",
+    "given": "Thouis R."
+   },
+   {
+    "family": "Cera",
+    "given": "Tim"
+   },
+   {
+    "family": "Leslie",
+    "given": "Tim"
+   },
+   {
+    "family": "Zito",
+    "given": "Tiziano"
+   },
+   {
+    "family": "Krauss",
+    "given": "Tom"
+   },
+   {
+    "family": "Upadhyay",
+    "given": "Utkarsh"
+   },
+   {
+    "family": "Halchenko",
+    "given": "Yaroslav O."
+   },
+   {
+    "family": "Vázquez-Baeza",
+    "given": "Yoshiki"
+   }
+  ],
+  "volume": "17",
+  "issue": "3",
+  "page": "261-272",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1038/s41592-019-0686-2",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1109/mcse.2007.55": {
+  "title": "Matplotlib: A 2D Graphics Environment",
+  "container": "Computing in Science &amp; Engineering",
+  "authors": [
+   {
+    "family": "Hunter",
+    "given": "John D."
+   }
+  ],
+  "volume": "9",
+  "issue": "3",
+  "page": "90-95",
+  "article_number": "",
+  "year": 2007,
+  "type": "journal-article",
+  "doi": "10.1109/mcse.2007.55",
+  "publisher": "Institute of Electrical and Electronics Engineers (IEEE)"
+ },
+ "10.1007/s00285-020-01497-8": {
+  "title": "Asymptotic profiles of the steady states for an SIS epidemic patch model with asymmetric connectivity matrix",
+  "container": "Journal of Mathematical Biology",
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "Shanshan"
+   },
+   {
+    "family": "Shi",
+    "given": "Junping"
+   },
+   {
+    "family": "Shuai",
+    "given": "Zhisheng"
+   },
+   {
+    "family": "Wu",
+    "given": "Yixiang"
+   }
+  ],
+  "volume": "80",
+  "issue": "7",
+  "page": "2327-2361",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1007/s00285-020-01497-8",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1090/s0002-9939-1981-0601750-2": {
+  "title": "Convexity of the dominant eigenvalue of an essentially nonnegative matrix",
+  "container": "Proceedings of the American Mathematical Society",
+  "authors": [
+   {
+    "family": "Cohen",
+    "given": "Joel E."
+   }
+  ],
+  "volume": "81",
+  "issue": "4",
+  "page": "657-657",
+  "article_number": "",
+  "year": 1981,
+  "type": "journal-article",
+  "doi": "10.1090/s0002-9939-1981-0601750-2",
+  "publisher": "American Mathematical Society (AMS)"
+ },
+ "10.1007/bf01214717": {
+  "title": "On locally indicable groups",
+  "container": "Mathematische Zeitschrift",
+  "authors": [
+   {
+    "family": "Howie",
+    "given": "James"
+   }
+  ],
+  "volume": "180",
+  "issue": "4",
+  "page": "445-461",
+  "article_number": "",
+  "year": 1982,
+  "type": "journal-article",
+  "doi": "10.1007/bf01214717",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.2307/3212311": {
+  "title": "On quasi-stationary distributions in absorbing continuous-time finite Markov chains",
+  "container": "Journal of Applied Probability",
+  "authors": [
+   {
+    "family": "Darroch",
+    "given": "J. N."
+   },
+   {
+    "family": "Seneta",
+    "given": "E."
+   }
+  ],
+  "volume": "4",
+  "issue": "1",
+  "page": "192-196",
+  "article_number": "",
+  "year": 1967,
+  "type": "journal-article",
+  "doi": "10.2307/3212311",
+  "publisher": "Cambridge University Press (CUP)"
+ },
+ "10.1073/pnas.0706599104": {
+  "title": "The narrow escape problem for diffusion in cellular microdomains",
+  "container": "Proceedings of the National Academy of Sciences",
+  "authors": [
+   {
+    "family": "Schuss",
+    "given": "Z."
+   },
+   {
+    "family": "Singer",
+    "given": "A."
+   },
+   {
+    "family": "Holcman",
+    "given": "D."
+   }
+  ],
+  "volume": "104",
+  "issue": "41",
+  "page": "16098-16103",
+  "article_number": "",
+  "year": 2007,
+  "type": "journal-article",
+  "doi": "10.1073/pnas.0706599104",
+  "publisher": "National Academy of Sciences"
+ },
+ "10.1093/biomet/38.1-2.196": {
+  "title": "RANDOM DISPERSAL IN THEORETICAL POPULATIONS",
+  "container": "Biometrika",
+  "authors": [
+   {
+    "family": "SKELLAM",
+    "given": "J. G."
+   }
+  ],
+  "volume": "38",
+  "issue": "1-2",
+  "page": "196-218",
+  "article_number": "",
+  "year": 1951,
+  "type": "journal-article",
+  "doi": "10.1093/biomet/38.1-2.196",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1007/s00285-006-0015-0": {
+  "title": "The epidemic threshold of vector-borne diseases with seasonality",
+  "container": "Journal of Mathematical Biology",
+  "authors": [
+   {
+    "family": "Bacaër",
+    "given": "Nicolas"
+   },
+   {
+    "family": "Guernaoui",
+    "given": "Souad"
+   }
+  ],
+  "volume": "53",
+  "issue": "3",
+  "page": "421-436",
+  "article_number": "",
+  "year": 2006,
+  "type": "journal-article",
+  "doi": "10.1007/s00285-006-0015-0",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1007/s10884-008-9111-8": {
+  "title": "Threshold Dynamics for Compartmental Epidemic Models in Periodic Environments",
+  "container": "Journal of Dynamics and Differential Equations",
+  "authors": [
+   {
+    "family": "Wang",
+    "given": "Wendi"
+   },
+   {
+    "family": "Zhao",
+    "given": "Xiao-Qiang"
+   }
+  ],
+  "volume": "20",
+  "issue": "3",
+  "page": "699-717",
+  "article_number": "",
+  "year": 2008,
+  "type": "journal-article",
+  "doi": "10.1007/s10884-008-9111-8",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1145/3460772": {
+  "title": "Scrambled Linear Pseudorandom Number Generators",
+  "container": "ACM Transactions on Mathematical Software",
+  "authors": [
+   {
+    "family": "Blackman",
+    "given": "David"
+   },
+   {
+    "family": "Vigna",
+    "given": "Sebastiano"
+   }
+  ],
+  "volume": "47",
+  "issue": "4",
+  "page": "1-32",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1145/3460772",
+  "publisher": "Association for Computing Machinery (ACM)"
+ },
+ "10.1111/j.2517-6161.1948.tb00012.x": {
+  "title": "The Interpretation of Statistical Maps",
+  "container": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+  "authors": [
+   {
+    "family": "Moran",
+    "given": "P. A. P."
+   }
+  ],
+  "volume": "10",
+  "issue": "2",
+  "page": "243-251",
+  "article_number": "",
+  "year": 1948,
+  "type": "journal-article",
+  "doi": "10.1111/j.2517-6161.1948.tb00012.x",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1007/bf01770356": {
+  "title": "Localized partial traps in diffusion processes and random walks",
+  "container": "Journal of Statistical Physics",
+  "authors": [
+   {
+    "family": "Szabo",
+    "given": "Attila"
+   },
+   {
+    "family": "Lamm",
+    "given": "Gene"
+   },
+   {
+    "family": "Weiss",
+    "given": "George H."
+   }
+  ],
+  "volume": "34",
+  "issue": "1-2",
+  "page": "225-238",
+  "article_number": "",
+  "year": 1984,
+  "type": "journal-article",
+  "doi": "10.1007/bf01770356",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1007/s11538-014-0042-8": {
+  "title": "Theory of the Transmission of Infection in the Spread of Epidemics: Interacting Random Walkers with and Without Confinement",
+  "container": "Bulletin of Mathematical Biology",
+  "authors": [
+   {
+    "family": "Kenkre",
+    "given": "V. M."
+   },
+   {
+    "family": "Sugaya",
+    "given": "S."
+   }
+  ],
+  "volume": "76",
+  "issue": "12",
+  "page": "3016-3027",
+  "article_number": "",
+  "year": 2014,
+  "type": "journal-article",
+  "doi": "10.1007/s11538-014-0042-8",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1007/s11538-018-0507-0": {
+  "error": "HTTP Error 404: Not Found"
+ },
+ "10.1111/ina.12901": {
+  "title": "Modeling turbulent transport of aerosols inside rooms using eddy diffusivity",
+  "container": "Indoor Air",
+  "authors": [
+   {
+    "family": "Venkatram",
+    "given": "Akula"
+   },
+   {
+    "family": "Weil",
+    "given": "Jeffrey"
+   }
+  ],
+  "volume": "31",
+  "issue": "6",
+  "page": "1886-1895",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1111/ina.12901",
+  "publisher": "Wiley"
+ },
+ "10.3201/eid2606.200412": {
+  "title": "Indirect Virus Transmission in Cluster of COVID-19 Cases, Wenzhou, China, 2020",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Cai",
+    "given": "Jing"
+   },
+   {
+    "family": "Sun",
+    "given": "Wenjie"
+   },
+   {
+    "family": "Huang",
+    "given": "Jianping"
+   },
+   {
+    "family": "Gamber",
+    "given": "Michelle"
+   },
+   {
+    "family": "Wu",
+    "given": "Jing"
+   },
+   {
+    "family": "He",
+    "given": "Guiqing"
+   }
+  ],
+  "volume": "26",
+  "issue": "6",
+  "page": "1343-1345",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3201/eid2606.200412",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.1016/j.ajic.2020.06.006": {
+  "title": "Epidemic characteristics of the COVID-19 outbreak in Tianjin, a well-developed city in China",
+  "container": "American Journal of Infection Control",
+  "authors": [
+   {
+    "family": "Chen",
+    "given": "Ting"
+   },
+   {
+    "family": "Guo",
+    "given": "Songxue"
+   },
+   {
+    "family": "Zhong",
+    "given": "Ping"
+   }
+  ],
+  "volume": "48",
+  "issue": "9",
+  "page": "1068-1073",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1016/j.ajic.2020.06.006",
+  "publisher": "Elsevier BV"
+ },
+ "10.3201/eid2609.202272": {
+  "title": "Clusters of Coronavirus Disease in Communities, Japan, January–April 2020",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Furuse",
+    "given": "Yuki"
+   },
+   {
+    "family": "Sando",
+    "given": "Eiichiro"
+   },
+   {
+    "family": "Tsuchiya",
+    "given": "Naho"
+   },
+   {
+    "family": "Miyahara",
+    "given": "Reiko"
+   },
+   {
+    "family": "Yasuda",
+    "given": "Ikkoh"
+   },
+   {
+    "family": "Ko",
+    "given": "Yura K."
+   },
+   {
+    "family": "Saito",
+    "given": "Mayuko"
+   },
+   {
+    "family": "Morimoto",
+    "given": "Konosuke"
+   },
+   {
+    "family": "Imamura",
+    "given": "Takeaki"
+   },
+   {
+    "family": "Shobugawa",
+    "given": "Yugo"
+   },
+   {
+    "family": "Nagata",
+    "given": "Shohei"
+   },
+   {
+    "family": "Jindai",
+    "given": "Kazuaki"
+   },
+   {
+    "family": "Imamura",
+    "given": "Tadatsugu"
+   },
+   {
+    "family": "Sunagawa",
+    "given": "Tomimasa"
+   },
+   {
+    "family": "Suzuki",
+    "given": "Motoi"
+   },
+   {
+    "family": "Nishiura",
+    "given": "Hiroshi"
+   },
+   {
+    "family": "Oshitani",
+    "given": "Hitoshi"
+   }
+  ],
+  "volume": "26",
+  "issue": "9",
+  "page": "2176-2179",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3201/eid2609.202272",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.15252/emmm.202013296": {
+  "title": "SARS‐CoV‐2 outbreak investigation in a German meat processing plant",
+  "container": "EMBO Molecular Medicine",
+  "authors": [
+   {
+    "family": "Günther",
+    "given": "Thomas"
+   },
+   {
+    "family": "Czech‐Sioli",
+    "given": "Manja"
+   },
+   {
+    "family": "Indenbirken",
+    "given": "Daniela"
+   },
+   {
+    "family": "Robitaille",
+    "given": "Alexis"
+   },
+   {
+    "family": "Tenhaken",
+    "given": "Peter"
+   },
+   {
+    "family": "Exner",
+    "given": "Martin"
+   },
+   {
+    "family": "Ottinger",
+    "given": "Matthias"
+   },
+   {
+    "family": "Fischer",
+    "given": "Nicole"
+   },
+   {
+    "family": "Grundhoff",
+    "given": "Adam"
+   },
+   {
+    "family": "Brinkmann",
+    "given": "Melanie M"
+   }
+  ],
+  "volume": "12",
+  "issue": "12",
+  "page": "",
+  "article_number": "EMMM202013296",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.15252/emmm.202013296",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.15585/mmwr.mm6919e6": {
+  "title": "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice — Skagit County, Washington, March 2020",
+  "container": "MMWR. Morbidity and Mortality Weekly Report",
+  "authors": [
+   {
+    "family": "Hamner",
+    "given": "Lea"
+   },
+   {
+    "family": "Dubbel",
+    "given": "Polly"
+   },
+   {
+    "family": "Capron",
+    "given": "Ian"
+   },
+   {
+    "family": "Ross",
+    "given": "Andy"
+   },
+   {
+    "family": "Jordan",
+    "given": "Amber"
+   },
+   {
+    "family": "Lee",
+    "given": "Jaxon"
+   },
+   {
+    "family": "Lynn",
+    "given": "Joanne"
+   },
+   {
+    "family": "Ball",
+    "given": "Amelia"
+   },
+   {
+    "family": "Narwal",
+    "given": "Simranjit"
+   },
+   {
+    "family": "Russell",
+    "given": "Sam"
+   },
+   {
+    "family": "Patrick",
+    "given": "Dale"
+   },
+   {
+    "family": "Leibrand",
+    "given": "Howard"
+   }
+  ],
+  "volume": "69",
+  "issue": "19",
+  "page": "606-610",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.15585/mmwr.mm6919e6",
+  "publisher": "Centers for Disease Control MMWR Office"
+ },
+ "10.15585/mmwr.mm7012e3": {
+  "title": "Low SARS-CoV-2 Transmission in Elementary Schools — Salt Lake County, Utah, December 3, 2020–January 31, 2021",
+  "container": "MMWR. Morbidity and Mortality Weekly Report",
+  "authors": [
+   {
+    "family": "Hershow",
+    "given": "Rebecca B."
+   },
+   {
+    "family": "Wu",
+    "given": "Karen"
+   },
+   {
+    "family": "Lewis",
+    "given": "Nathaniel M."
+   },
+   {
+    "family": "Milne",
+    "given": "Alison T."
+   },
+   {
+    "family": "Currie",
+    "given": "Dustin"
+   },
+   {
+    "family": "Smith",
+    "given": "Amanda R."
+   },
+   {
+    "family": "Lloyd",
+    "given": "Spencer"
+   },
+   {
+    "family": "Orleans",
+    "given": "Brian"
+   },
+   {
+    "family": "Young",
+    "given": "Erin L."
+   },
+   {
+    "family": "Freeman",
+    "given": "Brandi"
+   },
+   {
+    "family": "Schwartz",
+    "given": "Noah"
+   },
+   {
+    "family": "Bryant",
+    "given": "Bobbi"
+   },
+   {
+    "family": "Espinosa",
+    "given": "Catherine"
+   },
+   {
+    "family": "Nakazawa",
+    "given": "Yoshinori"
+   },
+   {
+    "family": "Garza",
+    "given": "Elizabeth"
+   },
+   {
+    "family": "Almendares",
+    "given": "Olivia"
+   },
+   {
+    "family": "Abara",
+    "given": "Winston E."
+   },
+   {
+    "family": "Ehlman",
+    "given": "Daniel C."
+   },
+   {
+    "family": "Waters",
+    "given": "Keith"
+   },
+   {
+    "family": "Hill",
+    "given": "Mary"
+   },
+   {
+    "family": "Risk",
+    "given": "Ilene"
+   },
+   {
+    "family": "Oakeson",
+    "given": "Kelly"
+   },
+   {
+    "family": "Tate",
+    "given": "Jacqueline E."
+   },
+   {
+    "family": "Kirking",
+    "given": "Hannah L."
+   },
+   {
+    "family": "Dunn",
+    "given": "Angela"
+   },
+   {
+    "family": "Vallabhaneni",
+    "given": "Snigdha"
+   },
+   {
+    "family": "Hersh",
+    "given": "Adam L."
+   },
+   {
+    "family": "Chu",
+    "given": "Victoria T."
+   }
+  ],
+  "volume": "70",
+  "issue": "12",
+  "page": "442-448",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.15585/mmwr.mm7012e3",
+  "publisher": "Centers for Disease Control MMWR Office"
+ },
+ "10.1093/cid/ciaa1057": {
+  "title": "Risk of Coronavirus Disease 2019 Transmission in Train Passengers: an Epidemiological and Modeling Study",
+  "container": "Clinical Infectious Diseases",
+  "authors": [
+   {
+    "family": "Hu",
+    "given": "Maogui"
+   },
+   {
+    "family": "Lin",
+    "given": "Hui"
+   },
+   {
+    "family": "Wang",
+    "given": "Jinfeng"
+   },
+   {
+    "family": "Xu",
+    "given": "Chengdong"
+   },
+   {
+    "family": "Tatem",
+    "given": "Andrew J"
+   },
+   {
+    "family": "Meng",
+    "given": "Bin"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xin"
+   },
+   {
+    "family": "Liu",
+    "given": "Yifeng"
+   },
+   {
+    "family": "Wang",
+    "given": "Pengda"
+   },
+   {
+    "family": "Wu",
+    "given": "Guizhen"
+   },
+   {
+    "family": "Xie",
+    "given": "Haiyong"
+   },
+   {
+    "family": "Lai",
+    "given": "Shengjie"
+   }
+  ],
+  "volume": "72",
+  "issue": "4",
+  "page": "604-610",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1093/cid/ciaa1057",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.3201/eid2608.200633": {
+  "title": "Cluster of Coronavirus Disease Associated with Fitness Dance Classes, South Korea",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Jang",
+    "given": "Sukbin"
+   },
+   {
+    "family": "Han",
+    "given": "Si Hyun"
+   },
+   {
+    "family": "Rhee",
+    "given": "Ji-Young"
+   }
+  ],
+  "volume": "26",
+  "issue": "8",
+  "page": "1917-1920",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3201/eid2608.200633",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.1007/s11783-021-1386-6": {
+  "title": "Aerosol transmission, an indispensable route of COVID-19 spread: case study of a department-store cluster",
+  "container": "Frontiers of Environmental Science &amp; Engineering",
+  "authors": [
+   {
+    "family": "Jiang",
+    "given": "Guanyu"
+   },
+   {
+    "family": "Wang",
+    "given": "Can"
+   },
+   {
+    "family": "Song",
+    "given": "Lu"
+   },
+   {
+    "family": "Wang",
+    "given": "Xing"
+   },
+   {
+    "family": "Zhou",
+    "given": "Yangyang"
+   },
+   {
+    "family": "Fei",
+    "given": "Chunnan"
+   },
+   {
+    "family": "Liu",
+    "given": "He"
+   }
+  ],
+  "volume": "15",
+  "issue": "3",
+  "page": "",
+  "article_number": "46",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1007/s11783-021-1386-6",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.3201/eid2706.210465": {
+  "title": "Epidemiologic Evidence for Airborne Transmission of SARS-CoV-2 during Church Singing, Australia, 2020",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Katelaris",
+    "given": "Anthea L."
+   },
+   {
+    "family": "Wells",
+    "given": "Jessica"
+   },
+   {
+    "family": "Clark",
+    "given": "Penelope"
+   },
+   {
+    "family": "Norton",
+    "given": "Sophie"
+   },
+   {
+    "family": "Rockett",
+    "given": "Rebecca"
+   },
+   {
+    "family": "Arnott",
+    "given": "Alicia"
+   },
+   {
+    "family": "Sintchenko",
+    "given": "Vitali"
+   },
+   {
+    "family": "Corbett",
+    "given": "Stephen"
+   },
+   {
+    "family": "Bag",
+    "given": "Shopna K."
+   }
+  ],
+  "volume": "27",
+  "issue": "6",
+  "page": "1677-1680",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.3201/eid2706.210465",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.3201/eid2611.203299": {
+  "title": "Transmission of SARS-CoV 2 During Long-Haul Flight",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Khanh",
+    "given": "Nguyen Cong"
+   },
+   {
+    "family": "Thai",
+    "given": "Pham Quang"
+   },
+   {
+    "family": "Quach",
+    "given": "Ha-Linh"
+   },
+   {
+    "family": "Thi",
+    "given": "Ngoc-Anh Hoang"
+   },
+   {
+    "family": "Dinh",
+    "given": "Phung Cong"
+   },
+   {
+    "family": "Duong",
+    "given": "Tran Nhu"
+   },
+   {
+    "family": "Mai",
+    "given": "Le Thi Quynh"
+   },
+   {
+    "family": "Nghia",
+    "given": "Ngu Duy"
+   },
+   {
+    "family": "Tu",
+    "given": "Tran Anh"
+   },
+   {
+    "family": "Quang",
+    "given": "La Ngoc"
+   },
+   {
+    "family": "Quang",
+    "given": "Tran Dai"
+   },
+   {
+    "family": "Nguyen",
+    "given": "Trong-Tai"
+   },
+   {
+    "family": "Vogt",
+    "given": "Florian"
+   },
+   {
+    "family": "Anh",
+    "given": "Dang Duc"
+   }
+  ],
+  "volume": "26",
+  "issue": "11",
+  "page": "2617-2624",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3201/eid2611.203299",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.1136/oemed-2020-106626": {
+  "title": "Migrant workers and COVID-19",
+  "container": "Occupational and Environmental Medicine",
+  "authors": [
+   {
+    "family": "Koh",
+    "given": "David"
+   }
+  ],
+  "volume": "77",
+  "issue": "9",
+  "page": "634-636",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1136/oemed-2020-106626",
+  "publisher": "BMJ"
+ },
+ "10.3346/jkms.2020.35.e415": {
+  "title": "Evidence of Long-Distance Droplet Transmission of SARS-CoV-2 by Direct Air Flow in a Restaurant in Korea",
+  "container": "Journal of Korean Medical Science",
+  "authors": [
+   {
+    "family": "Kwon",
+    "given": "Keun-Sang"
+   },
+   {
+    "family": "Park",
+    "given": "Jung-Im"
+   },
+   {
+    "family": "Park",
+    "given": "Young Joon"
+   },
+   {
+    "family": "Jung",
+    "given": "Don-Myung"
+   },
+   {
+    "family": "Ryu",
+    "given": "Ki-Wahn"
+   },
+   {
+    "family": "Lee",
+    "given": "Ju-Hyung"
+   }
+  ],
+  "volume": "35",
+  "issue": "46",
+  "page": "",
+  "article_number": "e415",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3346/jkms.2020.35.e415",
+  "publisher": "XMLink"
+ },
+ "10.15585/mmwr.mm7035e2": {
+  "title": "Outbreak Associated with SARS-CoV-2 B.1.617.2 (Delta) Variant in an Elementary School — Marin County, California, May–June 2021",
+  "container": "MMWR. Morbidity and Mortality Weekly Report",
+  "authors": [
+   {
+    "family": "Lam-Hine",
+    "given": "Tracy"
+   },
+   {
+    "family": "McCurdy",
+    "given": "Stephen A."
+   },
+   {
+    "family": "Santora",
+    "given": "Lisa"
+   },
+   {
+    "family": "Duncan",
+    "given": "Lael"
+   },
+   {
+    "family": "Corbett-Detig",
+    "given": "Russell"
+   },
+   {
+    "family": "Kapusinszky",
+    "given": "Beatrix"
+   },
+   {
+    "family": "Willis",
+    "given": "Matthew"
+   }
+  ],
+  "volume": "70",
+  "issue": "35",
+  "page": "1214-1219",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.15585/mmwr.mm7035e2",
+  "publisher": "Centers for Disease Control MMWR Office"
+ },
+ "10.1136/oemed-2020-106774": {
+  "title": "Association between SARS-CoV-2 infection, exposure risk and mental health among a cohort of essential retail workers in the USA",
+  "container": "Occupational and Environmental Medicine",
+  "authors": [
+   {
+    "family": "Lan",
+    "given": "Fan-Yun"
+   },
+   {
+    "family": "Suharlim",
+    "given": "Christian"
+   },
+   {
+    "family": "Kales",
+    "given": "Stefanos N"
+   },
+   {
+    "family": "Yang",
+    "given": "Justin"
+   }
+  ],
+  "volume": "78",
+  "issue": "4",
+  "page": "237-243",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1136/oemed-2020-106774",
+  "publisher": "BMJ"
+ },
+ "10.1016/j.buildenv.2021.107788": {
+  "title": "Probable airborne transmission of SARS-CoV-2 in a poorly ventilated restaurant",
+  "container": "Building and Environment",
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Yuguo"
+   },
+   {
+    "family": "Qian",
+    "given": "Hua"
+   },
+   {
+    "family": "Hang",
+    "given": "Jian"
+   },
+   {
+    "family": "Chen",
+    "given": "Xuguang"
+   },
+   {
+    "family": "Cheng",
+    "given": "Pan"
+   },
+   {
+    "family": "Ling",
+    "given": "Hong"
+   },
+   {
+    "family": "Wang",
+    "given": "Shengqi"
+   },
+   {
+    "family": "Liang",
+    "given": "Peng"
+   },
+   {
+    "family": "Li",
+    "given": "Jiansen"
+   },
+   {
+    "family": "Xiao",
+    "given": "Shenglan"
+   },
+   {
+    "family": "Wei",
+    "given": "Jianjian"
+   },
+   {
+    "family": "Liu",
+    "given": "Li"
+   },
+   {
+    "family": "Cowling",
+    "given": "Benjamin J."
+   },
+   {
+    "family": "Kang",
+    "given": "Min"
+   }
+  ],
+  "volume": "196",
+  "issue": "",
+  "page": "107788",
+  "article_number": "107788",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1016/j.buildenv.2021.107788",
+  "publisher": "Elsevier BV"
+ },
+ "10.3390/ijerph19084876": {
+  "title": "The Analysis of Patterns of Two COVID-19 Outbreak Clusters in China",
+  "container": "International Journal of Environmental Research and Public Health",
+  "authors": [
+   {
+    "family": "Li",
+    "given": "Wenning"
+   },
+   {
+    "family": "Gong",
+    "given": "Jianhua"
+   },
+   {
+    "family": "Zhou",
+    "given": "Jieping"
+   },
+   {
+    "family": "Fan",
+    "given": "Hongkui"
+   },
+   {
+    "family": "Qin",
+    "given": "Cheng"
+   },
+   {
+    "family": "Gong",
+    "given": "Yujiang"
+   },
+   {
+    "family": "Hu",
+    "given": "Weidong"
+   }
+  ],
+  "volume": "19",
+  "issue": "8",
+  "page": "4876",
+  "article_number": "",
+  "year": 2022,
+  "type": "journal-article",
+  "doi": "10.3390/ijerph19084876",
+  "publisher": "MDPI AG"
+ },
+ "10.3201/eid2607.200764": {
+  "title": "COVID-19 Outbreak Associated with Air Conditioning in Restaurant, Guangzhou, China, 2020",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Lu",
+    "given": "Jianyun"
+   },
+   {
+    "family": "Gu",
+    "given": "Jieni"
+   },
+   {
+    "family": "Li",
+    "given": "Kuibiao"
+   },
+   {
+    "family": "Xu",
+    "given": "Conghui"
+   },
+   {
+    "family": "Su",
+    "given": "Wenzhe"
+   },
+   {
+    "family": "Lai",
+    "given": "Zhisheng"
+   },
+   {
+    "family": "Zhou",
+    "given": "Deqian"
+   },
+   {
+    "family": "Yu",
+    "given": "Chao"
+   },
+   {
+    "family": "Xu",
+    "given": "Bin"
+   },
+   {
+    "family": "Yang",
+    "given": "Zhicong"
+   }
+  ],
+  "volume": "26",
+  "issue": "7",
+  "page": "1628-1631",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3201/eid2607.200764",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.1093/ofid/ofaa430": {
+  "title": "Transmission of SARS-CoV-2 in Public Transportation Vehicles: A Case Study in Hunan Province, China",
+  "container": "Open Forum Infectious Diseases",
+  "authors": [
+   {
+    "family": "Luo",
+    "given": "Kaiwei"
+   },
+   {
+    "family": "Lei",
+    "given": "Zhao"
+   },
+   {
+    "family": "Hai",
+    "given": "Zheng"
+   },
+   {
+    "family": "Xiao",
+    "given": "Shanliang"
+   },
+   {
+    "family": "Rui",
+    "given": "Jia"
+   },
+   {
+    "family": "Yang",
+    "given": "Hao"
+   },
+   {
+    "family": "Jing",
+    "given": "Xinping"
+   },
+   {
+    "family": "Wang",
+    "given": "Hui"
+   },
+   {
+    "family": "Xie",
+    "given": "Zhengshen"
+   },
+   {
+    "family": "Luo",
+    "given": "Ping"
+   },
+   {
+    "family": "Li",
+    "given": "Wanying"
+   },
+   {
+    "family": "Li",
+    "given": "Qiao"
+   },
+   {
+    "family": "Tan",
+    "given": "Huilu"
+   },
+   {
+    "family": "Xu",
+    "given": "Zicheng"
+   },
+   {
+    "family": "Yang",
+    "given": "Yang"
+   },
+   {
+    "family": "Hu",
+    "given": "Shixiong"
+   },
+   {
+    "family": "Chen",
+    "given": "Tianmu"
+   }
+  ],
+  "volume": "7",
+  "issue": "10",
+  "page": "",
+  "article_number": "ofaa430",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1093/ofid/ofaa430",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1111/ina.12751": {
+  "title": "Transmission of SARS‐CoV‐2 by inhalation of respiratory aerosol in the Skagit Valley Chorale superspreading event",
+  "container": "Indoor Air",
+  "authors": [
+   {
+    "family": "Miller",
+    "given": "Shelly L."
+   },
+   {
+    "family": "Nazaroff",
+    "given": "William W"
+   },
+   {
+    "family": "Jimenez",
+    "given": "Jose L."
+   },
+   {
+    "family": "Boerstra",
+    "given": "Atze"
+   },
+   {
+    "family": "Buonanno",
+    "given": "Giorgio"
+   },
+   {
+    "family": "Dancer",
+    "given": "Stephanie J."
+   },
+   {
+    "family": "Kurnitski",
+    "given": "Jarek"
+   },
+   {
+    "family": "Marr",
+    "given": "Linsey C."
+   },
+   {
+    "family": "Morawska",
+    "given": "Lidia"
+   },
+   {
+    "family": "Noakes",
+    "given": "Catherine"
+   }
+  ],
+  "volume": "31",
+  "issue": "2",
+  "page": "314-323",
+  "article_number": "",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1111/ina.12751",
+  "publisher": "Wiley"
+ },
+ "10.2807/1560-7917.es.2020.25.10.2000180": {
+  "title": "Estimating the asymptomatic proportion of coronavirus disease 2019 (COVID-19) cases on board the Diamond Princess cruise ship, Yokohama, Japan, 2020",
+  "container": "Eurosurveillance",
+  "authors": [
+   {
+    "family": "Mizumoto",
+    "given": "Kenji"
+   },
+   {
+    "family": "Kagaya",
+    "given": "Katsushi"
+   },
+   {
+    "family": "Zarebski",
+    "given": "Alexander"
+   },
+   {
+    "family": "Chowell",
+    "given": "Gerardo"
+   }
+  ],
+  "volume": "25",
+  "issue": "10",
+  "page": "",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.2807/1560-7917.es.2020.25.10.2000180",
+  "publisher": "European Centre for Disease Control and Prevention (ECDC)"
+ },
+ "10.1093/oxfordjournals.aje.a112781": {
+  "title": "AN OUTBREAK OF INFLUENZA ABOARD A COMMERCIAL AIRLINER",
+  "container": "American Journal of Epidemiology",
+  "authors": [
+   {
+    "family": "MOSER",
+    "given": "MICHAEL R."
+   },
+   {
+    "family": "BENDER",
+    "given": "THOMAS R."
+   },
+   {
+    "family": "MARGOLIS",
+    "given": "HAROLD S."
+   },
+   {
+    "family": "NOBLE",
+    "given": "GARY R."
+   },
+   {
+    "family": "KENDAL",
+    "given": "ALAN P."
+   },
+   {
+    "family": "RITTER",
+    "given": "DONALD G."
+   }
+  ],
+  "volume": "110",
+  "issue": "1",
+  "page": "1-6",
+  "article_number": "",
+  "year": 1979,
+  "type": "journal-article",
+  "doi": "10.1093/oxfordjournals.aje.a112781",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1164/ajrccm/144.2.302": {
+  "title": "Airborne Infection: Theoretical Limits of Protection Achievable by Building Ventilation",
+  "container": "American Review of Respiratory Disease",
+  "authors": [
+   {
+    "family": "Nardell",
+    "given": "Edward A."
+   },
+   {
+    "family": "Keegan",
+    "given": "Joann"
+   },
+   {
+    "family": "Cheney",
+    "given": "Sally A."
+   },
+   {
+    "family": "Etkind",
+    "given": "Sue C."
+   }
+  ],
+  "volume": "144",
+  "issue": "2",
+  "page": "302-306",
+  "article_number": "",
+  "year": 1991,
+  "type": "journal-article",
+  "doi": "10.1164/ajrccm/144.2.302",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1093/occmed/kqad100": {
+  "title": "An outbreak of SARS-CoV-2 in a public-facing office in England",
+  "container": "Occupational Medicine",
+  "authors": [
+   {
+    "family": "Nicholls",
+    "given": "G"
+   },
+   {
+    "family": "Atkinson",
+    "given": "B"
+   },
+   {
+    "family": "van Veldhoven",
+    "given": "K"
+   },
+   {
+    "family": "Nicholls",
+    "given": "I"
+   },
+   {
+    "family": "Coldwell",
+    "given": "M"
+   },
+   {
+    "family": "Clarke",
+    "given": "A"
+   },
+   {
+    "family": "Atchison",
+    "given": "C J"
+   },
+   {
+    "family": "Raja",
+    "given": "A I"
+   },
+   {
+    "family": "Bennett",
+    "given": "A M"
+   },
+   {
+    "family": "Morgan",
+    "given": "D"
+   },
+   {
+    "family": "Pearce",
+    "given": "N"
+   },
+   {
+    "family": "Fletcher",
+    "given": "T"
+   },
+   {
+    "family": "Brickley",
+    "given": "E B"
+   },
+   {
+    "family": "Chen",
+    "given": "Y"
+   }
+  ],
+  "volume": "74",
+  "issue": "7",
+  "page": "475-485",
+  "article_number": "",
+  "year": 2024,
+  "type": "journal-article",
+  "doi": "10.1093/occmed/kqad100",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1016/j.buildenv.2021.108414": {
+  "title": "Insufficient ventilation led to a probable long-range airborne transmission of SARS-CoV-2 on two buses",
+  "container": "Building and Environment",
+  "authors": [
+   {
+    "family": "Ou",
+    "given": "Cuiyun"
+   },
+   {
+    "family": "Hu",
+    "given": "Shixiong"
+   },
+   {
+    "family": "Luo",
+    "given": "Kaiwei"
+   },
+   {
+    "family": "Yang",
+    "given": "Hongyu"
+   },
+   {
+    "family": "Hang",
+    "given": "Jian"
+   },
+   {
+    "family": "Cheng",
+    "given": "Pan"
+   },
+   {
+    "family": "Hai",
+    "given": "Zheng"
+   },
+   {
+    "family": "Xiao",
+    "given": "Shanliang"
+   },
+   {
+    "family": "Qian",
+    "given": "Hua"
+   },
+   {
+    "family": "Xiao",
+    "given": "Shenglan"
+   },
+   {
+    "family": "Jing",
+    "given": "Xinping"
+   },
+   {
+    "family": "Xie",
+    "given": "Zhengshen"
+   },
+   {
+    "family": "Ling",
+    "given": "Hong"
+   },
+   {
+    "family": "Liu",
+    "given": "Li"
+   },
+   {
+    "family": "Gao",
+    "given": "Lidong"
+   },
+   {
+    "family": "Deng",
+    "given": "Qihong"
+   },
+   {
+    "family": "Cowling",
+    "given": "Benjamin J."
+   },
+   {
+    "family": "Li",
+    "given": "Yuguo"
+   }
+  ],
+  "volume": "207",
+  "issue": "",
+  "page": "108414",
+  "article_number": "108414",
+  "year": 2022,
+  "type": "journal-article",
+  "doi": "10.1016/j.buildenv.2021.108414",
+  "publisher": "Elsevier BV"
+ },
+ "10.3201/eid2608.201274": {
+  "title": "Coronavirus Disease Outbreak in Call Center, South Korea",
+  "container": "Emerging Infectious Diseases",
+  "authors": [
+   {
+    "family": "Park",
+    "given": "Shin Young"
+   },
+   {
+    "family": "Kim",
+    "given": "Young-Man"
+   },
+   {
+    "family": "Yi",
+    "given": "Seonju"
+   },
+   {
+    "family": "Lee",
+    "given": "Sangeun"
+   },
+   {
+    "family": "Na",
+    "given": "Baeg-Ju"
+   },
+   {
+    "family": "Kim",
+    "given": "Chang Bo"
+   },
+   {
+    "family": "Kim",
+    "given": "Jung-il"
+   },
+   {
+    "family": "Kim",
+    "given": "Hea Sook"
+   },
+   {
+    "family": "Kim",
+    "given": "Young Bok"
+   },
+   {
+    "family": "Park",
+    "given": "Yoojin"
+   },
+   {
+    "family": "Huh",
+    "given": "In Sil"
+   },
+   {
+    "family": "Kim",
+    "given": "Hye Kyung"
+   },
+   {
+    "family": "Yoon",
+    "given": "Hyung Jun"
+   },
+   {
+    "family": "Jang",
+    "given": "Hanaram"
+   },
+   {
+    "family": "Kim",
+    "given": "Kyungnam"
+   },
+   {
+    "family": "Chang",
+    "given": "Yeonhwa"
+   },
+   {
+    "family": "Kim",
+    "given": "Inhye"
+   },
+   {
+    "family": "Lee",
+    "given": "Hyeyoung"
+   },
+   {
+    "family": "Gwack",
+    "given": "Jin"
+   },
+   {
+    "family": "Kim",
+    "given": "Seong Sun"
+   },
+   {
+    "family": "Kim",
+    "given": "Miyoung"
+   },
+   {
+    "family": "Kweon",
+    "given": "Sanghui"
+   },
+   {
+    "family": "Choe",
+    "given": "Young June"
+   },
+   {
+    "family": "Park",
+    "given": "Ok"
+   },
+   {
+    "family": "Park",
+    "given": "Young Joon"
+   },
+   {
+    "family": "Jeong",
+    "given": "Eun Kyeong"
+   }
+  ],
+  "volume": "26",
+  "issue": "8",
+  "page": "1666-1670",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.3201/eid2608.201274",
+  "publisher": "Centers for Disease Control and Prevention (CDC)"
+ },
+ "10.1093/oxfordjournals.aje.a112560": {
+  "title": "AIRBORNE SPREAD OF MEASLES IN A SUBURBAN ELEMENTARY SCHOOL",
+  "container": "American Journal of Epidemiology",
+  "authors": [
+   {
+    "family": "RILEY",
+    "given": "E. C."
+   },
+   {
+    "family": "MURPHY",
+    "given": "G."
+   },
+   {
+    "family": "RILEY",
+    "given": "R. L."
+   }
+  ],
+  "volume": "107",
+  "issue": "5",
+  "page": "421-432",
+  "article_number": "",
+  "year": 1978,
+  "type": "journal-article",
+  "doi": "10.1093/oxfordjournals.aje.a112560",
+  "publisher": "Oxford University Press (OUP)"
+ },
+ "10.1001/jamainternmed.2020.5225": {
+  "title": "Community Outbreak Investigation of SARS-CoV-2 Transmission Among Bus Riders in Eastern China",
+  "container": "JAMA Internal Medicine",
+  "authors": [
+   {
+    "family": "Shen",
+    "given": "Ye"
+   },
+   {
+    "family": "Li",
+    "given": "Changwei"
+   },
+   {
+    "family": "Dong",
+    "given": "Hongjun"
+   },
+   {
+    "family": "Wang",
+    "given": "Zhen"
+   },
+   {
+    "family": "Martinez",
+    "given": "Leonardo"
+   },
+   {
+    "family": "Sun",
+    "given": "Zhou"
+   },
+   {
+    "family": "Handel",
+    "given": "Andreas"
+   },
+   {
+    "family": "Chen",
+    "given": "Zhiping"
+   },
+   {
+    "family": "Chen",
+    "given": "Enfu"
+   },
+   {
+    "family": "Ebell",
+    "given": "Mark H."
+   },
+   {
+    "family": "Wang",
+    "given": "Fan"
+   },
+   {
+    "family": "Yi",
+    "given": "Bo"
+   },
+   {
+    "family": "Wang",
+    "given": "Haibin"
+   },
+   {
+    "family": "Wang",
+    "given": "Xiaoxiao"
+   },
+   {
+    "family": "Wang",
+    "given": "Aihong"
+   },
+   {
+    "family": "Chen",
+    "given": "Bingbing"
+   },
+   {
+    "family": "Qi",
+    "given": "Yanling"
+   },
+   {
+    "family": "Liang",
+    "given": "Lirong"
+   },
+   {
+    "family": "Li",
+    "given": "Yang"
+   },
+   {
+    "family": "Ling",
+    "given": "Feng"
+   },
+   {
+    "family": "Chen",
+    "given": "Junfang"
+   },
+   {
+    "family": "Xu",
+    "given": "Guozhang"
+   }
+  ],
+  "volume": "180",
+  "issue": "12",
+  "page": "1665",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1001/jamainternmed.2020.5225",
+  "publisher": "American Medical Association (AMA)"
+ },
+ "10.2807/1560-7917.es.2020.25.29.2001352": {
+  "title": "A large COVID-19 outbreak in a high school 10 days after schools’ reopening, Israel, May 2020",
+  "container": "Eurosurveillance",
+  "authors": [
+   {
+    "family": "Stein-Zamir",
+    "given": "Chen"
+   },
+   {
+    "family": "Abramson",
+    "given": "Nitza"
+   },
+   {
+    "family": "Shoob",
+    "given": "Hanna"
+   },
+   {
+    "family": "Libal",
+    "given": "Erez"
+   },
+   {
+    "family": "Bitan",
+    "given": "Menachem"
+   },
+   {
+    "family": "Cardash",
+    "given": "Tanya"
+   },
+   {
+    "family": "Cayam",
+    "given": "Refael"
+   },
+   {
+    "family": "Miskin",
+    "given": "Ian"
+   }
+  ],
+  "volume": "25",
+  "issue": "29",
+  "page": "",
+  "article_number": "",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.2807/1560-7917.es.2020.25.29.2001352",
+  "publisher": "European Centre for Disease Control and Prevention (ECDC)"
+ },
+ "10.1186/s12889-021-10713-z": {
+  "title": "Epidemiological investigation and intergenerational clinical characteristics of 24 coronavirus disease patients associated with a supermarket cluster: a retrospective study",
+  "container": "BMC Public Health",
+  "authors": [
+   {
+    "family": "Tian",
+    "given": "Suochen"
+   },
+   {
+    "family": "Wu",
+    "given": "Min"
+   },
+   {
+    "family": "Chang",
+    "given": "Zhenqin"
+   },
+   {
+    "family": "Wang",
+    "given": "Yunxia"
+   },
+   {
+    "family": "Zhou",
+    "given": "Guijie"
+   },
+   {
+    "family": "Zhang",
+    "given": "Wenming"
+   },
+   {
+    "family": "Xing",
+    "given": "Junmin"
+   },
+   {
+    "family": "Tian",
+    "given": "Hui"
+   },
+   {
+    "family": "Zhang",
+    "given": "Xihong"
+   },
+   {
+    "family": "Zou",
+    "given": "Xiuli"
+   },
+   {
+    "family": "Zhang",
+    "given": "Lina"
+   },
+   {
+    "family": "Liu",
+    "given": "Mingxin"
+   },
+   {
+    "family": "Chen",
+    "given": "Juan"
+   },
+   {
+    "family": "Han",
+    "given": "Jian"
+   },
+   {
+    "family": "Ning",
+    "given": "Kang"
+   },
+   {
+    "family": "Chen",
+    "given": "Shuangfeng"
+   },
+   {
+    "family": "Wu",
+    "given": "Tiejun"
+   }
+  ],
+  "volume": "21",
+  "issue": "1",
+  "page": "",
+  "article_number": "647",
+  "year": 2021,
+  "type": "journal-article",
+  "doi": "10.1186/s12889-021-10713-z",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1186/s13756-020-00861-z": {
+  "title": "Does respiratory co-infection facilitate dispersal of SARS-CoV-2? investigation of a super-spreading event in an open-space office",
+  "container": "Antimicrobial Resistance &amp; Infection Control",
+  "authors": [
+   {
+    "family": "Weissberg",
+    "given": "Dana"
+   },
+   {
+    "family": "Böni",
+    "given": "Jürg"
+   },
+   {
+    "family": "Rampini",
+    "given": "Silvana K."
+   },
+   {
+    "family": "Kufner",
+    "given": "Verena"
+   },
+   {
+    "family": "Zaheri",
+    "given": "Maryam"
+   },
+   {
+    "family": "Schreiber",
+    "given": "Peter W."
+   },
+   {
+    "family": "Abela",
+    "given": "Irene A."
+   },
+   {
+    "family": "Huber",
+    "given": "Michael"
+   },
+   {
+    "family": "Sax",
+    "given": "Hugo"
+   },
+   {
+    "family": "Wolfensberger",
+    "given": "Aline"
+   }
+  ],
+  "volume": "9",
+  "issue": "1",
+  "page": "",
+  "article_number": "191",
+  "year": 2020,
+  "type": "journal-article",
+  "doi": "10.1186/s13756-020-00861-z",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1007/bf01318910": {
+  "title": "Superconvexity of the spectral radius, and convexity of the spectral bound and the type",
+  "container": "Mathematische Zeitschrift",
+  "authors": [
+   {
+    "family": "Kato",
+    "given": "Tosio"
+   }
+  ],
+  "volume": "180",
+  "issue": "3",
+  "page": "265-273",
+  "article_number": "",
+  "year": 1982,
+  "type": "journal-article",
+  "doi": "10.1007/bf01318910",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1007/s11538-018-0507-2": {
+  "title": "Analysis of Transmission of Infection in Epidemics: Confined Random Walkers in Dimensions Higher Than One",
+  "container": "Bulletin of Mathematical Biology",
+  "authors": [
+   {
+    "family": "Sugaya",
+    "given": "S."
+   },
+   {
+    "family": "Kenkre",
+    "given": "V. M."
+   }
+  ],
+  "volume": "80",
+  "issue": "12",
+  "page": "3106-3126",
+  "article_number": "",
+  "year": 2018,
+  "type": "journal-article",
+  "doi": "10.1007/s11538-018-0507-2",
+  "publisher": "Springer Science and Business Media LLC"
+ },
+ "10.1017/9781108882279": {
+  "title": "Theory of the Spread of Epidemics and Movement Ecology of Animals",
+  "container": "",
+  "authors": [
+   {
+    "family": "Kenkre",
+    "given": "V. M. (Nitant)"
+   },
+   {
+    "family": "Giuggioli",
+    "given": "Luca"
+   }
+  ],
+  "volume": "",
+  "issue": "",
+  "page": "",
+  "article_number": "",
+  "year": 2021,
+  "type": "monograph",
+  "doi": "10.1017/9781108882279",
+  "publisher": "Cambridge University Press"
+ },
+ "10.1006/tpbi.1994.1032": {
+  "title": "The Importance of Being Discrete (and Spatial)",
+  "container": "Theoretical Population Biology",
+  "authors": [
+   {
+    "family": "Durrett",
+    "given": "R."
+   },
+   {
+    "family": "Levin",
+    "given": "S."
+   }
+  ],
+  "volume": "46",
+  "issue": "3",
+  "page": "363-394",
+  "article_number": "",
+  "year": 1994,
+  "type": "journal-article",
+  "doi": "10.1006/tpbi.1994.1032",
+  "publisher": "Elsevier BV"
+ }
+}

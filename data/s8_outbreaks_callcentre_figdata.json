@@ -1,0 +1,32 @@
+{
+ "north": [
+  79,
+  137
+ ],
+ "south": [
+  4,
+  62
+ ],
+ "case_seats_shown": 84,
+ "adjacent_pairs": 286,
+ "observed_case_case_pairs": 91,
+ "null_mean": 94.56885,
+ "null_sd": 5.559451866214208,
+ "z": -0.6419427824689954,
+ "p_one_sided": 0.7642617869106545,
+ "n_perm": 20000,
+ "M2_P_z_le_obs_equal_weight": 0.006769122849058618,
+ "M2_P_z_le_obs_pooled_weight": 0.012751085280562938,
+ "restaurant_posterior_q05_q95": [
+  0.02618777017582269,
+  38.64173814190099
+ ],
+ "wellmixed_P_z_le_obs": 0.2575534266764923,
+ "tracer_P_z_le_obs": 0.10097608797578961,
+ "tracer_D_office": [
+  45.55,
+  185.20029697600378,
+  753.0
+ ],
+ "source": "seat map digitised from Fig. 2 of Park et al. (2020), doi:10.3201/eid2608.201274"
+}

@@ -1,0 +1,405 @@
+{
+ "seed": 20261001,
+ "risk_ratios": [
+  {
+   "outbreak_id": "O1_seoul_callcentre",
+   "contrast": "wing with most cases vs other wing (index position unknown)",
+   "near": "north wing desks (digitized)",
+   "far": "south wing desks (digitized)",
+   "near_k": 79,
+   "near_n": 137,
+   "far_k": 4,
+   "far_n": 62,
+   "near_ar": 0.5766423357664233,
+   "far_ar": 0.06451612903225806,
+   "risk_ratio": 8.937956204379562,
+   "rr_ci_low": 3.4268746974237456,
+   "rr_ci_high": 23.31192942988682,
+   "continuity_corrected": false,
+   "fisher_p": 5.188212825314601e-13
+  },
+  {
+   "outbreak_id": "C1_marin_classroom",
+   "contrast": "rows nearest the index vs farther rows",
+   "near": "front two rows (nearest teacher)",
+   "far": "back three rows",
+   "near_k": 8,
+   "near_n": 10,
+   "far_k": 4,
+   "far_n": 14,
+   "near_ar": 0.8,
+   "far_ar": 0.2857142857142857,
+   "risk_ratio": 2.8000000000000003,
+   "rr_ci_low": 1.156373901467402,
+   "rr_ci_high": 6.779814029053482,
+   "continuity_corrected": false,
+   "fisher_p": 0.03607484183604792
+  },
+  {
+   "outbreak_id": "T1_zhejiang_bus",
+   "contrast": "within ~2 m (3 rows) vs beyond",
+   "near": "rows 5-11 (within ~2 m of index row 8)",
+   "far": "rows 1-4 and 12-15",
+   "near_k": 14,
+   "near_n": 33,
+   "far_k": 9,
+   "far_n": 34,
+   "near_ar": 0.42424242424242425,
+   "far_ar": 0.2647058823529412,
+   "risk_ratio": 1.6026936026936027,
+   "rr_ci_low": 0.8063613053106077,
+   "rr_ci_high": 3.1854539239399307,
+   "continuity_corrected": false,
+   "fisher_p": 0.20412478423837427
+  },
+  {
+   "outbreak_id": "T1_zhejiang_bus",
+   "contrast": "within 2 rows vs beyond (alternative split)",
+   "near": "rows 6-10 (within 2 rows)",
+   "far": "rows 1-5 and 11-15",
+   "near_k": 11,
+   "near_n": 23,
+   "far_k": 12,
+   "far_n": 44,
+   "near_ar": 0.4782608695652174,
+   "far_ar": 0.2727272727272727,
+   "risk_ratio": 1.7536231884057973,
+   "rr_ci_low": 0.9207675283524764,
+   "rr_ci_high": 3.3398161775067594,
+   "continuity_corrected": false,
+   "fisher_p": 0.11033289172565708
+  },
+  {
+   "outbreak_id": "T2_hunan_coach",
+   "contrast": "index half vs other half of coach",
+   "near": "rear seats rows 8-13 (index zone)",
+   "far": "front seats rows 1-7",
+   "near_k": 3,
+   "near_n": 19,
+   "far_k": 4,
+   "far_n": 26,
+   "near_ar": 0.15789473684210525,
+   "far_ar": 0.15384615384615385,
+   "risk_ratio": 1.026315789473684,
+   "rr_ci_low": 0.2594588302190012,
+   "rr_ci_high": 4.059696479915187,
+   "continuity_corrected": false,
+   "fisher_p": 1.0
+  },
+  {
+   "outbreak_id": "T5_vn54_flight",
+   "contrast": "within ~2 m vs beyond, same cabin",
+   "near": "business class, '\u22642 seats away' (within ~2 m)",
+   "far": "business class, '>2 seats away'",
+   "near_k": 11,
+   "near_n": 12,
+   "far_k": 1,
+   "far_n": 8,
+   "near_ar": 0.9166666666666666,
+   "far_ar": 0.125,
+   "risk_ratio": 7.333333333333333,
+   "rr_ci_low": 1.163110988047588,
+   "rr_ci_high": 46.23615315340609,
+   "continuity_corrected": false,
+   "fisher_p": 0.000770024609033897
+  },
+  {
+   "outbreak_id": "R1_guangzhou_restaurant",
+   "contrast": "adjacent tables vs remote tables",
+   "near": "immediate neighbouring tables (TB, TC, T18)",
+   "far": "remote tables (T04-T17)",
+   "near_k": 5,
+   "near_n": 16,
+   "far_k": 0,
+   "far_n": 63,
+   "near_ar": 0.3125,
+   "far_ar": 0.0,
+   "risk_ratio": 41.411764705882355,
+   "rr_ci_low": 2.406746179496355,
+   "rr_ci_high": 712.5530189536802,
+   "continuity_corrected": true,
+   "fisher_p": 0.00019381018714796197
+  },
+  {
+   "outbreak_id": "R1_guangzhou_restaurant",
+   "contrast": "same airflow zone vs other zones",
+   "near": "ABC air-conditioning zone, non-A tables (TB, TC)",
+   "far": "other air-conditioning zones",
+   "near_k": 5,
+   "near_n": 11,
+   "far_k": 0,
+   "far_n": 68,
+   "near_ar": 0.45454545454545453,
+   "far_ar": 0.0,
+   "risk_ratio": 63.25,
+   "rr_ci_low": 3.7345658316301997,
+   "rr_ci_high": 1071.2255936465012,
+   "continuity_corrected": true,
+   "fisher_p": 2.0499154409880594e-05
+  },
+  {
+   "outbreak_id": "C2_jerusalem_highschool",
+   "contrast": "building wing with index classes vs other wing",
+   "near": "grades 7-9 (junior wing)",
+   "far": "grades 10-12 (senior wing)",
+   "near_k": 135,
+   "near_n": 581,
+   "far_k": 18,
+   "far_n": 583,
+   "near_ar": 0.23235800344234078,
+   "far_ar": 0.030874785591766724,
+   "risk_ratio": 7.525817555938038,
+   "rr_ci_low": 4.665231696485159,
+   "rr_ci_high": 12.140432366507515,
+   "continuity_corrected": false,
+   "fisher_p": 1.2840789858575812e-26
+  },
+  {
+   "outbreak_id": "S1_liaocheng_supermarket",
+   "contrast": "long-dwell staff vs short-dwell customers",
+   "near": "employees (shift-long exposure)",
+   "far": "customers (short visits)",
+   "near_k": 11,
+   "near_n": 120,
+   "far_k": 0,
+   "far_n": 8224,
+   "near_ar": 0.09166666666666666,
+   "far_ar": 0.0,
+   "risk_ratio": 1563.4297520661157,
+   "rr_ci_low": 92.65256006893561,
+   "rr_ci_high": 26381.490029275952,
+   "continuity_corrected": true,
+   "fisher_p": 3.416768218544701e-21
+  }
+ ],
+ "callcentre": {
+  "north": [
+   79,
+   137
+  ],
+  "south": [
+   4,
+   62
+  ],
+  "fisher_p_north_vs_south": 5.188212825314601e-13,
+  "cases_with_seat_in_figure": 84,
+  "cases_reported_floor": 94,
+  "north_ar_if_all_10_unlocated_in_north": 0.6496350364963503,
+  "digitized_desks": 199,
+  "north_share_of_digitized_desks": 0.6884422110552764,
+  "north_share_of_216_employees": 0.6342592592592593,
+  "joincount": {
+   "adjacent_pairs": 286,
+   "observed_case_case_pairs": 91,
+   "null_mean": 94.56885,
+   "null_sd": 5.559451866214208,
+   "z": -0.6419427824689954,
+   "p_one_sided_greater": 0.7642617869106545,
+   "n_perm": 20000,
+   "neighbour_radius_pitch": 1.25
+  },
+  "north_wing_blocks": {
+   "n_blocks": 11,
+   "cases": [
+    2,
+    8,
+    6,
+    8,
+    9,
+    6,
+    9,
+    9,
+    6,
+    8,
+    8
+   ],
+   "desks": [
+    7,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13
+   ],
+   "chi2": 7.000450880415961,
+   "dof": 10,
+   "p": 0.7254023867433903
+  },
+  "north_wing_x_gradient": {
+   "spearman_rho": 0.07627110778469787,
+   "p": 0.37570271624145013
+  },
+  "onset_growth": {
+   "2020-02-25..2020-03-06": {
+    "r_per_day": 0.40951776396752515,
+    "se": 0.08124811916830693,
+    "ci95": [
+     0.25027145039764354,
+     0.5687640775374068
+    ],
+    "doubling_time_d": 1.6925936834693989,
+    "n_cases": 34
+   },
+   "2020-02-25..2020-03-07": {
+    "r_per_day": 0.38292970212338423,
+    "se": 0.06304753540268686,
+    "ci95": [
+     0.25935653273411796,
+     0.5065028715126505
+    ],
+    "doubling_time_d": 1.8101159996635767,
+    "n_cases": 48
+   },
+   "2020-02-25..2020-03-09": {
+    "r_per_day": 0.2935525515101084,
+    "se": 0.0400307183769761,
+    "ci95": [
+     0.21509234349123524,
+     0.37201275952898155
+    ],
+    "doubling_time_d": 2.361237117491302,
+    "n_cases": 76
+   }
+  },
+  "onset_total_floor11": 86,
+  "onset_peak_window": "2020-03-06..2020-03-09 (58 of 86 dated 11th-floor onsets)",
+  "onsets_mar6_to_mar9": 58
+ },
+ "single_event_levels": [
+  {
+   "id": "O2_zurich_office",
+   "T_h": 11.0,
+   "AR": 0.6666667,
+   "H": 1.0986,
+   "h_per_hour": 0.0999
+  },
+  {
+   "id": "O5_tb_office",
+   "T_h": 160.0,
+   "AR": 0.4029851,
+   "H": 0.5158,
+   "h_per_hour": 0.0032
+  },
+  {
+   "id": "T1_zhejiang_bus",
+   "T_h": 1.6666666666666667,
+   "AR": 0.3432836,
+   "H": 0.4205,
+   "h_per_hour": 0.2523
+  },
+  {
+   "id": "T2_hunan_coach",
+   "T_h": 2.5,
+   "AR": 0.1458333,
+   "H": 0.1576,
+   "h_per_hour": 0.0631
+  },
+  {
+   "id": "T3_hunan_minibus",
+   "T_h": 1.0,
+   "AR": 0.1666667,
+   "H": 0.1823,
+   "h_per_hour": 0.1823
+  },
+  {
+   "id": "T5_vn54_flight",
+   "T_h": 10.0,
+   "AR": 0.6,
+   "H": 0.9163,
+   "h_per_hour": 0.0916
+  },
+  {
+   "id": "R1_guangzhou_restaurant",
+   "T_h": 1.37,
+   "AR": 0.0632911,
+   "H": 0.0654,
+   "h_per_hour": 0.0477
+  },
+  {
+   "id": "R2_jeonju_restaurant",
+   "T_h": 0.35,
+   "AR": 0.1538462,
+   "H": 0.1671,
+   "h_per_hour": 0.4773
+  },
+  {
+   "id": "H1_skagit_choir",
+   "T_h": 2.5,
+   "AR": 0.8666667,
+   "H": 2.0149,
+   "h_per_hour": 0.806
+  },
+  {
+   "id": "H2_sydney_church",
+   "T_h": 1.0,
+   "AR": 0.023622,
+   "H": 0.0239,
+   "h_per_hour": 0.0239
+  }
+ ],
+ "hazard_per_hour_range": {
+  "min": 0.0239,
+  "max": 0.806,
+  "ratio": 33.72384937238494,
+  "n": 9,
+  "geometric_mean": 0.13136231014977134,
+  "gsd": 3.0864930442469154,
+  "scope": "SARS-CoV-2 single-index events"
+ },
+ "negative_controls": [
+  {
+   "name": "S1 customers",
+   "k": 0,
+   "n": 8224,
+   "ar": 0.0,
+   "upper95_one_sided": 0.00036420071941998806
+  },
+  {
+   "name": "T1 unexposed bus",
+   "k": 0,
+   "n": 60,
+   "ar": 0.0,
+   "upper95_one_sided": 0.04870291331009749
+  },
+  {
+   "name": "R1 remote tables",
+   "k": 0,
+   "n": 63,
+   "ar": 0.0,
+   "upper95_one_sided": 0.04643845148393822
+  },
+  {
+   "name": "R1 other zones",
+   "k": 0,
+   "n": 68,
+   "ar": 0.0,
+   "upper95_one_sided": 0.043098564820088364
+  },
+  {
+   "name": "T5 premium economy",
+   "k": 0,
+   "n": 35,
+   "ar": 0.0,
+   "upper95_one_sided": 0.08203163585667045
+  },
+  {
+   "name": "C3 Utah classroom contacts",
+   "k": 5,
+   "n": 728,
+   "ar": 0.006868131868131868,
+   "upper95_one_sided": 0.014386357657616852
+  },
+  {
+   "name": "O1 floors 7-9",
+   "k": 1,
+   "n": 595,
+   "ar": 0.0016806722689075631,
+   "upper95_one_sided": 0.007947841914022157
+  }
+ ]
+}

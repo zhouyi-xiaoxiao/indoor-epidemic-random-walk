@@ -1,0 +1,373 @@
+% supp_datasets.tex -- Supplementary Section S6: the outbreak records (body only; \input by supplement.tex).
+% Paths in "% src:" comments are relative to the repository root.
+% Tables: the three table bodies between the markers ">>> GENERATED" / "<<< GENERATED" are written by
+%   code/appB_dataset_table.py (from data/bsc_outbreaks/outbreaks.csv and data/bsc_outbreaks/tables/*.csv);
+%   all other numbers of this appendix are in data/appB_dataset_numbers.json (same script).
+% Figure: code/appB_dataset_fig_attack.py -> figures/appB_dataset_attack_{en,zh}.pdf.
+\section{The outbreak records}\label{appB_dataset:sec}
+
+This section documents the two datasets of outbreak records used in Section~\ref{M-s8_outbreaks:sec} of the main
+text. For the first dataset, 27 records of outbreaks and exposure cohorts (Section~\ref{appB_dataset:sec:first}), it
+says how they were found, what was recorded, how reliable each record is, and which numbers were digitised or
+reconstructed. The second dataset, eleven records of ten outbreaks with positions, follows in
+Section~\ref{appB_dataset:sec:second}.
+
+\subsection{The first dataset: 27 records of outbreaks and exposure cohorts}\label{appB_dataset:sec:first}
+% src: data/bsc_outbreaks/outbreaks.csv (27 rows); data/appB_dataset_numbers.json -> n_records
+
+\paragraph{Search and inclusion.}
+Candidate outbreaks were located by web search, with one set of queries per scene (office and call centre;
+supermarket and retail; classroom and school; metro, bus, train and aircraft; restaurant; choir), and by
+following the citations of the papers found. This is not a systematic review and the coverage is not
+exhaustive. A record was included if (a) it is described in a peer-reviewed article or an official
+surveillance report, (b) the DOI of that source is registered, and (c) the source gives at least one of: the
+number of exposed people, positions at seat or zone level, the geometry of the room, the duration of exposure.
+% src: code/bsc_outbreaks/scripts/build_dataset.py; data/bsc_outbreaks/sources.md
+The result is 27 records from 31 sources: 5 offices and workplaces, 4 retail settings, 5 classrooms and
+class-like rooms, 7 vehicle cabins, 2 restaurants, 2 choir or church events, and 2 records of large settings that
+lie outside the scope of the model (a cruise ship and worker dormitories). These two are recorded for reference
+only, as examples of large shared settings with long exposure that a model of one closed room does not cover, and
+take part in no comparison.
+% src: data/appB_dataset_numbers.json -> records_by_group, sources.n
+Three records without a denominator (S3, C4, T7) and one with a reported attack rate but no transcribed
+counts (T6: 54 persons aboard, 72\pct{} of the passengers ill, from the abstract) were kept as context for their
+settings; like the two out-of-scope records, they take no part in any quantitative comparison.
+% src: data/appB_dataset_numbers.json -> records_without_denominator (S3, C4, T7), records_with_reported_rate_but_no_counts (T6), records_with_counts (23); data/bsc_outbreaks/outbreaks.csv -> T6 (occupancy_n 54, attack_rate_reported); data/refs_search.json (manual_checks.moser1979)
+No documented outbreak in a metro carriage with an exposed denominator was found; buses, a coach, a minibus,
+a train cohort and one flight stand in for that scene. The supermarket has one record with denominators for
+staff and customers (S1) and none with geometry, positions or dwell times.
+% src: data/bsc_outbreaks/outbreaks.csv (scene groups); notes/VERIFICATION.md (Section 4.4, outbreak dataset, item 3: unverifiable)
+
+\paragraph{What was recorded.}
+Each record has 51 fields: setting, place, dates and pathogen; the sources and how each was read; type and
+duration of exposure; room geometry, occupancy, ventilation and mask use; the index case; the numbers
+exposed and infected, with an alternative count where sources or case definitions differ; the attack rate
+with its exact (Clopper--Pearson) 95\,\% interval; the spatial pattern reported; a quality grade; a list
+of the fields that were derived and not transcribed; and the mapping to the model.
+% src: data/bsc_outbreaks/outbreaks.csv (header, 51 columns); data/appB_dataset_numbers.json -> n_columns
+Table~\ref{appB_dataset:tab:records} lists the records and Fig.~\ref{appB_dataset:fig:attack} shows the
+attack rates. Three records concern other pathogens (O5 tuberculosis, C4 measles, T6 influenza).
+% src: data/appB_dataset_numbers.json -> other_pathogens
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}p{0.45cm}>{\raggedright}p{3.2cm}>{\raggedright}p{2.25cm}>{\raggedright}p{2.3cm}>{\raggedright}p{1.75cm}>{\raggedright}p{2.5cm}p{0.45cm}>{\raggedright\arraybackslash}p{1.4cm}@{}}
+\caption{The 27 records of the outbreak dataset. Counts exclude the index case unless marked $\dagger$.
+Attack rates and exact (Clopper--Pearson) 95\,\% intervals are computed from the counts in the third column;
+`(or \dots)' gives the count of a second source or case definition. Exposure is the duration of the event,
+or of each exposure where it was repeated. Grades are those assigned when the dataset was built (criteria
+in the text). Record T4 pools 2,334 index patients.}
+\label{appB_dataset:tab:records}\\
+\toprule
+ID & Setting (place) & Cases / exposed & Attack rate, \% (95\,\% interval) & Exposure & Ventilation & Gr. & Sources \\
+\midrule
+\endfirsthead
+\multicolumn{8}{@{}l}{\emph{Table~\thetable{} (continued)}}\\
+\toprule
+ID & Setting (place) & Cases / exposed & Attack rate, \% (95\,\% interval) & Exposure & Ventilation & Gr. & Sources \\
+\midrule
+\endhead
+\midrule
+\multicolumn{8}{r@{}}{\emph{continued on the next page}}\\
+\endfoot
+\bottomrule
+\addlinespace[3pt]
+\multicolumn{8}{@{}p{15.6cm}@{}}{$\dagger$ numerator and denominator include the index or primary case(s).
+$\ddagger$ upper bound on the number infected in the restaurant (see text).
+$*$ graded A, but not all grade-A criteria are met (see text).
+$\S$ numerator derived from the reported attack rate (26.3\pct{} of 217); the record pools the classes of eight
+infected instructors in 12 facilities and is not a single-index event.
+Reading access to the source: $^{\mathrm{a}}$ abstract only; $^{\mathrm{e}}$ publisher's page available only as an automated text extraction; $^{\mathrm{m}}$ accepted manuscript; unmarked, full text.}\\
+\endlastfoot
+% src: data/bsc_outbreaks/outbreaks.csv; intervals recomputed and checked against the columns ci95_low, ci95_high
+% >>> GENERATED records (code/appB_dataset_table.py; do not edit by hand)
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Offices and workplaces}}\\
+O1 & Call centre, 11th floor, open-plan desks (Seoul) & 94/216$^{\dagger}$ & 43.5 (36.8--50.4) & working days over about 2 weeks & not reported & B & \citep{park2020} \\
+O2 & Team of 13 in an open-plan office (Zurich) & 8/12 (or 10/12) & 66.7 (34.9--90.1) & 11 h & mechanical, about 1 air change per hour & B & \citep{weissberg2020} \\
+O3 & Public-facing office, three open-plan floors (England) & 22/40$^{\dagger}$ & 55.0 (38.5--70.7) & weeks & CO$_2$ typically $\le$1000 ppm & C & \citep{nicholls2024}$^{\mathrm{a}}$ \\
+O4 & Beef-processing line, fixed work stations (Germany) & 20/78 & 25.6 (16.4--36.8) & 3 shifts & $<$1 air change per hour, recirculating cooling fans & B & \citep{guenther2020} \\
+O5 & Office building, tuberculosis (Massachusetts) & 27/67 & 40.3 (28.5--53.0) & 160 h (4 weeks) & about 7 l/s outdoor air per occupant & C & \citep{nardell1991}$^{\mathrm{a}}$ \\
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Supermarket and retail}}\\
+S1 & Supermarket, staff (Liaocheng) & 11/120$^{\dagger}$ & 9.2 (4.7--15.8) & not reported & not reported & B & \citep{tian2021} \\
+S2 & Department store, sales staff (Tianjin) & 6/194$^{\dagger}$ (or 7/194) & 3.1 (1.1--6.6) & not reported & described as poorly ventilated & C & \citep{chen2020tianjin,li2022twoclusters}, \citep{jiang2021deptstore}$^{\mathrm{a}}$ \\
+S3 & Shopping mall, 8 floors (Wenzhou) & no denominator & -- & not reported & not reported & C & \citep{cai2020} \\
+S4 & Grocery store, staff, PCR screen (Massachusetts) & 21/104$^{\dagger}$ & 20.2 (13.0--29.2) & not reported & not reported & C & \citep{lan2021}$^{\mathrm{a}}$ \\
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Classrooms and class-like rooms}}\\
+C1 & Primary-school classroom, 24 pupils in 5 rows (Marin County) & 12/24 & 50.0 (29.1--70.9) & school days; hours not reported & portable HEPA filter; doors and windows open & A$^{*}$ & \citep{lamhine2021} \\
+C2 & High school, 35--38 pupils per classroom of 39--49 m$^2$ (Jerusalem) & 153/1{,}161$^{\dagger}$ & 13.2 (11.3--15.3) & 8--9 school days of 6.3--6.7 h & split air conditioning, recirculating & B & \citep{steinzamir2020} \\
+C3 & 20 primary schools, masks worn, seats 0.9 m apart (Utah) & 5/728 & 0.69 (0.22--1.60) & school days; not quantified & not quantified & B & \citep{hershow2021} \\
+C4 & Primary school, 14 classrooms on one recirculating system, measles (New York State) & 28 cases; no denominator & -- & not in abstract & largely recirculated air & C & \citep{riley1978}$^{\mathrm{a}}$ \\
+C5 & Fitness dance classes in a 60 m$^2$ room (Cheonan) & 57/217$^{\S}$ & 26.3 (20.5--32.7) & 50 min per class & not reported & B & \citep{jang2020} \\
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Vehicle cabins (stand-ins for the metro carriage)}}\\
+T1 & Bus, 15 rows of seats (Zhejiang) & 23/67 & 34.3 (23.2--46.9) & 50 min each way & air conditioning on recirculation & A & \citep{shen2020}$^{\mathrm{e}}$ \\
+T2 & Coach, 49 seats, windows closed (Hunan) & 7/48 (or 7/46; 45 with seat positions) & 14.6 (6.1--27.8) & 2.5 h (200 min in the second report) & 1.72 l/s per person, measured & A & \citep{luo2020,ou2022} \\
+T3 & Minibus, 18 seats (Hunan) & 2/12 (or 2/17) & 16.7 (2.1--48.4) & 60 min & 3.22 l/s per person, measured & B & \citep{luo2020,ou2022} \\
+T4 & High-speed trains, pooled contact-tracing cohort (China) & 234/72{,}093 & 0.32 (0.28--0.37) & mean 2.1 h & not reported & A$^{*}$ & \citep{hu2021}$^{\mathrm{e}}$ \\
+T5 & Long-haul flight, business cabin (London--Hanoi) & 12/20 & 60.0 (36.1--80.9) & 10 h & aircraft cabin; not quantified & A & \citep{khanh2020} \\
+T6 & Airliner held on the ground, influenza (Alaska) & 72\,\% of passengers; 54 aboard (counts not transcribed) & -- & 3 h & none (system inoperative) & C & \citep{moser1979}$^{\mathrm{a}}$ \\
+T7 & National cluster surveillance; commuter rail as a venue (Japan) & no denominator & -- & -- & -- & C & \citep{furuse2020} \\
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Restaurants}}\\
+R1 & Restaurant, 18 tables, 89 patrons (Guangzhou) & 5/79$^{\ddagger}$ & 6.3 (2.1--14.2) & 82 min (index table) & 0.56--0.77 air changes per hour, measured & A & \citep{li2021,lu2020} \\
+R2 & Restaurant, 9.2 m $\times$ 10.5 m (Jeonju) & 2/13 & 15.4 (1.9--45.4) & overlaps of 5 and 21 min & no ventilation system; air-conditioner jet & A & \citep{kwon2020} \\
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Choir and church}}\\
+H1 & Choir rehearsal in a church hall (Skagit County) & 52/60 (32/60 confirmed) & 86.7 (75.4--94.1) & 2.5 h & 0.3--1.0 h$^{-1}$, estimated & A$^{*}$ & \citep{miller2021}$^{\mathrm{m}}$, \citep{hamner2020}$^{\mathrm{e}}$ \\
+H2 & Church services, singer in a choir loft (Sydney) & 12/508 & 2.4 (1.2--4.1) & 1 h per service & minimal: fans off, doors and windows largely closed & B & \citep{katelaris2021} \\
+\addlinespace[2pt]\multicolumn{8}{@{}l}{\emph{Outside the scope of the model (recorded for reference)}}\\
+X1 & Cruise ship under quarantine (Yokohama) & 634/3{,}711$^{\dagger}$ & 17.1 (15.9--18.3) & weeks & -- & X & \citep{mizumoto2020} \\
+X2 & Migrant-worker dormitories (Singapore) & 17{,}758/295{,}000$^{\dagger}$ & 6.0 (5.9--6.1) & weeks to months & -- & X & \citep{koh2020} \\
+% <<< GENERATED records
+\end{longtable}
+}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{appB_dataset_attack_en}
+\caption{Attack rates of the 23 records that have an exposed denominator, with exact (Clopper--Pearson)
+95\,\% intervals, in the order of Table~\ref{appB_dataset:tab:records}. Filled circle: the count used in this
+article; open circle: the alternative count (O2: 10 instead of 8 secondary cases; S2: 7 instead of 6;
+T2: 7/46; T3: 2/17; H1: the 32 laboratory-confirmed cases only). $\dagger$: counts include the index or
+primary case(s). `Multi-day' means that no duration in hours is recorded. A$*$: graded A without meeting
+every grade-A criterion. The events differ in pathogen, variant, mask use, testing and number of
+generations, so the attack rates are not comparable as levels of risk.}
+% src: code/appB_dataset_fig_attack.py; data/appB_dataset_fig_attack.json (rows drawn)
+\label{appB_dataset:fig:attack}
+\end{figure}
+
+\paragraph{Grades.}
+Grade A (8 records) was defined as: a single index case, an enumerated exposed group, positions at seat or
+zone level, a reported duration, and a geometry that is reported or measurable. Grade B (9 records) requires a
+denominator and a duration with partial spatial information; grade C (8 records) covers aggregate,
+multi-generation, abstract-only or incompletely enumerated events; the 2 out-of-scope records are graded X.
+% src: data/bsc_outbreaks/outbreaks.csv (quality); data/appB_dataset_numbers.json -> grades
+The re-check found that only 5 of the 8 grade-A records (T1, T2, T5, R1, R2) meet all the
+grade-A criteria. The classroom C1 has no exposure duration in hours and no room size; the train cohort T4
+pools 2,334 index patients and its source prints no cell denominators; and no seat or zone positions were
+published for the choir H1. These three are marked A$*$. They remain in use (T4 is the only matrix of attack
+rates by seat offset, H1 the benchmark for the level of the attack rate), but the dataset contains five, not
+eight, single-index events with positions, a duration and a geometry.
+% src: notes/VERIFICATION.md -> Section 4.4, outbreak dataset, item 1 (partially confirmed);
+%      data/appB_dataset_numbers.json -> grade_A
+
+\paragraph{Reading access.}
+All 31 DOIs were confirmed in the DOI registry, and the bibliographic fields were taken from Crossref; the
+re-check repeated both checks.
+% src: data/bsc_outbreaks/tables/doi_verification.json; code/bsc_outbreaks/verify/results/source_check.json
+The numbers were transcribed from the full text for 21 sources and from the accepted manuscript for one
+\citep{miller2021}. Three sources \citep{shen2020,hu2021,hamner2020} were available only as an automated text
+extraction of the publisher's web page, not as the PDF. Their numbers were compared with the abstracts and
+extracted a second time in the re-check, with the same values, and two internal checks hold (the risk ratios recomputed from the zone counts of the bus,
+Table~\ref{appB_dataset:tab:strata}, equal those printed by \citet{shen2020}; the train table is discussed
+below). These three sources have not been checked against the PDF files. Six sources were read as abstracts
+only \citep{nicholls2024,nardell1991,riley1978,moser1979,lan2021,jiang2021deptstore}; the five records that
+rest on abstracts alone (O3, O5, S4, C4, T6) are graded C.
+% src: data/appB_dataset_numbers.json -> sources (full 21, manuscript 1, extraction 3, abstract 6), records_resting_on_abstracts_only;
+%      data/bsc_outbreaks/sources.md (Access); notes/VERIFICATION.md (Section 4.4, outbreak dataset)
+
+\paragraph{Conflicting counts and an upper bound.}
+Where sources disagree, both versions are recorded. The two investigations
+of the Hunan coach give 7 cases among 48 passengers over 2.5\,h \citep{luo2020} and 7 among 46 over 200\,min
+\citep{ou2022}, and they place the infected passengers differently; the minibus of the same outbreak has
+2/12 against 2/17; the department store has 6 or 7 staff cases; the Zurich team has 8 or 10 first-generation
+cases among 12; and 20 of the 52 choir cases are probable, not laboratory-confirmed.
+% src: data/bsc_outbreaks/outbreaks.csv -> T2, T3, S2, O2, H1 (attack_rate_reported, quality_notes, n_infected_alt);
+%      notes/VERIFICATION.md (Section 4.4, outbreak dataset: seat reconstructions of Luo and Ou differ)
+For the Guangzhou restaurant the five secondary cases at the two neighbouring tables are an upper bound on
+the number infected at the lunch. The first report of that outbreak states that at least one member of each
+of the two families was infected in the restaurant and that the further cases in those families may be due
+to transmission within the family \citep{lu2020}; the number infected at the lunch outside the index table
+is therefore between 2 and 5. The counts marked $\ddagger$ in
+Tables~\ref{appB_dataset:tab:records} and~\ref{appB_dataset:tab:strata} carry this caveat.
+% src: notes/VERIFICATION.md -> Section 4.4, outbreak dataset (further points: Guangzhou counts are an upper bound);
+%      notes/VERIFICATION.md (Section 4.4, outbreak dataset: Lu et al., onsets in Li et al. Table A.1)
+
+\begin{table}[tbp]
+\centering
+\caption{Near/far contrasts available in the sources. Risk ratios with log-normal (Katz) 95\,\% intervals
+and Fisher's exact test, computed from the counts shown. The two rows of T1 and the two rows of R1 are
+alternative splits of the same people. $^{\mathrm{c}}$: one cell is zero and 0.5 was added to every cell.
+$\ddagger$: upper bound (see text). $^{\mathrm{e}}$: pupils enrolled in grades 7--9 and 10--12 (581 and 583);
+1,161 were tested, 580 of them in grades 10--12. For T5 the source defines the near stratum as
+`$\le2$ seats away'. O1 and C2 are multi-generation outbreaks, and the position of the index
+case in O1 is unknown.}
+% src: data/bsc_outbreaks/outbreaks.csv -> C2 (attack_rate_reported: grades 197 + 197 + 187 = 581, 200 + 195 + 188 = 583; n_exposed 1161); data/checks/outbreak_dataset.json: jerusalem_senior_wing (583 persons, 580 tested; notes/VERIFICATION.md -> Section 4.4, outbreak dataset, further point 9); data/misc_checks.json (jerusalem; flight_label: underlined "<" before "2 seats away" in the stored copy of the source, which is not redistributed)
+\label{appB_dataset:tab:strata}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l>{\raggedright}p{4.6cm}llll@{}}
+\toprule
+ID & Contrast (near against far) & Near: cases/$n$ (\%) & Far: cases/$n$ (\%) & Risk ratio (95\,\% CI) & $p$ \\
+\midrule
+% src: data/bsc_outbreaks/tables/near_far_risk_ratios.csv; recomputed and checked in code/appB_dataset_table.py
+% >>> GENERATED strata (code/appB_dataset_table.py; do not edit by hand)
+O1 & north wing against south wing (mapped seats) & 79/137 (57.7) & 4/62 (6.5) & 8.9 (3.4--23.3) & $5.2\times10^{-13}$ \\
+C1 & front two rows against back three rows & 8/10 (80.0) & 4/14 (28.6) & 2.8 (1.2--6.8) & 0.036 \\
+T1 & rows 5--11 (within about 2 m of the index) against rows 1--4 and 12--15 & 14/33 (42.4) & 9/34 (26.5) & 1.6 (0.8--3.2) & 0.20 \\
+T1 & rows 6--10 against rows 1--5 and 11--15 (alternative split) & 11/23 (47.8) & 12/44 (27.3) & 1.8 (0.9--3.3) & 0.11 \\
+T2 & rear rows 8--13 (index zone) against front rows 1--7 & 3/19 (15.8) & 4/26 (15.4) & 1.0 (0.3--4.1) & 1.0 \\
+T5 & within 2 seats of the index against farther seats, business cabin & 11/12 (91.7) & 1/8 (12.5) & 7.3 (1.2--46.2) & $7.7\times10^{-4}$ \\
+R1 & neighbouring tables against remote tables & 5/16$^{\ddagger}$ (31.2) & 0/63 (0.0) & 41.4$^{\mathrm{c}}$ (2.4--713) & $1.9\times10^{-4}$ \\
+R1 & same air-conditioning zone against other zones (alternative split) & 5/11$^{\ddagger}$ (45.5) & 0/68 (0.0) & 63.2$^{\mathrm{c}}$ (3.7--1{,}071) & $2.0\times10^{-5}$ \\
+C2 & grades 7--9 against grades 10--12 (separate wings) & 135/581 (23.2) & 18/583$^{\mathrm{e}}$ (3.1) & 7.5 (4.7--12.1) & $1.3\times10^{-26}$ \\
+S1 & staff against customers & 11/120 (9.2) & 0/8{,}224 (0.0) & 1{,}563$^{\mathrm{c}}$ (92.7--26{,}381) & $3.4\times10^{-21}$ \\
+% <<< GENERATED strata
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\caption{Negative controls: groups with a documented opportunity for exposure and almost no infection. The
+last numerical column is the one-sided exact 95\,\% upper bound on the attack rate. The two restaurant rows
+are alternative groupings of the same patrons. Access marks as in Table~\ref{appB_dataset:tab:records}.}
+\label{appB_dataset:tab:controls}
+\footnotesize
+\begin{tabular}{@{}llllc@{}}
+\toprule
+Group & Record & Cases/exposed & Upper bound, \% & Source \\
+\midrule
+% src: data/bsc_outbreaks/tables/analysis_results.json -> negative_controls; bounds recomputed in code/appB_dataset_table.py
+% >>> GENERATED controls (code/appB_dataset_table.py; do not edit by hand)
+Supermarket customers & S1 & 0/8{,}224 & 0.036 & \citep{tian2021} \\
+Other bus travelling to the same event & T1 & 0/60 & 4.9 & \citep{shen2020}$^{\mathrm{e}}$ \\
+Restaurant, remote tables & R1 & 0/63 & 4.6 & \citep{li2021} \\
+Restaurant, other air-conditioning zones & R1 & 0/68 & 4.3 & \citep{li2021} \\
+Flight, premium-economy cabin & T5 & 0/35 & 8.2 & \citep{khanh2020} \\
+Tested school contacts, masked classrooms & C3 & 5/728 & 1.44 & \citep{hershow2021} \\
+Call-centre building, floors 7--9 & O1 & 1/595 & 0.79 & \citep{park2020} \\
+% <<< GENERATED controls
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Spatial contrasts and negative controls.}
+Table~\ref{appB_dataset:tab:strata} gives every near/far contrast that the sources allow, and
+Table~\ref{appB_dataset:tab:controls} the groups used as negative controls. Three cautions apply. First, the
+wing contrast of the call centre refers to the 84 case seats shown in the published plan; if the ten cases
+without a seat had all worked in the south wing the ratio would be 2.6 (95\,\% interval 1.6--4.1), not 8.9.
+% src: data/appB_dataset_numbers.json -> callcentre.rr, callcentre.rr_all_unmapped_south;
+%      code/bsc_outbreaks/verify/results/callcentre_check.json -> wing_contrast.sens_all10_south
+Second, the four single-index events with one split each (C1, T1, T2, T5) are statistically compatible with
+a common risk ratio (Cochran's $Q=3.77$ on 3 degrees of freedom, $p=0.29$), so sorting events into
+`near-field' and `well-mixed' ones is a reading of point estimates; the coach, with no front-to-rear
+gradient, has a side-to-side contrast of 6/24 against 1/20 (risk ratio 5.0, 95\,\% interval 0.7--38).
+% src: data/appB_dataset_numbers.json -> heterogeneity (cochran_Q 3.772, p 0.287), coach_side_contrast;
+%      code/bsc_outbreaks/verify/results/extra_checks.json -> heterogeneity; stats_check.json -> risk_ratios (T2side)
+Third, the levels are heterogeneous: over the nine SARS-CoV-2 events with a single index case and a single
+exposure period, the cumulative hazard per hour, $-\ln(1-\text{attack rate})/\text{duration}$, spans a factor 34
+when the 20 probable choir cases are counted and a factor 20 with confirmed cases only.
+% src: data/bsc_outbreaks/tables/analysis_results.json -> hazard_per_hour_range (ratio 33.7);
+%      code/bsc_outbreaks/verify/results/stats_check.json -> hazard_per_hour.confirmed_only_choir (ratio 19.97)
+
+\paragraph{Digitisation of the call-centre floor plan.}
+The seat map of record O1 was obtained from the floor plan published as Fig.~2 of \citet{park2020}; the
+coordinates are derived from that figure and are not original data of this article. Desk rectangles were
+segmented by colour and shape. The two open-plan wings contain 137 desks (north) and 62 desks (south). The
+plan marks 84 case seats: 79 in the north wing, 4 in the south wing and 1 in the offices on the east side,
+whose other desks were not digitised. The text of the source reports 94 cases among the 216 employees of
+the floor, so 10 cases have no seat in the plan. The plan has no scale bar: coordinates are in units of the
+desk pitch, their conversion to metres is unknown, and one employee per drawn desk is assumed.
+% src: data/bsc_outbreaks/tables/park2020_callcentre_seats_digitized.csv; code/bsc_outbreaks/scripts/digitize_callcentre.py;
+%      data/appB_dataset_numbers.json -> callcentre (north 79/137, south 4/62, case_seats_mapped 84, cases_unmapped 10)
+The re-check typed the map again desk by desk from enlargements of the figure: the two readings match one to
+one, no desk has a different case flag, and the largest difference in position is 3.8 pixels at a desk
+pitch of 32.5 pixels. Figure~\ref{s8_outbreaks:fig:callcentre} is drawn from this file.
+% src: code/bsc_outbreaks/verify/results/callcentre_check.json -> comparison_with_first_analysis (bijection true, 0 flags, 3.84 px);
+%      data/appB_dataset_numbers.json -> callcentre.check_match, callcentre.desk_pitch_px
+
+\paragraph{Reconstruction of the train cell counts.}
+\citet{hu2021} print, for 23 seat offsets from the index passenger, an attack rate with a 95\,\% interval
+but no counts. Two reconstructions were needed. On the publisher's page the five same-row values appear one
+column to the left of where they belong (a contact cannot sit zero rows and zero columns away); with the
+values moved to columns 1--5, the column means recomputed from the cells differ from the printed ones by
+0.02 percentage points in total, against 1.17 for the layout as printed. Then, for each cell, the re-check
+searched for the integer pair (cases, contacts) whose rate and Wilson interval reproduce the printed values;
+we checked that every recovered pair does so to within 0.012 percentage points.
+% src: data/bsc_outbreaks/tables/hu2021_train_attack_matrix.csv (realigned cells flagged);
+%      code/bsc_outbreaks/verify/results/train_matrix_reconstruction.csv; verify/scripts/v02_stats.py;
+%      data/appB_dataset_numbers.json -> train (column_mean_error_pp_realigned 0.024, _as_printed 1.170, max_abs_error_pp_vs_printed 0.0112)
+The recovered cells sum to 230 cases among 72,692 contacts, against the 234 among 72,093 reported for the
+cohort; cell denominators range from 1,033 to 5,420, and the 11 cells with at most three cases are the
+least certain. The calibration of Section~\ref{M-s8_outbreaks:sec} uses these reconstructed counts. The source
+itself warns that relatives and friends travelling together may have infected each other before or after the
+journey, which inflates the adjacent-seat cell (3.53\,\%) most.
+% src: data/appB_dataset_numbers.json -> train (230, 72692, 234, 72093, cell_n_min 1033, cell_n_max 5420, cells_with_at_most_3_cases 11);
+%      code/bsc_validation/PREREGISTRATION.md, amendment V5; notes/VERIFICATION.md (Section 4.4, outbreak dataset, further point 3: Hu et al., companions)
+
+\paragraph{Limitations and release of the first dataset.}
+Investigated outbreaks are mostly large ones, so the attack rates over-represent highly infectious index
+cases; records C3 and T4 are closer to ordinary exposures. Variants, mask use, vaccination and testing
+differ between records and are not harmonised. Positions are zonal in most records: only T4 gives a matrix
+of offsets and only O1 is resolved to seats.
+% src: data/bsc_outbreaks/outbreaks.csv (quality_notes)
+The released repository contains the dataset (\texttt{outbreaks.csv}, \texttt{outbreaks.json}), the list of
+sources with the access level of each, the auxiliary tables (strata, risk ratios, the train matrix and its
+reconstruction, the digitised seat coordinates) and the scripts that build and check them.
+Copies of the source texts and figures used for transcription are not redistributed.
+
+\subsection{The second dataset: eleven records of ten outbreaks with positions}\label{appB_dataset:sec:second}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{2.5pt}
+  \caption{The eleven records of the second dataset (Section~\ref{M-s8_outbreaks:sec:second}); W1 and W2 are the same
+  ward with the same index patient. Near: within two
+  rows of a source (aircraft), in the index patient's cubicle or bay (ward), within 8\,m (processing line).
+  Risk ratio near/far with its 95\,\% interval. Grade A: identified source or sources, enumerated exposed
+  group, positions for the whole group; B: more than one generation of cases. Role: fixed by the pathogen
+  before any model was run.}
+  \label{appB_dataset:tab:second}
+  % generated: data/v2_tab_events2.tex (code/v2_numbers.py <- data/bsc_validation2/a1_more_outbreaks/07_descriptive.json; code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1)
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{2.65cm}>{\raggedright\arraybackslash}p{1.75cm}>{\raggedright\arraybackslash}p{2.05cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.85cm}c>{\raggedright\arraybackslash}p{1.55cm}@{}}
+    \toprule
+    & Event & Pathogen & Setting, duration & Position data & Near vs far & Risk ratio & Gr. & Role \\
+    \midrule
+    \tabinput{data/v2_tab_events2}
+    \bottomrule
+  \end{tabular}
+
+  \smallskip
+  \begin{minipage}{0.96\textwidth}\footnotesize
+  $^{a}$\,With a continuity correction of 0.5 (a stratum without a case).
+  \end{minipage}
+\end{table}
+
+\paragraph{Search and inclusion.}
+The second dataset was assembled after the first test, by queries to Europe PMC for outbreaks with a seat map or
+with counts by distance for the whole exposed group, and from the references of \citet{hertzberg2016risk}.
+Eleven events were kept (Table~\ref{appB_dataset:tab:second}); the meat-processing line is record O4 of the
+first dataset, now with its counts by distance. The events found and not used, with the reason, were fixed in
+the protocol before any model was run: no identified source on board, one or two cases only, exposure before
+the flight, denominators missing by seat, or positions not published (among them the aircraft outbreak of
+\citet{moser1979} and the measles outbreak analysed by \citet{riley1978}). No outbreak in a
+courtroom, a fitness class or a restaurant with positions for the whole exposed group was found in openly
+accessible form. The search is not a systematic review, and the re-check did not repeat it.
+% src: data/outbreaks2/SOURCES.md ("Events catalogued but not modelled"); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.2; notes/VERIFICATION.md (Section 4.6, second outbreak test, item 16: unverifiable)
+
+\paragraph{Transcription and its checks.}
+Seat maps were transcribed by eye from the published figures, and each map was checked against the totals
+printed in its source before any model was run. The totals agree exactly for the flights from Hong Kong, from
+Los Angeles and from Tel Aviv. They differ by one to four persons, in far strata, for three flights: 216
+passengers at risk with a seat against 220 in the text for the flight from Cancun; 141 persons on the map
+against 142 for the flight to Naha; 110 passengers of the mid cabin against 111 or 112 for the flight to
+Perth. Two full texts are not openly accessible: the flight from Hong Kong uses the seat map as redrawn by
+\citet{hertzberg2016risk}, and the tuberculosis flight only the two strata of the abstract, with seats placed
+at random inside them. The counts of the ward and of the processing line were typed from the text and from an
+appendix table of the sources.
+% src: code/bsc_validation2/a1_more_outbreaks/POSTHOC_LOG.md (P3); data/outbreaks2/SOURCES.md
+The re-check re-read every seat symbol of the four held-out flights and of the flight from Hong Kong
+against the stored figures, re-typed the counts of the processing line, and fetched the abstract and
+full-text numbers of the other events again; all stratum counts match. Two calibration maps (the flights from
+Los Angeles and from Cancun) were not re-read seat by seat. Three limits of the data are not in the counts:
+about 22 passengers of the flight to Naha who were lost to follow-up are counted as non-cases, mostly in far
+rows; most non-cases of the flight from Tel Aviv were never tested; and the published figure of the ward
+gives each student's bed, which the analysis replaced by random beds within the three strata (using the exact
+beds changes the pooled score against the well-mixed model by $+0.13$ and nothing else). The near zone of the
+flight to Naha is not the one its source analysed: the source's own group `within two rows' has 14 persons,
+against the 23 in rows 21--25 used here. And one flight (AF171) was excluded as a secondary tabulation, although
+two calibration events are themselves secondary in that sense (the flight from Hong Kong, from a redrawn map,
+and the tuberculosis flight, from an abstract); with two cases it would change nothing.
+% src: data/checks/outbreaks2.json: naha (about 22 lost to follow-up; 14 persons within two rows in the source, 23 in rows 21-25 here), ward_exact_beds (+0.13), AF171 (2 cases); notes/VERIFICATION.md (Section 4.6, second outbreak test, item 2: confirmed, with the caveats listed; further point 7; item 16: AF171 dropped as secondary tabulation, CA112 and the tuberculosis flight from a redraw and an abstract)
+The released tables give, for every event, the strata, the persons at risk and the cases, and for the seat-map
+events the transcribed position of every person, with the reference and the figure or table of origin.
+

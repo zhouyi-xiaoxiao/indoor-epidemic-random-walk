@@ -1,0 +1,29 @@
+{
+ "frozen_at": "2026-10-01T09:18:16+01:00",
+ "prereg_sha256": "e721b8c49d4c6dd88480229c1326eaa148f59b825097c83004fcbb93cfad6499",
+ "note": "Frozen before any kernel was fitted and before any model was evaluated on outbreak counts. No analysis script exists yet except src/docx2txt.py, src/emf_text.py, src/xml2txt.py, src/k01_dump_kinahan.py (format converters).",
+ "files": {
+  "data/raw/PMC8487323.xml": "d028e3cdb7825b493f96921da0e4dca8e6a94622eebf9fb1a4f607efe3f40c58",
+  "data/raw/PMC8487323_supp.zip": "d78ebb841f4a5b70604a6d490bb061f12d2b88564bd1202f709eaa25495802f8",
+  "data/raw/ou2022_supp/mmc1.docx": "e51a050d9b6610f79d7a033c0603464a88894dfc01b8e666e74ddc56692c2a63",
+  "data/raw/ou2022_supp/media/image7.emf": "4b14ba30a2849b998c978974e5dc259f0059fa2c520bf677e8194311ff08ef2a",
+  "data/raw/ou2022_supp/media/image8.emf": "a3f830e22e1d0040dfa0ca771c5ab7317fe2a384f28644149659322df85b5de6",
+  "data/raw/ou2022_supp/media/image9.emf": "65dccb2aaf4c713a77ddbe11ce1135e1ae534d5b5d5ddd4deebcc3a899540166",
+  "data/raw/ou2022_supp/media/image10.emf": "cfd6f3290d68fecf2e798bf461e300322df6bd1d107af5c5505b76caa37e1ff2",
+  "data/raw/PMC8635387.xml": "041117fbb6396bb59d811115cc8b070fecf442ca93205e3fb7cce6d4c53d0113",
+  "data/raw/kinahan_777_inflight.xlsx": "77985b0550aa3a1facb07a4f926ec2328798b5718c6558cd3ed1a3b0848e7427",
+  "data/raw/kinahan_767_inflight.xlsx": "6d1138f743e92cdc253ff084ff5ef57ef572e58b82de069d8b22c824a7046e40",
+  "data/raw/woodward2022_PMC9827851.xml": "5d64060b15645605c8d134736c3a482852c168185798ac5c73f4d94d1625a556",
+  "data/raw/woodward2022_supp/INA-32-0-g001.jpg": "c26379769026bc0c568fe5c79b6c37c430b2032a0d3fc7fc34fbcb1719f3b3e6",
+  "data/raw/cheng2011_est.pdf": "7682f81d1c940b301739b46f97ffcaca4cee25e5c377a1a4c5efc80d4452c501",
+  "data/raw/khanh2020_F1.jpg": "94a56335f753db2ecb79dc2df69ee202e95b789328ef35d3b059e55b73433719",
+  "data/raw/dekreij_RepModel1D.zip": "579bd3e0b2bc2ade79728f75ca62b08937f97a17edceaec17902561b988a649d",
+  "../../bsc_outbreaks/data/li2021_restaurant_tables.csv": "17a61e7cf90fdd09b4db3f3f5fb1a51139d084146db89e2a9162dc473ff1fe54",
+  "../../bsc_validation/data/heldout_outcomes.json": "04edc06e97d52234fb4effbdab62ca11ad9e0a5d5e95247a1b4df446f4207af1",
+  "../../bsc_validation/src/valmod/lattice.py": "25369ff046c7cb403422dde3cd8b369282a6fe6d305dcfaa0b05f3869049fc0f",
+  "../../bsc_validation/src/valmod/events.py": "1cbd9cc5a1e7bc4676e1c82625ffd49488b2cf4efec8e27e990038e24a88a432",
+  "../../bsc_validation/src/valmod/stats.py": "8eddf7c4a147bdd380a827732ff8ca305e26ef4109a3c26ea099b65ef46248fa",
+  "../../bsc_outbreaks/verify/results/train_matrix_reconstruction.csv": "a9ce2a7b6b470fe3f175698b0ab9a177b7f521c7c00de0c40efa557b2f7a419f",
+  "../../bsc_outbreaks/data/park2020_callcentre_seats_digitized.csv": "560a07ba011e2a3ff8a289b2810569d29331acd6ec145c323a35bad740d9180e"
+ }
+}

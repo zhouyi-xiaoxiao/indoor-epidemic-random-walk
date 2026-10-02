@@ -1,0 +1,14 @@
+office 1.0 branching P(major) 0.781 ; ODE attack 0.989 peak 0.451 day 11.5
+office 10.0 branching P(major) 0.783 ; ODE attack 0.990 peak 0.457 day 11.5
+supermarket 1.0 branching P(major) 0.667 ; ODE attack 0.936 peak 0.289 day 17.0
+supermarket 10.0 branching P(major) 0.685 ; ODE attack 0.954 peak 0.334 day 17.5
+classroom 1.0 branching P(major) 0.767 ; ODE attack 0.984 peak 0.426 day 11.0
+classroom 10.0 branching P(major) 0.777 ; ODE attack 0.988 peak 0.450 day 10.5
+metro 1.0 branching P(major) 0.888 ; ODE attack 1.000 peak 0.641 day 7.0
+metro 10.0 branching P(major) 0.888 ; ODE attack 1.000 peak 0.643 day 7.0
+office 8h/day D0=1: R0 duty 1.754 pair R1 duty 0.889 counted with explicit schedule 0.9437 +- 0.0062
+   full epidemics with schedule: P(attack>=10%) = 0.065, unfinished 0
+office per visit (8.00 h): mean-field 0.2117 counted 0.1750 +- 0.0007
+supermarket per visit (0.45 h): mean-field 0.0086 counted 0.0085 +- 0.0001
+classroom per visit (1.00 h): mean-field 0.0274 counted 0.0273 +- 0.0003
+metro per visit (0.33 h): mean-field 0.0176 counted 0.0175 +- 0.0002

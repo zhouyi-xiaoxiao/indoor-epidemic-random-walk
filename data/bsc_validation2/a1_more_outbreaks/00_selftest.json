@@ -1,0 +1,12 @@
+{
+ "pb_trunc_maxerr": 0.0,
+ "profile_eps_relerr": 4.560574140555218e-12,
+ "hypergeom_maxerr": 2.220446049250313e-16,
+ "pmf_sum": 1.0,
+ "round1_cond_maxerr": 7.805978086139476e-13,
+ "rejection_maxerr": 0.0013667621831986582,
+ "rejection_n": 87356,
+ "m2_quadrature_relerr": 0.007524152404219442,
+ "m2_mean_vs_xbar": 1.1102230246251565e-16,
+ "m2_Dinf_spread": 3.9276222496553714e-08
+}

@@ -1,0 +1,107 @@
+{
+ "table": [
+  {
+   "scenario": "A",
+   "truth": "C",
+   "tier1": 0.3,
+   "tier2a": 0.0,
+   "tier2b": 0.225,
+   "tier3": 0.45,
+   "overall": 0.075,
+   "n": 40
+  },
+  {
+   "scenario": "A",
+   "truth": "F",
+   "tier1": 0.625,
+   "tier2a": 0.0,
+   "tier2b": 0.025,
+   "tier3": 0.325,
+   "overall": 0.025,
+   "n": 40
+  },
+  {
+   "scenario": "A",
+   "truth": "H",
+   "tier1": 0.0,
+   "tier2a": 0.0,
+   "tier2b": 0.0,
+   "tier3": 0.175,
+   "overall": 0.0,
+   "n": 40
+  },
+  {
+   "scenario": "A",
+   "truth": "X",
+   "tier1": 0.0,
+   "tier2a": 0.0,
+   "tier2b": 0.0,
+   "tier3": 0.025,
+   "overall": 0.0,
+   "n": 40
+  },
+  {
+   "scenario": "A",
+   "truth": "Z",
+   "tier1": 1.0,
+   "tier2a": 0.95,
+   "tier2b": 1.0,
+   "tier3": 1.0,
+   "overall": 1.0,
+   "n": 40
+  },
+  {
+   "scenario": "B",
+   "truth": "C",
+   "tier1": 0.25,
+   "tier2a": 0.025,
+   "tier2b": 0.175,
+   "tier3": 0.775,
+   "overall": 0.0,
+   "n": 40
+  },
+  {
+   "scenario": "B",
+   "truth": "F",
+   "tier1": 0.525,
+   "tier2a": 0.05,
+   "tier2b": 0.1,
+   "tier3": 0.8,
+   "overall": 0.05,
+   "n": 40
+  },
+  {
+   "scenario": "B",
+   "truth": "H",
+   "tier1": 0.0,
+   "tier2a": 0.0,
+   "tier2b": 0.0,
+   "tier3": 0.575,
+   "overall": 0.0,
+   "n": 40
+  },
+  {
+   "scenario": "B",
+   "truth": "X",
+   "tier1": 0.0,
+   "tier2a": 0.0,
+   "tier2b": 0.0,
+   "tier3": 0.85,
+   "overall": 0.0,
+   "n": 40
+  },
+  {
+   "scenario": "B",
+   "truth": "Z",
+   "tier1": 0.85,
+   "tier2a": 0.95,
+   "tier2b": 1.0,
+   "tier3": 0.95,
+   "overall": 0.8,
+   "n": 40
+  }
+ ],
+ "F_far_overall": 0.0,
+ "F_far_n": 74,
+ "simplex_fraction": 0.1141015
+}

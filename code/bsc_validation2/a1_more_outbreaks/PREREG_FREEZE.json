@@ -1,0 +1,32 @@
+{
+ "frozen_at": "2026-10-01T09:42:01+0100",
+ "timezone": "BST (UTC+1)",
+ "files": {
+  "PREREGISTRATION.md": "33f034d580b002057ebc2e13fddc42452971a6e71b7df3a37b4c74c8caed182e",
+  "src/a1/digitized.py": "378614c82e691522c3954b985880b04f2a43fb2d4e8639a42e068a13b7bbf1c7",
+  "src/a1/lattice.py": "25369ff046c7cb403422dde3cd8b369282a6fe6d305dcfaa0b05f3869049fc0f",
+  "src/a1/stats.py": "8eddf7c4a147bdd380a827732ff8ca305e26ef4109a3c26ea099b65ef46248fa"
+ },
+ "copied_from": {
+  "src/a1/lattice.py": "../../bsc_validation/src/valmod/lattice.py",
+  "src/a1/stats.py": "../../bsc_validation/src/valmod/stats.py"
+ },
+ "round1_hashes": {
+  "lattice.py": "25369ff046c7cb403422dde3cd8b369282a6fe6d305dcfaa0b05f3869049fc0f",
+  "stats.py": "8eddf7c4a147bdd380a827732ff8ca305e26ef4109a3c26ea099b65ef46248fa"
+ },
+ "note": "Frozen before any transmission model was evaluated on any event of this avenue. Data-aware, model-blind (see PREREGISTRATION.md section 0).",
+ "addendum": {
+  "written_at": "2026-10-01T09:52:41+0100",
+  "files": {
+   "PREREG_ADDENDUM_power.md": "c6cb5bf44bfa1a4ea1259fca2ac827609be81e0a491985cf322f821bc7e36b04",
+   "out/02_calibration.json": "dab95309354f4932c21001c7267ee22b00a69225cb91c8ca2eaf8f7d8aa42781",
+   "out/03_power.json": "b593e004f19851262fa8bd27afddb30c81060d1d9561b2f786ddd4eabdde2873",
+   "src/a1/events.py": "10206f4ae561b5c5288b843220fd04079cdf7a68e9ac1fec254724b40f4db5a2",
+   "src/a1/engine.py": "2ec8b7f2733cc35a84595973898b25250726b5aeee87916238a60a9651ec72ac",
+   "src/a1/analysis.py": "5bed7171cccd8b63e26fecb373fc9011a1a89520be59aa1eae4e99e97c651ff2"
+  },
+  "prereg_unchanged": true,
+  "digitized_unchanged": true
+ }
+}

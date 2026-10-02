@@ -1,0 +1,262 @@
+% supp_pair.tex -- Supplementary Section S4: pair-level theory; proofs, tables and a remark on the normalisation.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers: data/s5_pair_checks.json, data/s5_pair_tables.tex, data/bsc_sim/02_*.json.
+\section{Pair-level theory: proofs and further results}\label{appS_pair:sec}
+
+This section proves the statements of Section~\ref{M-s5_pair:sec} of the main text and gives the tables behind its
+figures. Movement follows the symmetric rule \eqref{M-s2_model:eq:hop}, and (P1)--(P6) are the facts of
+Lemma~\ref{s3_r0:lem:facts}.
+
+\subsection{Proofs}
+
+\begin{proof}[Proof of Proposition~\ref{M-s5_pair:prop:pair}]
+Write $z=(x,y)$, let $r(z\to z')=\mathcal{M}_{z'z}$ ($z'\ne z$) be the hop rates of the pair chain,
+$r(z)=\sum_{z'}r(z\to z')$, and $u=\one-p$. From state $z$ three kinds of independent exponential clocks
+compete: recovery (rate $\gamma$), infection (rate $h(z)$) and a hop to $z'$ (rate $r(z\to z')$). If recovery
+rings first the person escapes; if infection rings first it does not; if a hop to $z'$ rings first, the
+Markov property and the lack of memory of $\tau$ give the escape probability $u(z')$. Hence
+\[
+  \bigl(\gamma+h(z)+r(z)\bigr)\,u(z)=\gamma+\sum_{z'}r(z\to z')\,u(z') ,
+\]
+which is $(\gamma\Id+\mathbf{H}-\mathcal{M}^{\T})u=\gamma\one$, because
+$(\mathcal{M}^{\T}u)(z)=\sum_{z'}r(z\to z')\bigl(u(z')-u(z)\bigr)$. The matrix
+$A=\gamma\Id+\mathbf{H}-\mathcal{M}^{\T}$ has non-positive off-diagonal entries and row sums
+$\gamma+h(z)\ge\gamma>0$; by (P5) of Lemma~\ref{s3_r0:lem:facts} applied to $A^{\T}$ it is non-singular with
+$A^{-1}\ge0$, so $u=\gamma A^{-1}\one$.
+\end{proof}
+
+The matrix $\ngmone$ is obtained from $\ncell$ further
+solves: by the same first-step argument, the probability that the pair started at $(x,y)$ ends with an
+infection while the susceptible is in cell $z$ is $w_z=A^{-1}b_z$ with $b_z(x',y')=h(x',y')\,\mathbf{1}\{y'=z\}$,
+and $(K_1)_{zx}=\rhobar\sum_yw_z(x,y)$.
+
+\begin{proof}[Proof of Proposition~\ref{M-s5_pair:prop:saturation}]
+Let $T_{\mathrm{i}}$ be the infection time of the given person. Conditionally on the path of the pair and on
+$\tau$, $T_{\mathrm{i}}$ has hazard $h(Z_t)$ on $[0,\tau)$, so that
+\begin{align*}
+  \Prob_{(x,y)}(T_{\mathrm{i}}<\tau,\,Y_{T_{\mathrm{i}}}=z)&=\int_0^\infty \e^{-\gamma t}\,
+  \Exp_{(x,y)}\Bigl[h(X_t,z)\,\mathbf{1}\{Y_t=z\}\,\e^{-\int_0^th(Z_s)\,\dd s}\Bigr]\dd t\\
+  &\le\int_0^\infty \e^{-\gamma t}\sum_{x'}P_t(x'\,|\,x)\,h(x',z)\,P_t(z\,|\,y)\,\dd t ,
+\end{align*}
+where the two walkers are independent. Because $\gen$ is symmetric, $\sum_yP_t(z\,|\,y)=1$. Summing over $y$
+and multiplying by $(\Npop-1)/\ncell=\rhobar$,
+\[
+  (K_1)_{zx}\le\beta\sum_{x'}P_{x'z}\,q_{x'}\int_0^\infty \e^{-\gamma t}P_t(x'\,|\,x)\,\dd t=K_{zx}
+\]
+by Theorem~\ref{M-s3_r0:thm:ngm}(a). On the event $\{h(Z_t)>0\}$ the pair has almost surely been in its
+current state for a positive time, so the discarded factor is smaller than one there and the inequality is
+strict wherever $K_{zx}>0$. Column sums give $\Rone(x)<\noff(x)$ (recall $\noff(x)>0$); the uniform average and
+eq.~\eqref{M-s3_r0:eq:offspring} give $\Ronebar<\beta\langle q\rangle/\gamma$; and (P4) of
+Lemma~\ref{s3_r0:lem:facts} gives $\srad(\ngmone)\le\srad(\ngm)$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{M-s5_pair:prop:torus}]
+The relative position $\zeta_t=Y_t-X_t$ (modulo $L_1,L_2$) jumps to each neighbour at rate $2D$, so it is a
+Markov chain with generator $2\gen$, and the hazard depends on the pair only through $\zeta_t$: it is $h_0$ at
+the origin and $0$ elsewhere. Hence $p(x,y)=\varphi(y-x)$, and the argument of
+Proposition~\ref{M-s5_pair:prop:pair} applied to $\zeta_t$ gives, for $u=\one-\varphi$,
+$(\gamma\Id-2\gen)u+h_0\,u(0)\,\delta_0=\gamma\one$, with $\delta_0$ the indicator of the origin. Let
+$\mathbf{G}=(\gamma\Id-2\gen)^{-1}$, so that $g(r)=G_{0r}=G_{r0}$. Since $\gen\one=0$,
+$\mathbf{G}\one=\one/\gamma$ and
+\[
+  u(r)=1-h_0\,u(0)\,g(r).
+\]
+Setting $r=0$ gives $u(0)=1/(1+h_0\gz)$, hence $\varphi(r)=h_0\,g(r)/(1+h_0\gz)$. Probability conservation
+gives $\sum_rg(r)=1/\gamma$, so
+$\Rone=\rhobar\sum_r\varphi(r)=\rhobar h_0/\bigl(\gamma(1+h_0\gz)\bigr)$, which is \eqref{M-s5_pair:eq:R1}. The
+plane waves $\e^{\mathrm{i}k\cdot r}/\sqrt{\ncell}$ diagonalise $\gen$ with eigenvalues $-\mu_k$, which gives
+$\gz=G_{00}$ as stated. Every $\mu_k$ with $k\ne0$ is proportional to $D$, so $\gz$ decreases and $\Rone$
+increases with $D$; $\gz$ does not depend on $\rhobar$, so $\Rone$ increases with $\rhobar$. As $D\to\infty$
+only the term $k=0$ survives, $\gz\to1/(\ncell\gamma)$, and $\rhobar\ncell=\Npop-1$; as $D\to0$,
+$\gz\to1/\gamma$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{M-s5_pair:cor:infinite}]
+The sum in \eqref{M-s5_pair:eq:R1} is a Riemann sum of a continuous function bounded by $1/\gamma$, so
+\[
+  \gz\to\frac{1}{(2\pi)^2}\int_0^{2\pi}\!\!\int_0^{2\pi}\frac{\dd k_1\,\dd k_2}{\gamma+4D(2-\cos k_1-\cos k_2)}
+  =\frac{1}{\gamma+8D}\;\frac{1}{\pi^2}\int_0^{\pi}\!\!\int_0^{\pi}
+  \frac{\dd k_1\,\dd k_2}{1-\tfrac12k_*(\cos k_1+\cos k_2)} ,
+\]
+and the last double integral is the Green's function of the square lattice at the origin, equal to
+$(2/\pi)\mathcal{K}(k_*)$ \citep{montroll1965random}. Since $\gz>0$, $\Rone<\beta q/\gamma$.
+\end{proof}
+
+The elliptic form agrees with a direct quadrature of the double integral to 12 digits ($\gz=0.241939$ at
+$D=1$, $\gamma=0.14\perday$). For $8D\gg\gamma$ the logarithmic singularity of $\mathcal{K}$ gives
+$\gz\approx\ln(64D/\gamma)/(8\pi D)$ ($0.03353$ against $0.03351$ at $D=10$): the correction decays with
+mobility only as $\ln D/D$, which reflects the recurrence of the planar walk.
+% src: data/plan_theory_checks.json (checks/g0_infinite_D=1); data/s5_pair_checks.json
+%      (infinite/D=1, infinite/D=10: g0_elliptic, g0_quadrature, g0_large_D_asymptote)
+
+With reflecting walls the pair walk is no longer translation invariant. The quantity
+$\ncell^{-1}\sum_k(\gamma+2\mu_k)^{-1}=\ncell^{-1}\operatorname{tr}(\gamma\Id-2\gen)^{-1}$ is the
+cell-averaged co-location Green's function of a pair started together, the mean over $x$ of
+$\int_0^\infty\e^{-\gamma t}\Prob(X_t=Y_t\,|\,X_0=Y_0=x)\,\dd t$ (on the torus, the return Green's function of the
+relative walk), and the observation says that replacing each
+cell's value by this average costs little. In the 21 rooms tested the closed form lies below the exact value,
+by at most $0.90\,\%$ at $D=0.51$, $0.46\,\%$ at $D=1$ and $0.02\,\%$ at $D=10$.
+
+\subsection{Finite size and mobility}
+
+\begin{table}[tbp]
+\centering
+\caption{Expected number of secondary cases of a lone index case in a homogeneous $L\times L$ room with
+reflecting walls ($q=1$, same-cell kernel, $\beta=0.5\perday$, $\gamma=0.14\perday$, $\Npop$ people so that
+$\rhobar\approx99/260=0.381$ others per cell). Mean field: $\Rz=\srad(\ngm)$. Closed form: eq.~\eqref{M-s5_pair:eq:R1} with the reflecting-wall
+spectrum of Observation~\ref{M-s5_pair:obs:reflecting}; last row: Corollary~\ref{M-s5_pair:cor:infinite}. Exact:
+$\Ronebar$ from eq.~\eqref{M-s5_pair:eq:pair} (not computed for $L=40$). Counted: mean number of secondary
+cases $\Rhat$ in 20{,}000 exact simulations with a uniformly placed index case, only the index
+transmitting, with 95\,\% confidence interval.}
+\label{s5_pair:tab:finite}
+\small
+% src: data/bsc_sim/02_finite_size.json (keys D1.0_L*, D10.0_L*, D*_Linf; fields R0_ngm,
+%      pair_closed_form, pair_exact, sim_offspring, sim_lo, sim_hi);
+%      rows regenerated in data/s5_pair_tables.tex
+\begin{tabular}{rrccccl}
+\toprule
+$D$ & $L$ & $\Npop$ & mean field & closed form & exact & counted $\Rhat$ (95\,\% CI)\\
+\midrule
+1  & 4  & 7   & 3.571 & 1.876 & 1.882 & 1.887 (1.864--1.910)\\
+   & 10 & 39  & 3.571 & 2.454 & 2.465 & 2.464 (2.427--2.501)\\
+   & 20 & 153 & 3.571 & 2.588 & 2.596 & 2.599 (2.558--2.639)\\
+   & 40 & 610 & 3.571 & 2.651 & --    & 2.651 (2.609--2.692)\\
+   & $\infty$ & -- & 3.571 & 2.710 & -- & --\\
+\midrule
+10 & 4  & 7   & 3.571 & 2.194 & 2.194 & 2.193 (2.168--2.218)\\
+   & 10 & 39  & 3.571 & 3.141 & 3.141 & 3.101 (3.056--3.147)\\
+   & 20 & 153 & 3.571 & 3.333 & 3.333 & 3.311 (3.260--3.363)\\
+   & 40 & 610 & 3.571 & 3.385 & --    & 3.397 (3.344--3.449)\\
+   & $\infty$ & -- & 3.571 & 3.421 & -- & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\caption{Office scene, $\Npop=100$, same-cell kernel (identical to the 1\,m kernel at $a=1.5$\,m), as a
+function of the mobility scale $\Dz$ (\cdunit). $\Rz$: mean field. $\srad(\ngmone)$ and
+$\Ronebar$: pair level (Definition~\ref{M-s5_pair:def:R1}). $\Rhat$: counted secondary cases when only the
+index transmits, for an index case born according to the Perron vector of $\ngmone$ (expectation
+$\srad(\ngmone)$) and for a uniformly placed index case (expectation $\Ronebar$). Last column: total number of
+second-generation cases divided by the number of first-generation cases when the index (Perron-weighted) and
+its direct cases transmit. Intervals are 95\pct{} confidence intervals (bootstrap for the ratio); 20{,}000
+runs per entry up to $\Dz=30$, 6{,}000 at $\Dz=100$, and 2{,}000 at $\Dz=300$ and at $\Dz=1000$.
+$^{a}$\,A chance-low batch (seed 301, reproduced bit for bit): 400{,}000 further runs give $3.793\pm0.006$
+(standard error; Section~\ref{M-s5_pair:sec:mobility}).}
+\label{s5_pair:tab:mobility}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+% src: data/bsc_sim/02_mobility.json (fields R0_ngm, R1_pair_ngm, sim_offspring_perron, sim_perron_lo/hi,
+%      R1_pair_uniform_index, sim_offspring_uniform, sim_uniform_lo/hi, sim_gen2_over_gen1, sim_gen2_lo/hi, n_rep);
+%      rows regenerated in data/s5_pair_tables.tex; footnote a: data/s5_pair_large_sample.json
+%      (office|D0=10: mean 3.7930, se 0.0064; rerun_mobility_table_seed301|D0=10: identical_to_stored true)
+\begin{tabular}{rcclclc}
+\toprule
+$\Dz$ & $\Rz$ & $\srad(\ngmone)$ & $\Rhat$, Perron-weighted index & $\Ronebar$ & $\Rhat$, uniform index &
+generation 2 / generation 1\\
+\midrule
+0.03 & 5.348 & 0.710 & 0.719 (0.705--0.732) & 0.586 & 0.586 (0.574--0.597) & 0.357 (0.345--0.369)\\
+0.1  & 5.327 & 1.096 & 1.096 (1.078--1.113) & 0.895 & 0.898 (0.883--0.914) & 0.623 (0.610--0.635)\\
+0.3  & 5.271 & 1.568 & 1.571 (1.547--1.595) & 1.422 & 1.429 (1.407--1.452) & 0.986 (0.969--1.001)\\
+1    & 5.107 & 2.321 & 2.338 (2.303--2.373) & 2.266 & 2.271 (2.236--2.305) & 1.631 (1.610--1.650)\\
+3    & 4.813 & 3.111 & 3.125 (3.079--3.171) & 3.095 & 3.085 (3.039--3.130) & 2.403 (2.381--2.428)\\
+10   & 4.676 & 3.803 & 3.847 (3.790--3.904) & 3.793 & 3.697 (3.643--3.751)$^{a}$ & 3.048 (3.022--3.074)\\
+30   & 4.653 & 4.165 & 4.169 (4.107--4.231) & 4.160 & 4.102 (4.042--4.162) & 3.389 (3.362--3.413)\\
+100  & 4.646 & 4.343 & 4.354 (4.235--4.473) & 4.341 & 4.373 (4.255--4.491) & 3.513 (3.470--3.560)\\
+300  & 4.644 & 4.403 & 4.373 (4.176--4.570) & 4.402 & 4.242 (4.042--4.442) & 3.524 (3.441--3.608)\\
+1000 & 4.643 & 4.425 & 4.502 (4.294--4.709) & 4.425 & 4.530 (4.320--4.740) & 3.605 (3.523--3.689)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The counted values test the first generation only. For an index case born according to the Perron vector of
+$\ngmone$ the expected count is exactly $\srad(\ngmone)$, and for a uniformly placed one it is $\Ronebar$.
+Of the twenty intervals in the table, nineteen contain the pair-level value. The exception is the uniform
+index at $\Dz=10$ ($3.697$, interval $3.643$--$3.751$, against $3.793$), a batch of 20{,}000 runs that is
+reproduced bit for bit from its seed and lies $3.5$ standard errors low. It is a chance fluctuation: 400{,}000
+further runs with other seeds give $3.793\pm0.006$ (standard error), and 40{,}000 runs of the second
+simulator $3.787\pm0.020$. The same larger samples give $2.265\pm0.004$ at $\Dz=1$ ($\Ronebar=2.266$) and
+$4.340\pm0.015$ at $\Dz=100$ (100{,}000 runs; $\Ronebar=4.341$); they are the counted values quoted in the main text.
+% src: data/s5_pair_checks.json (mobility: perron_inside_ci, uniform_inside_ci; mobility_check
+%      D0=10.0); code/bsc_sim/verify/v06_mobility.json; data/s5_pair_large_sample.json
+%      (office|D0=1: mean 2.2648, se 0.0039; office|D0=10: 3.7930, 0.0064, z_vs_exact -0.06; office|D0=100:
+%      4.3399, 0.0145; rerun_mobility_table_seed301|D0=10: identical_to_stored true, z_vs_exact -3.48)
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig4_meanfield_validity_map_en}
+\caption{Where the mean-field number is a good approximation of the pair-level number. Ratio
+$\Rone/\Rz=1/\bigl(1+(\beta q/\rhobar)\gz\bigr)$ on the infinite homogeneous lattice
+(Corollary~\ref{M-s5_pair:cor:infinite}; same-cell kernel, $\gamma=0.14\perday$) against the mobility $D$ and
+the occupancy $\rhobar$ (other people per cell), for (a) $\beta q=0.5\perday$ and (b)
+$\beta q=1.25\perday$. White contours: ratio $0.5$ (dashed) and $0.9$ (solid). Horizontal bars: occupancy
+and range of zone mobilities at $\Dz=1$ of the office ($0.43$ people per cell, $D=0.3$--$1.5$) and
+supermarket ($0.54$, $D=0.1$--$2.0$) scenes.}
+\label{s5_pair:fig:validity}
+% src: figure script code/bsc_sim/experiments/21_figures_more.py (fig_validity_map; closed form, no data
+%      file); zone values code/bsc_sim/scenes/office.json, supermarket.json
+\end{figure}
+
+Figure~\ref{s5_pair:fig:validity} maps the ratio of the two levels on the infinite homogeneous lattice. At
+$\rhobar=0.381$ and $\beta q=0.5\perday$ the ratio is $0.5$ at $D=0.24$,
+$0.9$ at $D=3.5$ and $0.99$ at $D=52\cellday$; for $\beta q=1.25\perday$ these mobilities are $0.76$, $9.9$
+and $143$. Higher occupancy moves the contours to lower mobility (ratio $0.9$ at $D=0.05$ for
+$\rhobar=10$, $\beta q=0.5\perday$). The mean-field number is therefore adequate when many people share a
+contact neighbourhood or when people move far enough during an infectious period to meet new ones. The
+scenes at $\Dz=1$ satisfy neither condition. At $\Dz\approx2.4\times10^3\cellday$
+(Section~\ref{M-s2_model:sec:regime}) the ratio on the infinite lattice is $0.9997$, and what remains in a
+finite room is the well-mixed finite-population factor.
+% src: data/s5_pair_checks.json (infinite: D_for_ratio_*; D=2400 ratio 0.99970)
+%      mobility estimate: data/bsc_theory/worked_examples.json (E9_physical_D)
+
+In the office at $\Dz=1$ the second generation of an index case and its direct cases is $1.63$ times the first
+(Table~\ref{s5_pair:tab:mobility}). In unrestricted epidemics started from a uniformly placed index case the ratio is
+lower still: the second generation is $1.29$ and $1.39$ times the first in the runs of the two simulators
+(Section~\ref{M-s6_scenes:sec:outcomes}).
+% src: data/bsc_sim/02_mobility.json (sim_gen2_over_gen1, R1_pair_ngm); data/s5_pair_checks.json
+%      (mobility: gen_ratio_over_rhoK1; wellmixed_generation_ratio: 3.589 / 4.435 = 0.809;
+%      saturation/office/full_epidemic_gen2_over_gen1: first implementation 1.293, second implementation 1.388);
+%      data/bsc_sim/03_scenes.json (office|D0=1|range1m); code/bsc_sim/verify/v05_scenes.json (office|1.0|1m)
+
+\subsection{A per-cell normalisation of the infection rate}\label{s5_pair:sec:percell}
+
+\begin{remark}[Encounter factor; an approximation]\label{s5_pair:rem:encounter}
+The pair hazard \eqref{M-s2_model:eq:pairhazard} is normalised by the mean number $\rhobar$ of \emph{other} people per
+cell. A rule that infects each susceptible in a cell at rate $\beta q\,n_I/n_{\mathrm{tot}}$, with $n_I$ and
+$n_{\mathrm{tot}}$ the instantaneous numbers of infectives and of all people in that cell, is a different process.
+An infective who shares its cell with $k$ susceptible people then infects at total rate $\beta q\,k/(k+1)$, which is
+zero when it is alone. If the other $\Npop-1$ people are taken to be independent of the infective and at
+stationarity at every instant (an annealed approximation, appropriate when movement is fast), $k$ is binomial with
+parameters $\Npop-1$ and $\pi_x$, and the identity $\binom{\Npop-1}{k}/(k+1)=\binom{\Npop}{k+1}/\Npop$ gives the
+encounter factor
+\[
+  c_x=\Exp\Bigl[\frac{k}{k+1}\Bigr]=1-\frac{1-(1-\pi_x)^{\Npop}}{\Npop\,\pi_x},
+\]
+so that the exposure of a case under the per-cell rule is that of the mean-field model with $q_x$ replaced by
+$c_xq_x$, and its reproduction number is approximately $\srad\bigl(\beta\Qm\diag(c)(\gamma\Id-\gen)^{-1}\bigr)$.
+For 100 people on the 234 cells of the office $c=0.185$ (the index is alone in its cell with probability
+$0.65$); for 100 people on $20\times20$ cells $c=0.114$. With a uniformly placed index case the annealed
+estimates are $c\,\beta\langle q\rangle/\gamma=0.86$ and $0.41$. Exact simulation of the rule gives $0.690$
+($0.676$--$0.704$) secondary cases in the office scene and $0.382$ ($0.372$--$0.392$) in the homogeneous
+$20\times20$ room at $D=1$ ($20{,}000$ runs each; the second simulator gives $0.698\pm0.007$ and $0.384\pm0.005$),
+and no run infected more than 37 and 23 people respectively: at these occupancies the per-cell rule is
+sub-critical.
+
+The annealed formula is not exact. In a homogeneous $20\times13$ room with 100 people and $q=1.4$ it predicts
+$0.843$; simulation gives $0.825\pm0.013$ at $\Dz=10$ ($9{,}000$ runs), within about $5\,\%$, but
+$0.754\pm0.022$ at $\Dz=1$ and $0.545\pm0.017$ at $\Dz=0.1$. In the two cases above it is too high by $7\,\%$
+($20\times20$ room) and by $24\,\%$ (office, whose workstation cells have $D=0.3$). The reason is again the
+repeated exposure of the same neighbours, which the annealed average ignores. In the four scenes at $\Dz=1$ the
+per-cell rule gives $0.62$--$1.01$ secondary cases, a mean attack rate of $1.0$--$3.0\pct$, and at most $4.8\pct$ of
+runs reach an attack rate of $10\pct$ (none of 2{,}000 in the metro carriage); it becomes supercritical only in the
+crowded carriage at high mobility ($2.43$ secondary cases and a mean attack rate of $52\pct$ at $\Dz=100$).
+\end{remark}
+% src: data/bsc_theory/verify_theorems.json (encounter_factors: c 0.1848, 0.1142; 0.8427);
+%      data/s5_pair_checks.json (encounter: prob_index_alone_in_cell 0.654, annealed_uniform_index 0.858,
+%      annealed 0.408, counted_over_annealed 0.804 and 0.936, counted_check);
+%      data/bsc_sim/01_validation.json (test E: 0.69025, 0.38195, max_final_size 37, 23);
+%      code/bsc_sim/verify/ (per-cell rule, second simulator); code/bsc_theory/verify/v4_ibm_big.log (0.825 +- 0.013);
+%      code/bsc_theory/verify/v3_dynamics.log (0.754 +- 0.022, 0.545 +- 0.017)
+% src: data/bsc_sim/03_scenes.json: per-cell-rule columns: index offspring, attack_all, p_major (rows D0 = 1 and D0 = 100);
+%      data/s6_scenes_numbers.json: summary_by_D0 (per-cell rule ranges)

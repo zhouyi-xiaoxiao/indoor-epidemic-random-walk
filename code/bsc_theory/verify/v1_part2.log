@@ -1,0 +1,12 @@
+mu(k=1e6) - mu_abs max rel (should be <= ~1e-9): -2.584629341710611e-13
+(b) uniform q leaky: rel err 4.85e-14; mu<=<kappa>_pi violation -6.17e-03; mu>0 min 1.41e-04; mono violation -8.30e-10; het bounds violations lower -1.68e-15 upper 1.68e-15; absorbing limit err 8.98e-05
+   corridor L=3: mu=0.585786 closed 0.585786 pi^2 D/L^2=1.096623  ratio mu/(pi^2/L^2)=0.534
+   corridor L=5: mu=0.267949 closed 0.267949 pi^2 D/L^2=0.394784  ratio mu/(pi^2/L^2)=0.679
+   corridor L=10: mu=0.081014 closed 0.081014 pi^2 D/L^2=0.098696  ratio mu/(pi^2/L^2)=0.821
+   corridor L=13: mu=0.050144 closed 0.050144 pi^2 D/L^2=0.058400  ratio mu/(pi^2/L^2)=0.859
+   corridor L=20: mu=0.022338 closed 0.022338 pi^2 D/L^2=0.024674  ratio mu/(pi^2/L^2)=0.905
+   corridor L=40: mu=0.005868 closed 0.005868 pi^2 D/L^2=0.006169  ratio mu/(pi^2/L^2)=0.951
+   corridor L=100: mu=0.000967 closed 0.000967 pi^2 D/L^2=0.000987  ratio mu/(pi^2/L^2)=0.980
+== Thm 5 ==
+|sum e - 1| 4.44e-16; FD elasticity err 2.95e-09; w ~ Qx err 2.79e-15; reversible e ~ q x^2/pi err 1.59e-14; profile -> u err 1.34e-14
+runtime 1.3s

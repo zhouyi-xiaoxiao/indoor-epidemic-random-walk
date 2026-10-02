@@ -1,0 +1,3381 @@
+{
+ "fetched": "2026-10-01",
+ "source": "api.crossref.org/works/<doi>",
+ "records": {
+  "olsen2003transmission": {
+   "DOI": "10.1056/nejmoa031349",
+   "title": [
+    "Transmission of the Severe Acute Respiratory Syndrome on Aircraft"
+   ],
+   "author": [
+    {
+     "given": "Sonja J.",
+     "family": "Olsen",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Hsiao-Ling",
+     "family": "Chang",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Terence Yung-Yan",
+     "family": "Cheung",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Antony Fai-Yu",
+     "family": "Tang",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Tamara L.",
+     "family": "Fisk",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Steven Peng-Lim",
+     "family": "Ooi",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Hung-Wei",
+     "family": "Kuo",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Donald Dah-Shyong",
+     "family": "Jiang",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Kow-Tong",
+     "family": "Chen",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jim",
+     "family": "Lando",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Kwo-Hsiung",
+     "family": "Hsu",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Tzay-Jinn",
+     "family": "Chen",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Scott F.",
+     "family": "Dowell",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "New England Journal of Medicine"
+   ],
+   "volume": "349",
+   "issue": "25",
+   "page": "2416-2422",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2003,
+      12,
+      18
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2003,
+      12,
+      18
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2003,
+      12,
+      18
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "flight CA112, SARS-CoV-1 (F1)"
+  },
+  "kenyon1996transmission": {
+   "DOI": "10.1056/nejm199604113341501",
+   "title": [
+    "Transmission of Multidrug-Resistant<i>Mycobacterium tuberculosis</i>during a Long Airplane Flight"
+   ],
+   "author": [
+    {
+     "given": "Thomas A.",
+     "family": "Kenyon",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Sarah E.",
+     "family": "Valway",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Walter W.",
+     "family": "Ihle",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Ida M.",
+     "family": "Onorato",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Kenneth G.",
+     "family": "Castro",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "New England Journal of Medicine"
+   ],
+   "volume": "334",
+   "issue": "15",
+   "page": "933-938",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      1996,
+      4,
+      11
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      1996,
+      4,
+      11
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      1996,
+      4,
+      11
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "Chicago-Honolulu flight, tuberculosis (F2)"
+  },
+  "baker2010transmission": {
+   "DOI": "10.1136/bmj.c2424",
+   "title": [
+    "Transmission of pandemic A/H1N1 2009 influenza on passenger aircraft: retrospective cohort study"
+   ],
+   "author": [
+    {
+     "given": "M. G.",
+     "family": "Baker",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "C. N.",
+     "family": "Thornley",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "C.",
+     "family": "Mills",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "S.",
+     "family": "Roberts",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "S.",
+     "family": "Perera",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "J.",
+     "family": "Peters",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "A.",
+     "family": "Kelso",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "I.",
+     "family": "Barr",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "N.",
+     "family": "Wilson",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "BMJ"
+   ],
+   "volume": "340",
+   "issue": "may21 1",
+   "page": "c2424-c2424",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2010,
+      5,
+      21
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2010,
+      5,
+      27
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2010,
+      5,
+      21
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "Los Angeles-Auckland flight, influenza (F3)"
+  },
+  "young2014international": {
+   "DOI": "10.1111/irv.12181",
+   "title": [
+    "International flight‐related transmission of pandemic influenza <scp>A</scp>(<scp>H</scp>1<scp>N</scp>1)pdm09: an historical cohort study of the first identified cases in the <scp>U</scp>nited <scp>K</scp>ingdom"
+   ],
+   "author": [
+    {
+     "given": "Nicholas",
+     "family": "Young",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Bristol UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Richard",
+     "family": "Pebody",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Centre for Infections Colindale UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Gillian",
+     "family": "Smith",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Birmingham UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Babatunde",
+     "family": "Olowokure",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Birmingham UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Giri",
+     "family": "Shankar",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Thetford UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Katja",
+     "family": "Hoschler",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Centre for Infections Colindale UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Monica",
+     "family": "Galiano",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Centre for Infections Colindale UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Helen",
+     "family": "Green",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Centre for Infections Colindale UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Anders",
+     "family": "Wallensten",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Bristol UK"
+      },
+      {
+       "name": "Swedish Institute for Communicable Disease Control Stockholm Sweden"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Angela",
+     "family": "Hogan",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Bristol UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Isabel",
+     "family": "Oliver",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Agency Bristol UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Influenza and Other Respiratory Viruses"
+   ],
+   "volume": "8",
+   "issue": "1",
+   "page": "66-73",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2013,
+      11,
+      7
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2014,
+      1
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2013,
+      11,
+      7
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "Cancun-Birmingham flight, influenza (F4)"
+  },
+  "toyokawa2022transmission": {
+   "DOI": "10.1111/irv.12913",
+   "title": [
+    "Transmission of SARS‐CoV‐2 during a 2‐h domestic flight to Okinawa, Japan, March 2020"
+   ],
+   "author": [
+    {
+     "ORCID": "https://orcid.org/0000-0003-3872-6977",
+     "authenticated-orcid": false,
+     "given": "Takao",
+     "family": "Toyokawa",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "COVID‐19 Response Team Naha City Public Health Center  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Tomoe",
+     "family": "Shimada",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Infectious Disease Surveillance Center National Institute of Infectious Diseases (NIID)  Shinjuku‐ku Tokyo Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Takahiro",
+     "family": "Hayamizu",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "COVID‐19 Response Team Naha City Public Health Center  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Tsuyoshi",
+     "family": "Sekizuka",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Pathogen Genomics Center National Institute of Infectious Diseases (NIID)  Shinjuku‐ku Tokyo Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Yuji",
+     "family": "Zukeyama",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "COVID‐19 Response Team Naha City Public Health Center  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Miyako",
+     "family": "Yasuda",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "COVID‐19 Response Team Naha City Public Health Center  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Yuko",
+     "family": "Nakamura",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "COVID‐19 Response Team Naha City Public Health Center  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Sho",
+     "family": "Okano",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Regional Health Division, Department of Public Health and Medical Care Okinawa Prefectural Government  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Jun",
+     "family": "Kudaka",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Regional Health Division, Department of Public Health and Medical Care Okinawa Prefectural Government  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-8991-7397",
+     "authenticated-orcid": false,
+     "given": "Tetsuya",
+     "family": "Kakita",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Okinawa Prefectural Institute of Health and Environment  Uruma‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Makoto",
+     "family": "Kuroda",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Pathogen Genomics Center National Institute of Infectious Diseases (NIID)  Shinjuku‐ku Tokyo Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Tadashi",
+     "family": "Nakasone",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "COVID‐19 Response Team Naha City Public Health Center  Naha‐shi Okinawa Japan"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Influenza and Other Respiratory Viruses"
+   ],
+   "volume": "16",
+   "issue": "1",
+   "page": "63-71",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2021,
+      10,
+      3
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2022,
+      1
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2021,
+      10,
+      3
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "flight to Naha, SARS-CoV-2 (F5)"
+  },
+  "speake2020flight": {
+   "DOI": "10.3201/eid2612.203910",
+   "title": [
+    "Flight-Associated Transmission of Severe Acute Respiratory Syndrome Coronavirus 2 Corroborated by Whole-Genome Sequencing"
+   ],
+   "author": [
+    {
+     "given": "Hollie",
+     "family": "Speake",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Anastasia",
+     "family": "Phillips",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Tracie",
+     "family": "Chong",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Chisha",
+     "family": "Sikazwe",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Avram",
+     "family": "Levy",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jurissa",
+     "family": "Lang",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Benjamin",
+     "family": "Scalley",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "David J.",
+     "family": "Speers",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "David W.",
+     "family": "Smith",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Paul",
+     "family": "Effler",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Suzanne P.",
+     "family": "McEvoy",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Emerging Infectious Diseases"
+   ],
+   "volume": "26",
+   "issue": "12",
+   "page": "2872-2880",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2020,
+      12
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2020,
+      12
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2020,
+      12
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "Sydney-Perth flight, SARS-CoV-2 (F6)"
+  },
+  "swadi2021genomic": {
+   "DOI": "10.3201/eid2703.204714",
+   "title": [
+    "Genomic Evidence of In-Flight Transmission of SARS-CoV-2 Despite Predeparture Testing"
+   ],
+   "author": [
+    {
+     "given": "Tara",
+     "family": "Swadi",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Jemma L.",
+     "family": "Geoghegan",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Tom",
+     "family": "Devine",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Caroline",
+     "family": "McElnay",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Jillian",
+     "family": "Sherwood",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Phil",
+     "family": "Shoemack",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Xiaoyun",
+     "family": "Ren",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Matt",
+     "family": "Storey",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Sarah",
+     "family": "Jefferies",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Erasmus",
+     "family": "Smit",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "James",
+     "family": "Hadfield",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Aoife",
+     "family": "Kenny",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Lauren",
+     "family": "Jelley",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Andrew",
+     "family": "Sporle",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Andrea",
+     "family": "McNeill",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "G. Edwin",
+     "family": "Reynolds",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Kip",
+     "family": "Mouldey",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Lindsay",
+     "family": "Lowe",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Gerard",
+     "family": "Sonder",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Alexei J.",
+     "family": "Drummond",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Sue",
+     "family": "Huang",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "David",
+     "family": "Welch",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Edward C.",
+     "family": "Holmes",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Nigel",
+     "family": "French",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Colin R.",
+     "family": "Simpson",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Joep",
+     "family": "de Ligt",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Emerging Infectious Diseases"
+   ],
+   "volume": "27",
+   "issue": "3",
+   "page": "687-693",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2021,
+      3
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2021,
+      3
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2021,
+      3
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "flight EK448, SARS-CoV-2 (F7)"
+  },
+  "hoehl2020assessment": {
+   "DOI": "10.1001/jamanetworkopen.2020.18044",
+   "title": [
+    "Assessment of SARS-CoV-2 Transmission on an International Flight and Among a Tourist Group"
+   ],
+   "author": [
+    {
+     "given": "Sebastian",
+     "family": "Hoehl",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "Institute for Medical Virology, University Hospital, Goethe University Frankfurt am Main, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Onur",
+     "family": "Karaca",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Institute for Medical Virology, University Hospital, Goethe University Frankfurt am Main, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Niko",
+     "family": "Kohmer",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Institute for Medical Virology, University Hospital, Goethe University Frankfurt am Main, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Sandra",
+     "family": "Westhaus",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Institute for Medical Virology, University Hospital, Goethe University Frankfurt am Main, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jürgen",
+     "family": "Graf",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "University Hospital Frankfurt am Main, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Udo",
+     "family": "Goetsch",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Health Protection Authority, City of Frankfurt, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Sandra",
+     "family": "Ciesek",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Institute for Medical Virology, University Hospital, Goethe University Frankfurt am Main, Frankfurt am Main, Germany"
+      },
+      {
+       "name": "Fraunhofer Institute for Molecular Biology and Applied Ecology, Branch Translational Medicine und Pharmacology, Frankfurt, Frankfurt am Main, Germany"
+      },
+      {
+       "name": "German Centre for Infection Research, Deutsches Zentrum für Infektionsforschung, External Partner Site Frankfurt, Frankfurt am Main, Germany"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "JAMA Network Open"
+   ],
+   "volume": "3",
+   "issue": "8",
+   "page": "e2018044",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2020,
+      8,
+      18
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2020,
+      8,
+      18
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "Tel Aviv-Frankfurt flight, SARS-CoV-2 (F8)"
+  },
+  "wong2004cluster": {
+   "DOI": "10.3201/eid1002.030452",
+   "title": [
+    "Cluster of SARS among Medical Students Exposed to Single Patient, Hong Kong"
+   ],
+   "author": [
+    {
+     "given": "Tze-wai",
+     "family": "Wong",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "The Chinese University of Hong Kong, Hong Kong Special Administrative Region (SAR), People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Chin-kei",
+     "family": "Lee",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "National Centre for Epidemiology and Population Health, Australian National University, Canberra, Australia"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Wilson",
+     "family": "Tam",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "The Chinese University of Hong Kong, Hong Kong Special Administrative Region (SAR), People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Joseph Tak-fai",
+     "family": "Lau",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "The Chinese University of Hong Kong, Hong Kong Special Administrative Region (SAR), People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Tak-sun",
+     "family": "Yu",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "The Chinese University of Hong Kong, Hong Kong Special Administrative Region (SAR), People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Siu-fai",
+     "family": "Lui",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Hospital Authority, Hong Kong SAR, People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Paul K.S.",
+     "family": "Chan",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "The Chinese University of Hong Kong, Hong Kong Special Administrative Region (SAR), People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Yuguo",
+     "family": "Li",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "The University of Hong Kong, Hong Kong SAR, People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Joseph S.",
+     "family": "Bresee",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Centers for Disease Control and Prevention, Atlanta, Georgia, USA"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Joseph J.Y.",
+     "family": "Sung",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "The Chinese University of Hong Kong, Hong Kong Special Administrative Region (SAR), People’s Republic of China"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Umesh D.",
+     "family": "Parashar",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Centers for Disease Control and Prevention, Atlanta, Georgia, USA"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "name": "for the Outbreak Study Group",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Emerging Infectious Diseases"
+   ],
+   "volume": "10",
+   "issue": "2",
+   "page": "269-276",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2004,
+      2
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2004,
+      2
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "ward 8A, medical students (W1)"
+  },
+  "yu2005temporal": {
+   "DOI": "10.1086/428735",
+   "title": [
+    "Temporal-Spatial Analysis of Severe Acute Respiratory Syndrome among Hospital Inpatients"
+   ],
+   "author": [
+    {
+     "given": "I. T. S.",
+     "family": "Yu",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "T. W.",
+     "family": "Wong",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Y. L.",
+     "family": "Chiu",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "N.",
+     "family": "Lee",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Y.",
+     "family": "Li",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Clinical Infectious Diseases"
+   ],
+   "volume": "40",
+   "issue": "9",
+   "page": "1237-1243",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2005,
+      5,
+      1
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2005,
+      5,
+      1
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2005,
+      5,
+      1
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "ward 8A, inpatients (W2)"
+  },
+  "hertzberg2016risk": {
+   "DOI": "10.1016/j.aogh.2016.06.003",
+   "title": [
+    "On the 2-Row Rule for Infectious Disease Transmission on Aircraft"
+   ],
+   "author": [
+    {
+     "given": "Vicki",
+     "family": "Stover Hertzberg",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Howard",
+     "family": "Weiss",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Annals of Global Health"
+   ],
+   "volume": "82",
+   "issue": "5",
+   "page": "819",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2017,
+      3,
+      8
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2017,
+      3,
+      8
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "two-row rule on aircraft; redrawn seat map of CA112"
+  },
+  "genois2018can": {
+   "DOI": "10.1140/epjds/s13688-018-0140-1",
+   "title": [
+    "Can co-location be used as a proxy for face-to-face contacts?"
+   ],
+   "author": [
+    {
+     "ORCID": "https://orcid.org/0000-0001-5492-8750",
+     "authenticated-orcid": false,
+     "given": "Mathieu",
+     "family": "Génois",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alain",
+     "family": "Barrat",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "EPJ Data Science"
+   ],
+   "volume": "7",
+   "issue": "1",
+   "page": null,
+   "article-number": "11",
+   "published": {
+    "date-parts": [
+     [
+      2018,
+      5,
+      8
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2018,
+      12
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2018,
+      5,
+      8
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "office 2015 and conference contact data"
+  },
+  "mastrandrea2015contact": {
+   "DOI": "10.1371/journal.pone.0136497",
+   "title": [
+    "Contact Patterns in a High School: A Comparison between Data Collected Using Wearable Sensors, Contact Diaries and Friendship Surveys"
+   ],
+   "author": [
+    {
+     "given": "Rossana",
+     "family": "Mastrandrea",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Julie",
+     "family": "Fournet",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alain",
+     "family": "Barrat",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "PLOS ONE"
+   ],
+   "volume": "10",
+   "issue": "9",
+   "page": "e0136497",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2015,
+      9,
+      1
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2015,
+      9,
+      1
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "high-school contact data"
+  },
+  "vanhems2013estimating": {
+   "DOI": "10.1371/journal.pone.0073970",
+   "title": [
+    "Estimating Potential Infection Transmission Routes in Hospital Wards Using Wearable Proximity Sensors"
+   ],
+   "author": [
+    {
+     "given": "Philippe",
+     "family": "Vanhems",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alain",
+     "family": "Barrat",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Ciro",
+     "family": "Cattuto",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jean-François",
+     "family": "Pinton",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Nagham",
+     "family": "Khanafer",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Corinne",
+     "family": "Régis",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Byeul-a",
+     "family": "Kim",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Brigitte",
+     "family": "Comte",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Nicolas",
+     "family": "Voirin",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "PLoS ONE"
+   ],
+   "volume": "8",
+   "issue": "9",
+   "page": "e73970",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2013,
+      9,
+      11
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2013,
+      9,
+      11
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "hospital-ward contact data"
+  },
+  "stehle2011simulation": {
+   "DOI": "10.1186/1741-7015-9-87",
+   "title": [
+    "Simulation of an SEIR infectious disease model on the dynamic contact network of conference attendees"
+   ],
+   "author": [
+    {
+     "given": "Juliette",
+     "family": "Stehlé",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Nicolas",
+     "family": "Voirin",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alain",
+     "family": "Barrat",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Ciro",
+     "family": "Cattuto",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Vittoria",
+     "family": "Colizza",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Lorenzo",
+     "family": "Isella",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Corinne",
+     "family": "Régis",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jean-François",
+     "family": "Pinton",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Nagham",
+     "family": "Khanafer",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Wouter",
+     "family": "Van den Broeck",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Philippe",
+     "family": "Vanhems",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "BMC Medicine"
+   ],
+   "volume": "9",
+   "issue": "1",
+   "page": null,
+   "article-number": "87",
+   "published": {
+    "date-parts": [
+     [
+      2011,
+      7,
+      19
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2011,
+      12
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2011,
+      7,
+      19
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "SEIR on a recorded conference contact network"
+  },
+  "cattuto2010dynamics": {
+   "DOI": "10.1371/journal.pone.0011596",
+   "title": [
+    "Dynamics of Person-to-Person Interactions from Distributed RFID Sensor Networks"
+   ],
+   "author": [
+    {
+     "given": "Ciro",
+     "family": "Cattuto",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Wouter",
+     "family": "Van den Broeck",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alain",
+     "family": "Barrat",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Vittoria",
+     "family": "Colizza",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jean-François",
+     "family": "Pinton",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alessandro",
+     "family": "Vespignani",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "PLoS ONE"
+   ],
+   "volume": "5",
+   "issue": "7",
+   "page": "e11596",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2010,
+      7,
+      15
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2010,
+      7,
+      15
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "RFID proximity sensing; broad contact-duration distributions"
+  },
+  "starnini2013modeling": {
+   "DOI": "10.1103/physrevlett.110.168701",
+   "title": [
+    "Modeling Human Dynamics of Face-to-Face Interaction Networks"
+   ],
+   "author": [
+    {
+     "given": "Michele",
+     "family": "Starnini",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Andrea",
+     "family": "Baronchelli",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Romualdo",
+     "family": "Pastor-Satorras",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Physical Review Letters"
+   ],
+   "volume": "110",
+   "issue": "16",
+   "page": null,
+   "article-number": "168701",
+   "published": {
+    "date-parts": [
+     [
+      2013,
+      4,
+      15
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2013,
+      4,
+      15
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "random-walk model of face-to-face interactions with attractiveness (anchored walkers)"
+  },
+  "kinahan2021aerosol": {
+   "DOI": "10.1371/journal.pone.0246916",
+   "title": [
+    "Aerosol tracer testing in Boeing 767 and 777 aircraft to simulate exposure potential of infectious aerosol such as SARS-CoV-2"
+   ],
+   "author": [
+    {
+     "ORCID": "https://orcid.org/0000-0001-8307-3771",
+     "authenticated-orcid": true,
+     "given": "Sean M.",
+     "family": "Kinahan",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-8179-824X",
+     "authenticated-orcid": true,
+     "given": "David B.",
+     "family": "Silcott",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-2192-3491",
+     "authenticated-orcid": true,
+     "given": "Blake E.",
+     "family": "Silcott",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Ryan M.",
+     "family": "Silcott",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Peter J.",
+     "family": "Silcott",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Braden J.",
+     "family": "Silcott",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-1052-3089",
+     "authenticated-orcid": true,
+     "given": "Steven L.",
+     "family": "Distelhorst",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-0850-3783",
+     "authenticated-orcid": true,
+     "given": "Vicki L.",
+     "family": "Herrera",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Danielle N.",
+     "family": "Rivera",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0003-2817-278X",
+     "authenticated-orcid": true,
+     "given": "Kevin K.",
+     "family": "Crown",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Gabriel A.",
+     "family": "Lucero",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Joshua L.",
+     "family": "Santarpia",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "PLOS ONE"
+   ],
+   "volume": "16",
+   "issue": "12",
+   "page": "e0246916",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2021,
+      12,
+      1
+     ]
+    ]
+   },
+   "published-print": null,
+   "issued": {
+    "date-parts": [
+     [
+      2021,
+      12,
+      1
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "aerosol tracer tests in wide-body cabins"
+  },
+  "woodward2022evaluation": {
+   "DOI": "10.1111/ina.13121",
+   "title": [
+    "An evaluation of the risk of airborne transmission of\n            <scp>COVID</scp>\n            ‐19 on an inter‐city train carriage"
+   ],
+   "author": [
+    {
+     "ORCID": "https://orcid.org/0000-0001-8994-8057",
+     "authenticated-orcid": false,
+     "given": "Huw",
+     "family": "Woodward",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "Centre for Environmental Policy Imperial College London  London UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Rick J. B.",
+     "family": "de Kreij",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Engineering University of Cambridge  Cambridge UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Emily S.",
+     "family": "Kruger",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Applied Mathematics and Theoretical Physics, Centre for Mathematical Sciences University of Cambridge  Cambridge UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Shiwei",
+     "family": "Fan",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Chemistry University of Cambridge  Cambridge UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0001-6376-6087",
+     "authenticated-orcid": false,
+     "given": "Arvind",
+     "family": "Tiwari",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Global Centre for Clean Air Research (GCARE), Department of Civil &amp; Environmental Engineering University of Surrey  Guildford UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Sarkawt",
+     "family": "Hama",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Global Centre for Clean Air Research (GCARE), Department of Civil &amp; Environmental Engineering University of Surrey  Guildford UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Simon",
+     "family": "Noel",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "QinetiQ Ltd.  Farnborough UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Megan S.",
+     "family": "Davies Wykes",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Engineering University of Cambridge  Cambridge UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Prashant",
+     "family": "Kumar",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Global Centre for Clean Air Research (GCARE), Department of Civil &amp; Environmental Engineering University of Surrey  Guildford UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    },
+    {
+     "given": "Paul F.",
+     "family": "Linden",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Applied Mathematics and Theoretical Physics, Centre for Mathematical Sciences University of Cambridge  Cambridge UK"
+      }
+     ],
+     "role": [
+      {
+       "role": "author",
+       "vocabulary": "crossref"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Indoor Air"
+   ],
+   "volume": "32",
+   "issue": "10",
+   "page": null,
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2022,
+      10
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2022,
+      10
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2022,
+      10
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "salt-aerosol tracer in a rail carriage"
+  },
+  "endo2021within": {
+   "DOI": "10.1073/pnas.2112605118",
+   "title": [
+    "Within and between classroom transmission patterns of seasonal influenza among primary school students in Matsumoto city, Japan"
+   ],
+   "author": [
+    {
+     "ORCID": "https://orcid.org/0000-0001-6377-7296",
+     "authenticated-orcid": false,
+     "given": "Akira",
+     "family": "Endo",
+     "sequence": "first",
+     "affiliation": [
+      {
+       "name": "Department of Infectious Disease Epidemiology, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "The Centre for Mathematical Modelling of Infectious Diseases, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "The Alan Turing Institute, London, NW1 2DB, United Kingdom;"
+      },
+      {
+       "name": "School of Tropical Medicine and Global Health, Nagasaki University, Nagasaki, 852-8523, Japan;"
+      },
+      {
+       "name": "Japan Society for the Promotion of Science, Tokyo, 102-0083, Japan;"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-9928-8897",
+     "authenticated-orcid": false,
+     "given": "Mitsuo",
+     "family": "Uchida",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Graduate School of Medicine, Gunma University, Gunma, 371-8511, Japan;"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Naoki",
+     "family": "Hayashi",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Simulation &amp; Mining Division, NTT DATA Mathematical Systems Inc., Tokyo, 160-0016, Japan;"
+      },
+      {
+       "name": "Department of Mathematical and Computing Science, School of Computing, Tokyo Institute of Technology, Tokyo, 152-8552, Japan;"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Yang",
+     "family": "Liu",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Infectious Disease Epidemiology, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "The Centre for Mathematical Modelling of Infectious Diseases, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0001-5250-0558",
+     "authenticated-orcid": false,
+     "given": "Katherine E.",
+     "family": "Atkins",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Infectious Disease Epidemiology, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "The Centre for Mathematical Modelling of Infectious Diseases, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "Centre for Global Health Research, Usher Institute, University of Edinburgh, Edinburgh, EH16 4UX, United Kingdom"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Adam J.",
+     "family": "Kucharski",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Infectious Disease Epidemiology, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "The Centre for Mathematical Modelling of Infectious Diseases, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "ORCID": "https://orcid.org/0000-0002-2842-3406",
+     "authenticated-orcid": false,
+     "given": "Sebastian",
+     "family": "Funk",
+     "sequence": "additional",
+     "affiliation": [
+      {
+       "name": "Department of Infectious Disease Epidemiology, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      },
+      {
+       "name": "The Centre for Mathematical Modelling of Infectious Diseases, London School of Hygiene &amp; Tropical Medicine, London, WC1E 7HT, United Kingdom;"
+      }
+     ],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "Proceedings of the National Academy of Sciences"
+   ],
+   "volume": "118",
+   "issue": "46",
+   "page": null,
+   "article-number": "e2112605118",
+   "published": {
+    "date-parts": [
+     [
+      2021,
+      11,
+      8
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2021,
+      11,
+      16
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2021,
+      11,
+      8
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "influenza in 29 primary schools, Matsumoto"
+  },
+  "gemmetto2014mitigation": {
+   "DOI": "10.1186/s12879-014-0695-9",
+   "title": [
+    "Mitigation of infectious disease at school: targeted class closure vs school closure"
+   ],
+   "author": [
+    {
+     "given": "Valerio",
+     "family": "Gemmetto",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Alain",
+     "family": "Barrat",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Ciro",
+     "family": "Cattuto",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "BMC Infectious Diseases"
+   ],
+   "volume": "14",
+   "issue": "1",
+   "page": null,
+   "article-number": "695",
+   "published": {
+    "date-parts": [
+     [
+      2014,
+      12
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2014,
+      12
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2014,
+      12
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "class and school mixing from the Lyon contact data"
+  },
+  "vink2014serial": {
+   "DOI": "10.1093/aje/kwu209",
+   "title": [
+    "Serial Intervals of Respiratory Infectious Diseases: A Systematic Review and Analysis"
+   ],
+   "author": [
+    {
+     "given": "Margaretha Annelie",
+     "family": "Vink",
+     "sequence": "first",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Martinus Christoffel Jozef",
+     "family": "Bootsma",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    },
+    {
+     "given": "Jacco",
+     "family": "Wallinga",
+     "sequence": "additional",
+     "affiliation": [],
+     "role": [
+      {
+       "vocabulary": "crossref",
+       "role": "author"
+      }
+     ]
+    }
+   ],
+   "container-title": [
+    "American Journal of Epidemiology"
+   ],
+   "volume": "180",
+   "issue": "9",
+   "page": "865-875",
+   "article-number": null,
+   "published": {
+    "date-parts": [
+     [
+      2014,
+      10,
+      7
+     ]
+    ]
+   },
+   "published-print": {
+    "date-parts": [
+     [
+      2014,
+      11,
+      1
+     ]
+    ]
+   },
+   "issued": {
+    "date-parts": [
+     [
+      2014,
+      10,
+      7
+     ]
+    ]
+   },
+   "type": "journal-article",
+   "citedfor": "serial interval of influenza"
+  }
+ },
+ "manual_checks": {
+  "hertzberg2016risk": "Annals of Global Health 82(5), September-October 2016, pp. 819-823; Crossref lists the online date (2017) and the first page only. Authors as printed: V. S. Hertzberg, H. Weiss.",
+  "woodward2022evaluation": "article number e13121 (in the DOI; Crossref has no page field).",
+  "baker2010transmission": "article number c2424; the Crossref issue field ('may21 1') is not used."
+ }
+}

@@ -1,0 +1,6 @@
+B {'N': 40, 'n_rep': 40000, 'exact_mean': 27.808213100813678, 'sim_mean': 27.7693, 'sim_se': 0.08431473573531825, 'exact_p_minor_le3': 0.2718938839957419, 'sim_p_minor_le3': 0.27245, 'chi2': 39.76805043341577, 'dof': 39}
+--- test B done in 3.9 s
+F {'N': 100, 'D0': 1.0, 'I0': 1, 'n_rep': 200, 'occupancy': 0.42735042735042733, 'ode_peak': 0.4513520880490563, 'ode_peak_time': 11.5, 'sim_peak_of_mean': 0.03185, 'sim_peak_time_of_mean': 19.25, 'ode_final': 0.9892765572565307, 'sim_final_mean': 0.1973999999999999, 'max_abs_diff_curve': 0.42261951505681505, 'R0_ngm': 5.107294682670609}
+F {'N': 1000, 'D0': 10.0, 'I0': 10, 'n_rep': 200, 'occupancy': 4.273504273504273, 'ode_peak': 0.453901753445036, 'ode_peak_time': 11.75, 'sim_peak_of_mean': 0.42826, 'sim_peak_time_of_mean': 12.75, 'ode_final': 0.9896381544901187, 'sim_final_mean': 0.987915, 'max_abs_diff_curve': 0.05845292293065668, 'R0_ngm': 4.676246636226544}
+F {'N': 5000, 'D0': 100.0, 'I0': 50, 'n_rep': 40, 'occupancy': 21.367521367521366, 'ode_peak': 0.45617993268135476, 'ode_peak_time': 11.75, 'sim_peak_of_mean': 0.45448500000000003, 'sim_peak_time_of_mean': 11.75, 'ode_final': 0.9899976071890412, 'sim_final_mean': 0.989765, 'max_abs_diff_curve': 0.003714386562298194, 'R0_ngm': 4.64584452403739}
+--- test F done in 539.5 s

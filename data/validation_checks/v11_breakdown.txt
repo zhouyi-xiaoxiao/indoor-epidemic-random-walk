@@ -1,0 +1,9 @@
+C1 mixture pmf(obs)=0.0691  two-sided p=0.120
+  D in (0.00977, 0.1]: posterior mass 0.177, contributes 0.0349 of pmf(obs) (51%); pmf(obs|range)=0.1976
+  D in (0.1, 5.62]: posterior mass 0.628, contributes 0.0033 of pmf(obs) (5%); pmf(obs|range)=0.0053
+  D in (5.62, 1.02e+04]: posterior mass 0.195, contributes 0.0309 of pmf(obs) (45%); pmf(obs|range)=0.1579
+  at posterior mode D=0.501: pmf(obs)=0.0009, two-sided p=0.0009, E[k_near]=9.86
+C1 with the train-calibrated D_air (exploratory, post hoc): pmf(obs)=0.252 p=0.593 E[k_near]=8.74
+T5 at train posterior mode D=20: pmf(obs)=0.3541 p=0.6043 | at 5%/95% D: p=1.000 / 0.334
+T1 at train posterior mode D=20: pmf(obs)=0.0991 p=0.2872 | at 5%/95% D: p=0.016 / 0.804
+T2 at train posterior mode D=20: pmf(obs)=0.0012 p=0.0012 | at 5%/95% D: p=0.000 / 0.017

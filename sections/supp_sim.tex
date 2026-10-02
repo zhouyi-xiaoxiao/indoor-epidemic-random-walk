@@ -1,0 +1,932 @@
+% supp_sim.tex -- Supplementary Section S5: simulations of the scenes and of interventions; details.
+% Paths in "% src:" comments are relative to the repository root.
+% Table bodies between "% BEGIN AUTO" and "% END AUTO" are written by code/s6_scenes_tables.py; derived
+% numbers: data/s6_scenes_numbers.json, data/s7_interventions_numbers.json and the files named.
+\section{Simulations of the scenes and of interventions: details}\label{appS_sim:sec}
+
+This section gives the details of Section~\ref{M-s6_scenes:sec} of the main text. Unless stated otherwise
+$\beta=0.5\perday$, $\gamma=0.14\perday$, the contact kernel is the 1\,m kernel, there is one uniformly placed index
+case, the room is occupied 24 hours a day, a `major' outbreak has an attack rate of at least 10\,\%, and $\Rhat$ is
+the counted number of secondary cases of an index case that alone transmits. $\Ronebar$ and $\srad(\ngmone)$ are not
+threshold quantities (Remark~\ref{M-s5_pair:rem:threshold}).
+
+\subsection{The four scenes}\label{appS_sim:sec:scenes}
+
+An epidemic in the office scene at $\Dz=1$ consists of about 5{,}900 events. Peak prevalence and peak day are the
+maximum of $I/\Npop$ on a grid of $0.5$~day and its time, averaged over major outbreaks. The mean-field equations
+are started from one infective spread uniformly over the cells, and from one infective placed in a single cell
+(averaged over every third cell as seed); the extinction probabilities of \eqref{M-s6_scenes:eq:branching} are
+computed by iteration from $s=0$. Fig.~\ref{s6_scenes:fig:curves} shows the epidemic curves of the four scenes
+and Fig.~\ref{s6_scenes:fig:attack} the distribution of the attack rate over the same runs.
+% src: data/bsc_sim/03_scenes.json: "office|D0=1|range1m".events_per_rep = 5919.5; code/bsc_sim/experiments/03_scenes.py (n_rep = 2000, T_MAX = 400 d); 03_scenes.json: n_unfinished = 0 in all 18 rows; code/s6_scenes_ode_pointseed.py
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig5_3_scene_epidemic_curves_en}
+\caption{Prevalence $I/\Npop$ against time in the four scenes (columns; $\Npop=100$, $150$, $80$, $310$) at
+$\Dz=1$ (top) and $\Dz=10\cellday$ (bottom); 1\,m kernel, 2{,}000 exact simulations per panel, one uniformly placed
+index case. Solid line: mean over major outbreaks (attack rate at least $10\,\%$) at each time, with the band between
+the 5th and 95th percentiles; the dot marks its maximum. Dotted: mean over all runs. Dashed: mean-field equations
+\eqref{M-s2_model:eq:meanfield} started from one infective spread uniformly over the cells. The values of
+$P_{\mathrm{maj}}$ in the panels are those of Table~\ref{M-s6_scenes:tab:scenes}. The maximum of the mean curve (office, $\Dz=1$: $7.0\,\%$
+on day $19.5$) is lower than the mean of the individual peaks in Table~\ref{M-s6_scenes:tab:scenes} ($12.7\,\%$)
+because outbreaks peak at different times.}
+% src: figures/fig5_3_scene_epidemic_curves_en.pdf (code/bsc_sim/experiments/21_figures_more.py <- data/bsc_sim/03_curves_*.npz);
+%      data/s6_scenes_numbers.json: scenes."office|D0=1".mean_curve_major_peak = 0.0696, _day = 19.5
+\label{s6_scenes:fig:curves}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig5_4_attack_rate_distributions_en}
+\caption{Distribution of the attack rate (fraction of the $\Npop$ people ever infected) over the 2{,}000 runs of
+each panel of Fig.~\ref{s6_scenes:fig:curves}; bins of width $0.04$, logarithmic vertical axis. The dashed line is
+the $10\,\%$ threshold that defines a major outbreak. At $\Dz=10\cellday$ the distributions are bimodal; at $\Dz=1$
+they are not, except in the metro carriage.}
+% src: figures/fig5_4_attack_rate_distributions_en.pdf (code/bsc_sim/experiments/21_figures_more.py <- data/bsc_sim/03_curves_*.npz)
+\label{s6_scenes:fig:attack}
+\end{figure}
+
+The values of $\Rhat$ in Table~\ref{M-s6_scenes:tab:scenes} come from separate batches of 2{,}000 runs and are the
+least precise estimates of this quantity in the article; for the office, samples of 100{,}000 to 400{,}000
+runs give $2.265\pm0.004$, $3.793\pm0.006$ and $4.340\pm0.015$ at $\Dz=1$, $10$ and $100$
+(Section~\ref{M-s5_pair:sec:mobility}), in agreement with $\Ronebar$.
+% src: data/s5_pair_large_sample.json (office|D0=1, office|D0=10, office|D0=100: mean, se, R1bar_exact)
+The mean-field $\Rz$ does not: at $\Dz=1$ the index case of the office infects $2.26\pm0.06$ people where
+$\Rz=5.11$, and the ratio $\Rhat/\Rz$ is $0.44$, $0.45$, $0.45$ and $0.60$ in the office, supermarket, classroom
+and metro carriage. It rises to $0.84$--$0.93$ at $\Dz=100$.
+% src: data/bsc_sim/03_scenes.json (R_index_alone_mean, R0_ngm); s6_scenes_numbers.json: scenes.*.Rhat_over_R0
+
+With the same-cell kernel the mean field is not adequate for the outbreak probability where cells are smaller
+than the contact range: in the metro carriage
+$P_{\mathrm{br}}-P_{\mathrm{maj}}$ is $0.54$ at $\Dz=10$ ($0.888$ against $0.349$; attack rate of major
+outbreaks $17.3\pct$ against $100.0\pct$) and still $0.031$ at $\Dz=100$ ($98.6\pct$ against $100.0\pct$); in the
+classroom it is $0.08$ at $\Dz=10$ ($89.1\pct$ against $98.8\pct$) and $0.014$ at $\Dz=100$
+(Section~\ref{s6_scenes:sec:kernel}).
+% src: data/bsc_sim/03_scenes.json: "metro|D0=10|samecell" (p_major 0.349, p_major_branching 0.888, attack_major_mean 0.173, ode_attack 1.000),
+%      "metro|D0=100|samecell" (0.858, 0.889, 0.986), "classroom|D0=10|samecell" (0.695, 0.777, 0.891, 0.988), "classroom|D0=100|samecell" (0.771, 0.785)
+
+Peak height and peak day are a different matter. At $\Dz=10$ the simulated peaks ($39.0\,\%$, $30.6\,\%$, $35.0\,\%$,
+$27.5\,\%$) are lower and about four to five days later than those of the mean-field equations even when these
+are started from a single cell ($44.1\,\%$, $33.1\,\%$, $41.3\,\%$, $36.3\,\%$). At $\Dz=100$ the two agree to within $2.5$
+percentage points and about one day in the office, the supermarket and the classroom. In the metro carriage they
+do not: its mobility is $0.028\,\Dz$ on area average (Table~\ref{M-s2_model:tab:scenes}), the infection has to
+travel along the 45 cells of the carriage, and the mean-field peak depends on the seed ($64.6\,\%$ on day $7.0$
+for a uniform seed, $42.2\,\%$ on day $13.8$ for a single cell) and stays above the simulated $35.3\,\%$ on day
+$16.5$.
+% src: data/checks/simulation.json: metro_area_mean_D_over_D0 (0.0282, recomputed from scenes/metro.json; notes/VERIFICATION.md: Section 4.2, simulations, item 14)
+% src: data/bsc_sim/03_scenes.json (peak_prev_major_mean, peak_time_major_mean, ode_peak_prev, ode_peak_time);
+%      data/s6_scenes_ode_pointseed.json (point_seed.peak_mean, day_mean; rows D0 = 10 and 100)
+
+\paragraph{Replication.}
+The second simulator gave $P_{\mathrm{maj}}=0.498$, $0.429$, $0.603$ and $0.864$ for the four scenes at
+$\Dz=1$ (3{,}000--4{,}000 runs each) and $0.734$ for the office at $\Dz=10$, against $0.496$, $0.436$, $0.614$,
+$0.879$ and $0.762$ here. The two largest differences are $1.6$ and $2.1$ standard errors. The rows for
+$\Dz=100$, the metro carriage at $\Dz=10$ and the same-cell rows at $\Dz\ge10$ were not re-run with the second simulator. Sampling prevalence every $0.5$ day lowers the reported peaks by $0.3$
+to $1.0$ percentage point relative to the exact maximum.
+% src: code/bsc_sim/verify/v05_scenes.json (p_major, n; peak_exact_major - peak_grid_major);
+%      s6_scenes_numbers.json: check_scenes.*.z_first_minus_check (1.56, 2.11), peak_exact_minus_grid_points (0.28..0.96);
+%      notes/VERIFICATION.md: Section 4.2, simulations, summary (D0 = 100 rows not re-simulated)
+
+\subsection{Outbreak probability and early extinction}\label{s6_scenes:sec:pmajor}
+
+\begin{table}[tbp]
+\centering
+\caption{Offspring distribution of a lone index case and the probability of a major outbreak (1\,m kernel;
+$\Dz$ in \cdunit{}). Columns 3--6: mean, variance, variance-to-mean ratio and probability of zero of the
+number of secondary cases when only the uniformly placed index case transmits (40{,}000 runs per row). Columns
+7--9: probability that a branching process does not die out, for a Poisson offspring law with the simulated
+mean, for the mean-field process \eqref{M-s6_scenes:eq:branching}, and for a Galton--Watson process with the
+simulated offspring law. Last column: fraction of 2{,}000 full epidemics with attack rate at least $10\,\%$
+(Table~\ref{M-s6_scenes:tab:scenes}).}
+\label{s6_scenes:tab:pmajor}
+% src: data/bsc_sim/03b_outbreak_probability.json (experiments/03b_outbreak_probability.py)
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrcccccccc@{}}
+\toprule
+ & & \multicolumn{4}{c}{secondary cases of a lone index} & \multicolumn{3}{c}{branching processes} & simulation\\
+\cmidrule(lr){3-6}\cmidrule(lr){7-9}\cmidrule(l){10-10}
+Scene & $\Dz$ & mean & variance & ratio & $P(0)$ & Poisson & mean field & Galton--Watson & $P_{\mathrm{maj}}$ (95\,\% CI)\\
+\midrule
+% BEGIN AUTO s6_scenes:tab:pmajor
+Office & 1 & 2.27 & 6.0 & 2.66 & 0.269 & 0.857 & 0.781 & 0.613 & 0.496 (0.474--0.518)\\
+Supermarket & 1 & 2.00 & 5.3 & 2.68 & 0.310 & 0.796 & 0.667 & 0.531 & 0.436 (0.414--0.458)\\
+Classroom & 1 & 2.58 & 6.7 & 2.60 & 0.228 & 0.903 & 0.767 & 0.688 & 0.614 (0.592--0.635)\\
+Metro & 1 & 5.54 & 21.0 & 3.80 & 0.109 & 0.996 & 0.888 & 0.877 & 0.879 (0.864--0.893)\\
+\addlinespace
+Office & 10 & 3.82 & 16.3 & 4.25 & 0.194 & 0.976 & 0.783 & 0.757 & 0.762 (0.743--0.781)\\
+Supermarket & 10 & 2.89 & 11.0 & 3.80 & 0.253 & 0.932 & 0.685 & 0.658 & 0.648 (0.627--0.669)\\
+Classroom & 10 & 3.73 & 15.5 & 4.15 & 0.197 & 0.973 & 0.777 & 0.753 & 0.750 (0.731--0.768)\\
+Metro & 10 & 6.35 & 31.9 & 5.02 & 0.104 & 0.998 & 0.888 & 0.883 & 0.878 (0.863--0.892)\\
+% END AUTO s6_scenes:tab:pmajor
+\bottomrule
+\end{tabular}
+\end{table}
+
+Early extinction of a chain started by one case occurs in every scene: the fraction of runs below the
+$10\,\%$ threshold is $0.50$, $0.56$, $0.39$ and $0.12$ at $\Dz=1$ and $0.24$, $0.35$, $0.25$ and $0.12$ at
+$\Dz=10$ (office, supermarket, classroom, metro carriage).
+% src: data/bsc_sim/03_scenes.json: 1 - p_major (s6_scenes_numbers.json: scenes.*.die_out)
+Table~\ref{s6_scenes:tab:pmajor} shows what determines it. The number of secondary cases of an index case is
+over-dispersed, with a variance $2.6$ to $5.0$ times the mean, and $10\,\%$ to $31\,\%$ of index cases infect no one.
+% src: 03b_outbreak_probability.json: var_over_mean (2.598..5.022), p_zero (0.104..0.310)
+An exponential infectious period alone produces this much: a Poisson number of infections over an exponentially
+distributed period is geometric, with a variance-to-mean ratio of one plus the mean ($3.0$ to $7.4$ here). The
+simulated ratios are lower, consistent with the limited number of people within reach.
+% src: s6_scenes_numbers.json: pmajor_ranges.geometric_var_over_mean_min/max (2.9975, 7.3503)
+Over-dispersion lowers the outbreak probability \citep{lloydsmith2005superspreading}: a Poisson law with the same
+mean would give $0.80$--$1.00$. A Galton--Watson process fed with the simulated offspring law reproduces
+$P_{\mathrm{maj}}$ to within $0.011$ wherever the attack-rate distribution is bimodal (all scenes at $\Dz=10$, the
+metro carriage at $\Dz=1$).
+% src: s6_scenes_numbers.json: pmajor_ranges.gw_minus_sim_other_rows_max_abs = 0.0105; 03b: p_major_poisson_same_mean (0.796..0.998)
+
+In the other three scenes at $\Dz=1$ the comparison depends on the convention, because the notion of a major
+outbreak is not sharp there. With a threshold of $5\,\%$, $10\,\%$ or $20\,\%$ the office gives $0.60$, $0.50$ or
+$0.40$, the supermarket $0.49$, $0.44$ or $0.37$ and the classroom $0.70$, $0.61$ or $0.49$, whereas at $\Dz=10$
+the three thresholds change no value by more than $0.014$.
+% src: s6_scenes_numbers.json: threshold_sensitivity_D0_10_max_change = 0.0135
+% src: s6_scenes_numbers.json: scenes.*.P_attack_ge_5pct, P_attack_ge_10pct, P_attack_ge_20pct
+%      (computed from data/bsc_sim/03_curves_*_range1m.npz: attack)
+The Galton--Watson values ($0.61$, $0.53$, $0.69$) are $0.07$--$0.12$ above the $10\,\%$ fractions and within
+$0.05$ of the $5\,\%$ fractions, so no conclusion about later generations can be drawn from them. The mean-field
+branching values ($0.78$, $0.67$, $0.77$) are too high under either convention, by $0.15$--$0.29$ and
+$0.07$--$0.19$.
+% src: s6_scenes_numbers.json: pmajor.*.gw_minus_sim (0.117, 0.095, 0.074), pmajor.*.branching_minus_sim (0.285, 0.231, 0.153);
+%      differences to the 5 % fractions: pmajor.*.gw_minus_sim_5pct (0.018, 0.045, -0.011), pmajor.*.branching_minus_sim_5pct (0.186, 0.180, 0.067)
+
+\subsection{Sensitivity to the contact kernel}\label{s6_scenes:sec:kernel}
+
+The contact kernel is a modelling choice with large consequences when cells are smaller than the contact range.
+With the strict same-cell kernel the metro carriage ($0.5$\,m cells) produces no outbreak at
+$\Dz=1$: none of 2{,}000 runs reaches an attack rate of $10\,\%$ (upper $95\,\%$ limit $0.002$; none of 3{,}000 in the
+second simulator) and the mean attack rate is $1.1\,\%$, although $\Rz=9.84$.
+% src: 03_scenes.json: "metro|D0=1|samecell" (n_major = 0, p_major_hi = 0.0019, attack_all_mean = 0.0112, R0_ngm = 9.836);
+%      code/bsc_sim/verify/v05_scenes.json: "metro|1.0|same" (n = 3000, p_major = 0)
+The index case does infect: $\Ronebar=1.51$, $\Rhat=1.56\pm0.04$, and the pair-level matrix has
+$\srad(\ngmone)=2.24$. But passengers hardly move at this mobility, the people the index case can reach are those
+who share its cell, and the cases it makes are born in that cell with no one left to infect: over the 2{,}000
+full epidemics the second generation is $0.61$ times as numerous as the first.
+% src: 03_scenes.json: "metro|D0=1|samecell" (R1_pair_uniform_index = 1.514, R_index_alone_mean = 1.562, _se = 0.038,
+%      R1_pair_ngm = 2.244, gen2_over_gen1 = 0.608); re-check: v05_scenes.json "metro|1.0|same".gen2_over_gen1 = 0.609
+With the 1\,m kernel the same carriage is the most explosive scene ($P_{\mathrm{maj}}=0.879$). In the classroom
+the same-cell rule gives $P_{\mathrm{maj}}=0.276$ against $0.614$ with the 1\,m kernel, with
+$\srad(\ngmone)=2.27$ and a generation ratio of $0.90$. The difference between the kernels fades with mobility
+and is gone in the classroom at $\Dz=100$ ($0.771$ against $0.779$), not yet in the metro carriage ($0.858$
+against $0.891$).
+% src: 03_scenes.json: "classroom|D0=1|samecell" (p_major = 0.2755, R1_pair_ngm = 2.265, gen2_over_gen1 = 0.899),
+%      "classroom|D0=100|samecell|range1m" (0.7715, 0.779), "metro|D0=100|samecell|range1m" (0.858, 0.891)
+These cases are the evidence for Remark~\ref{M-s5_pair:rem:threshold}: $\Ronebar>1$ and $\srad(\ngmone)>1$ do not
+imply that outbreaks occur, and neither does $\Rz>1$. Nothing computed in this article predicts the threshold
+of the discrete system at low mobility; it has to be simulated.
+
+\subsection{Where infections happen}
+
+\begin{table}[tbp]
+\centering
+\caption{Where infections happen: prediction against simulation (1\,m kernel; $\Dz$ in \cdunit{}).
+(a)~Pearson correlation $r$, over the walkable cells, between the predicted and the simulated distribution of
+the cell in which the cases of generation $g=1,2,3$ are infected (40{,}000 outbreaks per row, uniformly placed
+index case, generations 0--2 infectious); mean-field prediction $\propto\ngm^{g}\one$, pair-level prediction
+$\propto\ngmone^{g}\one$. `Index alone': first generation in 100{,}000 runs in which only the index case
+transmits, with the value of $r$ expected from sampling noise if the pair-level prediction is exact. Last column:
+cases of generation~2 per outbreak, simulated / pair level / mean field. (b)~Office scene: share of the
+infections of generation $g$ that occur in a class of cells divided by the share of the walkable floor it
+occupies (1 = uniform).}
+\label{s6_scenes:tab:hotspot}
+% src (a): data/bsc_sim/04_spatial.json (r_meanfield, r_pair, mean_cases_per_run, pred_cases_per_run_*),
+%          data/bsc_sim/04b_first_generation.json (r_meanfield, r_pair, r_expected_if_exact)
+% src (b): data/s6_scenes_numbers.json: office_cell_classes (code/s6_scenes_tables.py, from
+%          data/bsc_sim/04_spatial_office_D1.npz and 04_spatial_office_D10.npz)
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrcccccc@{}}
+\multicolumn{8}{@{}l}{(a) Correlation between predicted and simulated infection maps}\\
+\toprule
+ & & \multicolumn{2}{c}{$r$, generations 1 / 2 / 3} & \multicolumn{3}{c}{$r$, index alone} & cases per outbreak,\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}
+Scene & $\Dz$ & mean field & pair level & mean field & pair level & if exact & generation 2\\
+\midrule
+% BEGIN AUTO s6_scenes:tab:hotspot:a
+Office & 1 & 0.09 / $-$0.23 / $-$0.37 & 0.88 / 0.82 / 0.71 & 0.284 & 0.948 & 0.958 & 2.8 / 5.2 / 21.8\\
+Supermarket & 1 & 0.37 / 0.15 / 0.22 & 0.91 / 0.85 / 0.85 & 0.550 & 0.981 & 0.977 & 2.6 / 4.0 / 11.6\\
+Classroom & 1 & 0.76 / 0.67 / 0.68 & 0.96 / 0.93 / 0.91 & 0.844 & 0.989 & 0.989 & 2.8 / 6.8 / 23.6\\
+Metro & 1 & 0.76 / 0.69 / 0.57 & 0.92 / 0.95 / 0.91 & 0.876 & 0.980 & 0.979 & 8.1 / 31.6 / 82.8\\
+\addlinespace
+Office & 10 & 0.77 / 0.52 / 0.41 & 0.92 / 0.85 / 0.81 & 0.915 & 0.985 & 0.985 & 8.1 / 14.4 / 21.6\\
+Supermarket & 10 & 0.97 / 0.97 / 0.98 & 0.99 / 0.99 / 0.99 & 0.981 & 0.996 & 0.996 & 6.3 / 8.3 / 10.9\\
+Classroom & 10 & 0.96 / 0.96 / 0.96 & 0.98 / 0.98 / 0.97 & 0.984 & 0.996 & 0.996 & 6.8 / 14.1 / 22.7\\
+Metro & 10 & 0.77 / 0.67 / 0.60 & 0.93 / 0.95 / 0.93 & 0.889 & 0.982 & 0.984 & 10.3 / 40.3 / 82.6\\
+% END AUTO s6_scenes:tab:hotspot:a
+\bottomrule
+\end{tabular}
+
+\vspace{1.5ex}
+\begin{tabular}{@{}lrrrccc@{}}
+\multicolumn{7}{@{}l}{(b) Office scene: relative infection rate by class of cells, generations 1 / 2 / 3}\\
+\toprule
+Class of cells & $\Dz$ & cells & floor (\%) & simulation & pair level & mean field\\
+\midrule
+% BEGIN AUTO s6_scenes:tab:hotspot:b
+Workstations bordering a corridor & 1 & 56 & 23.9 & 1.13 / 1.24 / 1.35 & 1.13 / 1.16 / 1.18 & 1.08 / 1.02 / 0.98\\
+Other workstations & 1 & 100 & 42.7 & 0.94 / 0.89 / 0.88 & 0.94 / 0.91 / 0.89 & 1.08 / 1.11 / 1.12\\
+Corridor & 1 & 39 & 16.7 & 0.97 / 1.09 / 1.16 & 0.92 / 0.93 / 0.93 & 0.62 / 0.55 / 0.52\\
+Meeting room & 1 & 26 & 11.1 & 1.00 / 0.88 / 0.68 & 1.06 / 1.12 / 1.16 & 1.15 / 1.29 / 1.44\\
+Kitchen & 1 & 13 & 5.6 & 0.94 / 0.76 / 0.58 & 1.00 / 0.98 / 0.96 & 0.92 / 0.83 / 0.75\\
+\addlinespace
+Workstations bordering a corridor & 10 & 56 & 23.9 & 1.15 / 1.19 / 1.20 & 1.13 / 1.12 / 1.12 & 1.08 / 1.05 / 1.04\\
+Other workstations & 10 & 100 & 42.7 & 1.06 / 1.08 / 1.09 & 1.06 / 1.07 / 1.07 & 1.08 / 1.08 / 1.08\\
+Corridor & 10 & 39 & 16.7 & 0.71 / 0.72 / 0.72 & 0.68 / 0.67 / 0.67 & 0.62 / 0.60 / 0.59\\
+Meeting room & 10 & 26 & 11.1 & 0.93 / 0.81 / 0.76 & 1.04 / 1.05 / 1.05 & 1.15 / 1.24 / 1.30\\
+Kitchen & 10 & 13 & 5.6 & 0.87 / 0.79 / 0.78 & 0.89 / 0.84 / 0.81 & 0.92 / 0.87 / 0.84\\
+% END AUTO s6_scenes:tab:hotspot:b
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig5_2_spatial_pattern_en}
+\caption{Where infections happen in the office scene at $\Dz=1\cellday$ ($\Npop=100$, 234 walkable cells, 1\,m
+kernel, equal to the same-cell kernel here; 40{,}000 outbreaks from a uniformly placed index case, generations 0--2
+infectious). (a)--(c)~Frequency with which the cases of generation~2 are infected in each cell, relative to a
+uniform distribution: mean-field prediction $\propto\ngm^2\one$, pair-level prediction $\propto\ngmone^2\one$,
+and simulation. Grey cells are barriers; thin lines separate the zones of Fig.~\ref{M-s2_model:fig:scenes} (the
+cross is the corridor, the block at the top right the meeting room, the block at the bottom right the kitchen).
+(d)~The same three maps cell by cell, with the correlation coefficients $r$ of
+Table~\ref{s6_scenes:tab:hotspot}. (e)~Share of infections divided by share of floor for five classes of cells
+and generations 1, 2, 3 (numbers in Table~\ref{s6_scenes:tab:hotspot}b).}
+% src: code/s6_scenes_fig_spatial.py <- data/bsc_sim/04_spatial_office_D1.npz, 04_spatial.json,
+%      data/s6_scenes_numbers.json (office_cell_classes); output figures/fig5_2_spatial_pattern_{en,zh}.pdf
+\label{s6_scenes:fig:spatial}
+\end{figure}
+
+For a uniformly placed index case the cell in which a case of generation $g$ is infected has a distribution
+proportional to $\ngm^{g}\one$ in the mean-field model and, in the pair-level description, to $\ngmone^{g}\one$.
+Table~\ref{s6_scenes:tab:hotspot}(a) compares both with the infection trees of 40{,}000 outbreaks per scene.
+
+In the office at $\Dz=1$ the mean-field map is uncorrelated with the simulated one in the first generation and
+anti-correlated in the next two ($r=0.09$, $-0.23$, $-0.37$), whereas the pair-level map gives $r=0.88$, $0.82$,
+$0.71$. The second simulator gives $0.11$, $-0.23$, $-0.37$ and $0.88$, $0.82$, $0.73$.
+% src: data/bsc_sim/04_spatial.json: "office|D0=1".gen1..3 (r_meanfield 0.092, -0.235, -0.371; r_pair 0.875, 0.816, 0.709);
+%      code/bsc_sim/verify/v07_hotspot.json: gen1..3 (r_mf 0.105, -0.234, -0.366; r_pair 0.878, 0.824, 0.726)
+The pair-level map is exact for the first generation of a lone index case, and the simulation is compatible with
+that: with only the index case transmitting, $r=0.948$ where $0.958$ is expected from sampling noise, and the
+goodness-of-fit statistic is between $0.85$ and $1.20$ per degree of freedom in the eight rows (smallest
+$p$-value $0.02$, office at $\Dz=1$).
+% src: data/bsc_sim/04b_first_generation.json (r_pair, r_expected_if_exact, chi2_pair, dof);
+%      s6_scenes_numbers.json: first_generation_chi2 (chi2_over_dof_min = 0.846, _max = 1.203; p = 0.0186)
+For later generations it is an approximation, and it over-predicts their size, because a new case starts inside
+the cluster of its infector: in generation~2 there are $2.8$ cases per outbreak in the simulation, $5.2$ in the
+pair-level description and $21.8$ in the mean field.
+% src: 04_spatial.json: "office|D0=1".gen2 (mean_cases_per_run = 2.769, pred_cases_per_run_pair = 5.167, pred_cases_per_run_mf = 21.76)
+Over all scenes at $\Dz=1$ the pair-level correlation lies between $0.71$ and $0.96$ and the mean-field one between $-0.37$ and $0.76$.
+At $\Dz=10$ the mean-field map is adequate in the supermarket and the classroom ($r=0.96$--$0.98$) but not in
+the office ($0.77$, $0.52$, $0.41$) or the metro carriage ($0.77$, $0.67$, $0.60$).
+% src: s6_scenes_numbers.json: hotspot_pair_r_range_D0_1 (0.709, 0.957), hotspot_meanfield_r_range_D0_1 (-0.371, 0.764);
+%      04_spatial.json rows D0 = 10
+
+Which cells are hot is shown in Fig.~\ref{s6_scenes:fig:spatial} and Table~\ref{s6_scenes:tab:hotspot}(b). The
+mean-field map of the first generation is proportional to $q$: it marks the meeting room ($q=1.5$) and the
+workstations ($q=1.4$) and leaves the corridor ($q=0.8$) cold, at $0.62$ of the uniform rate. In the simulation
+at $\Dz=1$ the corridor is close to average. With only the index case transmitting it receives $15.4\,\%$ of the
+infections on $16.7\,\%$ of the floor (pair level $15.3\,\%$, mean field $10.3\,\%$), and in full outbreaks its
+relative rate is $0.97$, $1.09$ and $1.16$ in generations 1--3.
+% src: code/bsc_sim/verify/v07_hotspot.json: zone_C (obs 0.1537, pair 0.1532, mf 0.1026, area 0.1667; 100 000 runs);
+%      s6_scenes_numbers.json: office_cell_classes."D0=1".classes.C.sim (0.974, 1.087, 1.160), .meanfield[0] = 0.615
+So the corridors are not the hotspots. The hottest cells are workstation cells that border a corridor: their
+relative rate is $1.13$, $1.24$ and $1.35$, against $0.94$, $0.89$ and $0.88$ for the other workstation cells
+(second simulator: $1.15$, $1.26$, $1.36$ and $0.94$, $0.88$, $0.87$), and in each generation at least 14 of
+the 15 hottest cells are workstation cells, 13 to 15 of them next to a corridor.
+% src: s6_scenes_numbers.json: office_cell_classes."D0=1".classes.W_border.sim, .W_interior.sim, .top15 (zones, n_border_workstations);
+%      data/checks/simulation.json: office_hotspots_D0_1.relative_rate_generations_1_3 (values of the re-check;
+%      notes/VERIFICATION.md: Section 4.2, simulations, item 6)
+A plausible reason is that these cells combine a high $q$ with a faster exchange of neighbours: the hop rate
+\eqref{M-s2_model:eq:hop} across a workstation--corridor edge is $0.5\,\Dz$ against $0.3\,\Dz$ between two
+workstation cells. The meeting room, the hotspot of the mean-field analysis of Section~\ref{M-s4_geometry:sec},
+falls from the average rate to $0.68$ by the third generation, where the mean field predicts $1.44$. This is
+consistent with local depletion: only about 11 of the 100 people are in it at any time and, at this mobility,
+few others arrive.
+% src: office_cell_classes."D0=1".classes.M.sim (0.998, 0.877, 0.677), .meanfield (1.154, 1.295, 1.436);
+%      hop rates: 2*0.3*1.5/(0.3+1.5) = 0.5 and 0.3 (code/bsc_sim/scenes/office.json: D_W = 0.3, D_C = 1.5); 26/234 x 100 = 11.1
+At $\Dz=10$ the corridor is cold in the simulation as well ($0.71$--$0.72$; mean field $0.59$--$0.62$) and the
+workstation cells are above average whether or not they border a corridor ($1.15$--$1.20$ and $1.06$--$1.09$).
+% src: office_cell_classes."D0=10".classes (C.sim, C.meanfield, W_border.sim, W_interior.sim)
+A statement such as `infection concentrates in the meeting room and at the workstations' is thus a mean-field
+statement. For discrete people at low mobility the map has to be taken from $\ngmone$ or from simulation, and
+all of this concerns a room whose occupants perform a random walk without home positions.
+
+\subsection{Ranking of the scenes}\label{s6_scenes:sec:ranking}
+
+At $\Dz=1$ the four scenes rank in the same order, metro carriage, classroom, office, supermarket, by $\Rz$
+($9.24$, $5.87$, $5.11$, $4.39$), by $\Rhat$ ($5.59$, $2.62$, $2.26$, $1.97$), by $P_{\mathrm{maj}}$ and by the
+attack rate over all runs.
+% src: 03_scenes.json (R0_ngm, R_index_alone_mean, p_major, attack_all_mean at D0 = 1); s6_scenes_numbers.json: ranking_D0_1
+The order is not robust. The attack rate of major outbreaks at $\Dz=1$ is lowest in the classroom ($39.2\,\%$),
+and at $\Dz=10$ the office and the classroom cannot be told apart ($\Rhat=3.90\pm0.09$ and $3.72\pm0.09$;
+$P_{\mathrm{maj}}=0.762$ and $0.750$).
+% src: 03_scenes.json rows D0 = 10; s6_scenes_numbers.json: ranking_D0_1.by_attack_major, ranking_D0_10
+Above all, the ranking belongs to the closed-room idealisation, in which the same people share the room for the
+whole infectious period of $1/\gamma=7.1$ days. Nobody spends a week in a metro carriage. Counted per visit at
+$\Dz=1$, an index case causes $0.175$ infections in an office day of 8 hours, $0.027$ in a one-hour lecture,
+$0.018$ in a 20-minute metro ride and $0.008$ in a supermarket visit of 27 minutes
+(Section~\ref{M-s6_scenes:sec:interventions}, Table~\ref{M-s7_interventions:tab:dwell}), which puts the office first and the
+metro carriage third.
+% src: data/bsc_sim/11_dwell_time.json: per_visit_sim (office 0.1753, classroom 0.0270, metro 0.0178, supermarket 0.0083),
+%      visit_hours (8, 1, 0.333, 0.45)
+
+\subsection{Heterogeneity of the infection efficiency}\label{s7_interventions:sec:hetero}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{s7_interventions_hetero_en}
+  \caption{Two-zone room ($20\times13$ cells; workspace 70\,\% of the floor with mobility $0.3\Dz$, corridor
+  30\,\% with $2\Dz$; same-cell kernel; FD) as a function of the contrast $c$ of
+  \eqref{M-s7_interventions:eq:contrast}; the dotted vertical line marks $c=0.583$ ($q_{\mathrm W}=1.5$,
+  $q_{\mathrm C}=0.5$). (a)~Mean-field $\Rz$ for four mobility scales; the grey band is the interval
+  $[\beta\langle q\rangle/\gamma,\beta\qmax/\gamma]$ of Theorem~\ref{M-s3_r0:thm:bounds}.
+  (b,\,c)~Counted secondary cases $\Rhat$ of the index case (only the index transmits; 95\,\% intervals;
+  20,000 runs per point for $\Npop=100$, 4,000 for $\Npop=1000$) at $\Dz=1$ and $\Dz=10$. Filled symbols: index
+  placed with the Perron vector of the pair-level matrix $\ngmone$, to be compared with $\srad(\ngmone)$ (solid
+  lines). Open symbols: index placed uniformly, to be compared with $\Ronebar$ (dashed lines). `Uniform
+  mobility' is the control with $D=0.81\Dz$ in every cell (Perron-placed index only).
+  (d)~Mean attack rate over all runs with 95\pct{} intervals (2,000 epidemics per point), $\Dz=1$
+  (filled, solid) and $\Dz=10$ (open, dashed). Numbers in Table~\ref{s7_interventions:tab:hetero}.}
+  % src: code/s7_interventions_fig_hetero.py <- data/bsc_sim/05_heterogeneity.json, 05_heterogeneity_extra.json, data/s7_interventions_hetero_se.json (panel d)
+  \label{s7_interventions:fig:hetero}
+\end{figure}
+
+The two-zone room of Fig.~\ref{s7_interventions:fig:hetero} has $20\times13$ cells without barriers, a lattice
+spacing of 1.5\,m (so that the 1\,m kernel is the same-cell kernel), FD calibration, and $\Npop=100$ (0.38 other
+people per cell) or $\Npop=1000$ (3.8). The contrast $c$ of \eqref{M-s7_interventions:eq:contrast} is $0$ in the
+uniform room, $0.583$ for $q_{\mathrm W}=1.5$, $q_{\mathrm C}=0.5$, and negative when the higher efficiency is in
+the corridor. Table~\ref{s7_interventions:tab:hetero} gives the numbers. The mean-field $\Rz$ is $4.972$ at
+$c=0.583$ and $\Dz=1$, and $4.427$ ($+3.3\,\%$) at $\Dz=10$.
+% src: code/bsc_sim/experiments/05_heterogeneity.py (set-up); data/bsc_sim/05_heterogeneity.json keys D0=1|N=100|c=0.5833, D0=10|N=100|c=0.5833 (R0_ngm)
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+  \caption{Two-zone room of Fig.~\ref{s7_interventions:fig:hetero} (same-cell kernel, FD): mean-field $\Rz$,
+  pair-level $\srad(\ngmone)$, counted secondary cases $\Rhat$ (95\pct{} interval; 20,000 runs for $\Npop=100$,
+  4,000 for $\Npop=1000$) for an index placed with the Perron vector of $\ngmone$ and for a uniformly placed
+  index, probability of a major outbreak and mean attack rate over all runs ($\pm$ standard error; 2,000
+  epidemics per row). Mobility `zones': $0.3\Dz$ in the workspace and $2\Dz$ in the corridor; `uniform':
+  $0.81\Dz$ everywhere; $c=-2$ is the hot-corridor control. $^{\dagger}$From the
+  verification (20,000 runs; standard error 0.02 to 0.03); not simulated in the main runs.}
+  \label{s7_interventions:tab:hetero}
+  % src: data/s7_interventions_tables.tex (generated by code/s7_interventions_numbers.py) <- data/bsc_sim/05_heterogeneity.json, 05_heterogeneity_extra.json; dagger entries: code/bsc_sim/verify/v09_het.json (sim_uniform); last two columns: data/s7_interventions_hetero_se.json (stored|... for N = 100: the stored 2,000-run batches re-run from their seeds; new|... for N = 1000: 2,000 further epidemics, seed 5503, in place of the 300 stored ones)
+  \begin{tabular}{@{}rrlccccccc@{}}
+    \toprule
+    $\Dz$ & $\Npop$ & mobility & $c$ & $\Rz$ & $\srad(\ngmone)$ & $\Rhat$, Perron index & $\Rhat$, uniform index & $P(\text{major})$ & attack \\
+    \midrule
+    1 & 100 & zones & 0.00 & 4.29 & 2.75 & 2.75 (2.71--2.79) & 2.42 (2.39--2.46) & $0.541\pm0.011$ & $0.347\pm0.008$ \\
+     &  &  & 0.58 & 4.97 & 2.12 & 2.10 (2.07--2.13) & 2.07 (2.04--2.11) & $0.460\pm0.011$ & $0.231\pm0.006$ \\
+     &  &  & 1.00 & 5.64 & 2.13 & 2.12 (2.09--2.15) & 1.69 (1.66--1.72) & $0.345\pm0.011$ & $0.119\pm0.004$ \\
+    1 & 1000 & zones & 0.00 & 4.29 & 3.97 & 3.87 (3.74--3.99) & 3.97 (3.84--4.11) & $0.766\pm0.009$ & $0.740\pm0.009$ \\
+     &  &  & 0.58 & 4.97 & 4.33 & 4.23 (4.09--4.37) & 3.79 (3.65--3.93) & $0.727\pm0.010$ & $0.688\pm0.009$ \\
+     &  &  & 1.00 & 5.64 & 4.82 & 4.76 (4.60--4.92) & 3.57 (3.42--3.71) & $0.639\pm0.011$ & $0.573\pm0.010$ \\
+    1 & 100 & uniform & 0.00 & 4.29 & 2.78 & 2.76 (2.72--2.80) & 2.76$^{\dagger}$ & $0.646\pm0.011$ & $0.503\pm0.009$ \\
+     &  &  & 0.58 & 4.76 & 2.82 & 2.82 (2.78--2.86) & 2.61$^{\dagger}$ & $0.620\pm0.011$ & $0.442\pm0.008$ \\
+    1 & 100 & zones & $-2.00$ & 9.14 & 4.97 & 5.02 (4.96--5.09) & 2.50$^{\dagger}$ & $0.381\pm0.011$ & $0.244\pm0.007$ \\
+    \midrule
+    10 & 100 & zones & 0.00 & 4.29 & 3.69 & 3.65 (3.59--3.70) & 3.69 (3.64--3.75) & $0.748\pm0.010$ & $0.729\pm0.009$ \\
+     &  &  & 0.58 & 4.43 & 3.60 & 3.59 (3.54--3.64) & 3.52 (3.46--3.57) & $0.744\pm0.010$ & $0.717\pm0.009$ \\
+     &  &  & 1.00 & 4.66 & 3.63 & 3.64 (3.58--3.69) & 3.37 (3.32--3.43) & $0.704\pm0.010$ & $0.671\pm0.010$ \\
+    10 & 1000 & zones & 0.00 & 4.29 & 4.22 & 4.34 (4.19--4.49) & 4.06 (3.92--4.20) & $0.753\pm0.010$ & $0.742\pm0.009$ \\
+     &  &  & 0.58 & 4.43 & 4.33 & 4.35 (4.21--4.50) & 4.08 (3.94--4.23) & $0.745\pm0.010$ & $0.730\pm0.010$ \\
+    10 & 100 & uniform & 0.58 & 4.36 & 3.86 & 3.89 (3.84--3.95) & -- & $0.737\pm0.010$ & $0.720\pm0.009$ \\
+    10 & 100 & zones & $-2.00$ & 5.70 & 4.93 & 4.89 (4.82--4.96) & -- & $0.614\pm0.011$ & $0.585\pm0.010$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Discrete individuals, $\Dz=1$, $\Npop=100$.} Everything that is counted \emph{falls} when the contrast
+is switched on (Fig.~\ref{s7_interventions:fig:hetero}b,d; numbers in Table~\ref{s7_interventions:tab:hetero}): $\Rhat$ of
+an index case placed with the Perron vector of $\ngmone$ goes from $2.75$ to $2.10$ ($-24\,\%$), $\Rhat$ of a
+uniformly placed index from $2.42$ to $2.07$ ($-15\,\%$), the ratio of second- to first-generation cases
+from $2.19$ to $1.58$ ($-28\,\%$), the probability of a major outbreak from $0.541$ to $0.460$ and the mean
+attack rate from $0.347$ to $0.231$ ($-33\,\%$).
+% src: data/bsc_sim/05_heterogeneity.json keys D0=1|N=100|c=0.0000 and c=0.5833 (sim_R_perron, sim_R_uniform, sim_gen2_over_gen1, p_major, attack_all); data/s7_interventions_numbers.json hetero/changes_D1_N100
+(The second simulator gives $2.77\pm0.02\to2.11\pm0.02$ and $0.341\to0.239$ for the first
+and the last of these.)
+% src: code/bsc_sim/verify/v09_het.json keys <zone variant>|D0=1.0|N=100|c=0.000, c=0.583
+The cause is not the heterogeneity of $q$ as such but its coincidence with low mobility: this layout puts
+the high efficiency where people hardly move, where an infective keeps meeting the same neighbours and its
+contacts fall on people who are already infected (Section~\ref{M-s5_pair:sec}). Two controls confirm this. With
+the same contrast and \emph{uniform} mobility ($0.81\,\Dz$ everywhere, the area mean) $\Rhat$ rises slightly,
+$2.76\to2.82$; with the high efficiency in the \emph{mobile} corridor ($c=-2$) $\Rhat$ of a Perron-placed
+index reaches $5.02$.
+% src: data/bsc_sim/05_heterogeneity_extra.json keys extra|uniformD|D0=1|N=100|c=0.0000, c=0.5833; extra|<zone variant>|D0=1|N=100|c=-2.0000 (sim_R_perron)
+In both controls the mean attack rate nevertheless falls ($0.503\to0.442$ and $0.347\to0.244$): a low-$q$
+zone is a place where an index case tends to fizzle and which the epidemic reaches late.
+% src: data/bsc_sim/05_heterogeneity_extra.json (attack_all), same keys
+
+\paragraph{High occupancy.} With $\Npop=1000$ the pair-level $\srad(\ngmone)$ rises with the contrast
+($3.97$, $4.33$, $4.82$ at $c=0$, $0.58$, $1$), and so does $\Rhat$ of a Perron-placed index ($3.87$, $4.23$,
+$4.76$; re-check $3.92$, $4.33$, $4.78$, each $\pm0.08$ to $0.09$).
+% src: data/bsc_sim/05_heterogeneity.json keys D0=1|N=1000|c=... (R1_pair_ngm, sim_R_perron); code/bsc_sim/verify/v09_het.json keys <zone variant>|D0=1.0|N=1000|c=... (sim_perron, se)
+This is the only sense in which the simulation shows the rise of $\Rz$. For a uniformly placed index the
+count falls in these runs ($3.97$, $3.79$, $3.57$; re-check $3.96$, $3.86$, $3.82$). It is bounded above by
+$\beta\langle q\rangle/\gamma=4.29$ for every contrast (Proposition~\ref{M-s5_pair:prop:saturation}), so it
+cannot follow the rise of $\Rz$; but it is not monotone in the contrast in general: with the high efficiency
+in the mobile corridor ($c<0$, $\Npop=100$) $\Ronebar$ rises from $2.41$ at $c=0$ to $2.66$ at $c=-1$ before
+falling to $2.44$ at $c=-2$ ($\Dz=1$), and from $3.69$ to $3.81$ at $\Dz=10$.
+% src: data/bsc_sim/05_heterogeneity.json keys D0=1|N=1000|c=... (sim_R_uniform; 4000 counted runs); code/bsc_sim/verify/v09_het.json (sim_uniform)
+% src: data/bsc_sim/05_heterogeneity.json D0=1|N=100|c=0.0000 (R1_pair_uniform 2.411), D0=10 (3.688); data/bsc_sim/05_heterogeneity_extra.json extra|<zone variant>|D0=1|N=100|c=-0.5 ... -2.0 (R1_pair_uniform 2.589, 2.662, 2.623, 2.441), D0=10|c=-1.0 (3.808)
+The outbreak probability and the mean attack rate fall as well: in 2{,}000 epidemics per contrast they are
+$0.766\pm0.009$, $0.727\pm0.010$, $0.639\pm0.011$ and $0.740\pm0.009$, $0.688\pm0.009$, $0.573\pm0.010$
+(standard errors). The first sample of 300 epidemics per contrast ($0.737$, $0.690$, $0.630$ and $0.712$,
+$0.654$, $0.564$, each $\pm0.025$ to $0.028$) resolved only the difference between $c=0$ and $c=1$. $\Rz$ is
+the growth factor per generation once cases are distributed as the incidence map $\wvec$, not the fate of a
+typical introduction.
+% src: data/s7_interventions_hetero_se.json keys new|D0=1|N=1000|c=0.0000, 0.5833, 1.0000 (p_major, p_major_se, attack_all, attack_all_se; n = 2000, seed 5503); stored|D0=1|N=1000|c=... (n = 300; p_major_se 0.025-0.028, attack_all_se 0.025; reproduces_stored true); code/s7_interventions_hetero_se.py
+
+\paragraph{$\Dz=10$.} For $\Npop=100$ the contrast $c=0.583$ changes $\Rhat$ of a Perron-placed index from $3.65$ to
+$3.59$, the outbreak probability from $0.748$ to $0.744$ and the mean attack rate from $0.729$ to $0.717$
+(all less than 2\pct, and within one standard error of $0.010$ for the last two); $\Rhat$ of a uniformly
+placed index falls by 5\pct{} ($3.69\to3.52$) (Fig.~\ref{s7_interventions:fig:hetero}c,d). For $\Npop=1000$
+the outbreak probability is $0.753\pm0.010$ and $0.745\pm0.010$ at $c=0$ and $0.58$, and the mean attack rate
+$0.742\pm0.009$ and $0.730\pm0.010$: no change is resolved.
+% src: data/bsc_sim/05_heterogeneity.json keys D0=10|N=100|c=0.0000, c=0.5833; data/s7_interventions_numbers.json hetero/changes_D10_N100; data/s7_interventions_hetero_se.json keys stored|D0=10|N=100|c=... (p_major_se, attack_all_se), new|D0=10|N=1000|c=0.0000, 0.5833
+
+\subsection{Barriers with identical starts}\label{s7_interventions:sec:barriers}
+
+To isolate the effect of barriers we use a uniform room ($20\times13$ cells, $\Npop=100$, $q=1.2$, so
+$\beta q/\gamma=4.29$, uniform mobility $D$, same-cell kernel) and close randomly chosen cells at a nominal
+density $\rho_B$. The barrier sets of one layout are nested; walkable pockets cut off by barriers are closed
+as well, so that the realised density at nominal $0.30$ is $0.35$. In all arms of a layout the same people
+start on the same cells (drawn from the cells that are walkable in the densest arm), the index case is the
+same person on the centre cell, and each replicate uses the same random seed: the arms differ only by the
+barriers. Fig.~\ref{s7_interventions:fig:barriers} shows a scan over seven
+densities at $D=1$; Table~\ref{s7_interventions:tab:barriers} gives the
+effects for 40 further layouts at $D=1$ and $D=10$, with standard errors across layouts, and for the
+re-check's 40 layouts.
+% src: code/bsc_sim/experiments/06_obstacles.py (design); code/s7_interventions_barriers.py; code/bsc_sim/verify/v08b_obstacles_many.py; realised density: data/s7_interventions_barriers.json D=1/arms/rhoB=0.30|FD/realised = 0.352
+
+\begin{enumerate}[label=(\roman*),leftmargin=*,itemsep=2pt,topsep=3pt]
+\item \emph{Mean field.} Under FD, $\Rz=\beta q/\gamma=4.29$ at every barrier density
+  (Theorem~\ref{M-s4_geometry:thm:closed}). Under DD it rises as the floor shrinks,
+  by \eqref{M-s7_interventions:eq:dd}: $4.76$ at 10\,\% and $6.7$ at nominal 30\,\%.
+  % src: data/s7_interventions_barriers.json D=1/arms/rhoB=0.10|DD, rhoB=0.30|DD (R0); data/bsc_sim/06_obstacles.json (R0_ngm)
+\item \emph{Pair level.} Under FD the pair-level $\Rone$ of the centre index falls a little, $3.02\to2.94\to2.80$
+  at $\rho_B=0$, $0.10$, $0.30$ for $D=1$ and $3.90\to3.87\to3.75$ for $D=10$: barriers lengthen the time two
+  people remain neighbours.
+\item \emph{Outcomes at $D=1$, FD.} The mean attack rate falls by $0.040\pm0.003$ at 10\,\% barriers and by
+  $0.223\pm0.011$ at 30\,\% (re-check: $0.047\pm0.004$ and $0.235\pm0.011$), the peak prevalence of major
+  outbreaks from 27\pct{} to 25\pct{} and 18\pct, while the outbreak probability falls much
+  less ($0.70\to0.69\to0.62$). Barriers act by stopping outbreaks part-way on a fragmented floor, not by
+  preventing take-off.
+\item \emph{Peak time at $D=1$, FD.} The peak of major outbreaks is delayed by $0.81\pm0.12$ day at 10\,\%
+  barriers (re-check: $0.82\pm0.10$) and by $0.93\pm0.23$ day at 30\,\% (re-check: $0.71\pm0.30$): a real delay
+  of about 0.8 day. The scan of
+  Fig.~\ref{s7_interventions:fig:barriers}c cannot resolve it (its across-layout intervals are $\pm1.1$ day or
+  wider).
+\item \emph{$D=10$, FD.} Barriers at 10\,\% leave the attack rate unchanged ($+0.005\pm0.005$) and at 30\,\%
+  lower it by $0.025\pm0.005$; the peak is lower by 0.8 and 5.3 percentage points and later by $0.34\pm0.05$
+  and $2.05\pm0.16$ days.
+\item \emph{DD.} Barriers also crowd people together. At $D=1$ the two effects cancel at 10\,\%
+  ($-0.001\pm0.004$) and fragmentation wins at 30\,\% ($-0.085\pm0.015$); at $D=10$ crowding wins and the
+  attack rate \emph{rises}, by $0.026\pm0.005$ and $0.077\pm0.005$, with the peak 1.0 and 2.8 days earlier.
+\end{enumerate}
+% src (items ii-vi): data/s7_interventions_barriers.json keys D=1, D=10: arms/*/R1_centre, p_major, peak_major; paired/*/attack, peak_major, peak_day_major (mean, SE across 40 layouts); re-check: code/bsc_sim/verify/v08b_obstacles_many.json (diff_0.1_ar, diff_0.3_ar, diff_0.1_pkt, diff_0.3_pkt); +-1.1 day: data/bsc_sim/06_obstacles.json (peak_time_major_mean, 95 % half-width over 8 layouts), data/s7_interventions_numbers.json barriers/first_8x500
+Two caveats. Starting everyone on cells that are walkable in the densest arm is not the stationary law of
+the sparser arms; the re-check measured mean attack rates of $0.600$ and $0.589$ at zero barriers for the two
+ways of starting, a difference within noise.
+% src: notes/VERIFICATION.md, Section 4.2, simulations, further point 7
+And although the densities stay below the blocked-site percolation threshold of the square lattice, $0.407$
+\citep{stauffer1994percolation}, about 5\,\% of this small floor is already cut off as pockets at nominal
+$0.30$.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.86\textwidth]{fig6_3_obstacle_scan_en}
+  \caption{Barrier scan with identical starts: uniform room ($20\times13$ cells, $\Npop=100$, $q=1.2$,
+  $D=1\cellday$, same-cell kernel), random nested barriers at nominal density $\rho_B$; 8 layouts with 500
+  epidemics per layout and density; bars are 95\,\% intervals across layouts. Blue: FD; orange: DD (pair hazard
+  frozen at its barrier-free value).
+  (a)~Mean-field $\Rz$ (dashed), pair-level $\Rone(x_c)$ of the centre index (solid)
+  and counted $\Rhat$ of the index (open circles, 500 runs per layout with only the index transmitting).
+  (b)~Peak prevalence and (c)~peak day of major outbreaks. (d)~Mean attack rate over all runs. Effects with
+  layout-level standard errors, including the peak delay that panel~(c) cannot resolve, are in
+  Table~\ref{s7_interventions:tab:barriers}.}
+  % src: figures/fig6_3_obstacle_scan_en.pdf (code/bsc_sim/experiments/21_figures_more.py <- data/bsc_sim/06_obstacles.json)
+  \label{s7_interventions:fig:barriers}
+\end{figure}
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+  \caption{Barriers with identical starts in the uniform room of Fig.~\ref{s7_interventions:fig:barriers}:
+  means over 40 nested layouts (1,000 epidemics per layout and arm at $D=1$, 500 at $D=10$). $\rho_B$: nominal
+  barrier density; $\Rone(x_c)$: pair-level number of the centre index; $P$: probability of a major outbreak;
+  attack: mean attack rate over all runs; peak and day: peak prevalence (\%) and peak day of major outbreaks.
+  The $\Delta$ columns are differences from the barrier-free arm of the same layout, mean $\pm$ standard error
+  across layouts ($\Delta$peak in percentage points, $\Delta$day in days). $^{\ddagger}$Re-check:
+  40 other layouts, 1,000 epidemics each, second simulator.}
+  \label{s7_interventions:tab:barriers}
+  % src: data/s7_interventions_tables.tex (code/s7_interventions_numbers.py) <- data/s7_interventions_barriers.json (code/s7_interventions_barriers.py); ddagger rows: code/bsc_sim/verify/v08b_obstacles_many.json
+  \begin{tabular}{@{}cccccccccccc@{}}
+    \toprule
+    $D$ & law & $\rho_B$ & $\Rz$ & $\Rone(x_c)$ & $P$ & attack & peak & day & $\Delta$attack & $\Delta$peak & $\Delta$day \\
+    \midrule
+    1 & FD & 0.00 & 4.29 & 3.02 & 0.698 & 0.609 & 27.2 & 21.5 & -- & -- & -- \\
+    1 & FD & 0.10 & 4.29 & 2.94 & 0.688 & 0.569 & 24.7 & 22.3 & $-0.040\pm0.003$ & $-2.5\pm0.1$ & $+0.81\pm0.12$ \\
+    1 & FD & 0.30 & 4.29 & 2.80 & 0.625 & 0.386 & 17.6 & 22.4 & $-0.223\pm0.011$ & $-9.6\pm0.4$ & $+0.93\pm0.23$ \\
+    1 & DD & 0.10 & 4.76 & 3.16 & 0.713 & 0.608 & 26.4 & 21.2 & $-0.001\pm0.004$ & $-0.8\pm0.1$ & $-0.33\pm0.12$ \\
+    1 & DD & 0.30 & 6.68 & 3.69 & 0.727 & 0.524 & 22.0 & 20.3 & $-0.085\pm0.015$ & $-5.2\pm0.5$ & $-1.22\pm0.25$ \\
+    1 & FD$^{\ddagger}$ & 0.10 & 4.29 & -- & 0.683 & 0.564 & 24.6 & 22.3 & $-0.047\pm0.004$ & $-2.4\pm0.1$ & $+0.82\pm0.10$ \\
+    1 & FD$^{\ddagger}$ & 0.30 & 4.29 & -- & 0.627 & 0.376 & 17.0 & 22.2 & $-0.235\pm0.011$ & $-10.0\pm0.3$ & $+0.71\pm0.30$ \\
+    \midrule
+    10 & FD & 0.00 & 4.29 & 3.90 & 0.757 & 0.744 & 44.0 & 14.3 & -- & -- & -- \\
+    10 & FD & 0.10 & 4.29 & 3.87 & 0.764 & 0.749 & 43.2 & 14.7 & $+0.005\pm0.005$ & $-0.8\pm0.1$ & $+0.34\pm0.05$ \\
+    10 & FD & 0.30 & 4.29 & 3.75 & 0.743 & 0.719 & 38.7 & 16.4 & $-0.025\pm0.005$ & $-5.3\pm0.3$ & $+2.05\pm0.16$ \\
+    10 & DD & 0.10 & 4.76 & 4.25 & 0.779 & 0.770 & 46.2 & 13.3 & $+0.026\pm0.005$ & $+2.2\pm0.1$ & $-1.05\pm0.05$ \\
+    10 & DD & 0.30 & 6.68 & 5.47 & 0.826 & 0.821 & 48.8 & 11.5 & $+0.077\pm0.005$ & $+4.8\pm0.6$ & $-2.78\pm0.21$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Occupancy}\label{s7_interventions:sec:occupancy}
+
+In the office scene we vary the number of people from $\Npop=20$ to $400$ (0.03 to 0.68 persons per m$^2$;
+2,000 epidemics per point; Fig.~\ref{s7_interventions:fig:occupancy}).
+% src: data/bsc_sim/07_occupancy.json (density_per_m2, n_rep)
+ Under FD the mean-field $\Rz$ does not
+depend on $\Npop$ at all: it is $5.11$ ($\Dz=1$) and $4.68$ ($\Dz=10$) for every occupancy. Discrete people do
+feel occupancy, through saturation: with fewer people an infective exhausts its neighbours sooner. At $\Dz=1$
+the counted $\Rhat$ is $1.47\pm0.04$ for $\Npop=50$, $2.29\pm0.05$ for $100$ and $3.70\pm0.09$ for $400$, following
+$\Ronebar=1.52$, $2.27$, $3.65$; the attack rate of major outbreaks is 27\,\%, 46\,\% and 90\,\%. At $\Dz=10$
+the dependence is weaker ($\Rhat=3.2$, $3.8$, $4.5$). The elasticity of $\Ronebar$ with respect to $\Npop$
+near $\Npop=100$ (between 75 and 150) is $+0.48$ at $\Dz=1$ and $+0.17$ at $\Dz=10$, against $0$ for $\Rz$.
+% src: data/bsc_sim/07_occupancy.json keys D0=1|N=50|FD, N=100, N=400, D0=10|... (R0_ngm, R1_pair_uniform, R_index_alone, R_index_alone_se, attack_major_mean); elasticities: data/s7_interventions_numbers.json occupancy/elasticity|D0=1|FD, D0=10|FD (pair)
+Under DD (reference $\Npop=100$), $\Rz$ is proportional to $\Npop-1$ by \eqref{M-s7_interventions:eq:dd}, from
+$0.98$ at $\Npop=20$ to $20.6$ at $\Npop=400$ for $\Dz=1$, and the elasticity is $+1.0$ at both mobilities.
+Halving the office from 100 to 50 people then takes $\Ronebar$ from $2.27$ to $1.12$ and the outbreak
+probability from $0.49$ to $0.27$ at $\Dz=1$ ($3.79\to1.88$ and $0.74\to0.53$ at $\Dz=10$), whereas under FD it
+takes them to $1.52$ and $0.40$ ($3.22$ and $0.72$).
+% src: data/bsc_sim/07_occupancy.json keys D0=1|N=20|DD, N=400|DD, N=50|DD, N=50|FD, N=100|FD and the D0=10 analogues (R0_ngm, R1_pair_uniform, p_major)
+
+Whether a capacity limit works is therefore an \emph{assumption about contact behaviour} --- do people keep
+the same number of contacts in an emptier room? --- and not an output of the model.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig6_4_occupancy_en}
+  \caption{Occupancy dependence in the office scene (1\,m kernel, 2,000 epidemics per point), $\Dz=1$ (top) and
+  $\Dz=10$ (bottom). Blue: FD; orange: DD with the pair hazard frozen at its value for $\Npop=100$.
+  (a,\,d)~Mean-field $\Rz$ (dashed), pair-level $\Ronebar$ (solid) and counted
+  $\Rhat$ (open circles, 95\pct{} intervals). (b,\,e)~Probability of a major outbreak: simulation (dots, 95\,\%
+  intervals) and mean-field branching value (dashed); for $\Npop<50$ a `major' outbreak means two or three
+  cases. (c,\,f)~Peak prevalence of major outbreaks: simulation (dots) and lattice mean-field equations
+  \eqref{M-s2_model:eq:meanfield} (dashed).}
+  % src: figures/fig6_4_occupancy_en.pdf (code/bsc_sim/experiments/21_figures_more.py <- data/bsc_sim/07_occupancy.json)
+  \label{s7_interventions:fig:occupancy}
+\end{figure}
+
+\subsection{Interventions}\label{s7_interventions:sec:measures}
+
+Table~\ref{s7_interventions:tab:interventions} applies five measures to the office scene. Two of them are
+\emph{inputs}, not results: `ventilation' halves $q$ in every cell and `masks' multiply $\beta$ by $0.3$, by
+assumption.
+
+\emph{Uniform measures} scale $\Rz$ exactly ($5.11\to2.55$ and $1.53$ at $\Dz=1$), but the pair-level number
+less than proportionally ($\Ronebar=2.27\to1.51$ and $1.05$), because a lower hazard also wastes fewer
+contacts; the outbreak probability falls from $0.49$ to $0.30$ and $0.15$. \emph{Halving the occupancy}
+leaves $\Rz$ unchanged under FD and halves it under DD (Section~\ref{s7_interventions:sec:occupancy}); in
+either case the peak comes earlier, on day 13 instead of day 24 at $\Dz=1$, because a smaller group is
+exhausted sooner. \emph{Partitions} (39 workstation cells turned
+into barriers) leave $\Rz$ at $5.11$ under FD and raise it to $6.14$ under DD at $\Dz=1$; the mean attack rate
+falls from $0.232$ to $0.166$ (FD) or $0.195$ (DD). At $\Dz=10$ it goes from $0.737$ to $0.693$ (FD) or $0.751$
+(DD); the decrease of $\Rz$ under FD there ($4.68\to4.63$, $-1.1\pct$) arises because the cells removed have
+an above-average $q$ (Section~\ref{M-s4_geometry:sec:examples}).
+% src: data/bsc_sim/08_interventions.json keys office|D0=1|... and office|D0=10|... (R0_ngm, R1_pair_uniform, p_major, peak_time_major_mean, attack_all_mean)
+
+\emph{Combination} (ventilation, half occupancy and partitions together). At $\Dz=1$, $\Rz=2.56$ (FD) or $1.52$
+(DD), $\Ronebar=1.10$ or $0.82$ and $\Rhat=1.09\pm0.03$ or $0.78\pm0.02$; at $\Dz=10$, $\Ronebar=1.79$ or
+$1.16$. In the classroom the combination gives $\Ronebar=1.21$ (FD) or $0.86$ (DD) at $\Dz=1$ and $1.70$ or
+$1.10$ at $\Dz=10$.
+% src: data/bsc_sim/08_interventions.json keys office|D0=1|combination|FD, |DD, office|D0=10|combination|FD, |DD, classroom|D0=1|combination|FD, |DD, classroom|D0=10|combination|FD, |DD
+A pair-level number below one is reached only for discrete people at low mobility under the DD law, and it
+must not be read as a control criterion: in that arm $\Rz$ is $1.52$ and 16.5\,\% of the runs still reach an
+attack rate of 10\,\% (five of 50 people), and conversely a pair-level number above one does not imply
+outbreaks (Remark~\ref{M-s5_pair:rem:threshold}).
+% src: data/bsc_sim/08_interventions.json key office|D0=1|combination|DD (p_major = 0.165)
+
+\emph{Targeted ventilation.} Halving $q$ on the quarter of the cells with the largest elasticity $e_x$
+(Theorem~\ref{M-s4_geometry:thm:hotspots}) lowers $\Rz$ more than treating the quarter with the smallest ($4.67$
+against $5.11$ at $\Dz=1$; $4.10$ against $4.37$ at $\Dz=10$). For discrete people at $\Dz=1$ it makes no
+measurable difference which quarter is treated: $\Ronebar=2.08$, $2.09$ and $2.06$ and mean attack rates
+$0.195$, $0.205$ and $0.188$ (standard errors about $0.005$) for the hottest quarter, the coldest quarter and the hottest
+quarter by the pair-level elasticity; at $\Dz=10$ the attack rates are $0.675$, $0.696$ and $0.682$.
+% src: data/bsc_sim/08_interventions.json keys office|D0=1|hotspot ventilation (25 % of cells)|FD, coldspot ..., pair-level hotspot ..., and D0=10 (R0_ngm, R1_pair_uniform, attack_all_mean, attack_all_sd/sqrt(2000))
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{4pt}
+  \caption{Interventions in the office scene (1\,m kernel; 2,000 epidemics per arm; reference occupancy for DD:
+  $\Npop=100$ in the unmodified scene). $\Rhat$: counted secondary cases of the index ($\pm$ standard error);
+  $P$: probability of a major outbreak; attack: mean attack rate over all runs; peak and day: peak prevalence
+  (\%) and peak day of major outbreaks. Ventilation and masks are assumptions on $q$ and $\beta$, not model
+  outputs. Partitions: 39 workstation cells turned into barriers. Combination: ventilation, half occupancy and
+  partitions. A value $\Ronebar<1$ is not a control criterion (see text).}
+  \label{s7_interventions:tab:interventions}
+  % src: data/s7_interventions_tables.tex (code/s7_interventions_numbers.py) <- data/bsc_sim/08_interventions.json
+  \begin{tabular}{@{}cllcccccccc@{}}
+    \toprule
+    $\Dz$ & measure & law & $\Npop$ & $\Rz$ & $\Ronebar$ & $\Rhat$ & $P$ & attack & peak & day \\
+    \midrule
+    1 & baseline & FD & 100 & 5.11 & 2.27 & $2.30\pm0.05$ & 0.491 & 0.232 & 12.8 & 24.3 \\
+    1 & ventilation, $q\to q/2$ & FD & 100 & 2.55 & 1.51 & $1.55\pm0.04$ & 0.295 & 0.102 & 9.0 & 23.3 \\
+    1 & masks, $\beta\to0.3\beta$ & FD & 100 & 1.53 & 1.05 & $1.05\pm0.03$ & 0.147 & 0.048 & 7.1 & 21.8 \\
+    1 & capacity 50\,\% & FD & 50 & 5.11 & 1.52 & $1.51\pm0.04$ & 0.393 & 0.126 & 11.7 & 13.0 \\
+    1 & capacity 50\,\% & DD & 50 & 2.53 & 1.12 & $1.13\pm0.03$ & 0.258 & 0.080 & 10.2 & 13.9 \\
+    1 & partitions & FD & 100 & 5.11 & 2.21 & $2.20\pm0.05$ & 0.459 & 0.166 & 10.7 & 20.3 \\
+    1 & partitions & DD & 100 & 6.14 & 2.42 & $2.36\pm0.06$ & 0.506 & 0.195 & 11.4 & 19.9 \\
+    1 & combination & FD & 50 & 2.56 & 1.10 & $1.09\pm0.03$ & 0.274 & 0.077 & 9.9 & 12.2 \\
+    1 & combination & DD & 50 & 1.52 & 0.82 & $0.78\pm0.02$ & 0.165 & 0.055 & 9.0 & 12.3 \\
+    \midrule
+    10 & baseline & FD & 100 & 4.68 & 3.79 & $3.76\pm0.09$ & 0.760 & 0.737 & 39.0 & 16.7 \\
+    10 & ventilation, $q\to q/2$ & FD & 100 & 2.34 & 2.09 & $2.09\pm0.06$ & 0.522 & 0.404 & 21.2 & 27.6 \\
+    10 & masks, $\beta\to0.3\beta$ & FD & 100 & 1.40 & 1.30 & $1.30\pm0.04$ & 0.290 & 0.131 & 10.9 & 27.8 \\
+    10 & capacity 50\,\% & FD & 50 & 4.68 & 3.22 & $3.20\pm0.07$ & 0.697 & 0.629 & 36.2 & 15.8 \\
+    10 & capacity 50\,\% & DD & 50 & 2.31 & 1.88 & $1.85\pm0.05$ & 0.533 & 0.345 & 21.6 & 19.3 \\
+    10 & partitions & FD & 100 & 4.63 & 3.60 & $3.60\pm0.09$ & 0.730 & 0.693 & 34.2 & 19.6 \\
+    10 & partitions & DD & 100 & 5.55 & 4.14 & $4.13\pm0.10$ & 0.777 & 0.751 & 38.0 & 17.0 \\
+    10 & combination & FD & 50 & 2.31 & 1.79 & $1.74\pm0.05$ & 0.504 & 0.285 & 18.8 & 19.5 \\
+    10 & combination & DD & 50 & 1.37 & 1.16 & $1.19\pm0.04$ & 0.329 & 0.123 & 12.6 & 16.7 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Schedules and dwell time}\label{s7_interventions:sec:time}
+
+\begin{proposition}[Duty cycle]\label{s7_interventions:prop:duty}
+  Let $0<f\le1$ and let Assumption~\ref{M-s2_model:ass:A} hold. Suppose that movement and transmission operate
+  only during the occupied intervals $[k,k+f)$, $k=0,1,2,\dots$ (time in days), and that recovery proceeds at all
+  times: in \eqref{M-s2_model:eq:meanfield}, $\gen$ and $\Fm$ are multiplied by $\chi(t)$, equal to $1$ on the
+  occupied intervals and to $0$ otherwise. Put $\theta(t)=\int_0^t\chi(s)\,\dd s$ and
+  \begin{equation}\label{s7_interventions:eq:dutydetail}
+    \Jm_f=\gen+\Fm-\frac{\gamma}{f}\,\Id,\qquad \Rz^{(f)}=\srad\Bigl(\Fm\bigl(\tfrac{\gamma}{f}\,\Id-\gen\bigr)^{-1}\Bigr).
+  \end{equation}
+  \begin{enumerate}
+    \item[(a)] The linearised model $\dot I=[\chi(t)(\gen+\Fm)-\gamma\Id]\,I$ has the solution
+      $I(t)=\exp[\theta(t)(\gen+\Fm)-\gamma t\,\Id]\,I(0)$; in particular $I(k)=\e^{kf\Jm_f}I(0)$ for integer $k$.
+      Solutions of the nonlinear model satisfy $I(t)\le\exp[\theta(t)(\gen+\Fm)-\gamma t\,\Id]\,I(0)$ componentwise.
+    \item[(b)] The growth factor per day is $\e^{f\sabs(\Jm_f)}$, and $\sabs(\Jm_f)$ has the sign of $\Rz^{(f)}-1$.
+    \item[(c)] If $\gen=\Dz\genz$ and $\Rz(\Dz)$ denotes the value for continuous occupancy, then
+      $\Rz^{(f)}(\Dz)=f\,\Rz(f\Dz)$. For the same-cell kernel,
+      $f\,\Rz(\Dz)\le\Rz^{(f)}(\Dz)\le f\beta\qmax/\gamma$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  (a) The matrices $A(t)=\chi(t)(\gen+\Fm)-\gamma\Id$ are constant on each occupied and each empty interval and
+  commute with one another for all times, so the product of the exponentials over successive intervals is the
+  exponential of $\int_0^tA(s)\,\dd s=\theta(t)(\gen+\Fm)-\gamma t\,\Id$; at $t=k$, $\theta=kf$. In the nonlinear
+  model $S_y\le N^*_y$ gives $\dot I\le A(t)I$ componentwise, and since $A(t)$ is Metzler the comparison
+  argument of Theorem~\ref{M-s3_r0:thm:ngm}(d) applies on each interval.
+  (b) $\gen+\Fm$ is Metzler and irreducible, so $\e^{f\Jm_f}$ is a positive matrix with spectral radius
+  $\e^{f\sabs(\Jm_f)}$ (Lemma~\ref{s3_r0:lem:facts}, P1); the sign statement is Theorem~\ref{M-s3_r0:thm:ngm}(c) with
+  $\gamma$ replaced by $\gamma/f$.
+  (c) $\Fm\bigl(\tfrac{\gamma}{f}\Id-\Dz\genz\bigr)^{-1}=f\,\Fm(\gamma\Id-f\Dz\genz)^{-1}$. The inequalities follow
+  from Theorem~\ref{M-s3_r0:thm:mobility}(c), because $f\Dz\le\Dz$, and from Theorem~\ref{M-s3_r0:thm:bounds}.
+\end{proof}
+
+\begin{remark}[What is exact and what is approximate]\label{s7_interventions:rem:duty}
+  $\Rz^{(f)}$ is an exact threshold parameter of the periodic mean-field model, for any cycle length, because
+  one and the same operator is switched on and off; in general periodic models the threshold is given by a
+  next-generation operator on periodic functions and not by time-averaged parameters
+  \citep{bacaer2006epidemic,wang2008threshold}. By part~(c) a duty cycle does more than scale $\Rz$ by $f$: it
+  also lowers the effective mobility to $f\Dz$.
+  As a \emph{number of secondary cases}, however, the substitution $\gamma\to\gamma/f$ is an approximation. It
+  replaces the expected infectious time spent in the room by $f/\gamma$ ($2.381$ days for $f=1/3$), whereas a
+  case that becomes infectious at the start of an occupied interval spends
+  $(1-\e^{-\gamma f})/[\gamma(1-\e^{-\gamma})]=2.493$ days there ($+4.7\,\%$), and one that becomes infectious
+  at a uniformly distributed time within an occupied interval, as secondary cases approximately do (their
+  infection times within an interval follow the incidence, which changes during the interval), $2.383$ days
+  ($+0.07\,\%$).
+  % src: data/s7_interventions_schedule.json keys duty|office|D0=1 (in_room_time_rule, in_room_time_start, in_room_time_uniform); closed forms in code/s7_interventions_schedule.py
+  For discrete individuals the same substitution in the pair-level formulas of Section~\ref{M-s5_pair:sec} is
+  likewise an approximation. The exact pair-level value follows from the argument of
+  Proposition~\ref{M-s5_pair:prop:pair}. Let $A=\gamma\Id+\mathbf{H}-\mathcal{M}^{\T}$ be the pair operator of
+  that proposition and $u_0(z)$ the probability that the given person escapes infection when the index case
+  becomes infectious at the start of an occupied interval with the pair in state $z$. During the occupied
+  interval of length $f$ the pair moves and the hazard acts, so $(\e^{-At}\one)(z)$ is the probability that
+  neither recovery nor infection has occurred by time $t\le f$; during the rest of the day nobody moves, the
+  index recovers with probability $c_f=1-\e^{-\gamma(1-f)}$, and otherwise the next day starts from the same
+  state. Hence
+  \begin{equation}\label{s7_interventions:eq:dutyexact}
+    u_0=\gamma A^{-1}\bigl(\one-\e^{-Af}\one\bigr)+\e^{-Af}\bigl(c_f\,\one+(1-c_f)\,u_0\bigr),
+  \end{equation}
+  a linear fixed-point equation whose map is a contraction in the maximum norm (factor at most
+  $\e^{-\gamma}<1$, because $\e^{-Af}$ is non-negative with row sums at most $\e^{-\gamma f}$), solved by
+  iteration; the expected number of secondary cases is $(\Npop-1)$ times the mean of $1-u_0$ over the
+  $\ncell^2$ pair states. For an index case that becomes infectious at a time uniformly distributed over the
+  occupied interval, the first day is shortened to its remaining part $r$ and the same expression is averaged
+  over $r\in(0,f)$. With $f=1$ the iteration reproduces the solution of \eqref{M-s5_pair:eq:pair} to
+  $5\times10^{-10}$.
+  % src: code/s7_interventions_schedule.py (duty_cycle_exact); data/s7_interventions_schedule.json key duty_exact|control_f1|office|D0=1 (abs_diff 4.6e-10), duty_exact|office|D0=1 (fixed_point_residual 9e-13, 152 iterations)
+\end{remark}
+
+\paragraph{Office, eight hours a day ($f=1/3$).} The mean-field number drops from $5.11$ to
+$\Rz^{(f)}=1.75$ at $\Dz=1$ and from $4.68$ to $1.60$ at $\Dz=10$; the pair-level number with
+$\gamma\to\gamma/f$ is $\Ronebar=0.889$ and $1.335$ (Table~\ref{M-s7_interventions:tab:dwell}a). The exact
+pair-level values of \eqref{s7_interventions:eq:dutyexact} are $0.930$ at $\Dz=1$ and $1.397$ at $\Dz=10$ for
+an index case that becomes infectious at the start of a working day, $4.6\pct$ and $4.7\pct$ above the rule,
+as its longer time in the room leads one to expect, and $0.889$ and $1.336$ for one that becomes infectious
+at a uniformly distributed time of the working day, $0.07\pct$ above the rule.
+% src: data/s7_interventions_schedule.json keys duty_exact|office|D0=1, duty_exact|office|D0=10 (exact_start 0.9296, 1.3975; exact_uniform_phase 0.8892, 1.3359; rule_gamma_over_f 0.8885, 1.3349; start_over_rule_pct 4.62, 4.69; uniform_over_rule_pct 0.07), duty|office|D0=1, D0=10 (R0_duty)
+Simulation with the schedule imposed explicitly agrees: $0.9309\pm0.0009$ and $0.8889\pm0.0009$ at $\Dz=1$
+(2{,}000{,}000 runs each) and $1.400\pm0.002$ and $1.337\pm0.002$ at $\Dz=10$ (800{,}000 runs each), all
+within $1.6$ standard errors of the exact values.
+% src: data/s7_interventions_schedule.json keys duty_large|office|D0=1, duty_large|office|D0=10 (count_start, count_start_se, count_uni, count_uni_se, z_start 1.52 and 1.26, z_uni -0.33 and 0.82); smaller samples are listed below
+In full epidemics with the schedule, 6.1\pct{} of the runs (95\pct{} interval 5.1--7.2\pct) reach a 10\pct{} attack
+rate at $\Dz=1$ and 30.2\pct{} (28.2--32.2\pct) at $\Dz=10$. The index case of an office occupied eight hours a
+day thus infects about $0.9$ people on average at $\Dz=1$ and $1.3$ to $1.4$ at $\Dz=10$, against $2.3$ and
+$3.8$ for a room occupied around the clock; this is not a threshold statement
+(Remark~\ref{M-s5_pair:rem:threshold}).
+% src: data/bsc_sim/11_dwell_time.json keys office|D0=1, office|D0=10 (p_major, p_major_lo, p_major_hi)
+For a class that meets one hour a day ($f=1/24$) the numbers are $\Rz^{(f)}=0.27$, $\Ronebar=0.18$ with the
+rule and $0.194$ exactly (index infectious from the start of the lecture; counted $0.189\pm0.003$) at
+$\Dz=1$, and no run in 2,000 reaches a 10\pct{} attack rate: with $\beta=0.5\perday$ one daily lecture cannot
+sustain transmission in this model.
+% src: data/bsc_sim/11_dwell_time.json key classroom|D0=1 (R0_duty_cycle, R1_pair_duty_cycle, sim_R_schedule, p_major); data/s7_interventions_schedule.json key duty_exact|classroom|D0=1 (exact_start 0.1944)
+
+\paragraph{Further simulation estimates of the duty-cycle counts.} Before the exact values of
+\eqref{s7_interventions:eq:dutyexact} were computed, the number of secondary cases of an index case in the
+office occupied eight hours a day was estimated by simulation several times. For an index case infectious
+from the start of a working day at $\Dz=1$: $0.918\pm0.009$ (one batch of 20,000 runs), $0.944\pm0.006$ (the
+second simulator), $0.928\pm0.003$ (pooled, in the re-check's report) and $0.935\pm0.003$ (200,000
+runs), against the exact $0.930$; at $\Dz=10$, $1.408\pm0.012$ and $1.395\pm0.004$ against $1.397$. For an
+index case infectious from a uniformly distributed time: $0.896\pm0.003$ and $1.331\pm0.004$ (200,000 runs
+each) against $0.889$ and $1.336$. The 200,000-run samples at $\Dz=1$ lie $2.0$ and $2.5$ standard errors
+above the exact values; the samples of 2,000,000 runs quoted in Section~\ref{s7_interventions:sec:time} do
+not ($+1.5$ and $-0.3$).
+% src: data/bsc_sim/11_dwell_time.json keys office|D0=1, office|D0=10 (sim_R_schedule and its interval); code/bsc_sim/verify/v11.json key office_duty_D1; data/checks/simulation.json: duty_cycle_office_D0_1.count_explicit_schedule_pooled (0.928 +- 0.003), .first_analysis_batch (0.918) (notes/VERIFICATION.md Section 4.2, simulations item 11); data/s7_interventions_schedule.json keys duty|office|D0=1, D0=10 (count_start, count_uniform_phase and their se), duty_exact|office|D0=* (z_mc_start 1.97, z_mc_uniform_phase 2.54), duty_large|office|D0=1 (z_start 1.52, z_uni -0.33)
+
+\paragraph{One visit.} Table~\ref{M-s7_interventions:tab:dwell}b gives the expected number of people that one
+infective infects during a single stay of length $T$. For a uniformly placed infective the mean-field value is
+$\beta\langle q\rangle(1-\e^{-\gamma T})/\gamma$ whatever the mobility and the kernel, because the walk is
+stationary; the counted exposure agrees with it within 0.3\,\%, and the counted infections are lower only
+where pairs saturate within the visit. The values are $0.21$ for an office day ($0.175$ counted at $\Dz=1$,
+$0.198$ at $\Dz=10$), $0.027$ for a lecture, $0.018$ for a 20-minute metro ride and $0.0086$ for a 27-minute
+supermarket visit.
+% src: data/bsc_sim/11_dwell_time.json keys <scene>|D0=1, <scene>|D0=10 (per_visit_meanfield, per_visit_sim, per_visit_exposure_sim; 200,000 runs each)
+A per-visit number is not the reproduction number of a setting that is visited repeatedly: an infective who
+rides the metro twice a day for the whole infectious period infects $f\beta\langle q\rangle/\gamma=0.25$
+fellow passengers in expectation, and one who shops once a day $0.06$ fellow customers. Weighting each
+setting by the fraction of time spent in it is the residence-time (Lagrangian) formulation of multi-setting
+epidemic models \citep{bichara2015sis}; here it is applied to one setting at a time. These numbers, and
+not the closed-room values, are what the settings contribute, and they undercut the ranking of
+Section~\ref{M-s6_scenes:sec}: as closed rooms the scenes rank metro, classroom, office, supermarket
+($\Rz=9.2$, $5.9$, $5.1$, $4.4$ at $\Dz=1$); with the dwell times above the mean-field numbers are $1.75$ for
+the office and $0.27$ for the lecture ($\Rz^{(f)}$, closed groups), $0.25$ for the metro carriage and $0.06$
+for the supermarket ($f\beta\langle q\rangle/\gamma$).
+% src: data/bsc_sim/11_dwell_time.json (wellmixed_duty_cycle: metro 0.2515, supermarket 0.0612; R0_continuous; R0_duty_cycle)
+
+\paragraph{A daily schedule of the parameters.} In the metro scene we let the mobility field and a transmission
+multiplier follow a daily signal with two rush hours (24 hourly segments; the multiplier is $1$ in the rush
+hours and $0.8$ otherwise, mean $0.833$), and compare three arms: constant rush-hour values (the scene of
+Section~\ref{M-s6_scenes:sec}), the hourly schedule, and constants equal to the time averages of the mobility
+field and of the multiplier. The number of people is $\Npop=310$ in all arms: only mobility and the multiplier
+vary, not the occupancy.
+% src: code/bsc_sim/experiments/09_metro_time.py; data/bsc_sim/09_metro_time.json key schedule (m_mean)
+
+\begin{observation}[Time average]\label{s7_interventions:obs:average}
+  In the metro scene the hourly schedule and its time average give the same outbreak probability, attack
+  rate, peak prevalence and peak day within Monte Carlo error at $\Dz=1$, $10$ and $100$
+  (Table~\ref{s7_interventions:tab:schedule}); for example the peak prevalence of
+  major outbreaks is 23.0\pct{} against 22.9\pct{} on day 25.3 against 25.2 at $\Dz=1$.
+\end{observation}
+% src: data/bsc_sim/09_metro_time.json keys D0=1|varying, D0=1|mean, D0=100|...; data/s7_interventions_schedule.json keys metro|D0=10|peak, varying, mean
+A test in the re-check, run with the production simulator, in the office scene (half of each day with hop rates multiplied by $1.8$
+and transmission by $1.3$, the other half by $0.2$ and $0.7$, against constants; 6,000 epidemics each) agrees:
+outbreak probability $0.491$ against $0.498$, peak prevalence 12.8\,\% against 12.8\,\%, peak day $23.7$ against
+$23.3$ (standard error $0.3$).
+% src: code/bsc_sim/verify/v14_schedule.json keys check_varying, check_mean
+This is not a theorem: the hourly generators do not commute and the hop rates are not small compared with one
+cycle per day. Relative to constant rush-hour values the schedule lowers the multiplier but raises the
+mobility; the first effect wins at $\Dz=1$ (peak 25.0\,\% $\to$ 23.0\,\%, three days later), the second at
+$\Dz=100$ (35.4\,\% $\to$ 44.2\,\%, 2.6 days earlier), and at $\Dz=10$ they nearly cancel.
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{5pt}
+  \caption{Daily schedule in the metro scene ($\Npop=310$ in every arm, 1\,m kernel, FD, 2,000 epidemics per
+  arm). Arms: constant rush-hour values (`peak'), hourly schedule of mobility and transmission multiplier
+  (`schedule'), constants equal to the time averages (`average'). $\Rz$ is not defined by a single matrix
+  for the schedule arm. 95\,\% intervals in parentheses.}
+  \label{s7_interventions:tab:schedule}
+  % src: data/s7_interventions_tables.tex (code/s7_interventions_numbers.py) <- data/bsc_sim/09_metro_time.json (D0 = 1, 100); data/s7_interventions_schedule.json (D0 = 10)
+  \begin{tabular}{@{}clccccc@{}}
+    \toprule
+    $\Dz$ & arm & $\Rz$ & $P(\text{major})$ & attack, major (\%) & peak prevalence, major (\%) & peak day, major \\
+    \midrule
+    1 & peak & 9.24 & 0.871 (0.855--0.885) & 93.6 & 25.0 (24.7--25.2) & 22.2 (21.6--22.7) \\
+    1 & schedule & -- & 0.837 (0.820--0.853) & 93.4 & 23.0 (22.7--23.2) & 25.3 (24.6--26.0) \\
+    1 & average & 7.66 & 0.844 (0.827--0.859) & 93.7 & 22.9 (22.7--23.1) & 25.2 (24.5--25.9) \\
+    \midrule
+    10 & peak & 9.16 & 0.887 (0.873--0.901) & 97.9 & 27.8 (27.5--28.1) & 21.0 (20.5--21.5) \\
+    10 & schedule & -- & 0.869 (0.854--0.883) & 99.3 & 28.6 (28.3--28.9) & 21.0 (20.5--21.4) \\
+    10 & average & 7.58 & 0.862 (0.846--0.876) & 99.3 & 28.6 (28.4--28.9) & 20.9 (20.5--21.4) \\
+    \midrule
+    100 & peak & 9.08 & 0.880 (0.866--0.894) & 99.9 & 35.4 (35.1--35.8) & 16.5 (16.2--16.8) \\
+    100 & schedule & -- & 0.853 (0.836--0.867) & 99.8 & 44.2 (43.9--44.6) & 13.9 (13.7--14.1) \\
+    100 & average & 7.55 & 0.855 (0.839--0.870) & 99.8 & 44.4 (44.0--44.7) & 13.9 (13.8--14.1) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{What remains at higher mobility}\label{s7_interventions:sec:regime}
+
+The experiments above were run at $\Dz=1$ and $10$. The pair-level number $\Ronebar$ is exact for the first
+generation at any mobility (Definition~\ref{M-s5_pair:def:R1}) and costs one linear solve, so each effect can be
+followed up to $\Dz=2.4\times10^{3}\cellday$, the estimate of Section~\ref{M-s2_model:sec:regime} for people who
+walk 5\pct{} of the time (Table~\ref{s7_interventions:tab:regime}). The effects
+of the contrast in $q$ and of
+barriers under FD shrink below 1\,\% at $\Dz=100$ and below 0.05\,\% at $\Dz=2.4\times10^{3}$. Simulation at
+$\Dz=100$ agrees: the contrast $c=0.583$ changes the mean attack rate from $0.744$ to $0.750$ (2,000 epidemics each,
+standard error $0.009$), and barriers at 10\,\% and 30\,\% change it by $+0.007\pm0.005$ and $+0.013\pm0.007$
+(20 layouts with 250 epidemics each, FD).
+% src: data/s7_interventions_regime.json keys det/* (R0, R1bar) and sim/twozone|D0=100|c=0.0000, c=0.5833 (attack_all_mean, attack_all_sd/sqrt(2000)), sim/barriers|D0=100|FD/paired (attack); code/s7_interventions_regime.py
+Three things survive. Uniform reductions of $q$ or $\beta$ act on $\Ronebar$ almost in proportion, as they do
+on $\Rz$. Occupancy matters in full under DD; under FD a residue of about 5\,\% remains for halving the office,
+which is a finite-population effect (the limit $D\to\infty$ in Proposition~\ref{M-s5_pair:prop:torus}) and not a
+spatial one. And the
+time spent in the room enters through Proposition~\ref{s7_interventions:prop:duty} at any mobility. Epidemics
+at $\Dz=2.4\times10^{3}$ were not simulated.
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{5pt}
+  \caption{Relative change (\%) of deterministic reproduction numbers caused by the measures of this section,
+  as a function of the mobility scale $\Dz$ (\cdunit). Two-zone room and barrier room: $\Npop=100$,
+  same-cell kernel (barriers: mean over the 40 layouts of Table~\ref{s7_interventions:tab:barriers}); office
+  scene: 1\,m kernel; DD reference: the unmodified room. Last row: the ratio $\Ronebar/\Rz$ in the office scene.}
+  \label{s7_interventions:tab:regime}
+  % src: data/s7_interventions_tables.tex (code/s7_interventions_numbers.py) <- data/s7_interventions_regime.json key det
+  \begin{tabular}{@{}llcccc@{}}
+    \toprule
+    measure & quantity & $\Dz=1$ & $10$ & $100$ & $2.4\times10^{3}$ \\
+    \midrule
+    two-zone contrast $c=0.58$ & $\Rz$ & $+16.0$ & $+3.3$ & $+0.4$ & $+0.01$ \\
+     & $\Ronebar$ & $-14.6$ & $-4.3$ & $-0.6$ & $-0.03$ \\
+    barriers, $\rho_B=0.30$, FD & $\Ronebar$ & $-7.6$ & $-4.7$ & $-0.9$ & $-0.04$ \\
+    barriers, $\rho_B=0.30$, DD & $\Ronebar$ & $+20$ & $+38$ & $+50$ & $+52$ \\
+    capacity 50\,\%, FD (office) & $\Ronebar$ & $-32.9$ & $-15.2$ & $-6.2$ & $-4.5$ \\
+    capacity 50\,\%, DD (office) & $\Ronebar$ & $-50.5$ & $-50.5$ & $-50.5$ & $-50.5$ \\
+    ventilation, $q\to q/2$ (office) & $\Ronebar$ & $-33.4$ & $-45.0$ & $-48.3$ & $-48.8$ \\
+    \midrule
+    office scene, baseline & $\Ronebar/\Rz$ & 0.44 & 0.81 & 0.93 & 0.95 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Computational cost}\label{appD_tables:sec:cost}\label{s7_interventions:sec:cost}
+
+Table~\ref{s7_interventions:tab:cost} compares, for the
+office scene, two ways of computing \emph{the same quantity}, charging Monte Carlo only for the runs needed to
+reach a stated accuracy (its cost scales as accuracy$^{-2}$); times are single-core CPU times on one laptop.
+% src: code/bsc_sim/experiments/10_benchmark.py (method)
+
+One sparse factorisation of $\gamma\Id-\gen$ followed by power iteration gives $\Rz$ in 1.4 to 4.6\,ms (within
+$10^{-8}$ of a dense eigen-solve). Estimating the same number to 1\,\% by a particle power method costs 8 to 9
+times more at $\Dz=1$ and 113 to 133 times more at $\Dz=10$ with a vectorised NumPy estimator, and 3 and 86
+times more with a compiled one; at 0.1\,\% all factors are 100 times larger. The equal-accuracy speed-up is
+thus a few to about $10^2$ at 1\,\% accuracy and a few hundred to about $10^4$ at 0.1\,\%; it grows with
+mobility (more hops per infectious period) and depends on the implementation by a factor of two to three.
+% src: data/bsc_sim/10_benchmark.json keys D0=1, D0=10 / T1_R0_meanfield (cpu_sparse_s, abs_err_sparse, speedup_at_1pct, speedup_at_0p1pct); code/bsc_sim/verify/v12_benchmark_rerun.json (same keys; re-run of the same script); code/bsc_sim/verify/v13_bench.json (speedup_1pct, speedup_01pct; compiled estimator)
+The pair-lattice solve for $\Ronebar$ (conjugate gradients on $\ncell^2=54{,}756$ unknowns, 0.07 to 0.14\,s) is
+about 20 ($\Dz=1$) to 90 ($\Dz=10$) times faster than counting secondary cases to 1\,\% and agrees with the
+count within 0.1 standard error.
+% src: data/bsc_sim/10_benchmark.json T3_R1_discrete (cpu_pair_s, speedup_at_1pct, theory_minus_mc_in_se); code/bsc_sim/verify/v12_benchmark_rerun.json T3_R1_discrete
+For whole-epidemic outputs the mean-field route is not a substitute for simulation at $\Dz=1$: the branching
+value of the outbreak probability is too high by $0.28$ and the attack rate of the lattice equations by $0.55$;
+no speed-up is meaningful for a biased answer. At $\Dz=10$ both biases are $0.03$, and the lattice equations
+(1.5\,s) are slower than simulating to 1\,\% (0.19\,s, 33 runs). The exact simulator takes 0.5\,ms for one
+office epidemic at $\Dz=1$ (5,900 events) and 5.9\,ms at $\Dz=10$.
+% src: data/bsc_sim/10_benchmark.json T4_p_major (theory_bias), T5_attack_rate (theory_bias, cpu_ode_s, mc_cpu_for_1pct_s, mc_runs_for_1pct), c_core_cpu_per_run_s, events_per_run
+In short, the spectral formula and the pair solve are the inexpensive ways to obtain $\Rz$ and $\Ronebar$,
+and simulation is cheap enough to be the method of choice for outbreak probabilities and sizes.
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{4pt}
+  \caption{Cost of deterministic evaluation against Monte Carlo for the same quantity (office scene,
+  $\Npop=100$; single-core CPU). $\noff(x)$: offspring number \eqref{M-s3_r0:eq:offspring} of a case introduced in one
+  cell; CG: conjugate gradients. Speed-up: Monte Carlo CPU time needed for a relative standard error of 1\,\%
+  (an absolute standard error of 0.01 for the outbreak probability) divided by the deterministic CPU time; the
+  three values for $\Rz$ are the first run, the re-check's re-run of the same script, and the
+  re-check's compiled estimator; the two values for the other rows are the first run and the re-check's
+  re-run; no speed-up is quoted where the deterministic value is biased. Bias: deterministic value minus
+  simulated value of the individual-based model.}
+  \label{s7_interventions:tab:cost}
+  % src: data/bsc_sim/10_benchmark.json; code/bsc_sim/verify/v12_benchmark_rerun.json; code/bsc_sim/verify/v13_bench.json (collected in data/s7_interventions_numbers.json, key cost)
+  \begin{tabular}{@{}llccccc@{}}
+    \toprule
+     & & \multicolumn{2}{c}{deterministic CPU} & \multicolumn{2}{c}{speed-up at equal accuracy} & bias \\
+    \cmidrule(lr){3-4}\cmidrule(lr){5-6}
+    quantity & deterministic method & $\Dz=1$ & $\Dz=10$ & $\Dz=1$ & $\Dz=10$ & $\Dz=1$; $10$ \\
+    \midrule
+    $\Rz=\srad(\ngm)$ & sparse LU, power iteration & 4.6\,ms & 1.4\,ms & 8; 9; 3 & 133; 113; 86 & none \\
+    $\noff(x)$, one cell & one sparse solve & 0.27\,ms & 0.29\,ms & 35; 22 & 331; 351 & none \\
+    $\Ronebar$ & CG on the pair lattice & 68\,ms & 137\,ms & 18; 22 & 85; 97 & none \\
+    $P(\text{major})$ & mean-field branching & 9.4\,ms & 9.7\,ms & -- & -- & $+0.28$; $+0.03$ \\
+    attack rate, major & lattice equations \eqref{M-s2_model:eq:meanfield} & 0.40\,s & 1.54\,s & -- & -- & $+0.55$; $+0.03$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}

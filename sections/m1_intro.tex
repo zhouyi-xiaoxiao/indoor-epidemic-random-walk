@@ -1,0 +1,284 @@
+\section{Introduction}\label{s1_intro:sec}
+% Main text, Section 1 (Introduction).
+% Paths in "% src:" comments are relative to the repository root.
+
+Recorded clusters of SARS-CoV-2 infection arose overwhelmingly indoors
+\citep{qian2021indoor,leclerc2020settings}, and in several well-documented events the cases were not spread
+evenly over the room. They sat on one side of a call-centre floor \citep{park2020}, close to the index case in
+an aircraft cabin \citep{khanh2020} or on high-speed trains \citep{hu2021}, or at neighbouring restaurant
+tables in the air stream of one air conditioner \citep{lu2020,li2021}.
+The standard quantitative tool for indoor risk is the Wells--Riley equation
+\citep{wells1955airborne,riley1978,szeto2010review}. It and the models built on it
+\citep{noakes2006modelling,bazant2021guideline} treat the room air as well mixed, so that every susceptible
+occupant carries the same risk.
+This article examines what a minimal spatial model adds to that picture: a
+susceptible--infective--recovered (SIR) epidemic among people who perform independent random walks on a
+lattice of floor cells, with a mobility $D_x$ and an infection efficiency $q_x$ that depend on the cell
+(workstations, corridors, meeting rooms, barriers).
+
+\paragraph{Prior work.}
+Epidemics among moving individuals have been modelled for more than three decades: lattice automata whose
+individuals move between sites \citep{boccara1992automata,rhodes1996persistence}, agents moving in continuous
+space \citep{gonzalez2004scaling,frasca2006dynamical,buscarino2008disease}, and reaction--diffusion processes
+on metapopulation networks \citep{colizza2007reaction,belik2011natural,wang2014spatial}.
+Closest to the present model is the random-walk theory of transmission between two walkers, in which infection
+is a reaction that takes place at a finite rate when an infected and a susceptible walker meet
+\citep{kenkre2014theory,sugaya2018analysis,kenkre2021theory}. \citet{giuggioli2022spatio} formulate it on a
+lattice with exact propagators \citep{giuggioli2020exact,sarvaharman2023particle} and predict a basic
+reproduction number analytically for moving susceptible, infected and recovered individuals.
+The many-walker system itself is a classical object of probability and of statistical physics. For
+independent continuous-time random walkers on $\mathbb{Z}^d$, with infection when an infected and a healthy
+walker meet, \citet{kesten2005spread,kesten2008shape} proved that the infected set grows linearly in time with
+an asymptotic shape, and, when infected walkers recover and can be infected again, that there is a critical
+recovery rate below which the infection survives with positive probability and above which it dies out
+\citep{kesten2006phase}. The same process is studied in physics as the diffusive epidemic process, whose
+absorbing-state transition has been analysed by mean-field theory and simulation \citep{maia2007diffusive};
+with permanent immunity, as here, simulations on the square lattice show a transition of dynamic-percolation
+type controlled by the density of walkers \citep{carvalho2025generalized}. These results concern infinite or
+large homogeneous lattices. They establish that a threshold exists for walkers; they do not give its value
+for the small heterogeneous rooms considered here.
+% src: data/refs_search.json (kesten2005spread, kesten2006phase, kesten2008shape, maia2007diffusive, carvalho2025generalized: Crossref records, abstracts in manual_checks; search queries of 1 October 2026)
+
+For compartmental models the basic reproduction number $\Rz$ is the spectral radius of the next-generation
+operator \citep{diekmann1990definition}, $\Rz=\srad(\Fm\Vm^{-1})$, and it is a threshold
+\citep{vandendriessche2002reproduction}. Linearised at the disease-free state, the mean-field version of the
+lattice model is an epidemic patch model with standard incidence, and the relevant theorems are published.
+For the patch model with symmetric movement, \citet{allen2007asymptotic} defined $\Rz=\srad(\Fm\Vm^{-1})$,
+proved the threshold property, showed that the growth bound $\sabs(\Fm-\Vm)$ decreases with the dispersal rate
+between its two limits, and conjectured the same monotonicity for $\Rz$; the conjecture was proved by
+\citet{gao2019travel} for symmetric movement and by \citet{gao2020fast} in general (see also
+\citet{chen2020asymptotic}), and it is an instance of the reduction principle of
+\citet{altenberg2012resolvent}. That $\Rz$ lies between the smallest and the largest patch reproduction
+number, and does not depend on movement when they coincide, is due to \citet{gao2011sis}; the sharper lower
+bound, which is the fast-dispersal limit, is due to \citet{gao2020fast}, and the approach to that limit at
+order one over the dispersal rate was obtained by \citet{tien2015disease}, for a network on which the pathogen
+rather than the hosts moves, with a next-generation matrix of the same form. Continuum counterparts are given
+by \citet{allen2008asymptotic} and \citet{wang2012basic}. (We read the published versions of
+\citet{gao2011sis} and \citet{tien2015disease}, whose Proposition~2.2 and Section~4.2 contain the results
+attributed to them, and of \citet{gao2020fast}. For \citet{allen2007asymptotic} and \citet{gao2019travel} we
+read only the abstracts; what we attribute to them follows the account of \citet{gao2020fast} and agrees with
+the abstracts as far as they go: the threshold property in the first, the monotone decrease in the dispersal
+rate for symmetric movement in the second.)
+% src: data/refs_search.json (gao2020fast_published: Theorems 2.1, 2.3, 3.3, Corollary 3.5 "generalization of Lemma 3.4 in Allen et al.", Discussion on Tien et al.; checked 1 October 2026)
+% src: published versions of doi:10.1016/j.mbs.2011.05.001 (Proposition 2.2: max{max_i tilde R0^(i), min_i R0^(i)} <= R0 <= max_i R0^(i)) and doi:10.1007/s00285-014-0791-x (Section 4.2, eqs. (29)-(35): first-order Laurent correction of R0 in 1/d_W with the generalised group inverse X_0), author copies read 2 October 2026
+% src: abstracts of doi:10.1137/060672522 and doi:10.1137/18M1211957 in their Crossref records (read 2 October 2026)
+
+Spatially resolved indoor models also exist: zonal ventilation models \citep{noakes2009mathematical},
+transport models for the airborne concentration \citep{lau2022predicting,vuorinen2020modelling}, and
+pedestrian- or agent-based simulations of supermarkets and of air travel
+\citep{ying2021modelling,namilae2017multiscale}. They resolve the air or the trajectories in more detail than a
+lattice walk does. What the lattice model offers in return is analytical access to reproduction numbers; what
+it lacks, as Section~\ref{s8_outbreaks:sec} shows, is an adequate description of seated people who share air
+and of who meets whom.
+
+Three bodies of measurement bear on such a model, and each has its own literature. Close-range contacts
+between people indoors have been recorded with wearable sensors in schools, offices, hospitals and
+conferences; they are concentrated on few, repeated partners, structured by groups and broadly distributed in
+duration \citep{cattuto2010dynamics,stehle2011high,genois2015data,genois2018can}; random walkers in a plane
+that slow down near attractive individuals reproduce several of these statistics
+\citep{starnini2013modeling}; and epidemics have been simulated on the recorded networks
+\citep{stehle2011simulation,gemmetto2014mitigation}. The transport of
+aerosol in vehicles has been measured with tracers \citep{kinahan2021aerosol,woodward2022evaluation,ou2022},
+and turbulent diffusion coefficients of rooms have been related to their ventilation
+\citep{cheng2011modeling}. And outbreak investigations report risk by distance: contact tracing on aircraft
+uses a zone of two rows around a case, a rule whose limits are known \citep{hertzberg2016risk}, and
+transmission of influenza in schools has been resolved into classes, grades and schools
+\citep{endo2021within}. These are the data against which the model is tested in
+Section~\ref{s8_outbreaks:sec}; the rules they suggest, a constant ratio of near to far risk and a fixed share
+of contact within the group, are the generic competitors that the model has to beat.
+
+\paragraph{Contributions.}
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em,itemsep=1pt,topsep=3pt]
+\item \emph{Mean-field reproduction number} (Sections~\ref{s3_r0:sec} and~\ref{s4_geometry:sec}). We state
+  and prove that $\Rz=\srad\bigl(\beta\Qm(\gamma\Id-\gen)^{-1}\bigr)$, a next-generation matrix built from the
+  Laplace-transformed lattice propagator. For same-cell transmission we prove that
+  $\beta\qmean/\gamma\le\Rz\le\beta\qmax/\gamma$, that $\Rz$ decreases monotonically with the mobility scale
+  between these limits, and that any high-risk zone contributes a lower bound; the lower bound and the
+  monotonicity can fail for other contact kernels. In a closed room with uniform $q$, $\Rz$ does not depend on
+  the size or shape of the room. The genuine boundary effect is a leak (doors, finite dwell
+  time): for uniform $q$ and the same-cell kernel, or for a dwell time that does not depend on position and
+  any kernel, it replaces $\gamma$ by $\gamma+\muk$, and for heterogeneous $q$ and the same-cell kernel it
+  gives $\beta\langle q\rangle_\nu/(\gamma+\muk)\le\Rroom\le\beta\qmax/(\gamma+\muk)$
+  (Theorem~\ref{s4_geometry:thm:leaky}); for other kernels and a localised door the formula and both bounds
+  can fail.
+\item \emph{Discrete individuals} (Section~\ref{s5_pair:sec}). Following the two-walker theory of
+  transmission \citep{kenkre2014theory,giuggioli2022spatio}, infection is treated as a partially absorbing
+  defect of the two-walker process. This gives the expected number of secondary cases $\Rone(x)$ of an index
+  case and a closed form for homogeneous periodic rooms and the infinite floor, which approximates rooms with
+  reflecting walls to within 1\,\% in the cases tested. It explains why counted secondary cases fall below
+  $\Rz$ at low occupancy and what form a finite-size effect takes for discrete people.
+  % src: data/s5_pair_checks.json (finite_size: largest deviation of the closed form from the exact pair solve 0.90 %, 21 rooms)
+\item \emph{Exact stochastic simulation} (Section~\ref{s6_scenes:sec}) of four scenes (office, supermarket,
+  classroom, metro carriage) and of interventions, in which secondary cases are counted from the infection
+  tree and not fitted.
+\item \emph{Confrontation with data} (Section~\ref{s8_outbreaks:sec}). We assemble 38
+  records of documented indoor outbreaks and exposure cohorts: a first dataset of 27 records from 31
+  published sources (23 with counts of cases and of exposed people) and a second dataset of eleven records of ten
+  outbreaks with seat or position data. Two spatial models ($\Mone$, $\Mtwo$) are tested against a well-mixed
+  model ($\Mzero$) on 18 of them in two out-of-sample tests (two records for calibration and five held out;
+  then six and five; four further records enter the level checks and negative controls of the first test) and, in the second test by design, against a constant ratio of near to far risk. Three
+  further analyses address what outbreak counts cannot: contacts generated by the lattice walk are compared
+  with recorded contacts in six indoor settings; the airborne kernel is fixed by published tracer measurements
+  and then confronted with the outbreaks; and the model reduced to zones, with mixing measured in one school,
+  is used to predict an influenza epidemic in 29 others. Each of the five primary tests follows a protocol
+  written before the model under test was run on its data (for the tracer analysis, on outbreaks whose outcome
+  under the other models was already known). The protocols are pre-specified, not pre-registered in the usual
+  sense: they were written with the data already known, they were not lodged with a registry, and their timing
+  is attested by file hashes and file times only. Comparisons added after the results were known are marked
+  as post hoc, and a register of all tests says which were specified in advance
+  (Supplementary Table~\ref{S-appS_prot2:tab:register}). Everything is reported with its failures.
+  % src: data/bsc_outbreaks/outbreaks.csv (27 rows); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1; notes/VERIFICATION.md (Section 4.4, outbreak dataset); notes/VERIFICATION.md (Section 4.5, first outbreak test: pre-registration data-aware, model-blind); notes/VERIFICATION.md section 4.10 (reservations)
+\end{enumerate}
+
+\paragraph{What is known and what is added.}
+Table~\ref{s1_intro:tab:known} separates the two. The theorems on the mean-field $\Rz$ are known for patch
+models. We give complete proofs from standard facts on non-negative matrices (Supplementary
+Section~\ref{S-appS_r0:sec}) because the conditions matter: the lower bound $\beta\qmean/\gamma\le\Rz$ holds for
+the same-cell kernel and fails for general contact kernels, for which we give a three-cell counter-example
+(Proposition~\ref{s3_r0:prop:kernel}).
+% src: data/plan_theory_checks.json (checks: kernel_counterexample, 0.50 against mean q 0.667)
+The two-walker formalism is prior work, and the saturation of contacts between neighbours that it captures
+is a classical effect \citep{ball1997epidemics,keeling1999effects,durrett1994importance}. In particular,
+\citet{giuggioli2022spatio} already derive the mean number of secondary infections of one infected walker
+among uniformly placed susceptible walkers in a closed domain from the two-walker formalism and check it
+against simulation; the one-defect solution is that of \citet{szabo1984localized}. What is added here is
+narrower (Section~\ref{s5_pair:sec}): the normalisation of the pair hazard by the occupancy, which makes the
+pair-level and the mean-field numbers refer to the same model and gives the entrywise comparison
+$\ngmone\le\ngm$; the numbers $\Rone(x)$ and the matrix $\ngmone$ for heterogeneous rooms with contact
+kernels; the closed form for periodic rooms and the infinite floor with its limits; the comparison with the
+second generation; and the observation that neither $\Ronebar$ nor the spectral radius of $\ngmone$ is a
+threshold quantity (Remark~\ref{s5_pair:rem:threshold}). These statements of what is added rest on a targeted
+search (Crossref and arXiv queries on infection among random walkers, the diffusive epidemic process and
+patch-model reproduction numbers, 1~October 2026), not on a systematic review.
+% src: data/refs_search.json (searches: queries and numbers of records screened)
+
+\begin{table}[tbp]
+\centering\small
+\caption{Results of this article, where they are known from, and what is added here. `Thm' numbers refer
+to the published version of \citet{gao2020fast}. No novelty is claimed for rows 1--6 and~8; in rows 9
+and~10 the data are those of the cited sources; what is added is their compilation and digitisation and the
+tests.}
+\label{s1_intro:tab:known}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.35\textwidth}@{}}
+\toprule
+Result & Known from & Added here \\
+\midrule
+1.\ $\Rz=\srad(\Fm\Vm^{-1})$ and its threshold property &
+  \citep{diekmann1990definition,vandendriessche2002reproduction}; for the patch model
+  \citep{allen2007asymptotic} &
+  proof in lattice notation; the modal formula, of which the largest diagonal term is a lower bound \\\addlinespace[2pt]
+2.\ $\beta\qmean/\gamma\le\Rz\le\beta\qmax/\gamma$ &
+  between the smallest and largest patch numbers \citep{gao2011sis}; lower bound \citep{gao2020fast} Thm~3.3;
+  continuum case \citep{allen2008asymptotic}; heterogeneity raises $\Rz$ \citep{hasibeder1988population} &
+  the condition (same-cell kernel) and a counter-example for other contact kernels \\\addlinespace[2pt]
+3.\ $\Rz$ decreases with mobility, between the limits of row~2 &
+  conjectured in \citep{allen2007asymptotic}; proved in \citep{gao2019travel} (symmetric movement) and
+  \citep{gao2020fast} Thm~2.3 (general); \citep{chen2020asymptotic,altenberg2012resolvent} &
+  size of the effect in four indoor scenes, at low and at realistic mobility \\\addlinespace[2pt]
+4.\ Uniform $q$: $\Rz=\beta q/\gamma$ whatever the movement &
+  \citep{gao2011sis}; loss through absorbing boundaries \citep{skellam1951random,cantrell2003spatial} &
+  consequence for rooms (no size effect when closed); leaky-room formula $\Rroom=\beta q/(\gamma+\muk)$
+  (same-cell kernel) \\\addlinespace[2pt]
+5.\ Zone lower bound; expansions for fast and slow mixing; edge-wise monotonicity &
+  fast-dispersal expansion \citep{tien2015disease}; the others are elementary consequences of the same matrix
+  theory, for which a targeted search found no source &
+  statements and proofs for indoor lattices \\\addlinespace[2pt]
+6.\ Hotspot maps (Perron vectors, elasticities) &
+  standard eigenvector sensitivity &
+  application to the scenes; a caveat on transients \\\addlinespace[2pt]
+7.\ Infection as a reaction between two walkers; mean number of secondary infections of one infected
+  walker &
+  \citep{kenkre2014theory,sugaya2018analysis,giuggioli2022spatio,kenkre2021theory}; one defect
+  \citep{szabo1984localized}; local saturation
+  \citep{ball1997epidemics,keeling1999effects,durrett1994importance}; thresholds for walkers on
+  infinite lattices \citep{kesten2006phase,maia2007diffusive,carvalho2025generalized} &
+  occupancy-normalised hazard and $\ngmone\le\ngm$; $\Rone(x)$ and $\ngmone$ for heterogeneous rooms with
+  kernels; closed form for periodic rooms and the infinite floor; second generation; not a threshold
+  \\\addlinespace[2pt]
+8.\ Diffusing-aerosol exposure term; decline of risk with distance &
+  \citep{lau2022predicting,venkatram2021modeling,cheng2011modeling}; two-row rule on aircraft
+  \citep{hertzberg2016risk} &
+  used only as the extension tested in Section~\ref{s8_outbreaks:sec}; no claim that it predicts better than a
+  constant ratio \\\addlinespace[2pt]
+9.\ Outbreak investigations &
+  the published sources of Supplementary Section~\ref{S-appB_dataset:sec}; an earlier compilation of outbreaks
+  evaluated with a well-mixed model \citep{peng2022practical} &
+  38 records: near/far strata for eight records of the first dataset, the seat map of the call centre, the
+  seat-offset matrix of the train cohort, and eleven records of the second dataset with seat or position data;
+  two pre-specified out-of-sample tests and their outcome \\\addlinespace[2pt]
+10.\ Recorded contacts, tracer measurements, class structure of school epidemics &
+  \citep{cattuto2010dynamics,stehle2011high,genois2018can,kinahan2021aerosol,woodward2022evaluation,endo2021within};
+  walkers that slow down near others \citep{starnini2013modeling} &
+  pre-specified tests of the walk's contacts, of the kernel with a measured coefficient and of the zone-level
+  reduction against these data, with negative or weak outcomes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Findings.}
+In the office scene (234 walkable cells, $\beta=0.5\perday$, $\gamma=0.14\perday$, mobility scale
+$\Dz=1\cellday$) the mean-field number is $\Rz=5.11$, inside the bounds 4.64--5.36 that hold for every layout
+with the same zone fractions.
+% src: data/plan_theory_checks.json (office: D0=1.R0 = 5.107; lower_bound 4.643, upper_bound 5.357)
+With 100 discrete people, however, a single index case infects on average $\Ronebar=2.27$ others (the exact
+pair-level expectation; counted $\Rhat=2.265\pm0.004$, mean $\pm$ standard error over 400{,}000 runs).
+% src: data/s5_pair_large_sample.json (office|D0=1: R1bar_exact 2.2661; mean 2.2648, se 0.0039, n_runs 400000)
+Half of the introductions die out: the probability of an outbreak reaching 10\,\% of the room is 0.50,
+against 0.78 for the mean-field branching process.
+% src: data/bsc_sim/03_scenes.csv (office|D0=1|range1m: p_major 0.496 [0.474, 0.518], p_major_branching 0.781)
+The two numbers respond to mobility in opposite ways: at $\Dz=10$ and $100\cellday$, $\Rz$ falls to 4.68 and
+4.65 while the pair-level number rises to $\Ronebar=3.79$ and $4.34$.
+% src: data/s5_pair_large_sample.json (office|D0=10: R0_ngm 4.676, R1bar_exact 3.7934; office|D0=100: R0_ngm 4.646, R1bar_exact 4.3411)
+Barriers, separation of zones and capacity limits reduce simulated outbreaks at low mobility and occupancy.
+The cause is the discreteness of individuals (an infective can infect each neighbour only once and keeps
+meeting the same ones), not a lower $\Rz$: under frequency-dependent transmission a capacity limit leaves
+$\Rz$ unchanged, separation of zones raises it, barrier cells leave it unchanged in a room with uniform $q$
+(Theorem~\ref{s4_geometry:thm:closed}), and walls between cells cannot lower it
+(Theorem~\ref{s3_r0:thm:edges}).
+% src: data/s7_interventions_barriers.json (D=1 paired rhoB=0.10|FD attack -0.040 +- 0.003); data/bsc_sim/05_heterogeneity.json (attack_all 0.347 -> 0.231, R0_ngm 4.286 -> 4.972); data/bsc_sim/07_occupancy.json
+These effects belong to a narrow physical regime. With 1.5\,m cells, $\Dz=1\cellday$ is a root-mean-square
+displacement of about 3\,m in a day; people who walk 5\,\% of the time or all of the time correspond to
+$2.4\times10^{3}$ to $4.9\times10^{4}\cellday$, at which the $\Rz$ of the closed office exceeds its well-mixed
+value $\beta\langle q\rangle/\gamma=4.64$ by less than 0.003\,\%.
+% src: data/plan_theory_checks.json (office.mobility_table: D0 = 2400: +0.0027 %; D0 = 48700: +0.0001 %); data/bsc_theory/worked_examples.json (E9_physical_D: 2433.6 and 48672 cell^2/day)
+Residence time matters as well: if the office is occupied 8 hours a day instead of 24, an index case infects
+on average 0.89 to 0.93 people at $\Dz=1$ and 1.34 to 1.40 at $\Dz=10\cellday$.
+% src: data/s7_interventions_schedule.json (duty_exact|office|D0=1: exact_uniform_phase 0.8892, exact_start 0.9296; duty_exact|office|D0=10: 1.3359, 1.3975)
+
+Confronted with data, the model does not show general agreement, and what it gets right is not specific to
+it (Section~\ref{s8_outbreaks:sec}). The formulation with transmission only between people on the same
+lattice site is not supported. An extension with a diffusing-aerosol term predicts the decline of risk with
+distance better than a well-mixed model, but not better than a constant ratio of near to far risk; it fails
+on several events and admits no common mixing coefficient, and the coefficients fitted to the first dataset lie
+far below those measured with tracers in vehicles. Mixing shares measured in one school predict an influenza epidemic in 29 others only as well as a generic model with
+one fitted ratio. The data support a smooth decline of risk with distance and a zone structure dominated by
+the group, statements that the model shares with simpler ones; attack-rate levels are fitted, not predicted;
+and because people are seated or at fixed stations in every outbreak that publishes positions, the spatial
+heterogeneity of mobility remains untested. We present the datasets and the tests as contributions and make
+no claim of agreement.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, summary); notes/VERIFICATION.md (Section 4.10); notes/VERIFICATION.md section 4.10 (statement)
+
+\paragraph{How the results were checked.}
+Each strand of this work (the theory, the simulations, the outbreak dataset, the two outbreak tests and the
+analyses of contact records, tracer measurements and zone structure) was re-checked with separately written
+code, within the same project and on the same machine: the second pass re-derived the proofs, re-implemented
+the computations, including a second exact simulator, retyped the outbreak counts from the sources and
+searched for counter-examples. It was not carried out by anyone independent of the project, and it is not an
+external review; where it re-ran analyses, compared kernels or added comparisons, it reused data loaders, event
+geometries, the transcribed seat maps and, for timing benchmarks and schedules, the simulator of the analyses
+(Supplementary Section~\ref{S-appA_numerics:sec:scope}). Below, `the re-check' refers to that second pass and `second simulator' to its simulator.
+Where the re-check corrected a result, the corrected result is the one reported; results that it did not
+recompute, and comparisons that it added after the results were known, are identified as such. What each
+re-check covered is described in Supplementary Section~\ref{S-appA_numerics:sec}.
+% src: notes/VERIFICATION.md (Section 4.1, theory, Section 4.2, simulations); notes/VERIFICATION.md (Section 4.4, outbreak dataset); notes/VERIFICATION.md (Section 4.5, first outbreak test); notes/VERIFICATION.md (Section 4.6, second outbreak test, Section 4.7, contact records, Section 4.8, tracer measurements, Section 4.9, zone level)
+
+\paragraph{Outline.}
+Section~\ref{s2_model:sec} defines the model, the four scenes and the parameter regime.
+Section~\ref{s3_r0:sec} treats the basic reproduction number of the mean-field model and
+Section~\ref{s4_geometry:sec} room size, leaks and hotspot maps. Section~\ref{s5_pair:sec} develops the
+pair-level theory for discrete individuals, and Section~\ref{s6_scenes:sec} reports the simulations of the
+scenes and of interventions. Section~\ref{s8_outbreaks:sec} confronts the model with documented outbreaks,
+recorded contacts, tracer measurements and a school epidemic, and Section~\ref{s9_discussion:sec} discusses
+what stands and the limits. The Supplementary Material holds the proofs, the numerical verification, the
+outbreak datasets, the protocols, extended tables and the register of all tests; its sections, equations,
+figures and tables are numbered with the prefix S.

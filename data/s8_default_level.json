@@ -1,0 +1,52 @@
+{
+ "beta_per_day": 0.5,
+ "q_max_by_scene": {
+  "office": 1.5,
+  "supermarket": 2.0,
+  "classroom": 2.0,
+  "metro": 2.8
+ },
+ "q_max": 2.8,
+ "bound": "E[infections in T] <= exp(beta*q_max*T) - 1; P(N >= n) <= E/n",
+ "events": {
+  "Zhejiang bus": {
+   "id": "T1_zhejiang_bus",
+   "n_exposed": 67,
+   "exposure_h": 1.6666666666666667,
+   "expected_infections_bound": 0.10210525869025966,
+   "attack_rate_bound": 0.0015239590849292486,
+   "cases": {
+    "all cases": {
+     "n_infected": 23,
+     "observed_attack_rate": 0.34328358208955223,
+     "markov_bound_P_at_least_n": 0.004439359073489551,
+     "beta_needed_per_day": 16.344276841789434,
+     "beta_needed_over_default": 32.68855368357887
+    }
+   }
+  },
+  "Skagit choir": {
+   "id": "H1_skagit_choir",
+   "n_exposed": 60,
+   "exposure_h": 2.5,
+   "expected_infections_bound": 0.15700333809073086,
+   "attack_rate_bound": 0.002616722301512181,
+   "cases": {
+    "all cases": {
+     "n_infected": 52,
+     "observed_attack_rate": 0.8666666666666667,
+     "markov_bound_P_at_least_n": 0.0030192949632832857,
+     "beta_needed_per_day": 13.612429417892988,
+     "beta_needed_over_default": 27.224858835785977
+    },
+    "confirmed cases only": {
+     "n_infected": 32,
+     "observed_attack_rate": 0.5333333333333333,
+     "markov_bound_P_at_least_n": 0.004906354315335339,
+     "beta_needed_per_day": 11.988025925027932,
+     "beta_needed_over_default": 23.976051850055864
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,91 @@
+{
+ "mccallum2001should": {
+  "doi": "10.1016/s0169-5347(01)02144-9",
+  "title": [
+   "How should pathogen transmission be modelled?"
+  ],
+  "journal": [
+   "Trends in Ecology &amp; Evolution"
+  ],
+  "volume": "16",
+  "issue": "6",
+  "page": "295-300",
+  "issued": {
+   "date-parts": [
+    [
+     2001,
+     6,
+     1
+    ]
+   ]
+  },
+  "authors": [
+   [
+    "McCallum",
+    "H"
+   ]
+  ],
+  "source": "api.crossref.org",
+  "pubmed": {
+   "pmid": "11369107",
+   "authors": [
+    "McCallum H",
+    "Barlow N",
+    "Hone J"
+   ],
+   "title": "How should pathogen transmission be modelled?",
+   "journal": "Trends in ecology & evolution",
+   "volume": "16",
+   "issue": "6",
+   "pages": "295-300"
+  }
+ },
+ "begon2002clarification": {
+  "doi": "10.1017/s0950268802007148",
+  "title": [
+   "A clarification of transmission terms in host-microparasite models: numbers, densities and areas"
+  ],
+  "journal": [
+   "Epidemiology and Infection"
+  ],
+  "volume": "129",
+  "issue": "1",
+  "page": "147-153",
+  "issued": {
+   "date-parts": [
+    [
+     2002,
+     8
+    ]
+   ]
+  },
+  "authors": [
+   [
+    "BEGON",
+    "M."
+   ],
+   [
+    "BENNETT",
+    "M."
+   ],
+   [
+    "BOWERS",
+    "R.\u00a0G."
+   ],
+   [
+    "FRENCH",
+    "N.\u00a0P."
+   ],
+   [
+    "HAZEL",
+    "S.\u00a0M."
+   ],
+   [
+    "TURNER",
+    "J."
+   ]
+  ],
+  "source": "api.crossref.org"
+ },
+ "_note": "Crossref lists only the first author of McCallum et al. 2001; the full author list (McCallum H, Barlow N, Hone J) is taken from PubMed."
+}

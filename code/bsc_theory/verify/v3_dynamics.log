@@ -1,0 +1,20 @@
+(B) beta=0.10568: well-mixed 0.900, NGM R0=1.0757
+    heterogeneous: final attack 0.1244 (I at end -3.11e-16); share of infections in W 0.9725 (area 0.692)
+    homogenised q: final attack 1.000e-05
+(A) R0=0.8: final attack 3.860e-06
+(A) R0=0.95: final attack 9.876e-06
+(A) R0=1.05: final attack 5.093e-02
+(A) R0=1.2: final attack 1.983e-01
+(A) R0=2.0: final attack 7.262e-01
+(C) D0=1 seed far desk: lam1=0.6021 gap=0.0561; fitted rate 0.5485; TV at 1e-4: 0.9808 (t=43.4); TV at 1e-2 (linear approx): 0.9782 (t=51.8)
+(C) D0=1 seed meeting room: lam1=0.6021 gap=0.0561; fitted rate 0.6024; TV at 1e-4: 0.0021 (t=39.6); TV at 1e-2 (linear approx): 0.0013 (t=47.2)
+(C) D0=10 seed far desk: lam1=0.5505 gap=0.0452; fitted rate 0.5293; TV at 1e-4: 0.2355 (t=45.1); TV at 1e-2 (linear approx): 0.1802 (t=53.7)
+(C) D0=10 seed meeting room: lam1=0.5505 gap=0.0452; fitted rate 0.5553; TV at 1e-4: 0.0417 (t=42.4); TV at 1e-2 (linear approx): 0.0280 (t=50.7)
+(C) D0=100 seed far desk: lam1=0.5129 gap=0.5800; fitted rate 0.5129; TV at 1e-4: 0.0000 (t=46.5); TV at 1e-2 (linear approx): 0.0000 (t=55.5)
+(C) D0=100 seed meeting room: lam1=0.5129 gap=0.5800; fitted rate 0.5129; TV at 1e-4: 0.0000 (t=46.3); TV at 1e-2 (linear approx): 0.0000 (t=55.3)
+ODE part 14s
+IBM N=100 D0=10.0 rule=local: offspring 0.769 +- 0.023; annealed prediction 0.843  [46s]
+IBM N=100 D0=1.0 rule=local: offspring 0.754 +- 0.022; annealed prediction 0.843  [63s]
+IBM N=100 D0=0.1 rule=local: offspring 0.545 +- 0.017; annealed prediction 0.843  [79s]
+IBM N=100 D0=10.0 rule=mean: offspring 4.440 +- 0.123; annealed prediction 4.950  [105s]
+IBM N=400 D0=10.0 rule=local: offspring 2.567 +- 0.092; annealed prediction 2.446  [191s]

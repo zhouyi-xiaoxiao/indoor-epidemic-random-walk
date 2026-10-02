@@ -1,0 +1,16 @@
+{
+ "written_at": "2026-10-01T09:44:43+01:00",
+ "note": "Hashes after kernel estimation, prediction and power analysis, before any comparison with outbreak counts (s04_evaluate.py not yet written).",
+ "files": {
+  "PREREGISTRATION.md": "e721b8c49d4c6dd88480229c1326eaa148f59b825097c83004fcbb93cfad6499",
+  "PREREG_ADDENDUM_power.md": "8d9bd01a297c4d32e7f81fa5c7ff18d384200f20d9d55870c09e3b81926aafb4",
+  "results/01_kernels.json": "40414919a037e5de58f511e4d08aae1812dc880260a265c2484bc6cf8887de5a",
+  "results/02_predictions.json": "63d771d7d419df69a33263f9d2248152a14cfc2061fe009bf5121a8f5f311b03",
+  "results/02_o1_z.npz": "9c03a97da43326f8f11256827681e5e21b4b4858b3f91f5b01210a3f673f7165",
+  "results/03_power.json": "e69fce71e1ed9b4aa6b0ad7c389fe6e7f5c79a9a33b2e96a21207b82dd62dabc",
+  "src/a3lib.py": "882a9ac0edd5a2df8ce287b9b9f0313e402ace84a0c4e63f86d9939bd4cb4424",
+  "src/s01_kernels.py": "388ce199790dd41a41571e638fadd3f7dd2c5411cefec0dbf1fe1abf565dbfa7",
+  "src/s02_predict.py": "7e2e92857a573e5b2084a1234832e5e6e881063927c3c72da41aa23bbf4c37ef",
+  "src/s03_power.py": "4b19977afcbdaa956aa71ebba813e3f668ae943c758966b347bae46eb185167e"
+ }
+}

@@ -1,0 +1,137 @@
+% main.tex -- main text of the article.  The Supplementary Material is supplement.tex.
+% Compile (one latexmk at a time):  latexmk -pdf main.tex; latexmk -pdf supplement.tex; latexmk -pdf main.tex
+% (pdflatex + bibtex; TeX Live 2025).  Cross-references between the two documents use xr-hyper: in this file the
+% prefix S- refers to supplement.aux, in supplement.tex the prefix M- refers to main.aux.
+% Every quantitative statement in main.tex and sections/*.tex carries a comment  % src: <path> (<key>)
+% pointing at the results file or script it comes from; paths are relative to the repository root.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array,longtable,multirow}
+\usepackage{enumitem}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xcolor}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\externaldocument[S-]{supplement}
+
+\usepackage[section]{placeins}   % floats stay inside the section that defines them
+
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.80}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
+\hypersetup{pdftitle={Random-walk SIR models of indoor epidemics: reproduction numbers, discrete individuals
+  and pre-specified tests against outbreaks, contact records and tracer measurements},
+  pdfauthor={Xiaoxiao Zhouyi},
+  pdfkeywords={indoor transmission; lattice random walk; basic reproduction number; next-generation matrix;
+  pair-level theory; stochastic simulation; outbreak data; contact networks; tracer measurements;
+  pre-specified test}}
+
+\graphicspath{{figures/}}
+\input{macros}
+
+% State of the repository named in the availability statement.  make_release.py tests the URL and the
+% version tag when the release is built and writes repo_status.tex (\repopublictrue, \repotaggedtrue as
+% found); without that file the cautious wording is used.
+\newcommand{\repoversion}{1.2.0}
+\newif\ifrepopublic
+\repopublicfalse
+\newif\ifrepotagged
+\repotaggedfalse
+\InputIfFileExists{repo_status.tex}{}{}
+
+\title{Random-walk SIR models of indoor epidemics:\\ reproduction numbers, discrete individuals and\\
+pre-specified tests against outbreaks, contact records\\ and tracer measurements}
+
+\author{Xiaoxiao Zhouyi\\[4pt]
+\normalsize School of Engineering Mathematics and Technology, University of Bristol, UK\\
+\normalsize \href{mailto:zhouyixiaoxiao@gmail.com}{zhouyixiaoxiao@gmail.com}}
+
+\date{\vspace{-1.5ex}2026\vspace{-2ex}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study SIR epidemics of independent random walkers on a lattice with cell-dependent mobility and
+infection efficiency. (i)~The mean-field $\Rz$ is the spectral radius of a next-generation matrix of
+the lattice propagator. For same-cell transmission its bounds, limits and monotone decrease in mobility hold, as
+known for patch models; for other kernels the lower bound and monotonicity can fail. With uniform efficiency,
+$\Rz$ of a closed room is independent of size, shape and mobility; a leak replaces $\gamma$ by $\gamma+\muk$
+under stated conditions.
+(ii)~Two-walker theory gives the exact mean number of first-generation secondary cases of a lone index case;
+it lies below $\Rz$ at low occupancy and mobility (office scene: 2.27 against 5.11) and is not a threshold.
+% src: data/s5_pair_large_sample.json (office|D0=1: R1bar_exact 2.2661, counted 2.265 +- 0.004 in 400,000 runs, R0_ngm 5.1073; office|D0=100: R1bar_exact 4.3411, R0_ngm 4.646)
+(iii)~In exact simulations of four closed-room scenes, spatial effects are large only at very low mobility.
+(iv)~Five tests, with protocols fixed before the tested model was run (data-aware,
+self-attested, not registered), confront the model with 22 of 38 outbreak records, contact records, tracer
+measurements and a school epidemic. There is no general agreement. Same-site transmission is not supported;
+walk-generated contacts fail in all six contact datasets. An airborne extension predicts held-out distance
+gradients better than a well-mixed model (log-score gain $+14.35$; a constant near/far ratio would also do so with
+probability 0.65--0.73), but the pre-specified pooled
+comparison favours the constant ratio ($-9.15$, nine-tenths from one event whose near zone was chosen on its data); on four held-out flights they tie. Attack rates are fitted; cell-dependent mobility
+remains untested.
+% src: data/bsc_outbreaks/outbreaks.csv (27 rows); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1 (11 records); 22 records in a test: 2 + 5 (first), 6 + 5 (second), and T3, C3, S1, T7 in the level checks and negative controls of the first test (outbreaks.csv protocol_role); data/v2_numbers.json (con.ladder: A0 on all six datasets); data/v2_numbers.json (out2.pooled.M2.all: delta0 14.351, deltaC -9.150; out2.pooled.plant_share_of_deltaC 0.916; out2.pooled.M2.air: deltaC -0.77; out2.power.registered: CRR P_B1 0.652; out2.power.corrected: CRR B1 0.732); notes/VERIFICATION.md section 4.10 (statement and reservations)
+% src: data/s2_model_scenes.json (scenes.<name>.R0_1m: excess over the well-mixed value below 0.03 % at walking mobility)
+\end{abstract}
+
+\noindent\textbf{Keywords:} indoor transmission; lattice random walk; basic reproduction number;
+next-generation matrix; pair-level theory; stochastic simulation; outbreak data; contact networks; tracer
+measurements; pre-specified test.
+
+\input{sections/m1_intro}
+\input{sections/m2_model}
+\input{sections/m3_r0}
+\input{sections/m4_geometry}
+\input{sections/m5_pair}
+\input{sections/m6_simulation}
+\input{sections/m7_data}
+\input{sections/m8_discussion}
+
+\section*{Data and code availability}
+All code, scene definitions, simulation outputs, the two datasets of outbreak records with their sources, the
+tracer and school data that may be redistributed, a script that downloads the contact records, the protocol
+documents, the code of the re-checks and the scripts that generate every figure and table of this article and of
+its Supplementary Material form one repository (version~\repoversion), together with \texttt{reproduce.md}, which
+gives the commands to re-run each result, and \texttt{notes/VERIFICATION.md}, which describes how the results were
+checked. The protocol records in the repository are redacted copies, with every changed line listed in
+\texttt{code/REDACTIONS.md}; the hashes of the freeze records refer to the unredacted originals, which the author
+can provide to the editor and referees, so the timing of the protocols cannot be checked from the repository
+alone.
+\ifrepopublic
+The repository is public at \url{https://github.com/zhouyi-xiaoxiao/indoor-epidemic-random-walk}.
+\ifrepotagged
+This article corresponds to the tag \texttt{v\repoversion}.
+\else
+This article accompanies version~\repoversion{} of the repository, identified by the file
+\texttt{VERSION}.
+\fi
+\else
+It is to be made available at \url{https://github.com/zhouyi-xiaoxiao/indoor-epidemic-random-walk}.
+\fi
+
+\section*{Ethics and data}
+Only published outbreak reports and published or publicly released, anonymised contact, tracer and school data
+were analysed; no data on human participants were collected for this study.
+
+\section*{Acknowledgements}
+This article develops the author's undergraduate thesis (School of Mathematics, Tianjin University, 2025).
+
+{\small\setlength{\bibsep}{1pt plus 0.5pt}
+\bibliographystyle{plainnat}
+\bibliography{refs}}
+
+\end{document}

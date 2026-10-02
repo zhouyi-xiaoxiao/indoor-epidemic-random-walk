@@ -1,0 +1,13 @@
+{
+ "frozen_at": "2026-10-01T10:24:56+0100",
+ "prereg_ext_sha256": "75fbc18ef835ad4fc90fe46cf9d8ecda0d6dff7c8bc1fa04b0e9aa994c572e7c",
+ "note": "Frozen before src/e01_ext_predict.py / e02_ext_evaluate.py were written. Outcome-aware (see section 0).",
+ "files": {
+  "../a1_more_outbreaks/src/a1/events.py": "10206f4ae561b5c5288b843220fd04079cdf7a68e9ac1fec254724b40f4db5a2",
+  "../a1_more_outbreaks/src/a1/digitized.py": "378614c82e691522c3954b985880b04f2a43fb2d4e8639a42e068a13b7bbf1c7",
+  "../a1_more_outbreaks/src/a1/engine.py": "2ec8b7f2733cc35a84595973898b25250726b5aeee87916238a60a9651ec72ac",
+  "../a1_more_outbreaks/src/a1/lattice.py": "25369ff046c7cb403422dde3cd8b369282a6fe6d305dcfaa0b05f3869049fc0f",
+  "results/01_kernels.json": "40414919a037e5de58f511e4d08aae1812dc880260a265c2484bc6cf8887de5a",
+  "data/derived/kinahan_tidy.csv": "0afcc65ad16254f3c6a824b4ecf353e2d7845fb585997b8bf457b96b0804c08c"
+ }
+}

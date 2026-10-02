@@ -1,0 +1,16 @@
+tied M0 1.181313588761211 [0, 3] True
+tied M1 2.051421510127402 [0, 5] True
+tied M2 1.3066192754440102 [0, 4] True
+C3 M2 masks_0.35 {'mean': 2.1, 'median': 2.0, 'pi90': [0.0, 5.0], 'inside': True, 'P_exceed_bound': 0.00025, 'ar_mean_pct': 0.28846153846153844}
+C3 M2 masks_0.2 {'mean': 1.17225, 'median': 1.0, 'pi90': [0.0, 3.0], 'inside': False, 'P_exceed_bound': 0.0, 'ar_mean_pct': 0.16102335164835163}
+C3 M2 masks_0.6 {'mean': 3.511, 'median': 3.0, 'pi90': [0.0, 8.0], 'inside': True, 'P_exceed_bound': 0.00775, 'ar_mean_pct': 0.4822802197802198}
+C3 M2 no_masks {'mean': 5.82425, 'median': 5.0, 'pi90': [1.0, 12.0], 'inside': True, 'P_exceed_bound': 0.08975, 'ar_mean_pct': 0.8000343406593408}
+C3 M1 masks_0.35 {'mean': 1.47375, 'median': 1.0, 'pi90': [0.0, 4.0], 'inside': False, 'P_exceed_bound': 0.0, 'ar_mean_pct': 0.20243818681318682}
+C3 M1 masks_0.2 {'mean': 0.816, 'median': 1.0, 'pi90': [0.0, 3.0], 'inside': False, 'P_exceed_bound': 0.0, 'ar_mean_pct': 0.11208791208791208}
+C3 M1 masks_0.6 {'mean': 2.5015, 'median': 2.0, 'pi90': [0.0, 5.0], 'inside': True, 'P_exceed_bound': 0.00025, 'ar_mean_pct': 0.34361263736263736}
+C3 M1 no_masks {'mean': 4.09475, 'median': 4.0, 'pi90': [1.0, 8.0], 'inside': True, 'P_exceed_bound': 0.0055, 'ar_mean_pct': 0.5624656593406594}
+S1 {'bound_pct': 0.036420071941998804, 'M2_single_index': {'median_pct': 0.0010692134286168996, 'q95_pct': 0.005947394979271806, 'P_exceed': 0.0002}, 'M2_pooled': {'median_pct': 0.0016548315422391716, 'P_exceed': 0.0}, 'M1_pooled': {'median_pct': 0.00575504331550419, 'P_exceed': 0.0}}
+T7 {'M2': {'mean_cases': 0.0323, 'P_ge5': 0.0}, 'M1': {'mean_cases': 0.0181, 'P_ge5': 0.0}}
+T5 PE {'bound_pct': 8.203163585667046, 'M2': {'ar_median_pct': 0.3074551293481836, 'ar_q95_pct': 18.62054728942203, 'mean_cases': 1.11, 'P_exceed': 0.16333333333333333, 'P_zero': 0.7133333333333334}, 'M1_exact_beta_cap': {'ar_mean_pct': 6.460595238095237, 'P_exceed': 0.16666666666666666}}
+{'H1': (2734.3, [1650.2, 4380.6]), 'O2': (767.5, [243.1, 2126.0]), 'R2': (1921.0, [220.2, 7149.4]), 'C5': (283.1, [173.1, 585.4]), 'T2': (36.0, [11.2, 98.1]), 'T3': (63.3, [5.7, 297.4])}
+{'wells_riley': {'sd_log': 0.8797409190644332, 'gsd': 2.4102751691720536, 'perm_p': 0.16666666666666666}, 'm1_T_over_area': {'sd_log': 0.941370586305184, 'gsd': 2.563492499372924, 'perm_p': 0.375}, 'constant_per_hour': {'sd_log': 0.812734289136417, 'gsd': 2.25406282778706, 'perm_p': 0.125}}

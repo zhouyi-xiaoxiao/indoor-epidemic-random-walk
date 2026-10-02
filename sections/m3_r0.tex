@@ -1,0 +1,209 @@
+% m3_r0.tex -- Main text, Section 3: the basic reproduction number of the mean-field model.
+% Proofs are in the Supplementary Material (supp_r0.tex); they follow code/bsc_theory/scripts and the
+% derivations checked there, in the article's notation (cells x, y; column index = source cell).
+% Numbers: data/plan_theory_checks.json (canonical scenes; code/plan_theory_checks.py) and
+% data/s3_r0_checks.json (written by code/s3_r0_checks.py, which recomputes them with
+% other code and agrees with the first file to 2e-14).
+% Paths in "% src:" comments are relative to the repository root.
+\section{The basic reproduction number of the mean-field model}\label{s3_r0:sec}
+
+This section determines the basic reproduction number $\Rz$ of the mean-field model
+\eqref{s2_model:eq:meanfield}, its bounds and its dependence on mobility. Throughout, Assumption~\ref{s2_model:ass:A}
+holds, $\Vm=\gamma\Id-\gen$, the column index of a matrix is the source cell, and inequalities between vectors
+or matrices are entrywise. Each statement names the contact kernel it needs: most require the same-cell
+kernel, $\Fm=\beta\Qm$, with $q\ge0$, $q\not\equiv0$. The main results are known for epidemic patch models
+(Section~\ref{s1_intro:sec}, Table~\ref{s1_intro:tab:known}), and no novelty is claimed for them. Complete proofs
+from standard facts on non-negative matrices are given in Supplementary Section~\ref{S-appS_r0:sec}, because
+they fix the conditions under which each statement holds (which kernel, which symmetry of the hop rates). The
+zone bound, the slow-mixing coefficient and the edge-wise monotonicity are elementary consequences of the same
+matrix theory; a targeted search (Crossref queries on patch-model reproduction numbers and dispersal,
+1~October 2026) found no source for them, which does not establish that there is none.
+% src: data/refs_search.json (searches; manual_checks: gao2020fast, tien2015disease, allen2007asymptotic)
+
+\begin{theorem}[Next-generation matrix]\label{s3_r0:thm:ngm}
+  Let Assumption~\ref{s2_model:ass:A} hold, let $\Fm\ge0$, $\Fm\neq0$, $\Vm=\gamma\Id-\gen$, and define
+  \begin{equation}\label{s3_r0:eq:ngm}
+     \ngm=\Fm\Vm^{-1},\qquad \Rz=\srad(\ngm),\qquad \lamone=\sabs(\Jm),\quad \Jm=\gen+\Fm-\gamma\Id .
+  \end{equation}
+  \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+    \item $\Vm^{-1}=\int_0^\infty \e^{-\gamma t}\e^{\gen t}\,\dd t>0$ entrywise.  For $\Fm=\beta\ker^{\T}\Qm$,
+      $K_{yx}=\beta\sum_{z}P_{zy}\,q_z\int_0^\infty \e^{-\gamma t}P_t(z\,|\,x)\,\dd t$ is the expected number of
+      infections generated in cell $y$ by one infective introduced in cell $x$ of a fully susceptible room;
+      for the same-cell kernel, $K_{yx}=\beta q_y\int_0^\infty \e^{-\gamma t}P_t(y\,|\,x)\,\dd t$.
+    \item $\Rz>0$, and $\Rz$ is the unique $R>0$ with $\sabs(\gen+\Fm/R-\gamma\Id)=0$.
+    \item $\lamone<0\iff\Rz<1$, $\lamone=0\iff\Rz=1$, $\lamone>0\iff\Rz>1$.
+    \item Every solution of \eqref{s2_model:eq:meanfield} satisfies $I(t)\le \e^{\Jm t}I(0)$ componentwise
+      for all $t\ge0$.  Hence if $\Rz<1$ the infective population is bounded by a decaying exponential from
+      $t=0$ on, $\one^{\T}I(t)\le C\,\e^{\lamone t}\,\one^{\T}I(0)$ with $\lamone<0$ and $C$ independent of the
+      initial condition.  If $\Rz>1$ the disease-free state is unstable and the linearised solution grows like
+      $\e^{\lamone t}$.
+  \end{enumerate}
+\end{theorem}
+
+In a closed SIR model the infectives vanish for every value of $\Rz$; the content of (d) is that for $\Rz<1$
+there is no growth at any time, whereas for $\Rz>1$ a small seed grows until the depletion of susceptibles
+stops it. The column sums of $\ngm$ are the expected numbers of secondary cases of an index case introduced in
+cell $x$, the offspring number $\noff(x)$; for every row-stochastic kernel
+\begin{equation}\label{s3_r0:eq:offspring}
+  \noff(x)=\sum_yK_{yx}=\beta\,\Exp_x\!\int_0^{\tau}q(X_t)\,\dd t ,\qquad
+  \frac{\beta\qmin}{\gamma}\le\noff(x)\le\frac{\beta\qmax}{\gamma},\qquad \sum_x\pi_x\noff(x)=\frac{\beta\qmean}{\gamma},
+\end{equation}
+where $X_t$ is the walk started at $x$ and $\tau$ its exponential infectious period. In the office scene at
+$\Dz=1\cellday$, $\noff(x)$ ranges from $3.995$ to $5.335$ over the cells, with uniform mean $4.643$.
+% src: data/plan_theory_checks.json: office/D0=1/offspring_min, offspring_max, offspring_uniform_mean
+The next-generation matrix is $\ngm=\Fm\,\widehat G(\gamma)$, where $\widehat G(\gamma)=(\gamma\Id-\gen)^{-1}$ is the Laplace transform of the
+lattice propagator at the recovery rate; for reversible movement $\Rz$ also has a variational (Rayleigh) form
+and a modal matrix form in the eigenmodes of the movement generator, whose largest diagonal entry is only a lower
+bound (Supplementary Theorem~\ref{S-s3_r0:thm:rayleigh} and Corollary~\ref{S-s3_r0:cor:modal}).
+
+\begin{theorem}[Bounds; same-cell kernel]\label{s3_r0:thm:bounds}
+  Let Assumption~\ref{s2_model:ass:A} hold and $\Fm=\beta\Qm$ with $q\ge0$, $q\not\equiv0$.  Then, for every
+  irreducible generator (reversible or not),
+  \begin{equation}\label{s3_r0:eq:bounds}
+    \frac{\beta\qmean}{\gamma}\le\Rz\le\frac{\beta\qmax}{\gamma},\qquad
+    \beta\qmean-\gamma\le\lamone\le\beta\qmax-\gamma .
+  \end{equation}
+  If $q$ is constant all four are equalities; if $q$ is not constant all four inequalities are strict.
+\end{theorem}
+
+By \eqref{s3_r0:eq:offspring}, $\beta\qmean/\gamma$ is the mean number of secondary cases of an index case
+placed according to the stationary distribution. $\Rz$ is larger because secondary cases are not born at
+stationarity: they are born preferentially in cells of high $q$ and begin their infectious period there.
+Mobility erases this memory of the birthplace (Theorem~\ref{s3_r0:thm:mobility}). With the same-cell kernel
+there is therefore no mechanism by which spatial separation could lower the mean-field $\Rz$ below the
+well-mixed value $\beta\qmean/\gamma$; what separation does to discrete individuals is a different question
+(Sections~\ref{s5_pair:sec} and~\ref{s6_scenes:sec}).
+
+\begin{theorem}[Mobility; same-cell kernel]\label{s3_r0:thm:mobility}
+  Let $\gen=\Dz\genz$ with $\genz$ an irreducible generator with stationary distribution $\stat$, and
+  $\Fm=\beta\Qm$.  Then
+  \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+    \item $\lim_{\Dz\to\infty}\Rz(\Dz)=\beta\qmean/\gamma$;
+    \item $\lim_{\Dz\to0^+}\Rz(\Dz)=\beta\qmax/\gamma$;
+    \item $\lamone(\Dz)$ is convex and non-increasing, and $\Rz(\Dz)$ is non-increasing; if $q$ is not constant,
+      $\Rz(\Dz)$ is strictly decreasing on $(0,\infty)$.
+  \end{enumerate}
+  No reversibility is needed.
+\end{theorem}
+
+\begin{proposition}[Expansions]\label{s3_r0:prop:expansions}
+  In the setting of Theorem~\ref{s3_r0:thm:mobility}:
+  \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+    \item as $\Dz\to\infty$, $\Rz(\Dz)=\dfrac{\beta\qmean}{\gamma}+\dfrac{\beta\,C}{\qmean\,\Dz}+O(\Dz^{-2})$, where
+      $C=\qvec^{\T}\mathbf{y}\ge0$ and $\mathbf{y}$ solves $-\genz\mathbf{y}=\Qm\stat-\qmean\stat$, $\one^{\T}\mathbf{y}=0$
+      (for symmetric rates, $C=\ncell^{-1}\,\delta q^{\T}(-\genz)^{+}\delta q$ with $\delta q=\qvec-\langle q\rangle\one$
+      and $(\cdot)^{+}$ the pseudo-inverse);
+    \item as $\Dz\to0$, $\Rz(\Dz)=\dfrac{\beta\qmax}{\gamma}\Bigl(1-\dfrac{\Dz\,\mu^0_Z}{\gamma}\Bigr)+o(\Dz)$, where
+      $Z=\{x:q_x=\qmax\}$ and $\mu^0_Z=-\sabs(\genz[Z,Z])$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Zone bound]\label{s3_r0:prop:zone}
+  Let Assumption~\ref{s2_model:ass:A} hold and $\Fm=\beta\Qm$.  For every non-empty $Z\subset\cells$,
+  \begin{equation}\label{s3_r0:eq:zone}
+    \Rz\ \ge\ \frac{\beta\,q_Z}{\gamma+\muZ},\qquad q_Z=\min_{x\in Z}q_x,\qquad \muZ=-\sabs(\gen[Z,Z])\ge0 .
+  \end{equation}
+\end{proposition}
+
+Here $\muZ$ is the principal decay rate of a walker that is killed when it steps out of $Z$. By
+Proposition~\ref{s3_r0:prop:expansions}(ii) the zone bound with $Z=\{x:q_x=\qmax\}$ is sharp to first order as
+$\Dz\to0$. An expression of the form $\beta q/(\gamma+\mu)$ thus does occur in the closed room, but as a lower
+bound contributed by a high-risk zone from which infectives escape into lower-risk space, with $q$ and $\mu$
+those of the zone and not of the room.
+
+\begin{theorem}[Edge-wise monotonicity; symmetric rates, same-cell kernel]\label{s3_r0:thm:edges}
+  If $\hop{x}{y}=\hop{y}{x}$ for all edges and $\Fm=\beta\Qm$, then $\Rz$ and $\lamone$ are non-increasing
+  functions of each individual edge rate.  Consequently, under rule \eqref{s2_model:eq:hop} and for a fixed set
+  of cells $\cells$, lowering $D$ in any set of cells or closing edges (walls between cells) cannot lower $\Rz$.
+\end{theorem}
+
+The theorem concerns operations that keep the set of cells. Turning cells into barrier cells removes them, and
+their $q$, from $\cells$; this changes $\qmean$ and both bounds of Theorem~\ref{s3_r0:thm:bounds}, and $\Rz$ can
+then fall (Section~\ref{s4_geometry:sec:examples}). The symmetry is essential: under a departure-site rule a
+change of $D$ also changes the stationary occupancy, and in $300$ random instances multiplying $D$ by $3$ in
+one cell raised $\Rz$ in $201$, lowered it in $98$ and left it unchanged (to $10^{-10}$) in one.
+% src: data/bsc_theory/verify_theorems.json: T3p/departure_up, departure_down
+
+\begin{proposition}[Contact kernels]\label{s3_r0:prop:kernel}
+  Let $\Fm=\beta\ker^{\T}\Qm$ with $\ker$ row-stochastic.  Then
+  \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+    \item Theorem~\ref{s3_r0:thm:ngm} holds;
+    \item $\beta\qmin/\gamma\le\Rz\le\beta\qmax/\gamma$, and $\Rz=\beta q_0/\gamma$ if $q\equiv q_0$;
+    \item $\Rz(\Dz)\to\beta\qmean/\gamma$ as $\Dz\to\infty$ and $\Rz(\Dz)\to\srad(\beta\ker^{\T}\Qm)/\gamma$ as $\Dz\to0$;
+    \item the lower bound $\beta\qmean/\gamma\le\Rz$ of Theorem~\ref{s3_r0:thm:bounds} and the monotonicity of
+      Theorem~\ref{s3_r0:thm:mobility}(c) can fail.  Example: three cells in a row, hop rate $\Dz$ between neighbours,
+      $\ker$ uniform over a cell and its neighbours, $q=(1,0,1)$: then
+      $\Rz(\Dz)=(\beta/\gamma)(\gamma+4\Dz)/(2\gamma+6\Dz)$, which is $0.5\,\beta/\gamma$ at $\Dz=0$,
+      below $\beta\langle q\rangle/\gamma=0.667\,\beta/\gamma$, and increases with $\Dz$.
+  \end{enumerate}
+\end{proposition}
+% src: data/plan_theory_checks.json: checks/kernel_counterexample_q=[1.0, 0.0, 1.0] (0.500, 0.503, 0.529,
+%      0.614, 0.659, 0.666, 0.6667 at D0 = 0, 0.001, 0.01, 0.1, 1, 10, 1000 with gamma = 0.14);
+%      closed form checked to 8e-14 in data/s3_r0_checks.json: kernel_closed_form_max_abs_diff
+
+With a contact kernel, an infective in a high-$q$ cell infects people in neighbouring cells; if those cells
+have low $q$ and nobody moves, the new cases transmit little, and the size bias that raises $\Rz$ for the
+same-cell kernel is reversed. In the two scenes in which the 1\,m kernel differs from the same-cell kernel the
+lower bound happens to hold ($5.866\ge4.706$ in the classroom and $9.241\ge9.056$ in the metro carriage at
+$\Dz=1\cellday$), but it is not guaranteed.
+% src: data/plan_theory_checks.json: scenes/classroom, scenes/metro (R0_1m_D0=1, lower)
+
+\subsection{The scenes}\label{s3_r0:sec:scenes}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig_r0_mobility_en}
+  \caption{Mean-field basic reproduction number $\Rz=\srad(\ngm)$ against the mobility scale $\Dz$
+  (\cdunit), for $\beta=0.5\perday$ and $\gamma=0.14\perday$; $\Rz$ does not depend on the number of
+  people $\Npop$ (frequency-dependent incidence), and no simulation is involved.
+  (a)~Office scene (234 walkable cells, same-cell kernel): $\Rz$ (thick line), the bounds
+  $\beta\langle q\rangle/\gamma$ and $\beta\qmax/\gamma$ of Theorem~\ref{s3_r0:thm:bounds} (dashed), the two
+  expansions of Proposition~\ref{s3_r0:prop:expansions} (dotted), and two other floor plans with the same zone
+  fractions (thin grey).  (b)~The four scenes, as the ratio of $\Rz$ to the well-mixed value
+  $\beta\langle q\rangle/\gamma$, with the 1\,m contact kernel (solid) and the same-cell kernel (dashed; the
+  two coincide for the office and the supermarket).  The dash-dotted vertical line marks the default
+  $\Dz=1$; the shaded band is $\Dz\ge2.4\times10^{3}$, which for the lattice spacing of the
+  office ($a=1.5$\,m) is the mobility of people who walk at least 5\pct{} of the time
+  (Section~\ref{s2_model:sec:regime}; the values for the other scenes are in Table~\ref{s2_model:tab:regime}).}
+  % src: code/plan_fig_theory.py (fig_r0_mobility) <- data/plan_theory_checks.json, plan_theory_sweeps.npz
+  \label{s3_r0:fig:mobility}
+\end{figure}
+
+For every floor plan with the zone fractions of the office scene ($\langle q\rangle=1.300$, $\qmax=1.5$),
+Theorem~\ref{s3_r0:thm:bounds} gives $4.643\le\Rz\le5.357$. In the scene itself $\Rz=5.107$ at
+$\Dz=1\cellday$, with growth rate $\lamone=0.602\perday$ (doubling time $1.15$ days); two other floor plans
+with the same zone fractions give $5.109$ and $5.041$.
+% src: data/plan_theory_checks.json: office/lower_bound, upper_bound, q_mean, q_max
+% src: data/plan_theory_checks.json: office/D0=1 (R0, lambda1, doubling_time); alternative_layouts/O1, O2 (R0_D0_1)
+The curve $\Rz(\Dz)$ decreases from the upper to the lower bound (Fig.~\ref{s3_r0:fig:mobility}a), and the
+two expansions of Proposition~\ref{s3_r0:prop:expansions} are $\Rz\simeq4.643+0.296/\Dz$ as $\Dz\to\infty$
+and $\Rz\simeq5.357\,(1-0.0626\,\Dz)$ as $\Dz\to0$ ($\Dz$ in \cdunit). The first is accurate to $0.004$ at
+$\Dz=10$ and to $3\times10^{-5}$ at $\Dz=100$, the second to $0.003$ at $\Dz=0.1$.
+% src: data/plan_theory_checks.json: office/largeD_coefficient_betaC_over_qbar, office/smallD_slope_muZ0_over_gamma
+% src: data/s3_r0_checks.json: office/expansions/rows (err_fast, err_slow)
+The set $Z$ of the slow-mixing expansion is the meeting room (26 cells, $q=1.5$), whose quasi-stationary
+residence time at $\Dz=1$ is $1/\muZ=114$ days; its zone bound \eqref{s3_r0:eq:zone} is $5.041$. These are
+properties of this floor plan, in which the meeting room is connected to the corridor through a single cell.
+% src: data/plan_theory_checks.json: office/zone_bound_meeting_room (mu_Z, exit_time_days, bound, cells)
+Over the four scenes the excess of $\Rz$ over the well-mixed value at $\Dz=1$ is largest in the supermarket
+($+34.6\pct$), where $\qmax$ is more than twice $\langle q\rangle$ (Table~\ref{s2_model:tab:regime},
+Fig.~\ref{s3_r0:fig:mobility}b).
+% src: data/s3_r0_checks.json: scenes/supermarket/D0=1/excess_1m_pct
+
+For a two-zone room, a workspace ($q_W=1.5$, $D=0.3\,\Dz$) and a central corridor band ($q_C=0.5$,
+$D=2\,\Dz$) on a $20\times13$ lattice with $\langle q\rangle=1.2$, Theorem~\ref{s3_r0:thm:bounds} gives
+$\Rz\ge1.2\,\beta/\gamma$: separating a low-risk corridor from a high-risk workspace cannot lower the
+mean-field $\Rz$. Numerically $\Rz=4.972=1.39\,\beta/\gamma$ at $\Dz=1$, $1.24\,\beta/\gamma$ at $\Dz=10$ and
+$1.20\,\beta/\gamma$ for $\Dz\ge100$. Four other arrangements of the same two zones, with $69$--$70\pct$
+workspace, give $1.43\,\beta/\gamma$ (corridor band along one wall) and $1.22$--$1.23\,\beta/\gamma$ (aisles, a
+grid of aisles, scattered corridor cells) at $\Dz=1$: the finer the two zones are interleaved, the closer $\Rz$
+is to the well-mixed value.
+% src: data/bsc_sim/05_heterogeneity.json: "D0=1|N=100|c=0.5833"/R0_ngm = 4.972; data/s3_r0_checks.json: two_zone/rows (1.3922, 1.2395, 1.2043, 1.2004)
+% src: data/bsc_theory/worked_examples.json: E1_two_zone/{side,aisles,grid,scatter}/symmetric/R0_over_beta_gamma
+%      (1.425, 1.224, 1.221, 1.227; workspace 180/260 or 182/260 cells)
+
+Every statement of this section was tested on random instances of four families of generators, and the proofs
+were re-derived and the computations re-implemented in the re-check (Supplementary
+Section~\ref{S-appA_numerics:sec:theorems}); over $2{,}000$ random instances, for example, the largest violation
+of the bounds \eqref{s3_r0:eq:bounds} was $4\times10^{-14}$, at the level of rounding error.
+% src: data/bsc_theory/verify_theorems.json: T2 (n_instances 2000, max_viol_upper 4.0e-14, max_viol_lower 2.3e-15)

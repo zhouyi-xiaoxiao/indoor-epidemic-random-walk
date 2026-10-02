@@ -1,0 +1,12 @@
+event,label,pathogen,setting,class,duration_h,n_at_risk,n_cases,near_cases,near_n,far_cases,far_n,risk_ratio,rr_lo95,rr_hi95,continuity_correction,grade,role,source,doi,origin_of_numbers
+F1,CA112 (Olsen 2003),SARS-CoV-1,Boeing 737-300,air,3.0,111,18,9,29,9,82,2.828,1.244,6.428,0.0,A,calibration,Olsen et al. 2003,10.1056/NEJMoa031349,"seat map as redrawn in Hertzberg and Weiss 2016, Fig. 2 (10.1016/j.aogh.2016.06.003)"
+F2,Chicago-Honolulu (Kenyon 1996),M. tuberculosis,wide-body aircraft,air,8.75,68,6,4,13,2,55,8.462,1.732,41.333,0.0,A,calibration,Kenyon et al. 1996,10.1056/NEJM199604113341501,"abstract: 4/13 within two rows, 2/55 in the rest of the section"
+F3,LA-Auckland (Baker 2010),influenza A(H1N1)pdm09,"Boeing 747-400, rear section",air,13.0,107,3,3,67,0,40,4.200,0.223,79.250,0.5,A,calibration,Baker et al. 2010,10.1136/bmj.c2424,seat-map figure of the rear section
+F4,Cancun-Birmingham (Young 2014),influenza A(H1N1)pdm09,Boeing 767,air,9.5,216,9,5,126,4,90,0.893,0.247,3.233,0.0,A,calibration,Young et al. 2014,10.1111/irv.12181,Fig. 1 (seat map)
+F5,Naha (Toyokawa 2022),SARS-CoV-2,Boeing 737-800,air,2.0,140,14,7,23,7,117,5.087,1.972,13.120,0.0,A,hold-out,Toyokawa et al. 2022,10.1111/irv.12913,Fig. 2 (seat map)
+F6,Sydney-Perth (Speake 2020),SARS-CoV-2,"Airbus A330-200, economy mid cabin",air,5.0,98,11,8,46,3,52,3.014,0.850,10.694,0.0,A,hold-out,Speake et al. 2020,10.3201/eid2612.203910,Fig. 4 (seat map of the mid cabin)
+F7,EK448 (Swadi 2021),SARS-CoV-2,Boeing 777-300ER,air,18.0,84,4,4,13,0,71,47.667,2.721,835.100,0.5,A,hold-out,Swadi et al. 2021,10.3201/eid2703.204714,text and Fig. 3 (seats within rows 23-30)
+F8,Tel Aviv-Frankfurt (Hoehl 2020),SARS-CoV-2,Boeing 737-900,air,4.67,71,2,2,20,0,51,12.561,0.630,250.526,0.5,A,hold-out,Hoehl et al. 2020,10.1001/jamanetworkopen.2020.18044,Fig. 1 (seat map)
+W1,Ward 8A students (Wong 2004),SARS-CoV-1,"hospital ward 8A, bedside session",room,0.6666666666666666,19,7,7,11,0,8,11.087,0.729,168.644,0.5,A,calibration,Wong et al. 2004,10.3201/eid1002.030452,"text and table (3/3, 4/8, 0/8 by assigned bed); Fig. 4 (floor plan)"
+W2,Ward 8A inpatients (Yu 2005),SARS-CoV-1,"hospital ward 8A, inpatients",room,,74,30,13,20,17,54,2.065,1.242,3.432,0.0,B,calibration,Yu et al. 2005,10.1086/428735,"attack rates by bay (13/20, 11/21, 6/33); Fig. 1"
+P1,Meat plant (Günther 2020),SARS-CoV-2,"beef-processing line, 32 m x 8.5 m hall",room,24.0,78,20,17,26,3,52,11.333,3.648,35.208,0.0,A,hold-out,Guenther et al. 2020,10.15252/emmm.202013296,Appendix Table S2 (cumulative counts by 1-m distance)

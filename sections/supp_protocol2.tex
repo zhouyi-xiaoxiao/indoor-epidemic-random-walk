@@ -1,0 +1,446 @@
+% supp_protocol2.tex -- Supplementary Section S10: protocols of the second outbreak test and of the further analyses; register of all tests.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers: data/v2_numbers.json and data/v2_tab_*.tex (code/v2_numbers.py).
+\section{Protocols of the second outbreak test and of the further analyses; register of all tests}\label{appS_prot2:sec}
+
+This section documents the four analyses of Section~\ref{M-s8_outbreaks:sec} of the main text other than the first
+outbreak test: what was fixed in advance and the evidence for when; the decision rules and their
+power; the data and what may be redistributed; and a register of every test of Section~\ref{M-s8_outbreaks:sec}, which separates what
+was pre-specified from what was added afterwards, by the analysis itself or by its re-check. The four
+protocols, their power addenda, freeze records and post-hoc logs are released with the code, under the file
+names they were given (\texttt{PREREGISTRATION.md} and so on), as redacted copies (Section~\ref{appC_protocol:sec});
+as in
+Section~\ref{appC_protocol:sec}, they are called protocols here and their contents pre-specified. `The
+re-check' of an analysis is its re-implementation with separately written code, within the same project and
+on the same machine, as described in Section~\ref{M-s1_intro:sec}; where it corrected a result, the corrected result is the one reported.
+Where the frozen protocol texts and logs speak of a `verifier', they mean this
+same-project re-check, not an independent party, and by `the analyst' they mean the first analysis (both
+passes were made by the author). The
+frozen protocol texts call the four analyses avenues 1 to 4, and the first outbreak test with its dataset and the
+later analyses rounds 1 and 2 (two successive sets of analyses); the article does not use these labels.
+
+\subsection{What was frozen, and the evidence for when}\label{appS_prot2:sec:freeze}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{The four protocols of the second outbreak test and of the further analyses. Times are British Summer Time on 1~October 2026, from the
+  freeze records (self-reported) and from the modification times of the files. Hashes: number of files whose
+  SHA-256 is stored in the freeze records; all were recomputed for this article on the unredacted originals
+  and match.}
+  \label{appS_prot2:tab:freeze}
+  % src: data/v2_numbers.json (freeze) <- code/bsc_validation2/a*/PREREG_FREEZE.json, FIX_FREEZE.json, PREREG_FREEZE_2_before_unblinding.json, PREREG_EXT_FREEZE*.json; file times of the working tree
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}c>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}@{}}
+    \toprule
+    Analysis & Frozen & Hashes & First result that uses outcomes & Known beforehand \\
+    \midrule
+    Further outbreaks (Section~\ref{M-s8_outbreaks:sec:second}) &
+      protocol 09:42:01; calibration and power 09:52:41 & 4 + 6 &
+      held-out strata scored 09:53:08 &
+      every count, including the held-out ones; the outcome of the first test \\
+    Contact records (Section~\ref{M-s8b_evidence:sec:contacts}) &
+      protocol 09:23:27; modified walks 10:34:24, before the confirmatory datasets & 8 + 26 &
+      first dataset 09:24:00 (the run takes 19\,s); first confirmatory dataset 10:35:34 &
+      raw counts per day and group labels; the published properties of such data; expectation of failure
+      written down \\
+    Tracer measurements (Section~\ref{M-s8b_evidence:sec:tracer}) &
+      protocol 09:18:16; kernels, predictions and power 09:44:43 & 23 + 10 &
+      evaluation 09:49:08 &
+      the outbreak counts and the failures of the first test; the tracer sources had been opened \\
+    \quad extension to four flights &
+      protocol 10:24:56; predictions 10:26:01 & 7 + 4 &
+      evaluation 10:26:09 &
+      the near/far counts and the result of the second outbreak test: outcome-aware \\
+    Zone level (Section~\ref{M-s8b_evidence:sec:zones}) &
+      protocol 09:48:58 & 14 &
+      schools 09:56:44 (run 09:49--09:56); floors 10:21:08 &
+      total of cases; qualitative conclusion of the source; for the floors, the counts \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Table~\ref{appS_prot2:tab:freeze} gives the times. The limits are those of the first test
+(Section~\ref{appC_protocol:sec:freeze}) and apply to all four analyses.
+(i)~Every protocol is \emph{data-aware} and \emph{model-blind}. What was fixed in advance is the list of
+events or datasets, the models, the split into calibration and hold-out, the metrics, the decision rule and
+the list of sensitivity analyses, each with a power analysis; the data themselves had been read.
+(ii)~The freezes are self-attested. The records are files on the author's machine, with matching hashes and
+no external time stamp or version-control history; the hashes show that the files have not changed since, not
+when they were written. In the outbreak analysis the record was itself rewritten when the power addendum was
+added, and the clock times written into its post-hoc log are one to two hours ahead of the file times.
+(iii)~Parts of the code were written after the freeze: in the outbreak analysis the modules that build the
+events and run the comparison (the last one four seconds before the hold-out output), in the tracer analysis
+the evaluation script. The intervals are short because each analysis was prepared and run in one or two continuous stretches of
+work.
+(iv)~In the outbreak analysis the constant-ratio model was coded as $p_j=1-\exp(-\varepsilon\varrho)$ in the near
+zone, not as the $p_j=\varrho\,p_0$ of the protocol. With the form of the protocol the pooled
+$\Delta_{\mathrm{C}}$ is $-7.19$ in the re-check's re-implementation, against $-9.20$; the outcome is the
+same.
+(v)~The extension of the tracer analysis to four flights was written, run and evaluated within 73 seconds,
+with the outcomes known; its freeze is nominal, and it is reported as exploratory throughout.
+% src: notes/VERIFICATION.md (Section 4.6, second outbreak test, item 1; Section 4.7, contact records, item 1; Section 4.8, tracer measurements, items 1, 13; Section 4.9, zone level, item 1); data/v2_numbers.json (out2.check.registered_form.all: deltaC -7.194; freeze: extension protocol 10:24:56, evaluation 10:26:09)
+
+\subsection{Further outbreaks: rule, power, numerical correction}\label{appS_prot2:sec:outbreaks}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{(a)~Decision rule of the second outbreak test, applied to $\Mtwo$ (and, in separate columns of the
+  analysis, to $\Mone$ in closed form and to an exploratory variant with a well-mixed fraction). (b)~Probability
+  of each criterion and of the full claim V1 when the data are generated by the model in the first column, at
+  its calibrated posterior (200{,}000 replicates), as computed before any held-out stratum count was scored
+  and, in brackets, after the numerical correction of the room kernel.}
+  \label{appS_prot2:tab:rule}
+  % src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 7; code/bsc_validation2/a1_more_outbreaks/src/a1/pipeline.py (V5 if two or more failures; elif not B1: V4; elif mirror: V3; elif B2 and no failure: V1; else V2); data/v2_numbers.json (out2.power.registered, out2.power.corrected (M2: B1B2 0.926 - V1 0.762 = 0.164), out2.power.registered_air)
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}
+    \toprule
+    \multicolumn{3}{@{}l}{(a) \emph{Criteria and outcomes}} \\
+    B1 & better than well mixed & $\Delta_0>0$ with one-sided $p<0.05$ under $\Mzero$ \\
+    B2 & better than the constant ratio & $\Delta_{\mathrm{C}}>0$ with one-sided $p<0.05$ under the
+         constant-ratio model; mirror: $\Delta_{\mathrm{C}}<0$ with $p<0.05$ under $\Mtwo$ \\
+    B3 & adequacy & two-sided predictive $p\ge0.05$ for every held-out event \\
+    \midrule
+    V1 & B1, B2, B3, and power of (B1 and B2) at least 0.8 &
+         `predicts held-out distance gradients better than both a well-mixed model and a constant near/far
+         risk ratio' \\
+    V2 & B1 and B3 with at most one failure; neither B2 nor its mirror &
+         `better than well mixed; not distinguishable from a constant ratio' \\
+    V3 & B1; mirror of B2 & `better than well mixed, but a constant ratio predicts better' \\
+    V4 & B1 not met & `no out-of-sample support for the kernel' \\
+    V5 & two or more failures of B3 & a list of the events reproduced and of those not \\
+    \multicolumn{3}{@{}p{0.95\textwidth}@{}}{\emph{Not covered:} B1 and B2 met with exactly one B3 failure was given no
+    outcome by the protocol (probability 0.16 if $\Mtwo$ is true); the code classes it with V2. The observed
+    outcome, V5, does not depend on this.} \\
+    \bottomrule
+  \end{tabular}
+
+  \medskip
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    (b) Truth & B1 & B2 & B1 and B2 & V1 \\
+    \midrule
+    well mixed       & 0.007 (0.015) & 0.096 (0.169) & 0.005 (0.010) & 0.003 (0.008) \\
+    constant ratio   & 0.652 (0.732) & 0.029 (0.052) & 0.028 (0.049) & 0.020 (0.039) \\
+    $\Mtwo$          & 0.989 (0.982) & 0.961 (0.935) & 0.956 (0.926) & 0.784 (0.762) \\
+    \midrule
+    $\Mtwo$, four flights only & 0.980 & 0.822 & 0.821 & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The rule of Table~\ref{appS_prot2:tab:rule} was written to remove the weakness found in the first test: a
+constant-ratio world passes B1 with probability 0.65 to 0.73, so that B1 alone is no evidence for the
+kernel, and passes B1 and B2 together with probability 0.03 to 0.05. The re-check recomputed the
+power from 400{,}000 draws of its own (0.927, 0.048 and 0.010 for B1 and B2 together under the three truths;
+0.822 for the four flights).
+% src: data/v2_numbers.json (out2.power.check: all M2 P_B1B2 0.9268, CRR 0.0476, M0 0.0100; air M2 0.8222)
+
+\paragraph{The numerical correction.}\label{appS_prot2:sec:numerics}
+The propagator of the first test writes $P_t(y|x)$ on a rectangle with reflecting walls as a sum over cosine
+modes. Its absolute error reaches about $10^{-10}$ of the largest exposure in an event, so that receivers
+whose true exposure is smaller than that carry round-off noise of either sign. Replacements by the corrected
+propagator occur for mixing coefficients up to about 2.5 to $16\sqmh$, in the cabins and in the rooms of the
+second test alike. The posterior of
+the room coefficient first computed (`mode $0.02\sqmh$, bimodal') came from two such noise values in the
+likelihood of the ward inpatients; it was found by inspection of a diagnostic plot after the held-out events
+had been scored. In the corrected code each one-dimensional propagator is a positive sum of image terms, and
+the image value replaces the mode sum wherever the latter is below $10^{-8}$ of the event maximum; where both
+are resolved, at coefficients at which a replacement occurs, they agree to about $10^{-4}$ or better
+(largest relative difference $8.4\times10^{-5}$, in the ward inpatients). The primary analysis, the power and the secondary analyses were then
+re-run unchanged (the analyses stored in \texttt{10\_corrected.json}); the 15 sensitivity variants were not,
+and are reported with the kernel as first frozen. For the flights no reported
+digit changes (their posterior lies above the affected range). For the rooms the posterior becomes $794\sqmh$
+(302--4{,}390), the score of the processing line $-15.24$ instead of $-16.22$ and its predictive $p$
+$1.4\times10^{-5}$ instead of $5\times10^{-6}$; the pooled scores are $+14.35$ and $-9.15$ instead of $+13.37$
+and $-10.13$; and the outcome is V5 in both cases. Both versions are stored. The re-check confirmed
+the defect and the correction with a third propagator, built by uniformisation and sharing no code with
+either: it agrees with the image sum to $10^{-14}$ at small coefficients, while the mode sum returns
+non-positive exposures at up to 32 of the 74 ward receivers. On the restaurant calibration of the first test
+the same defect changes the log-likelihood by about $10^{-7}$ at most at every coefficient in the posterior range,
+so that calibration is not affected. The hold-out predictions of the first test were affected in the
+classroom, where the mode sum returns non-positive exposures at up to 11 of the 24 desks for coefficients of
+$0.1\sqmh$ and below; they were re-run with the corrected propagator for this article
+(Section~\ref{M-s8_outbreaks:sec:holdout}).
+% src: data/bsc_validation2/a1_more_outbreaks/09_numerics_check.json (per event: last coefficient with frac_replaced > 0: 2.5 (F2, F3, F4, F6, P1), 6.3 (F1, W2), 15.8 (F5, F7, F8, W1); max_rel_diff_where_resolved at those coefficients up to 8.4e-5 (W2)); data/s8_first_test_exact.json (kernel.rows: spectral_min_rel down to -1.28e-10); code/checks/outbreaks2/t6_first_set_floor.json (restaurant: 1.1e-7)
+% src: code/bsc_validation2/a1_more_outbreaks/POSTHOC_LOG.md (P5); data/v2_numbers.json (out2.pooled_registered.M2.all, out2.pooled_registered.P1: M2 logp -16.22, p 4.9e-6; out2.hold.P1.M2: logp -15.24, p 1.42e-5); notes/VERIFICATION.md (Section 4.6, second outbreak test, item 13: confirmed); data/s8_first_test_exact.json (kernel.rows: spectral_nonpositive up to 11 of 24)
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{Mixing coefficient preferred by each event of the second dataset taken alone (profile likelihood of the
+  stratum counts given the total; interval where the log-likelihood is within 1.92 of its maximum; grid from
+  $10^{-2}$ to $10^{4}\sqmh$), and gain in log-likelihood over the largest coefficient of the grid
+  ($10^{4}\sqmh$), which in a cabin is close to, but not yet, the well-mixed model.}
+  \label{appS_prot2:tab:Dprofiles}
+  % generated: data/v2_tab_Dprofiles.tex (code/v2_numbers.py <- data/bsc_validation2/a1_more_outbreaks/10_corrected.json, preferred_D_corrected)
+  \begin{tabular}{@{}llccc@{}}
+    \toprule
+    Event & Pathogen & $\Dair$ ($\mathrm{m^2\,h^{-1}}$) & Interval & Gain \\
+    \midrule
+    \tabinput{data/v2_tab_Dprofiles}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{v2_D_profiles_en}
+  % generated by code/v2_figures.py (D_profiles) from data/bsc_validation2/a1_more_outbreaks/10_corrected.json (preferred_D_corrected.*.curves)
+  \caption{Log-likelihood of the mixing coefficient of $\Mtwo$ for each event of the second dataset taken alone,
+  relative to the largest coefficient of the grid ($10^{4}\sqmh$). Solid: held-out events; dashed: calibration events. The thick line in (a)
+  is the sum over the eight flights (common coefficient).}
+  \label{appS_prot2:fig:Dprofiles}
+\end{figure}
+
+\subsection{Contact records: data and statistics}\label{appS_prot2:sec:contacts}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{3.6pt}
+  \caption{The six contact datasets (SocioPatterns, RFID proximity at 20\,s resolution) and four statistics of
+  the test days, observed and under the homogeneous lattice walk calibrated on the training days. Role:
+  development (dev.) or confirmatory (conf.) dataset for the modified walks. Days: training + test. Sites: size of the lattice fixed by the calibration. Exponent: of the number of contacts per
+  20 minutes against the number of people present (not comparable for the primary school, where occupancy
+  hardly varies; the conference has no groups).}
+  \label{appS_prot2:tab:datasets}
+  % generated: data/v2_tab_datasets.tex (code/v2_numbers.py <- data/bsc_validation2/a2_contact_mobility/{s1,s3a}_<dataset>.json)
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.19\textwidth}lccccccc@{}}
+    \toprule
+     & & & & & \multicolumn{4}{c}{observed / walk} \\
+    \cmidrule(l){6-9}
+    Setting & Role & People & Days & Sites & \shortstack{Partners\\per day} & \shortstack{Within-group\\share} &
+      Burstiness & Exponent \\
+    \midrule
+    \tabinput{data/v2_tab_datasets}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{v2_contacts_structure_en}
+  % generated by code/v2_figures.py (contacts_structure) from data/bsc_validation2/a2_contact_mobility/*.json (obs, models.*.stats)
+  \caption{Contact statistics of the test days: value under each model divided by the observed value (shaded:
+  tolerance 0.8 to 1.25; values below 0.02 are drawn at the left edge). The lattice walk matches what it was
+  calibrated on, the total contact time and the mean duration, and misses long contacts, the number of
+  partners, the differences between people, the repetition of pairs and the group structure. The anchored
+  variants were developed on the first three datasets (top row) after that failure.}
+  \label{appS_prot2:fig:structure}
+\end{figure}
+
+Table~\ref{appS_prot2:tab:datasets} lists the datasets. The first three were used to develop the modified
+walks and the last three were not touched by any model or statistic until the modifications and their fitting
+code had been frozen. Clock offsets, the removal of days with fewer than 1\pct{} of the records and the
+definition of a person's presence (from the first to the last own contact of the day) are fixed in the frozen
+loader. The seven families of statistics, with their tolerances, are: total contact time (ratio in 0.8--1.25);
+mean contact duration and share of contact time in contacts of at least five minutes; burstiness of the gaps
+between a person's contacts (absolute difference at most 0.10) and recurrence of pairs; mean and coefficient
+of variation of the number of partners per person and day; coefficient of variation of individual contact
+time; share of a day's pairs already in contact on the previous day; share of contact time within the recorded
+groups. A family is passed if all its statistics are.
+% src: code/bsc_validation2/a2_contact_mobility/PREREGISTRATION.md sections 2, 5; code/bsc_validation2/a2_contact_mobility/FIX_FREEZE.json
+The power analysis was made on synthetic data before the freeze, with four replicates per combination of
+generating model and candidate: a true or nesting model passed every family and the epidemic criterion in 20
+of 20 replicates, and a wrong non-nested model reached the per-dataset criterion in none of 44. The
+re-check qualified this in three ways: the 44 cases are not independent; the analysis covers the
+base models only, and the modified walks fail on their own synthetic truth
+(Section~\ref{M-s8b_evidence:sec:contacts}); and on real data the tolerance of the epidemic criterion is at the
+level of the noise, since two runs of 4{,}000 epidemics on the same recorded network differ by up to 7\pct{} in
+the secondary cases of the index case, against a tolerance of 10\pct. The rule is therefore adequate for the
+failure of the lattice walk, whose errors are 25 to 72\pct{}, and weak for anything close to the tolerance.
+% src: code/bsc_validation2/a2_contact_mobility/PREREGISTRATION.md section 7; code/bsc_validation2/a2_contact_mobility/POSTHOC_LOG.md item 1; data/checks/contacts.json: power (20/20, 0/44), noise_of_epidemic_criterion (4,000 runs, up to 7 %, tolerance 10 %), lattice_walk_errors_pct (25, 72); notes/VERIFICATION.md (Section 4.7, contact records, item 9: partially confirmed)
+
+\subsection{Tracer measurements: rule and power}\label{appS_prot2:sec:tracer}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{Tracer analysis. (a)~Decision rule over seven events (coach, bus, flight, trains, restaurant,
+  classroom, call centre); D1: number of events rejected at the 5\,\% level; D2: pooled log score above that of
+  $\Mzero$ with $p<0.05$; D3: above that of the constant ratios 2 and 3, each with $p<0.05$. (b)~Probability of
+  each outcome when the data are generated by the model in the first column, computed after the kernels had
+  been estimated and before any comparison with outbreak counts.}
+  \label{appS_prot2:tab:tracerrule}
+  % src: code/bsc_validation2/a3_tracer_physics/PREREGISTRATION.md section 6; data/v2_numbers.json (tr.power.truths.*.outcomes)
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.82\textwidth}@{}}
+    \toprule
+    S1 & no D1 failure, D2 and D3: `with the kernel fixed by physical measurement the framework predicts the
+         spatial patterns, and better than a generic gradient' \\
+    S2 & no D1 failure, D2, not D3: `compatible with all events and better than well mixed; not shown to be
+         better than a generic gradient' \\
+    S3 & no D1 failure, not D2: `compatible, not discriminating' \\
+    S4 & exactly one D1 failure: a sentence that names it \\
+    S5 & two or more D1 failures: the hypothesis fails \\
+    \bottomrule
+  \end{tabular}
+
+  \medskip
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    (b) Truth & S1 & S2 & S3 & S4 & S5 \\
+    \midrule
+    tracer kernel     & 0.213 & 0.117 & 0.453 & 0.196 & 0.021 \\
+    well mixed        & 0.009 & 0.004 & 0.488 & 0.401 & 0.099 \\
+    constant ratio 2  & 0.017 & 0.204 & 0.112 & 0.455 & 0.211 \\
+    constant ratio 3  & 0.000 & 0.022 & 0.002 & 0.204 & 0.773 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The rule (Table~\ref{appS_prot2:tab:tracerrule}) is safe against a false claim and weak at confirming a true
+one: if the tracer kernel were true it would earn the full claim S1 with probability 0.21 only, because on the
+coach and the bus it predicts almost what the well-mixed model predicts. The outcome obtained, S4, has
+probability 0.20 under the kernel, 0.40 if outbreaks are well mixed and 0.46 or 0.20 under a constant ratio of
+2 or 3, so that it does not discriminate. Every model fails on the train table, and the rule counts this as a
+failure of the kernel without asking whether a competitor passes. For the restaurant the rule fails the kernel
+only if it is rejected at every count from two to five cases, which is lenient; the main text reports the
+result at each count.
+% src: data/v2_numbers.json (tr.power.truths: P S1 0.213, S4 0.196; M0 S4 0.401; CRR2 S4 0.455; CRR3 S4 0.204); code/bsc_validation2/a3_tracer_physics/POSTHOC_LOG.md (P7); notes/VERIFICATION.md (Section 4.8, tracer measurements, item 14)
+Two departures from the protocol were forced by the data and are logged: the forward cabin has unmasked
+breathing releases at three seats, not four, so that the flight uses two measured kernels in place of three;
+and the minibus of the Hunan outbreak has 15 passengers with a simulated tracer value, not the 17 of the first
+test. A full re-run of the stored analysis into a separate directory
+reproduced every result file without a difference; the re-check then re-derived the coefficients
+with its own solver (identical grid optima) and re-typed the tracer values from the sources.
+% src: code/bsc_validation2/a3_tracer_physics/POSTHOC_LOG.md (P1, P2, P8); notes/VERIFICATION.md (Section 4.8, tracer measurements, items 2, 3: confirmed)
+
+\subsection{Zone level: models and power}\label{appS_prot2:sec:zones}
+
+A susceptible pupil of class $c$ has onset on day $t$ with probability $1-\exp(-\lambda_c(t))$,
+$\lambda_c(t)=\beta\,x_c(t)+\alpha_0+\alpha_1P_{\mathrm{city}}(t)$, where $P_A(t)$ is the kernel-weighted
+number of earlier onsets in the set $A$ per pupil of $A$ and the last term is the same quantity for the other
+schools of the city. The kernel is a gamma density with mean 1.7 and standard deviation 1.0 days on daily bins,
+as in \citet{endo2021within}, who chose it to give the mean serial interval of 2.2 days of influenza A(H3N2)
+\citep{vink2014serial}. The three sets are exclusive: for a pupil of class $c$, $P_{\mathrm{class}}$ counts the
+other pupils of the class (denominator $n_c-1$), $P_{\mathrm{grade}}$ the pupils of the other classes of the
+grade and $P_{\mathrm{school}}$ the pupils of the other grades. The zone model has
+$x_c=0.762\,P_{\mathrm{class}}+0.104\,P_{\mathrm{grade}}+0.134\,P_{\mathrm{school}}$, with the shares measured
+in Lyon; the well-mixed school has $x_c=P_{\mathrm{whole\ school}}$; independent classes have
+$x_c=P_{\mathrm{class}}$; the generic model has one fitted ratio $\varrho$ of own-class to rest-of-school risk;
+and the ceiling has three free shares. Within-school terms are switched off during the winter break.
+In the 36 grades that have a single class (453 pupils) the grade term is set to zero and not redistributed, so
+that the shares of the zone model do not sum to one there; this was fixed in the protocol and its effect was
+not assessed. The table holds the 2{,}548 pupils with an episode reported in the prospective survey of the
+source (96\pct{} of the cases known to the schools) and the 8{,}375 who reported none in a later survey,
+10{,}923 or 83\pct{} of the 13{,}217 enrolled; the missing pupils are mostly non-cases, so the denominators of
+the classes are incomplete. The source excluded three small schools (71 pupils) from its own analysis; they
+are kept here. The model has no household term, although the source attributes 41\pct{} of the pupils'
+infections to households (Section~\ref{M-s8b_evidence:sec:zones}).
+% src: code/bsc_validation2/a4_zone_level/PREREGISTRATION.md section 2.3; code/bsc_validation2/a4_zone_level/src/zonecore.py (features: Pc = Kc/(n-1), Pg = (Kg-Kc)/(ng-n), Ps = (Ks-Kg)/(ns-ng)); data/checks/zones.json: single_class_grades (36 grades, 453 pupils), respondents_share_of_enrolled_pct (82, as recorded; the 83 % of the text is 10,923/13,217 from the source, below) (notes/VERIFICATION.md, Section 4.9, zone level, further points 6, 7); Endo et al. 2021, Materials and Methods (Europe PMC PMC8609560, read 1 October 2026: 13,217 enrolled; 2,548 episodes, 96 % of the cases recognised by the schools; 8,375 without influenza in the retrospective survey; 10,923 combined; 71 pupils of 3 schools excluded; gamma kernel mean 1.7, SD 1.0, mean serial interval 2.2 d)
+Power was computed before the freeze on synthetic epidemics on the real class structure (40 replicates per
+truth, two strengths of the school signal). The verdict of the rule was earned in 100\pct{} and 80\pct{} of
+replicates when the zone model is true, in none when the school is well mixed or the classes independent, in
+7.5\pct{} and 0\pct{} under the generic model with a ratio drawn log-uniformly between 1 and 1{,}000, and in 2.5
+and 5\pct{} under random shares. In the re-check the generic model turned out to be a more dangerous
+competitor than these averages suggest: with its ratio set to the fitted value, about 37, it earns the verdict
+in 6 of 16 replicates. The tolerance of 0.15 is a judgement, two to three times the sampling noise under a
+true zone model; held-out differences depend slightly on a lower bound of $10^{-9}$ on the external hazard,
+which is active in one fold (Table~\ref{s8b_evidence:tab:zone}).
+% src: data/v2_numbers.json (zone.power); data/checks/zones.json: generic_ratio_model_at_fitted_ratio (ratio 37, 6/16); notes/VERIFICATION.md (Section 4.9, zone level, items 13, 7, 3)
+
+\subsection{Register of tests}\label{appS_prot2:sec:register}
+
+Table~\ref{appS_prot2:tab:register} lists every test of Section~\ref{M-s8_outbreaks:sec} of the main text, and the secondary and sensitivity
+analyses of their protocols that are reported there and in Sections~\ref{appS_first:sec}--\ref{appS_prot2:sec},
+with their status and their outcome after the re-checks. `Protocol' means that the test and its criterion were fixed before any model was run on
+the data concerned; `listed' that the analysis is on the list of secondary or sensitivity analyses of a
+protocol, which may never upgrade a primary outcome; `after' that it was added after results were known, by
+the analysis or, where marked, by its re-check.
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\setlength{\LTcapwidth}{\textwidth}
+\begin{longtable}{@{}>{\raggedright}p{4.6cm}>{\raggedright}p{1.5cm}>{\raggedright\arraybackslash}p{9.4cm}@{}}
+\caption{Register of the tests of Section~\ref{M-s8_outbreaks:sec} of the main text and Sections~\ref{appS_first:sec}--\ref{appS_prot2:sec}.}
+\label{appS_prot2:tab:register}\\
+% src: default-parameter row: data/s8_default_level.json (expected_infections_bound 0.1021, 0.1570; beta_needed_per_day 16.34, 13.61 / 11.99)
+% src: each row summarises Section 7 of the main text and Sections S7 to S9, where its numbers carry their own src comments; M1 row: data/v2_numbers.json (out2.pooled.M1.all: delta0 15.446, deltaC -8.055, p_mirror 1.5e-5; out2.pooled.M1.air: deltaC -4.634; out2.pooled.M1.decision); attainable totals: data/bsc_validation/02b_m1_exact.json, code/bsc_validation/POSTHOC_LOG.md (P4); zone rows: data/v2_numbers.json (zone.D_Z_minus_C; zone.check.hazard_bound."1e-09".D_N702); status: the four protocols and post-hoc logs; added rows: data/v2_numbers.json (out2.sec.train_kernel.rooms, out2.sec.loo_air, out2.sec.loo_room, out2.sec.seat, out2.sec.rho2.4, out2.pooled.M3.all, out2.pooled.M3.decision, out2.variants.summary, out2.rr_pooled."without P1", out2.check.bins."5 bins {0},{1},{2},{3-5},{6+}".air.deltaC -0.777, tr.power.pattern); data/s8_first_test_exact.json (primary.pooled.M2, loo_room)
+\toprule
+Test & Status & Outcome after the re-check \\
+\midrule
+\endfirsthead
+\toprule
+Test & Status & Outcome after the re-check \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{3}{@{}l}{\emph{First outbreak test (Section~\ref{M-s8_outbreaks:sec:holdout} of the main text and Sections~\ref{s8_outbreaks:sec:calibration}--\ref{s8_outbreaks:sec:outcomedetail})}} \\
+Flight VN54, near/far split & protocol & pass ($\Mtwo$ $p=0.61$, $\Mzero$ $p=0.0008$); 20 passengers; a constant ratio of 2 to 3 also passes \\
+Classroom, front/back split & protocol & not a real prediction: rejected at the calibrated value ($p=0.0009$); $p=0.068$ over the posterior \\
+Bus, zone split & protocol & compatible ($p=0.38$), non-discriminating \\
+Coach, rear/front split & protocol & fail ($p=0.007$) \\
+Call centre, desk-scale clustering & protocol (quadrature after, check) & fail (0.007 to 0.013 by quadrature; 0.013 to 0.024 with the prior extended to $10^{6}\sqmh$; with the re-check's mode-sum propagator; its round-off acts only through the outbreak-size weights, and with zero weight at or below $0.1\sqmh$ the second value would be 0.015; the 40-draw estimate of the protocol had Monte Carlo error large enough to read as borderline) \\
+Pooled test against $\Mzero$ & protocol & weak pass ($+2.83$, $p=2.5\times10^{-4}$, after the numerical correction of the classroom; $+3.87$ before), resting on the flight; constant ratios of 2 to 3 score higher (after, check) \\
+Classroom with the round-off-safe propagator & after & $p=0.068$ instead of 0.11; outcome W4 unchanged \\
+Totals attainable by $\Mone$ & protocol (rule P4 after) & mean number of cases below the observed one on bus, flight and classroom; observed total reached with probability 0.0002, 0.025 and 0.081, so unattainable under rule P4 on the bus only \\
+Level checks and negative controls & protocol & met, with almost no power \\
+Common coefficient, four vehicle events & after & rejected (approximate $p=0.023$, LR 9.52); for the two rooms not rejected (approximate $p=0.080$) \\
+Default parameters of Sections~\ref{M-s2_model:sec}--\ref{M-s6_scenes:sec} against the bus and the choir & after & expected infections at most 0.10 and 0.16 against 23 and 52 (32 confirmed) cases; reached only for $\beta$ of about 16 and 14 (12)$\perday$ \\
+\addlinespace
+\multicolumn{3}{@{}l}{\emph{Second outbreak test (Section~\ref{M-s8_outbreaks:sec:second})}} \\
+B1: $\Mtwo$ against $\Mzero$, five held-out events & protocol & pass ($+14.35$) \\
+B2: $\Mtwo$ against the constant ratio, pooled & protocol & fail ($-9.15$), nine-tenths from the processing line, whose near zone was chosen by the source on the same data \\
+B2 on the four flights & protocol & inconclusive ($-0.77$; power 0.82) \\
+B3: adequacy of $\Mtwo$ & protocol & fail on 2 of 5 events; outcome V5 \\
+$\Mone$ in closed form & protocol & V5, as $\Mtwo$; by the protocol a pass of the closed form, which overstates the reach of $\Mone$, does not bear on $\Mone$: against $\Mzero$ pass ($+15.45$); against the constant ratio pooled $-8.06$ (mirror $p=1.5\times10^{-5}$), on the flights $-4.63$; fails on 3 of 5 events \\
+Train kernel applied to eight flights & listed & fail: four flights rejected \\
+Exchange of calibration and hold-out & listed & weak pass on flights ($+3.58$, $p=0.004$); fail in the ward \\
+Train kernel applied to the rooms & listed & rejected on the ward inpatients ($p=2\times10^{-5}$) and the processing line ($p=4\times10^{-4}$) \\
+Leave one event out within each class & listed & flights not separated ($\Delta_{\mathrm{C}}=-0.06$; $p=0.046$ under the constant ratio, mirror $p=0.044$ under $\Mtwo$: improbable under either); rooms no better than well mixed, constant ratio better ($-14.0$) \\
+Seat-level log score, three held-out flights & listed & constant ratio $-76.4$, $\Mtwo$ $-78.6$, well mixed $-83.5$ \\
+Published ratio 2.4 in place of the calibrated one & listed & flights $+1.18$ ($p=0.028$); pooled $-4.44$ (mirror $p=0.002$; room kernel as first frozen) \\
+Two-scale variant ($\Mtwo$ plus a well-mixed fraction) & protocol, exploratory & V3: $+17.5$ against well mixed, $-5.95$ against the constant ratio \\
+Common coefficient within a class & listed & rejected (approximate $p$: rooms $1.6\times10^{-4}$, flights $0.034$) \\
+Fifteen sensitivity variants & listed & V5 in 12, V3 in 3 (kernel as first frozen); on flights $\Delta_{\mathrm{C}}$ from $-3.42$ (constant ratio significantly better in three) to $+1.21$ ($\Mtwo$ significantly better in one) \\
+Near/far risk ratios & listed & description: 3.98 (2.32--6.82; random effects); no gradient for influenza \\
+Near/far ratio without the processing line & after & 3.30 (1.99--5.45) \\
+Numerical correction of the room kernel & after & outcome unchanged \\
+Other near zones and strata; ratio in the form of the protocol & after, check & $\Delta_{\mathrm{C}}$ on flights from $-0.78$ to $+7.8$ in these specifications; with the listed variants the sign is not determined \\
+Exponential kernel & after, check & as good as $\Mtwo$ on flights, better on the processing line \\
+\addlinespace
+\multicolumn{3}{@{}l}{\emph{Contact records (Section~\ref{M-s8b_evidence:sec:contacts})}} \\
+Lattice walk, structure and epidemic outcomes, six datasets & protocol & fail (A0) on all six \\
+Walk against models without space & protocol & adds nothing; a static network of pair rates does better (after, check) \\
+Modified walks on three confirmatory datasets & protocol (second freeze) & formally A0; uninformative, since the fit does not recover its own truth (after, check) \\
+Error sizes of the modified walks & after & description only \\
+Density scaling of contacts & listed & walk: exponent about 2; data below 1 in four of five settings \\
+Power of the rule & protocol & adequate for the walk, weak near the tolerance \\
+\addlinespace
+\multicolumn{3}{@{}l}{\emph{Tracer measurements (Section~\ref{M-s8b_evidence:sec:tracer})}} \\
+Coach & protocol & not rejected; non-discriminating \\
+Call centre & protocol & not rejected; non-discriminating; wrong sign of clustering \\
+Bus & protocol & inconclusive \\
+Classroom & protocol & weak pass; constant ratios do as well \\
+Flight VN54 & protocol & not reproduced (formal $p=0.14$; rejected in four of six listed variants) \\
+Restaurant & protocol & not reproduced at the reported count \\
+Trains & protocol & fail; every model fails \\
+Pooled rule & protocol & S4 as computed, S5 on the defensible reading of the flight; not better than constant ratios \\
+Probability of the pooled pattern under each truth & after, check & 0.23 under the tracer kernel, 0.84 and 1.00 under ratios 2 and 3 \\
+Measured against fitted coefficients & listed & vehicle values 4.5 to about 50 times the first test's vehicle value; second-test aircraft value inside the cabin range, which does not make it a measurement of air mixing \\
+Four further flights & after & exploratory, outcome-aware: weak \\
+\addlinespace
+\multicolumn{3}{@{}l}{\emph{Zone level (Section~\ref{M-s8b_evidence:sec:zones})}} \\
+Tier 1: against well-mixed school and independent classes & protocol & pass \\
+Tier 2a: equality of shares & protocol & fail \\
+Tier 2b: tolerance; tier 3: dispersion & protocol & weak pass \\
+Against a generic model with one fitted ratio & protocol (not decisional) & not beaten: zone model ahead by 18.8 ($-8.8$ to 54.0) out of sample, generic model better by 13.6 on the full data \\
+Against guessed shares & after, check & guess 0.7/0.1/0.2 better by 19 (3 to 38); guesses chosen after the fitted shares were known; school-level share confounded by households \\
+Frequency- against density-dependent transfer & listed & frequency-dependent fits better; not re-run by the check \\
+Building by floor & protocol (low power, not blind) & inconclusive \\
+Wings of one floor; early growth; hotspot maps & -- & not run: no independent measurement of mixing found \\
+\end{longtable}
+}
+
+\subsection{Data, licences and what is redistributed}\label{appS_prot2:sec:data}
+
+\emph{Outbreaks.} The seat maps and stratum counts of the eleven events were transcribed by eye from the
+published figures and tables into the code and are released as tables, with the reference and the table or
+figure of origin of every number (\texttt{data/outbreaks2/}). Copies of the source texts and figures are not
+redistributed. \emph{Contact records.} The SocioPatterns files are distributed by their authors under
+Creative Commons licences, some of which exclude commercial use; they are not redistributed here. A script
+downloads them from the source and checks their SHA-256 against the values recorded when the protocol was
+frozen. \emph{Tracer measurements.} The cabin measurements are published on figshare under CC~BY~4.0
+\citep{kinahan2021aerosol}; the released tables are derived from those workbooks. The values for the coach and
+the carriage were read or digitised from the supplementary figures of the sources and are released as tables
+of numbers. \emph{Schools.} The anonymised pupil-level data of \citet{endo2021within} are published by their
+authors under the MIT licence; the release contains a tabular copy, with that licence, and the script that
+produced it from the original file.
+% src: code/bsc_validation2/a2_contact_mobility/data/raw_SHA256.txt; data/tracer/SOURCES.md; code/bsc_validation2/a4_zone_level/PREREGISTRATION.md section 2.1 (MIT licence, commit 658abfe)

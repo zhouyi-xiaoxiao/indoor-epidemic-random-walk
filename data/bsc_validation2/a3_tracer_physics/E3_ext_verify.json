@@ -1,0 +1,14 @@
+{
+ "F8_exposure_expm_vs_modesum_max_rel": 3.223532551999142e-12,
+ "F8_P_pmf_enum_vs_table_maxdiff": 4.385380947269368e-15,
+ "F5_mc_n": 229345,
+ "F5_D708_node3_mc_vs_condpmf_maxdiff": 0.0005957266915939188,
+ "F5_obs_prob_mc_vs_condpmf": [
+  0.0014432405328217315,
+  0.0013628130310173942
+ ],
+ "F7_M0_logp_by_hand": -8.655660818265453,
+ "F7_M0_logp_stored": -8.655660818265453,
+ "F8_CRR3_logp_by_hand": -1.8387388413650974,
+ "F8_CRR3_logp_stored": -1.8387388413651111
+}

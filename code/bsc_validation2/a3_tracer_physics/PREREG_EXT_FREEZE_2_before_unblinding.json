@@ -1,0 +1,10 @@
+{
+ "written_at": "2026-10-01T10:26:01+0100",
+ "note": "EXT-F: predictive tables and power, before src/e02_ext_evaluate.py (first script that reads the observed bin vectors of F5-F8) was written.",
+ "files": {
+  "PREREG_EXT_flights.md": "75fbc18ef835ad4fc90fe46cf9d8ecda0d6dff7c8bc1fa04b0e9aa994c572e7c",
+  "src/e01_ext_predict.py": "664a07e397f2d22186668d18397bed9021494bd10c944b91df076129080a3cbc",
+  "results/E1_ext_predictions.json": "55d1e1cb32302026fa84a0472eb46849c75f07433ab3ced512df88151ee09a62",
+  "results/E1_ext_tables.npz": "85ea518ce1d56af725c30ded9e4218ddf569eed009fc11ce72ad642f9c511f07"
+ }
+}

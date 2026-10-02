@@ -1,0 +1,560 @@
+% m7_data.tex -- Main text, Section 7: confrontation with documented outbreaks, contact records, tracer
+% measurements and a school epidemic.
+% Paths in "% src:" comments are relative to the repository root.
+% Units in this section: hours and metres (D_p, D_air in m^2/h; \remrate in 1/h).
+% Scripts (all in code/): s8_outbreaks_checks.py, s8_outbreaks_numbers.py, s8_outbreaks_fig_callcentre.py,
+% s8_first_test_exact.py (first test with the round-off-safe propagator), v2_numbers.py and v2_figures.py (second
+% set of analyses: every number and generated table body).  Details: Supplementary Sections S6 to S8.
+\section{Confrontation with data}\label{s8_outbreaks:sec}\label{s8b_evidence:sec}
+
+Sections~\ref{s3_r0:sec}--\ref{s6_scenes:sec} are statements about a model. This section asks what data say about
+it. The data are of four kinds: documented outbreaks (38 records in two datasets; 18 are calibrated on or held out in the two distance-gradient tests, and four
+more enter the level checks and negative controls of the first test), RFID
+contact records from six indoor settings, tracer measurements in vehicles and rooms, and an influenza epidemic in
+29 schools. Five primary tests were run: two out-of-sample tests against outbreaks, and one analysis each of the
+contact records, of the tracer measurements and of the zone-level structure. Each follows a protocol fixed
+before the model under test was run on its data. We call the protocols \emph{pre-specified} and not
+pre-registered, for three reasons that apply to all of them. They are \emph{data-aware}: the outbreak counts,
+contact records and school data had been read before the protocols were written, and choices such as strata,
+priors and exclusions were made with that knowledge. They are \emph{model-blind}: no output of the model under
+test existed when they were frozen (for the tracer analysis, the outcome of the outbreaks under the other models
+was already known). And their timing is \emph{self-attested}: they were frozen by SHA-256 hashes of files on the
+author's machine, without an external time stamp, version-control history or registry; the protocol files
+released with the code are redacted copies (every changed line is listed in the repository), and the hashes refer
+to the unredacted originals, so this timing cannot be checked from the repository alone (Supplementary
+Section~\ref{S-appC_protocol:sec}). Comparisons added after
+the results were known are called \emph{post hoc} and are marked as such; Supplementary
+Table~\ref{S-appS_prot2:tab:register} lists every test with its status. Times are in hours and lengths in metres
+throughout this section.
+% src: data/bsc_outbreaks/outbreaks.csv (27 rows); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1 (11 events); events in a test: 2 + 5 (first), 6 + 5 (second); level checks and negative controls of the first test: T3, C3, S1, T7 (outbreaks.csv protocol_role; data/appC_protocol_tables.tex rows A3, A4)
+% src: code/bsc_validation/PREREGISTRATION.md section 0; code/bsc_validation/PREREG_FREEZE.json; notes/VERIFICATION.md (Section 4.5, first outbreak test, item 1: partially confirmed); notes/VERIFICATION.md section 4.10 (reservations common to all analyses)
+
+\subsection{Outbreak records}\label{s8_outbreaks:sec:dataset}
+
+The first dataset has 27 records from 31 published sources, each with a registered DOI, 23 of them with counts
+of cases and of exposed people: five offices and other workplaces, four retail premises, five classrooms and
+class-like rooms, seven vehicle-cabin records, two restaurants, two choir or church events, and two records of
+large settings outside the scope of the model (a cruise ship and worker dormitories), recorded for reference as
+examples of shared settings that a model of one closed room does not cover; they take part in no comparison
+(Supplementary Section~\ref{S-appB_dataset:sec}). We found no documented outbreak in a metro carriage
+with a known number of exposed riders (the search was not exhaustive); bus, coach, train and aircraft cabins
+stand in for it, and the supermarket has one record with denominators and no geometry.
+% src: data/bsc_outbreaks/outbreaks.csv; data/bsc_outbreaks/tables/doi_verification.json; data/appB_dataset_numbers.json -> records_by_group, records_with_counts (23)
+The second dataset, collected after the first test, is restricted to events that publish the position of every
+exposed person or counts by distance: eight flights
+\citep{olsen2003transmission,kenyon1996transmission,baker2010transmission,young2014international,toyokawa2022transmission,speake2020flight,swadi2021genomic,hoehl2020assessment},
+a hospital ward observed twice with the same index patient \citep{wong2004cluster,yu2005temporal}, and a
+meat-processing line \citep{guenther2020}, which is record O4 of the first dataset with its counts by distance
+added. The 38 records of the two datasets therefore describe 35 distinct outbreaks: besides the processing line,
+the two records of the ward and those of the coach and the minibus (records T2 and T3) are two exposure cohorts
+of one outbreak each.
+% src: data/bsc_outbreaks/outbreaks.csv (T3 protocol_role "same index as T2"; O4); data/outbreaks2/SOURCES.md (ward: students and inpatients, same index patient); 38 - 3 = 35
+The pathogens are SARS-CoV-2 (five events), SARS-CoV-1 (three),
+influenza A(H1N1)pdm09 (two) and \emph{Mycobacterium tuberculosis} (one).
+% src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2; data/outbreaks2/SOURCES.md; data/v2_tab_events2.tex
+
+The records themselves show a distance gradient. With `near' defined as within two rows of a source on aircraft
+(the zone of the contact-tracing rule discussed by \citet{hertzberg2016risk}), the index patient's own bay or
+cubicle in the ward, and 8\,m on the processing line, the near/far risk ratio pooled over the eleven records of
+the second dataset is 3.98 (95\,\% interval 2.32--6.82; random effects, DerSimonian--Laird), with moderate
+heterogeneity (Cochran's $Q=18.9$ on 10 degrees of freedom, $p=0.041$; $I^2=0.47$; Supplementary
+Fig.~\ref{S-s8_outbreaks:fig:forest}); with fixed effects it is 3.16. The two ward records share the index
+patient and are treated here as independent studies; without the second of them the pooled ratio is 4.64
+(2.57--8.40). The 8\,m zone is the radius that the source of the processing line singled out as the most
+significant on these same data; without the line the pooled ratio is 3.30 (1.99--5.45; post hoc), and over the
+eight flights alone 3.75 (2.01--7.00). By pathogen it is 6.66 (3.38--13.1) for SARS-CoV-2, 2.34 (1.53--3.59)
+for SARS-CoV-1, and 1.15 (0.35--3.72) on the two influenza flights, which show no detectable gradient. Over the
+four held-out events of the first test with distance strata the pooled ratio with the same estimator is 2.05
+(1.15--3.65; 2.00 with fixed effects), and these four are mutually compatible (Cochran's $Q=3.77$ on 3 degrees
+of freedom, $p=0.29$; $I^2=0.20$). The two pooled values rest on different selections (all eleven records of the
+second dataset, calibration events included, against four held-out events of the first) and are not a
+comparison of settings. No adjustment was made for companions or households seated together, and seat maps are
+published selectively. This is a statement about data, not a test of any model.
+% src: data/v2_numbers.json (out2.rr_pooled.*: "all 11 events" RR_random 3.978, RR_fixed 3.159, I2 0.472; "without W2" 4.643 (2.567-8.399); "without P1": 3.296 (1.992-5.455), computed by code/v2_numbers.py; "aircraft (8)" 3.747 (2.006-6.998)); data/bsc_validation2/a1_more_outbreaks/07_descriptive.json (pooled, by pathogen)
+% src: data/s8_outbreaks_checks.json (heterogeneity: cochran_Q 3.772, I2 0.205, pooled_rr_random_DL 2.047 (1.147-3.654), pooled_rr 1.996 (fixed effects))
+
+\subsection{Three models and two generic competitors}\label{s8_outbreaks:sec:models}
+
+In a single event of a few hours there is one infectious person and no second generation. All models give the
+infection probability of susceptible $j$ in event $k$ as
+\begin{equation}\label{s8_outbreaks:eq:risk}
+  p_j = 1-\exp(-\varepsilon_k X_j),
+\end{equation}
+with one infectiousness parameter $\varepsilon_k$ per event and an exposure $X_j$ computed on a rectangular
+lattice with reflecting walls, one site per seat position and physical pitches $(a_x,a_y)$; $P_t(y|x)$ is the
+propagator of the symmetric walk with hop rates $D/a_x^2$ and $D/a_y^2$. With the index case at $x_0$,
+susceptible $j$ at $x_j$ for a time $T_j$, and $\ncell$ sites,
+\begin{align}
+  \Mzero:&\quad X_j=\frac{1}{\ncell}\left[\frac{T_j}{\remrate}-\frac{1-\e^{-\remrate T_j}}{\remrate^{2}}\right],
+     \label{s8_outbreaks:eq:m0}\\
+  \Mone:&\quad X_j=\int_0^{T_j}\sum_{x}P_t(x|x_0)\,P_t(x|x_j)\,\dd t=\int_0^{T_j}P_{2t}(x_j|x_0)\,\dd t
+     \qquad(D=\Dp),\label{s8_outbreaks:eq:m1}\\
+  \Mtwo:&\quad X_j=\int_0^{T_j}(T_j-s)\,\e^{-\remrate s}\,P_s(x_j|x_0)\,\dd s\qquad(D=\Dair).
+     \label{s8_outbreaks:eq:m2}
+\end{align}
+$\Mzero$ is the transient Wells--Riley model of a well-mixed room \citep{wells1955airborne,riley1978,
+gammaitoni1997using}. $\Mone$ is the model of Section~\ref{s2_model:sec}: people walk, and transmission occurs
+only between two people on the same site (the same-cell kernel), so the exposure is their expected
+co-occupation time; the form \eqref{s8_outbreaks:eq:risk} is then exact to first order in $\varepsilon_k$ and,
+by Jensen's inequality, an upper bound otherwise. In $\Mtwo$ the index case emits infectious quanta that perform
+the lattice walk with coefficient $\Dair$ and are removed at rate $\remrate$, the ventilation rate plus
+$0.93\,\mathrm{h}^{-1}$ for deposition and inactivation (the values used by \citet{ou2022} after
+\citet{miller2021}); a susceptible inhales in proportion to the quanta on its site. $\Mzero$ is the limit
+$\Dair\to\infty$ of $\Mtwo$. $\Mtwo$ belongs to the spatially resolved models of airborne exposure of eddy-diffusion
+type \citep{cheng2011modeling,venkatram2021modeling,lau2022predicting}; it shares only the lattice propagator with
+$\Mone$ (Table~\ref{s8_outbreaks:tab:models}).
+% src: code/bsc_validation/PREREGISTRATION.md section 3; notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 5)
+
+Two generic competitors have no lattice and no physics. The \emph{constant-ratio model} gives every susceptible
+in a near zone $\varrho$ times the infection pressure of everyone else; near is the stratum of the source in the
+first dataset and, in the second, within two rows of a source on aircraft. In the first test it entered only
+after unblinding, with fixed values $\varrho=2$ to 3; in the second it is a pre-specified competitor with one
+$\varrho$ per setting class calibrated on the same events as $\Mtwo$. The \emph{exponential kernel} takes
+$X_j\propto\exp(-d_j/\ell)$, with $d_j$ the distance to the source and one length $\ell$ per setting class; it was
+added post hoc during the re-check of the second test.
+% src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 3 (CRR); notes/VERIFICATION.md (Section 4.6, second outbreak test, item 15)
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{The three models compared. Each has one infectiousness parameter $\varepsilon_k$ per event. The
+  mixing coefficient is shared by all events of a setting class (first test: vehicle cabins, seated rooms;
+  second test: aircraft cabins, rooms); the removal rate $\remrate$ is measured or integrated over a prior
+  and is never fitted.}
+  \label{s8_outbreaks:tab:models}
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}@{}}
+    \toprule
+    Model & Transmission & What walks on the lattice & Shared parameter \\
+    \midrule
+    $\Mzero$ & well-mixed air, eq.~\eqref{s8_outbreaks:eq:m0} & nothing & none \\
+    $\Mone$  & between two people on the same site, eq.~\eqref{s8_outbreaks:eq:m1} & people & $\Dp$ \\
+    $\Mtwo$  & inhalation of quanta emitted by the index case, eq.~\eqref{s8_outbreaks:eq:m2} & quanta & $\Dair$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Protocols of the two outbreak tests}\label{s8_outbreaks:sec:protocol}
+
+\emph{First test.} Vehicle cabins are calibrated on a cohort of contacts of 2{,}334 index cases on high-speed
+trains \citep{hu2021} (attack rates in 22 seat-offset cells, the adjacent-seat cell excluded because travelling
+companions inflate it) and seated rooms on the Guangzhou restaurant \citep{lu2020,li2021} (interval-censored
+counts, because only one infection per neighbouring family is certain to have occurred at the lunch). Four
+single events (a bus \citep{shen2020}, a coach \citep{luo2020,ou2022}, a flight \citep{khanh2020} and a
+classroom \citep{lamhine2021}) are held out and tested on the split of their cases
+between a near and a far stratum given the event total, and the Seoul call centre \citep{park2020} on the
+join-count $z$ of its case seats. The score $S$ is the logarithm of the predictive probability of the observed
+split and $\Delta=S(\text{model})-S(\Mzero)$. The decision rule requires the pooled $\Delta$ to be positive with
+one-sided $p<0.05$ under $\Mzero$ (A1), each event to have a two-sided predictive $p\ge0.05$ (A2), the case
+counts of two events transferred from the calibration settings (a minibus \citep{luo2020} and masked
+classrooms \citep{hershow2021}) to lie inside
+their 90\,\% predictive intervals (level checks, A3), and no over-prediction in four groups with few or no cases
+(negative controls, A4); two or more failures of A2 give outcome W4, a list of what is and is not
+reproduced and no general statement of agreement. The protocol was frozen 87 seconds before the first model run
+(Supplementary Section~\ref{S-appC_protocol:sec}).
+% src: code/bsc_validation/PREREGISTRATION.md sections 2.1 (V1, V2), 3.4, 5.1, 5.2, 6, 8; code/bsc_validation/PREREG_FREEZE.json
+
+\emph{Second test.} It was designed around the weakness of the first, which a constant ratio passes
+(Section~\ref{s8_outbreaks:sec:holdout}). The split does not use outcomes: the six events caused by pathogens
+other than SARS-CoV-2, all published before 2020, calibrate; the five SARS-CoV-2 events (four flights and the
+processing line) are held out. The observable is the vector of case counts over two to four distance strata,
+given the event total; $\Delta_0$ and $\Delta_{\mathrm{C}}$ are the summed log-score differences of $\Mtwo$
+against $\Mzero$ and against the constant-ratio model. The rule: B1, $\Delta_0>0$ with one-sided $p<0.05$ under
+$\Mzero$; B2, $\Delta_{\mathrm{C}}>0$ with one-sided $p<0.05$ under the constant-ratio model (the mirror
+statement, $\Delta_{\mathrm{C}}<0$ with $p<0.05$ under $\Mtwo$, means that the constant ratio predicts better);
+B3, every held-out event has a two-sided predictive $p\ge0.05$; two or more failures of B3 give the outcome V5, a
+list of the events reproduced and of those not. Computed after calibration and before any held-out stratum count
+was scored, the power was (with the frozen propagator; the corrected one described below gives the values in
+brackets): if the calibrated $\Mtwo$ were true, B1 and B2 would both be met with probability 0.96 (0.93; 0.82
+on the four flights alone); if outbreaks followed a constant ratio, with probability 0.03 (0.05), while B1 alone
+would be passed with probability 0.65 (0.73), so that only B2 can count as evidence for the kernel.
+% src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md sections 0, 4-7; code/bsc_validation2/a1_more_outbreaks/PREREG_ADDENDUM_power.md; data/v2_numbers.json (out2.power.registered: M2 P_B1_B2 0.956, CRR P_B1_B2 0.028, CRR P_B1 0.652; out2.power.registered_air: M2 P_B1_B2 0.821; out2.power.corrected: M2 B1B2 0.926, CRR B1B2 0.049, CRR B1 0.732)
+
+\emph{One deviation from the frozen code} affects both tests. The frozen propagator is a sum over cosine modes
+whose absolute error reaches about $10^{-10}$ of the largest exposure in an event; at small mixing coefficients
+the true exposures of distant receivers are smaller than that, and the mode sum returns round-off noise of
+either sign in their place, which makes far infections look possible. This was found after the held-out events
+of the second test had been scored. All results below use a propagator that keeps the mode sum where it is
+resolved and replaces it elsewhere by a positive sum of image terms; it agrees with a third method
+(uniformisation) to better than $10^{-8}$ relative in the classroom of the first test, and with the image sum to
+about $10^{-4}$ in the ward of the second, where both are resolved. The correction changes no number for the flights and no
+outcome of either rule; the values obtained with the frozen propagator are reported in Supplementary
+Sections~\ref{S-s8_outbreaks:sec:holdoutdetail} and~\ref{S-appS_prot2:sec:numerics}.
+% src: data/s8_first_test_exact.json (kernel.rows: spectral_min_rel down to -1.28e-10, fixed_vs_uniformisation_max_rel_err <= 8.4e-9, classroom C1 layouts); code/bsc_validation2/a1_more_outbreaks/POSTHOC_LOG.md (P5); data/bsc_validation2/a1_more_outbreaks/09_numerics_check.json (largest relative difference 8.4e-5, ward inpatients; Supplementary Section S10)
+
+\subsection{First test}\label{s8_outbreaks:sec:holdout}
+
+On the train cohort both spatial models gain 26.6--26.7 units of log-likelihood over $\Mzero$ for one more
+parameter; $\Mtwo$ gives $\Dair=25\sqmh$ (90\,\% posterior interval 9.7--43; here and below the posterior is a
+pseudo-posterior proportional to the profile likelihood under a flat prior on $\log_{10}D$, Supplementary
+Section~\ref{S-s8_outbreaks:sec:calibration}) and $\Mone$ gives $\Dp=0.50\sqmh$
+(0.31--0.79). Both are nevertheless rejected by the data they were calibrated on (deviance 72.6--72.9 on 20
+degrees of freedom): the isotropic kernel cannot follow the anisotropy of the train table. For the restaurant
+$D$ is identified only within three decades, and the fitted $\Mtwo$ conflicts with the tracer-gas measurement of
+\citet{li2021} (Supplementary Section~\ref{S-s8_outbreaks:sec:calibration}).
+% src: data/bsc_validation/tables.md (Table V1); data/s8_outbreaks_numbers.json (calibration.trains.M2: joint_max_D 25.1, q05 9.67, q95 43.4)
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{First test, hold-out events: near/far split (event totals fixed, one $\varepsilon_k$ per event). RR:
+  risk ratio near/far, observed with its 95\,\% interval, or the ratio of the expected stratum attack rates of a
+  model; $p$: two-sided predictive $p$-value; $\Delta$: log-score difference to $\Mzero$. $\Mone$ is evaluated
+  in the exact simulator for the bus, the flight and the classroom. Sources: bus \citep{shen2020}, coach
+  \citep{luo2020,ou2022}, flight \citep{khanh2020}, classroom \citep{lamhine2021}.}
+  \label{s8_outbreaks:tab:holdout}
+  % src: data/s8_first_test_exact.json (primary.events.*.{M0,M1,M2}: rr_pred, p_two_sided, delta_vs_M0; primary.pooled.M2.all: delta 2.835, p_under_M0 2.48e-4; without_T5: -3.195; primary.pooled.M1.all: -2.939); data/bsc_validation/tables.md (Tables V5, V6)
+  \setlength{\tabcolsep}{3.4pt}
+  \begin{tabular}{@{}lccccccc@{}}
+    \toprule
+    & & & $\Mzero$ & \multicolumn{2}{c}{$\Mone$} & \multicolumn{2}{c}{$\Mtwo$} \\
+    \cmidrule(lr){4-4}\cmidrule(lr){5-6}\cmidrule(l){7-8}
+    Event (near stratum) & Near vs far & Observed RR & $p$ & RR; $p$ & $\Delta$ & RR; $p$ & $\Delta$ \\
+    \midrule
+    Bus (rows 5--11)         & 14/33 vs 9/34 & 1.60 (0.81--3.19) & 0.20   & 4.0; n.a.$^{a}$ & $+0.30$ & 2.4; 0.38  & $+0.32$ \\
+    Coach (rear rows)        & 3/19 vs 4/26  & 1.03 (0.26--4.06) & 1.00   & 34; 0.0002      & $-7.64$ & 11; 0.007  & $-3.94$ \\
+    Flight ($\le2$ seats away) & 11/12 vs 1/8  & 7.33 (1.16--46.2) & 0.0008 & 1.4; 0.009      & $+2.38$ & 3.6; 0.61  & $+6.03$ \\
+    Classroom (front rows)   & 8/10 vs 4/14  & 2.80 (1.16--6.78) & 0.036  & 1.4; 0.31$^{b}$ & $+2.02$ & 5.5; 0.068$^{c}$ & $+0.43$ \\
+    \midrule
+    Pooled & & & & & $-2.94$ & & $+2.83^{d}$ \\
+    \bottomrule
+  \end{tabular}
+
+  \smallskip
+  \begin{minipage}{0.96\textwidth}\footnotesize
+  $^{a}$\,Observed total unattainable: $\Prob(\text{total}\ge23)=0.0002$; conditional on the total, $p=0.46$.
+  $^{b}$\,Only 2 of 24 posterior draws can reach 12 cases.
+  $^{c}$\,Not a genuine prediction: rejected at the posterior mode ($p=0.0009$); see text.
+  $^{d}$\,Exact one-sided $p=2.5\times10^{-4}$ under $\Mzero$; $-3.19$ without the flight.
+  \end{minipage}
+\end{table}
+
+Table~\ref{s8_outbreaks:tab:holdout} gives the hold-out results. For $\Mtwo$: \emph{Flight VN54} is reproduced
+(11 of the 12 passengers seated at most two seats from the index case and one of the 8 farther away were
+infected; $\Mzero$ is rejected, $p=0.0008$, and $\Mtwo$ is not, $p=0.61$), robustly to the calibration and to the
+ventilation prior; this is the one robust positive result of the first test, and it is thin: 20 exposed
+passengers, among them four companion couples seated side by side. The \emph{bus} is compatible but not
+discriminating. The \emph{Hunan coach} is a failure: infection was uniform along the coach (3/19 rear, 4/26
+front), and $\Mtwo$ puts six of the seven cases in the rear half (predicted ratio 11, $p=0.007$), in 10 of the 12
+pre-specified sensitivity variants. The \emph{Marin classroom} is a pass that is not a prediction: the
+predictive $p$ of 0.068 comes from the diffuse upper tail of the restaurant posterior, where the kernel is
+nearly flat across the room; at the posterior mode the observation is rejected ($p=0.0009$), and in 83\,\% of
+the posterior draws the emission rate needed to produce the 12 cases exceeds $10^{4}\qph$. With the frozen
+propagator this $p$ was 0.11 (Section~\ref{s8_outbreaks:sec:protocol}).
+% src: data/bsc_validation/03_holdout_shape.json (T5, T1, T2: p = 0.0069, k_pred_mean 6.2); data/s8_outbreaks_numbers.json (sensitivity_M2: n_coach_fails 10)
+% src: data/s8_first_test_exact.json (mode: D 0.501, p_two_sided 0.00093; vent.primary.events.C1: emission_share_above_1e4 0.833; primary.events.C1.M2.p_two_sided 0.068); data/bsc_validation/03_holdout_shape.json (C1: 0.115)
+The \emph{Seoul call centre} is a failure as well. On its published seat map the 79 case seats among the 137
+desks of the affected wing show no clustering at desk scale (join-count $z=-0.64$; random relabelling, one-sided
+$p=0.76$), whereas the restaurant-calibrated $\Mtwo$ predicts strong clustering (median $z\approx11$); integrated
+over the posterior, the probability of a $z$ as small as observed is 0.007 or 0.013, depending on how posterior
+draws are weighted, below the limit 0.025 of the central 95\,\% interval. $\Mzero$ is compatible ($P=0.26$).
+The protocol estimated this probability from 40 posterior draws (0.031 and 0.017, on either side of the limit);
+the quadrature that replaces the estimate was added in the re-check after the results were known, and its value
+depends on the upper limit of the flat prior on $\log_{10}D$: 0.007 and 0.013 with the limit $10^{4}\sqmh$ used
+throughout, 0.013 and 0.024 if the prior is extended to $10^{6}\sqmh$ (post hoc).
+% src: data/bsc_outbreaks/tables/analysis_results.json (callcentre.joincount); data/validation_checks/callcentre_quadrature.json (equal_weight 0.0068, pooled_weight 0.0128; prior_upper_limit_sensitivity 1e6_flat_extension: equal 0.0127, pooled 0.0238); data/bsc_validation/tables.md (Table V9: M2 median z 10.99, M0 0.262; 40-draw estimate 0.031 pooled, 0.017 equal weight)
+
+The pooled score of $\Mtwo$ is $\Delta=+2.83$ (exact one-sided $p=2.5\times10^{-4}$ under $\Mzero$), so A1 is
+passed; it rests on the flight, without which $\Delta=-3.19$. Two adequacy failures give the outcome W4 for
+$\Mtwo$. And the rule can be passed without any lattice: a model with no calibration that assigns the same
+near/far risk ratio of 2, 2.5 or 3 to every event scores $\Delta=+7.6$, $+7.7$ and $+7.1$, higher than $\Mtwo$,
+with no single-event failure (a post-hoc comparison). Passing A1 shows that a proximity gradient exists in these
+data; it does not show that the lattice kernel or its calibration adds predictive value.
+% src: data/s8_first_test_exact.json (primary.pooled.M2: all 2.835, p 2.48e-4; without_T5 -3.195); data/validation_checks/v05_generic.txt (RR = 2: +7.63; 2.5: +7.74; 3: +7.09; failures [])
+
+\emph{The same-site model $\Mone$} fails the pooled test ($\Delta=-2.94$) and three single events, and its
+outcome is W4 as well; the failure on the bus rests on rule P4 of the post-hoc log, adopted after the results,
+which counts an event whose observed total the exact simulator cannot reach as a failure (Supplementary
+Section~\ref{S-appC_protocol:sec}). Calibrated on the trains, $\Dp=0.50\sqmh$: a seated passenger changes site a few times
+per hour. At such mobilities the mean number of cases stays below the observed number in three of the four
+held-out events however large the transmission rate, because the attack rate saturates at the probability that
+a susceptible ever shares a site with the index case: on the bus the mean is at most about 9 cases (23
+observed), and the observed totals are reached with probability 0.0002 on the bus, 0.025 on the flight and 0.081
+in the classroom (Supplementary Table~\ref{S-s8_outbreaks:tab:m1}). A larger mobility would lift this ceiling but
+is excluded by the train data, and at walking mobility the room is well mixed and $\Mone$ loses its spatial
+structure.
+% src: data/bsc_validation/02b_m1_exact.json (events.*.rows: p_total_ge_K, mean 0.00019 (T1), 0.0247 (T5), 0.0810 (C1)); data/bsc_validation/tables.md (Table V8: 8.9 (7.5-12.2)); data/bsc_validation/03_holdout_shape.json (pooled.M1)
+
+\subsection{Second test}\label{s8_outbreaks:sec:second}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{3.2pt}
+  \caption{Second test: held-out events (event totals fixed, one $\varepsilon_k$ per event; kernel and ratio
+  calibrated on the six pre-2020 events). Expected numbers of cases per stratum under the constant-ratio model
+  (CR) and under $\Mtwo$; two-sided predictive $p$ of the observed vector under $\Mzero$, CR and $\Mtwo$;
+  $\Delta_0$ and $\Delta_{\mathrm{C}}$: log score of $\Mtwo$ minus that of $\Mzero$ and of CR.}
+  \label{s8_outbreaks:tab:second}
+  % generated: data/v2_tab_holdout2.tex (code/v2_numbers.py <- data/bsc_validation2/a1_more_outbreaks/10_corrected.json, primary_corrected)
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.155\textwidth}c>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.1\textwidth}>{\raggedright\arraybackslash}p{0.1\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}cc@{}}
+    \toprule
+    Event & Near vs far & Observed by stratum (at risk) & Expected, CR & Expected, $\Mtwo$ &
+      $p$: $\Mzero$ / CR / $\Mtwo$ & $\Delta_0$ & $\Delta_{\mathrm{C}}$ \\
+    \midrule
+    \tabinput{data/v2_tab_holdout2}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\emph{Calibration.} On the four pre-2020 flights the constant ratio is $\varrho=3.2$ (90\,\% posterior interval
+1.6--5.3) and the mixing coefficient of $\Mtwo$ is $\Dair=126\sqmh$ (52--438). In the ward the ratio is 3.5
+(1.8--5.5) and the coefficient $794\sqmh$ (302--4{,}390), close to the well-mixed limit, because the two ward
+datasets contradict each other: the students, exposed for 40 minutes, ask for a steep kernel and the inpatients,
+exposed for days, for a flat one.
+% src: data/v2_numbers.json (out2.cal.air|CRR: map 3.16, q05 1.61, q95 5.32; out2.cal.air|M2: 125.9, 51.6, 437.5; out2.cal.room|CRR: 3.55, 1.83, 5.53; out2.cal.room|M2: 794.3, 301.9, 4390.8)
+
+\emph{Against the well-mixed model: passed.} Over the five held-out events $\Delta_0=+14.35$ (no value as large
+in 200{,}000 draws under $\Mzero$; $+14.30$ in the re-check, with its own geometry code and propagator), and
+$+10.19$ on the four flights alone; every held-out event contributes (Table~\ref{s8_outbreaks:tab:second}).
+% src: data/v2_numbers.json (out2.pooled.M2.all: delta0 14.351; out2.pooled.M2.air: 10.193; out2.pooled_check.M2.all: 14.299)
+
+\emph{Against the constant ratio: not passed.} Pooled, $\Delta_{\mathrm{C}}=-9.15$, a value that $\Mtwo$ did not
+produce in 200{,}000 draws if it were true: by the mirror criterion the constant ratio predicts better.
+Nine-tenths of it ($-8.38$) is the processing line, where the comparison is not between equals, because the near
+zone of 8\,m is the radius that the source singled out on these same data; with a zone of 4\,m $\Mtwo$ is ahead on
+the line by 2.2, and with 12\,m it trails by 0.6 (post hoc). On the four held-out flights the two models are tied:
+$\Delta_{\mathrm{C}}=-0.77$, with $p=0.16$ for `$\Mtwo$ better' and $p=0.065$ for `constant ratio better', in a
+test that had a power of 0.82 to show $\Mtwo$ better if it were true. Over the 15 pre-specified sensitivity
+variants $\Delta_{\mathrm{C}}$ on the flights runs from $-3.42$ to $+1.21$: the sign depends on definitions of
+outcome, strata and near zone that the data cannot fix.
+% src: data/v2_numbers.json (out2.pooled.M2.all: deltaC -9.150, p_mirror 0; out2.pooled.M2.room: deltaC -8.378; out2.pooled.M2.air: deltaC -0.772, p_B2 0.160, p_mirror 0.065; out2.pooled.plant_share_of_deltaC 0.916; out2.check.near1_4m: room deltaC +2.19; out2.check.near5_12m: room -0.64; out2.variants.summary: dC_air_min -3.42, dC_air_max 1.21)
+
+\emph{Adequacy: two failures.} Two of the five held-out events lie outside the predictive distribution of
+$\Mtwo$: the flight to Naha ($p=0.047$, marginal and fragile; $p=0.25$ if households are counted once) and the
+processing line ($p=1.4\times10^{-5}$), where the attack rate is flat out to 8\,m and then drops, whereas the
+ward-calibrated kernel is almost well mixed. The outcome is V5. The competitors fail as well: the constant ratio
+on one flight ($p=0.020$) and the well-mixed model on three events.
+% src: data/v2_numbers.json (out2.hold.F5: M2 p 0.0472; out2.hold.P1: M2 p 1.42e-5; out2.hold.F7: CRR p 0.0195; out2.pooled.M2.decision: B3_failures [F5, P1], outcome V5); data/checks/outbreaks2.json: naha (p 0.25 with households collapsed)
+
+\emph{The same-site model} was scored in the second test in a closed form only, and its protocol fixed the
+reading in advance: the first test had shown with the exact simulator that the closed form overstates the reach
+of $\Mone$ (pooled $-11.11$ against $-2.94$ for the simulated model), so a pass of the closed form would not bear
+on $\Mone$ and a failure would confirm the first test. The closed form passes against the well-mixed model
+($\Delta_0=+15.45$, largely through the processing line), is worse than the constant ratio pooled
+($\Delta_{\mathrm{C}}=-8.06$) and on the flights ($-4.63$), and fails on three of the five held-out events.
+% src: data/v2_numbers.json (out2.pooled.M1.all: delta0 15.446, deltaC -8.055; out2.pooled.M1.air: deltaC -4.634; out2.pooled.M1.decision: B3_failures [F5, F7, P1], V5); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 3 (M1cf); data/s8_first_test_exact.json (primary.pooled: M1cf -11.109, M1 -2.939)
+
+\emph{A physics-free kernel does as well.} In a post-hoc comparison the exponential kernel, calibrated in the
+same way (decay length on aircraft 2.5\,m), scores $\Delta_0=+18.0$; $\Mtwo$ is ahead of it by 0.31 on the
+flights, which is not significant, and behind it by 3.7 over the five events. Nothing in this test distinguishes
+the lattice propagator, or the removal of aerosol by ventilation, from a generic smooth decay with distance.
+Further pre-specified secondary analyses, among them the transfer of the train kernel of the first test to the
+eight flights (it beats the well-mixed model and is rejected on four flights), are in Supplementary
+Section~\ref{S-s8_outbreaks:sec:seconddetail}.
+% src: data/v2_numbers.json (out2.check.exp_vs_crr.all: delta0 18.02; out2.check.m2_vs_exp.air: deltaC +0.313; out2.check.m2_vs_exp.all: deltaC -3.72; out2.sec.train_kernel.flights: delta0 7.555; out2.sec.train_kernel.padeq); data/checks/outbreaks2.json: exponential_kernel.aircraft_decay_length_m (2.5)
+
+\subsection{Mixing coefficients and levels}\label{s8_outbreaks:sec:mixing}\label{s8_outbreaks:sec:levels}
+
+Fitted alone, the vehicle events of the first test ask for mixing coefficients that differ by orders of
+magnitude: 0.06--$0.1\sqmh$ for the flight, 25 for the trains, 63 for the bus and at least $6{,}300\sqmh$ for the
+coach; a common value is rejected (likelihood ratio 9.52 on 3 degrees of freedom, approximate $p=0.023$, a post-hoc
+test). In the second test a common coefficient is rejected for the three room events (likelihood ratio 17.4 on
+2 degrees of freedom, approximate $p=1.6\times10^{-4}$) and, more weakly, for the eight flights (15.2 on 7,
+approximate $p=0.034$); these approximate $p$-values use a chi-square reference whose conditions are not met when
+maxima lie on the edge of the grid. No setting class has a single coefficient, and none transfers between
+classes. One infectiousness parameter is fitted per event, in both tests, so no attack rate in this section is a
+prediction; the emission rates implied by five single-index events and one cluster with several instructors
+of the first dataset span a factor of 76 (53 if only the confirmed choir cases are counted;
+Supplementary Table~\ref{S-s8_outbreaks:tab:levels}). Published outbreaks are selected for being large, and
+their level cannot be predicted from a typical index case.
+% src: data/appC_protocol_numbers.json (loo.vehicle: LR 9.52, p 0.0231); data/bsc_validation/07_loo.json (classes.vehicle.M2: D_own_mode 25.1, 63.1, 6310, 0.1); data/validation_checks/v10_c1_loo.txt (T5 0.063)
+% src: data/v2_numbers.json (out2.D.room: LR 17.44, df 2, p 1.63e-4; out2.D.air: LR 15.18, df 7, p 0.0338)
+% src: data/bsc_validation/04_level_controls.json (implied.H1.E_implied = 2734.3; implied.T2.E_implied = 36.0; implied.R2.E_implied = 1921.0); ratios 2734.3/36.0 = 76, 1921.0/36.0 = 53
+
+\subsection{Recorded contacts}\label{s8b_evidence:sec:contacts}
+
+Does the movement mechanism of the model, a random walk with contact on a shared site, describe who meets whom
+indoors? Six open SocioPatterns datasets of face-to-face proximity recorded with wearable RFID sensors at a
+resolution of 20 seconds \citep{cattuto2010dynamics} were used: an office building in 2013 and in 2015
+\citep{genois2015data,genois2018can}, a primary school \citep{stehle2011high}, a hospital ward
+\citep{vanhems2013estimating}, a high school \citep{mastrandrea2015contact} and a scientific conference
+\citep{genois2018can,stehle2011simulation}, with 75 to 403 people over 2 to 10 days. Each model is calibrated on
+the first half of the days of a dataset and predicts the second half. The walk of Section~\ref{s2_model:sec}, in
+discrete time with one site per contact range, has two parameters (the number of sites and the hop
+probability), fixed by the contact time per jointly present pair and by the mean contact duration. Its
+competitors are a well-mixed model and a model with a constant ratio of contact within and between the recorded
+groups. Seven families of contact statistics are scored, and an SIR epidemic is run on the recorded and on the
+model-generated contacts at the same total contact time in four scenarios; the movement component is validated on
+a dataset if it meets the epidemic criterion and at least six of the seven families
+(Supplementary Section~\ref{S-appS_prot2:sec:contacts}).
+% src: code/bsc_validation2/a2_contact_mobility/PREREGISTRATION.md sections 2-7; data/v2_numbers.json (con.dataset.*: N 75-403, n_days 2-10)
+
+The walk fails on all six datasets (Supplementary Table~\ref{S-s8b_evidence:tab:contacts}). It passes one or two of the seven
+families on each, namely those it was calibrated on, and does not reproduce who meets whom: people in the walk
+have too many partners on five of the six datasets (6.0 per person and day against 4.6 in the office of 2013, 90
+against 47 in the primary school), and contact within the recorded groups is 10 to 33\pct{} of contact time in
+the walk and 57 to 94\pct{} in the data. Because the walk spreads the same contact time over too many, too equal
+partners, the index case infects more people on the walk's contacts than on the recorded ones in all 24
+scenarios, by 25 to 72\pct{} on average per setting. The two models without space do neither better nor worse,
+and the outcome is the lowest of the protocol's ladder of outcomes (A0 in its labels), with the sentence that the
+protocol reserved for this case: the lattice walk adds nothing over a non-spatial contact model. A static network in which each pair keeps the contact rate it had on the
+training days does better (post hoc). In the walk the number of contacts grows as the square of the number of
+people present; in four of the five settings where this can be estimated it grows at most linearly (exponents
+0.45 to 0.95), and in the hospital ward faster than the square (2.8).
+% src: data/v2_tab_datasets.tex (S7_alpha observed / walk: 0.45/1.97, 2.83/2.20, 0.95/2.06, 0.76/2.12, 0.81/1.95)
+% src: data/v2_numbers.json (con.model.RW0.S: [1,2,2,1,1,1]; con.stats_obs_vs_RW0: S3_deg_mean 4.58/5.96 (InVS13), 46.6/90.4 (LyonSchool); S6_within_frac observed 0.57-0.94, walk 0.10-0.33; con.model.RW0: n_cells_over 24 of 24, ratio_min 1.253, ratio_max 1.715; con.model.WM; con.ladder: A0; con.check.static); data/v2_tab_datasets.tex (S7_alpha)
+Walks anchored to home sites, developed afterwards on three datasets and frozen before three confirmatory ones,
+reduce the error of simulated attack rates from 0.17 to 0.04--0.05 in a description after the fact, but their
+confirmatory test is uninformative, because the frozen fitting procedure does not recover its own synthetic
+truth; anchoring is a direction, not a result. A walk with two zones of different mobility, the only variant
+that touches heterogeneous mobility, passes two of the seven families on each dataset and does not improve on the
+homogeneous walk (Supplementary Section~\ref{S-s8b_evidence:sec:contactsdetail}). The calibrated hop probabilities correspond to about 220 to 450
+sites$^2$ per day, between $\Dz=1$, which was not tested against contacts, and walking mobility.
+% src: data/v2_numbers.json (con.model.RWhet.S: [2,2,2,2,2,2]; con.model.RWhet.E_datasets 0; con.model.RW0.mean_abs_dA 0.167; con.model.RWclus: 0.041; con.model.RWstickZ: 0.038; con.model.RWstickO: 0.050; con.check.self_power); per-direction hop rate (p/4) x 4,320 steps per day = 219-451 (con.dataset.*.p: 0.203-0.417)
+
+\subsection{The airborne kernel fixed by tracer measurements}\label{s8b_evidence:sec:tracer}
+
+If the non-local term of $\Mtwo$ describes the transport of aerosol, its mixing coefficient can be measured
+without any outbreak. Published tracer measurements exist for four of the settings: ethane at eight seats of the
+Hunan coach \citep{ou2022}, particles released from a breathing mannequin in a wide-body aircraft cabin
+\citep{kinahan2021aerosol}, salt aerosol in a rail carriage \citep{woodward2022evaluation}, and tracer gas at
+seven tables of the Guangzhou restaurant \citep{li2021}; for the classroom a regression of the turbulent diffusion
+coefficient on the air change rate measured in two houses \citep{cheng2011modeling} is extrapolated. In the three
+vehicles the measured fields, summarised by a diffusion coefficient, are of order 100 to $1{,}000\sqmh$: about
+$1{,}300$ in the coach (bounded from below only), 700 and 110 for two releases in the cabin, and 900 and 350 in
+the carriage. These coefficients are points of a grid spaced by a factor of 1.12 (those fitted to outbreaks in
+both tests, of a grid spaced by 1.26), so that only their first two digits carry information. They are 4.5 to about 50 times the
+vehicle value of the first test ($25\sqmh$), and the extrapolated room values (169 to $185\sqmh$) a few hundred
+times its room value ($0.5\sqmh$). The aircraft coefficient of the second test
+($126\sqmh$) lies inside the range measured in cabins; that does not make an outbreak-fitted coefficient a
+measurement of air mixing, since within the same test no common coefficient holds. The coefficient that
+outbreaks ask for absorbs whatever makes risk fall steeply with distance: exposure at close range, companions
+seated together, behaviour.
+% src: code/bsc_validation2/a3_tracer_physics/PREREGISTRATION.md section 3; data/v2_numbers.json (tr.D.coach: D 1259, lo 708; tr.D.cabin: D_5L 708, D_5A 112; tr.D.train: middle 891, end 355; tr.D.table: classroom 169, office 185; out2.cal.air|M2: 126); data/checks/tracer.json: ratio_tracer_to_outbreak_D_at_low_cabin_value (4.5); grids: code/bsc_validation2/a3_tracer_physics/PREREGISTRATION.md section 3 (log10 step 0.05, factor 1.122; 1258.93 = 10^3.10, 707.95 = 10^2.85, 112.20 = 10^2.05, 891.25 = 10^2.95, 354.81 = 10^2.55), code/bsc_validation/PREREGISTRATION.md and code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md (61 points over [0.01, 10^4], factor 1.259); tr.D.table: classroom 169.16, office 185.2
+
+With the kernel fixed in this way, the events of the first dataset were predicted with one free parameter each
+(Supplementary Table~\ref{S-s8b_evidence:tab:tracer}). The coach and the call centre are no longer rejected, but only because the
+measured kernel is close to well mixed, and the well-mixed model fits as well or better. The classroom is the one
+gain over the well-mixed model ($p=0.42$ against $0.036$), matched by constant ratios of 2 and 3. Flight VN54 is
+not reproduced: the predicted ratio is 1.66 against 7.3 observed, and the formal non-rejection ($p=0.14$) depends
+on zero sensor readings (with the zeros treated as missing, a variant listed in the protocol, $p=0.003$). The
+restaurant is not reproduced at the reported count, and the train table is a failure for every model. Over the
+five stratum events the tracer kernel scores $+7.87$ against the well-mixed model and $-0.80$ and $-0.78$ against
+the constant ratios 2 and 3; the outcome of the tracer protocol is the one for one adequacy failure and no gain over a generic gradient
+(S4 in its labels), and the one for two adequacy failures (S5) if the flight, whose formal pass rests on zero
+sensor readings, is counted as a failure. The tracer kernel is not
+validated as a spatial predictor. In an exploratory extension to the four held-out flights of the second test,
+written after its results were known, the two cabin coefficients beat the well-mixed model and tie with a
+constant ratio of 3 ($-0.16$; Supplementary Section~\ref{S-s8b_evidence:sec:tracerdetail}).
+% src: data/v2_numbers.json (tr.event.C1: P p 0.424, M0 p 0.036; tr.event.T5: P p 0.136, rr_expected 1.660, KA_zeros_missing 0.0028; tr.eval.pooled.P: M0 delta 7.873; CRR2 -0.800; CRR3 -0.780; tr.eval.decision: outcome S4); notes/VERIFICATION.md (Section 4.8, tracer measurements, item 11: outcome S5 if the flight is counted as a failure); data/v2_numbers.json (tr.ext.pooled.P: M0 +10.36, CRR3 -0.16)
+
+\subsection{Zone-level structure}\label{s8b_evidence:sec:zones}
+
+At the scale of zones the model says that transmission between two groups is proportional to the time their
+members spend in the same place, with the frequency-dependent normalisation of Section~\ref{s2_model:sec}: if a
+person of group $i$ spends a fraction $f_{iz}$ of the time in zone $z$, the force of infection on group $i$ is
+\begin{equation}\label{s8b_evidence:eq:zone}
+  \lambda_i=\beta\sum_z q_z\,f_{iz}\,\frac{\sum_jf_{jz}I_j}{\sum_jf_{jz}N_j},
+\end{equation}
+a residence-time formulation in the sense of \citet{bichara2015sis}. The model fitted puts measured shares of
+contact duration on three exclusive levels (the own class, the other classes of the grade, the rest of the
+school), which identifies contact time measured by RFID with time spent together. The epidemic is seasonal
+influenza in the 29 public primary schools of Matsumoto, Japan, in 2014/15, with the day of onset of 2{,}548
+infected among 10{,}923 pupils in 455 classes \citep{endo2021within}; the mixing is the share of a pupil's contact
+time measured in a primary school in Lyon \citep{stehle2011high,gemmetto2014mitigation}: 0.762 with the own
+class, 0.104 with the other classes of the grade and 0.134 with the rest of the school. A daily chain-binomial
+model with the serial-interval kernel of the source is fitted under two-fold cross-validation by school; the rule
+has three tiers (Supplementary Section~\ref{S-appS_prot2:sec:zones}).
+% src: code/bsc_validation2/a4_zone_level/PREREGISTRATION.md sections 1, 2.1-2.6; data/v2_numbers.json (zone.counts: 10923, 2548, 455, 29); data/schools/lyon_mixing.json (shares 0.762, 0.104, 0.134)
+
+The zone model predicts held-out schools far better than a well-mixed school (ahead in 27 of 29 schools) and
+than independent classes (Supplementary Table~\ref{S-s8b_evidence:tab:zone}). The share between classes of the same grade agrees
+to two decimals; exact agreement of the three shares is rejected, the fitted school-level share being almost
+twice the measured one. This comparison is confounded: the model has no household term, whereas the source
+attributes 41\pct{} of the pupils' infections to households, and siblings attend the same school in different
+grades. The fitted shares lie within the tolerance, but not securely (11\pct{} of bootstrap resamples exceed
+it). The pre-specified generic two-level model with one fitted ratio is not beaten, and a guess of 0.7, 0.1 and
+0.2, chosen after the fitted shares were known, does better. The verdict of the rule, `right structure within
+tolerance, not exact', is reported as a weak pass: the measurement is not shown to matter beyond the statement
+that most transmission is within the class. The test rests on the residence-time reduction
+\eqref{s8b_evidence:eq:zone}, which is an assumption; the lattice walk, the gradient within a room, the airborne
+term and attack-rate levels are not involved. A zone model of the Seoul call-centre building by floor excludes a
+well-mixed building, which needs no model, and nothing more: the time spent in the shared lifts and lobby is not
+measured, and with a longer assumed time the same model is inconsistent with the data (Supplementary
+Section~\ref{S-s8b_evidence:sec:zonesdetail}).
+% src: Endo et al. 2021, Results and Discussion (Europe PMC PMC8609560, read 1 October 2026: household 41.3 % of student cases); data/v2_numbers.json (zone.posthoc.schools_Z_ahead_of_H [27, 29]; zone.primary_other.LR_F_vs_Z 42.71, w_hat; zone.TV_boot_ci; zone.check.P_TV_gt_0.15 0.107); notes/VERIFICATION.md (Section 4.9, zone level, items 4, 5, 7); data/v2_numbers.json (zone.seoul: pred_count_median 4, well_mixed_expected 78.7, obs_other 3); data/checks/zones.json: seoul_by_floor (30-120 min gives 7 to 81)
+
+\subsection{What the evidence supports}\label{s8b_evidence:sec:overall}\label{s8_outbreaks:sec:verdict}
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{The model and its components after both outbreak tests and the analyses of contacts, tracers and
+  zones. Every entry is the outcome after the re-check; Supplementary Table~\ref{S-appS_prot2:tab:register}
+  registers all tests, with what was pre-specified and what was added post hoc.}
+  \label{s8b_evidence:tab:variants}
+  % src: the evidence cited is that of Section 7, where each number carries its own src comment; data/v2_numbers.json (out2.pooled.M1.all: delta0 15.446; out2.pooled.M2.all: deltaC -9.150; out2.pooled.plant_share_of_deltaC 0.916)
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.48\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}@{}}
+    \toprule
+    Component & Evidence & Position \\
+    \midrule
+    $\Mone$: people walk on the lattice, transmission on the same site (the model of
+      Sections~\ref{s2_model:sec}--\ref{s6_scenes:sec}) &
+      expected attack rate below the observed one in three of four seated events of the first test (bus total
+      reached with probability 0.0002); in the second test its closed form, which overstates its reach and whose
+      pass by the protocol does not bear on the model, beats well mixed ($+15.45$) but fails on three of five new
+      events and is worse than a constant ratio; its contacts fail against six of six contact datasets and add
+      nothing over a model without space &
+      not supported \\\addlinespace[2pt]
+    $\Mtwo$: non-local airborne term, coefficient fitted to outbreaks &
+      better than well mixed in both tests; the pre-specified pooled comparison favours a constant near/far
+      ratio ($-9.15$, nine-tenths from the processing line); tied with a constant two-row ratio on four
+      flights; an exponential decay does as well (post hoc); failures on a coach, a call centre, a processing
+      line, one flight; no common coefficient; no transfer from trains to aircraft &
+      supported only as: a smooth one-parameter gradient beats a well-mixed model \\\addlinespace[2pt]
+    $\Mtwo$ with the coefficient measured by tracers &
+      one gain over well mixed (classroom), matched by a constant ratio; flight VN54, restaurant and trains
+      not reproduced; exploratory extension to four flights ties with a ratio of 3 &
+      not validated as a spatial predictor \\\addlinespace[2pt]
+    Zone-level reduction, eq.~\eqref{s8b_evidence:eq:zone} &
+      weak pass on influenza in 29 schools; a fitted ratio does as well, and a guess of 0.7, 0.1, 0.2 (post hoc)
+      does better; building by floor inconclusive &
+      weakly supported as structure (class-dominated, three levels); the quantitative law is not \\\addlinespace[2pt]
+    Walkers anchored to home sites &
+      error of simulated epidemics smaller in a description after the fact; confirmatory test uninformative &
+      neither supported nor refuted \\\addlinespace[2pt]
+    Heterogeneous mobility $D_x$ &
+      no dataset with a measured mobility field; a two-zone walk does not improve on the homogeneous one &
+      untested \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The evidence supports the following statement and no stronger one. Tested out of sample against documented
+outbreaks, recorded contacts, tracer measurements and a school epidemic, the model does not show general
+agreement, and what it gets right is not specific to it (Table~\ref{s8b_evidence:tab:variants},
+Supplementary Fig.~\ref{S-s8_outbreaks:fig:summary}). The model with transmission only between people on the same lattice site is
+not supported. The extension with a diffusing-aerosol term predicts that risk falls with distance from the source
+better than a well-mixed model, with the kernel calibrated on other outbreaks and one infectiousness parameter
+fitted per event, but it is not shown to predict the gradient better than a constant ratio of near to far risk:
+pooled over the five held-out events of the second test the pre-specified comparison favours the constant ratio,
+nine-tenths of it on an event whose near zone was chosen by its source on the same data, and on four held-out
+flights the two are statistically indistinguishable. No single mixing coefficient holds across rooms, across
+vehicles or from trains to aircraft. Two structural statements are supported, and the model shares them with
+simpler ones: risk falls smoothly with distance from the source (pooled near/far ratio with random effects about 4
+in the second dataset, 3.3 without the processing line, post hoc; 2.05 over the four held-out events of the first
+test with distance strata), and transmission between zones is dominated by the group in which people spend their
+time. The contact mechanism, the shape and calibration of the lattice kernel, the reading of fitted coefficients
+as a property of the air and their transfer between settings are not supported; attack-rate levels were fitted,
+not predicted.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, summary: statement that the evidence supports); notes/VERIFICATION.md (Section 4.6, second outbreak test, statement that the evidence supports); notes/VERIFICATION.md section 4.10 (statement); data/v2_numbers.json (out2.rr_pooled."all 11 events": RR_random 3.978; "without P1" 3.296); data/s8_outbreaks_checks.json (heterogeneity.pooled_rr_random_DL 2.047)
+
+Above all, none of these tests bears on the heterogeneity of mobility, which is what distinguishes the model of
+Sections~\ref{s2_model:sec}--\ref{s6_scenes:sec} from simpler ones. In every outbreak that publishes positions,
+and hence in every event tested, people are seated or at fixed stations, so the heterogeneity of mobility between
+zones never enters, and the model that has a positive result is a standard aerosol model; the contact records
+carry no positions; and no metro-carriage or supermarket outbreak with a denominator was found. Nor do the
+pre-specified tests bear on the illustrative values $\beta=0.5\perday$ and $\Dz=1\cellday$ of the earlier
+sections: in every test the level of transmission was fitted (one infectiousness parameter per outbreak, one rate
+for the school epidemic, a matched contact time for the contact records), and mobilities and mixing coefficients
+were calibrated on data.
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 5); notes/VERIFICATION.md section 4.10 (reservations: seated or at fixed stations, mobility untested)
+The default values are not meant for single events, and they cannot produce the large ones. Under the
+frequency-dependent hazard \eqref{s2_model:eq:pairhazard} an infective at $x$ infects at expected rate $\beta q_x$
+(Section~\ref{s2_model:sec:ibm}). Summing, over chains of transmission between distinct people, the expected
+number of ordered contact events along each chain (people move independently and remain at stationarity), the
+expected number of infections caused by one index case in an event of duration $T$ is at most
+$\e^{\beta\qmax T}-1$. With $\beta=0.5\perday$ and the largest $q$ of the scenes ($2.8$) this is $0.10$ for the
+1.7-hour Zhejiang bus trip \citep{shen2020}, on which 23 of 67 passengers were infected, and $0.16$ for the 2.5-hour Skagit Valley
+choir rehearsal \citep{hamner2020}, at which 52 of 60 attendees (32 of them confirmed) were; by Markov's
+inequality the model gives such counts a probability below $0.005$, and the bound reaches them only for
+$\beta$ of about $16\perday$ on the bus and $14\perday$ for the choir ($12\perday$ with the 32 confirmed cases).
+This comparison was added after the tests, for the two events of the first dataset with the highest attack rates
+after a short seated exposure (Supplementary Table~\ref{S-appS_prot2:tab:register}).
+% src: data/s8_default_level.json (q_max 2.8; events."Zhejiang bus": expected_infections_bound 0.1021, n_infected 23 of 67, markov_bound 0.0044, beta_needed_per_day 16.34; events."Skagit choir": expected_infections_bound 0.1570, 52 / 32 of 60, markov_bound 0.0030 / 0.0049, beta_needed_per_day 13.61 / 11.99), computed by code/s8_default_level.py from data/bsc_outbreaks/outbreaks.csv

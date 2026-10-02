@@ -1,0 +1,50 @@
+{
+ "provenance": "Values recorded by the re-check of the tracer measurements (separately written code in code/checks/tracer/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.8, that reports it.",
+ "values": {
+  "cabin_D": {
+   "zero_readings_dropped": {
+    "release_5L": "9 of 39",
+    "release_5A": "14 of 39"
+   },
+   "fits_keeping_zero_readings_m2_per_h": [
+    56,
+    450
+   ],
+   "without_four_additional_sensors_m2_per_h": {
+    "5A": [
+     112,
+     178
+    ],
+    "5L": [
+     708,
+     891
+    ]
+   }
+  },
+  "cabin_decay_lengths_m": [
+   1.8,
+   4.5
+  ],
+  "ratio_tracer_to_outbreak_D_at_low_cabin_value": 4.5,
+  "pooled_pattern_probability": {
+   "tracer_kernel_true": 0.23,
+   "constant_ratio_2_true": 0.84,
+   "constant_ratio_3_true": 1.0
+  },
+  "extension_naha": {
+   "p_with_single_geometric_mean_D": {
+    "p": 0.044,
+    "D_m2_per_h": 282
+   }
+  }
+ },
+ "item": {
+  "cabin_D.zero_readings_dropped": "notes/VERIFICATION.md, Section 4.8, further point 3",
+  "cabin_D.fits_keeping_zero_readings_m2_per_h": "notes/VERIFICATION.md, Section 4.8, item 12",
+  "cabin_D.without_four_additional_sensors_m2_per_h": "notes/VERIFICATION.md, Section 4.8, further point 4",
+  "cabin_decay_lengths_m": "notes/VERIFICATION.md, Section 4.8, item 12",
+  "ratio_tracer_to_outbreak_D_at_low_cabin_value": "notes/VERIFICATION.md, Section 4.8, item 12",
+  "pooled_pattern_probability": "notes/VERIFICATION.md, Section 4.8, item 11",
+  "extension_naha.p_with_single_geometric_mean_D": "notes/VERIFICATION.md, Section 4.8, item 13"
+ }
+}

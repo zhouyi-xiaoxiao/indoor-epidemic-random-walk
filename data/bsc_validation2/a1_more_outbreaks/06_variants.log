@@ -1,0 +1,64 @@
+primary (reference)                    M2 d0 +13.37 (p 0.0000) dC -10.13 (pB2 0.910, mirror 0.0000) | air d0 +10.19 dC -0.77 mirror 0.065 | V5 fails ['F5', 'P1']
+primary (reference)                    M3 d0 +17.55 (p 0.0000) dC -5.95 (pB2 0.831, mirror 0.0002) | air d0 +10.29 dC -0.68 mirror 0.107 | V3 fails ['P1']
+primary (reference)                    M1 d0 +15.45 (p 0.0000) dC -8.06 (pB2 0.830, mirror 0.0000) | air d0 +6.33 dC -4.63 mirror 0.002 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-out F5 confirmed+probable            M2 d0 +10.34 (p 0.0000) dC -11.88 (pB2 0.944, mirror 0.0000) | air d0 +7.16 dC -2.52 mirror 0.013 | V5 fails ['F5', 'P1']
+S-out F5 confirmed+probable            M3 d0 +15.34 (p 0.0000) dC -6.88 (pB2 0.867, mirror 0.0001) | air d0 +8.08 dC -1.60 mirror 0.042 | V3 fails ['P1']
+S-out F5 confirmed+probable            M1 d0 +12.50 (p 0.0000) dC -9.72 (pB2 0.882, mirror 0.0000) | air d0 +3.38 dC -6.30 mirror 0.000 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([4, 4, 2, 12], 0.014), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-out F6 flight-associated only (8)    M2 d0 +13.25 (p 0.0000) dC -11.26 (pB2 0.960, mirror 0.0000) | air d0 +10.07 dC -1.90 mirror 0.026 | V5 fails ['F5', 'P1']
+S-out F6 flight-associated only (8)    M3 d0 +17.47 (p 0.0000) dC -7.03 (pB2 0.930, mirror 0.0000) | air d0 +10.21 dC -1.76 mirror 0.036 | V3 fails ['P1']
+S-out F6 flight-associated only (8)    M1 d0 +15.22 (p 0.0000) dC -9.28 (pB2 0.938, mirror 0.0000) | air d0 +6.11 dC -5.86 mirror 0.000 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([3, 4, 0, 1], 0.052), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-out F3 with suspected case           M2 d0 +13.38 (p 0.0000) dC -10.22 (pB2 0.905, mirror 0.0000) | air d0 +10.21 dC -0.86 mirror 0.058 | V5 fails ['F5', 'P1']
+S-out F3 with suspected case           M3 d0 +17.62 (p 0.0000) dC -5.98 (pB2 0.818, mirror 0.0002) | air d0 +10.36 dC -0.71 mirror 0.099 | V3 fails ['P1']
+S-out F3 with suspected case           M1 d0 +15.40 (p 0.0000) dC -8.21 (pB2 0.826, mirror 0.0000) | air d0 +6.28 dC -4.79 mirror 0.001 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.045), 'F6': ([4, 4, 2, 1], 0.289), 'F7': ([1, 3, 0], 0.214), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-out F7 with passenger G              M2 d0 +14.92 (p 0.0000) dC -9.73 (pB2 0.882, mirror 0.0000) | air d0 +11.75 dC -0.37 mirror 0.085 | V5 fails ['F5', 'P1']
+S-out F7 with passenger G              M3 d0 +19.03 (p 0.0000) dC -5.62 (pB2 0.788, mirror 0.0003) | air d0 +11.77 dC -0.35 mirror 0.137 | V5 fails ['F7', 'P1']
+S-out F7 with passenger G              M1 d0 +16.38 (p 0.0000) dC -8.27 (pB2 0.850, mirror 0.0000) | air d0 +7.27 dC -4.85 mirror 0.001 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 4, 0], 0.066), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-out all four                         M2 d0 +11.70 (p 0.0000) dC -12.78 (pB2 0.965, mirror 0.0000) | air d0 +8.52 dC -3.42 mirror 0.005 | V5 fails ['F5', 'F6', 'P1']
+S-out all four                         M3 d0 +16.75 (p 0.0000) dC -7.73 (pB2 0.922, mirror 0.0000) | air d0 +9.49 dC -2.45 mirror 0.017 | V3 fails ['P1']
+S-out all four                         M1 d0 +13.10 (p 0.0000) dC -11.38 (pB2 0.963, mirror 0.0000) | air d0 +3.99 dC -7.95 mirror 0.000 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([4, 4, 2, 12], 0.012), 'F6': ([3, 4, 0, 1], 0.048), 'F7': ([1, 4, 0], 0.092), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-src F6 three symptomatic sources     M2 d0 +14.26 (p 0.0000) dC -9.83 (pB2 0.889, mirror 0.0000) | air d0 +11.08 dC -0.47 mirror 0.080 | V5 fails ['F5', 'P1']
+S-src F6 three symptomatic sources     M3 d0 +18.41 (p 0.0000) dC -5.68 (pB2 0.792, mirror 0.0003) | air d0 +11.15 dC -0.40 mirror 0.132 | V3 fails ['P1']
+S-src F6 three symptomatic sources     M1 d0 +16.21 (p 0.0000) dC -7.87 (pB2 0.795, mirror 0.0000) | air d0 +7.10 dC -4.45 mirror 0.002 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([3, 4, 3, 1], 0.576), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-src F6 six infectious                M2 d0 +12.94 (p 0.0000) dC -10.20 (pB2 0.918, mirror 0.0000) | air d0 +9.76 dC -0.84 mirror 0.064 | V5 fails ['F5', 'P1']
+S-src F6 six infectious                M3 d0 +17.21 (p 0.0000) dC -5.92 (pB2 0.844, mirror 0.0002) | air d0 +9.95 dC -0.65 mirror 0.115 | V3 fails ['P1']
+S-src F6 six infectious                M1 d0 +14.96 (p 0.0000) dC -8.17 (pB2 0.853, mirror 0.0000) | air d0 +5.85 dC -4.75 mirror 0.001 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([5, 3, 2, 1], 0.098), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-src F3 suspected cases as sources    M2 d0 +13.33 (p 0.0000) dC -9.98 (pB2 0.917, mirror 0.0000) | air d0 +10.16 dC -0.62 mirror 0.079 | V3 fails ['P1']
+S-src F3 suspected cases as sources    M3 d0 +17.40 (p 0.0000) dC -5.91 (pB2 0.855, mirror 0.0001) | air d0 +10.14 dC -0.64 mirror 0.120 | V3 fails ['P1']
+S-src F3 suspected cases as sources    M1 d0 +15.53 (p 0.0000) dC -7.78 (pB2 0.843, mirror 0.0000) | air d0 +6.41 dC -4.36 mirror 0.002 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 2.8183829312644537}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.051), 'F6': ([4, 4, 2, 1], 0.312), 'F7': ([1, 3, 0], 0.153), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-src F7 passenger A only              M2 d0 +13.13 (p 0.0000) dC -10.27 (pB2 0.919, mirror 0.0000) | air d0 +9.96 dC -0.91 mirror 0.060 | V5 fails ['F5', 'P1']
+S-src F7 passenger A only              M3 d0 +17.30 (p 0.0000) dC -6.10 (pB2 0.852, mirror 0.0001) | air d0 +10.04 dC -0.83 mirror 0.095 | V3 fails ['P1']
+S-src F7 passenger A only              M1 d0 +15.32 (p 0.0000) dC -8.09 (pB2 0.833, mirror 0.0000) | air d0 +6.21 dC -4.67 mirror 0.002 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 3, 0], 0.216), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-hh F5 households collapsed           M2 d0 +15.47 (p 0.0000) dC -8.15 (pB2 0.804, mirror 0.0000) | air d0 +12.30 dC +1.21 mirror 0.264 | V3 fails ['P1']
+S-hh F5 households collapsed           M3 d0 +19.25 (p 0.0000) dC -4.37 (pB2 0.659, mirror 0.0016) | air d0 +11.99 dC +0.90 mirror 0.343 | V3 fails ['P1']
+S-hh F5 households collapsed           M1 d0 +18.35 (p 0.0000) dC -5.27 (pB2 0.518, mirror 0.0006) | air d0 +9.24 dC -1.85 mirror 0.027 | V5 fails ['F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 3, 1, 3], 0.252), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-int F1 interviewed only              M2 d0 +12.77 (p 0.0000) dC -9.25 (pB2 0.943, mirror 0.0000) | air d0 +9.60 dC +0.11 mirror 0.196 | V3 fails ['P1']
+S-int F1 interviewed only              M3 d0 +16.11 (p 0.0000) dC -5.92 (pB2 0.932, mirror 0.0001) | air d0 +8.84 dC -0.64 mirror 0.142 | V5 fails ['F7', 'P1']
+S-int F1 interviewed only              M1 d0 +14.99 (p 0.0000) dC -7.04 (pB2 0.961, mirror 0.0000) | air d0 +5.87 dC -3.61 mirror 0.001 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 2.2387211385683394}, 'air|M2': {'D': 199.52623149688787}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.073), 'F6': ([4, 4, 2, 1], 0.389), 'F7': ([1, 3, 0], 0.063), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-pitch 0.75 m                         M2 d0 +13.38 (p 0.0000) dC -10.12 (pB2 0.908, mirror 0.0000) | air d0 +10.21 dC -0.76 mirror 0.066 | V5 fails ['F5', 'P1']
+S-pitch 0.75 m                         M3 d0 +17.57 (p 0.0000) dC -5.93 (pB2 0.828, mirror 0.0002) | air d0 +10.31 dC -0.65 mirror 0.109 | V3 fails ['P1']
+S-pitch 0.75 m                         M1 d0 +15.45 (p 0.0000) dC -8.06 (pB2 0.829, mirror 0.0000) | air d0 +6.33 dC -4.63 mirror 0.001 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.048), 'F6': ([4, 4, 2, 1], 0.297), 'F7': ([1, 3, 0], 0.209), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-pitch 0.86 m                         M2 d0 +13.35 (p 0.0000) dC -10.15 (pB2 0.911, mirror 0.0000) | air d0 +10.18 dC -0.79 mirror 0.065 | V5 fails ['F5', 'P1']
+S-pitch 0.86 m                         M3 d0 +17.52 (p 0.0000) dC -5.98 (pB2 0.834, mirror 0.0002) | air d0 +10.26 dC -0.70 mirror 0.104 | V3 fails ['P1']
+S-pitch 0.86 m                         M1 d0 +15.45 (p 0.0000) dC -8.06 (pB2 0.831, mirror 0.0000) | air d0 +6.33 dC -4.63 mirror 0.001 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 158.48931924611142}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([4, 4, 2, 1], 0.29), 'F7': ([1, 3, 0], 0.211), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-kappa cabin ACH 5-15                 M2 d0 +13.33 (p 0.0000) dC -10.17 (pB2 0.911, mirror 0.0000) | air d0 +10.16 dC -0.81 mirror 0.063 | V5 fails ['F5', 'P1']
+S-kappa cabin ACH 5-15                 M3 d0 +17.53 (p 0.0000) dC -5.97 (pB2 0.832, mirror 0.0002) | air d0 +10.27 dC -0.69 mirror 0.106 | V3 fails ['P1']
+S-kappa cabin ACH 5-15                 M1 d0 +15.45 (p 0.0000) dC -8.06 (pB2 0.830, mirror 0.0000) | air d0 +6.33 dC -4.63 mirror 0.002 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 63.09573444801933}, 'room|CRR': {'rho': 3.548133892335755}, 'room|M2': {'D': 0.0199526231496888}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 3, 0], 0.208), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.0)}
+S-noW2 room class calibrated on W1 only M2 d0 +18.05 (p 0.0000) dC -7.65 (pB2 0.369, mirror 0.0000) | air d0 +10.19 dC -0.77 mirror 0.065 | V5 fails ['F5', 'P1']
+S-noW2 room class calibrated on W1 only M3 d0 +18.82 (p 0.0000) dC -6.88 (pB2 0.414, mirror 0.0001) | air d0 +10.29 dC -0.68 mirror 0.107 | V3 fails ['P1']
+S-noW2 room class calibrated on W1 only M1 d0 +14.52 (p 0.0000) dC -11.19 (pB2 0.660, mirror 0.0000) | air d0 +6.33 dC -4.63 mirror 0.002 | V5 fails ['F5', 'F7', 'P1']
+     post {'air|CRR': {'rho': 3.1622776601683795}, 'air|M2': {'D': 125.89254117941675}, 'room|CRR': {'rho': 316.22776601683796}, 'room|M2': {'D': 0.251188643150958}} {'F5': ([3, 4, 1, 6], 0.047), 'F6': ([4, 4, 2, 1], 0.298), 'F7': ([1, 3, 0], 0.21), 'F8': ([2, 0, 0, 0], 1.0), 'P1': ([5, 12, 1, 2], 0.001)}

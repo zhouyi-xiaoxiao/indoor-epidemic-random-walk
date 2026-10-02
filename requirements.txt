@@ -1,0 +1,10 @@
+# Versions used for the stored results (Python 3.14.6, Apple clang 21 for the C routines).
+# Older versions of numpy (>= 2.0), scipy (>= 1.13) and matplotlib (>= 3.9) are expected to work but were not tested.
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2
+mpmath==1.3.0
+pandas==3.0.6
+pillow==12.3.0
+# Optional: only for code/bsc_validation2/a4_zone_level/src/00_convert_jld2.py (conversion of the pupil-level
+# source file, whose output is already in data/schools/): h5py==3.16.0

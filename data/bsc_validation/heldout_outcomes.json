@@ -1,0 +1,29 @@
+{
+ "_note": "Hold-out stratum counts, transcribed from ../bsc_outbreaks/data/spatial_strata.csv and outbreaks.json. Read ONLY by evaluation scripts 03_* onward (never by calibration or power scripts).",
+ "shape_primary": {
+  "T1": {"near_k": 14, "near_n": 33, "far_k": 9, "far_n": 34, "label": "rows 5-11 vs other rows"},
+  "T2": {"near_k": 3, "near_n": 19, "far_k": 4, "far_n": 26, "label": "rear rows 8-13 vs front rows 1-7"},
+  "T5": {"near_k": 11, "near_n": 12, "far_k": 1, "far_n": 8, "label": "<2 seats away vs >2 seats away (business class)"},
+  "C1": {"near_k": 8, "near_n": 10, "far_k": 4, "far_n": 14, "label": "front two rows vs back three rows"}
+ },
+ "shape_secondary": {
+  "T1_rows6-10": {"near_k": 11, "near_n": 23, "far_k": 12, "far_n": 44},
+  "T2_driver_side": {"near_k": 6, "near_n": 24, "far_k": 1, "far_n": 20}
+ },
+ "O1_joincount": {"north_cases": 79, "north_desks": 137, "z_reported": -0.64},
+ "level": {
+  "T3": {"k": 2, "n": 17, "k_alt": 2, "n_alt": 12},
+  "T2": {"k": 7, "n": 46, "k_alt": 7, "n_alt": 48},
+  "H1": {"k": 52, "n": 60, "k_alt": 32},
+  "O2": {"k": 8, "n": 12, "k_alt": 10},
+  "R2": {"k": 2, "n": 13},
+  "C5": {"k": 57, "n": 217},
+  "C3": {"k": 5, "n": 728}
+ },
+ "negative_controls": {
+  "S1_customers": {"k": 0, "n": 8224},
+  "C3_masked_classrooms": {"k": 5, "n": 728},
+  "T5_premium_economy": {"k": 0, "n": 35},
+  "T7_rail": {"statement": "no rail cluster of >= 5 cases among 61 clusters (Furuse 2020)"}
+ }
+}

@@ -1,0 +1,14 @@
+# output of code/bsc_validation/verify/v09_sens.py (re-check), re-run by code/s8_outbreaks_checks.py --check
+[primary (re-check)] pooled delta +3.79 p 0.00017 | T1: RR 2.39, p 0.3797 | T2: RR 11.09, p 0.0064 | T5: RR 3.65, p 0.6194 | C1: RR 4.97, p 0.1388
+  implied emission quanta/h under M2, 5/50/95%:
+     T1 [103.383 131.697 231.048]
+     T2 [33.929 46.347 66.813]
+     T5 [  435.437  1593.609 11823.411]
+     C1 [3.669e+02 1.412e+07 1.614e+16]
+tempered D_air 5/50/95 [np.float64(8.0), np.float64(22.5), np.float64(95.6)]
+[T4 posterior tempered by overdispersion 3.6] pooled delta +5.01 p 0.00009 | T1: RR 2.23, p 0.5737 | T2: RR 8.67, p 0.0262 | T5: RR 3.36, p 0.6402 | C1: RR 4.97, p 0.1388
+[ACH priors of T1,T5,C1 x0.33] pooled delta +3.30 p 0.00045 | T1: RR 2.13, p 0.5043 | T2: RR 11.09, p 0.0064 | T5: RR 2.45, p 0.2029 | C1: RR 4.76, p 0.1587
+[ACH priors of T1,T5,C1 x3.0] pooled delta +3.77 p 0.00008 | T1: RR 3.13, p 0.2045 | T2: RR 11.09, p 0.0064 | T5: RR 5.72, p 1.0 | C1: RR 4.79, p 0.1673
+[T2 ACH x0.33] pooled delta +5.56 p 0.00006 | T1: RR 2.39, p 0.3797 | T2: RR 5.38, p 0.0401 | T5: RR 3.65, p 0.6194 | C1: RR 4.97, p 0.1388
+[S-adj] pooled delta -4.00 p 0.00071 | T1: RR 5.47, p 0.008 | T2: RR 53.26, p 0.0 | T5: RR 6.04, p 1.0 | C1: RR 4.97, p 0.1388
+[S-row] pooled delta +5.97 p 0.00013 | T1: RR 1.29, p 0.6528 | T2: RR 2.59, p 0.3053 | T5: RR 1.88, p 0.1243 | C1: RR 4.97, p 0.1388

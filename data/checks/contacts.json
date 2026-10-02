@@ -1,0 +1,26 @@
+{
+ "provenance": "Values recorded by the re-check of the contact records (separately written code in code/checks/contacts/, same project, same machine); each value is listed with the item of notes/VERIFICATION.md, Section 4.7, that reports it.",
+ "values": {
+  "power": {
+   "true_or_nesting_model_passes": "20/20",
+   "wrong_non_nested_model_reaches_A1": "0/44"
+  },
+  "noise_of_epidemic_criterion": {
+   "n_runs_per_SIR": 4000,
+   "max_difference_secondary_cases_pct": 7,
+   "tolerance_pct": 10
+  },
+  "lattice_walk_errors_pct": [
+   25,
+   72
+  ]
+ },
+ "item": {
+  "power.true_or_nesting_model_passes": "notes/VERIFICATION.md, Section 4.7, item 9",
+  "power.wrong_non_nested_model_reaches_A1": "notes/VERIFICATION.md, Section 4.7, item 9",
+  "noise_of_epidemic_criterion.n_runs_per_SIR": "notes/VERIFICATION.md, Section 4.7, item 9",
+  "noise_of_epidemic_criterion.max_difference_secondary_cases_pct": "notes/VERIFICATION.md, Section 4.7, item 9",
+  "noise_of_epidemic_criterion.tolerance_pct": "notes/VERIFICATION.md, Section 4.7, item 9",
+  "lattice_walk_errors_pct": "notes/VERIFICATION.md, Section 4.7, item 9"
+ }
+}

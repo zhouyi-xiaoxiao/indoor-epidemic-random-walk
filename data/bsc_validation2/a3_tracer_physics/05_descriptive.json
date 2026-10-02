@@ -1,0 +1,124 @@
+{
+ "D_table": [
+  {
+   "enclosure": "coach (Ou 2022, ethane, 8 points)",
+   "D_phys": 1258.9254117941675,
+   "lo": 707.945784384138,
+   "hi": 100000.0,
+   "kappa_tracer": 6.5,
+   "D_outbreak_alone": 6310.0,
+   "D_calibrated": 25.1,
+   "event": "T2 coach",
+   "mixing_length_m": 13.916926118353796,
+   "D_phys_m2_per_s": 0.3497015032761576
+  },
+  {
+   "enclosure": "wide-body forward cabin (Kinahan 2021, 1 um particles, 2 releases)",
+   "D_phys": 281.8382931264453,
+   "lo": 112.2018454301963,
+   "hi": 707.945784384138,
+   "kappa_tracer": 35.0,
+   "D_outbreak_alone": 0.1,
+   "D_calibrated": 25.1,
+   "event": "T5 flight",
+   "mixing_length_m": 2.8376967175432224,
+   "D_phys_m2_per_s": 0.07828841475734592
+  },
+  {
+   "enclosure": "rail carriage (Woodward 2022, salt aerosol, middle release)",
+   "D_phys": 891.2509381337459,
+   "lo": 707.945784384138,
+   "hi": 1258.9254117941675,
+   "kappa_tracer": 13.0,
+   "D_outbreak_alone": 25.1,
+   "D_calibrated": 25.1,
+   "event": "T4 trains",
+   "mixing_length_m": 8.279961622605905,
+   "D_phys_m2_per_s": 0.24756970503715164
+  },
+  {
+   "enclosure": "rail carriage, end release",
+   "D_phys": 354.8133892335753,
+   "lo": 177.82794100389228,
+   "hi": 562.341325190349,
+   "kappa_tracer": 13.0,
+   "D_outbreak_alone": 25.1,
+   "D_calibrated": 25.1,
+   "event": "T4 trains",
+   "mixing_length_m": 5.224302597797331,
+   "D_phys_m2_per_s": 0.09855927478710426
+  },
+  {
+   "enclosure": "classroom 429 m3 (Cheng 2011 relation, 2-12 ACH)",
+   "D_phys": 169.16169779237853,
+   "lo": 38.4,
+   "hi": 745.2,
+   "kappa_tracer": null,
+   "D_outbreak_alone": null,
+   "D_calibrated": 0.5,
+   "event": "C1 classroom"
+  },
+  {
+   "enclosure": "open-plan office wing (Cheng 2011 relation, 1-6 ACH)",
+   "D_phys": 185.20029697600378,
+   "lo": 45.55,
+   "hi": 753.0,
+   "kappa_tracer": null,
+   "D_outbreak_alone": null,
+   "D_calibrated": 0.5,
+   "event": "O1 call centre"
+  }
+ ],
+ "R1_tracer": {
+  "near_mean": 0.86,
+  "remote_mean": 0.5530769230769231,
+  "remote_min": 0.32,
+  "remote_max": 0.86,
+  "aerosol_near_mean": 0.6833333333333332,
+  "aerosol_remote_mean": 0.11923076923076924
+ },
+ "dose_ratio_needed": {
+  "T2": {
+   "dose_ratio_needed": 1.0287102962682035,
+   "risk_ratio_obs": 1.026315789473684,
+   "rr_predicted_P": 1.2852463314361295
+  },
+  "T1": {
+   "dose_ratio_needed": 1.7954343183662802,
+   "risk_ratio_obs": 1.6026936026936027,
+   "rr_predicted_P": 1.0326545517338939
+  },
+  "T5": {
+   "dose_ratio_needed": 18.609157000072017,
+   "risk_ratio_obs": 7.333333333333333,
+   "rr_predicted_P": 1.659967427215376
+  },
+  "C1": {
+   "dose_ratio_needed": 4.783271061516858,
+   "risk_ratio_obs": 2.8000000000000003,
+   "rr_predicted_P": 1.7685221411358318
+  }
+ },
+ "implied_emission_quanta_per_h": {
+  "T1 bus": [
+   99.23848275335577,
+   120.32977588333912,
+   192.06767752331362
+  ],
+  "T2 coach": [
+   29.27038096561751,
+   37.87948689481941,
+   48.99191118134948
+  ],
+  "T5 flight (K-B)": [
+   963.3684028780352,
+   1059.668442295685,
+   1262.9131085657914
+  ],
+  "C1 classroom": [
+   172.87099506283184,
+   317.4820983376725,
+   642.2485633404862
+  ]
+ }
+}

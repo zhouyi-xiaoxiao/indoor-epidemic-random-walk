@@ -1,0 +1,118 @@
+{
+ "stamp": "2026-10-01 05:28:42 BST",
+ "models": {
+  "M1": {
+   "A1": {
+    "delta": -2.9385649775304756,
+    "p": 0.019055840711829312,
+    "passed": false,
+    "power_if_true": 0.9999509583954342
+   },
+   "A2_single_events": {
+    "T1": {
+     "p": 0.4570747217806041,
+     "label": "not reproduced (total unattainable)"
+    },
+    "T2": {
+     "p": 0.00016027612840348974,
+     "label": "not reproduced"
+    },
+    "T5": {
+     "p": 0.009034989086579799,
+     "label": "not reproduced"
+    },
+    "C1": {
+     "p": 0.31190175005229237,
+     "label": "reproduced, discriminating"
+    }
+   },
+   "O1": {
+    "P_z_le_obs_pooled": 0.055585732391816044,
+    "inside_95_pooled": true,
+    "P_z_le_obs_equal_weight": 0.039586473319553575,
+    "inside_95_equal_weight": true
+   },
+   "A2_failures_as_run": [
+    "T1",
+    "T2",
+    "T5"
+   ],
+   "A2_failures_conservative": [
+    "T1",
+    "T2",
+    "T5"
+   ],
+   "A3": {
+    "tied_index": true,
+    "unselected_transfer": false,
+    "passed": false
+   },
+   "A4": {
+    "P_exceed": {
+     "S1": 0.0,
+     "C3": 0.0,
+     "T5_PE": 0.16666666666666666,
+     "T7": 0.0
+    },
+    "passed": true
+   },
+   "outcome_as_run": "W4",
+   "outcome_conservative": "W4"
+  },
+  "M2": {
+   "A1": {
+    "delta": 3.869949663625785,
+    "p": 0.00013647314959340493,
+    "passed": true,
+    "power_if_true": 0.997402289138118
+   },
+   "A2_single_events": {
+    "T1": {
+     "p": 0.37770955211317436,
+     "label": "reproduced, non-discriminating"
+    },
+    "T2": {
+     "p": 0.006935514840695797,
+     "label": "not reproduced"
+    },
+    "T5": {
+     "p": 0.6080510494061762,
+     "label": "reproduced, discriminating"
+    },
+    "C1": {
+     "p": 0.11488354653462357,
+     "label": "reproduced, discriminating"
+    }
+   },
+   "O1": {
+    "P_z_le_obs_pooled": 0.03126809496236248,
+    "inside_95_pooled": true,
+    "P_z_le_obs_equal_weight": 0.016600073237984906,
+    "inside_95_equal_weight": false
+   },
+   "A2_failures_as_run": [
+    "T2"
+   ],
+   "A2_failures_conservative": [
+    "T2",
+    "O1"
+   ],
+   "A3": {
+    "tied_index": true,
+    "unselected_transfer": true,
+    "passed": true
+   },
+   "A4": {
+    "P_exceed": {
+     "S1": 0.0002,
+     "C3": 0.00025,
+     "T5_PE": 0.16333333333333333,
+     "T7": 0.0
+    },
+    "passed": true
+   },
+   "outcome_as_run": "W2",
+   "outcome_conservative": "W4"
+  }
+ }
+}

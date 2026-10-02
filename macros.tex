@@ -1,0 +1,154 @@
+% macros.tex -- notation and theorem environments of the article and its Supplementary Material.
+% Loaded by main.tex and supplement.tex after amsmath, amssymb, amsthm.  The notation is typeset as Table "appD_tables:tab:notation"
+% (Supplementary Section S1); the comment table below adds, in its last column, the names used in the code.
+%
+% =====================================================================================================
+% NOTATION TABLE (mapping to the code in the last column)
+% -----------------------------------------------------------------------------------------------------
+%  symbol            macro            meaning                                             code
+% -----------------------------------------------------------------------------------------------------
+%  \Omega            \cells           set of walkable lattice cells (barriers removed)    Omega
+%  n                 \ncell           number of walkable cells, n = |\Omega|              n (theory), M or |Omega| (sim)
+%  x, y, z           --               cells (elements of \Omega)                          r, s (theory); x, y (sim)
+%  a                 --               lattice spacing (m); lengths in cells unless stated a
+%  D_x               --               mobility (diffusion coefficient) of cell x, cell^2/day   D(r)
+%  D_0               \Dz              mobility scale: D_x = D_0 d_x, d_x the zone multiplier    D0
+%  \omega_{x\to y}   \hop{x}{y}       hop rate from x to a neighbouring cell y (1/day)    w_{s->r}, W(x->y)
+%  \mathbf M         \gen             movement generator, M_{yx} = \omega_{x\to y}, 1^T M = 0   M (theory), L (sim)
+%  \mathbf M_0       \genz            generator at D_0 = 1, so M = D_0 M_0
+%  \boldsymbol\pi    \stat            stationary distribution of M (uniform for the symmetric rule)  pi
+%  P_t(y|x)          --               propagator, (e^{Mt})_{yx}                           P_t(r|s), G
+%  q_x, \mathbf Q    \Qm              infection efficiency of cell x; Q = diag(q)         q, Q
+%  \beta, \gamma     --               transmission rate, recovery rate (1/day)
+%  \mathbf P         \ker             contact kernel, row-stochastic, P_{xy} = P(y|x)     P (sim)
+%  N                 \Npop            number of people in the room                        N, N_tot
+%  S_x, I_x, R_x     --               expected numbers of susceptible/infective/recovered in cell x
+%  \mathbf J         \Jm              growth operator J = M + F - \gamma 1                J
+%  \mathbf F, \mathbf V  \Fm, \Vm     transmission and transition parts; F = \beta P^T Q (= \beta Q for the same-cell kernel), V = \gamma 1 - M
+%  \mathbf K         \ngm             next-generation matrix K = F V^{-1}                 K
+%  n_off(x)          \noff            offspring number: column sum of K (mean-field secondary cases of a case born at x)
+%  R_0               \Rz              basic reproduction number of the mean-field model, \rho(K)
+%  \lambda_1         \lamone          growth rate s(J)                                    lambda_1
+%  s(A), \rho(A)     \sabs, \srad     spectral abscissa, spectral radius
+%  <q>_\pi           \qmean           \sum_x \pi_x q_x  (plain <q> when \pi is uniform)   <q>_pi
+%  q_max, q_min      \qmax, \qmin
+%  u, \ell           \uvec, \lvec     right/left Perron vectors of J (prevalence map; u sums to 1)   u, l
+%  w, z              \wvec, \zvec     right/left Perron vectors of K (incidence map; reproductive value)   w, z  (sim: v, u)
+%  e_x               \evec            elasticity map, e_x = d ln R0 / d ln q_x            e
+%  \mathcal E(v)     \dirich          Dirichlet form of the reversible generator          E(x)
+%  \mu_k, \phi_k     --               eigenvalues/eigenvectors of -M (reversible case), \mu_0 = 0
+%  Z, \mu_Z          \muZ             a set of cells (zone); exit rate \mu_Z = -s(M[Z,Z])
+%  \kappa_x          --               exit (door) rate from cell x; M_\kappa = M - diag(\kappa)
+%  \mu_leak          \muk             leak rate, -s(M_\kappa)
+%  R_0^{room}        \Rroom           reproduction number of a leaky room
+%  \bar\rho          \rhobar          mean number of OTHER people per cell, (N-1)/n       rho_bar
+%  h(x,y)            --               pair hazard \beta q_x P(y|x)/\bar\rho               h
+%  p(x,y)            --               probability that a case born at x infects a given person then at y
+%  R_1(x)            \Rone            expected secondary cases of a lone index case born at x (pair level)
+%  \bar R_1          \Ronebar         R_1 averaged over a uniformly placed index case      "pair R1", "R1 uniform index"
+%  \mathbf K_1       \ngmone          pair-level next-generation matrix                   K1
+%  g_0               \gz              Laplace-transformed return probability of the relative walk at \gamma
+%  c_x               --               encounter factor of the per-cell rule
+%  \hat R            \Rhat            counted mean number of secondary cases in simulation
+%  f                 --               fraction of the day a room is occupied (duty cycle)
+%  M0, M1, M2        \Mzero,\Mone,\Mtwo  validation models: well mixed; same-site; with non-local airborne term
+%  \varepsilon_k     --               infectiousness parameter of outbreak event k
+%  X_j               --               model exposure of susceptible j
+%  D_p, D_{air}      \Dp, \Dair       calibrated mobility of people (M1) and mixing coefficient of quanta (M2), m^2/h
+%  \Lambda           \remrate         removal rate of airborne quanta (ventilation + deposition + inactivation), 1/h
+% -----------------------------------------------------------------------------------------------------
+%  Units: time in days and lengths in lattice cells in Sections 2-6 (D in cell^2/day, a = 1);
+%         hours and metres in Section 7 (D_p, D_air in m^2/h).
+%  Default epidemiological parameters: \beta = 0.5/day, \gamma = 0.14/day.
+% =====================================================================================================
+
+% --- sets, vectors, matrices
+\newcommand{\cells}{\Omega}
+\newcommand{\ncell}{n}
+\newcommand{\Npop}{N}
+\newcommand{\Dz}{D_0}
+\newcommand{\hop}[2]{\omega_{#1\to #2}}
+\newcommand{\gen}{\mathbf{M}}
+\newcommand{\genz}{\mathbf{M}_0}
+\newcommand{\genk}{\mathbf{M}_{\kappa}}
+\newcommand{\stat}{\boldsymbol{\pi}}
+\newcommand{\Qm}{\mathbf{Q}}
+\renewcommand{\ker}{\mathbf{P}}          % contact kernel (the operator \ker is not used in this article)
+\newcommand{\Jm}{\mathbf{J}}
+\newcommand{\Fm}{\mathbf{F}}
+\newcommand{\Vm}{\mathbf{V}}
+\newcommand{\ngm}{\mathbf{K}}
+\newcommand{\ngmone}{\mathbf{K}_1}
+\newcommand{\Id}{\mathbf{1}}             % identity matrix
+\newcommand{\one}{\boldsymbol{1}}        % vector of ones
+\newcommand{\uvec}{\mathbf{u}}
+\newcommand{\lvec}{\boldsymbol{\ell}}
+\newcommand{\wvec}{\mathbf{w}}
+\newcommand{\zvec}{\mathbf{z}}
+\newcommand{\evec}{\mathbf{e}}
+\newcommand{\qvec}{\mathbf{q}}
+\newcommand{\T}{\mathsf{T}}              % transpose
+\newcommand{\diag}{\operatorname{diag}}
+
+% --- spectral quantities and reproduction numbers
+\newcommand{\sabs}{s}                    % spectral abscissa s(A)
+\newcommand{\srad}{\rho}                 % spectral radius \rho(A)
+\newcommand{\Rz}{R_0}
+\newcommand{\Rroom}{R_0^{\mathrm{room}}}
+\newcommand{\Rone}{R_1}
+\newcommand{\Ronebar}{\bar{R}_1}
+\newcommand{\Rhat}{\widehat{R}}
+\newcommand{\lamone}{\lambda_1}
+\newcommand{\qmean}{\langle q\rangle_{\pi}}
+\newcommand{\qmax}{q_{\max}}
+\newcommand{\qmin}{q_{\min}}
+\newcommand{\muZ}{\mu_Z}
+\newcommand{\muk}{\mu_{\mathrm{leak}}}   % leak rate (not \mu_\kappa: too close to \mu_k in print)
+\newcommand{\noff}{n_{\mathrm{off}}}      % offspring number (column sum of K)
+\newcommand{\dirich}{\mathcal{E}}
+\newcommand{\rhobar}{\bar{\rho}}
+\newcommand{\gz}{g_0}
+
+% --- validation models and parameters
+\newcommand{\Mzero}{\mathrm{M0}}
+\newcommand{\Mone}{\mathrm{M1}}
+\newcommand{\Mtwo}{\mathrm{M2}}
+\newcommand{\Dp}{D_{\mathrm{p}}}
+\newcommand{\Dair}{D_{\mathrm{air}}}
+\newcommand{\remrate}{\Lambda}
+
+% --- probability
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Exp}{\mathbb{E}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\e}{\mathrm{e}}
+
+% --- units and small helpers
+\newcommand{\perday}{\,\mathrm{day}^{-1}}
+\newcommand{\cdunit}{\ensuremath{\mathrm{cell}^2\,\mathrm{day}^{-1}}}   % the unit of mobility, in text or math
+\newcommand{\cellday}{\ensuremath{\,\mathrm{cell}^2\,\mathrm{day}^{-1}}} % the same after a number
+\newcommand{\pct}{\,\%}                                                  % per cent after a number
+\newcommand{\sqmh}{\,\mathrm{m}^2\,\mathrm{h}^{-1}}
+\newcommand{\qph}{\,\mathrm{quanta}\,\mathrm{h}^{-1}}
+
+% --- theorem environments (one counter per section; numbering Theorem 3.1, Proposition 3.2, ...)
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}{Assumption}
+\renewcommand{\theassumption}{\Alph{assumption}}
+\newtheorem{observation}[theorem]{Numerical observation}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Generated table bodies (data/v2_tab_*.tex, written by code/v2_numbers.py) are read with the primitive \input,
+% which is expandable, so that a rule may follow the last row.
+\makeatletter
+\newcommand{\tabinput}[1]{\@@input #1.tex }
+\makeatother

@@ -1,0 +1,21 @@
+F1  CA112 (Olsen 2003)                 SARS-CoV-1                 9/29  vs   9/82  RR  2.83 (1.24-6.43) Fisher p 0.0184 | pred M0 1.00 CRR 4.64 M2 2.69 M3 3.12 M1 2.12 | calibration (LOO prediction)
+F2  Chicago-Honolulu (Kenyon 1996)     M. tuberculosis            4/13  vs   2/55  RR  8.46 (1.73-41.33) Fisher p 0.0104 | pred M0 1.00 CRR 3.99 M2 2.34 M3 2.39 M1 1.40 | calibration (LOO prediction)
+F3  LA-Auckland (Baker 2010)           influenza A(H1N1)pdm09     3/67  vs   0/40  RR  4.20 (0.22-79.25) Fisher p 0.2911 | pred M0 1.00 CRR 4.36 M2 3.04 M3 2.86 M1 1.39 | calibration (LOO prediction)
+F4  Cancun-Birmingham (Young 2014)     influenza A(H1N1)pdm09     5/126 vs   4/90  RR  0.89 (0.25-3.23) Fisher p 1.0000 | pred M0 1.00 CRR 5.48 M2 3.29 M3 3.28 M1 1.67 | calibration (LOO prediction)
+F5  Naha (Toyokawa 2022)               SARS-CoV-2                 7/23  vs   7/117 RR  5.09 (1.97-13.12) Fisher p 0.0021 | pred M0 1.00 CRR 2.91 M2 4.32 M3 3.87 M1 6.47 | hold-out
+F6  Sydney-Perth (Speake 2020)         SARS-CoV-2                 8/46  vs   3/52  RR  3.01 (0.85-10.69) Fisher p 0.1075 | pred M0 1.00 CRR 2.85 M2 2.76 M3 2.47 M1 2.49 | hold-out
+F7  EK448 (Swadi 2021)                 SARS-CoV-2                 4/13  vs   0/71  RR 47.67 (2.72-835.10) Fisher p 0.0004 | pred M0 1.00 CRR 3.07 M2 7.13 M3 5.85 M1 2.69 | hold-out
+F8  Tel Aviv-Frankfurt (Hoehl 2020)    SARS-CoV-2                 2/20  vs   0/51  RR 12.56 (0.63-250.53) Fisher p 0.0765 | pred M0 1.00 CRR 3.06 M2 5.66 M3 4.45 M1 5.40 | hold-out
+W1  Ward 8A students (Wong 2004)       SARS-CoV-1                 7/11  vs   0/8   RR 11.09 (0.73-168.64) Fisher p 0.0128 | pred M0 1.00 CRR 3.94 M2 2.38 M3 2.47 M1 9.64 | calibration (LOO prediction)
+W2  Ward 8A inpatients (Yu 2005)       SARS-CoV-1                13/20  vs  17/54  RR  2.06 (1.24-3.43) Fisher p 0.0154 | pred M0 1.00 CRR 4.98 M2 3.79 M3 3.15 M1 1.18 | calibration (LOO prediction)
+P1  Meat plant (Günther 2020)          SARS-CoV-2                17/26  vs   3/52  RR 11.33 (3.65-35.21) Fisher p 0.0000 | pred M0 1.00 CRR 2.81 M2 1.27 M3 2.69 M1 3.91 | hold-out
+all 11 events                            n=11 fixed RR 3.16 (2.28-4.38) Q 18.9 df 10 p 0.041 I2 0.47 | random 3.98 (2.32-6.82) | MH 3.92
+aircraft (8)                             n=8 fixed RR 3.51 (2.20-5.61) Q 10.3 df 7 p 0.170 I2 0.32 | random 3.75 (2.01-7.00) | MH 3.67
+rooms (3)                                n=3 fixed RR 2.86 (1.81-4.51) Q 8.2 df 2 p 0.017 I2 0.76 | random 5.18 (1.27-21.17) | MH 4.25
+new grade-A only (10, without W2)        n=10 fixed RR 4.27 (2.78-6.54) Q 14.3 df 9 p 0.111 I2 0.37 | random 4.64 (2.57-8.40) | MH 4.90
+calibration aircraft (pre-2020)          n=4 fixed RR 2.60 (1.40-4.84) Q 4.9 df 3 p 0.178 I2 0.39 | random 2.68 (1.09-6.59) | MH 2.58
+hold-out aircraft (SARS-CoV-2)           n=4 fixed RR 5.21 (2.56-10.62) Q 3.3 df 3 p 0.341 I2 0.10 | random 5.37 (2.42-11.91) | MH 5.83
+pathogen: M. tuberculosis                n=1 fixed RR 8.46 (1.73-41.33) Q 0.0 df 0 p - I2 0.00 | random 8.46 (1.73-41.33) | MH 8.46
+pathogen: SARS-CoV-1                     n=3 fixed RR 2.34 (1.53-3.59) Q 1.7 df 2 p 0.429 I2 0.00 | random 2.34 (1.53-3.59) | MH 2.75
+pathogen: SARS-CoV-2                     n=5 fixed RR 6.49 (3.55-11.87) Q 4.6 df 4 p 0.326 I2 0.14 | random 6.66 (3.38-13.12) | MH 7.38
+pathogen: influenza A(H1N1)pdm09         n=2 fixed RR 1.15 (0.35-3.72) Q 0.9 df 1 p 0.344 I2 0.00 | random 1.15 (0.35-3.72) | MH 1.37

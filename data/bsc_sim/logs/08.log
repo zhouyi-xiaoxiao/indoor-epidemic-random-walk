@@ -1,0 +1,44 @@
+office|D0=1|baseline|FD R0=5.11 R1=2.27 Rsim=2.30 Pmaj=0.491 AR=0.232 peak|maj=0.128
+office|D0=1|ventilation q x 0.5|FD R0=2.55 R1=1.51 Rsim=1.55 Pmaj=0.295 AR=0.102 peak|maj=0.090
+office|D0=1|hotspot ventilation (25 % of cells)|FD R0=4.67 R1=2.08 Rsim=2.11 Pmaj=0.439 AR=0.195 peak|maj=0.122
+office|D0=1|coldspot ventilation (25 % of cells)|FD R0=5.11 R1=2.09 Rsim=2.12 Pmaj=0.450 AR=0.205 peak|maj=0.121
+office|D0=1|masks beta x 0.3|FD R0=1.53 R1=1.05 Rsim=1.05 Pmaj=0.147 AR=0.048 peak|maj=0.071
+office|D0=1|capacity 50 %|FD R0=5.11 R1=1.52 Rsim=1.51 Pmaj=0.393 AR=0.126 peak|maj=0.117
+office|D0=1|capacity 50 %|DD R0=2.53 R1=1.12 Rsim=1.13 Pmaj=0.258 AR=0.080 peak|maj=0.102
+office|D0=1|partitions (+39 barrier cells)|FD R0=5.11 R1=2.21 Rsim=2.20 Pmaj=0.459 AR=0.166 peak|maj=0.107
+office|D0=1|partitions (+39 barrier cells)|DD R0=6.14 R1=2.42 Rsim=2.36 Pmaj=0.506 AR=0.195 peak|maj=0.114
+office|D0=1|combination|FD R0=2.56 R1=1.10 Rsim=1.09 Pmaj=0.274 AR=0.077 peak|maj=0.099
+office|D0=1|combination|DD R0=1.52 R1=0.82 Rsim=0.78 Pmaj=0.165 AR=0.055 peak|maj=0.090
+office|D0=10|baseline|FD R0=4.68 R1=3.79 Rsim=3.76 Pmaj=0.760 AR=0.737 peak|maj=0.390
+office|D0=10|ventilation q x 0.5|FD R0=2.34 R1=2.09 Rsim=2.09 Pmaj=0.522 AR=0.404 peak|maj=0.212
+office|D0=10|hotspot ventilation (25 % of cells)|FD R0=4.10 R1=3.38 Rsim=3.46 Pmaj=0.709 AR=0.675 peak|maj=0.367
+office|D0=10|coldspot ventilation (25 % of cells)|FD R0=4.37 R1=3.46 Rsim=3.34 Pmaj=0.732 AR=0.696 peak|maj=0.360
+office|D0=10|masks beta x 0.3|FD R0=1.40 R1=1.30 Rsim=1.30 Pmaj=0.290 AR=0.131 peak|maj=0.109
+office|D0=10|capacity 50 %|FD R0=4.68 R1=3.22 Rsim=3.20 Pmaj=0.697 AR=0.629 peak|maj=0.362
+office|D0=10|capacity 50 %|DD R0=2.31 R1=1.88 Rsim=1.85 Pmaj=0.533 AR=0.345 peak|maj=0.216
+office|D0=10|partitions (+39 barrier cells)|FD R0=4.63 R1=3.60 Rsim=3.60 Pmaj=0.730 AR=0.693 peak|maj=0.342
+office|D0=10|partitions (+39 barrier cells)|DD R0=5.55 R1=4.14 Rsim=4.13 Pmaj=0.777 AR=0.751 peak|maj=0.380
+office|D0=10|combination|FD R0=2.31 R1=1.79 Rsim=1.74 Pmaj=0.504 AR=0.285 peak|maj=0.188
+office|D0=10|combination|DD R0=1.37 R1=1.16 Rsim=1.19 Pmaj=0.329 AR=0.123 peak|maj=0.126
+classroom|D0=1|baseline|FD R0=5.87 R1=2.58 Rsim=2.58 Pmaj=0.613 AR=0.247 peak|maj=0.141
+classroom|D0=1|ventilation q x 0.5|FD R0=2.93 R1=1.66 Rsim=1.58 Pmaj=0.376 AR=0.114 peak|maj=0.100
+classroom|D0=1|hotspot ventilation (25 % of cells)|FD R0=4.37 R1=2.33 Rsim=2.38 Pmaj=0.569 AR=0.206 peak|maj=0.127
+classroom|D0=1|coldspot ventilation (25 % of cells)|FD R0=5.86 R1=2.39 Rsim=2.36 Pmaj=0.551 AR=0.220 peak|maj=0.138
+classroom|D0=1|masks beta x 0.3|FD R0=1.76 R1=1.12 Rsim=1.09 Pmaj=0.212 AR=0.063 peak|maj=0.083
+classroom|D0=1|capacity 50 %|FD R0=5.87 R1=1.80 Rsim=1.80 Pmaj=0.533 AR=0.157 peak|maj=0.137
+classroom|D0=1|capacity 50 %|DD R0=2.90 R1=1.27 Rsim=1.27 Pmaj=0.389 AR=0.107 peak|maj=0.119
+classroom|D0=1|partitions (+22 barrier cells)|FD R0=6.08 R1=2.43 Rsim=2.44 Pmaj=0.535 AR=0.175 peak|maj=0.124
+classroom|D0=1|partitions (+22 barrier cells)|DD R0=7.14 R1=2.65 Rsim=2.60 Pmaj=0.589 AR=0.203 peak|maj=0.131
+classroom|D0=1|combination|FD R0=3.04 R1=1.21 Rsim=1.21 Pmaj=0.364 AR=0.096 peak|maj=0.115
+classroom|D0=1|combination|DD R0=1.76 R1=0.86 Rsim=0.86 Pmaj=0.237 AR=0.068 peak|maj=0.103
+classroom|D0=10|baseline|FD R0=4.93 R1=3.72 Rsim=3.71 Pmaj=0.742 AR=0.704 peak|maj=0.352
+classroom|D0=10|ventilation q x 0.5|FD R0=2.47 R1=2.08 Rsim=2.02 Pmaj=0.521 AR=0.379 peak|maj=0.208
+classroom|D0=10|hotspot ventilation (25 % of cells)|FD R0=3.89 R1=3.16 Rsim=3.09 Pmaj=0.709 AR=0.637 peak|maj=0.303
+classroom|D0=10|coldspot ventilation (25 % of cells)|FD R0=4.79 R1=3.42 Rsim=3.36 Pmaj=0.686 AR=0.629 peak|maj=0.335
+classroom|D0=10|masks beta x 0.3|FD R0=1.48 R1=1.31 Rsim=1.37 Pmaj=0.322 AR=0.141 peak|maj=0.123
+classroom|D0=10|capacity 50 %|FD R0=4.93 R1=3.08 Rsim=3.10 Pmaj=0.723 AR=0.600 peak|maj=0.323
+classroom|D0=10|capacity 50 %|DD R0=2.43 R1=1.84 Rsim=1.86 Pmaj=0.545 AR=0.316 peak|maj=0.210
+classroom|D0=10|partitions (+22 barrier cells)|FD R0=4.81 R1=3.41 Rsim=3.39 Pmaj=0.714 AR=0.627 peak|maj=0.288
+classroom|D0=10|partitions (+22 barrier cells)|DD R0=5.65 R1=3.85 Rsim=3.84 Pmaj=0.767 AR=0.698 peak|maj=0.317
+classroom|D0=10|combination|FD R0=2.41 R1=1.70 Rsim=1.67 Pmaj=0.503 AR=0.242 peak|maj=0.182
+classroom|D0=10|combination|DD R0=1.40 R1=1.10 Rsim=1.11 Pmaj=0.356 AR=0.122 peak|maj=0.130

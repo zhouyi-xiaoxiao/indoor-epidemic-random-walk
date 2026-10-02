@@ -1,0 +1,7 @@
+== InVS15
+   RWstickO: stats done 22s
+   epi R0=1.5,tau=1.0d done 25s
+   epi R0=3.0,tau=1.0d done 26s
+   epi R0=1.5,tau=4.0d done 28s
+   epi R0=3.0,tau=4.0d done 33s
+InVS15 33s {'REALtrain': {'S0_level': False, 'S1_duration': True, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': True, 'S6_groups': True}, 'RWstickO': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True, 'E_epidemic': False}}

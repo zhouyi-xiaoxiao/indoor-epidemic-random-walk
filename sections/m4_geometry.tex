@@ -1,0 +1,221 @@
+% m4_geometry.tex -- Main text, Section 4: Room size, leaks and hotspot maps.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers come from  data/plan_theory_checks.json (canonical office scene, written by
+% code/plan_theory_checks.py),  data/bsc_theory/worked_examples.json and
+% fig2_room_size_data.json (room size, leaks; written by code/bsc_theory/scripts/worked_examples.py
+% and make_figures.py),  data/s4_geometry_checks.json (derived numbers and a second computation;
+% written by code/s4_geometry_checks.py), data/s4_geometry_barriers_leak.json and
+% data/s4_geometry_leak_kernels.json.  Proofs: Supplementary Section S3.
+\section{Room size, leaks and hotspot maps}\label{s4_geometry:sec}
+
+Section~\ref{s3_r0:sec} showed that mobility and the heterogeneity of $q$ together place $\Rz$ between
+$\beta\qmean/\gamma$ and $\beta\qmax/\gamma$. This section asks what the geometry of the room adds. None of it
+is claimed as new: the invariance of Theorem~\ref{s4_geometry:thm:closed} is known for patch models whose
+patches have equal reproduction numbers \citep{gao2011sis}; loss through an absorbing boundary is the
+critical-patch-size mechanism of Skellam \citep{skellam1951random,cantrell2003spatial}; the quasi-stationary
+objects of Theorem~\ref{s4_geometry:thm:leaky} go back to \citet{darroch1967quasi}; and
+Theorem~\ref{s4_geometry:thm:hotspots} is Perron--Frobenius theory together with the sensitivity of a simple
+eigenvalue \citep{berman1994nonnegative,horn2013matrix}. For the leaky-room formulation as stated here we know
+of no source; we searched only for the patch-model results of Section~\ref{s1_intro:sec}. Proofs are in
+Supplementary Section~\ref{S-appS_geometry:sec}.
+
+\subsection{Closed rooms: no finite-size effect}\label{s4_geometry:sec:closed}
+
+\begin{theorem}[Closed room, uniform $q$]\label{s4_geometry:thm:closed}
+  Let Assumption~\ref{s2_model:ass:A} hold, $q\equiv q_0$ and $\Fm=\beta\ker^{\T}\Qm$ with any row-stochastic
+  kernel. Then $\Rz=\beta q_0/\gamma$ and $\lamone=\beta q_0-\gamma$ for every room size, shape, barrier
+  layout, mobility field and mobility scale, and every index case causes $\noff(x)=\beta q_0/\gamma$ secondary
+  cases in expectation in the mean-field model, wherever it starts.
+\end{theorem}
+
+Reflecting walls lose nobody: all column sums of $\ngm$ equal $\beta q_0/\gamma$. Equivalently, for uniform $q$
+the modal matrix of Supplementary Corollary~\ref{S-s3_r0:cor:modal} is diagonal with entries
+$\beta q_0/(\gamma+\mu_j)$, and the largest is the entry of the uniform mode, $\mu_0=0$; the first non-zero
+eigenvalue $\mu_1=2D[1-\cos(\pi/L)]\approx\pi^2D/L^2$ of a square room of side $L$ (cells) plays no role. Square rooms with $L=3,\dots,40$ and
+$D=0.5\cellday$ give $\srad(\ngm)=\beta q/\gamma$ to within $6\times10^{-15}$ in relative terms, and forty
+random rooms with barrier cells, mobilities spread over four decades, symmetric and non-symmetric generators
+and random contact kernels reproduce $\Rz=\beta q_0/\gamma$, $\lamone=\beta q_0-\gamma$ and
+$\noff(x)=\beta q_0/\gamma$ to within $10^{-13}$. In a closed room, geometry therefore enters $\Rz$ only through
+the interplay of mobility with the heterogeneity of $q$.
+% src: data/bsc_theory/fig2_room_size_data.json (refl: max |ratio-1| = 5.8e-15);
+% src: data/s4_geometry_checks.json: B_closed_room_general_kernel (1.9e-14, 1.8e-14, 6.5e-14)
+
+\subsection{Leaky rooms}\label{s4_geometry:sec:leaky}
+
+A genuine boundary effect requires that people leave. Suppose that a person in cell $x$ leaves the room at
+rate $\kappa_x\ge0$ (through a door cell, an open side, or after a dwell time that does not depend on
+position) and is replaced at once by a susceptible person entering through the same cell, so that the
+occupancy stays at $N^*$; only infections that take place inside the room are counted. An infective then
+follows the killed walk with generator $\genk=\gen-\diag\kappa$.
+
+\begin{theorem}[Leaky room; same-cell kernel]\label{s4_geometry:thm:leaky}
+  Let Assumption~\ref{s2_model:ass:A} hold, $\Fm=\beta\Qm$, $\kappa\ge0$, $\kappa\not\equiv0$, and put
+  $\genk=\gen-\diag\kappa$, $\Vm_\kappa=\gamma\Id-\genk$, $\Rroom=\srad(\beta\Qm\Vm_\kappa^{-1})$ and
+  $\muk=-\sabs(\genk)$. Let $\uvec_\kappa,\lvec_\kappa>0$ be the right and left Perron vectors of $\genk$ and
+  $\nu=(\lvec_\kappa\circ\uvec_\kappa)/(\lvec_\kappa^{\T}\uvec_\kappa)$. Then
+  \begin{enumerate}
+    \item[(1)] Theorem~\ref{s3_r0:thm:ngm}(a)--(c) holds with $\gen$ replaced by $\genk$;
+    \item[(2)] $0<\muk\le\langle\kappa\rangle_\pi:=\sum_x\pi_x\kappa_x$; $\muk$ is non-decreasing in every
+       $\kappa_x$; and for
+       $\kappa=k\,\one_\Delta$ with a door set $\Delta\subsetneq\cells$,
+       $\muk\uparrow\mu^{\mathrm{abs}}_\Delta:=-\sabs(\gen[\cells\setminus\Delta,\cells\setminus\Delta])$ as $k\to\infty$;
+    \item[(3)] if $q\equiv q_0$, then $\Rroom=\beta q_0/(\gamma+\muk)$;
+    \item[(4)] in general, $\beta\langle q\rangle_\nu/(\gamma+\muk)\le\Rroom\le\beta\qmax/(\gamma+\muk)$, where
+       $\langle q\rangle_\nu=\sum_x\nu_xq_x$.
+  \end{enumerate}
+\end{theorem}
+
+$\uvec_\kappa$ is the quasi-stationary distribution of a walker conditioned on still being in the room
+\citep{darroch1967quasi}, $1/\muk$ its asymptotic mean residence time, and $\nu$ the stationary law of the
+walk conditioned never to leave. As $\kappa\to0$, $\nu\to\stat$ and (4) reduces to
+Theorem~\ref{s3_r0:thm:bounds}. Two cases are explicit.
+
+\begin{corollary}[Explicit cases]\label{s4_geometry:cor:cases}
+  \emph{(a) Uniform leak (dwell time).} If $\kappa_x\equiv1/T$, then $\muk=1/T$, $\nu=\stat$, and every result
+  of Section~\ref{s3_r0:sec} for the same-cell kernel holds for $\Rroom$ with $\gamma$ replaced by
+  $\gamma+1/T$; in particular
+  \begin{equation}\label{s4_geometry:eq:dwell}
+     \frac{\beta\qmean\,T}{1+\gamma T}\;\le\;\Rroom\;\le\;\frac{\beta\qmax\,T}{1+\gamma T},
+  \end{equation}
+  and an infective who enters at a $\stat$-distributed position causes $\beta\qmean T/(1+\gamma T)$ infections
+  in the room in expectation. For any row-stochastic kernel, with $\Rroom:=\srad(\beta\ker^{\T}\Qm\Vm_\kappa^{-1})$,
+  every result of Section~\ref{s3_r0:sec} that holds for that kernel holds for $\Rroom$ with $\gamma$ replaced by
+  $\gamma+1/T$; in particular $\Rroom=\beta q_0/(\gamma+1/T)$ when $q\equiv q_0$.
+
+  \emph{(b) Corridor with absorbing ends.} For $L$ cells in a row with hop rate $w$ between neighbours,
+  uniform $q$, and $\kappa=w$ at the two end cells (a hop beyond either end leaves the room),
+  \begin{equation}\label{s4_geometry:eq:corridor}
+     \muk=2w\Bigl[1-\cos\frac{\pi}{L+1}\Bigr]=\frac{\pi^2w}{(L+1)^2}+O\bigl(wL^{-4}\bigr),\qquad
+     \Rroom=\frac{\beta q}{\gamma+2w\bigl[1-\cos\frac{\pi}{L+1}\bigr]} .
+  \end{equation}
+\end{corollary}
+
+With lattice spacing $a$, $w=D/a^2$ and physical length $\ell=La$, \eqref{s4_geometry:eq:corridor} tends to
+$\beta q/(\gamma+\pi^2D/\ell^2)$, which is thus the reproduction number of a corridor with \emph{absorbing}
+ends, not of a closed room. The mechanism is the critical patch size of spatial ecology
+\citep{skellam1951random,cantrell2003spatial}: growth at rate $\beta q-\gamma$ competes with loss through the
+boundary at rate $\muk$, and $\Rroom>1$ only if the corridor is longer than about $\pi\sqrt{D/(\beta q-\gamma)}$.
+With $w=1\perday$ and $\beta q=0.5\perday$ this continuum estimate is $5.2$ cells, and on the lattice $\Rroom$
+first exceeds one at $L=5$ ($0.958$ at $L=4$, $1.226$ at $L=5$).
+% src: data/bsc_theory/fig2_room_size_data.json: L1, r1 (L = 4, 5);
+% src: data/s4_geometry_checks.json: A_room_size_and_leaks/corridor_critical_L_continuum (5.236)
+
+Parts (3) and (4) do not extend to other contact kernels with a localised door: in a three-cell example with a
+door at one end the formula of part (3) is off by $-3.0\,\%$ for a nearest-neighbour kernel, and a skewed
+kernel exceeds the upper bound of part (4) by $10.9\,\%$ for one of the two door positions (Supplementary Remark~\ref{S-s4_geometry:rem:kernels}).
+For heterogeneous $q$ and a localised door the substitution $\gamma\to\gamma+\muk$ is not exact either: in the
+office scene with a door with $\kappa=100\perday$ at the end of a corridor arm and $\Dz=10$, $\Rroom=4.220$
+where the substitution gives $4.133$, below the lower bound $4.139$ of part (4), because a door in a low-$q$
+zone weights the walk conditioned to stay towards higher $q$.
+% src: data/s4_geometry_leak_kernels.json (a_uniform_q_neighbour_kernel_end_door: -2.99 %; b_uniform_q_skew_kernel_end_door: excess 10.91 %)
+% src: data/s4_geometry_barriers_leak.json: B_leak_heterogeneous_q/cases/"D0=10|kappa=100" (R_room 4.2201, R_substitution 4.1331, lower_bound 4.1386)
+
+Leaks lower the reproduction number, the more so the smaller the room (Supplementary Fig.~\ref{S-s4_geometry:fig:leak}a). Two
+cautions apply. First, with $D=0.5\cellday$ these leak rates are small ($\muk\le0.1\perday$, residence times
+from $10$ days to $19$ years). For a fixed geometry and a door whose exit rate is itself a hop rate ($\kappa=D$)
+$\muk$ is proportional to the mobility scale, so at $D=2.4\times10^{3}\cellday$
+(Section~\ref{s2_model:sec:regime}) the same residence times would lie between $3$ minutes and $1.5$ days. A
+door with a fixed exit rate $\kappa$ behaves differently: its leak rate grows with mobility but stays below
+$\langle\kappa\rangle_\pi$; in the office with one door cell and $\kappa=1\perday$, $\Rroom/\Rz$ is $0.99998$,
+$0.977$, $0.971$ and $0.970$ at $\Dz=1$, $10$, $100$ and $2{,}400$. For applications the dwell time $T$ should
+therefore be an input, as in Corollary~\ref{s4_geometry:cor:cases}(a), not the output of a random walk towards a
+door.
+% src: data/s4_geometry_checks.json: A_room_size_and_leaks/residence_days_range_D0.5 (10.1 d, 7041 d = 19.3 yr),
+%      max_mu_D0.5 (0.099), residence_range_at_D2400 (3.0 min, 1.47 d); data/s4_geometry_leak_kernels.json
+%      (d_office_door_against_mobility: fixed_kappa_1 R_room_over_R0 0.99998, 0.977, 0.971, 0.970)
+Second, $\Rroom$ counts the infections of one stay. An infective who returns to the same room every day makes
+many stays during one infectious period, so a per-visit number is not the reproduction number of a setting that
+is visited repeatedly; Section~\ref{s6_scenes:sec:interventions} treats daily schedules.
+
+\subsection{Hotspot maps}\label{s4_geometry:sec:hotspots}
+
+\begin{theorem}[Hotspot maps; same-cell kernel]\label{s4_geometry:thm:hotspots}
+  Let Assumption~\ref{s2_model:ass:A} hold, $\Fm=\beta\Qm$ and $q_x>0$ for all $x$. Let $\uvec,\lvec>0$ be the
+  right and left Perron vectors of $\Jm$ ($\one^{\T}\uvec=1$), $\wvec,\zvec>0$ those of $\ngm$
+  ($\ngm\wvec=\Rz\wvec$, $\zvec^{\T}\ngm=\Rz\zvec^{\T}$, $\one^{\T}\wvec=1$), and let $\xi>0$ solve
+  $\beta\Qm\xi=\Rz(\gamma\Id-\gen)\xi$.
+  \begin{enumerate}
+    \item[(i)] (prevalence) $\e^{\Jm t}I(0)=\e^{\lamone t}\bigl[(\lvec^{\T}I(0)/\lvec^{\T}\uvec)\,\uvec+O(\e^{-\delta' t})\bigr]$
+       for every $\delta'<\delta$, where
+       $\delta=\lamone-\max\{\operatorname{Re}\lambda:\lambda\in\sigma(\Jm)\setminus\{\lamone\}\}>0$, and with
+       $\delta'=\delta$ if $\Jm$ is diagonalisable, in particular for reversible movement. $\uvec\propto\stat$
+       if and only if $q$ is constant.
+    \item[(ii)] (incidence) $\ngm^{g}I_0=\Rz^{g}\bigl[(\zvec^{\T}I_0/\zvec^{\T}\wvec)\,\wvec+o(1)\bigr]$ as
+       $g\to\infty$; $\wvec\propto\Qm\xi$; and the first generation of an index case placed according to
+       $\stat$ is $(\ngm\stat)_x=\beta q_x\pi_x/\gamma$.
+    \item[(iii)] (elasticity) $e_x:=\partial\ln\Rz/\partial\ln q_x=z_xw_x/(\zvec^{\T}\wvec)\ge0$ and $\sum_xe_x=1$.
+       For reversible movement $\zvec\propto\Pi^{-1}\xi$, $\Pi=\diag\stat$, and $e_x\propto q_x\xi_x^2/\pi_x$.
+    \item[(iv)] (limits) Let $\gen=\Dz\genz$. As $\Dz\to\infty$: $\uvec\to\stat$, $\wvec\to\Qm\stat/\qmean$ and
+       $e_x\to q_x\pi_x/\qmean$. As $\Dz\to0$: $\uvec$, $\wvec$ and $\evec$ concentrate on $Z=\{x:q_x=\qmax\}$.
+  \end{enumerate}
+\end{theorem}
+
+The three maps answer different questions: $\uvec$ says where infectives are in the exponential phase, $\wvec$
+where infections are generated, and $\evec$ where a reduction of $q$ pays, since lowering $q$ by a small
+fraction $\varepsilon$ on a set $A$ of cells lowers $\Rz$ by the fraction $\varepsilon\sum_{x\in A}e_x$ to first
+order. The lowest mode of the diffusion operator, which is constant under reflecting walls, carries no spatial
+information; the squared amplitude that matters in the reversible case, $e_x\propto q_x\xi_x^2/\pi_x$, is that
+of the principal vector of a generalised eigenproblem that involves $q$.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig_hotspot_maps_en}
+  \caption{Hotspot maps of the office scene in the mean-field model ($\beta=0.5\perday$,
+  $\gamma=0.14\perday$, same-cell kernel; $\ncell=234$ walkable cells of the $20\times13$ lattice).
+  (a) Zones. (b) Infection efficiency $q$. (c), (d) Prevalence map $\uvec$ (right Perron vector of $\Jm$) at $\Dz=1$ and $\Dz=100\cellday$.
+  (e) Incidence map $\wvec$ (right Perron vector of $\ngm$) and (f) elasticity map
+  $e_x=\partial\ln\Rz/\partial\ln q_x$ at $\Dz=1\cellday$. Maps are multiplied by $\ncell$, so that $1$ is the
+  uniform value; the colour scale is logarithmic.}
+  % src: data/plan_theory_sweeps.npz (office_u_D1, office_u_D100, office_w_D1, office_e_D1);
+  %      drawn by code/plan_fig_theory.py
+  \label{s4_geometry:fig:hotspots}
+\end{figure}
+
+Figure~\ref{s4_geometry:fig:hotspots} shows the maps for the office scene, in which the meeting room ($26$
+cells, $11.1\,\%$ of the walkable floor of 234 cells, $q=1.5$) is joined to the rest of the floor by a single lattice edge. At
+$\Dz=1\cellday$ the meeting room holds $95.9\,\%$ of $\uvec$, $79.2\,\%$ of $\wvec$ and $98.1\,\%$ of the
+elasticity: $\Rz=5.107$ is in effect the reproduction number of the meeting room, whose zone bound is $5.041$.
+The elasticity share of the meeting room falls to $20.8\,\%$ at $\Dz=10$ and $13.4\,\%$ at $\Dz=100\cellday$,
+close to its fast-mixing limit of $12.8\,\%$.
+% src: data/plan_theory_checks.json: office/zone_counts/M, office/D0=1/area_share/M;
+%      data/s4_geometry_checks.json: C_office_hotspot_identities/meeting_room_boundary_edges
+% src: data/plan_theory_checks.json: office/D0=1/{prevalence_share_u,incidence_share_w,elasticity_share}/M,
+%      office/D0=1/R0, office/zone_bound_meeting_room/bound
+% src: data/plan_theory_checks.json: office/D0=10, office/D0=100 (elasticity_share/M);
+%      limit: data/s4_geometry_checks.json: C_office_hotspot_identities/meeting_room_share_limit_e_and_w
+The prevalence map is an asymptotic object. It is reached after a time of order $1/\delta$, whereas the
+exponential phase started by one index case among $\Npop$ people lasts about $\ln\Npop/\lamone$. At
+$\Dz=1\cellday$, $1/\delta=16$ days and $\ln100/\lamone=7.6$ days: in the linearised dynamics a point seed at a
+workstation far from the meeting room is still at total-variation distance $0.996$ from $\uvec$ when the total
+has risen from $10^2$ to $10^4$ times the seed, so an outbreak seeded far from the hotspot does not reach the
+map before saturation (Supplementary Remark~\ref{S-s4_geometry:rem:transient} in Section~\ref{S-appS_geometry:sec:hotspot}). For discrete individuals at
+this mobility the mean-field maps do not describe where infections occur either
+(Section~\ref{s6_scenes:sec:hotspot}).
+% src: data/plan_theory_checks.json: office/D0=1/gap, office/transient_linear/D0=1|far_workstation/tv_to_u;
+% src: data/s4_geometry_checks.json: D_derived/{mixing_time_1_over_gap_days,linear_phase_ln100_over_lambda1_days}
+
+\subsection{Interventions in the mean-field model}\label{s4_geometry:sec:examples}
+
+Supplementary Section~\ref{S-appS_geometry:sec:examples} works out interventions on the office scene. Slowing
+the corridors raises $\Rz$, as Theorem~\ref{s3_r0:thm:edges} requires (corridor mobility $\times0.1$:
+$5.107\to5.222$). Walls closing between $10\pct$ of the workstation--workstation edges and as many as
+connectivity allows raise $\Rz$ by $0.009\pct$ to $0.080\pct$ at $\Dz=1$, and none of $80$ random draws lies
+below the baseline at any of three mobilities. Turning $39$ workstation cells into barrier cells removes floor
+with $q$ above the mean: the well-mixed value falls by $1.5\pct$, and $\Rz$ changes by $+0.065\pct$ at $\Dz=1$,
+where it is pinned by the meeting room, and by $-1.07\pct$ and $-1.49\pct$ at $\Dz=10$ and $100$. Halving $q$ in
+a targeted set of cells chosen by the elasticity map, recomputed as cells are treated, lowers $\Rz$ more than
+random placement at $\Dz=1$ (by $0.35$ to $0.48$ between $5\pct$ and $75\pct$ treated area), but makes little
+difference at $\Dz=100$, where targeting reduces to treating the cells with the largest $q$. Uniform measures
+scale $\Rz$ exactly: multiplying $\beta$ by $s_\beta$ and every $q_x$ by $s_q$ multiplies $\Rz$ by $s_\beta s_q$.
+% src: data/plan_theory_checks.json: office/corridor_multiplier_symmetric
+% src: data/s4_geometry_barriers_leak.json: A_partitions/walls/*/D0=*/{change_pct,n_below_baseline}, A_partitions/barrier_cells_39_workstations
+%      (wellmixed_change_pct -1.54; D0=1: +0.065; D0=10: -1.07; D0=100: -1.49)
+% src: data/s4_geometry_checks.json: D_derived/targeted_ventilation/D0=1/*/gain_recomputed_vs_random (0.359, 0.352, 0.449, 0.409, 0.453, 0.482)
+
+All of this belongs to the low-mobility regime. In the mean-field model the closed office is well mixed for
+$\Dz\gtrsim100\cellday$: $\Rz=\beta\qmean/\gamma$ up to the correction of Proposition~\ref{s3_r0:prop:expansions},
+the maps of Theorem~\ref{s4_geometry:thm:hotspots} reduce to $\stat$ and $\Qm\stat/\qmean$, and the floor plan
+enters only through the area-weighted mean of $q$. What survives at realistic mobility is the absence of a
+size effect in a closed room, the proportional scaling in $\beta$ and $q$, and the leak in its dwell-time form
+\eqref{s4_geometry:eq:dwell}. A size dependence does exist for discrete individuals, for a different reason;
+it is the subject of Section~\ref{s5_pair:sec}.

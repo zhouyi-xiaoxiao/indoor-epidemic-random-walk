@@ -1,0 +1,199 @@
+{
+ "stamp": "2026-10-01 09:43:16 BST",
+ "c95": {
+  "M0": 1.1740263535359947,
+  "CRR2": 1.1646562125288042,
+  "CRR3": -0.9609062462386184
+ },
+ "per_event_discrimination": {
+  "T2": {
+   "P(reject P | P true)": 0.04391600787012817,
+   "P(reject M0 | P true)": 0.04391600787012817,
+   "P(reject CRR2 | P true)": 0.05959384195544488,
+   "P(reject CRR3 | P true)": 0.23229254409608036,
+   "P(reject P | M0 true)": 0.031150988042649985,
+   "P(reject M0 | M0 true)": 0.031150988042649985,
+   "P(reject CRR2 | M0 true)": 0.1120008937932931,
+   "P(reject CRR3 | M0 true)": 0.3587634713556438,
+   "P(reject P | CRR2 true)": 0.13457092212904506,
+   "P(reject M0 | CRR2 true)": 0.13457092212904506,
+   "P(reject CRR2 | CRR2 true)": 0.031084187615278168,
+   "P(reject CRR3 | CRR2 true)": 0.08024125615067164,
+   "P(reject P | CRR3 true)": 0.2947243821538717,
+   "P(reject M0 | CRR3 true)": 0.2947243821538717,
+   "P(reject CRR2 | CRR3 true)": 0.06353244682613872,
+   "P(reject CRR3 | CRR3 true)": 0.02258447581648475
+  },
+  "T1": {
+   "P(reject P | P true)": 0.04410090798959192,
+   "P(reject M0 | P true)": 0.04410090798959192,
+   "P(reject CRR2 | P true)": 0.5030390955673729,
+   "P(reject CRR3 | P true)": 0.846074370920934,
+   "P(reject P | M0 true)": 0.0391620253928893,
+   "P(reject M0 | M0 true)": 0.0391620253928893,
+   "P(reject CRR2 | M0 true)": 0.5352960282713216,
+   "P(reject CRR3 | M0 true)": 0.8681861106049324,
+   "P(reject P | CRR2 true)": 0.4499103124735716,
+   "P(reject M0 | CRR2 true)": 0.4499103124735716,
+   "P(reject CRR2 | CRR2 true)": 0.032587281205761674,
+   "P(reject CRR3 | CRR2 true)": 0.1761945146256722,
+   "P(reject P | CRR3 true)": 0.8358963490125811,
+   "P(reject M0 | CRR3 true)": 0.8358963490125811,
+   "P(reject CRR2 | CRR3 true)": 0.09081546728462343,
+   "P(reject CRR3 | CRR3 true)": 0.043377770616110235
+  },
+  "T5": {
+   "P(reject P | P true)": 0.009821073618703144,
+   "P(reject M0 | P true)": 0.2846688727578104,
+   "P(reject CRR2 | P true)": 0.06985259212745557,
+   "P(reject CRR3 | P true)": 0.2520128016070186,
+   "P(reject P | M0 true)": 0.05423513534968644,
+   "P(reject M0 | M0 true)": 0.019369691196316582,
+   "P(reject CRR2 | M0 true)": 0.2596173692148925,
+   "P(reject CRR3 | M0 true)": 0.6117011986981027,
+   "P(reject P | CRR2 true)": 0.004099089775204482,
+   "P(reject M0 | CRR2 true)": 0.3564513400329731,
+   "P(reject CRR2 | CRR2 true)": 0.010369882742570278,
+   "P(reject CRR3 | CRR2 true)": 0.06411953674856281,
+   "P(reject P | CRR3 true)": 0.0324511292299283,
+   "P(reject M0 | CRR3 true)": 0.7083902814577818,
+   "P(reject CRR2 | CRR3 true)": 0.0327322513714363,
+   "P(reject CRR3 | CRR3 true)": 0.038515335425315184
+  },
+  "C1": {
+   "P(reject P | P true)": 0.04438795019358657,
+   "P(reject M0 | P true)": 0.26156181817985674,
+   "P(reject CRR2 | P true)": 0.04438795019358657,
+   "P(reject CRR3 | P true)": 0.42635536820777786,
+   "P(reject P | M0 true)": 0.3401198007807242,
+   "P(reject M0 | M0 true)": 0.03607484183604792,
+   "P(reject CRR2 | M0 true)": 0.3401198007807242,
+   "P(reject CRR3 | M0 true)": 0.8931215506797685,
+   "P(reject P | CRR2 true)": 0.022201510987287384,
+   "P(reject M0 | CRR2 true)": 0.3878720379956275,
+   "P(reject CRR2 | CRR2 true)": 0.022201510987287384,
+   "P(reject CRR3 | CRR2 true)": 0.2750967621517415,
+   "P(reject P | CRR3 true)": 0.10362389724489132,
+   "P(reject M0 | CRR3 true)": 0.8033196584899377,
+   "P(reject CRR2 | CRR3 true)": 0.10362389724489132,
+   "P(reject CRR3 | CRR3 true)": 0.038744537720219886
+  },
+  "R1": {
+   "P(reject P | P true)": 0.0,
+   "P(reject M0 | P true)": 0.09517231868733671,
+   "P(reject CRR2 | P true)": 0.0,
+   "P(reject CRR3 | P true)": 0.0,
+   "P(reject P | M0 true)": 0.0,
+   "P(reject M0 | M0 true)": 0.03894839337877313,
+   "P(reject CRR2 | M0 true)": 0.0,
+   "P(reject CRR3 | M0 true)": 0.0,
+   "P(reject P | CRR2 true)": 0.0,
+   "P(reject M0 | CRR2 true)": 0.11104560481794641,
+   "P(reject CRR2 | CRR2 true)": 0.0,
+   "P(reject CRR3 | CRR2 true)": 0.0,
+   "P(reject P | CRR3 true)": 0.0,
+   "P(reject M0 | CRR3 true)": 0.18603631552266436,
+   "P(reject CRR2 | CRR3 true)": 0.0,
+   "P(reject CRR3 | CRR3 true)": 0.0
+  }
+ },
+ "truths": {
+  "P": {
+   "outcomes": {
+    "S1": 0.2127368734058455,
+    "S2": 0.11706863698890072,
+    "S3": 0.45311901609166605,
+    "S4": 0.1960337347823589,
+    "S5": 0.0210417387312289
+   },
+   "P_no_stratum_failure": 0.8647755304428257,
+   "P_D2_stratum": 0.6116109974906829,
+   "P_D3": 0.704775601275897,
+   "T4": {
+    "P_adequate": 0.953,
+    "P_delta_pos": 0.674,
+    "joint": {
+     "adequate&pos": 0.642,
+     "adequate&neg": 0.311,
+     "fail&pos": 0.032,
+     "fail&neg": 0.015
+    }
+   },
+   "O1_adequate": 0.95
+  },
+  "M0": {
+   "outcomes": {
+    "S1": 0.008631342706762395,
+    "S2": 0.00355707280346524,
+    "S3": 0.4881211087986428,
+    "S4": 0.40074030799070426,
+    "S5": 0.09895016770042525
+   },
+   "P_no_stratum_failure": 0.5809711043249541,
+   "P_D2_stratum": 0.049791567995780994,
+   "P_D3": 0.9051114063144087,
+   "T4": {
+    "P_adequate": 0.937,
+    "P_delta_pos": 0.3035,
+    "joint": {
+     "adequate&pos": 0.2955,
+     "adequate&neg": 0.6415,
+     "fail&pos": 0.008,
+     "fail&neg": 0.055
+    }
+   },
+   "O1_adequate": 0.9190616556128716
+  },
+  "CRR2": {
+   "outcomes": {
+    "S1": 0.017231898792855815,
+    "S2": 0.20367655762833276,
+    "S3": 0.1124868419494232,
+    "S4": 0.455492889077489,
+    "S5": 0.2111118125518991
+   },
+   "P_no_stratum_failure": 0.463586176689915,
+   "P_D2_stratum": 0.8750567451533766,
+   "P_D3": 0.04998780462372807,
+   "T4": {
+    "P_adequate": 0.7825,
+    "P_delta_pos": 0.802,
+    "joint": {
+     "adequate&pos": 0.616,
+     "adequate&neg": 0.1665,
+     "fail&pos": 0.186,
+     "fail&neg": 0.0315
+    }
+   },
+   "O1_adequate": 0.9190616556128716
+  },
+  "CRR3": {
+   "outcomes": {
+    "S1": 0.00016505879091153556,
+    "S2": 0.02158821116508435,
+    "S3": 0.0016792317563125716,
+    "S4": 0.203530301422153,
+    "S5": 0.7730371968655387
+   },
+   "P_no_stratum_failure": 0.10037840572048108,
+   "P_D2_stratum": 0.998051609349184,
+   "P_D3": 0.0009337013448986972,
+   "T4": {
+    "P_adequate": 0.254,
+    "P_delta_pos": 0.9645,
+    "joint": {
+     "adequate&pos": 0.2375,
+     "adequate&neg": 0.0165,
+     "fail&pos": 0.727,
+     "fail&neg": 0.019
+    }
+   },
+   "O1_adequate": 0.9190616556128716
+  }
+ },
+ "o1_interval_P": [
+  -1.3587192101535435,
+  3.485329795657747
+ ],
+ "n_joint_outcomes": 57024
+}

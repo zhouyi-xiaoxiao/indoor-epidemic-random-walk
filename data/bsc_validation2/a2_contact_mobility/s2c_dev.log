@@ -1,0 +1,26 @@
+== InVS13
+   RWstickZ: stats done 27s
+   RWstickO: stats done 29s
+   epi R0=1.5,tau=1.0d done 35s
+   epi R0=3.0,tau=1.0d done 35s
+   epi R0=1.5,tau=4.0d done 35s
+   epi R0=3.0,tau=4.0d done 36s
+InVS13 36s {'REALtrain': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': True, 'S6_groups': True}, 'RWstickZ': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': False}, 'RWstickO': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': True}}
+== LH10
+   RWstickZ: stats done 35s
+   RWstickO: stats done 36s
+   epi R0=1.5,tau=1.0d done 41s
+   epi R0=3.0,tau=1.0d done 42s
+   epi R0=1.5,tau=4.0d done 45s
+   epi R0=3.0,tau=4.0d done 50s
+LH10 50s {'REALtrain': {'S0_level': False, 'S1_duration': False, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True}, 'RWstickZ': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': False}, 'RWstickO': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': True}}
+$P 02_run.py s2c InVS13,LH10 RWstickZ,RWstickO fix3  80.85s user 0.44s system 91% cpu 1:28.46 total
+== LyonSchool
+   RWstickZ: stats done 12s
+   RWstickO: stats done 13s
+   epi R0=1.5,tau=1.0d done 26s
+   epi R0=3.0,tau=1.0d done 47s
+   epi R0=1.5,tau=4.0d done 98s
+   epi R0=3.0,tau=4.0d done 191s
+LyonSchool 191s {'REALtrain': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': True, 'S3_degree': True, 'S4_heterogeneity': True, 'S5_persistence': None, 'S6_groups': True}, 'RWstickZ': {'S0_level': True, 'S1_duration': False, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': False, 'S5_persistence': True, 'S6_groups': True, 'E_epidemic': False}, 'RWstickO': {'S0_level': True, 'S1_duration': True, 'S2_intercontact': False, 'S3_degree': False, 'S4_heterogeneity': True, 'S5_persistence': False, 'S6_groups': True, 'E_epidemic': False}}
+$P 02_run.py s2c LyonSchool RWstickZ,RWstickO fix3  182.70s user 0.79s system 95% cpu 3:12.94 total

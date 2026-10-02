@@ -1,0 +1,102 @@
+% supp_model.tex -- Supplementary Section S1: scene zones and notation.
+% Paths in "% src:" comments are relative to the repository root.
+\section{Scenes and notation}\label{appS_model:sec}
+
+\begin{table}[tbp]
+\centering
+\caption{Zones of the four scenes of Table~\ref{M-s2_model:tab:scenes}: number of cells, mobility multiplier
+$d=D/\Dz$ and infection efficiency $q$. The metro multipliers are $d=c\,n_{\mathrm{d}}^{-\eta}$ evaluated at
+the crowd density $n_{\mathrm{d}}=4.59$ people per $\mathrm{m}^2$. All values are illustrative assumptions; none is a measurement.}
+\label{s2_model:tab:zones}
+\small
+% src: data/s2_model_scenes.json -> scenes.<name>.zones; scene definitions code/bsc_sim/scenes/{office,supermarket,classroom,metro}.json
+\begin{minipage}[t]{0.43\textwidth}\vspace{0pt}
+\begin{tabular}{@{}lrll@{}}
+\toprule
+Zone & cells & $d$ & $q$ \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Office}}\\
+workstations & 156 & 0.3 & 1.4 \\
+corridor & 39 & 1.5 & 0.8 \\
+meeting room & 26 & 0.5 & 1.5 \\
+kitchen & 13 & 1.0 & 1.2 \\
+barriers & 26 & -- & -- \\
+\multicolumn{4}{@{}l}{\emph{Supermarket}}\\
+shelf lanes & 84 & 0.4 & 1.0 \\
+main aisles & 142 & 2.0 & 0.6 \\
+fresh produce & 24 & 0.3 & 1.8 \\
+checkout queue & 16 & 0.1 & 2.0 \\
+entrance and exit & 12 & 1.5 & 0.8 \\
+shelf racks, counters & 97 & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{minipage}\hspace{0.03\textwidth}
+\begin{minipage}[t]{0.43\textwidth}\vspace{0pt}
+\begin{tabular}{@{}lrll@{}}
+\toprule
+Zone & cells & $d$ & $q$ \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Classroom}}\\
+desks, window side & 40 & 0.05 & 1.2 \\
+desks, inner & 40 & 0.05 & 2.0 \\
+platform & 18 & 0.8 & 1.5 \\
+aisles & 50 & 0.2 & 0.8 \\
+obstacle & 2 & -- & -- \\
+\multicolumn{4}{@{}l}{\emph{Metro carriage}}\\
+seats & 60 & 0.0044 & 2.5 \\
+standing area & 132 & 0.0047 & 2.8 \\
+doors & 60 & 0.11 & 2.0 \\
+grab rails & 18 & 0.011 & 2.5 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+Table~\ref{appD_tables:tab:notation} lists the symbols used in more than one section. Time is in days and
+lengths are in lattice cells in Sections~\ref{M-s2_model:sec}--\ref{M-s6_scenes:sec} of the main text;
+Section~\ref{M-s8_outbreaks:sec} uses hours and metres. Labels of criteria and outcomes are local to their
+analysis: A1--A4 and W1--W4 belong to the first outbreak test, B1--B3 and V1--V5 to the second, A0 (the lowest
+outcome of its ladder) to the analysis of contact records, D1--D3 and
+S1--S5 to the tracer analysis; the amendments V1--V7 and data gaps D1--D6 of
+Table~\ref{appC_protocol:tab:amend}, the records of Section~\ref{appB_dataset:sec} (for example S1, a
+supermarket) and the events W1, W2 of the second dataset are unrelated to them. In
+Section~\ref{M-s8_outbreaks:sec}, $K$ also denotes the number of cases of an event, and $P$ with a subscript a
+set-based infectious pressure (Section~\ref{appS_prot2:sec:zones}).
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \caption{Notation. Inequalities between vectors or matrices are entrywise; the column index of a matrix is
+  the source cell.}
+  \label{appD_tables:tab:notation}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.33\textwidth}l>{\raggedright\arraybackslash}p{0.33\textwidth}@{}}
+    \toprule
+    Symbol & Meaning & Symbol & Meaning \\
+    \midrule
+    $\cells$, $\ncell$ & walkable cells and their number & $\Rz$ & basic reproduction number, $\srad(\ngm)$ \\
+    $x,y,z$ & cells & $\lamone$ & growth rate, $\sabs(\Jm)$ \\
+    $a$ & lattice spacing (m) & $\sabs(\cdot)$, $\srad(\cdot)$ & spectral abscissa, spectral radius \\
+    $D_x=\Dz d_x$ & mobility of cell $x$; scale and zone multiplier & $\noff(x)$ & offspring number, column sum of $\ngm$ \\
+    $\hop{x}{y}$ & hop rate from $x$ to a neighbour $y$ & $\uvec,\lvec$ & right and left Perron vectors of $\Jm$ \\
+    $\gen$, $\genz$ & movement generator; at $\Dz=1$ & $\wvec,\zvec$ & right and left Perron vectors of $\ngm$ \\
+    $\stat$ & stationary distribution of $\gen$ & $\evec$ & elasticities $\partial\ln\Rz/\partial\ln q_x$ \\
+    $P_t(y\,|\,x)$ & propagator, $(\e^{\gen t})_{yx}$ & $\mu_k$, $\phi_k$ & eigenvalues and orthonormal eigenvectors of $-\Pi^{-1/2}\gen\,\Pi^{1/2}$, $\Pi=\diag\stat$ (of $-\gen$ for the symmetric rule) \\
+    $q_x$, $\Qm$ & infection efficiency; $\diag q$ & $\tilde q_{jk}$ & $\phi_j^{\T}\Qm\phi_k$ \\
+    $\qmean$, $\qmax$, $\qmin$ & $\sum_x\pi_xq_x$; largest and smallest $q_x$ & $Z$, $\muZ$ & zone; its exit rate $-\sabs(\gen[Z,Z])$ \\
+    $\beta$, $\gamma$ & transmission and recovery rates & $\kappa_x$, $\genk$ & exit rate; $\gen-\diag\kappa$ \\
+    $\ker$ & contact kernel, $P_{xy}=P(y\,|\,x)$ & $\muk$ & leak rate, $-\sabs(\genk)$ \\
+    $\Npop$ & number of people & $\nu$ & stationary law of the walk conditioned to stay \\
+    $S_x,I_x,R_x$ & expected numbers in cell $x$ & $\Rroom$ & reproduction number of a leaky room \\
+    $\Fm$, $\Vm$ & $\beta\ker^{\T}\Qm$; $\gamma\Id-\gen$ & $\rhobar$ & other people per cell, $(\Npop-1)/\ncell$ \\
+    $\ngm$ & next-generation matrix $\Fm\Vm^{-1}$ & $h(x,y)$ & pair hazard $\beta q_xP_{xy}/\rhobar$ \\
+    $\Jm$ & $\gen+\Fm-\gamma\Id$ & $p(x,y)$ & pair infection probability \\
+    $\tau$ & infectious period (exponential, rate $\gamma$) & $\Rone(x)$, $\Ronebar$ & pair-level secondary cases; uniform average \\
+    $f$, $\chi(t)$, $\theta(t)$ & occupied fraction of the day; schedule multiplier; cumulative occupied time & $\ngmone$ & pair-level next-generation matrix \\
+    $\Rhat$ & counted secondary cases in simulation & $\gz$ & co-location Green's function of a pair started together (on the torus: return Green's function of the relative walk) \\
+    FD, DD & frequency- and density-dependent calibration & $\Mzero,\Mone,\Mtwo$ & models of Section~\ref{M-s8_outbreaks:sec} \\
+    $P_{\mathrm{maj}}$, $P_{\mathrm{br}}$ & simulated and branching probabilities of a major outbreak & $\Dp$, $\Dair$, $\remrate$ & mobility of people, mixing coefficient and removal rate of quanta \\
+    $\varrho$ & near/far ratio of the constant-ratio model (of hazards in the second outbreak test, of risks otherwise); also an eigenvalue in a proof (Section~\ref{appS_r0:sec}) & $\Delta_0$, $\Delta_{\mathrm{C}}$ & log score of a model minus that of $\Mzero$ and of the constant-ratio model \\
+    $f_{iz}$ & fraction of the time of group $i$ spent in zone $z$ (Section~\ref{M-s8b_evidence:sec:zones}) & $\varepsilon_k$ & infectiousness parameter of event $k$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
