@@ -1,0 +1,123 @@
+% m8_discussion.tex -- Main text, Section 8: discussion and conclusions.
+% No new computation is made in this section.  Every number is quoted from a results file of the research
+% directories or of the article-level scripts; the `% src:` paths are relative to the repository root.  Most
+% of them are collected, with file and key, by code/s9_discussion_numbers.py ->
+% data/s9_discussion_numbers.json.
+\section{讨论与结论}\label{s9_discussion:sec}
+
+\subsection{成立的结论}\label{s9_discussion:sec:stands}
+
+\emph{平均场理论。}对反应–扩散模型，$\Rz=\srad(\ngm)$（定理~\ref{s3_r0:thm:ngm}）。在同格接触核下，它介于
+$\beta\qmean/\gamma$ 与 $\beta\qmax/\gamma$ 之间（定理~\ref{s3_r0:thm:bounds}），并随迁移率尺度递减
+（定理~\ref{s3_r0:thm:mobility}）；对其他接触核，下界与单调性都可能不成立（命题~\ref{s3_r0:prop:kernel}）。在 $q$
+均匀的封闭房间中，无论房间的尺寸、形状、障碍物或迁移率如何，它都等于 $\beta q/\gamma$（定理~\ref{s4_geometry:thm:closed}）；
+在定理~\ref{s4_geometry:thm:leaky} 的条件下，速率为 $\muk$ 的泄漏把 $\gamma$ 替换为 $\gamma+\muk$。这些结论对传染病
+斑块模型而言均已为人所知
+\citep{diekmann1990definition,vandendriessche2002reproduction,allen2007asymptotic,gao2011sis,gao2019travel,gao2020fast,chen2020asymptotic,altenberg2012resolvent}，
+而经由泄漏的损失正是经典的临界斑块尺寸机制\citep{skellam1951random,cantrell2003spatial}。本文新增的是：针对室内格点
+模型陈述这些结论，给出每一条成立的条件，并在其不成立之处给出反例。
+
+\emph{配对层次的描述。}它采用关于传播的双游走者理论\citep{kenkre2014theory,giuggioli2022spatio}，并使用按占据率归一化
+的风险率。对单独传播的指示病例所致的第一代病例，$\Rone(x)$ 是精确的。它解释了办公室场景中二代病例数的计数值
+$\Rhat=2.265\pm0.004$ 与 $\Rz=5.11$ 之间的差距（$\Ronebar=2.27$；$\Dz=1\cellday$，100 人），也解释了计数值为何随迁移率
+上升而 $\Rz$ 却随之下降。闭式解对周期房间和无限大地面已得到证明；对带反射壁的房间，它是一种近似，在所检验的情形中
+误差在 $1\pct$ 以内。
+% src: data/s5_pair_large_sample.json (office|D0=1: mean 2.2648, se 0.0039, R1bar_exact 2.2661, R0_ngm 5.1073); data/s5_pair_checks.json (finite_size: max deviation 0.90 %)
+
+\emph{模拟器}已与精确结果和另行编写的实现相互核对；场景结果与干预结果均由它得到。障碍物、占据率与作息安排的效应是
+这些模拟的输出；而称为“通风”和“口罩”的传染效率降低量则是输入。
+
+\emph{数据与检验。}两个数据集收录了 38 条有文献记录的暴发与暴露队列记录（35 起不同的暴发），其中十一条记录（来自十起
+暴发）带有经转录的座位或位置数据。两项预先设定的样本外检验在其中 18 条记录上（连同第一项检验的水平检验与阴性对照为
+22 条）把两个空间模型与均匀混合模型相比较；另外三项预先设定的分析分别以六个室内场所的实测接触、示踪测量和 29 所学校
+中的一次流感疫情为对照。每项主要分析都在同一项目内用另行编写的代码复核过（复核的部分内容沿用了各项分析的数据读取
+程序、事件几何与座位图），并按经该复核之后的状态报告；例外情形（未重新运行的分析，以及事后添加的比较）均在其出现之处
+和检验登记表中注明。各检验方案是在已知数据的情况下撰写的，通过作者计算机上的文件哈希值冻结，且未提交任何登记平台。
+% src: data/bsc_outbreaks/outbreaks.json (27 records); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1 (11 events); notes/VERIFICATION.md (Section 4.5, first outbreak test, summary: outcome W4 for M1 and for M2)
+
+\subsection{局限}\label{s9_discussion:sec:limits}
+
+\paragraph{物理区间。}第~\ref{s3_r0:sec}--\ref{s6_scenes:sec}~节所报告的封闭房间中的每一种空间效应，都只在默认值
+$\Dz=1\cellday$ 附近才较大；视场景不同，这一取值比步行迁移率的估计值低三个到将近六个数量级。在办公室场景中，$\Rz$
+超出均匀混合值 $\beta\langle q\rangle/\gamma$ 的幅度在 $\Dz=1$ 时为 $10.0\,\%$，在 $\Dz=10$ 时为 $0.72\,\%$，在
+$\Dz=100$ 时为 $0.06\,\%$，在 $\Dz=2.4\times10^{3}\cellday$ 时不足 $0.003\,\%$：在现实的迁移率下，封闭房间的平均场
+模型就是一个均匀混合模型。经由局部的门发生的泄漏是例外；其效应随迁移率增强，应当以作为输入的停留时间来刻画。
+% src: data/bsc_theory/worked_examples.json (E9_physical_D: 2433.6 and 48672 cell^2/day); data/plan_theory_checks.json (office.mobility_table: excess_pct 10.003, 0.719, 0.0643, 0.00266)
+
+\paragraph{移动模型。}没有固定位置的随机游走并不符合坐在工位上的人的行为：在 $\Dz=1$ 时，办公室场景中会议室的驻留
+时间为 114 天。按六个室内场所中接触的总量与平均时长标定后，游走使每个人的接触对象过多（在六个场所中的五个）、接触份额
+过于均等，且没有群组结构；在其接触上模拟的流行，在全部 24 个情景中都高估了指示病例的二代病例数，按场所平均高估 25 至
+72\pct{}，均匀混合模型也是如此。无记忆的游走无法再现面对面接触的突发性统计特征，这一点是已知的\citep{starnini2013modeling}；
+本文新增的是其对流行的后果以及与不含空间的模型的比较。锚定于固定格点的游走者是自然的下一个模型；相应的双游走者问题
+已由 \citet{kenkre2014theory} 与 \citet{sugaya2018analysis} 处理过，而锚定对第~\ref{s3_r0:sec}--\ref{s5_pair:sec}~节
+各再生数的影响尚未计算。
+% src: data/s2_model_scenes.json (office_regime: meeting_room_1_over_mu_Z_days 114.04); data/v2_numbers.json (con.model.RW0: n_cells_over 24, ratio_min 1.25, ratio_max 1.72; con.model.WM)
+
+\paragraph{缺少离散个体的阈值理论。}$\Rone$ 与 $\srad(\ngmone)$ 都不是阈值量；办公室场景中大规模暴发的平均场分支过程
+概率为 0.78，而模拟值为 0.50。对于无限或大型均匀格子上的游走者，阈值的存在性已经确立
+\citep{kesten2006phase,maia2007diffusive,carvalho2025generalized}；所欠缺的是小型异质房间中可计算的阈值与最终规模。
+超越配对层次的矩闭合\citep{keeling1999effects,kiss2017mathematics}是一种可能的下一步。
+% src: data/bsc_sim/03_scenes.json (office|D0=1|range1m: p_major_branching 0.7814, p_major 0.496)
+
+\paragraph{会改变结论的建模选择。}其一是接触核：在 $\Dz=1$ 时，地铁场景中模拟的大规模暴发概率在 1\,m 接触核下为 0.88，
+在同格接触核下为零；而下界 $\beta\qmean/\gamma\le\Rz$ 与随迁移率的单调性都要求同格接触核。其二是发生率形式，即频率
+依赖还是密度依赖\citep{anderson1991infectious,keeling2008modeling}：把办公室的占据人数减半，在前者下平均场 $\Rz$ 保持
+为 5.11，在后者下降至 2.53。
+% src: data/bsc_sim/03_scenes.json (p_major: metro|D0=1|range1m 0.879, metro|D0=1|samecell 0.0)
+% src: data/bsc_sim/08_interventions.json (office|D0=1|capacity 50 %|FD: R0_ngm 5.107; office|D0=1|capacity 50 %|DD: R0_ngm 2.528)
+
+\paragraph{空气传播。}要达到就座事件中观测到的罹患率，需要一个非局部项（此处为空气传播项）或所建模事件之外的暴露；
+本文加入的非局部项（$\Mtwo$）是一个标准的扩散气溶胶模型\citep{venkatram2021modeling,lau2022predicting}。在气流定向或
+回流之处，例如湖南长途客车和广州餐厅中，其各向同性接触核会失效；由暴发拟合的系数不是空气的性质；而采用实测系数时，
+该接触核无法产生近距离暴露、同坐的同行者或定向气流所造成的陡峭梯度。
+
+\paragraph{参数、数据与方案。}取值 $\beta=0.5\perday$、$\gamma=0.14\perday$ 以及各分区的 $q$ 与 $D$ 都是示意性的，未经
+标定；在这些取值下，模型无法产生短时就座暴发的罹患率（第~\ref{s8b_evidence:sec:overall}~节）。所有场景都是封闭房间，
+采用 SIR 病程、指数分布的感染期、无潜伏期，且只有一个指示病例。在每项检验中，水平都是拟合的，而非预测的。38 条记录
+中的大多数是经过调查的暴发，其中传染性很强的指示病例占比过高\citep{lloydsmith2005superspreading,endo2020estimating}；
+各分层规模很小（第一项检验的正面结果依赖于 20 名乘客，第二项检验的五个留出事件各有 2 至 20 例病例）；座位图是从已发表
+的图中目视转录的；第一数据集中有六篇文献只读了摘要；客舱、车厢和房间的示踪系数分别迁移自另一种机型、其他铁路车辆和两栋
+住宅；分区层面的检验只有一种病原体、一类场所，混合是在另一个国家的一所学校中用两天时间测得的，且没有家庭项。所有方案
+都是在已知数据的情况下撰写的，其时间先后仅以作者计算机上的文件哈希值和文件时间戳为凭。正如
+第~\ref{s8b_evidence:sec:overall}~节所述，迁移率的异质性未经数据检验。
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 4); data/v2_tab_holdout2.tex; data/appB_dataset_numbers.json -> sources (abstract 6)
+
+\subsection{什么能改变结论}\label{s9_discussion:sec:next}
+
+有四类数据能够改变结论，但本研究没有其中任何一类可用。第一类是带有\emph{实测迁移率场}的数据集：追踪的位置或按分区的停留时间，
+连同感染结局或接触结局；没有它，就无法检验迁移率的异质性，也无法标定 $\Dz$ 或游走者的锚定。第二类针对空气传播项与
+通用梯度之间的比较：一组逐座位已知暴露情况、并在看到结局之前选定三个或更多距离分层的暴发，其规模要大到足以区分扩散
+接触核与阶跃函数；在四个航班上，检验的效能为 0.82，结果是不分高下。第三类针对锚定的游走者：一个能从其自身生成的合成数据中
+还原出所设定真值的拟合程序，以及随后一组新的确证接触记录。第四类针对分区：一起按分区给出分母、并在同一人群中独立测量了混合
+的暴发。任何此类检验都应在审视数据之前向第三方登记，并且必须胜过本文的通用基准——这些基准在本文中并未被胜过：对距离
+而言，恒定的 2 至 4 的近/远风险比；对接触而言，配对接触率的静态网络；对分区而言，群组、上一层级与其余部分分别取
+0.7、0.1 和 0.2 的粗略份额（后两项基准，即静态网络与粗略份额，为事后添加）。
+% src: data/v2_numbers.json (out2.power.registered_air; out2.rr_pooled."all 11 events"; con.check.static_total; zone.check.hazard_bound)
+
+\subsection{有保留的实际解读}\label{s9_discussion:sec:practice}
+
+以下内容均未经数据验证；它们是模型的性质，而不是建议。$q$ 或 $\beta$ 的均匀降低使 $\Rz$ 按比例缩放，而这些因子是输入，
+不是预测。在对称跳跃率和固定格点集合下，放慢或封闭连接都不能降低平均场 $\Rz$（定理~\ref{s3_r0:thm:edges}）；移除地面
+格点会改变 $\langle q\rangle$，在办公室场景中使 $\Rz$ 在 $\Dz=1$ 时变化 $+0.07\pct$，在 $\Dz=10$ 和 $100$ 时分别变化
+$-1.1\pct$ 和 $-1.5\pct$。障碍物、分区隔离和容量限制只在低迁移率和低占据率下才明显减少模拟中的暴发，其作用途径是个体的
+离散性——这在平均场中并不存在，并随占据率增大而消退；由于 $\Rone$ 不是阈值，“$\Rone<1$”不是控制判据。驻留时间起主导
+作用：每天 8 小时相当于把办公室的 $\Rz$ 除以将近 3；一次到访期间所致感染的期望数，一个办公日为 0.21，一节一小时的课
+为 0.027，一次 20 分钟的地铁乘车为 0.018，一次 27 分钟的超市购物为 0.0086（平均场）。
+% src: data/s4_geometry_barriers_leak.json (A_partitions.barrier_cells_39_workstations: change_pct +0.065, -1.07, -1.49 at D0 = 1, 10, 100)
+% src: data/bsc_sim/11_dwell_time.json (office|D0=1: R0_continuous 5.107, R0_duty_cycle 1.754; per_visit_meanfield: office 0.2117, classroom 0.0274, metro 0.0176, supermarket 0.0086)
+
+\subsection{结论}\label{s9_discussion:sec:conclusions}
+
+由此得到三点结论。第一，封闭房间的格点随机游走模型在传染效率均匀时，其平均场再生数不存在尺寸效应；而在步行人群的
+迁移率下，该模型几乎不存在任何空间效应：平面布局所贡献的是 $q$ 的面积加权均值，在此之外起作用的是人们停留多久。
+% src: data/s2_model_scenes.json (scenes.<name>.R0_1m.walking_5pct.excess_over_wellmixed_pct below 0.03); data/bsc_sim/11_dwell_time.json (office R0_duty_cycle 1.754 against R0_continuous 5.107)
+第二，在空间效应较大之处，即低迁移率和低占据率下，平均场数值对离散的人是错误的指引。配对层次数值精确地给出第一代，
+但它以及本文计算的任何其他量都不是阈值，因此暴发概率与规模必须通过模拟得到；而且一项干预的作用方向在两个层次上可能
+不同（分区隔离提高 $\Rz$，却减少模拟中的暴发）。
+% src: data/bsc_sim/05_heterogeneity.json (D0=1|N=100: R0_ngm 4.286 -> 4.972, attack_all 0.347 -> 0.231); data/bsc_sim/03_scenes.json (metro|D0=1|samecell: R1_pair_ngm 2.2437, n_major 0)
+第三，以 38 条有文献记录的暴发记录中的 22 条、六个场所的实测接触、示踪测量和 29 所学校中的一次疫情为对照，模型并不
+显示普遍一致。同格点模型未得到支持。带扩散气溶胶的扩展模型对风险随距离下降的预测优于均匀混合模型，同格点模型的闭式
+形式也是如此（按方案，这一通过与同格点模型本身无关；而且服从恒定近/远比值的暴发满足这一判据的概率为 0.65 至 0.73）；
+但预先设定的合并比较支持恒定的近/远风险比，这主要来自单个事件，而该事件的近区是根据同一批数据选定的；在四个留出航班上，两者不分
+高下。这些检验最终给出的，是一套空间室内传播模型必须胜过的基准，以及一份要想检验迁移率异质性所需数据的清单。
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, summary; further point 5); notes/VERIFICATION.md section 4.10 (statement); data/v2_numbers.json (out2.pooled.M2.all: delta0 14.351, deltaC -9.150; out2.pooled.M1.all: delta0 15.446, deltaC -8.055; out2.pooled.plant_share_of_deltaC 0.916; out2.power.registered: CRR P_B1 0.652; out2.power.corrected: CRR B1 0.732)

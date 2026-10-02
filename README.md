@@ -6,6 +6,8 @@ Code, data and LaTeX source of
 > pre-specified tests against outbreaks, contact records and tracer measurements* (2026).
 > [`paper.pdf`](paper.pdf), with Supplementary Material [`supplement.pdf`](supplement.pdf)
 
+Chinese edition of the main text (简体中文版正文): [`zh/paper_zh.pdf`](zh/paper_zh.pdf); source and build notes in [`zh/README_zh.md`](zh/README_zh.md).
+
 Version 1.2.0 (file `VERSION`).
 
 ## What the paper shows

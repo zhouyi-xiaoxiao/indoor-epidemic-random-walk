@@ -1,0 +1,440 @@
+% m7_data.tex -- Main text, Section 7: confrontation with documented outbreaks, contact records, tracer
+% measurements and a school epidemic.
+% Paths in "% src:" comments are relative to the repository root.
+% Units in this section: hours and metres (D_p, D_air in m^2/h; \remrate in 1/h).
+% Scripts (all in code/): s8_outbreaks_checks.py, s8_outbreaks_numbers.py, s8_outbreaks_fig_callcentre.py,
+% s8_first_test_exact.py (first test with the round-off-safe propagator), v2_numbers.py and v2_figures.py (second
+% set of analyses: every number and generated table body).  Details: Supplementary Sections S6 to S8.
+% Chinese edition: the generated table body data/v2_tab_holdout2.tex is the translated copy in zh/data/
+% (every number unchanged).
+\section{与数据的对照}\label{s8_outbreaks:sec}\label{s8b_evidence:sec}
+
+第~\ref{s3_r0:sec}--\ref{s6_scenes:sec}~节是关于一个模型的论断。本节考察数据对该模型说明了什么。数据有四类：有文献
+记录的暴发（两个数据集共 38 条记录；其中 18 条在两项距离梯度检验中用于标定或留出，另有四条进入第一项检验的水平检验
+与阴性对照）、来自六个室内场所的 RFID 接触记录、交通工具与房间中的示踪测量，以及 29 所学校中的一次流感疫情。共进行了
+五项主要检验：两项以暴发为对照的样本外检验，以及对接触记录、示踪测量和分区层面结构的各一项分析。每项检验都遵循一份
+在受检模型于其数据上运行之前即已确定的方案。我们称这些方案为\emph{预先设定的}，而不称为预注册的，原因有三，且三者对全部
+方案均适用。它们是\emph{知晓数据的}：撰写方案之前已读过暴发计数、接触记录和学校数据，分层、先验和排除标准等选择都是在
+知晓这些数据的情况下作出的。它们是\emph{对模型盲的}：冻结方案时，受检模型尚无任何输出（对示踪分析而言，所用暴发在
+其他模型下的结局当时已经知道）。它们的时间先后是\emph{自证的}：方案通过作者计算机上文件的 SHA-256 哈希值冻结，没有
+外部时间戳、版本控制历史或登记平台；随代码发布的方案文件是经删改的副本（每一处改动的行都在仓库中列出），而哈希值
+对应的是未删改的原件，因此仅凭仓库无法核查这一时间先后（补充材料第~\ref{S-appC_protocol:sec}~节）。在结果已知之后
+添加的比较称为\emph{事后}比较，并一律标明；补充材料表~\ref{S-appS_prot2:tab:register} 列出了每项检验及其状态。本节中
+时间一律以小时计，长度一律以米计。
+% src: data/bsc_outbreaks/outbreaks.csv (27 rows); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1 (11 events); events in a test: 2 + 5 (first), 6 + 5 (second); level checks and negative controls of the first test: T3, C3, S1, T7 (outbreaks.csv protocol_role; data/appC_protocol_tables.tex rows A3, A4)
+% src: code/bsc_validation/PREREGISTRATION.md section 0; code/bsc_validation/PREREG_FREEZE.json; notes/VERIFICATION.md (Section 4.5, first outbreak test, item 1: partially confirmed); notes/VERIFICATION.md section 4.10 (reservations common to all analyses)
+
+\subsection{暴发记录}\label{s8_outbreaks:sec:dataset}
+
+第一数据集包含来自 31 篇已发表文献（每篇均有登记的 DOI）的 27 条记录，其中 23 条有病例数与暴露人数。这 27 条记录
+包括：五个办公室及其他工作场所、四个零售场所、五个教室及类似教室的房间、七条交通工具舱室记录、两家餐厅、两次合唱团
+或教堂活动，以及两条超出模型范围的大型场所记录（一艘邮轮和劳工宿舍）；后两条仅作为单一封闭房间模型所不涵盖的共享场所的例子
+记录在案，以供参考，不参与任何比较（补充材料第~\ref{S-appB_dataset:sec}~节）。我们没有找到暴露乘客人数已知的地铁
+车厢暴发记录（检索并不详尽），以大巴、长途客车、列车和客机舱室作为替代；超市有一条带分母、无几何布局信息的记录。
+% src: data/bsc_outbreaks/outbreaks.csv; data/bsc_outbreaks/tables/doi_verification.json; data/appB_dataset_numbers.json -> records_by_group, records_with_counts (23)
+第二数据集在第一项检验之后收集，仅限于公布了每名暴露者的位置或按距离给出计数的事件：八个航班
+\citep{olsen2003transmission,kenyon1996transmission,baker2010transmission,young2014international,toyokawa2022transmission,speake2020flight,swadi2021genomic,hoehl2020assessment}，
+一个病房（观察了两次，两次的指示病人相同）\citep{wong2004cluster,yu2005temporal}，以及一条肉类加工线
+\citep{guenther2020}；后者即第一数据集的记录 O4，此处补入了其按距离的计数。因此，两个数据集的 38 条记录描述了 35 起
+不同的暴发：除加工线外，病房的两条记录以及长途客车与小巴的两条记录（记录 T2 与 T3）分别是同一起暴发的两个暴露
+队列。
+% src: data/bsc_outbreaks/outbreaks.csv (T3 protocol_role "same index as T2"; O4); data/outbreaks2/SOURCES.md (ward: students and inpatients, same index patient); 38 - 3 = 35
+病原体为 SARS-CoV-2（五个事件）、SARS-CoV-1（三个）、甲型 H1N1 流感（A(H1N1)pdm09，两个）和结核分枝杆菌
+（\emph{Mycobacterium tuberculosis}，一个）。
+% src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2; data/outbreaks2/SOURCES.md; data/v2_tab_events2.tex
+
+这些记录本身显示出距离梯度。若将“近区”定义为：客机上距源两排以内（即 \citet{hertzberg2016risk} 讨论的接触追踪规则
+所划的区域），病房中指示病人本人所在的多床位区（bay）或隔间（cubicle），加工线上 8\,m 以内，则第二数据集十一条记录合并的近/远风险比为
+3.98（95\,\% 区间 2.32--6.82；随机效应，DerSimonian--Laird），异质性中等（Cochran $Q=18.9$，自由度为 10，$p=0.041$；
+$I^2=0.47$；补充材料图~\ref{S-s8_outbreaks:fig:forest}）；采用固定效应时为 3.16。两条病房记录有同一名指示病人，此处
+将二者视为相互独立的研究；去掉其中第二条时，合并比值为 4.64（2.57--8.40）。加工线的 8\,m 区域是原文献在同一批数据上
+挑出的最显著的半径；去掉加工线后合并比值为 3.30（1.99--5.45；事后计算），仅计八个航班时为 3.75（2.01--7.00）。按
+病原体分，SARS-CoV-2 为 6.66（3.38--13.1），SARS-CoV-1 为 2.34（1.53--3.59），两个流感航班为 1.15（0.35--3.72），
+后者未显示可检测的梯度。在第一项检验中具有距离分层的四个留出事件上，用同一估计量得到的合并比值为 2.05（1.15--3.65；
+固定效应为 2.00），且这四个事件彼此相容（Cochran $Q=3.77$，自由度为 3，$p=0.29$；$I^2=0.20$）。两个合并值基于不同的
+选取（一方是第二数据集的全部十一条记录，包括标定事件，另一方是第一项检验的四个留出事件），并不构成场所之间的比较。
+没有对同行者或同坐的家庭成员作任何调整，而且座位图是选择性公布的。这是关于数据的陈述，而不是对任何模型的检验。
+% src: data/v2_numbers.json (out2.rr_pooled.*: "all 11 events" RR_random 3.978, RR_fixed 3.159, I2 0.472; "without W2" 4.643 (2.567-8.399); "without P1": 3.296 (1.992-5.455), computed by code/v2_numbers.py; "aircraft (8)" 3.747 (2.006-6.998)); data/bsc_validation2/a1_more_outbreaks/07_descriptive.json (pooled, by pathogen)
+% src: data/s8_outbreaks_checks.json (heterogeneity: cochran_Q 3.772, I2 0.205, pooled_rr_random_DL 2.047 (1.147-3.654), pooled_rr 1.996 (fixed effects))
+
+\subsection{三个模型与两个通用竞争模型}\label{s8_outbreaks:sec:models}
+
+在持续数小时的单一事件中，只有一名感染者，且没有第二代。所有模型都把事件 $k$ 中易感者 $j$ 的感染概率写成
+\begin{equation}\label{s8_outbreaks:eq:risk}
+  p_j = 1-\exp(-\varepsilon_k X_j),
+\end{equation}
+其中每个事件有一个传染力参数 $\varepsilon_k$；暴露量 $X_j$ 在带反射壁的矩形格子上计算，每个座位位置对应一个格点，
+物理间距为 $(a_x,a_y)$；$P_t(y|x)$ 是跳跃率为 $D/a_x^2$ 与 $D/a_y^2$ 的对称游走的传播子。设指示病例位于 $x_0$，
+易感者 $j$ 在 $x_j$ 处停留时间 $T_j$，格点数为 $\ncell$，则
+\begin{align}
+  \Mzero:&\quad X_j=\frac{1}{\ncell}\left[\frac{T_j}{\remrate}-\frac{1-\e^{-\remrate T_j}}{\remrate^{2}}\right],
+     \label{s8_outbreaks:eq:m0}\\
+  \Mone:&\quad X_j=\int_0^{T_j}\sum_{x}P_t(x|x_0)\,P_t(x|x_j)\,\dd t=\int_0^{T_j}P_{2t}(x_j|x_0)\,\dd t
+     \qquad(D=\Dp),\label{s8_outbreaks:eq:m1}\\
+  \Mtwo:&\quad X_j=\int_0^{T_j}(T_j-s)\,\e^{-\remrate s}\,P_s(x_j|x_0)\,\dd s\qquad(D=\Dair).
+     \label{s8_outbreaks:eq:m2}
+\end{align}
+$\Mzero$ 是均匀混合房间的瞬态 Wells--Riley 模型\citep{wells1955airborne,riley1978,gammaitoni1997using}。$\Mone$ 是
+第~\ref{s2_model:sec}~节的模型：人员游走，传播只发生在位于同一格点的两人之间（同格接触核），因此暴露量是两人的期望
+共处时间；于是式~\eqref{s8_outbreaks:eq:risk} 的形式在 $\varepsilon_k$ 的一阶上是精确的，否则由 Jensen 不等式可知
+它是一个上界。在 $\Mtwo$ 中，指示病例释放感染量子（quanta）；这些量子以系数 $\Dair$ 在格子上游走，并以速率 $\remrate$
+被去除，$\remrate$ 等于通风换气率加上代表沉降与失活的 $0.93\,\mathrm{h}^{-1}$（\citet{ou2022} 沿用 \citet{miller2021}
+所取的数值）；易感者的吸入量与其所在格点上的量子数成正比。$\Mzero$ 是 $\Mtwo$ 在 $\Dair\to\infty$ 时的极限。$\Mtwo$
+属于涡扩散型的空间分辨空气传播暴露模型\citep{cheng2011modeling,venkatram2021modeling,lau2022predicting}；它与 $\Mone$
+共有的只是格点传播子（表~\ref{s8_outbreaks:tab:models}）。
+% src: code/bsc_validation/PREREGISTRATION.md section 3; notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 5)
+
+两个通用竞争模型既无格子，也无物理机制。\emph{恒定比值模型}令近区中每个易感者所受的感染压力为其他所有人的 $\varrho$
+倍；近区在第一数据集中是源所在的分层，在第二数据集中是客机上距源两排以内的区域。在第一项检验中，该模型只在揭盲之后
+才加入，且取固定值 $\varrho=2$ 至 3；在第二项检验中，它是预先设定的竞争模型，每个场所类别有一个 $\varrho$，与 $\Mtwo$
+在相同的事件上标定。\emph{指数核}取 $X_j\propto\exp(-d_j/\ell)$，其中 $d_j$ 为到源的距离，每个场所类别有一个长度
+$\ell$；它是在第二项检验的复核过程中事后添加的。
+% src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 3 (CRR); notes/VERIFICATION.md (Section 4.6, second outbreak test, item 15)
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{所比较的三个模型。每个模型对每个事件有一个传染力参数 $\varepsilon_k$。混合系数由同一场所类别的全部
+  事件共享（第一项检验：交通工具舱室、就座房间；第二项检验：客机客舱、房间）；去除率 $\remrate$ 取实测值或对
+  先验积分，从不拟合。}
+  \label{s8_outbreaks:tab:models}
+  \begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}@{}}
+    \toprule
+    模型 & 传播方式 & 在格子上游走的对象 & 共享参数 \\
+    \midrule
+    $\Mzero$ & 均匀混合的空气，式~\eqref{s8_outbreaks:eq:m0} & 无 & 无 \\
+    $\Mone$  & 位于同一格点的两人之间，式~\eqref{s8_outbreaks:eq:m1} & 人员 & $\Dp$ \\
+    $\Mtwo$  & 吸入指示病例释放的感染量子，式~\eqref{s8_outbreaks:eq:m2} & 感染量子 & $\Dair$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{两项暴发检验的方案}\label{s8_outbreaks:sec:protocol}
+
+\emph{第一项检验。}交通工具舱室在高铁上 2{,}334 名指示病例的接触者队列上标定\citep{hu2021}（22 个座位偏移单元格
+中的罹患率；相邻座位单元格因结伴出行的同行者抬高其数值而排除），就座房间在广州餐厅上标定\citep{lu2020,li2021}
+（采用区间删失计数，因为每个邻桌家庭只能确定有一例感染发生在那次午餐中）。四个单一事件（一辆大巴\citep{shen2020}、
+一辆长途客车\citep{luo2020,ou2022}、一个航班\citep{khanh2020}和一间教室\citep{lamhine2021}）作为留出事件，在给定
+事件总数的条件下，以其病例在近区与远区两个分层之间的分配作为检验对象；首尔呼叫中心\citep{park2020}则以其病例座位的
+连接计数 $z$ 作为检验对象。得分 $S$ 是观测分配的预测概率的对数，且 $\Delta=S(\text{模型})-S(\Mzero)$。判定规则要求：
+合并 $\Delta$ 为正，且在 $\Mzero$ 下单侧 $p<0.05$（A1）；每个事件的双侧预测 $p\ge0.05$（A2）；由标定场所迁移而来的两个
+事件（一辆小巴\citep{luo2020}和戴口罩的教室\citep{hershow2021}）的病例数落在各自的 90\,\% 预测区间之内（水平检验，
+A3）；在病例很少或没有病例的四个群组中不出现高估（阴性对照，A4）。A2 中出现两项或更多未通过时，结局为 W4：列出哪些
+被再现、哪些未被再现，且不作普遍一致的表述。该方案在首次运行模型之前 87 秒冻结（补充材料第~\ref{S-appC_protocol:sec}~节）。
+% src: code/bsc_validation/PREREGISTRATION.md sections 2.1 (V1, V2), 3.4, 5.1, 5.2, 6, 8; code/bsc_validation/PREREG_FREEZE.json
+
+\emph{第二项检验。}它是针对第一项检验的弱点设计的：恒定比值能够通过第一项检验（第~\ref{s8_outbreaks:sec:holdout}~节）。
+划分不使用结局：由 SARS-CoV-2 以外的病原体引起的六个事件（均发表于 2020 年之前）用于标定；五个 SARS-CoV-2 事件（四个
+航班和加工线）留出。观测量是在给定事件总数的条件下，病例计数在二至四个距离分层上构成的向量；$\Delta_0$ 与
+$\Delta_{\mathrm{C}}$ 分别是 $\Mtwo$ 相对于 $\Mzero$ 与相对于恒定比值模型的对数得分之差之和。规则为：B1，$\Delta_0>0$，
+且在 $\Mzero$ 下单侧 $p<0.05$；B2，$\Delta_{\mathrm{C}}>0$，且在恒定比值模型下单侧 $p<0.05$（镜像表述，即
+$\Delta_{\mathrm{C}}<0$ 且在 $\Mtwo$ 下 $p<0.05$，意味着恒定比值的预测更好）；B3，每个留出事件的双侧预测 $p\ge0.05$；
+B3 中出现两项或更多未通过时，结局为 V5，即列出被再现的事件和未被再现的事件。在标定之后、任何留出分层计数被计分之前
+算得的检验效能为（采用冻结的传播子；括号内为采用下文所述修正后传播子的值）：若标定后的 $\Mtwo$ 为真，则 B1 与 B2 同时
+满足的概率为 0.96（0.93；仅计四个航班时为 0.82）；若暴发服从恒定比值，则该概率为 0.03（0.05），而单看 B1，其满足的概率为
+0.65（0.73），因此只有 B2 才能算作支持该接触核的证据。
+% src: code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md sections 0, 4-7; code/bsc_validation2/a1_more_outbreaks/PREREG_ADDENDUM_power.md; data/v2_numbers.json (out2.power.registered: M2 P_B1_B2 0.956, CRR P_B1_B2 0.028, CRR P_B1 0.652; out2.power.registered_air: M2 P_B1_B2 0.821; out2.power.corrected: M2 B1B2 0.926, CRR B1B2 0.049, CRR B1 0.732)
+
+\emph{与冻结代码的一处偏离}影响两项检验。冻结的传播子是对余弦模态的求和，其绝对误差可达一个事件中最大暴露量的约
+$10^{-10}$；在混合系数较小时，远处接收者的真实暴露量小于这一误差，模态求和在其位置上返回符号不定的舍入噪声，使远处的
+感染显得可能。这一点是在第二项检验的留出事件已计分之后发现的。下文全部结果采用这样一种传播子：在模态求和可分辨之处
+保留模态求和，在其余位置代之以镜像项的正值求和；在第一项检验的教室中，它与第三种方法（均匀化方法）的相对差异小于
+$10^{-8}$，在第二项检验的病房中（两者均可分辨之处）与镜像求和的相对差异约为 $10^{-4}$。这一修正不改变航班的任何数值，
+也不改变两项规则中任何一项的结局；采用冻结传播子得到的数值见补充材料第~\ref{S-s8_outbreaks:sec:holdoutdetail}~节
+和第~\ref{S-appS_prot2:sec:numerics}~节。
+% src: data/s8_first_test_exact.json (kernel.rows: spectral_min_rel down to -1.28e-10, fixed_vs_uniformisation_max_rel_err <= 8.4e-9, classroom C1 layouts); code/bsc_validation2/a1_more_outbreaks/POSTHOC_LOG.md (P5); data/bsc_validation2/a1_more_outbreaks/09_numerics_check.json (largest relative difference 8.4e-5, ward inpatients; Supplementary Section S10)
+
+\subsection{第一项检验}\label{s8_outbreaks:sec:holdout}
+
+在高铁队列上，两个空间模型都以多一个参数为代价，比 $\Mzero$ 多获得 26.6--26.7 个单位的对数似然；$\Mtwo$ 给出
+$\Dair=25\sqmh$（90\,\% 后验区间 9.7--43；此处及下文中的后验是一个伪后验，在 $\log_{10}D$ 的平坦先验下与剖面似然成正比，
+见补充材料第~\ref{S-s8_outbreaks:sec:calibration}~节），$\Mone$ 给出 $\Dp=0.50\sqmh$（0.31--0.79）。然而，二者都被其
+标定所用的数据拒绝（偏差为 72.6--72.9，自由度为 20）：各向同性的接触核无法跟随高铁数据表的各向异性。对餐厅而言，$D$
+只能在三个数量级的范围内识别，并且拟合得到的 $\Mtwo$ 与 \citet{li2021} 的示踪气体测量相冲突（补充材料
+第~\ref{S-s8_outbreaks:sec:calibration}~节）。
+% src: data/bsc_validation/tables.md (Table V1); data/s8_outbreaks_numbers.json (calibration.trains.M2: joint_max_D 25.1, q05 9.67, q95 43.4)
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{第一项检验，留出事件：近区/远区分配（事件总数固定，每个事件一个 $\varepsilon_k$）。RR：近区/远区风险比，
+  观测值附其 95\,\% 区间，或某一模型下两个分层期望罹患率之比；$p$：双侧预测 $p$ 值；$\Delta$：相对于 $\Mzero$ 的对数
+  得分之差。对大巴、航班和教室，$\Mone$ 在精确模拟器中评估。文献：大巴\citep{shen2020}，长途客车
+  \citep{luo2020,ou2022}，航班\citep{khanh2020}，教室\citep{lamhine2021}。}
+  \label{s8_outbreaks:tab:holdout}
+  % src: data/s8_first_test_exact.json (primary.events.*.{M0,M1,M2}: rr_pred, p_two_sided, delta_vs_M0; primary.pooled.M2.all: delta 2.835, p_under_M0 2.48e-4; without_T5: -3.195; primary.pooled.M1.all: -2.939); data/bsc_validation/tables.md (Tables V5, V6)
+  \setlength{\tabcolsep}{2.2pt}
+  \begin{tabular}{@{}lccccccc@{}}
+    \toprule
+    & & & $\Mzero$ & \multicolumn{2}{c}{$\Mone$} & \multicolumn{2}{c}{$\Mtwo$} \\
+    \cmidrule(lr){4-4}\cmidrule(lr){5-6}\cmidrule(l){7-8}
+    事件（近区分层） & 近区对远区 & 观测 RR & $p$ & RR; $p$ & $\Delta$ & RR; $p$ & $\Delta$ \\
+    \midrule
+    大巴（第 5--11 排）       & 14/33 对 9/34 & 1.60 (0.81--3.19) & 0.20   & 4.0; 不适用$^{a}$ & $+0.30$ & 2.4; 0.38  & $+0.32$ \\
+    长途客车（后排）          & 3/19 对 4/26  & 1.03 (0.26--4.06) & 1.00   & 34; 0.0002      & $-7.64$ & 11; 0.007  & $-3.94$ \\
+    航班（相距 $\le2$ 个座位） & 11/12 对 1/8  & 7.33 (1.16--46.2) & 0.0008 & 1.4; 0.009      & $+2.38$ & 3.6; 0.61  & $+6.03$ \\
+    教室（前排）              & 8/10 对 4/14  & 2.80 (1.16--6.78) & 0.036  & 1.4; 0.31$^{b}$ & $+2.02$ & 5.5; 0.068$^{c}$ & $+0.43$ \\
+    \midrule
+    合并 & & & & & $-2.94$ & & $+2.83^{d}$ \\
+    \bottomrule
+  \end{tabular}
+
+  \smallskip
+  \begin{minipage}{0.96\textwidth}\footnotesize
+  $^{a}$\,观测总数不可达：$\Prob(\text{总数}\ge23)=0.0002$；在给定总数的条件下，$p=0.46$。
+  $^{b}$\,24 个后验抽样中只有 2 个能够达到 12 例。
+  $^{c}$\,并非真正的预测：在后验众数处被拒绝（$p=0.0009$）；见正文。
+  $^{d}$\,在 $\Mzero$ 下精确单侧 $p=2.5\times10^{-4}$；去掉航班时为 $-3.19$。
+  \end{minipage}
+\end{table}
+
+表~\ref{s8_outbreaks:tab:holdout} 给出了留出结果。对 $\Mtwo$ 而言：\emph{VN54 航班}被再现（距指示病例至多两个座位的
+12 名乘客中有 11 人感染，较远的 8 人中有 1 人感染；$\Mzero$ 被拒绝，$p=0.0008$，$\Mtwo$ 未被拒绝，$p=0.61$），且对
+标定和通风先验都是稳健的；这是第一项检验中唯一稳健的正面结果，而它很单薄：暴露乘客只有 20 人，其中有四对并排就座的
+同行者。\emph{大巴}是相容的，但无区分力。\emph{湖南长途客车}未通过：感染沿车厢均匀分布（后半部 3/19，前半部 4/26），
+而 $\Mtwo$ 把七例中的六例放在后半部（预测比值为 11，$p=0.007$），在 12 个预先设定的敏感性变体中有 10 个同样未通过。
+\emph{马林县教室}通过了，但这并非预测：0.068 的预测 $p$ 值来自餐厅后验的弥散上尾，在那里接触核在整个房间内几乎是平的；
+在后验众数处，观测被拒绝（$p=0.0009$），并且在 83\,\% 的后验抽样中，产生 12 例病例所需的释放率超过 $10^{4}\qph$。采用
+冻结的传播子时，该 $p$ 值为 0.11（第~\ref{s8_outbreaks:sec:protocol}~节）。
+% src: data/bsc_validation/03_holdout_shape.json (T5, T1, T2: p = 0.0069, k_pred_mean 6.2); data/s8_outbreaks_numbers.json (sensitivity_M2: n_coach_fails 10)
+% src: data/s8_first_test_exact.json (mode: D 0.501, p_two_sided 0.00093; vent.primary.events.C1: emission_share_above_1e4 0.833; primary.events.C1.M2.p_two_sided 0.068); data/bsc_validation/03_holdout_shape.json (C1: 0.115)
+\emph{首尔呼叫中心}同样未通过。在其已发表的座位图上，受影响一翼 137 个工位中的 79 个病例座位在工位尺度上没有聚集
+（连接计数 $z=-0.64$；随机重标记，单侧 $p=0.76$），而在餐厅上标定的 $\Mtwo$ 预测有强烈的聚集（中位数 $z\approx11$）；
+对后验积分，得到不大于观测值的 $z$ 的概率为 0.007 或 0.013（取决于后验抽样如何加权），低于中央 95\,\% 区间的界限
+0.025。$\Mzero$ 是相容的（$P=0.26$）。方案用 40 个后验抽样估计这一概率（0.031 和 0.017，分处界限两侧）；取代该估计的
+数值积分是在结果已知之后于复核中添加的，其值取决于 $\log_{10}D$ 平坦先验的上限：采用全文所用的上限 $10^{4}\sqmh$ 时为
+0.007 和 0.013，若把先验扩展到 $10^{6}\sqmh$，则为 0.013 和 0.024（事后）。
+% src: data/bsc_outbreaks/tables/analysis_results.json (callcentre.joincount); data/validation_checks/callcentre_quadrature.json (equal_weight 0.0068, pooled_weight 0.0128; prior_upper_limit_sensitivity 1e6_flat_extension: equal 0.0127, pooled 0.0238); data/bsc_validation/tables.md (Table V9: M2 median z 10.99, M0 0.262; 40-draw estimate 0.031 pooled, 0.017 equal weight)
+
+$\Mtwo$ 的合并得分为 $\Delta=+2.83$（在 $\Mzero$ 下精确单侧 $p=2.5\times10^{-4}$），因此 A1 通过；但它依赖于航班，去掉
+航班时 $\Delta=-3.19$。两项适配失败使 $\Mtwo$ 的结局为 W4。而且，该规则无需任何格子即可通过：一个不经标定、给每个事件
+赋予相同的近/远风险比 2、2.5 或 3 的模型，得分分别为 $\Delta=+7.6$、$+7.7$ 和 $+7.1$，高于 $\Mtwo$，且没有任何单个事件
+未通过（事后比较）。通过 A1 表明这些数据中存在邻近梯度；它并不表明格点接触核或其标定增添了预测价值。
+% src: data/s8_first_test_exact.json (primary.pooled.M2: all 2.835, p 2.48e-4; without_T5 -3.195); data/validation_checks/v05_generic.txt (RR = 2: +7.63; 2.5: +7.74; 3: +7.09; failures [])
+
+\emph{同格点模型 $\Mone$} 在合并检验中未通过（$\Delta=-2.94$），并在三个单一事件上未通过，其结局同样是 W4；它在大巴上
+的未通过依赖于事后记录中的规则 P4——该规则在结果已知之后采用，把精确模拟器无法达到其观测总数的事件计为未通过（补充
+材料第~\ref{S-appC_protocol:sec}~节）。在高铁上标定得 $\Dp=0.50\sqmh$：就座的乘客每小时换几次格点。在这样的迁移率下，
+无论传染率取多大，在四个留出事件中的三个上，平均病例数都低于观测数，因为罹患率饱和于易感者曾与指示病例同处一格的
+概率：在大巴上，平均数至多约为 9 例（观测为 23 例）；达到观测总数的概率在大巴上为 0.0002，在航班上为 0.025，在教室中
+为 0.081（补充材料表~\ref{S-s8_outbreaks:tab:m1}）。更大的迁移率会抬高这一上限，但被高铁数据排除；而在步行迁移率下，
+房间是均匀混合的，$\Mone$ 失去其空间结构。
+% src: data/bsc_validation/02b_m1_exact.json (events.*.rows: p_total_ge_K, mean 0.00019 (T1), 0.0247 (T5), 0.0810 (C1)); data/bsc_validation/tables.md (Table V8: 8.9 (7.5-12.2)); data/bsc_validation/03_holdout_shape.json (pooled.M1)
+
+\subsection{第二项检验}\label{s8_outbreaks:sec:second}
+
+\begin{table}[tbp]
+  \centering\footnotesize
+  \setlength{\tabcolsep}{3.2pt}
+  \caption{第二项检验：留出事件（事件总数固定，每个事件一个 $\varepsilon_k$；接触核与比值在六个 2020 年之前的事件上
+  标定）。恒定比值模型（CR）与 $\Mtwo$ 下各分层的期望病例数；观测向量在 $\Mzero$、CR 与 $\Mtwo$ 下的双侧预测 $p$ 值；
+  $\Delta_0$ 与 $\Delta_{\mathrm{C}}$：$\Mtwo$ 的对数得分分别减去 $\Mzero$ 与 CR 的对数得分。}
+  \label{s8_outbreaks:tab:second}
+  % generated: data/v2_tab_holdout2.tex (code/v2_numbers.py <- data/bsc_validation2/a1_more_outbreaks/10_corrected.json, primary_corrected)
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.155\textwidth}c>{\raggedright\arraybackslash}p{0.135\textwidth}>{\raggedright\arraybackslash}p{0.1\textwidth}>{\raggedright\arraybackslash}p{0.1\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}cc@{}}
+    \toprule
+    事件 & 近区对远区 & 各分层观测值（暴露人数） & 期望值，CR & 期望值，$\Mtwo$ &
+      $p$：$\Mzero$ / CR / $\Mtwo$ & $\Delta_0$ & $\Delta_{\mathrm{C}}$ \\
+    \midrule
+    \tabinput{data/v2_tab_holdout2}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\emph{标定。}在四个 2020 年之前的航班上，恒定比值为 $\varrho=3.2$（90\,\% 后验区间 1.6--5.3），$\Mtwo$ 的混合系数为
+$\Dair=126\sqmh$（52--438）。在病房中，比值为 3.5（1.8--5.5），系数为 $794\sqmh$（302--4{,}390），接近均匀混合极限，
+因为两个病房数据集相互矛盾：暴露 40 分钟的学生要求陡峭的接触核，而暴露数天的住院病人要求平坦的接触核。
+% src: data/v2_numbers.json (out2.cal.air|CRR: map 3.16, q05 1.61, q95 5.32; out2.cal.air|M2: 125.9, 51.6, 437.5; out2.cal.room|CRR: 3.55, 1.83, 5.53; out2.cal.room|M2: 794.3, 301.9, 4390.8)
+
+\emph{相对于均匀混合模型：通过。}在五个留出事件上 $\Delta_0=+14.35$（在 $\Mzero$ 下的 200{,}000 次抽样中没有一个值这样
+大；复核用其自行编写的几何代码和传播子得到 $+14.30$），仅计四个航班时为 $+10.19$；每个留出事件都有贡献
+（表~\ref{s8_outbreaks:tab:second}）。
+% src: data/v2_numbers.json (out2.pooled.M2.all: delta0 14.351; out2.pooled.M2.air: 10.193; out2.pooled_check.M2.all: 14.299)
+
+\emph{相对于恒定比值：未通过。}合并后 $\Delta_{\mathrm{C}}=-9.15$；若 $\Mtwo$ 为真，则在 200{,}000 次抽样中它从未产生
+这样的值：按镜像判据，恒定比值的预测更好。其中十分之九（$-8.38$）来自加工线，而那里的比较并不对等，因为 8\,m 的近区
+是原文献在同一批数据上挑出的半径；若取 4\,m 的区域，$\Mtwo$ 在加工线上领先 2.2，若取 12\,m 则落后 0.6（事后）。在四个
+留出航班上，两个模型不分高下：$\Delta_{\mathrm{C}}=-0.77$，“$\Mtwo$ 更好”的 $p=0.16$，“恒定比值更好”的 $p=0.065$；
+而若 $\Mtwo$ 为真，该检验有 0.82 的检验效能显示 $\Mtwo$ 更好。在 15 个预先设定的敏感性变体中，航班上的
+$\Delta_{\mathrm{C}}$ 从 $-3.42$ 到 $+1.21$ 不等：其符号取决于结局、分层与近区的定义，而这些是数据无法确定的。
+% src: data/v2_numbers.json (out2.pooled.M2.all: deltaC -9.150, p_mirror 0; out2.pooled.M2.room: deltaC -8.378; out2.pooled.M2.air: deltaC -0.772, p_B2 0.160, p_mirror 0.065; out2.pooled.plant_share_of_deltaC 0.916; out2.check.near1_4m: room deltaC +2.19; out2.check.near5_12m: room -0.64; out2.variants.summary: dC_air_min -3.42, dC_air_max 1.21)
+
+\emph{适配性：两项未通过。}五个留出事件中有两个落在 $\Mtwo$ 的预测分布之外：飞往那霸的航班（$p=0.047$，边缘性的，且
+不稳固；若同一家庭只计一次，则 $p=0.25$）和加工线（$p=1.4\times10^{-5}$）；在加工线上，罹患率在 8\,m 以内是平的，然后
+骤降，而在病房上标定的接触核几乎是均匀混合的。结局为 V5。竞争模型同样有未通过之处：恒定比值在一个航班上未通过
+（$p=0.020$），均匀混合模型在三个事件上未通过。
+% src: data/v2_numbers.json (out2.hold.F5: M2 p 0.0472; out2.hold.P1: M2 p 1.42e-5; out2.hold.F7: CRR p 0.0195; out2.pooled.M2.decision: B3_failures [F5, P1], outcome V5); data/checks/outbreaks2.json: naha (p 0.25 with households collapsed)
+
+\emph{同格点模型}在第二项检验中只以一种闭式形式计分，而其方案事先确定了解读方式：第一项检验已用精确模拟器表明，该闭式
+形式高估了 $\Mone$ 的可达范围（合并值 $-11.11$，而模拟所得模型为 $-2.94$），因此闭式形式即使通过也与 $\Mone$ 无关，
+未通过则印证第一项检验。该闭式形式相对于均匀混合模型通过（$\Delta_0=+15.45$，主要来自加工线），但无论合并计算
+（$\Delta_{\mathrm{C}}=-8.06$）还是在航班上（$-4.63$）都劣于恒定比值，并在五个留出事件中的三个上未通过。
+% src: data/v2_numbers.json (out2.pooled.M1.all: delta0 15.446, deltaC -8.055; out2.pooled.M1.air: deltaC -4.634; out2.pooled.M1.decision: B3_failures [F5, F7, P1], V5); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 3 (M1cf); data/s8_first_test_exact.json (primary.pooled: M1cf -11.109, M1 -2.939)
+
+\emph{一个不含物理机制的接触核表现同样好。}在一项事后比较中，以同样方式标定的指数核（客机上的衰减长度为 2.5\,m）得分
+$\Delta_0=+18.0$；$\Mtwo$ 在航班上领先它 0.31，这并不显著，而在五个事件上落后它 3.7。在本检验中，没有任何东西能把格点
+传播子或通风对气溶胶的去除，与一般的随距离平滑衰减区分开来。其他预先设定的次要分析，包括把第一项检验的高铁接触核
+迁移到八个航班（它胜过均匀混合模型，并在四个航班上被拒绝），见补充材料第~\ref{S-s8_outbreaks:sec:seconddetail}~节。
+% src: data/v2_numbers.json (out2.check.exp_vs_crr.all: delta0 18.02; out2.check.m2_vs_exp.air: deltaC +0.313; out2.check.m2_vs_exp.all: deltaC -3.72; out2.sec.train_kernel.flights: delta0 7.555; out2.sec.train_kernel.padeq); data/checks/outbreaks2.json: exponential_kernel.aircraft_decay_length_m (2.5)
+
+\subsection{混合系数与水平}\label{s8_outbreaks:sec:mixing}\label{s8_outbreaks:sec:levels}
+
+单独拟合时，第一项检验中的各交通工具事件所要求的混合系数相差几个数量级：航班为 0.06--$0.1\sqmh$，高铁为 25，大巴为
+63，长途客车至少为 $6{,}300\sqmh$；共同取值被拒绝（似然比 9.52，自由度为 3，近似 $p=0.023$，事后检验）。在第二项检验
+中，三个房间事件的共同系数被拒绝（似然比 17.4，自由度为 2，近似 $p=1.6\times10^{-4}$），八个航班的共同系数也被拒绝，
+但较弱（15.2，自由度为 7，近似 $p=0.034$）；这些近似 $p$ 值采用卡方参照分布，而当最大值位于网格边缘时，其适用条件并不
+满足。没有任何场所类别具有单一系数，也没有任何系数能在类别之间迁移。两项检验都对每个事件拟合一个传染力参数，因此本节
+中没有任何罹患率是预测值；由第一数据集中五个单一指示病例事件和一个有多名教练的聚集性疫情推算出的释放率，最大值为最小值的 76 倍
+（若只计合唱团的确诊病例，则为 53 倍；补充材料表~\ref{S-s8_outbreaks:tab:levels}）。已发表的暴发因规模大而被选中，
+其水平无法由一个典型的指示病例预测。
+% src: data/appC_protocol_numbers.json (loo.vehicle: LR 9.52, p 0.0231); data/bsc_validation/07_loo.json (classes.vehicle.M2: D_own_mode 25.1, 63.1, 6310, 0.1); data/validation_checks/v10_c1_loo.txt (T5 0.063)
+% src: data/v2_numbers.json (out2.D.room: LR 17.44, df 2, p 1.63e-4; out2.D.air: LR 15.18, df 7, p 0.0338)
+% src: data/bsc_validation/04_level_controls.json (implied.H1.E_implied = 2734.3; implied.T2.E_implied = 36.0; implied.R2.E_implied = 1921.0); ratios 2734.3/36.0 = 76, 1921.0/36.0 = 53
+
+\subsection{实测接触}\label{s8b_evidence:sec:contacts}
+
+模型的移动机制——在共享格点上发生接触的随机游走——能否描述室内谁与谁相遇？我们使用了六个公开的 SocioPatterns 数据集，
+它们用可穿戴 RFID 传感器以 20 秒的分辨率记录面对面近距离接触\citep{cattuto2010dynamics}：一座办公楼在 2013 年和 2015 年
+的记录\citep{genois2015data,genois2018can}、一所小学\citep{stehle2011high}、一个医院病房\citep{vanhems2013estimating}、
+一所高中\citep{mastrandrea2015contact}和一次学术会议\citep{genois2018can,stehle2011simulation}，涉及 75 至 403 人，时长
+2 至 10 天。每个模型都用一个数据集前一半的天数标定，再预测后一半。第~\ref{s2_model:sec}~节的游走采用离散时间形式，每个
+格点对应一个接触范围，有两个参数（格点数与跳跃概率），由每对同时在场者的接触时间和平均接触时长确定。其竞争模型为一个
+均匀混合模型，以及一个在记录的分组中组内与组间接触之比恒定的模型。对七个接触统计量族计分，并在相同的接触总时间下，
+分别在实测接触与模型生成的接触上运行四个情景的 SIR 流行；若移动组分在某数据集上满足流行判据并至少通过七族中的六族，
+则它在该数据集上得到验证（补充材料第~\ref{S-appS_prot2:sec:contacts}~节）。
+% src: code/bsc_validation2/a2_contact_mobility/PREREGISTRATION.md sections 2-7; data/v2_numbers.json (con.dataset.*: N 75-403, n_days 2-10)
+
+游走在全部六个数据集上均未通过（补充材料表~\ref{S-s8b_evidence:tab:contacts}）。它在每个数据集上只通过七族中的一族或
+两族，即它据以标定的那几族，而且不能再现谁与谁相遇：在六个数据集中的五个上，游走中每个人的接触对象过多（2013 年办公楼
+中每人每日 6.0 个，而实测为 4.6 个；小学中为 90 个，而实测为 47 个），组内接触在游走中占接触时间的 10 至 33\pct{}，在
+数据中占 57 至 94\pct{}。由于游走把同样的接触时间分摊给过多且过于均等的接触对象，在全部 24 个情景中，指示病例在游走
+生成的接触上感染的人数都多于在实测接触上，按场所平均多 25 至 72\pct{}。两个不含空间的模型表现既不更好也不更差，结局是
+方案结局阶梯中的最低一级（方案标记中的 A0），并采用方案为这一情形预留的表述：格点游走相对于不含空间的接触模型没有增添
+任何东西。一个让每对人保持其在训练日的接触率的静态网络表现更好（事后）。在游走中，接触数随在场人数的平方增长；在可以
+估计这一点的五个场所中，有四个的增长至多是线性的（指数为 0.45 至 0.95），而医院病房中的增长快于平方（2.8）。
+% src: data/v2_tab_datasets.tex (S7_alpha observed / walk: 0.45/1.97, 2.83/2.20, 0.95/2.06, 0.76/2.12, 0.81/1.95)
+% src: data/v2_numbers.json (con.model.RW0.S: [1,2,2,1,1,1]; con.stats_obs_vs_RW0: S3_deg_mean 4.58/5.96 (InVS13), 46.6/90.4 (LyonSchool); S6_within_frac observed 0.57-0.94, walk 0.10-0.33; con.model.RW0: n_cells_over 24 of 24, ratio_min 1.253, ratio_max 1.715; con.model.WM; con.ladder: A0; con.check.static); data/v2_tab_datasets.tex (S7_alpha)
+锚定于固定位置的游走是事后在三个数据集上开发的，并在应用于另外三个确证数据集之前冻结；在事后描述中，它们把模拟罹患率的误差从
+0.17 降至 0.04--0.05，但其确证检验无信息量，因为冻结的拟合程序不能从其自身生成的合成数据中还原出所设定的真值；锚定是一个方向，而不是
+一项结果。唯一涉及迁移率异质性的变体——带两个不同迁移率分区的游走——在每个数据集上通过七族中的两族，并不优于均匀
+游走（补充材料第~\ref{S-s8b_evidence:sec:contactsdetail}~节）。标定所得的跳跃概率对应于每天约 220 至 450 格点$^2$，介于
+未以接触数据检验过的 $\Dz=1$ 与步行迁移率之间。
+% src: data/v2_numbers.json (con.model.RWhet.S: [2,2,2,2,2,2]; con.model.RWhet.E_datasets 0; con.model.RW0.mean_abs_dA 0.167; con.model.RWclus: 0.041; con.model.RWstickZ: 0.038; con.model.RWstickO: 0.050; con.check.self_power); per-direction hop rate (p/4) x 4,320 steps per day = 219-451 (con.dataset.*.p: 0.203-0.417)
+
+\subsection{由示踪测量确定的空气传播核}\label{s8b_evidence:sec:tracer}
+
+如果 $\Mtwo$ 的非局部项描述的是气溶胶的输运，那么其混合系数无需任何暴发即可测量。已发表的示踪测量涵盖其中四个场所：
+湖南长途客车八个座位处的乙烷\citep{ou2022}、宽体客机客舱中由呼吸假人释放的粒子\citep{kinahan2021aerosol}、铁路车厢中
+的盐气溶胶\citep{woodward2022evaluation}，以及广州餐厅七张餐桌处的示踪气体\citep{li2021}；对教室，则外推一条在两栋住宅
+中测得的湍流扩散系数对换气率的回归关系\citep{cheng2011modeling}。在三种交通工具中，以扩散系数概括的实测场的量级为 100
+至 $1{,}000\sqmh$：长途客车中约为 $1{,}300$（仅有下界），客舱中两次释放分别为 700 和 110，车厢中为 900 和 350。这些系数
+是一个相邻取值之比为 1.12 的参数网格上的点（两项检验中对暴发拟合的系数则取自相邻取值之比为 1.26 的网格），因此只有前两位有效
+数字携带信息。它们是第一项检验中交通工具取值（$25\sqmh$）的 4.5 倍至约 50 倍，而外推得到的房间取值（169 至
+$185\sqmh$）是其房间取值（$0.5\sqmh$）的几百倍。第二项检验的客机系数（$126\sqmh$）位于客舱实测范围之内；但这并不使由
+暴发拟合的系数成为空气混合的测量值，因为在同一项检验中并不存在共同的系数。暴发所要求的系数吸收了一切使风险随距离陡降
+的因素：近距离暴露、同坐的同行者、行为。
+% src: code/bsc_validation2/a3_tracer_physics/PREREGISTRATION.md section 3; data/v2_numbers.json (tr.D.coach: D 1259, lo 708; tr.D.cabin: D_5L 708, D_5A 112; tr.D.train: middle 891, end 355; tr.D.table: classroom 169, office 185; out2.cal.air|M2: 126); data/checks/tracer.json: ratio_tracer_to_outbreak_D_at_low_cabin_value (4.5); grids: code/bsc_validation2/a3_tracer_physics/PREREGISTRATION.md section 3 (log10 step 0.05, factor 1.122; 1258.93 = 10^3.10, 707.95 = 10^2.85, 112.20 = 10^2.05, 891.25 = 10^2.95, 354.81 = 10^2.55), code/bsc_validation/PREREGISTRATION.md and code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md (61 points over [0.01, 10^4], factor 1.259); tr.D.table: classroom 169.16, office 185.2
+
+以这种方式固定接触核后，第一数据集的各事件以每个事件一个自由参数进行预测（补充材料表~\ref{S-s8b_evidence:tab:tracer}）。
+长途客车和呼叫中心不再被拒绝，但这仅仅是因为实测接触核接近均匀混合，而均匀混合模型的拟合同样好或更好。教室是相对于
+均匀混合模型唯一的收益（$p=0.42$，对比 $0.036$），而恒定比值 2 和 3 也能做到这一点。VN54 航班未被再现：预测比值为
+1.66，而观测为 7.3；形式上的未被拒绝（$p=0.14$）依赖于传感器的零读数（若按方案列出的一个变体把零读数视为缺失，则
+$p=0.003$）。餐厅在报告的病例数下未被再现，高铁数据表对每个模型都未通过。在五个分层事件上，示踪接触核相对于均匀混合
+模型得分 $+7.87$，相对于恒定比值 2 和 3 分别得分 $-0.80$ 和 $-0.78$；示踪方案的结局是“一项适配失败且相对于通用梯度
+没有收益”所对应的结局（方案标记中的 S4），若把形式上的通过依赖于传感器零读数的航班计为未通过，则为“两项适配失败”所
+对应的结局（S5）。示踪接触核未被验证为空间预测器。在第二项检验的结果已知之后，又撰写了一项探索性推广，把分析扩展到该检验的
+四个留出航班：两个客舱系数胜过均匀混合模型，并与恒定比值 3 不分高下（$-0.16$；补充材料第~\ref{S-s8b_evidence:sec:tracerdetail}~节）。
+% src: data/v2_numbers.json (tr.event.C1: P p 0.424, M0 p 0.036; tr.event.T5: P p 0.136, rr_expected 1.660, KA_zeros_missing 0.0028; tr.eval.pooled.P: M0 delta 7.873; CRR2 -0.800; CRR3 -0.780; tr.eval.decision: outcome S4); notes/VERIFICATION.md (Section 4.8, tracer measurements, item 11: outcome S5 if the flight is counted as a failure); data/v2_numbers.json (tr.ext.pooled.P: M0 +10.36, CRR3 -0.16)
+
+\subsection{分区层面的结构}\label{s8b_evidence:sec:zones}
+
+在分区尺度上，模型认为两个群组之间的传播与其成员在同一地点度过的时间成正比，并采用第~\ref{s2_model:sec}~节的频率依赖
+归一化：若群组 $i$ 中的一人在分区 $z$ 中度过的时间比例为 $f_{iz}$，则群组 $i$ 所受的感染力为
+\begin{equation}\label{s8b_evidence:eq:zone}
+  \lambda_i=\beta\sum_z q_z\,f_{iz}\,\frac{\sum_jf_{jz}I_j}{\sum_jf_{jz}N_j},
+\end{equation}
+这是 \citet{bichara2015sis} 意义下的驻留时间表述。所拟合的模型把实测的接触时长份额放在三个互斥的层次上（本班、同年级
+其他班、学校其余部分），这就把 RFID 测得的接触时间等同于共同度过的时间。所用疫情是 2014/15 年日本松本市 29 所公立小学
+中的季节性流感，455 个班级的 10{,}923 名学生中有 2{,}548 人感染，记录了发病日\citep{endo2021within}；混合取自里昂一所
+小学中测得的学生接触时间份额\citep{stehle2011high,gemmetto2014mitigation}：本班 0.762，同年级其他班 0.104，学校其余
+部分 0.134。在按学校二折交叉验证下，拟合一个采用原文献序列间隔核的逐日链二项模型；判定规则分三层（补充材料
+第~\ref{S-appS_prot2:sec:zones}~节）。
+% src: code/bsc_validation2/a4_zone_level/PREREGISTRATION.md sections 1, 2.1-2.6; data/v2_numbers.json (zone.counts: 10923, 2548, 455, 29); data/schools/lyon_mixing.json (shares 0.762, 0.104, 0.134)
+
+分区模型对留出学校的预测远优于全校均匀混合模型（在 29 所学校中的 27 所领先）和各班相互独立的模型（补充材料
+表~\ref{S-s8b_evidence:tab:zone}）。同年级各班之间的份额在两位小数上一致；三个份额完全一致的假设被拒绝，拟合所得的学校
+层面份额几乎是实测值的两倍。这一比较存在混杂：模型没有家庭项，而原文献把学生感染的 41\pct{} 归于家庭，并且兄弟姐妹在
+同一所学校的不同年级就读。拟合所得的份额落在容差之内，但并不稳妥（11\pct{} 的自助重抽样超出容差）。预先设定的、含一个
+拟合比值的通用两层模型并未被胜过，而在拟合份额已知之后选定的猜测 0.7、0.1 和 0.2 表现更好。规则的判定结论为“结构正确、
+在容差之内、但并非完全一致”，报告为弱通过：除“大部分传播发生在班级内部”这一表述之外，并未显示该测量有何作用。该检验
+依赖于驻留时间约化~\eqref{s8b_evidence:eq:zone}，而这是一个假设；格点游走、房间内的梯度、空气传播项和罹患率水平都不
+涉及。首尔呼叫中心整栋楼按楼层划分的分区模型排除了全楼均匀混合——这无需任何模型——此外别无所获：在共用电梯与大堂中
+度过的时间没有测量，而若假定更长的时间，同一模型便与数据不一致（补充材料第~\ref{S-s8b_evidence:sec:zonesdetail}~节）。
+% src: Endo et al. 2021, Results and Discussion (Europe PMC PMC8609560, read 1 October 2026: household 41.3 % of student cases); data/v2_numbers.json (zone.posthoc.schools_Z_ahead_of_H [27, 29]; zone.primary_other.LR_F_vs_Z 42.71, w_hat; zone.TV_boot_ci; zone.check.P_TV_gt_0.15 0.107); notes/VERIFICATION.md (Section 4.9, zone level, items 4, 5, 7); data/v2_numbers.json (zone.seoul: pred_count_median 4, well_mixed_expected 78.7, obs_other 3); data/checks/zones.json: seoul_by_floor (30-120 min gives 7 to 81)
+
+\subsection{证据支持什么}\label{s8b_evidence:sec:overall}\label{s8_outbreaks:sec:verdict}
+
+\begin{table}[tbp]
+  \centering\small
+  \caption{经过两项暴发检验以及对接触、示踪和分区的分析之后，模型及其各组分的状况。每一项都是复核之后的结局；补充
+  材料表~\ref{S-appS_prot2:tab:register} 登记了全部检验，并注明了哪些是预先设定的、哪些是事后添加的。}
+  \label{s8b_evidence:tab:variants}
+  % src: the evidence cited is that of Section 7, where each number carries its own src comment; data/v2_numbers.json (out2.pooled.M1.all: delta0 15.446; out2.pooled.M2.all: deltaC -9.150; out2.pooled.plant_share_of_deltaC 0.916)
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.48\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}@{}}
+    \toprule
+    组分 & 证据 & 结论 \\
+    \midrule
+    $\Mone$：人员在格子上游走，传播发生在同一格点上（第~\ref{s2_model:sec}--\ref{s6_scenes:sec}~节的模型） &
+      在第一项检验四个就座事件中的三个上，期望罹患率低于观测值（达到大巴总数的概率为 0.0002）；在第二项检验中，其
+      闭式形式（它高估了模型的可达范围，按方案其通过与模型本身无关）胜过均匀混合（$+15.45$），但在五个新事件中的
+      三个上未通过，且劣于恒定比值；其接触在六个接触数据集中的六个上均未通过，相对于不含空间的模型没有增添任何东西 &
+      未获支持 \\\addlinespace[2pt]
+    $\Mtwo$：非局部空气传播项，系数由暴发拟合 &
+      在两项检验中均优于均匀混合；预先设定的合并比较支持恒定的近/远比值（$-9.15$，十分之九来自加工线）；在四个航班
+      上与恒定的两排比值不分高下；指数衰减表现同样好（事后）；在一辆长途客车、一个呼叫中心、一条加工线和一个航班上
+      未通过；不存在共同系数；不能从高铁迁移到客机 &
+      仅在以下意义上得到支持：一个平滑的单参数梯度胜过均匀混合模型 \\\addlinespace[2pt]
+    采用示踪实测系数的 $\Mtwo$ &
+      相对于均匀混合有一项收益（教室），恒定比值也能做到；VN54 航班、餐厅和高铁未被再现；向四个航班的探索性推广与
+      比值 3 不分高下 &
+      未被验证为空间预测器 \\\addlinespace[2pt]
+    分区层面约化，式~\eqref{s8b_evidence:eq:zone} &
+      在 29 所学校的流感上弱通过；一个拟合比值表现同样好，而猜测 0.7、0.1、0.2（事后）表现更好；按楼层划分的整栋楼
+      无定论 &
+      作为结构得到弱支持（以班级为主，三个层次）；定量规律未获支持 \\\addlinespace[2pt]
+    锚定于固定位置的游走者 &
+      在事后描述中模拟流行的误差更小；确证检验无信息量 &
+      既未得到支持，也未被否定 \\\addlinespace[2pt]
+    迁移率异质性 $D_x$ &
+      没有任何数据集测量了迁移率场；两区游走并不优于均匀游走 &
+      未经检验 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+证据支持以下表述，且不支持任何更强的表述。以有文献记录的暴发、实测接触、示踪测量和一次学校疫情进行样本外检验时，模型
+并不显示普遍一致，而它所得到的正确结论也并非其所特有（表~\ref{s8b_evidence:tab:variants}，补充材料
+图~\ref{S-s8_outbreaks:fig:summary}）。仅在位于同一格点的人之间传播的模型未得到支持。带扩散气溶胶项的扩展模型——接触核在
+其他暴发上标定、每个事件拟合一个传染力参数——对风险随与源的距离而下降的预测优于均匀混合模型，但未显示其对梯度的预测
+优于恒定的近/远风险比：在第二项检验的五个留出事件上合并时，预先设定的比较支持恒定比值，其中十分之九来自单个事件，而该事件的
+近区是原文献根据同一批数据选定的；在四个留出航班上，两者在统计上无法区分。不存在一个在各房间之间、各交通工具之间或从高铁
+到客机都成立的单一混合系数。有两条结构性表述得到支持，而它们是该模型与更简单的模型所共有的：风险随与源的距离平滑下降
+（随机效应合并的近/远风险比在第二数据集中约为 4，去掉加工线后为 3.3，系事后计算；在第一项检验中带距离分层的四个留出事件上
+为 2.05）；以及分区之间的传播由人们度过时间的群组主导。接触机制、格点接触核的形状与标定、把拟合系数解读为空气的性质
+以及系数在场所之间的迁移，均未得到支持；罹患率水平是拟合得到的，而非预测的。
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, summary); notes/VERIFICATION.md (Section 4.6, second outbreak test, summary); notes/VERIFICATION.md section 4.10 (statement); data/v2_numbers.json (out2.rr_pooled."all 11 events": RR_random 3.978; "without P1" 3.296); data/s8_outbreaks_checks.json (heterogeneity.pooled_rr_random_DL 2.047)
+
+最重要的是，这些检验没有一项涉及迁移率的异质性，而这正是第~\ref{s2_model:sec}--\ref{s6_scenes:sec}~节的模型区别于更
+简单模型之处。在每一起公开了人员位置的暴发中（因而在每一个受检事件中），人们都是就座的或处于固定岗位，因此分区之间
+迁移率的异质性从未起作用，而取得正面结果的模型是一个标准的气溶胶模型；接触记录不含位置信息；也没有找到带分母的地铁
+车厢或超市暴发。预先设定的检验也不涉及前面各节的示意性取值 $\beta=0.5\perday$ 和 $\Dz=1\cellday$：在每项检验中，传播
+水平都是拟合得到的（每起暴发一个传染力参数，学校疫情一个速率，接触记录则匹配接触时间），迁移率与混合系数都在数据上
+标定。
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, further point 5); notes/VERIFICATION.md section 4.10 (reservations: seated or at fixed stations, mobility untested)
+这些默认取值并非为单一事件而设，也无法产生大规模的单一事件。在频率依赖风险率~\eqref{s2_model:eq:pairhazard} 下，位于
+$x$ 的感染者以期望速率 $\beta q_x$ 造成感染（第~\ref{s2_model:sec:ibm}~节）。对不同个人之间的传播链求和，计算每条链上
+有序接触事件的期望数（人们相互独立地移动并保持平稳），可知在持续时间为 $T$ 的事件中，一个指示病例所致感染的期望数至多为
+$\e^{\beta\qmax T}-1$。取 $\beta=0.5\perday$ 和各场景中最大的 $q$（$2.8$），对 1.7 小时的浙江大巴行程\citep{shen2020}
+（67 名乘客中 23 人感染），这一上界为 $0.10$；对 2.5 小时的斯卡吉特县合唱团排练\citep{hamner2020}（60 名参加者中 52 人
+感染，其中 32 人为确诊），为 $0.16$；由马尔可夫不等式，模型赋予这样的计数的概率低于 $0.005$，而只有当 $\beta$ 在大巴上
+约为 $16\perday$、在合唱团约为 $14\perday$（只计 32 例确诊病例时为 $12\perday$）时，该上界才能达到这些计数。这一比较是在
+检验之后添加的，针对的是第一数据集中短时就座暴露后罹患率最高的两个事件（补充材料表~\ref{S-appS_prot2:tab:register}）。
+% src: data/s8_default_level.json (q_max 2.8; events."Zhejiang bus": expected_infections_bound 0.1021, n_infected 23 of 67, markov_bound 0.0044, beta_needed_per_day 16.34; events."Skagit choir": expected_infections_bound 0.1570, 52 / 32 of 60, markov_bound 0.0030 / 0.0049, beta_needed_per_day 13.61 / 11.99), computed by code/s8_default_level.py from data/bsc_outbreaks/outbreaks.csv

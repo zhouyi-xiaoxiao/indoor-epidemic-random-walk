@@ -1,0 +1,148 @@
+% main.tex -- Chinese edition of the main text of the article (../main.tex and ../sections/m*.tex).
+% The English main text is the source of truth; this edition translates it section by section into files of
+% the same names under sections/.  Mathematics, labels and the source comments are copied unchanged.  The
+% Supplementary Material stays in English (../supplement.tex); it is cited as 补充材料 with its S-numbers,
+% which xr-hyper reads from ../supplement.aux (prefix S-, as in the English main text).
+% Compile (one latexmk at a time; the English supplement must have been compiled first so that
+% ../supplement.aux exists):  latexmk -xelatex main.tex   (XeLaTeX + BibTeX; TeX Live 2025; Fandol fonts
+% ship with TeX Live).
+% Every quantitative statement in main.tex and sections/*.tex carries a comment  % src: <path> (<key>)
+% pointing at the results file or script it comes from; paths are relative to the repository root.
+\documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
+
+% The packages of the English article.  fontenc (T1), inputenc and lmodern are not loaded: under XeLaTeX the
+% ctex/fontspec setup supplies Unicode (TU) Latin Modern for Latin text and Fandol for Chinese.
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array,longtable,multirow}
+\usepackage{enumitem}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xcolor}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\externaldocument[S-]{../supplement}
+% Links to the supplement are GoToR actions with a named destination.  Under XeLaTeX, hyperref keeps the page
+% value of the first remote link and then warns `Invalid page number (0)' at every later one; the page value is not
+% used when a named destination is given, so it is reset before each remote link (no \href with page= is used).
+\makeatletter
+\let\zh@MakeRemoteAction\Hy@MakeRemoteAction
+\def\Hy@MakeRemoteAction{\let\Hy@href@page\@empty\zh@MakeRemoteAction}
+\makeatother
+
+\usepackage[section]{placeins}   % floats stay inside the section that defines them
+
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.80}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
+% Chinese typesetting: left-aligned section headings (as in the English article), caption label followed by
+% a quad (图 3  ……), run-in paragraph headings.
+\ctexset{
+  section       = {format = \Large\bfseries\raggedright},
+  subsection    = {format = \large\bfseries\raggedright},
+  subsubsection = {format = \normalsize\bfseries\raggedright},
+  paragraph     = {format = \bfseries, runin = true, afterskip = 0pt},
+}
+\captionsetup{labelsep=quad}
+\pagestyle{plain}                 % page number at the foot, no running head (as in the English article)
+
+\hypersetup{pdftitle={室内传染病流行的随机游走 SIR 模型：再生数、离散个体，以及以暴发记录、接触记录和示踪测量为对照的预先设定检验},
+  pdfauthor={周易潇潇（Xiaoxiao Zhouyi）},
+  pdfkeywords={室内传播；格点随机游走；基本再生数；下一代矩阵；配对层次理论；随机模拟；暴发数据；接触网络；%
+  示踪测量；预先设定的检验}}
+
+\graphicspath{{figures/}}
+\input{macros}
+
+% State of the repository named in the availability statement.  make_release.py tests the URL and the
+% version tag when the release is built and writes repo_status.tex (\repopublictrue, \repotaggedtrue as
+% found).  This edition reads its own repo_status.tex if a build writes one, and otherwise that of the English
+% edition (../repo_status.tex); without either file the cautious wording is used.
+\newcommand{\repoversion}{1.2.0}
+\newif\ifrepopublic
+\repopublicfalse
+\newif\ifrepotagged
+\repotaggedfalse
+\InputIfFileExists{repo_status.tex}{}{\InputIfFileExists{../repo_status.tex}{}{}}
+
+\title{室内传染病流行的随机游走 SIR 模型：\\再生数、离散个体，以及以暴发记录、\\
+接触记录和示踪测量为对照的预先设定检验%
+\thanks{本文为英文论文正文的中文版。补充材料为英文，文中以“补充材料”及其带前缀 S 的编号引用。}}
+
+\author{周易潇潇（Xiaoxiao Zhouyi）\\[4pt]
+\normalsize 英国布里斯托大学工程数学与技术学院\\
+\normalsize \href{mailto:zhouyixiaoxiao@gmail.com}{zhouyixiaoxiao@gmail.com}}
+
+\date{\vspace{-1.5ex}2026\vspace{-2ex}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本文研究格点上独立随机游走者之间的 SIR 流行，其中迁移率与传染效率随格点而异。
+(i)~平均场 $\Rz$ 是由格点传播子构成的下一代矩阵的谱半径。对同格传播，其上下界、极限以及随迁移率的单调递减均成立，
+这些结论对斑块模型而言已为人所知；对其他接触核，下界与单调性可能不成立。在传染效率均匀时，封闭房间的 $\Rz$ 与其尺寸、
+形状和迁移率无关；在所述条件下，泄漏将 $\gamma$ 替换为 $\gamma+\muk$。
+(ii)~双游走者理论给出单独传播的指示病例所致第一代病例数的精确均值；在低占据率和低迁移率下，它低于 $\Rz$
+（办公室场景中为 2.27，而 $\Rz$ 为 5.11），且不是阈值量。
+% src: data/s5_pair_large_sample.json (office|D0=1: R1bar_exact 2.2661, counted 2.265 +- 0.004 in 400,000 runs, R0_ngm 5.1073; office|D0=100: R1bar_exact 4.3411, R0_ngm 4.646)
+(iii)~在四个封闭房间场景的精确模拟中，空间效应仅在极低迁移率下才较大。
+(iv)~五项检验（其方案均在受检模型运行之前确定；方案撰写时已知晓数据，其时间先后为自证，且未经登记）将模型与 38 条暴发记录中的 22 条、
+接触记录、示踪测量以及一次学校疫情相对照。模型与这些数据之间不存在普遍一致。同格点传播未得到支持；游走产生的接触在
+全部六个接触数据集上均未通过。空气传播扩展模型对留出事件距离梯度的预测优于均匀混合模型（对数得分增益 $+14.35$；
+若暴发服从恒定的近/远比值，该模型也会以 0.65--0.73 的概率做到这一点），但预先设定的合并比较支持恒定比值（$-9.15$，其中十分之九来自
+单个事件，而该事件的近区是根据其自身数据选定的）；在四个留出航班上，两者不分高下。罹患率是拟合得到的；随格点而异的迁移率仍未
+得到检验。
+% src: data/bsc_outbreaks/outbreaks.csv (27 rows); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1 (11 records); 22 records in a test: 2 + 5 (first), 6 + 5 (second), and T3, C3, S1, T7 in the level checks and negative controls of the first test (outbreaks.csv protocol_role); data/v2_numbers.json (con.ladder: A0 on all six datasets); data/v2_numbers.json (out2.pooled.M2.all: delta0 14.351, deltaC -9.150; out2.pooled.plant_share_of_deltaC 0.916; out2.pooled.M2.air: deltaC -0.77; out2.power.registered: CRR P_B1 0.652; out2.power.corrected: CRR B1 0.732); notes/VERIFICATION.md section 4.10 (statement and reservations)
+% src: data/s2_model_scenes.json (scenes.<name>.R0_1m: excess over the well-mixed value below 0.03 % at walking mobility)
+\end{abstract}
+
+\noindent\textbf{关键词：}室内传播；格点随机游走；基本再生数；下一代矩阵；配对层次理论；随机模拟；暴发数据；
+接触网络；示踪测量；预先设定的检验
+
+\input{sections/m1_intro}
+\input{sections/m2_model}
+\input{sections/m3_r0}
+\input{sections/m4_geometry}
+\input{sections/m5_pair}
+\input{sections/m6_simulation}
+\input{sections/m7_data}
+\input{sections/m8_discussion}
+
+\section*{数据与代码可得性}
+全部代码、场景定义、模拟输出、两个暴发记录数据集及其来源、可再分发的示踪数据与学校数据、下载接触记录的脚本、方案
+文件、复核代码以及生成本文及其补充材料中每一幅图和每一张表的脚本，连同给出各项结果重新运行命令的
+\texttt{reproduce.md} 和说明结果核对方式的 \texttt{notes/VERIFICATION.md}，共同构成一个代码仓库（版本~\repoversion）。
+仓库中的方案记录是经删改的副本，每一处改动的行都列于 \texttt{code/REDACTIONS.md}；冻结记录中的哈希值对应于未删改的
+原件（作者可向编辑和审稿人提供原件），因此仅凭仓库无法核查方案的时间先后。
+\ifrepopublic
+该仓库公开于 \url{https://github.com/zhouyi-xiaoxiao/indoor-epidemic-random-walk}。
+\ifrepotagged
+本文对应标签 \texttt{v\repoversion}。
+\else
+本文与该仓库的 \repoversion{} 版配套，版本由文件 \texttt{VERSION} 标识。
+\fi
+\else
+该仓库将公开于 \url{https://github.com/zhouyi-xiaoxiao/indoor-epidemic-random-walk}。
+\fi
+
+\section*{伦理与数据}
+本文只分析了已发表的暴发报告，以及已发表或已公开发布的匿名化接触数据、示踪数据和学校数据；本研究未收集任何人类
+受试者的数据。
+
+\section*{致谢}
+本文在作者的本科毕业论文（天津大学数学学院，2025 年）基础上发展而来。
+
+{\small\setlength{\bibsep}{1pt plus 0.5pt}
+\bibliographystyle{plainnat-zh}
+\bibliography{refs}}
+
+\end{document}

@@ -1,0 +1,215 @@
+\section{引言}\label{s1_intro:sec}
+% Main text, Section 1 (Introduction).
+% Paths in "% src:" comments are relative to the repository root.
+
+有记录的 SARS-CoV-2 聚集性感染绝大多数发生在室内\citep{qian2021indoor,leclerc2020settings}；在若干记录详尽的事件中，
+病例在房间内的分布并不均匀：它们集中在呼叫中心楼层的一侧\citep{park2020}，在客机客舱\citep{khanh2020}或高铁
+\citep{hu2021}上靠近指示病例，或位于同一台空调气流所及的相邻餐桌\citep{lu2020,li2021}。
+室内风险的标准定量工具是 Wells--Riley 方程\citep{wells1955airborne,riley1978,szeto2010review}。该方程及以其为基础的
+模型\citep{noakes2006modelling,bazant2021guideline}都把室内空气视为均匀混合，因而室内每个易感者承担相同的风险。
+本文考察一个最简的空间模型能为这一图景增添什么：在由地面格点构成的格子上做独立随机游走的人群中的
+易感–感染–恢复（SIR）流行，其中迁移率 $D_x$ 与传染效率 $q_x$ 随格点而异（工位、走廊、会议室、障碍物）。
+
+\paragraph{已有工作。}
+对移动个体中的流行病建模已有三十多年的历史：个体在格点之间移动的格点自动机\citep{boccara1992automata,rhodes1996persistence}，
+在连续空间中移动的主体\citep{gonzalez2004scaling,frasca2006dynamical,buscarino2008disease}，以及集合种群网络上的
+反应–扩散过程\citep{colizza2007reaction,belik2011natural,wang2014spatial}。
+与本文模型最接近的是两个游走者之间传播的随机游走理论：当一个感染游走者与一个易感游走者相遇时，感染作为一种
+以有限速率发生的反应而出现\citep{kenkre2014theory,sugaya2018analysis,kenkre2021theory}。\citet{giuggioli2022spatio}
+借助精确传播子\citep{giuggioli2020exact,sarvaharman2023particle}在格点上表述了这一理论，并对移动的易感者、感染者和
+恢复者解析地预测了基本再生数。
+多游走者系统本身是概率论与统计物理中的经典研究对象。对于 $\mathbb{Z}^d$ 上独立的连续时间随机游走者（感染者与
+健康者相遇时发生感染），\citet{kesten2005spread,kesten2008shape} 证明了感染集合随时间线性增长并具有渐近形状；
+在感染游走者会恢复且可再次被感染的情形下，他们还证明了存在一个临界恢复率：低于该值时感染以正概率存续，高于该值时
+感染消亡\citep{kesten2006phase}。同一过程在物理学中称为扩散流行过程（diffusive epidemic process），其吸收态相变已
+通过平均场理论与模拟进行了分析\citep{maia2007diffusive}；在本文这样的永久免疫情形下，正方格子上的模拟显示出一个由
+游走者密度控制的动态渗流型相变\citep{carvalho2025generalized}。这些结果针对的是无限的或大型的均匀格子。它们确立了
+游走者系统中阈值的存在，但没有给出本文所考虑的小型异质房间中阈值的取值。
+% src: data/refs_search.json (kesten2005spread, kesten2006phase, kesten2008shape, maia2007diffusive, carvalho2025generalized: Crossref records, abstracts in manual_checks; search queries of 1 October 2026)
+
+对仓室模型，基本再生数 $\Rz$ 是下一代算子的谱半径\citep{diekmann1990definition}，即 $\Rz=\srad(\Fm\Vm^{-1})$，并且它是
+一个阈值\citep{vandendriessche2002reproduction}。在无病平衡态处线性化后，格点模型的平均场版本就是一个采用标准发生率的
+传染病斑块模型，相关定理均已发表。
+对移动对称的斑块模型，\citet{allen2007asymptotic} 定义了 $\Rz=\srad(\Fm\Vm^{-1})$，证明了阈值性质，证明了增长界
+$\sabs(\Fm-\Vm)$ 随扩散速率在其两个极限之间递减，并猜想 $\Rz$ 具有同样的单调性；该猜想由\citet{gao2019travel} 对对称
+移动情形、由\citet{gao2020fast} 对一般情形给出证明（另见\citet{chen2020asymptotic}），它是\citet{altenberg2012resolvent}
+的约化原理的一个实例。$\Rz$ 介于最小与最大的斑块再生数之间、且在二者相等时与移动无关，这一结论来自\citet{gao2011sis}；
+更紧的下界（即快速扩散极限）来自\citet{gao2020fast}；以扩散速率倒数的一阶趋近该极限的结果由\citet{tien2015disease}
+得到，其研究对象是一个由病原体而非宿主移动的网络，下一代矩阵具有相同的形式。连续情形的对应结果见
+\citet{allen2008asymptotic} 与\citet{wang2012basic}。（我们阅读了\citet{gao2011sis} 与\citet{tien2015disease} 的正式发表
+版本，其 Proposition~2.2 与第 4.2 节包含了我们归于它们的结果；也阅读了\citet{gao2020fast} 的正式发表版本。
+对\citet{allen2007asymptotic} 与\citet{gao2019travel}，我们只阅读了摘要；我们归于它们的结论依据\citet{gao2020fast}
+的转述，并在摘要所及的范围内与摘要一致：前者为阈值性质，后者为对称移动情形下随扩散速率的单调递减。）
+% src: data/refs_search.json (gao2020fast_published: Theorems 2.1, 2.3, 3.3, Corollary 3.5 "generalization of Lemma 3.4 in Allen et al.", Discussion on Tien et al.; checked 1 October 2026)
+% src: published versions of doi:10.1016/j.mbs.2011.05.001 (Proposition 2.2: max{max_i tilde R0^(i), min_i R0^(i)} <= R0 <= max_i R0^(i)) and doi:10.1007/s00285-014-0791-x (Section 4.2, eqs. (29)-(35): first-order Laurent correction of R0 in 1/d_W with the generalised group inverse X_0), author copies read 2 October 2026
+% src: abstracts of doi:10.1137/060672522 and doi:10.1137/18M1211957 in their Crossref records (read 2 October 2026)
+
+空间分辨的室内模型也已存在：分区通风模型\citep{noakes2009mathematical}，空气中浓度的输运模型
+\citep{lau2022predicting,vuorinen2020modelling}，以及针对超市和航空旅行的基于行人或基于主体的模拟
+\citep{ying2021modelling,namilae2017multiscale}。它们对空气或运动轨迹的刻画比格点游走更为细致。与之相比，格点模型
+能提供的是对再生数的解析处理；而正如第~\ref{s8_outbreaks:sec}~节所示，它所欠缺的是对共享空气的就座人群以及
+“谁与谁相遇”的恰当描述。
+
+有三类测量与这样的模型相关，每一类都有各自的文献。室内人与人之间的近距离接触已在学校、办公室、医院和会议中用
+可穿戴传感器记录下来；这些接触集中于少数反复出现的接触对象，按群组组织，且时长分布很宽
+\citep{cattuto2010dynamics,stehle2011high,genois2015data,genois2018can}；在有吸引力的个体附近减速的平面随机游走者
+能再现其中若干统计特征\citep{starnini2013modeling}；人们也已在实测网络上模拟了流行
+\citep{stehle2011simulation,gemmetto2014mitigation}。交通工具中气溶胶的输运已用示踪测量过
+\citep{kinahan2021aerosol,woodward2022evaluation,ou2022}，房间的湍流扩散系数也已与其通风联系起来
+\citep{cheng2011modeling}。此外，暴发调查按距离报告风险：航空器上的接触追踪采用病例周围两排的范围，这一规则的局限
+是已知的\citep{hertzberg2016risk}；学校中的流感传播也已被分解到班级、年级与学校层面\citep{endo2021within}。
+第~\ref{s8_outbreaks:sec}~节正是以这些数据检验模型；这些数据所提示的规则——恒定的近/远风险比与固定的组内接触
+份额——就是模型必须胜过的通用竞争模型。
+
+\paragraph{本文贡献。}
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em,itemsep=1pt,topsep=3pt]
+\item \emph{平均场再生数}（第~\ref{s3_r0:sec}~节和第~\ref{s4_geometry:sec}~节）。我们叙述并证明
+  $\Rz=\srad\bigl(\beta\Qm(\gamma\Id-\gen)^{-1}\bigr)$，即由经拉普拉斯变换的格点传播子构成的下一代矩阵的谱半径。对同格
+  传播，我们证明 $\beta\qmean/\gamma\le\Rz\le\beta\qmax/\gamma$，证明 $\Rz$ 随迁移率尺度在这两个极限之间单调递减，并证明
+  任一高风险分区都给出一个下界；对其他接触核，下界与单调性都可能不成立。在 $q$ 均匀的封闭房间中，$\Rz$ 与房间的
+  尺寸和形状无关。真正的边界效应是泄漏（门、有限的停留时间）：对均匀 $q$ 与同格接触核，或对不依赖于位置的停留时间
+  与任意接触核，泄漏将 $\gamma$ 替换为 $\gamma+\muk$；对异质 $q$ 与同格接触核，它给出
+  $\beta\langle q\rangle_\nu/(\gamma+\muk)\le\Rroom\le\beta\qmax/(\gamma+\muk)$
+  （定理~\ref{s4_geometry:thm:leaky}）；当采用其他接触核且门为局部时，该公式与两个界都可能不成立。
+\item \emph{离散个体}（第~\ref{s5_pair:sec}~节）。沿用双游走者传播理论\citep{kenkre2014theory,giuggioli2022spatio}，
+  把感染处理为双游走者过程中的一个部分吸收缺陷。由此得到一个指示病例所致二代病例数的期望 $\Rone(x)$，以及均匀周期
+  房间与无限大地面情形下的闭式解；在所检验的情形中，该闭式解对反射壁房间的近似误差在 1\,\% 以内。它解释了为何在
+  低占据率下计数得到的二代病例数低于 $\Rz$，以及对离散的人而言有限尺寸效应取何种形式。
+  % src: data/s5_pair_checks.json (finite_size: largest deviation of the closed form from the exact pair solve 0.90 %, 21 rooms)
+\item \emph{精确随机模拟}（第~\ref{s6_scenes:sec}~节）：模拟四个场景（办公室、超市、教室、地铁车厢）与干预措施，
+  其中二代病例数由感染树计数得到，而非拟合得到。
+\item \emph{与数据对照}（第~\ref{s8_outbreaks:sec}~节）。我们汇集了 38 条有文献记录的室内暴发与暴露队列记录：
+  第一数据集包含来自 31 篇已发表文献的 27 条记录（其中 23 条有病例数与暴露人数），第二数据集包含十起暴发的十一条
+  带座位或位置数据的记录。在其中 18 条记录上，两项样本外检验把两个空间模型（$\Mone$、$\Mtwo$）与均匀混合模型
+  （$\Mzero$）相比较（第一项用两条记录标定、五条留出；第二项为六条与五条；另有四条记录进入第一项检验的水平检验与
+  阴性对照）；第二项检验按设计还把它们与恒定的近/远风险比相比较。另有三项分析处理暴发计数无法回答的问题：把格点
+  游走产生的接触与六个室内场所的实测接触相比较；由已发表的示踪测量确定空气传播核，再与暴发数据对照；把模型约化到
+  分区层面，以一所学校中测得的混合为输入，预测另外 29 所学校中的一次流感疫情。五项主要检验中的每一项，都遵循一份
+  在受检模型于其数据上运行之前写成的方案（对示踪分析而言，所用暴发在其他模型下的结局已知）。这些方案是预先设定的，
+  而不是通常意义上的预注册：撰写时数据已知，未提交任何登记平台，其时间先后仅以文件哈希值与文件时间戳为凭。在结果
+  已知之后添加的比较均标为事后比较；全部检验的登记表注明了哪些是事先设定的（补充材料表~\ref{S-appS_prot2:tab:register}）。
+  所有结果均连同其失败之处一并报告。
+  % src: data/bsc_outbreaks/outbreaks.csv (27 rows); code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md section 2.1; notes/VERIFICATION.md (Section 4.4, outbreak dataset); notes/VERIFICATION.md (Section 4.5, first outbreak test: pre-registration data-aware, model-blind); notes/VERIFICATION.md section 4.10 (reservations)
+\end{enumerate}
+
+\paragraph{已知结果与本文新增内容。}
+表~\ref{s1_intro:tab:known} 将二者区分开来。关于平均场 $\Rz$ 的定理对斑块模型是已知的。我们仍从非负矩阵的标准结论
+出发给出完整证明（补充材料第~\ref{S-appS_r0:sec}~节），原因在于条件至关重要：下界 $\beta\qmean/\gamma\le\Rz$ 对同格
+接触核成立，对一般接触核则不成立，对此我们给出一个三格点反例（命题~\ref{s3_r0:prop:kernel}）。
+% src: data/plan_theory_checks.json (checks: kernel_counterexample, 0.50 against mean q 0.667)
+双游走者形式体系属于已有工作，它所刻画的相邻个体之间接触的饱和也是一个经典效应
+\citep{ball1997epidemics,keeling1999effects,durrett1994importance}。特别地，\citet{giuggioli2022spatio} 已经由双游走者
+形式体系推导出封闭区域中一个感染游走者在均匀分布的易感游走者中造成的平均二代感染数，并与模拟进行了核对；单缺陷
+解来自\citet{szabo1984localized}。本文新增的内容范围更窄（第~\ref{s5_pair:sec}~节）：按占据率对配对风险率进行归一化，
+使配对层次的再生数与平均场再生数指向同一个模型，并给出逐元素比较 $\ngmone\le\ngm$；含接触核的异质房间中的
+$\Rone(x)$ 与矩阵 $\ngmone$；周期房间与无限大地面的闭式解及其极限；与第二代的比较；以及 $\Ronebar$ 与 $\ngmone$ 的
+谱半径都不是阈值量这一观察（注~\ref{s5_pair:rem:threshold}）。上述关于新增内容的陈述基于一次定向检索（2026 年
+10 月 1 日在 Crossref 和 arXiv 上就随机游走者之间的感染、扩散流行过程和斑块模型再生数进行的查询），而非系统综述。
+% src: data/refs_search.json (searches: queries and numbers of records screened)
+
+\begin{table}[tbp]
+\centering\small
+\caption{本文结果、其已知出处与本文新增内容。表中“Thm”编号指 \citet{gao2020fast} 正式发表版本中的定理编号。
+第 1--6 行与第~8 行不主张新颖性；第 9 行与第~10 行中的数据来自所引文献，新增的是这些数据的汇编与数字化以及检验。}
+\label{s1_intro:tab:known}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.35\textwidth}@{}}
+\toprule
+结果 & 已知出处 & 本文新增 \\
+\midrule
+1.\ $\Rz=\srad(\Fm\Vm^{-1})$ 及其阈值性质 &
+  \citep{diekmann1990definition,vandendriessche2002reproduction}；斑块模型见
+  \citep{allen2007asymptotic} &
+  用格点记号给出的证明；模态公式，其最大的对角项是一个下界 \\\addlinespace[2pt]
+2.\ $\beta\qmean/\gamma\le\Rz\le\beta\qmax/\gamma$ &
+  介于最小与最大的斑块再生数之间\citep{gao2011sis}；下界\citep{gao2020fast} Thm~3.3；
+  连续情形\citep{allen2008asymptotic}；异质性提高 $\Rz$ \citep{hasibeder1988population} &
+  成立条件（同格接触核）以及对其他接触核的反例 \\\addlinespace[2pt]
+3.\ $\Rz$ 随迁移率递减，介于第~2 行的两个极限之间 &
+  \citep{allen2007asymptotic}中提出猜想；\citep{gao2019travel}（对称移动）与
+  \citep{gao2020fast} Thm~2.3（一般情形）给出证明；\citep{chen2020asymptotic,altenberg2012resolvent} &
+  四个室内场景中该效应的大小，分别在低迁移率与现实迁移率下 \\\addlinespace[2pt]
+4.\ 均匀 $q$：无论移动方式如何，$\Rz=\beta q/\gamma$ &
+  \citep{gao2011sis}；经吸收边界的损失\citep{skellam1951random,cantrell2003spatial} &
+  对房间的推论（封闭时无尺寸效应）；泄漏房间公式 $\Rroom=\beta q/(\gamma+\muk)$
+  （同格接触核） \\\addlinespace[2pt]
+5.\ 分区下界；快混合与慢混合的渐近展开；逐边单调性 &
+  快速扩散展开\citep{tien2015disease}；其余为同一矩阵理论的初等推论，定向检索未找到其出处 &
+  针对室内格子的陈述与证明 \\\addlinespace[2pt]
+6.\ 热点分布图（Perron 向量、弹性） &
+  标准的特征向量敏感性分析 &
+  在各场景上的应用；关于暂态的一项提醒 \\\addlinespace[2pt]
+7.\ 感染作为两个游走者之间的反应；一个感染游走者造成的平均二代感染数 &
+  \citep{kenkre2014theory,sugaya2018analysis,giuggioli2022spatio,kenkre2021theory}；单缺陷
+  \citep{szabo1984localized}；局部饱和
+  \citep{ball1997epidemics,keeling1999effects,durrett1994importance}；无限格子上游走者的阈值
+  \citep{kesten2006phase,maia2007diffusive,carvalho2025generalized} &
+  按占据率归一化的风险率与 $\ngmone\le\ngm$；含接触核的异质房间中的 $\Rone(x)$ 与 $\ngmone$；周期房间与
+  无限大地面的闭式解；第二代；不是阈值
+  \\\addlinespace[2pt]
+8.\ 扩散气溶胶暴露项；风险随距离下降 &
+  \citep{lau2022predicting,venkatram2021modeling,cheng2011modeling}；航空器上的两排规则
+  \citep{hertzberg2016risk} &
+  仅作为第~\ref{s8_outbreaks:sec}~节中受检的扩展使用；不主张其预测优于恒定比值 \\\addlinespace[2pt]
+9.\ 暴发调查 &
+  补充材料第~\ref{S-appB_dataset:sec}~节中的已发表文献；此前一份以均匀混合模型评估的暴发汇编
+  \citep{peng2022practical} &
+  38 条记录：第一数据集中八条记录的近/远分层、呼叫中心的座位图、高铁队列的座位偏移矩阵，以及第二数据集中
+  十一条带座位或位置数据的记录；两项预先设定的样本外检验及其结局 \\\addlinespace[2pt]
+10.\ 实测接触、示踪测量、学校疫情的班级结构 &
+  \citep{cattuto2010dynamics,stehle2011high,genois2018can,kinahan2021aerosol,woodward2022evaluation,endo2021within}；
+  在他人附近减速的游走者\citep{starnini2013modeling} &
+  以这些数据对游走产生的接触、采用实测系数的接触核以及分区层面约化进行的预先设定检验，结局为否定性的或弱的 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{主要发现。}
+在办公室场景中（234 个可行走格点，$\beta=0.5\perday$，$\gamma=0.14\perday$，迁移率尺度 $\Dz=1\cellday$），平均场
+再生数为 $\Rz=5.11$，位于界 4.64--5.36 之内；该界对分区比例相同的任何布局都成立。
+% src: data/plan_theory_checks.json (office: D0=1.R0 = 5.107; lower_bound 4.643, upper_bound 5.357)
+然而，当房间中有 100 个离散的人时，单个指示病例平均感染另外 $\Ronebar=2.27$ 人（配对层次的精确期望；计数值
+$\Rhat=2.265\pm0.004$，为 400{,}000 次模拟的均值 $\pm$ 标准误）。
+% src: data/s5_pair_large_sample.json (office|D0=1: R1bar_exact 2.2661; mean 2.2648, se 0.0039, n_runs 400000)
+一半的传入感染最终消亡：暴发达到房间人数 10\,\% 的概率为 0.50，而平均场分支过程给出的是 0.78。
+% src: data/bsc_sim/03_scenes.csv (office|D0=1|range1m: p_major 0.496 [0.474, 0.518], p_major_branching 0.781)
+这两个数对迁移率的响应方向相反：在 $\Dz=10$ 与 $100\cellday$ 时，$\Rz$ 降至 4.68 与 4.65，而配对层次的再生数升至
+$\Ronebar=3.79$ 与 $4.34$。
+% src: data/s5_pair_large_sample.json (office|D0=10: R0_ngm 4.676, R1bar_exact 3.7934; office|D0=100: R0_ngm 4.646, R1bar_exact 4.3411)
+在低迁移率和低占据率下，障碍物、分区隔离和容量限制会减少模拟中的暴发。其原因在于个体的离散性（一个感染者对每个
+邻居只能感染一次，且反复遇到的是同一些人），而不是 $\Rz$ 更低：在频率依赖传播下，容量限制不改变 $\Rz$；分区隔离
+使其升高；在 $q$ 均匀的房间中，障碍格不改变它（定理~\ref{s4_geometry:thm:closed}）；格点之间的隔断墙不能使其降低
+（定理~\ref{s3_r0:thm:edges}）。
+% src: data/s7_interventions_barriers.json (D=1 paired rhoB=0.10|FD attack -0.040 +- 0.003); data/bsc_sim/05_heterogeneity.json (attack_all 0.347 -> 0.231, R0_ngm 4.286 -> 4.972); data/bsc_sim/07_occupancy.json
+这些效应属于一个狭窄的物理区间。格点边长为 1.5\,m 时，$\Dz=1\cellday$ 对应一天内约 3\,m 的均方根位移；5\,\% 的
+时间在步行或全部时间都在步行的人对应 $2.4\times10^{3}$ 至 $4.9\times10^{4}\cellday$，在这样的迁移率下，封闭办公室的
+$\Rz$ 超出其均匀混合值 $\beta\langle q\rangle/\gamma=4.64$ 不到 0.003\,\%。
+% src: data/plan_theory_checks.json (office.mobility_table: D0 = 2400: +0.0027 %; D0 = 48700: +0.0001 %); data/bsc_theory/worked_examples.json (E9_physical_D: 2433.6 and 48672 cell^2/day)
+驻留时间同样重要：若办公室每天占用 8 小时而非 24 小时，则一个指示病例平均感染的人数在 $\Dz=1$ 时为 0.89 至 0.93，
+在 $\Dz=10\cellday$ 时为 1.34 至 1.40。
+% src: data/s7_interventions_schedule.json (duty_exact|office|D0=1: exact_uniform_phase 0.8892, exact_start 0.9296; duty_exact|office|D0=10: 1.3359, 1.3975)
+
+与数据对照时，模型并不显示普遍一致，而它所得到的正确结论也并非其所特有（第~\ref{s8_outbreaks:sec}~节）。仅在位于
+同一格点的人之间传播的表述未得到支持。带扩散气溶胶项的扩展模型对风险随距离下降的预测优于均匀混合模型，但不优于
+恒定的近/远风险比；它在若干事件上未通过，且不存在共同的混合系数；对第一数据集拟合得到的系数远低于在交通工具中
+用示踪测得的系数。以一所学校中测得的混合份额预测另外 29 所学校中的一次流感疫情，效果仅与只含一个拟合比值的
+通用模型相当。数据支持风险随距离平滑下降以及由群组主导的分区结构——这些结论是该模型与更简单的模型所共有的；
+罹患率水平是拟合得到的，而非预测的；并且由于在每一起公开了人员位置的暴发中人们都是就座的或处于固定岗位，迁移率
+的空间异质性仍未得到检验。我们将数据集与检验作为本文的贡献呈现，不主张模型与数据一致。
+% src: notes/VERIFICATION.md (Section 4.5, first outbreak test, summary); notes/VERIFICATION.md (Section 4.10); notes/VERIFICATION.md section 4.10 (statement)
+
+\paragraph{结果的核对方式。}
+本工作的每一部分（理论、模拟、暴发数据集、两项暴发检验，以及对接触记录、示踪测量和分区结构的分析）都在同一项目内、
+同一台计算机上用另行编写的代码进行了复核：第二遍重新推导了证明，重新实现了计算（包括第二个精确模拟器），根据原始
+文献重新录入了暴发计数，并搜索了反例。复核并非由独立于本项目的任何人完成，也不是外部评审；在重新运行分析、比较
+接触核或添加比较之处，它沿用了各项分析的数据读取程序、事件几何、转录的座位图，以及（用于计时基准测试和作息安排的）
+分析所用的模拟器（补充材料第~\ref{S-appA_numerics:sec:scope}~节）。下文中，“复核”指这第二遍工作，“第二模拟器”指
+其模拟器。凡复核更正了某一结果之处，报告的均为更正后的结果；复核未重新计算的结果，以及复核在结果已知之后添加的
+比较，均已注明。各项复核的覆盖范围见补充材料第~\ref{S-appA_numerics:sec}~节。
+% src: notes/VERIFICATION.md (Section 4.1, theory, Section 4.2, simulations); notes/VERIFICATION.md (Section 4.4, outbreak dataset); notes/VERIFICATION.md (Section 4.5, first outbreak test); notes/VERIFICATION.md (Section 4.6, second outbreak test, Section 4.7, contact records, Section 4.8, tracer measurements, Section 4.9, zone level)
+
+\paragraph{全文结构。}
+第~\ref{s2_model:sec}~节定义模型、四个场景与参数区间。第~\ref{s3_r0:sec}~节讨论平均场模型的基本再生数，
+第~\ref{s4_geometry:sec}~节讨论房间尺寸、泄漏与热点分布图。第~\ref{s5_pair:sec}~节建立离散个体的配对层次理论，
+第~\ref{s6_scenes:sec}~节报告场景与干预措施的模拟结果。第~\ref{s8_outbreaks:sec}~节将模型与有文献记录的暴发、实测
+接触、示踪测量以及一次学校疫情相对照，第~\ref{s9_discussion:sec}~节讨论成立的结论与局限。补充材料收录证明、数值验证、
+暴发数据集、检验方案、扩展表格以及全部检验的登记表；其节、公式、图和表均以前缀 S 编号。

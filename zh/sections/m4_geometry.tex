@@ -1,0 +1,193 @@
+% m4_geometry.tex -- Main text, Section 4: Room size, leaks and hotspot maps.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers come from  data/plan_theory_checks.json (canonical office scene, written by
+% code/plan_theory_checks.py),  data/bsc_theory/worked_examples.json and
+% fig2_room_size_data.json (room size, leaks; written by code/bsc_theory/scripts/worked_examples.py
+% and make_figures.py),  data/s4_geometry_checks.json (derived numbers and a second computation;
+% written by code/s4_geometry_checks.py), data/s4_geometry_barriers_leak.json and
+% data/s4_geometry_leak_kernels.json.  Proofs: Supplementary Section S3.
+\section{房间尺寸、泄漏与热点分布图}\label{s4_geometry:sec}
+
+第~\ref{s3_r0:sec}~节表明，迁移率与 $q$ 的异质性共同把 $\Rz$ 限定在 $\beta\qmean/\gamma$ 与 $\beta\qmax/\gamma$ 之间。
+本节考察房间的几何形状还会带来哪些影响。本节内容均不作为新结果提出：定理~\ref{s4_geometry:thm:closed} 的不变性对于
+各斑块再生数相等的斑块模型是已知的\citep{gao2011sis}；经吸收边界的流失即 Skellam 的临界斑块尺寸机制
+\citep{skellam1951random,cantrell2003spatial}；定理~\ref{s4_geometry:thm:leaky} 中的拟平稳对象可追溯到
+\citet{darroch1967quasi}；定理~\ref{s4_geometry:thm:hotspots} 则是 Perron--Frobenius 理论与单重特征值灵敏度的结合
+\citep{berman1994nonnegative,horn2013matrix}。对于此处所述的泄漏房间表述，我们不知道有任何出处；我们只检索了
+第~\ref{s1_intro:sec}~节中的斑块模型结果。证明见补充材料第~\ref{S-appS_geometry:sec}~节。
+
+\subsection{封闭房间：不存在有限尺寸效应}\label{s4_geometry:sec:closed}
+
+\begin{theorem}[封闭房间，均匀 $q$]\label{s4_geometry:thm:closed}
+  在假设~\ref{s2_model:ass:A} 下，设 $q\equiv q_0$，且 $\Fm=\beta\ker^{\T}\Qm$，其中接触核为任意行随机矩阵。则对任意
+  房间尺寸、形状、障碍物布局、迁移率场与迁移率尺度，均有 $\Rz=\beta q_0/\gamma$ 和 $\lamone=\beta q_0-\gamma$；并且在
+  平均场模型中，每个指示病例无论从何处开始，所致二代病例数的期望均为 $\noff(x)=\beta q_0/\gamma$。
+\end{theorem}
+
+反射壁不会损失任何人：$\ngm$ 的各列和均等于 $\beta q_0/\gamma$。等价地，对均匀 $q$，补充材料
+推论~\ref{S-s3_r0:cor:modal} 的模态矩阵是对角矩阵，对角元为 $\beta q_0/(\gamma+\mu_j)$，其中最大者是均匀模态
+（$\mu_0=0$）对应的元素；边长为 $L$（格）的方形房间的第一个非零特征值 $\mu_1=2D[1-\cos(\pi/L)]\approx\pi^2D/L^2$
+不起任何作用。$L=3,\dots,40$、$D=0.5\cellday$ 的方形房间给出 $\srad(\ngm)=\beta q/\gamma$，相对误差在
+$6\times10^{-15}$ 以内；40 个随机房间（含障碍格，迁移率跨越四个数量级，生成元既有对称的也有非对称的，接触核随机
+选取）均在 $10^{-13}$ 以内再现了 $\Rz=\beta q_0/\gamma$、$\lamone=\beta q_0-\gamma$ 和 $\noff(x)=\beta q_0/\gamma$。
+因此，在封闭房间中，几何形状只通过迁移率与 $q$ 的异质性之间的相互作用进入 $\Rz$。
+% src: data/bsc_theory/fig2_room_size_data.json (refl: max |ratio-1| = 5.8e-15);
+% src: data/s4_geometry_checks.json: B_closed_room_general_kernel (1.9e-14, 1.8e-14, 6.5e-14)
+
+\subsection{泄漏房间}\label{s4_geometry:sec:leaky}
+
+真正的边界效应要求人员会离开。设位于格点 $x$ 的人以速率 $\kappa_x\ge0$ 离开房间（经由门格、敞开的一侧，
+或在一段与位置无关的停留时间之后），并立即由一名从同一格点进入的易感者替换，使占据人数保持为 $N^*$；只计入
+发生在房间内的感染。于是感染者遵循生成元为 $\genk=\gen-\diag\kappa$ 的带消亡的游走。
+
+\begin{theorem}[泄漏房间；同格接触核]\label{s4_geometry:thm:leaky}
+  在假设~\ref{s2_model:ass:A} 下，设 $\Fm=\beta\Qm$，$\kappa\ge0$，$\kappa\not\equiv0$，并令
+  $\genk=\gen-\diag\kappa$，$\Vm_\kappa=\gamma\Id-\genk$，$\Rroom=\srad(\beta\Qm\Vm_\kappa^{-1})$，
+  $\muk=-\sabs(\genk)$。设 $\uvec_\kappa,\lvec_\kappa>0$ 为 $\genk$ 的右、左 Perron 向量，且
+  $\nu=(\lvec_\kappa\circ\uvec_\kappa)/(\lvec_\kappa^{\T}\uvec_\kappa)$。则
+  \begin{enumerate}
+    \item[(1)] 将 $\gen$ 替换为 $\genk$ 后，定理~\ref{s3_r0:thm:ngm}(a)--(c) 仍成立；
+    \item[(2)] $0<\muk\le\langle\kappa\rangle_\pi:=\sum_x\pi_x\kappa_x$；$\muk$ 关于每个 $\kappa_x$ 单调不减；并且对
+       门集合 $\Delta\subsetneq\cells$ 与 $\kappa=k\,\one_\Delta$，当 $k\to\infty$ 时
+       $\muk\uparrow\mu^{\mathrm{abs}}_\Delta:=-\sabs(\gen[\cells\setminus\Delta,\cells\setminus\Delta])$；
+    \item[(3)] 若 $q\equiv q_0$，则 $\Rroom=\beta q_0/(\gamma+\muk)$；
+    \item[(4)] 一般地，$\beta\langle q\rangle_\nu/(\gamma+\muk)\le\Rroom\le\beta\qmax/(\gamma+\muk)$，其中
+       $\langle q\rangle_\nu=\sum_x\nu_xq_x$。
+  \end{enumerate}
+\end{theorem}
+
+$\uvec_\kappa$ 是条件于仍在房间内的游走者的拟平稳分布\citep{darroch1967quasi}，$1/\muk$ 是其渐近平均驻留时间，
+$\nu$ 则是条件于永不离开的游走的平稳分布。当 $\kappa\to0$ 时，$\nu\to\stat$，(4) 退化为
+定理~\ref{s3_r0:thm:bounds}。有两种情形可以显式求解。
+
+\begin{corollary}[显式情形]\label{s4_geometry:cor:cases}
+  \emph{(a) 均匀泄漏（停留时间）。} 若 $\kappa_x\equiv1/T$，则 $\muk=1/T$，$\nu=\stat$，并且
+  第~\ref{s3_r0:sec}~节中关于同格接触核的每个结果，在把 $\gamma$ 替换为 $\gamma+1/T$ 后都对 $\Rroom$ 成立；特别地，
+  \begin{equation}\label{s4_geometry:eq:dwell}
+     \frac{\beta\qmean\,T}{1+\gamma T}\;\le\;\Rroom\;\le\;\frac{\beta\qmax\,T}{1+\gamma T},
+  \end{equation}
+  并且在服从 $\stat$ 分布的位置进入房间的感染者，在房间内所致感染数的期望为 $\beta\qmean T/(1+\gamma T)$。对任意
+  行随机接触核，令 $\Rroom:=\srad(\beta\ker^{\T}\Qm\Vm_\kappa^{-1})$，则第~\ref{s3_r0:sec}~节中对该接触核成立的每个
+  结果，在把 $\gamma$ 替换为 $\gamma+1/T$ 后都对 $\Rroom$ 成立；特别地，当 $q\equiv q_0$ 时
+  $\Rroom=\beta q_0/(\gamma+1/T)$。
+
+  \emph{(b) 两端吸收的走廊。} 对排成一行的 $L$ 个格点，相邻格点间的跳跃率为 $w$，$q$ 均匀，两个端格上
+  $\kappa=w$（越过任一端的跳跃即离开房间），有
+  \begin{equation}\label{s4_geometry:eq:corridor}
+     \muk=2w\Bigl[1-\cos\frac{\pi}{L+1}\Bigr]=\frac{\pi^2w}{(L+1)^2}+O\bigl(wL^{-4}\bigr),\qquad
+     \Rroom=\frac{\beta q}{\gamma+2w\bigl[1-\cos\frac{\pi}{L+1}\bigr]} .
+  \end{equation}
+\end{corollary}
+
+设格点间距为 $a$，$w=D/a^2$，物理长度为 $\ell=La$，则式~\eqref{s4_geometry:eq:corridor} 趋于
+$\beta q/(\gamma+\pi^2D/\ell^2)$；因此，这是两端为\emph{吸收}端的走廊的再生数，而不是封闭房间的再生数。其机制即
+空间生态学中的临界斑块尺寸\citep{skellam1951random,cantrell2003spatial}：速率为 $\beta q-\gamma$ 的增长与速率为
+$\muk$ 的边界流失相互竞争，只有当走廊长度大于约 $\pi\sqrt{D/(\beta q-\gamma)}$ 时才有 $\Rroom>1$。取
+$w=1\perday$、$\beta q=0.5\perday$，这一连续估计为 $5.2$ 格；在格点上，$\Rroom$ 在 $L=5$ 时首次超过 1（$L=4$ 时为
+$0.958$，$L=5$ 时为 $1.226$）。
+% src: data/bsc_theory/fig2_room_size_data.json: L1, r1 (L = 4, 5);
+% src: data/s4_geometry_checks.json: A_room_size_and_leaks/corridor_critical_L_continuum (5.236)
+
+门为局部时，第 (3)、(4) 部分不能推广到其他接触核：在一端设门的三格点例子中，对最近邻接触核，第 (3) 部分的
+公式偏差 $-3.0\,\%$；对一个偏斜的接触核，在两种门位置之一下，$\Rroom$ 比第 (4) 部分的上界高出 $10.9\,\%$（补充
+材料注~\ref{S-s4_geometry:rem:kernels}）。对异质 $q$ 和局部的门，替换 $\gamma\to\gamma+\muk$ 也不精确：在办公室
+场景中，于一条走廊支路的末端设一个 $\kappa=100\perday$ 的门、取 $\Dz=10$，得 $\Rroom=4.220$，而替换给出 $4.133$，
+低于第 (4) 部分的下界 $4.139$；原因在于，位于低 $q$ 分区的门使条件于留在房间内的游走偏向较高的 $q$。
+% src: data/s4_geometry_leak_kernels.json (a_uniform_q_neighbour_kernel_end_door: -2.99 %; b_uniform_q_skew_kernel_end_door: excess 10.91 %)
+% src: data/s4_geometry_barriers_leak.json: B_leak_heterogeneous_q/cases/"D0=10|kappa=100" (R_room 4.2201, R_substitution 4.1331, lower_bound 4.1386)
+
+泄漏会降低再生数，房间越小降幅越大（补充材料图~\ref{S-s4_geometry:fig:leak}(a)）。有两点需要注意。第一，在
+$D=0.5\cellday$ 时，这些泄漏率很小（$\muk\le0.1\perday$，驻留时间介于 $10$ 天与 $19$ 年之间）。对于固定的几何形状
+和离开率本身就是一个跳跃率的门（$\kappa=D$），$\muk$ 与迁移率尺度成正比，因此在 $D=2.4\times10^{3}\cellday$ 时
+（第~\ref{s2_model:sec:regime}~节），同样的驻留时间将介于 $3$ 分钟与 $1.5$ 天之间。离开率 $\kappa$ 固定的门则表现
+不同：其泄漏率随迁移率增大，但始终低于 $\langle\kappa\rangle_\pi$；在设一个门格、$\kappa=1\perday$ 的办公室中，
+$\Dz=1$、$10$、$100$ 和 $2{,}400$ 时 $\Rroom/\Rz$ 分别为 $0.99998$、$0.977$、$0.971$ 和 $0.970$。因此在应用中，停留
+时间 $T$ 应作为输入给定（如推论~\ref{s4_geometry:cor:cases}(a)），而不应是走向门的随机游走的输出。
+% src: data/s4_geometry_checks.json: A_room_size_and_leaks/residence_days_range_D0.5 (10.1 d, 7041 d = 19.3 yr),
+%      max_mu_D0.5 (0.099), residence_range_at_D2400 (3.0 min, 1.47 d); data/s4_geometry_leak_kernels.json
+%      (d_office_door_against_mobility: fixed_kappa_1 R_room_over_R0 0.99998, 0.977, 0.971, 0.970)
+第二，$\Rroom$ 计的是一次停留期间的感染数。每天都回到同一房间的感染者在一个感染期内会有多次停留，因此按每次
+到访计的数并不是被反复到访的场所的再生数；日内作息安排在第~\ref{s6_scenes:sec:interventions}~节中讨论。
+
+\subsection{热点分布图}\label{s4_geometry:sec:hotspots}
+
+\begin{theorem}[热点分布图；同格接触核]\label{s4_geometry:thm:hotspots}
+  在假设~\ref{s2_model:ass:A} 下，设 $\Fm=\beta\Qm$，且对所有 $x$ 有 $q_x>0$。设 $\uvec,\lvec>0$ 为 $\Jm$ 的
+  右、左 Perron 向量（$\one^{\T}\uvec=1$），$\wvec,\zvec>0$ 为 $\ngm$ 的右、左 Perron 向量
+  （$\ngm\wvec=\Rz\wvec$，$\zvec^{\T}\ngm=\Rz\zvec^{\T}$，$\one^{\T}\wvec=1$），并设 $\xi>0$ 满足
+  $\beta\Qm\xi=\Rz(\gamma\Id-\gen)\xi$。
+  \begin{enumerate}
+    \item[(i)] （现患）对每个 $\delta'<\delta$，有
+       $\e^{\Jm t}I(0)=\e^{\lamone t}\bigl[(\lvec^{\T}I(0)/\lvec^{\T}\uvec)\,\uvec+O(\e^{-\delta' t})\bigr]$，其中
+       $\delta=\lamone-\max\{\operatorname{Re}\lambda:\lambda\in\sigma(\Jm)\setminus\{\lamone\}\}>0$；若 $\Jm$
+       可对角化（特别是对可逆移动），可取 $\delta'=\delta$。$\uvec\propto\stat$ 当且仅当 $q$ 为常数。
+    \item[(ii)] （发病）当 $g\to\infty$ 时，$\ngm^{g}I_0=\Rz^{g}\bigl[(\zvec^{\T}I_0/\zvec^{\T}\wvec)\,\wvec+o(1)\bigr]$；
+       $\wvec\propto\Qm\xi$；并且按 $\stat$ 放置的指示病例所产生的第一代感染为
+       $(\ngm\stat)_x=\beta q_x\pi_x/\gamma$。
+    \item[(iii)] （弹性）$e_x:=\partial\ln\Rz/\partial\ln q_x=z_xw_x/(\zvec^{\T}\wvec)\ge0$，且 $\sum_xe_x=1$。
+       对可逆移动，$\zvec\propto\Pi^{-1}\xi$，$\Pi=\diag\stat$，且 $e_x\propto q_x\xi_x^2/\pi_x$。
+    \item[(iv)] （极限）设 $\gen=\Dz\genz$。当 $\Dz\to\infty$ 时：$\uvec\to\stat$，$\wvec\to\Qm\stat/\qmean$，
+       $e_x\to q_x\pi_x/\qmean$。当 $\Dz\to0$ 时：$\uvec$、$\wvec$ 和 $\evec$ 集中于 $Z=\{x:q_x=\qmax\}$。
+  \end{enumerate}
+\end{theorem}
+
+三种分布图回答不同的问题：$\uvec$ 说明指数增长阶段感染者位于何处，$\wvec$ 说明感染在何处产生，$\evec$ 则说明在
+何处降低 $q$ 能带来收益——因为在格点集合 $A$ 上把 $q$ 降低一个小比例 $\varepsilon$，在一阶近似下会使 $\Rz$ 降低比例
+$\varepsilon\sum_{x\in A}e_x$。扩散算子的最低模态在反射壁下是常数，不携带任何空间信息；在可逆情形下起作用的
+振幅平方 $e_x\propto q_x\xi_x^2/\pi_x$，是一个含 $q$ 的广义特征问题的主向量的振幅平方。
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig_hotspot_maps_zh}
+  \caption{平均场模型中办公室场景的热点分布图（$\beta=0.5\perday$，
+  $\gamma=0.14\perday$，同格接触核；$20\times13$ 格子中有 $\ncell=234$ 个可行走格点）。
+  (a)~分区。(b)~传染效率 $q$。(c)、(d)~$\Dz=1$ 和 $\Dz=100\cellday$ 时的现患分布 $\uvec$（$\Jm$ 的右 Perron 向量）。
+  (e)~发病分布 $\wvec$（$\ngm$ 的右 Perron 向量）和 (f)~弹性分布
+  $e_x=\partial\ln\Rz/\partial\ln q_x$，均取 $\Dz=1\cellday$。各分布均乘以 $\ncell$，使 $1$ 对应
+  均匀分布的值；色标采用对数刻度。}
+  % src: data/plan_theory_sweeps.npz (office_u_D1, office_u_D100, office_w_D1, office_e_D1);
+  %      drawn by code/plan_fig_theory.py
+  \label{s4_geometry:fig:hotspots}
+\end{figure}
+
+图~\ref{s4_geometry:fig:hotspots} 给出办公室场景的各分布图；在该场景中，会议室（$26$ 个格点，占 234 个格点的可行走
+地面的 $11.1\,\%$，$q=1.5$）只通过一条格点连边与地面的其余部分相连。在 $\Dz=1\cellday$ 时，会议室占 $\uvec$ 的
+$95.9\,\%$、$\wvec$ 的 $79.2\,\%$ 和弹性的 $98.1\,\%$：$\Rz=5.107$ 实际上就是会议室的再生数，而会议室的分区下界为
+$5.041$。会议室的弹性份额在 $\Dz=10$ 时降至 $20.8\,\%$，在 $\Dz=100\cellday$ 时降至 $13.4\,\%$，接近其快混合极限
+$12.8\,\%$。
+% src: data/plan_theory_checks.json: office/zone_counts/M, office/D0=1/area_share/M;
+%      data/s4_geometry_checks.json: C_office_hotspot_identities/meeting_room_boundary_edges
+% src: data/plan_theory_checks.json: office/D0=1/{prevalence_share_u,incidence_share_w,elasticity_share}/M,
+%      office/D0=1/R0, office/zone_bound_meeting_room/bound
+% src: data/plan_theory_checks.json: office/D0=10, office/D0=100 (elasticity_share/M);
+%      limit: data/s4_geometry_checks.json: C_office_hotspot_identities/meeting_room_share_limit_e_and_w
+现患分布是一个渐近对象。它需经过量级为 $1/\delta$ 的时间才能达到，而在 $\Npop$ 人中由一个指示病例引发的指数增长
+阶段持续约 $\ln\Npop/\lamone$。在 $\Dz=1\cellday$ 时，$1/\delta=16$ 天，$\ln100/\lamone=7.6$ 天：在线性化动力学中，
+若初始感染集中于远离会议室的某个工位格（单格初始），则在总数从初始值的 $10^2$ 倍增至 $10^4$ 倍时，其空间分布与
+$\uvec$ 的全变差距离仍为 $0.996$；因此在远离热点处引入的暴发在饱和之前达不到该分布（补充材料第~\ref{S-appS_geometry:sec:hotspot}~节
+中的注~\ref{S-s4_geometry:rem:transient}）。对处于这一迁移率的离散个体，平均场分布图同样不能描述感染发生在何处
+（第~\ref{s6_scenes:sec:hotspot}~节）。
+% src: data/plan_theory_checks.json: office/D0=1/gap, office/transient_linear/D0=1|far_workstation/tv_to_u;
+% src: data/s4_geometry_checks.json: D_derived/{mixing_time_1_over_gap_days,linear_phase_ln100_over_lambda1_days}
+
+\subsection{平均场模型中的干预措施}\label{s4_geometry:sec:examples}
+
+补充材料第~\ref{S-appS_geometry:sec:examples}~节在办公室场景上详细计算了各项干预措施。按照定理~\ref{s3_r0:thm:edges}
+的要求，走廊减速会提高 $\Rz$（走廊迁移率 $\times0.1$：$5.107\to5.222$）。隔断墙所封闭的工位间连边从
+$10\pct$ 到连通性所允许的最大数目不等，在 $\Dz=1$ 时使 $\Rz$ 升高 $0.009\pct$ 至 $0.080\pct$；在三种迁移率中的任何一种下，
+$80$ 次随机抽取均无一低于基线。将 $39$ 个工位格改为障碍格，移除了 $q$ 高于均值的地面：均匀混合值降低 $1.5\pct$；
+$\Rz$ 在 $\Dz=1$ 时（此时它由会议室锁定）变化 $+0.065\pct$，在 $\Dz=10$ 和 $100$ 时分别变化 $-1.07\pct$ 和
+$-1.49\pct$。在按弹性分布选定、并随处理进程重算分布图的一组格点上将 $q$ 减半，在 $\Dz=1$ 时比随机选格更能降低
+$\Rz$（处理面积在 $5\pct$ 至 $75\pct$ 之间时，$\Rz$ 比随机选格时低 $0.35$ 至 $0.48$），但在 $\Dz=100$ 时几乎没有差别，此时定向处理
+退化为处理 $q$ 最大的格点。均匀措施按精确比例缩放 $\Rz$：将 $\beta$ 乘以 $s_\beta$、每个 $q_x$ 乘以 $s_q$，使
+$\Rz$ 乘以 $s_\beta s_q$。
+% src: data/plan_theory_checks.json: office/corridor_multiplier_symmetric
+% src: data/s4_geometry_barriers_leak.json: A_partitions/walls/*/D0=*/{change_pct,n_below_baseline}, A_partitions/barrier_cells_39_workstations
+%      (wellmixed_change_pct -1.54; D0=1: +0.065; D0=10: -1.07; D0=100: -1.49)
+% src: data/s4_geometry_checks.json: D_derived/targeted_ventilation/D0=1/*/gain_recomputed_vs_random (0.359, 0.352, 0.449, 0.409, 0.453, 0.482)
+
+以上一切都属于低迁移率区间。在平均场模型中，封闭办公室在 $\Dz\gtrsim100\cellday$ 时是均匀混合的：除
+命题~\ref{s3_r0:prop:expansions} 给出的修正外，$\Rz=\beta\qmean/\gamma$；定理~\ref{s4_geometry:thm:hotspots} 中的
+各分布图退化为 $\stat$ 和 $\Qm\stat/\qmean$；平面布局只通过 $q$ 的面积加权均值起作用。在现实迁移率下仍然成立的是：
+封闭房间中不存在尺寸效应，$\Rz$ 随 $\beta$ 和 $q$ 按比例缩放，以及停留时间形式~\eqref{s4_geometry:eq:dwell} 下的
+泄漏。对离散个体，尺寸依赖性确实存在，但原因不同；这是第~\ref{s5_pair:sec}~节的主题。

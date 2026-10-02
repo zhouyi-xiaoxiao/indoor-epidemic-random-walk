@@ -1,0 +1,183 @@
+% m3_r0.tex -- Main text, Section 3: the basic reproduction number of the mean-field model.
+% Proofs are in the Supplementary Material (supp_r0.tex); they follow code/bsc_theory/scripts and the
+% derivations checked there, in the article's notation (cells x, y; column index = source cell).
+% Numbers: data/plan_theory_checks.json (canonical scenes; code/plan_theory_checks.py) and
+% data/s3_r0_checks.json (written by code/s3_r0_checks.py, which recomputes them with
+% other code and agrees with the first file to 2e-14).
+% Paths in "% src:" comments are relative to the repository root.
+\section{平均场模型的基本再生数}\label{s3_r0:sec}
+
+本节确定平均场模型~\eqref{s2_model:eq:meanfield} 的基本再生数 $\Rz$、它的上下界及其对迁移率的依赖关系。本节始终在
+假设~\ref{s2_model:ass:A} 下讨论，记 $\Vm=\gamma\Id-\gen$，矩阵的列指标对应源格点，向量或矩阵之间的不等式均按逐元素
+理解。每条结论都注明了它所需要的接触核：多数结论要求同格接触核 $\Fm=\beta\Qm$，其中 $q\ge0$，$q\not\equiv0$。
+主要结果对传染病斑块模型而言是已知的（第~\ref{s1_intro:sec}~节，表~\ref{s1_intro:tab:known}），本文不主张其新颖性。
+补充材料第~\ref{S-appS_r0:sec}~节从非负矩阵的标准结论出发给出了完整证明，因为证明确定了每条结论成立的条件（哪种
+接触核、跳跃率具有何种对称性）。分区下界、慢混合系数和逐边单调性都是同一矩阵理论的初等推论；一次定向检索
+（2026 年 10 月 1 日在 Crossref 上就斑块模型的再生数与扩散所做的查询）未找到它们的出处，但这并不能证明不存在出处。
+% src: data/refs_search.json (searches; manual_checks: gao2020fast, tien2015disease, allen2007asymptotic)
+
+\begin{theorem}[下一代矩阵]\label{s3_r0:thm:ngm}
+  在假设~\ref{s2_model:ass:A} 下，设 $\Fm\ge0$，$\Fm\neq0$，$\Vm=\gamma\Id-\gen$，并定义
+  \begin{equation}\label{s3_r0:eq:ngm}
+     \ngm=\Fm\Vm^{-1},\qquad \Rz=\srad(\ngm),\qquad \lamone=\sabs(\Jm),\quad \Jm=\gen+\Fm-\gamma\Id .
+  \end{equation}
+  \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+    \item 逐元素地有 $\Vm^{-1}=\int_0^\infty \e^{-\gamma t}\e^{\gen t}\,\dd t>0$。对 $\Fm=\beta\ker^{\T}\Qm$，
+      $K_{yx}=\beta\sum_{z}P_{zy}\,q_z\int_0^\infty \e^{-\gamma t}P_t(z\,|\,x)\,\dd t$ 是在完全易感的房间中、于格点 $x$
+      引入的一个感染者在格点 $y$ 所造成感染的期望数；对同格接触核，
+      $K_{yx}=\beta q_y\int_0^\infty \e^{-\gamma t}P_t(y\,|\,x)\,\dd t$。
+    \item $\Rz>0$，且 $\Rz$ 是满足 $\sabs(\gen+\Fm/R-\gamma\Id)=0$ 的唯一 $R>0$。
+    \item $\lamone<0\iff\Rz<1$，$\lamone=0\iff\Rz=1$，$\lamone>0\iff\Rz>1$。
+    \item 式~\eqref{s2_model:eq:meanfield} 的每个解对所有 $t\ge0$ 逐分量满足 $I(t)\le \e^{\Jm t}I(0)$。因此，若
+      $\Rz<1$，则感染者人数从 $t=0$ 起即以一个衰减指数函数为上界：$\one^{\T}I(t)\le C\,\e^{\lamone t}\,\one^{\T}I(0)$，
+      其中 $\lamone<0$，且 $C$ 与初始条件无关。若 $\Rz>1$，则无病平衡态不稳定，线性化解按 $\e^{\lamone t}$ 增长。
+  \end{enumerate}
+\end{theorem}
+
+在封闭的 SIR 模型中，无论 $\Rz$ 取何值，感染者最终都会消失；(d) 的内容在于：当 $\Rz<1$ 时，任何时刻都不会出现
+增长，而当 $\Rz>1$ 时，少量初始感染会增长，直到易感者的耗竭使其停止。$\ngm$ 的列和是在格点 $x$ 引入的指示病例
+所致二代病例的期望数，即后代数 $\noff(x)$；对每个行随机的接触核，
+\begin{equation}\label{s3_r0:eq:offspring}
+  \noff(x)=\sum_yK_{yx}=\beta\,\Exp_x\!\int_0^{\tau}q(X_t)\,\dd t ,\qquad
+  \frac{\beta\qmin}{\gamma}\le\noff(x)\le\frac{\beta\qmax}{\gamma},\qquad \sum_x\pi_x\noff(x)=\frac{\beta\qmean}{\gamma},
+\end{equation}
+其中 $X_t$ 是从 $x$ 出发的游走，$\tau$ 是其服从指数分布的感染期。在 $\Dz=1\cellday$ 的办公室场景中，$\noff(x)$ 在
+各格点上的取值范围为 $3.995$ 至 $5.335$，其均匀平均值为 $4.643$。
+% src: data/plan_theory_checks.json: office/D0=1/offspring_min, offspring_max, offspring_uniform_mean
+下一代矩阵为 $\ngm=\Fm\,\widehat G(\gamma)$，其中 $\widehat G(\gamma)=(\gamma\Id-\gen)^{-1}$ 是格点传播子的拉普拉斯
+变换在恢复率处的取值；对可逆移动，$\Rz$ 还有一个变分（瑞利）形式，以及一个以移动生成元的特征模态表示的模态矩阵
+形式，其最大的对角元只是一个下界（补充材料定理~\ref{S-s3_r0:thm:rayleigh} 与推论~\ref{S-s3_r0:cor:modal}）。
+
+\begin{theorem}[上下界；同格接触核]\label{s3_r0:thm:bounds}
+  在假设~\ref{s2_model:ass:A} 下，设 $\Fm=\beta\Qm$，其中 $q\ge0$，$q\not\equiv0$。则对每个不可约生成元（无论可逆
+  与否），
+  \begin{equation}\label{s3_r0:eq:bounds}
+    \frac{\beta\qmean}{\gamma}\le\Rz\le\frac{\beta\qmax}{\gamma},\qquad
+    \beta\qmean-\gamma\le\lamone\le\beta\qmax-\gamma .
+  \end{equation}
+  若 $q$ 为常数，则四处均取等号；若 $q$ 不为常数，则四个不等式均严格成立。
+\end{theorem}
+
+由式~\eqref{s3_r0:eq:offspring}，$\beta\qmean/\gamma$ 是按平稳分布放置的指示病例所致二代病例的平均数。$\Rz$ 之所以
+更大，是因为二代病例并非按平稳分布产生：它们优先产生于 $q$ 高的格点，并在那里开始其感染期。迁移会抹去这种对出生地
+的记忆（定理~\ref{s3_r0:thm:mobility}）。因此，在同格接触核下，不存在任何机制能使空间隔离把平均场 $\Rz$ 降到均匀
+混合值 $\beta\qmean/\gamma$ 以下；空间隔离对离散个体有何作用，则是另一个问题（第~\ref{s5_pair:sec}~节和
+第~\ref{s6_scenes:sec}~节）。
+
+\begin{theorem}[迁移率；同格接触核]\label{s3_r0:thm:mobility}
+  设 $\gen=\Dz\genz$，其中 $\genz$ 是平稳分布为 $\stat$ 的不可约生成元，且 $\Fm=\beta\Qm$。则
+  \begin{enumerate}[label=\textup{(\alph*)},leftmargin=*]
+    \item $\lim_{\Dz\to\infty}\Rz(\Dz)=\beta\qmean/\gamma$；
+    \item $\lim_{\Dz\to0^+}\Rz(\Dz)=\beta\qmax/\gamma$；
+    \item $\lamone(\Dz)$ 是凸的且单调不增，$\Rz(\Dz)$ 单调不增；若 $q$ 不为常数，则 $\Rz(\Dz)$ 在 $(0,\infty)$ 上
+      严格递减。
+  \end{enumerate}
+  本定理不需要可逆性。
+\end{theorem}
+
+\begin{proposition}[渐近展开]\label{s3_r0:prop:expansions}
+  在定理~\ref{s3_r0:thm:mobility} 的条件下：
+  \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+    \item 当 $\Dz\to\infty$ 时，$\Rz(\Dz)=\dfrac{\beta\qmean}{\gamma}+\dfrac{\beta\,C}{\qmean\,\Dz}+O(\Dz^{-2})$，其中
+      $C=\qvec^{\T}\mathbf{y}\ge0$，$\mathbf{y}$ 满足 $-\genz\mathbf{y}=\Qm\stat-\qmean\stat$，$\one^{\T}\mathbf{y}=0$
+      （速率对称时，$C=\ncell^{-1}\,\delta q^{\T}(-\genz)^{+}\delta q$，其中 $\delta q=\qvec-\langle q\rangle\one$，
+      $(\cdot)^{+}$ 表示伪逆）；
+    \item 当 $\Dz\to0$ 时，$\Rz(\Dz)=\dfrac{\beta\qmax}{\gamma}\Bigl(1-\dfrac{\Dz\,\mu^0_Z}{\gamma}\Bigr)+o(\Dz)$，其中
+      $Z=\{x:q_x=\qmax\}$，$\mu^0_Z=-\sabs(\genz[Z,Z])$。
+  \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[分区下界]\label{s3_r0:prop:zone}
+  在假设~\ref{s2_model:ass:A} 下，设 $\Fm=\beta\Qm$。则对每个非空的 $Z\subset\cells$，
+  \begin{equation}\label{s3_r0:eq:zone}
+    \Rz\ \ge\ \frac{\beta\,q_Z}{\gamma+\muZ},\qquad q_Z=\min_{x\in Z}q_x,\qquad \muZ=-\sabs(\gen[Z,Z])\ge0 .
+  \end{equation}
+\end{proposition}
+
+其中 $\muZ$ 是一旦走出 $Z$ 即消亡的游走者的主衰减率。由命题~\ref{s3_r0:prop:expansions}(ii)，取
+$Z=\{x:q_x=\qmax\}$ 的分区下界在 $\Dz\to0$ 时精确到一阶。因此，形如 $\beta q/(\gamma+\mu)$ 的表达式在封闭房间中确实
+会出现，但它是一个下界，由一个高风险分区贡献，感染者会从该分区逃入风险较低的空间；式中的 $q$ 和 $\mu$ 是该分区的
+量，而不是整个房间的量。
+
+\begin{theorem}[逐边单调性；对称速率，同格接触核]\label{s3_r0:thm:edges}
+  若对所有连边有 $\hop{x}{y}=\hop{y}{x}$，且 $\Fm=\beta\Qm$，则 $\Rz$ 与 $\lamone$ 都是每一条连边速率的单调不增函数。
+  因此，在规则~\eqref{s2_model:eq:hop} 下并对固定的格点集合 $\cells$，降低任意一组格点中的 $D$ 或封闭连边（在格点
+  之间设墙）都不能降低 $\Rz$。
+\end{theorem}
+
+该定理只涉及保持格点集合不变的操作。把格点变为障碍格，会将这些格点及其 $q$ 从 $\cells$ 中移除；这会改变 $\qmean$
+以及定理~\ref{s3_r0:thm:bounds} 的两个界，此时 $\Rz$ 可能下降（第~\ref{s4_geometry:sec:examples}~节）。对称性是
+必不可少的：在出发点规则下，改变 $D$ 也会改变平稳占据分布；在 $300$ 个随机算例中，将某一个格点的 $D$ 乘以 $3$，
+有 $201$ 个算例的 $\Rz$ 上升，$98$ 个下降，一个不变（在 $10^{-10}$ 的精度内）。
+% src: data/bsc_theory/verify_theorems.json: T3p/departure_up, departure_down
+
+\begin{proposition}[接触核]\label{s3_r0:prop:kernel}
+  设 $\Fm=\beta\ker^{\T}\Qm$，其中 $\ker$ 为行随机矩阵。则
+  \begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+    \item 定理~\ref{s3_r0:thm:ngm} 成立；
+    \item $\beta\qmin/\gamma\le\Rz\le\beta\qmax/\gamma$，且若 $q\equiv q_0$，则 $\Rz=\beta q_0/\gamma$；
+    \item 当 $\Dz\to\infty$ 时 $\Rz(\Dz)\to\beta\qmean/\gamma$，当 $\Dz\to0$ 时 $\Rz(\Dz)\to\srad(\beta\ker^{\T}\Qm)/\gamma$；
+    \item 定理~\ref{s3_r0:thm:bounds} 的下界 $\beta\qmean/\gamma\le\Rz$ 和定理~\ref{s3_r0:thm:mobility}(c) 的单调性都可能
+      不成立。例：排成一行的三个格点，相邻格点之间的跳跃率为 $\Dz$，$\ker$ 在一个格点及其相邻格点上均匀分布，
+      $q=(1,0,1)$：则 $\Rz(\Dz)=(\beta/\gamma)(\gamma+4\Dz)/(2\gamma+6\Dz)$，它在 $\Dz=0$ 时为 $0.5\,\beta/\gamma$，
+      低于 $\beta\langle q\rangle/\gamma=0.667\,\beta/\gamma$，且随 $\Dz$ 增大而增大。
+  \end{enumerate}
+\end{proposition}
+% src: data/plan_theory_checks.json: checks/kernel_counterexample_q=[1.0, 0.0, 1.0] (0.500, 0.503, 0.529,
+%      0.614, 0.659, 0.666, 0.6667 at D0 = 0, 0.001, 0.01, 0.1, 1, 10, 1000 with gamma = 0.14);
+%      closed form checked to 8e-14 in data/s3_r0_checks.json: kernel_closed_form_max_abs_diff
+
+在接触核下，位于高 $q$ 格点的感染者会感染相邻格点中的人；若这些格点的 $q$ 较低且无人移动，新病例就很少再传播，
+于是在同格接触核下抬高 $\Rz$ 的规模偏倚发生了逆转。在本文中 1\,m 接触核与同格接触核不同的两个场景里，该下界恰好
+成立（在 $\Dz=1\cellday$ 时，教室中为 $5.866\ge4.706$，地铁车厢中为 $9.241\ge9.056$），但这并无保证。
+% src: data/plan_theory_checks.json: scenes/classroom, scenes/metro (R0_1m_D0=1, lower)
+
+\subsection{场景}\label{s3_r0:sec:scenes}
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{fig_r0_mobility_zh}
+  \caption{平均场基本再生数 $\Rz=\srad(\ngm)$ 随迁移率尺度 $\Dz$（\cdunit）的变化，$\beta=0.5\perday$，
+  $\gamma=0.14\perday$；$\Rz$ 与人数 $\Npop$ 无关（频率依赖发生率），且不涉及任何模拟。
+  (a)~办公室场景（234 个可行走格点，同格接触核）：$\Rz$（粗线）、定理~\ref{s3_r0:thm:bounds} 的上下界
+  $\beta\langle q\rangle/\gamma$ 与 $\beta\qmax/\gamma$（虚线）、命题~\ref{s3_r0:prop:expansions} 的两个渐近展开（点线），
+  以及分区比例相同的另两种平面布局（细灰线）。(b)~四个场景，以 $\Rz$ 与均匀混合值 $\beta\langle q\rangle/\gamma$
+  之比表示，分别采用 1\,m 接触核（实线）和同格接触核（虚线；对办公室和超市二者重合）。点划竖线标出默认值
+  $\Dz=1$；阴影带为 $\Dz\ge2.4\times10^{3}$，就办公室的格点间距（$a=1.5$\,m）而言，这是至少有 5\pct{} 的时间在步行的
+  人的迁移率（第~\ref{s2_model:sec:regime}~节；其他场景的相应取值见表~\ref{s2_model:tab:regime}）。}
+  % src: code/plan_fig_theory.py (fig_r0_mobility) <- data/plan_theory_checks.json, plan_theory_sweeps.npz
+  \label{s3_r0:fig:mobility}
+\end{figure}
+
+对具有办公室场景分区比例（$\langle q\rangle=1.300$，$\qmax=1.5$）的任何平面布局，定理~\ref{s3_r0:thm:bounds} 都给出
+$4.643\le\Rz\le5.357$。在该场景本身中，$\Dz=1\cellday$ 时 $\Rz=5.107$，增长率 $\lamone=0.602\perday$（倍增时间
+$1.15$ 天）；分区比例相同的另两种平面布局分别给出 $5.109$ 和 $5.041$。
+% src: data/plan_theory_checks.json: office/lower_bound, upper_bound, q_mean, q_max
+% src: data/plan_theory_checks.json: office/D0=1 (R0, lambda1, doubling_time); alternative_layouts/O1, O2 (R0_D0_1)
+曲线 $\Rz(\Dz)$ 从上界递减至下界（图~\ref{s3_r0:fig:mobility}(a)），命题~\ref{s3_r0:prop:expansions} 的两个渐近展开为
+$\Rz\simeq4.643+0.296/\Dz$（$\Dz\to\infty$）和 $\Rz\simeq5.357\,(1-0.0626\,\Dz)$（$\Dz\to0$；$\Dz$ 的单位为 \cdunit）。
+第一个展开在 $\Dz=10$ 处精确到 $0.004$，在 $\Dz=100$ 处精确到 $3\times10^{-5}$；第二个展开在 $\Dz=0.1$ 处精确到
+$0.003$。
+% src: data/plan_theory_checks.json: office/largeD_coefficient_betaC_over_qbar, office/smallD_slope_muZ0_over_gamma
+% src: data/s3_r0_checks.json: office/expansions/rows (err_fast, err_slow)
+慢混合展开中的集合 $Z$ 是会议室（26 个格点，$q=1.5$），其在 $\Dz=1$ 时的拟平稳驻留时间为 $1/\muZ=114$ 天；其分区
+下界~\eqref{s3_r0:eq:zone} 为 $5.041$。这些都是该平面布局的性质：在这一布局中，会议室只通过一个格点与走廊相连。
+% src: data/plan_theory_checks.json: office/zone_bound_meeting_room (mu_Z, exit_time_days, bound, cells)
+在四个场景中，$\Dz=1$ 时 $\Rz$ 相对于均匀混合值的超出量在超市中最大（$+34.6\pct$），该场景的 $\qmax$ 是 $\langle q\rangle$ 的
+两倍以上（表~\ref{s2_model:tab:regime}，图~\ref{s3_r0:fig:mobility}(b)）。
+% src: data/s3_r0_checks.json: scenes/supermarket/D0=1/excess_1m_pct
+
+对于在 $20\times13$ 格子上由工作区（$q_W=1.5$，$D=0.3\,\Dz$）和中央走廊带（$q_C=0.5$，$D=2\,\Dz$）组成、
+$\langle q\rangle=1.2$ 的两区房间，定理~\ref{s3_r0:thm:bounds} 给出 $\Rz\ge1.2\,\beta/\gamma$：把低风险走廊与高风险
+工作区隔开，不能降低平均场 $\Rz$。数值上，$\Dz=1$ 时 $\Rz=4.972=1.39\,\beta/\gamma$，$\Dz=10$ 时为
+$1.24\,\beta/\gamma$，$\Dz\ge100$ 时为 $1.20\,\beta/\gamma$。同样两个分区的另外四种排布（工作区占 $69$--$70\pct$）在
+$\Dz=1$ 时给出 $1.43\,\beta/\gamma$（走廊带沿一面墙）和 $1.22$--$1.23\,\beta/\gamma$（过道、过道网格、分散的走廊
+格点）：两个分区交错得越细，$\Rz$ 就越接近均匀混合值。
+% src: data/bsc_sim/05_heterogeneity.json: "D0=1|N=100|c=0.5833"/R0_ngm = 4.972; data/s3_r0_checks.json: two_zone/rows (1.3922, 1.2395, 1.2043, 1.2004)
+% src: data/bsc_theory/worked_examples.json: E1_two_zone/{side,aisles,grid,scatter}/symmetric/R0_over_beta_gamma
+%      (1.425, 1.224, 1.221, 1.227; workspace 180/260 or 182/260 cells)
+
+本节的每一条结论都在四族生成元的随机算例上做了检验，复核中还重新推导了各项证明、重新实现了各项计算（补充
+材料第~\ref{S-appA_numerics:sec:theorems}~节）；例如，在 $2{,}000$ 个随机算例中，上下界~\eqref{s3_r0:eq:bounds} 的
+最大违反量为 $4\times10^{-14}$，处于舍入误差的量级。
+% src: data/bsc_theory/verify_theorems.json: T2 (n_instances 2000, max_viol_upper 4.0e-14, max_viol_lower 2.3e-15)

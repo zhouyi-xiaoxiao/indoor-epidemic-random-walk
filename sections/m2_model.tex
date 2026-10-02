@@ -126,7 +126,7 @@ largest difference between the mean simulated prevalence curve and the solution 
 $0.058$ for $\Npop=1000$ and $\Dz=10$ (200 runs), and $0.004$ for $\Npop=5000$ and $\Dz=100$ (40 runs; checked
 only by re-running the same code).
 % src: data/bsc_sim/01_validation.json -> F_meanfield_limit (max_abs_diff_curve 0.4226, 0.0585, 0.0037; n_rep 200, 200, 40; I0 = 1, 10, 50)
-% src: notes/VERIFICATION.md -> Section 4.2, simulations, summary ("Not re-simulated separately")
+% src: notes/VERIFICATION.md -> Section 4.2, simulations, summary ("Not re-simulated with the second simulator": test F with N = 5000)
 The normalisation \eqref{s2_model:eq:pairhazard} by the mean number of \emph{other} people matters. A rule that
 divides instead by the instantaneous number of all people in the cell, the infective included, defines a
 different process in which an infective alone in its cell transmits to nobody; at the occupancies of the

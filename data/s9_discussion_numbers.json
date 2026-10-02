@@ -309,8 +309,8 @@
    0.928,
    0.003
   ],
-  "src": "notes/VERIFICATION.md",
-  "key": "Section 4.2, simulations.checks[item 13].reason"
+  "src": "data/checks/simulation.json",
+  "key": "values.duty_cycle_office_D0_1.count_explicit_schedule_pooled (mean, se)"
  },
  "iv_D0_1_baseline_attack_all": {
   "value": 0.23221499999999998,

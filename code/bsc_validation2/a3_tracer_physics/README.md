@@ -34,9 +34,9 @@ re-implementation of the re-check with separately written code (`separate/`) are
 
 The protocol records of this directory (protocol, addenda, freeze records, the frozen code files and the post-hoc
 log) are redacted copies: passages that do not concern the analyses of this article are omitted (marked `[...]`)
-or reworded, identifiers are renamed as in the rest of the repository, and in the post-hoc log the words for the
-organisation of the work are replaced as in the other notes ("re-check" for the second pass, "stretch of work"
-for an interrupted or resumed working period, the names of the analyses for their labels). Every change is listed, line by line, in
+or reworded, identifiers are renamed as in the rest of the repository, and in the post-hoc log some labels are written as
+in the rest of the repository ("re-check" for the second pass, "stretch of work" for a working period that was
+interrupted or resumed, the names of the analyses for their labels). Every change is listed, line by line, in
 `code/REDACTIONS.md`, with the SHA-256 hashes of the original and of the copy; the hashes of the freeze records
 refer to the unredacted originals. The protocol texts call the four analyses of the second set avenues 1 to 4
 (A1 further outbreaks, A2 contact records, A3 tracer measurements, A4 zone level) and the first and second sets

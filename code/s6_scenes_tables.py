@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-"""s6_scenes_tables.py -- numbers and LaTeX table bodies of Section 6 (s6_scenes).
+"""s6_scenes_tables.py -- numbers and LaTeX table bodies of Section 6 and Supplementary Section S5.
 
 Nothing is simulated here.  The script reads the result files of the simulation part and of its
-re-check, derives the quantities quoted in the prose of sections/s6_scenes.tex, and
+re-check, derives the quantities quoted in the prose of sections/m6_simulation.tex and sections/supp_sim.tex, and
 writes the three table bodies, so that no number in the section is typed by hand.
 
 Inputs (relative to the repository root)

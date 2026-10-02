@@ -1,0 +1,271 @@
+% m6_simulation.tex -- Main text, Section 6: exact stochastic simulation of four indoor scenes and of interventions.
+% Paths in "% src:" comments are relative to the repository root.
+% Table bodies between "% BEGIN AUTO" and "% END AUTO" are written by code/s6_scenes_tables.py
+% (-> data/s6_scenes_tables.tex) and pasted by code/s6_scenes_paste_tables.py; every
+% derived number quoted in the prose is stored in data/s6_scenes_numbers.json (key given in the comment).
+% Details, further tables and figures: Supplementary Section S5.
+% Chinese edition: the numbers of the table body are copied unchanged; only the words are translated.
+\section{四个室内场景的精确随机模拟}\label{s6_scenes:sec}
+
+第~\ref{s3_r0:sec}--\ref{s5_pair:sec}~节给出了两种无需模拟即可计算的再生数：平均场 $\Rz$ 与配对层次的 $\Ronebar$。
+本节报告：第~\ref{s2_model:sec:ibm}~节的基于个体的模型在表~\ref{s2_model:tab:scenes} 所列四个场景中表现如何、这两个数各自
+能在多大程度上描述它，以及模型对干预措施说明了什么。全部结果均针对 $\Dz=1$、$10$ 和 $100\cellday$ 给出，这三个值都
+远低于步行迁移率（第~\ref{s2_model:sec:regime}~节）；下文报告的对平均场理论的偏离在 $\Dz=1$ 时很大，在 $\Dz=100$ 时
+很小。
+
+\subsection{模拟器与模拟方案}\label{s6_scenes:sec:protocol}
+
+对基于个体的模型逐事件进行精确模拟（补充材料图~\ref{S-appA_numerics:fig:algorithm}）；二代病例数在记录下来的感染树上
+计数。每个重复样本使用 xoshiro256** 发生器\citep{blackman2021scrambled}的一条专属随机数流。该模拟器与以下各项在
+分布上一致：另行编写的纯 Python 实现、单格模型的精确最终规模分布、（通过暴露恒等式）下一代矩阵，以及高占据率和高
+迁移率下的平均场方程（补充材料表~\ref{S-appA_numerics:tab:simulator}）。此外，$\Dz=1$ 时的场景结果以及 $\Dz=10$ 时的
+大部分结果，还用第二模拟器重新运行；两者在蒙特卡罗误差范围内一致，两处最大的差异分别为 $1.6$ 和 $2.1$ 个标准误
+（补充材料第~\ref{S-appS_sim:sec:scenes}~节）。
+% src: code/bsc_sim/verify/v05_scenes.json (p_major, n); data/s6_scenes_numbers.json: check_scenes.*.z_first_minus_check (1.56, 2.11)
+
+人员从平稳（均匀）分布出发，其中一人在时刻 $0$ 具有传染性，因而其所在格点服从均匀分布。对每种场景、迁移率与接触核的
+组合，各模拟 2{,}000 次流行过程，直至不再有感染者为止。\emph{罹患率}是 $\Npop$ 人中曾被感染者所占的比例，包括指示病例在内。
+若一次暴发的罹患率不低于 $10\,\%$，则称之为\emph{大规模}暴发；$P_{\mathrm{maj}}$ 为大规模暴发所占的比例，并给出
+Wilson $95\,\%$ 区间；该阈值是一种约定，其影响在补充材料第~\ref{S-s6_scenes:sec:pmajor}~节中加以量化。二代病例的计数值
+$\Rhat$ 是另外 2{,}000 次只有指示病例传播的模拟的均值。平均场对应量为 $\Rz$、式~\eqref{s2_model:eq:meanfield} 的解，以及
+分支过程的暴发概率 $P_{\mathrm{br}}$；在该分支过程中，病例以生成元 $\gen$ 游走，以速率 $\gamma$ 恢复，并在位于格点 $x$
+时以速率 $\beta q_x$ 产生新病例，每个新病例以概率 $P_{xy}$ 置于格点 $y$；其各传播链的灭绝概率 $s_x$ 是下述方程组的最小
+非负解\citep{andersson2000stochastic}：
+\begin{equation}\label{s6_scenes:eq:branching}
+  \gamma\,(1-s_x)+\beta q_x\,s_x\Bigl(\sum_{y}P_{xy}s_y-1\Bigr)+\sum_{y}\hop{x}{y}\,(s_y-s_x)=0 ,
+  \qquad P_{\mathrm{br}}=1-\frac1{\ncell}\sum_{x\in\cells}s_x
+\end{equation}
+% src: code/bsc_sim/experiments/03_scenes.py (n_rep = 2000, T_MAX = 400 d); code/bsc_sim/src/bsc_sim/theory.py (extinction_probability, meanfield_ode)
+
+\subsection{四个场景中的结局}\label{s6_scenes:sec:outcomes}
+
+\begin{table}[tbp]
+\centering
+\caption{四个场景的精确模拟结果与平均场理论结果。迁移率尺度为 $\Dz$（\cdunit），$\beta=0.5\perday$，
+$\gamma=0.14\perday$，频率依赖发生率；每行 2{,}000 次流行过程，一个均匀放置的指示病例，封闭房间。$\Rz$：平均场基本
+再生数。$\Ronebar$：配对层次上均匀放置的指示病例的二代病例期望数（定义~\ref{s5_pair:def:R1}）。$\Rhat\pm$SE：二代
+病例数的计数均值，仅指示病例传播（另外 2{,}000 次模拟）。$P_{\mathrm{maj}}$：罹患率不低于 $10\,\%$ 的模拟所占比例
+（Wilson 区间）。$P_{\mathrm{br}}$：平均场分支过程值~\eqref{s6_scenes:eq:branching}。罹患率：分别对大规模暴发和对全部
+模拟取平均。峰值：对大规模暴发取平均的最大感染比例（0.5 天网格）及其出现日。ODE：从均匀分布的一名感染者出发时平均场
+方程给出的罹患率（\%）/ 峰值感染比例（\%）/ 峰值时间，以及一名感染者位于单个格点时的峰值感染比例（\%）/ 峰值时间
+（对初始格点取平均；仅 1\,m 接触核）。短横线表示没有发生大规模暴发。}
+\label{s6_scenes:tab:scenes}
+% src: data/bsc_sim/03_scenes.json (all columns but the last); data/s6_scenes_ode_pointseed.json (last column)
+\footnotesize
+\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}rccccccccccc@{}}
+\toprule
+ & & & & & & \multicolumn{2}{c}{罹患率（\%）} & \multicolumn{2}{c}{峰值} & \multicolumn{2}{c}{平均场 ODE}\\
+\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(l){11-12}
+$\Dz$ & $\Rz$ & $\Ronebar$ & $\Rhat\pm{}$SE & $P_{\mathrm{maj}}$（95\,\% 置信区间） & $P_{\mathrm{br}}$ & 大规模 & 全部 &
+\% & 天 & 均匀初始 & 单格初始\\
+\midrule
+% BEGIN AUTO s6_scenes:tab:scenes (numbers copied unchanged from ../sections/m6_simulation.tex)
+\multicolumn{12}{@{}l}{\emph{办公室}，$\Npop=100$，$\ncell=234$，1\,m 接触核（与同格接触核相同）；$\beta\langle q\rangle/\gamma=4.64$，$\beta\qmax/\gamma=5.36$}\\
+1 & 5.11 & 2.27 & 2.26\,$\pm$\,0.06 & 0.496 (0.474--0.518) & 0.781 & 44.3 & 23.2 & 12.7 & 23.2 & 98.9 / 45.1 / 11.5 & 32.8 / 20.4\\
+10 & 4.68 & 3.79 & 3.90\,$\pm$\,0.09 & 0.762 (0.743--0.781) & 0.783 & 96.3 & 73.8 & 39.0 & 16.5 & 99.0 / 45.7 / 11.5 & 44.1 / 12.8\\
+100 & 4.65 & 4.34 & 4.11\,$\pm$\,0.10 & 0.770 (0.751--0.788) & 0.784 & 98.8 & 76.4 & 48.4 & 12.6 & 99.0 / 45.9 / 11.5 & 45.9 / 11.6\\
+\addlinespace
+\multicolumn{12}{@{}l}{\emph{超市}，$\Npop=150$，$\ncell=278$，1\,m 接触核（与同格接触核相同）；$\beta\langle q\rangle/\gamma=3.26$，$\beta\qmax/\gamma=7.14$}\\
+1 & 4.39 & 1.99 & 1.97\,$\pm$\,0.05 & 0.436 (0.414--0.458) & 0.667 & 42.0 & 19.4 & 10.1 & 31.5 & 93.6 / 28.9 / 17.0 & 23.7 / 25.7\\
+10 & 3.39 & 2.86 & 2.86\,$\pm$\,0.07 & 0.648 (0.627--0.669) & 0.685 & 92.1 & 60.0 & 30.6 & 22.6 & 95.4 / 33.4 / 17.5 & 33.1 / 18.0\\
+100 & 3.28 & 3.15 & 3.04\,$\pm$\,0.08 & 0.686 (0.665--0.706) & 0.692 & 95.3 & 65.7 & 36.1 & 19.3 & 95.7 / 33.7 / 18.5 & 33.7 / 18.3\\
+\addlinespace
+\multicolumn{12}{@{}l}{\emph{教室}，$\Npop=80$，$\ncell=148$，1\,m 接触核（平均 4.6 个格点）；$\beta\langle q\rangle/\gamma=4.71$，$\beta\qmax/\gamma=7.14$}\\
+1 & 5.87 & 2.58 & 2.62\,$\pm$\,0.06 & 0.614 (0.592--0.635) & 0.767 & 39.2 & 25.2 & 14.1 & 16.3 & 98.4 / 42.6 / 11.0 & 31.7 / 18.1\\
+10 & 4.93 & 3.72 & 3.72\,$\pm$\,0.09 & 0.750 (0.731--0.768) & 0.777 & 94.0 & 70.9 & 35.0 & 17.3 & 98.8 / 45.0 / 10.5 & 41.3 / 12.8\\
+100 & 4.73 & 4.32 & 4.30\,$\pm$\,0.10 & 0.779 (0.760--0.797) & 0.785 & 98.6 & 77.2 & 48.8 & 12.2 & 99.1 / 46.5 / 11.0 & 46.5 / 11.0\\
+\addlinespace
+\multicolumn{12}{@{}l}{\emph{教室}，$\Npop=80$，$\ncell=148$，同格接触核；$\beta\langle q\rangle/\gamma=4.71$，$\beta\qmax/\gamma=7.14$}\\
+1 & 6.18 & 1.56 & 1.53\,$\pm$\,0.04 & 0.276 (0.256--0.295) & 0.766 & 19.7 & 7.6 & 8.5 & 15.2 & 98.0 / 40.0 / 11.0 & \\
+10 & 4.96 & 3.20 & 3.15\,$\pm$\,0.07 & 0.695 (0.674--0.715) & 0.777 & 89.1 & 62.5 & 29.7 & 20.7 & 98.8 / 44.5 / 10.5 & \\
+100 & 4.73 & 4.23 & 4.39\,$\pm$\,0.10 & 0.771 (0.753--0.789) & 0.785 & 98.6 & 76.4 & 48.2 & 12.3 & 99.1 / 46.5 / 11.0 & \\
+\addlinespace
+\multicolumn{12}{@{}l}{\emph{地铁车厢}，$\Npop=310$，$\ncell=270$，1\,m 接触核（平均 11.1 个格点）；$\beta\langle q\rangle/\gamma=9.06$，$\beta\qmax/\gamma=10.00$}\\
+1 & 9.24 & 5.58 & 5.59\,$\pm$\,0.10 & 0.879 (0.864--0.893) & 0.888 & 93.7 & 82.4 & 24.9 & 21.9 & 100.0 / 64.1 / 7.0 & 35.0 / 16.3\\
+10 & 9.16 & 6.32 & 6.44\,$\pm$\,0.13 & 0.878 (0.863--0.892) & 0.888 & 98.4 & 86.5 & 27.5 & 21.0 & 100.0 / 64.3 / 7.0 & 36.3 / 15.7\\
+100 & 9.08 & 7.54 & 7.58\,$\pm$\,0.16 & 0.891 (0.877--0.904) & 0.889 & 99.9 & 89.0 & 35.3 & 16.5 & 100.0 / 64.6 / 7.0 & 42.2 / 13.8\\
+\addlinespace
+\multicolumn{12}{@{}l}{\emph{地铁车厢}，$\Npop=310$，$\ncell=270$，同格接触核；$\beta\langle q\rangle/\gamma=9.06$，$\beta\qmax/\gamma=10.00$}\\
+1 & 9.84 & 1.51 & 1.56\,$\pm$\,0.04 & 0.000 (0.000--0.002) & 0.888 & -- & 1.1 & -- & -- & 100.0 / 61.4 / 7.0 & \\
+10 & 9.31 & 3.00 & 3.05\,$\pm$\,0.07 & 0.349 (0.329--0.371) & 0.888 & 17.3 & 7.7 & 5.0 & 23.4 & 100.0 / 62.9 / 7.0 & \\
+100 & 9.09 & 6.10 & 6.24\,$\pm$\,0.14 & 0.858 (0.842--0.873) & 0.889 & 98.6 & 84.7 & 24.0 & 24.4 & 100.0 / 64.4 / 7.0 & \\
+% END AUTO s6_scenes:tab:scenes
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{二代病例。}配对层次的 $\Ronebar$ 在表~\ref{s6_scenes:tab:scenes} 的全部 18 行中都再现了计数值 $\Rhat$：最大
+偏差为 $2.3$ 个标准误（办公室，$\Dz=100$），其余各行均不超过 $2$ 个标准误。平均场 $\Rz$ 则不能再现：$\Dz=1$ 时，在
+办公室、超市、教室和地铁车厢中，比值 $\Rhat/\Rz$ 分别为 $0.44$、$0.45$、$0.45$ 和 $0.60$，$\Dz=100$ 时升至
+$0.84$--$0.93$。后续世代的增长还要更慢：在 $\Dz=1$ 的完整流行中，第二代病例数分别是第一代的 $1.29$、$1.38$、$1.32$ 和
+$1.84$ 倍（第二模拟器：$1.39$、$1.40$、$1.29$、$1.87$），而 $\srad(\ngmone)=2.32$、$2.20$、$2.83$ 和 $5.72$。
+% src: data/s6_scenes_numbers.json: Rhat_vs_R1bar (largest_abs_z = 2.28, n_rows_abs_z_gt_2 = 1)
+% src: data/bsc_sim/03_scenes.json (R_index_alone_mean, R0_ngm); s6_scenes_numbers.json: scenes.*.Rhat_over_R0
+% src: data/bsc_sim/03_scenes.json: gen2_over_gen1, R1_pair_ngm (rows D0 = 1, range1m);
+%      code/bsc_sim/verify/v05_scenes.json: gen2_over_gen1 (1.388, 1.397, 1.291, 1.869)
+
+\paragraph{低迁移率，$\Dz=1$。}在办公室、超市和教室中，平均场描述对每一项整体流行结局都失效。在办公室中，
+$P_{\mathrm{maj}}=0.496$（$0.474$--$0.518$），而 $P_{\mathrm{br}}=0.781$；大规模暴发感染 $44.3\,\%$ 的人（均值的
+$95\,\%$ 区间为 $42.9$--$45.6\,\%$），而平均场方程给出 $98.9\,\%$；其感染比例在第 $23.2$ 天达到峰值 $12.7\,\%$，而平均场
+方程从均匀初始出发给出第 $11.5$ 天的 $45.1\,\%$，从单个格点出发给出第 $20.4$ 天的 $32.8\,\%$。罹患率分布不呈双峰：全部
+模拟中分别有 $27\,\%$、$28\,\%$ 和 $43\,\%$ 以介于 $10\,\%$ 与 $50\,\%$ 之间的罹患率结束，而 $\Dz=10$ 时这一比例至多为
+$0.6\,\%$。传播是局部而缓慢的，暴发可在任何规模上停滞。地铁车厢的乘客虽然几乎不移动，结果却更接近其平均场
+（$P_{\mathrm{maj}}=0.879$，对比 $0.888$），因为车厢内每格有 $1.15$ 人，且 1\,m 接触核平均覆盖 $11.1$ 个格点，因此一名
+感染者的接触范围内约有 $13$ 人。
+% src: data/bsc_sim/03_scenes.json: "office|D0=1|range1m" (p_major, p_major_lo/hi, p_major_branching,
+%      attack_major_mean/lo/hi (0.4427, 0.4289, 0.4565), ode_attack, peak_prev_major_mean, peak_time_major_mean, ode_peak_prev, ode_peak_time);
+%      data/s6_scenes_ode_pointseed.json: "office|D0=1|range1m".point_seed
+% src: s6_scenes_numbers.json: summary_by_D0."D0=1".frac_runs_attack_10_to_50pct (0.2715, 0.2765, 0.4285);
+%      summary_by_D0."D0=10".frac_runs_attack_10_to_50pct (max 0.006)
+% src: 03_scenes.json: "metro|D0=1|range1m" (p_major, p_major_branching, occupancy = 1.148, kernel_cells = 11.13; 1.148 x 11.13 = 12.8)
+
+\paragraph{较高迁移率，$\Dz\ge10$。}采用 1\,m 接触核时，平均场对暴发概率和罹患率是适用的：$\Dz=10$ 时
+$P_{\mathrm{br}}$ 比 $P_{\mathrm{maj}}$ 高 $0.01$--$0.04$，$\Dz=100$ 时至多高 $0.014$；大规模暴发的罹患率在 $\Dz=10$ 时
+比平均场值低 $1.5$--$4.9$ 个百分点，在 $\Dz=100$ 时与之相差不超过 $0.5$ 个百分点。峰值高度与峰值时间则是另一回事：
+$\Dz=10$ 时，即使平均场方程从单个格点出发，模拟所得的峰值仍更低，且推迟约四到五天。
+% src: data/s6_scenes_numbers.json: summary_by_D0."D0=10" (branch_minus_sim 0.0096..0.0368; ode_minus_sim_attack_points 1.54..4.87),
+%      summary_by_D0."D0=100" (branch_minus_sim -0.0023..0.0143; ode_minus_sim_attack_points 0.10..0.48); four 1 m-kernel rows
+
+\paragraph{暴发概率。}由一个病例引发的传播链的早期灭绝在每个场景中都会发生。指示病例的二代病例数是过度离散的，方差为
+均值的 $2.6$ 至 $5.0$ 倍，且有 $10\,\%$ 至 $31\,\%$ 的指示病例没有感染任何人；过度离散会降低暴发概率
+\citep{lloydsmith2005superspreading}；以模拟所得的后代分布为输入的 Galton--Watson 过程，在罹患率分布呈双峰的各处都能把
+$P_{\mathrm{maj}}$ 再现到 $0.011$ 以内（补充材料表~\ref{S-s6_scenes:tab:pmajor}）。
+% src: data/bsc_sim/03b_outbreak_probability.json: var_over_mean (2.598..5.022), p_zero (0.104..0.310);
+%      s6_scenes_numbers.json: pmajor_ranges.gw_minus_sim_other_rows_max_abs = 0.0105
+
+\paragraph{接触核}是一种建模选择；当格点小于接触范围时，它的后果很大。采用同格接触核时，地铁车厢（格点边长 $0.5$\,m）
+在 $\Dz=1$ 时不产生暴发：2{,}000 次模拟中没有一次达到 $10\,\%$ 的罹患率（第二模拟器的 3{,}000 次中也没有），尽管
+$\Rz=9.84$，$\Ronebar=1.51$，$\srad(\ngmone)=2.24$（注~\ref{s5_pair:rem:threshold}）。采用 1\,m 接触核时，同一车厢是暴发
+性最强的场景（$P_{\mathrm{maj}}=0.879$）。本文所计算的任何量都不能预测低迁移率下离散系统的阈值；它必须通过模拟得到。
+% src: 03_scenes.json: "metro|D0=1|samecell" (n_major = 0, R0_ngm = 9.836, R1_pair_uniform_index = 1.514, R1_pair_ngm = 2.244);
+%      code/bsc_sim/verify/v05_scenes.json: "metro|1.0|same" (n = 3000, p_major = 0)
+
+\subsection{感染发生在何处}\label{s6_scenes:sec:hotspot}
+
+对均匀放置的指示病例，第 $g$ 代病例被感染时所在格点的分布，在平均场模型中与 $\ngm^{g}\one$ 成正比，在配对层次描述中
+与 $\ngmone^{g}\one$ 成正比。在 $\Dz=1$ 的办公室中，平均场分布图与模拟所得分布图在第一代不相关，在随后两代呈负相关
+（$r=0.09$、$-0.23$、$-0.37$；40{,}000 次暴发），而配对层次分布图给出 $r=0.88$、$0.82$、$0.71$（补充材料
+表~\ref{S-s6_scenes:tab:hotspot} 与图~\ref{S-s6_scenes:fig:spatial}）。最热的格点是邻接走廊的工位格，而不是主导
+第~\ref{s4_geometry:sec:hotspots}~节平均场分布图的会议室：到第三代时，会议室的感染率从平均水平降至 $0.68$，而平均场预测
+为 $1.44$，这与局部耗竭相符。因此，“感染集中于会议室”这样的表述是一种平均场表述；对低迁移率下的离散个体，分布图必须
+取自 $\ngmone$ 或模拟。
+% src: data/bsc_sim/04_spatial.json: "office|D0=1".gen1..3 (r_meanfield 0.092, -0.235, -0.371; r_pair 0.875, 0.816, 0.709)
+% src: data/s6_scenes_numbers.json: office_cell_classes."D0=1".classes.M.sim (0.998, 0.877, 0.677), .meanfield (1.154, 1.295, 1.436)
+
+\subsection{干预措施}\label{s6_scenes:sec:interventions}
+
+配对风险率~\eqref{s2_model:eq:pairhazard} 采用两种标定。在\emph{频率依赖}（FD）标定下，$\rhobar=(\Npop-1)/\ncell$ 按
+当前房间计算，因此无论房间多么拥挤，位于格点 $x$ 的感染者都以速率 $\beta q_x$ 产生传染性接触。在\emph{密度依赖}（DD）
+标定下，$\rhobar$ 固定为某一基线房间的取值 $\rhobar_{\mathrm{ref}}$，因此每对人的风险率固定，接触速率随拥挤程度增加。
+在平均场中，
+\begin{equation}\label{s7_interventions:eq:dd}
+  \Rz^{\mathrm{DD}}=\frac{\rhobar}{\rhobar_{\mathrm{ref}}}\,\Rz^{\mathrm{FD}},\qquad
+  \rhobar=\frac{\Npop-1}{\ncell}.
+\end{equation}
+哪一种传播律能描述室内的人群是一个经验问题\citep{mccallum2001should,begon2002clarification}，模型本身无法判定；下文的
+每个结果都注明所用的是哪一种。细节见补充材料第~\ref{S-appS_sim:sec}~节。
+
+\paragraph{分区隔离。}在一个两区房间中（$20\times13$ 格点，工作区占地面 70\,\%，迁移率为 $0.3\,\Dz$；中央走廊带占
+30\,\%，迁移率为 $2\,\Dz$），对比度 $c$ 在面积平均 $\langle q\rangle=1.2$ 固定的条件下重新分配 $q$：
+\begin{equation}\label{s7_interventions:eq:contrast}
+  q_{\mathrm C}=1.2\,(1-c),\qquad q_{\mathrm W}=1.2\,\bigl(1+\tfrac37c\bigr).
+\end{equation}
+由定理~\ref{s3_r0:thm:bounds}，只要 $c\ne0$，就有 $\Rz>\beta\langle q\rangle/\gamma=4.286$；在 $c=0.583$
+（$q_{\mathrm W}=1.5$，$q_{\mathrm C}=0.5$）时，$\Dz=1$ 下 $\Rz=4.972$，比均匀房间高 16\,\%。对于 $\Dz=1$、$\Npop=100$ 的
+离散个体，开启对比度后，所计数的一切都\emph{下降}（补充材料图~\ref{S-s7_interventions:fig:hetero}）：按 $\ngmone$
+的 Perron 向量放置的指示病例的 $\Rhat$ 从 $2.75$ 降至 $2.10$（$-24\,\%$），大规模暴发概率从 $0.541$ 降至 $0.460$，平均
+罹患率从 $0.347$ 降至 $0.231$（$-33\,\%$）。原因在于高传染效率与低迁移率的重合：工作区中的感染者反复遇到相同的邻居，
+其接触落在已被感染的人身上。若对比度相同而迁移率均匀，$\Rhat$ 略有上升（$2.76\to2.82$）。在 $\Dz=10$ 时，对比度使暴发
+概率和罹患率的变化不足 2\pct。
+% src: data/bsc_sim/05_heterogeneity.json keys D0=1|N=100|c=0.0000 and c=0.5833 (R0_ngm, sim_R_perron, p_major, attack_all); data/s7_interventions_numbers.json hetero/changes_D1_N100
+% src: data/bsc_sim/05_heterogeneity_extra.json keys extra|uniformD|D0=1|N=100|c=0.0000, c=0.5833 (sim_R_perron)
+% src: data/bsc_sim/05_heterogeneity.json keys D0=10|N=100|c=0.0000, c=0.5833; data/s7_interventions_numbers.json hetero/changes_D10_N100
+
+\paragraph{障碍物。}在一个均匀房间中（$20\times13$ 格点，$\Npop=100$，$q=1.2$，同格接触核），随机放置嵌套的障碍格，
+各组的初始条件相同；在 FD 下 $\Rz$ 保持为 $4.29$（定理~\ref{s4_geometry:thm:closed}）。在 $D=1$ 时，10\,\% 的障碍物使平均
+罹患率降低 $0.040\pm0.003$，30\,\% 时降低 $0.223\pm0.011$（第二模拟器：$0.047\pm0.004$ 和 $0.235\pm0.011$）；10\,\% 时
+大规模暴发的峰值推迟 $0.81\pm0.12$ 天（第二模拟器：$0.82\pm0.10$），而暴发概率的降幅小得多（$0.70\to0.69\to0.62$）：
+障碍物的作用在于使暴发在碎片化的地面上中途停止，而不在于阻止其起势。在 $D=10$ 时，10\,\% 的障碍物不改变罹患率
+（$+0.005\pm0.005$）。在 DD 下，障碍物还会使人群更加拥挤，在 $D=10$ 时罹患率上升（补充材料表~\ref{S-s7_interventions:tab:barriers}）。
+% src: data/s7_interventions_barriers.json keys D=1, D=10: arms/*/p_major; paired/*/attack, peak_day_major (mean, SE across 40 layouts);
+%      re-check: code/bsc_sim/verify/v08b_obstacles_many.json (diff_0.1_ar, diff_0.3_ar, diff_0.1_pkt)
+
+\paragraph{占据率。}在 FD 下，办公室的平均场 $\Rz$ 与人数无关。对离散的人而言，占据率则通过饱和起作用：在 $\Dz=1$ 时，计数值
+$\Rhat$ 在 $\Npop=50$ 时为 $1.47\pm0.04$，$100$ 时为 $2.29\pm0.05$，$400$ 时为 $3.70\pm0.09$，与 $\Ronebar=1.52$、$2.27$、
+$3.65$ 相符；在 $\Npop=100$ 附近，$\Ronebar$ 对 $\Npop$ 的弹性在 $\Dz=1$ 时为 $+0.48$，在 $\Dz=10$ 时为 $+0.17$，而 $\Rz$
+的弹性为 $0$。在 DD 下，$\Rz$ 与 $\Npop-1$ 成正比。因此，容量限制是否有效是关于接触行为的一个假设，而不是模型的输出。
+% src: data/bsc_sim/07_occupancy.json keys D0=1|N=50|FD, N=100, N=400 (R1_pair_uniform, R_index_alone, R_index_alone_se); elasticities: data/s7_interventions_numbers.json occupancy/elasticity|D0=1|FD, D0=10|FD (pair)
+
+\paragraph{均匀措施}（“通风”$q\to q/2$ 与“口罩”$\beta\to0.3\beta$；二者都是输入，而非结果）按精确比例缩放 $\Rz$
+（$\Dz=1$ 时 $5.11\to2.55$ 和 $1.53$），但配对层次数值的降幅小于这一比例（$\Ronebar=2.27\to1.51$ 和 $1.05$），因为
+较低的风险率也会减少被浪费的接触。在弹性最大的四分之一格点上将 $q$ 减半，比处理弹性最小的四分之一更能降低 $\Rz$；但对
+$\Dz=1$ 下的离散个体，处理哪四分之一并不产生可测的差别（补充材料表~\ref{S-s7_interventions:tab:interventions}）。配对层次
+的数值低于一并不意味着得到控制：在 DD 下同时采取通风、半数占据和隔断时，$\Ronebar=0.82$，但仍有 16.5\,\% 的模拟达到
+10\,\% 的罹患率。
+% src: data/bsc_sim/08_interventions.json keys office|D0=1|... (R0_ngm, R1_pair_uniform); office|D0=1|combination|DD (R1_pair_uniform 0.82, p_major = 0.165)
+
+\paragraph{停留时间。}以上所有数值都假定同一个封闭群体在整个感染期内始终留在房间中。对于每天有 $f$ 比例的时间被占用的
+房间，移动与传播只在占用时段内开启，而恢复始终进行，此时线性化模型可以精确求解，其阈值参数为
+\begin{equation}\label{s7_interventions:eq:duty}
+  \Rz^{(f)}=\srad\Bigl(\Fm\bigl(\tfrac{\gamma}{f}\,\Id-\gen\bigr)^{-1}\Bigr)=f\,\Rz(f\Dz)
+\end{equation}
+（补充材料第~\ref{S-s7_interventions:sec:time}~节中的命题~\ref{S-s7_interventions:prop:duty}）：占空比使 $\Rz$ 乘以 $f$，
+同时把有效迁移率降至 $f\Dz$。带作息安排时的精确配对层次期望值，由配对链的一个压缩映射不动点方程得到（补充材料
+注~\ref{S-s7_interventions:rem:duty}，同一节）。表~\ref{s7_interventions:tab:dwell} 给出了具体数值。在每天占用八小时的
+办公室中（$f=1/3$），$\Dz=1$ 时平均场数值从 $5.11$ 降至 $1.75$，指示病例感染 $0.889$ 至 $0.930$ 人，具体取决于它在工作日
+中何时变得有传染性；显式施加作息安排的模拟与之相差在 $1.6$ 个标准误以内（2{,}000{,}000 次模拟）。对每天上课一小时的
+班级，2{,}000 次模拟中没有一次达到 10\pct{} 的罹患率。按每次到访计，在 $\Dz=1$ 时，一名指示病例在一个 8 小时的办公日中
+造成 $0.175$ 次感染，在一节一小时的课中造成 $0.027$ 次，在一次 20 分钟的地铁乘车中造成 $0.018$ 次，在一次 27 分钟的
+超市购物中造成 $0.008$ 次；因此，封闭房间中的场景排序（地铁车厢居首，表~\ref{s6_scenes:tab:scenes}）在现实的停留时间下
+不再成立。不过，按每次到访计的数值并不是被反复到访的场所的再生数；对后者适用的是多场景模型的驻留时间表述
+\citep{bichara2015sis}。
+% src: data/s7_interventions_schedule.json keys duty_exact|office|D0=1 (exact_start 0.9296; exact_uniform_phase 0.8892), duty_large|office|D0=1 (z_start 1.52, z_uni -0.33), duty|office|D0=1 (R0_duty)
+% src: data/bsc_sim/11_dwell_time.json keys classroom|D0=1 (p_major); per_visit_sim (office 0.1753, classroom 0.0270, metro 0.0178, supermarket 0.0083)
+
+\begin{table}[tbp]
+  \centering\footnotesize\setlength{\tabcolsep}{4pt}
+  \caption{停留时间（1\,m 接触核，FD，默认占据率）。(a)~同一封闭群体每天占用房间 $24f$ 小时：连续占用时的 $\Rz$、
+  式~\eqref{s7_interventions:eq:duty} 的占空比值 $\Rz^{(f)}$、采用 $\gamma\to\gamma/f$ 的配对层次 $\Ronebar$（“规则
+  近似”）、指示病例在占用时段开始时或在时段内均匀分布的时刻变得有传染性时的精确配对层次期望值，以及大规模暴发概率
+  （带作息安排的 2,000 次流行过程；$0.0005$ 即一次模拟）。对超市和地铁车厢，同场的其他到访者每次都不同；表中给出的是均匀
+  混合值 $f\beta\langle q\rangle/\gamma$，即一名感染者在整个感染期内在该处所感染人数的期望（每天一次 27 分钟的购物，
+  或两次 20 分钟的乘车）。(b)~一次时长为 $T$ 的到访：一名感染者所致感染数的期望；平均场值与计数值（200,000 次模拟，
+  $\pm$ 标准误）。}
+  \label{s7_interventions:tab:dwell}
+  % src: data/bsc_sim/11_dwell_time.json (R0_continuous, R0_duty_cycle, R1_pair_duty_cycle, p_major, wellmixed_duty_cycle, per_visit_*); exact columns: data/s7_interventions_schedule.json keys duty_exact|<scene>|D0=* (exact_start, exact_uniform_phase)
+  \begin{tabular}{@{}lccccccc@{}}
+    \multicolumn{8}{@{}l}{(a) 占空比}\\
+    \toprule
+    场景，每天小时数 & $\Dz$ & $\Rz$ & $\Rz^{(f)}$ & $\Ronebar$，规则近似 & 精确（时段开始） & 精确（均匀时刻） & $P(\text{大规模暴发})$ \\
+    \midrule
+    办公室，8 & 1 & 5.11 & 1.754 & 0.889 & 0.930 & 0.889 & 0.061 \\
+    办公室，8 & 10 & 4.68 & 1.596 & 1.335 & 1.397 & 1.336 & 0.302 \\
+    教室，1 & 1 & 5.87 & 0.271 & 0.182 & 0.194 & 0.182 & 0.000 \\
+    教室，1 & 10 & 4.93 & 0.258 & 0.187 & 0.200 & 0.187 & 0.0005 \\
+    超市，0.45 & 1 & 4.39 & \multicolumn{2}{c}{0.061} & -- & -- & -- \\
+    地铁车厢，0.67 & 1 & 9.24 & \multicolumn{2}{c}{0.252} & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+
+  \medskip
+  \begin{tabular}{@{}lcccc@{}}
+    \multicolumn{5}{@{}l}{(b) 单次到访}\\
+    \toprule
+    到访 & $T$（小时） & 平均场 & 计数值，$\Dz=1$ & 计数值，$\Dz=10$ \\
+    \midrule
+    一个办公日 & 8.00 & 0.2117 & $0.1753\pm0.0009$ & $0.1983\pm0.0010$ \\
+    一节课 & 1.00 & 0.0274 & $0.0270\pm0.0004$ & $0.0270\pm0.0004$ \\
+    一次地铁乘车 & 0.33 & 0.0176 & $0.0178\pm0.0003$ & $0.0171\pm0.0003$ \\
+    一次超市购物 & 0.45 & 0.0086 & $0.0083\pm0.0002$ & $0.0086\pm0.0002$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{较高迁移率下。}配对层次数值在任何迁移率下对第一代都是精确的，且只需一次线性求解，因此每种效应都可以追踪到
+$\Dz=2.4\times10^{3}\cellday$。在 FD 下，$q$ 的对比度与障碍物的效应在 $\Dz=100$ 时缩小到 1\,\% 以下，在
+$\Dz=2.4\times10^{3}$ 时缩小到 0.05\,\% 以下（补充材料表~\ref{S-s7_interventions:tab:regime}）；$\Dz=100$ 下的模拟与此一致。
+仍然成立的有三点：$q$ 或 $\beta$ 的均匀降低，它们几乎按比例作用于 $\Ronebar$；DD 下的占据率（在 FD 下，办公室人数减半
+仍留下约 5\,\% 的残余效应，这是有限人群效应而非空间效应）；以及在房间中度过的时间。$\Dz=2.4\times10^{3}$ 下的流行未作
+模拟。
+% src: data/s7_interventions_regime.json keys det/* (R0, R1bar) and sim/twozone|D0=100|c=0.0000, c=0.5833 (attack_all_mean), sim/barriers|D0=100|FD/paired (attack); code/s7_interventions_regime.py

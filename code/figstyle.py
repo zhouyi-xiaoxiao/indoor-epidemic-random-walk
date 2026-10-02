@@ -1,4 +1,4 @@
-"""figstyle.py -- shared bilingual figure helper for every figure generated inside article/code.
+"""figstyle.py -- shared bilingual figure helper for every figure drawn by the article-level scripts.
 
 Same visual style as the research directories (code/bsc_sim/src/bsc_sim/plotting.py and
 code/bsc_validation/src/valmod/plotting.py): DejaVu Sans, Okabe-Ito colours, vector PDF + PNG.

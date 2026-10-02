@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""s9_discussion_numbers.py -- collect every number quoted in sections/s9_discussion.tex
+"""s9_discussion_numbers.py -- collect every number quoted in the discussion, sections/m8_discussion.tex (Section 8)
 (plus a few neighbouring values of the same files, kept so that the context of each quoted number is visible).
 
 The discussion section introduces no new computation.  This script only READS the results files of the
@@ -94,12 +94,11 @@ for scn in ("supermarket", "classroom", "metro"):
     r = dw[f"{scn}|D0=1"]
     put(f"{scn}_per_visit_meanfield", r["per_visit_meanfield"], src, f"{scn}|D0=1.per_visit_meanfield")
     put(f"{scn}_visit_hours", r["visit_hours"], src, f"{scn}|D0=1.visit_hours")
-# pooled duty-cycle count of the re-check (text of its report)
-src = "notes/VERIFICATION.md"
-txt = (ROOT / src).read_text(encoding="utf-8")        # the record of the check, searched as text
-m = re.search(r"counted with explicit schedule ([0-9.]+) \+- ([0-9.]+) pooled", txt)
-put("office_8h_D0_1_counted_check_pooled", [float(m.group(1)), float(m.group(2))], src,
-    "Section 4.2, simulations.checks[item 13].reason")
+# pooled duty-cycle count of the re-check (numbers of the re-check of the simulations, data/checks/)
+src = "data/checks/simulation.json"
+pooled = load(src)["values"]["duty_cycle_office_D0_1"]["count_explicit_schedule_pooled"]
+put("office_8h_D0_1_counted_check_pooled", [pooled["mean"], pooled["se"]], src,
+    "values.duty_cycle_office_D0_1.count_explicit_schedule_pooled (mean, se)")
 
 # ---------------------------------------------------------------- interventions
 src = "data/bsc_sim/08_interventions.json"

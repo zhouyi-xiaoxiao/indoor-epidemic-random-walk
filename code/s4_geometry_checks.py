@@ -1,6 +1,6 @@
 """s4_geometry_checks.py -- numbers and re-checks for Section 4 ("Room size, leaks and hotspot maps").
 
-Everything quoted in sections/s4_geometry.tex that is not read directly from
+Everything quoted in sections/m4_geometry.tex and sections/supp_geometry.tex that is not read directly from
     data/plan_theory_checks.json                                   (canonical office scene), or
     data/bsc_theory/worked_examples.json               (room size, call centre), or
     data/bsc_theory/fig2_room_size_data.json           (curves of Fig. room-size/leak)

@@ -1,0 +1,255 @@
+% m2_model.tex -- Main text, Section 2: Model, scenes and parameter regime.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers of the two tables and of Section 2.6: code/s2_model_scene_table.py ->
+% data/s2_model_scenes.json (cross-checked there against data/plan_theory_checks.json
+% to 2e-13) and data/s2_model_table_rows.tex (table rows as generated).
+\section{模型、场景与参数区间}\label{s2_model:sec}
+
+本节确定模型：一条移动规则；一个带接触核的平均场模型；一个基于个体的模型（前述平均场模型即为其平均场近似）；以及三种
+必须加以区分的再生数。随后描述四个场景，并说明参数所处的物理区间。在第~\ref{s2_model:sec}--\ref{s6_scenes:sec}~节
+中，长度以格点为单位，时间以天为单位。
+
+\subsection{格点上的移动}\label{s2_model:sec:movement}
+
+房间地面由格点间距为 $a$ 的正方格子覆盖。被墙壁、家具或其他障碍物占据的格点被移除；其余 $\ncell$ 个可行走格点
+构成集合 $\cells$，两个可行走格点若有一条公共边，则称二者相邻。格点 $x$ 具有迁移率（扩散系数）$D_x=\Dz d_x>0$，
+其中 $\Dz$ 为迁移率尺度，$d_x$ 为无量纲的分区倍数。位于格点 $x$ 的人以如下速率跳到相邻格点 $y$：
+\begin{equation}\label{s2_model:eq:hop}
+  \hop{x}{y}=\hop{y}{x}=\frac{2D_xD_y}{D_x+D_y}\qquad\text{对相邻格点 } x,y\in\cells ,
+\end{equation}
+即两个迁移率的调和平均。这正是复合介质中扩散的有限体积离散所用的界面系数\citep{patankar1980numerical}：两个格点
+之间的净流量等于 $\hop{x}{y}$ 乘以二者占据数之差，因此式~\eqref{s2_model:eq:hop} 是带反射壁的 Fick 扩散
+$\partial_t\rho=\nabla\!\cdot(D\nabla\rho)$ 的一种离散。移动生成元是 $\ncell\times\ncell$ 矩阵
+\begin{equation}\label{s2_model:eq:generator}
+  M_{yx}=\hop{x}{y}\ (y\neq x),\qquad M_{xx}=-\sum_{y\neq x}\hop{x}{y},\qquad \one^{\T}\gen=0 ,
+\end{equation}
+若 $x\ne y$ 不相邻，则 $M_{yx}=0$。列指标表示出发格点：期望占据数向量满足 $\dot N=\gen N$，而 $\one^{\T}\gen=0$
+表示没有人穿过墙壁进入或离开。由于 $D_x=\Dz d_x$，有 $\gen=\Dz\genz$，其中 $\genz$ 为 $\Dz=1$ 时的生成元。传播子
+$P_t(y\,|\,x)=\bigl(\e^{\gen t}\bigr)_{yx}$ 是从格点 $x$ 出发的游走者在时刻 $t$ 位于格点 $y$ 的概率。对均匀矩形
+格子，传播子的闭式表达已为人知\citep{giuggioli2020exact}；对本文的异质场景，所有量均由 $\gen$ 数值计算得到。
+
+\begin{assumption}\label{s2_model:ass:A}
+  可行走区域连通，即 $\gen$ 不可约。人群处于移动平衡：$N_x(t)\equiv N^*_x=\Npop\,\pi_x$，其中 $\stat>0$ 为
+  $\gen$ 的平稳分布（$\gen\stat=0$，$\one^{\T}\stat=1$；在对称规则~\eqref{s2_model:eq:hop} 下，$\pi_x=1/\ncell$）。
+\end{assumption}
+
+在规则~\eqref{s2_model:eq:hop} 下矩阵 $\gen$ 对称，因此均匀分布是平稳分布，人不会在慢速分区中聚集。假设中之所以
+采用一般的 $\stat$ 来表述，是因为第~\ref{s3_r0:sec}~节的若干结果对任意不可约生成元都成立。采用调和平均是一种建模
+选择。速率只依赖于出发格点的规则 $\hop{x}{y}=D_x$ 是另一个模型：它关于 $\pi_x\propto1/D_x$ 满足细致平衡，因而人会
+在移动缓慢之处聚集，其连续极限为 $\partial_t\rho=\nabla^2(D\rho)$。长度以格点为单位时，$D_x$ 的单位为 \cdunit{}；
+以物理单位表示时，速率~\eqref{s2_model:eq:hop} 为 $2D_xD_y/((D_x+D_y)a^2)$。
+
+\subsection{平均场模型}\label{s2_model:sec:meanfield}
+
+位于格点 $x$ 的感染者以速率 $\beta q_x$ 产生传染性接触，其中 $\beta$ 为传染率，$q_x\ge0$ 为该格点的无量纲传染
+效率（$\Qm=\diag q$，$q\not\equiv0$）。一次接触以概率 $P_{xy}=P(y\,|\,x)$ 落在格点 $y$，其中接触核 $\ker$ 为
+行随机矩阵；该接触落到当时身处 $y$ 的人中均匀选取的一人身上（频率依赖发生率）。感染者以速率 $\gamma$ 恢复。
+记 $S_y,I_y,R_y$ 为格点 $y$ 中易感者、感染者和恢复者的期望人数，则
+\begin{equation}\label{s2_model:eq:meanfield}
+\begin{aligned}
+  \dot S_y &= (\gen S)_y-\frac{S_y}{N^*_y}\,\beta\sum_{x}q_xP_{xy}I_x ,\qquad
+  \dot I_y = (\gen I)_y+\frac{S_y}{N^*_y}\,\beta\sum_{x}q_xP_{xy}I_x-\gamma I_y ,\\
+  \dot R_y &= (\gen R)_y+\gamma I_y .
+\end{aligned}
+\end{equation}
+\emph{同格接触核} $\ker=\Id$ 给出局部发生率 $\beta q_yS_yI_y/N^*_y$；此时系统是每个格点为一个斑块的
+易感–感染–恢复斑块模型，此类模型的已知结果均适用（第~\ref{s3_r0:sec}~节）。模拟使用 \emph{1\,m 接触核}：
+$P(y\,|\,x)$ 在中心与 $x$ 的中心相距 1\,m 以内的可行走格点上均匀分布（不检查两格之间的视线是否被障碍物阻断）。
+当 $a>1$\,m 时，它与同格接触核一致；若不采用它，接触范围将由格点间距在不知不觉中决定，而下文各场景的格点面积
+从 $0.25\,\mathrm{m}^2$ 到 $4\,\mathrm{m}^2$ 不等。1\,m 的范围是一种建模选择。
+% src: data/s2_model_scenes.json -> scenes.<name>.D0_cell2_per_day_in_m2_per_day (a^2 = 2.25, 4, 1, 0.25 m^2)
+
+将三个方程相加，可知 $N=S+I+R$ 满足 $\dot N=\gen N$，因此在假设~\ref{s2_model:ass:A} 下对所有 $t$ 有
+$N_y(t)=N^*_y$。利用 $S_y/N^*_y=1-(I_y+R_y)/N^*_y$，得
+\begin{equation}\label{s2_model:eq:linear}
+  \dot I=\Jm I+O\bigl(|I|(|I|+|R|)\bigr),\qquad \Jm=\gen+\Fm-\gamma\Id,\qquad \Fm=\beta\,\ker^{\T}\Qm ,
+\end{equation}
+对同格接触核，$\Fm=\beta\Qm$。式~\eqref{s2_model:eq:linear} 的两个特点将被反复用到。其一，$\Jm$ 既不含人数，
+也不含人群密度：在频率依赖发生率下，拥挤不进入线性化动力学。其二，被略去的项为
+$-\diag\bigl((I+R)/N^*\bigr)\Fm I\le0$，因此式~\eqref{s2_model:eq:meanfield} 的每个解都满足：对所有 $t\ge0$，
+$\dot I\le\Jm I$ 逐分量成立。
+
+\subsection{基于个体的模型}\label{s2_model:sec:ibm}
+
+基于个体的模型中有 $\Npop$ 个人，他们在 $\cells$ 上以 $\gen$ 为生成元做相互独立的连续时间随机游走
+（规则~\eqref{s2_model:eq:hop}，$\stat$ 均匀），并在时刻 $0$ 被相互独立地均匀放置。每个人处于易感、感染或恢复
+三种状态之一。当一名感染者位于 $x$、一名易感者位于 $y$ 时，该感染者以如下速率感染该易感者：
+\begin{equation}\label{s2_model:eq:pairhazard}
+  h(x,y)=\frac{\beta\,q_x\,P_{xy}}{\rhobar},\qquad \rhobar=\frac{\Npop-1}{\ncell}
+  \quad(\text{频率依赖标定}),
+\end{equation}
+其中 $\rhobar$ 为每个格点中\emph{其他}人的平均人数。其余 $\Npop-1$ 个游走者相互独立且均匀分布，因此在处于移动
+平衡、全员易感的房间中，位于 $x$ 的感染者造成感染的期望速率为 $\sum_{y}h(x,y)\,\rhobar=\beta q_x$；对任意
+$\Npop$，这恰好等于式~\eqref{s2_model:eq:meanfield} 中假定的速率。在密度依赖（DD）标定中（仅用于
+第~\ref{s6_scenes:sec:interventions}~节，且始终标注 DD），式~\eqref{s2_model:eq:pairhazard} 中的 $\rhobar$ 固定为
+某一参考占据率下的取值 $\rhobar_{\mathrm{ref}}$；此时配对风险率固定不变，接触速率变为
+$\beta q_x\rhobar/\rhobar_{\mathrm{ref}}$，与占据率成正比。感染者以速率 $\gamma$ 恢复：该模型属于 SIR 型，感染期
+服从均值为 $1/\gamma$ 的指数分布，且没有潜伏类。
+
+该过程是一个含三类事件的连续时间马尔可夫链——跳跃、恢复，以及位于 $y$ 的易感者被感染（其速率为 $\sum h(x_i,y)$，
+求和遍及各感染者的当前位置 $x_i$）——并用 \citet{gillespie1976general,gillespie1977exact} 的直接法精确模拟；
+模拟没有时间步长，因而没有离散误差。模拟记录感染树（每次感染的传染者、代、时间与格点），因此二代病例是计数
+得到的，而非拟合得到的。算法与模拟器的验证见补充材料第~\ref{S-appA_numerics:sec}~节。
+
+模型~\eqref{s2_model:eq:meanfield} 是该过程的平均场近似：它以期望值代替每个格点中易感者与感染者的人数，并忽略
+它们之间的相关性。两个模型对一个病例所施加的感染压力是一致的：产生于 $x$ 的病例在其感染期 $\tau$ 内施加的期望
+压力为 $\beta\,\Exp_x\!\int_0^\tau q(X_t)\,\dd t$，即第~\ref{s3_r0:sec}~节下一代矩阵的列和 $\noff(x)$。平均场
+所忽略的是：离散的个人只能被感染一次，而且感染者会反复遇到同样少数几个邻近者（第~\ref{s5_pair:sec}~节）。当
+许多人共享同一接触邻域且迁移率较高时，这一近似变得准确。在办公室场景中，若初始时有 1\pct{} 的人为感染者，则模拟
+所得平均感染比例曲线与式~\eqref{s2_model:eq:meanfield} 的解之间的最大差值（二者均以占 $\Npop$ 的比例表示）在
+$\Npop=100$、$\Dz=1$ 时为 $0.42$（200 次模拟），在 $\Npop=1000$、$\Dz=10$ 时为 $0.058$（200 次模拟），在
+$\Npop=5000$、$\Dz=100$ 时为 $0.004$（40 次模拟；仅通过重新运行同一代码加以核对）。
+% src: data/bsc_sim/01_validation.json -> F_meanfield_limit (max_abs_diff_curve 0.4226, 0.0585, 0.0037; n_rep 200, 200, 40; I0 = 1, 10, 50)
+% src: notes/VERIFICATION.md -> Section 4.2, simulations, summary ("Not re-simulated with the second simulator": test F with N = 5000)
+式~\eqref{s2_model:eq:pairhazard} 中按\emph{其他}人的平均人数进行归一化是重要的。若改为除以格点中当时的全部人数
+（包括感染者本人），所定义的是另一个过程：独处一格的感染者不会传染任何人；在各场景的占据率下，该过程是亚临界的
+（补充材料注~\ref{S-s5_pair:rem:encounter}）。
+
+\subsection{三种再生数}\label{s2_model:sec:numbers}
+
+本文中有三个量被称为再生数。
+\begin{enumerate}
+  \item 平均场模型的\emph{基本再生数} $\Rz=\srad(\ngm)$，即下一代矩阵 $\ngm=\Fm(\gamma\Id-\gen)^{-1}$ 的谱半径
+    （定理~\ref{s3_r0:thm:ngm}）。它是式~\eqref{s2_model:eq:linear} 的阈值：$\Rz>1$ 当且仅当增长率
+    $\lamone=\sabs(\Jm)$ 为正。
+  \item 基于个体的模型的\emph{配对层次}再生数（定义~\ref{s5_pair:def:R1}）：$\Rone(x)$，即在其余 $\Npop-1$ 人
+    均为易感者且只有指示病例传播时，产生于 $x$ 的单独传播的指示病例所致二代病例的期望数；它对均匀放置的指示病例
+    所取的平均值 $\Ronebar$；以及配对层次下一代矩阵的谱半径 $\srad(\ngmone)$。$\Rone(x)$ 对第一代是精确的。
+    三者都不是阈值量（注~\ref{s5_pair:rem:threshold}）。
+  \item \emph{计数}值 $\Rhat$：模拟中由指示病例直接感染的平均人数，从感染树中读出。它依赖于指示病例所在格点的
+    分布（均匀分布，或以 $\ngm$ 的 Perron 向量加权），也依赖于后续病例是否同样传播、从而争夺易感者；凡引用
+    $\Rhat$ 之处，这两点均予注明。
+\end{enumerate}
+在 $\Dz=1$ 的办公室场景中，三者分别为 $\Rz=5.107$、$\Ronebar=2.266$ 和 $\Rhat=2.265\pm0.004$（标准误；
+400{,}000 次模拟，指示病例均匀放置，只有指示病例传播）。
+% src: data/s5_pair_large_sample.json -> office|D0=1 (R0_ngm 5.1073, R1bar_exact 2.2661, mean 2.2648, se 0.0039, n_runs 400000)
+
+\subsection{四个场景}\label{s2_model:sec:scenes}
+
+\begin{table}[tbp]
+\centering
+\caption{四个场景：以格点计的格子尺寸、格点间距 $a$、可行走格点数 $\ncell$、人数 $\Npop$、每个格点中其他人的
+平均人数 $\rhobar=(\Npop-1)/\ncell$、迁移率倍数 $d=D/\Dz$ 与传染效率 $q$ 在可行走格点上的平均值、
+$\beta=0.5\perday$ 和 $\gamma=0.14\perday$ 时 $\Rz$ 的均匀混合值 $\beta\langle q\rangle/\gamma$ 与上界
+$\beta\qmax/\gamma$，以及 1\,m 接触核内格点数的平均值（1.0 表示同格接触核）。各分区的 $d$ 与 $q$ 取值见补充材料
+表~\ref{S-s2_model:tab:zones}；它们都是示意性假设，没有一个是测量值。}
+\label{s2_model:tab:scenes}
+\small
+% src: data/s2_model_scenes.json -> scenes.<name> (rows as generated in data/s2_model_table_rows.tex);
+%      scene definitions code/bsc_sim/scenes/{office,supermarket,classroom,metro}.json
+\begin{tabular}{@{}lcrrrcccccc@{}}
+\toprule
+场景 & 格子 & $a$（m） & $\ncell$ & $\Npop$ & $\rhobar$ & $\langle d\rangle$ & $\langle q\rangle$
+  & $\beta\langle q\rangle/\gamma$ & $\beta\qmax/\gamma$ & 核内格点数 \\
+\midrule
+办公室 & $20\times13$ & 1.5 & 234 & 100 & 0.423 & 0.561 & 1.300 & 4.643 & 5.357 & 1.0 \\
+超市 & $25\times15$ & 2 & 278 & 150 & 0.536 & 1.239 & 0.914 & 3.263 & 7.143 & 1.0 \\
+教室 & $15\times10$ & 1 & 148 & 80 & 0.534 & 0.192 & 1.318 & 4.706 & 7.143 & 4.6 \\
+地铁车厢 & $45\times6$ & 0.5 & 270 & 310 & 1.144 & 0.028 & 2.536 & 9.056 & 10.000 & 11.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.84\textwidth]{fig3_scene_maps_zh}
+\caption{四个场景的平面布局。每个小方块是一个边长为 $a$ 的格点；颜色标示各分区，其迁移率倍数 $D/\Dz$ 与传染效率
+$q$ 见图例；深色格点为障碍物，不属于 $\cells$。各分图标题给出以格点计的格子尺寸、格点间距 $a$ 和人数 $\Npop$。
+分区在地面上的布置与分区取值都是示意性假设（见正文）。}
+% src: figures/fig3_scene_maps_{en,zh}.pdf, script code/bsc_sim/experiments/20_figures.py (fig_scenes), scenes code/bsc_sim/scenes/*.json
+\label{s2_model:fig:scenes}
+\end{figure}
+
+模型在四个场景上进行评估：开放式办公室、超市、教室和地铁车厢（表~\ref{s2_model:tab:scenes}，
+图~\ref{s2_model:fig:scenes}）。理论与模拟使用同一套场景文件。格子尺寸与格点间距、各分区及其 $d$ 与 $q$ 取值、
+人数以及分区在地面上的布置，都是示意性假设；它们既不是测量值，也不是由任何标准推导而来。在办公室中，各分区分别
+占地面 260 个格点的 60、15、10、5 和 10\,\%（工位区、走廊、会议室、茶水间和障碍物；234 个可行走格点不含障碍物）；
+在超市中，货架与柜台充当障碍物；教室课桌划分为靠窗区块（$q=1.2$）与中央区块（$q=2.0$）；车厢设有车门、座位与
+扶手。
+% src: code/bsc_sim/scenes/office.json (zone_counts 156, 39, 26, 13, 26 of 260 cells); code/bsc_sim/scenes/supermarket.json, classroom.json, metro.json
+地铁的迁移率遵循拥挤规则 $d=c\,n_{\mathrm{d}}^{-\eta}$（站立区 $\eta=2$，其他区域 $\eta=1$），在人群密度
+$n_{\mathrm{d}}=310/67.5\,\mathrm{m}^2=4.59$ 人/$\mathrm{m}^2$ 处取值；其面积平均为 $0.028$。
+% src: data/s2_model_scenes.json -> scenes.metro (density_used_for_metro_rule_per_m2 4.5926, d_mean 0.0282, zones); code/bsc_sim/scenes/metro.json (D_coef, D_exp)
+进入第~\ref{s3_r0:sec}~节上下界的量是 $q$ 在可行走格点上的平均，其值为 $1.300$、$0.914$、$1.318$ 和 $2.536$。
+在办公室与超市中，1\,m 接触核就是同格接触核；在教室中，它包含该格点及至多四个相邻格点（平均 $4.6$ 个格点），
+在车厢中至多包含 13 个格点（平均 $11.1$ 个）。对这两个场景，同格接触核的结果作为敏感性情形一并报告。
+% src: data/s2_model_scenes.json -> scenes.<name>.q_mean; scenes.<name>.kernel1m_cells_mean (1.0, 1.0, 4.62, 11.13), kernel1m_cells_max (1, 1, 5, 13)
+
+\subsection{参数与物理区间}\label{s2_model:sec:regime}
+
+默认的流行病学参数为 $\beta=0.5\perday$ 和 $\gamma=0.14\perday$，对应平均感染期 $7.1$ 天，$\beta/\gamma=3.571$。
+它们是示意性取值，未针对任何疾病或数据集进行标定。默认的迁移率尺度 $\Dz=1\cellday$ 同样如此，而这一取值对下文的
+每一个结果都有影响。它被用作一个参考性的低迁移率取值，在该取值下模型的空间效应清晰可见；大多数结果也在 $\Dz=10$
+与 $100\cellday$ 下给出，各场景在步行迁移率下的 $\Rz$ 亦一并给出（表~\ref{s2_model:tab:regime}）。
+% src: data/s2_model_scenes.json -> beta, gamma, beta_over_gamma (3.5714), office_regime.infectious_period_days (7.14)
+
+\paragraph{$\Dz=1$ 意味着什么。}在办公室中（$a=1.5$\,m），$\Dz=1\cellday$ 相当于每天 $2.25\,\mathrm{m}^2$。此时，
+$d=1$ 的游走者的均方根位移 $\sqrt{4Dt}$ 在一天内为 $3$\,m，在一个平均感染期内为 $8$\,m，而房间大小为
+$30\,\mathrm{m}\times19.5\,\mathrm{m}$。该场景会议室（26 个格点）中的游走者以主离开率 $\muZ=0.00877\perday$ 离开
+会议室：其驻留时间 $1/\muZ$ 为 $114$ 天，相当于十六个感染期。在 $\Dz=1$ 的地铁车厢中，乘客平均每天跳跃 $0.075$
+次（每次 $0.5$\,m）：在感染期的时间尺度上，车厢是冻结的。
+% src: data/s2_model_scenes.json -> office_regime (D0_m2_per_day 2.25, rms_m_per_day_D0 3.0, rms_m_per_infectious_period_D0 8.02), scenes.office.floor_m
+% src: data/s2_model_scenes.json -> office_regime (meeting_room_mu_Z_per_day 0.008769, meeting_room_1_over_mu_Z_days 114.04)
+% src: data/s2_model_scenes.json -> scenes.metro.hop_rate_mean_per_day_D0=1 (0.0749)
+
+\paragraph{步行迁移率。}对于速度自相关按 $\langle\mathbf{v}(0)\cdot\mathbf{v}(t)\rangle=v^2\e^{-t/\tau}$ 衰减的游走者，
+二维扩散系数为 $D=\tfrac12\int_0^\infty\langle\mathbf{v}(0)\cdot\mathbf{v}(t)\rangle\,\dd t=v^2\tau/2$
+\citep{taylor1922diffusion,kubo1966fluctuation}。假定步行速度为 $v=1.3\,\mathrm{m\,s^{-1}}$（行人的典型值
+\citep{weidmann1993transporttechnik}），并假定持续时间（persistence time）为 $\tau=1.5$\,s，则得
+$D=1.27\,\mathrm{m^2\,s^{-1}}$，即在 $a=1.5$\,m 时为 $4.9\times10^{4}\cellday$；若人们只有 5\,\% 的时间在步行，
+则为 $2.4\times10^{3}\cellday$。在四个场景中，这些步行取值介于 $1.4\times10^{3}$ 与 $4.4\times10^{5}\cellday$
+之间（表~\ref{s2_model:tab:regime}）：$\Dz=1$ 比步行人群的迁移率低三个到接近六个数量级。
+% src: data/s2_model_scenes.json -> walking (D_m2_per_s 1.2675), scenes.office (walking_D0_cell2_per_day 48672, walking_5pct_D0_cell2_per_day 2433.6); same values in data/bsc_theory/worked_examples.json -> E9_physical_D
+% src: data/s2_model_scenes.json -> scenes.<name>.walking_5pct_D0_cell2_per_day (smallest: supermarket 1368.9), walking_D0_cell2_per_day (largest: metro 438048); log10: 3.14 to 5.64 (data/misc_checks.json -> mobility_gap)
+
+\begin{table}[tbp]
+\centering
+\caption{本文所用各迁移率尺度 $\Dz$（单位为 \cdunit）及步行迁移率下平均场模型的基本再生数 $\Rz$
+（$\beta=0.5\perday$，$\gamma=0.14\perday$）；括号内以及标为“超出量”的列给出 $\Rz$ 超出均匀混合值
+$\beta\langle q\rangle/\gamma$ 的百分比。对办公室与超市，1\,m 接触核即同格接触核；对教室与地铁车厢，两种接触核
+的结果均列出。$\Dz$ 的步行取值为 $v^2\tau/2$（$v=1.3\,\mathrm{m\,s^{-1}}$，$\tau=1.5$\,s），按各场景的格点间距
+换算，分别对应 5\pct{} 的时间在步行和全部时间都在步行的人。}
+\label{s2_model:tab:regime}
+\footnotesize
+% src: data/s2_model_scenes.json -> scenes.<name>.R0_1m, scenes.<name>.R0_samecell (rows as generated in
+%      data/s2_model_table_rows.tex); D0 = 1, 10, 100 agree with data/plan_theory_checks.json ->
+%      scenes.<name>.R0_1m_D0=*, R0_samecell_D0=*
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llcccccccc@{}}
+\toprule
+ & & & \multicolumn{3}{c}{$\Rz$（超出量，\%），$\Dz=$}
+ & \multicolumn{2}{c}{步行 5\pct{} 时间} & \multicolumn{2}{c}{步行} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-8}\cmidrule(l){9-10}
+场景 & 接触核 & $\beta\langle q\rangle/\gamma$ & 1 & 10 & 100 & $\Dz$ & 超出量 & $\Dz$ & 超出量 \\
+\midrule
+办公室 & 同格 & 4.643 & 5.107 (10.0) & 4.676 (0.72) & 4.646 (0.06) & $2.4\times10^{3}$ & 0.0026 & $4.9\times10^{4}$ & 0.00013 \\
+超市 & 同格 & 3.263 & 4.394 (34.6) & 3.391 (3.93) & 3.275 (0.37) & $1.4\times10^{3}$ & 0.0268 & $2.7\times10^{4}$ & 0.00134 \\
+教室 & 1\,m & 4.706 & 5.866 (24.7) & 4.931 (4.79) & 4.731 (0.53) & $5.5\times10^{3}$ & 0.0098 & $1.1\times10^{5}$ & 0.00049 \\
+ & 同格 &  & 6.182 (31.4) & 4.960 (5.42) & 4.733 (0.57) & $5.5\times10^{3}$ & 0.0105 & $1.1\times10^{5}$ & 0.00053 \\
+地铁车厢 & 1\,m & 9.056 & 9.241 (2.1) & 9.164 (1.20) & 9.078 (0.25) & $2.2\times10^{4}$ & 0.0013 & $4.4\times10^{5}$ & 0.00006 \\
+ & 同格 &  & 9.836 (8.6) & 9.308 (2.79) & 9.086 (0.33) & $2.2\times10^{4}$ & 0.0016 & $4.4\times10^{5}$ & 0.00008 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{后果。}在 $\Dz=1$ 时，$q$ 的异质性使 $\Rz$ 比均匀混合值 $\beta\langle q\rangle/\gamma$ 高出 $2$ 至
+$35\pct$（1\,m 接触核），具体取决于场景。在步行迁移率下，办公室中的超出量低于 $0.003\pct$，所有场景中均低于
+$0.03\pct$：在平均场模型中，有人员步行走动的封闭房间是均匀混合的，就实际应用而言
+$\Rz=\beta\langle q\rangle/\gamma$。
+% src: data/s2_model_scenes.json -> scenes.<name>.R0_1m.*.excess_over_wellmixed_pct (D0=1: 10.0, 34.6, 24.7, 2.05;
+%      walking_5pct: 0.0026, 0.0268, 0.0098, 0.0013; walking: 0.00013, 0.00134, 0.00049, 0.00006);
+%      office at D0 = 2400 and 48700 in data/plan_theory_checks.json -> office.mobility_table (0.0027, 0.00013)
+第~\ref{s3_r0:sec}--\ref{s6_scenes:sec}~节所报告的封闭房间中的一切空间效应，都只在低迁移率下才较大；
+第~\ref{s5_pair:sec}~节的配对层次修正也是如此。经局部的门发生的泄漏是例外：其影响随迁移率增大
+（第~\ref{s4_geometry:sec:leaky}~节）。因此，结果针对较低的默认值 $\Dz=1$，以及房间趋近均匀混合极限的 $\Dz=10$
+和 $100$ 给出；后续各节将回指本段，不再重复。较小的 $\Dz$ 或可理解为对待在办公桌或座位上的人的一种替代描述，
+但不带固定位置的随机游走并不是这类人的恰当模型：慢速游走者会逐渐漂离且不再返回，而且平稳占据在所有可行走格点上
+均匀分布，走廊和过道也包括在内。第~\ref{s8b_evidence:sec:contacts}~节以实测接触为对照展示了这一后果，所用迁移率
+与实测接触时长相匹配：按六个室内场所中接触的总量与时长标定的自由游走，在六个场所中的五个使每个人的接触对象过多，
+且在任何一个场所中都没有群组结构。
+
+\paragraph{封闭房间。}除非另有说明，每个场景都是一个封闭房间，在整个流行过程中由同样的 $\Npop$ 个人每天 24 小时
+占据。这对办公室和教室是一种理想化；对超市和地铁车厢则不是一个现实的物理情形，场景文件为二者分别假定了 27 分钟和
+20 分钟的到访；
+% src: code/bsc_sim/scenes/supermarket.json, metro.json ("dwell")
+第~\ref{s6_scenes:sec:interventions}~节给出了每次到访以及每天只有部分时间被占用的房间所对应的数值。

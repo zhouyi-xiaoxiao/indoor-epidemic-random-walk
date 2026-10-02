@@ -32,4 +32,5 @@ code/bsc_validation/.mplcache/
 main.log
 main.out
 main.pdf
+*.xdv
 .DS_Store

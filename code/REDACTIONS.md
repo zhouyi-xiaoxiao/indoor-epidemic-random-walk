@@ -3,9 +3,9 @@
 The protocols of the five tests and their post-hoc logs were frozen by SHA-256 hashes of the files on the
 author's machine (freeze records `PREREG_FREEZE.json` and similar). The files of this repository are
 redacted copies of those records: passages that do not concern the analyses of this article are omitted
-(marked `[...]`) or reworded, identifiers are renamed as in the rest of the repository, and the words
-for the organisation of the work are replaced as in the other notes (throughout the post-hoc logs, and in
-single lines of the protocols where the list below says so). Nothing else was changed. The hashes in the freeze records therefore refer to the unredacted originals, which
+(marked `[...]`) or reworded, and identifiers are renamed and some labels written as in the rest of the
+repository (labels throughout the post-hoc logs, and in single lines of the protocols where the list below
+says so). Nothing else was changed. The hashes in the freeze records therefore refer to the unredacted originals, which
 are kept by the author and can be provided to the editor and referees; they cannot be checked against
 the copies below. The timing evidence for the protocols, which was self-attested in any case, is
 weaker for it. The list gives, for each redacted file, the SHA-256 hash of the original, that of the
@@ -36,7 +36,7 @@ released copy, the lines of the released copy that differ from the original, and
 * changes:
   * reworded; the copy reads: "the exact per-cell rule cannot reach"
   * reworded; the copy reads: "occupancy factor E[1/N] of the per-cell rule"
-  * words for the organisation of the work replaced as in the other notes of the release ("re-check" for the second pass, "stretch of work" for an interrupted or resumed working period, the names of the analyses for their labels)
+  * labels written as in the rest of the release ("re-check" for the second pass, "stretch of work" for a working period that was interrupted or resumed, the names of the analyses for their labels)
 
 ## `code/bsc_validation/PREREGISTRATION.md`
 
@@ -90,7 +90,7 @@ released copy, the lines of the released copy that differ from the original, and
 * SHA-256 of this copy: `23a17d3e8f862f0d345ae246fc1aeaf90a55f6addaea3e8aa658a666fbd8dd7a`
 * lines changed in this copy: 1, 12-13, 15
 * changes:
-  * words for the organisation of the work replaced as in the other notes of the release ("re-check" for the second pass, "stretch of work" for an interrupted or resumed working period, the names of the analyses for their labels)
+  * labels written as in the rest of the release ("re-check" for the second pass, "stretch of work" for a working period that was interrupted or resumed, the names of the analyses for their labels)
 
 ## `code/bsc_validation2/a1_more_outbreaks/PREREGISTRATION.md`
 
@@ -123,7 +123,7 @@ released copy, the lines of the released copy that differ from the original, and
   * reworded; the copy reads: "prefer Z (inside the model's framework)"
   * reworded; the copy reads: "RWstickZ (the model's own D(r) mechanism)"
   * reworded; the copy reads: "inside the model's D(r) formulation"
-  * words for the organisation of the work replaced as in the other notes of the release ("re-check" for the second pass, "stretch of work" for an interrupted or resumed working period, the names of the analyses for their labels)
+  * labels written as in the rest of the release ("re-check" for the second pass, "stretch of work" for a working period that was interrupted or resumed, the names of the analyses for their labels)
 
 ## `code/bsc_validation2/a2_contact_mobility/PREREGISTRATION.md`
 
@@ -157,7 +157,7 @@ released copy, the lines of the released copy that differ from the original, and
 * lines changed in this copy: 48, 51, 56, 58
 * changes:
   * reworded; the copy reads: "(that stretch of work stopped after writing `src/s07_memo.py`)"
-  * words for the organisation of the work replaced as in the other notes of the release ("re-check" for the second pass, "stretch of work" for an interrupted or resumed working period, the names of the analyses for their labels)
+  * labels written as in the rest of the release ("re-check" for the second pass, "stretch of work" for a working period that was interrupted or resumed, the names of the analyses for their labels)
 
 ## `code/bsc_validation2/a3_tracer_physics/PREREGISTRATION.md`
 
@@ -177,7 +177,7 @@ released copy, the lines of the released copy that differ from the original, and
 * lines changed in this copy: 1, 14-17
 * changes:
   * reworded; the copy reads: "The same computation had been made separately before, for the overv..."
-  * words for the organisation of the work replaced as in the other notes of the release ("re-check" for the second pass, "stretch of work" for an interrupted or resumed working period, the names of the analyses for their labels)
+  * labels written as in the rest of the release ("re-check" for the second pass, "stretch of work" for a working period that was interrupted or resumed, the names of the analyses for their labels)
 
 ## `code/bsc_validation2/a4_zone_level/PREREGISTRATION.md`
 

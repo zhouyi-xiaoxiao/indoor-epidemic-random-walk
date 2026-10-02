@@ -1,0 +1,210 @@
+% m5_pair.tex -- Main text, Section 5: discrete individuals, pair-level theory.
+% Paths in "% src:" comments are relative to the repository root.
+% Numbers not stored verbatim in the research directories are recomputed by code/s5_pair_checks.py
+% -> data/s5_pair_checks.json (table bodies: data/s5_pair_tables.tex).  Proofs:
+% Supplementary Section S4.
+\section{离散个体：配对层次理论}\label{s5_pair:sec}
+
+第~\ref{s3_r0:sec}~节的下一代矩阵计数的是传染性\emph{接触}：其列和 $\noff(x)$（式~\eqref{s3_r0:eq:offspring}）是产生于
+格点 $x$ 的病例的传染率对时间积分后的期望值。在平均场模型中，每一次接触遇到的都是一个新的易感者。在
+第~\ref{s2_model:sec:ibm}~节的基于个体的模型中则不然：每个人只能被感染一次，而移动缓慢的感染者会反复遇到相同的少数
+几个近邻，因而之后与已感染者的接触都白白浪费了。接触的这种局部饱和是经典现象。正因为如此，具有家庭结构的流行需要
+针对群体而非个体定义的再生数\citep{ball1997epidemics}；格子与网络上的配对近似所预测的入侵比质量作用下更慢
+\citep{keeling1999effects}；更一般地，离散空间模型与其平均场方程有所不同\citep{durrett1994importance}。在默认参数下
+（每格 0.43 人，$\Dz=1\cellday$），这一效应造成两倍之差：在办公室场景中，单独传播的指示病例平均感染 $2.27$ 人，而
+$\Rz=5.11$。
+% src: data/bsc_sim/02_mobility.json (D0_1.0: R1_pair_uniform_index 2.266, R0_ngm 5.107)
+
+把感染视为两个随机游走者之间的反应并不是新思路。\citet{kenkre2014theory} 与 \citet{sugaya2018analysis} 计算了有约束与
+无约束情形下一对游走者的感染概率，\citet{kenkre2021theory} 的专著对这一方法作了进一步发展。与下文最接近的是
+\citet{giuggioli2022spatio}：他们在离散时间下把同处一格时的传播映射为双游走者格点游走中的一个部分吸收位点。对于初始
+位置均匀随机的 $W$ 个易感游走者中的一个感染游走者，在感染期服从几何分布的情形下，他们得到二代感染的平均数等于 $W$ 乘以
+传播概率的生成函数关于位置的平均（其第 6 节），称之为基本再生数，并在带反射壁的正方形区域中与模拟结果作了对照。下文定义
+的 $\Ronebar$ 是该量在连续时间下的对应物。单个部分吸收位点的求解技术可追溯到 \citet{szabo1984localized}；含多个反应性缺陷
+的格点表述见 \citet{giuggioli2020exact} 与 \citet{giuggioli2022spatio}，惰性异质性的类似表述见
+\citet{sarvaharman2023particle}。本文新增的内容列于第~\ref{s1_intro:sec}~节。
+% src: data/refs_search.json (searches; Crossref abstracts of giuggioli2022spatio and sarvaharman2023particle: reactive against inert heterogeneities)
+
+\subsection{配对问题}\label{s5_pair:sec:pair}
+
+本节中移动始终遵循对称规则~\eqref{s2_model:eq:hop}，因而 $\gen$ 对称且 $\pi_x=1/\ncell$；$\Npop$ 个人相互独立地从
+均匀分布出发。其中一人即指示病例，在时刻 $0$ 于格点 $x$ 开始具有传染性，传染性持续时间 $\tau$ 服从速率为 $\gamma$ 的指数
+分布，且与移动相互独立。考虑另外一个人，他在时刻 $0$ 位于格点 $y$。配对 $Z_t=(X_t,Y_t)$ 是 $\cells\times\cells$ 上的
+马尔可夫链，其生成元为 $\mathcal{M}=\gen\otimes\Id+\Id\otimes\gen$（列指标 = 出发状态）。当配对处于状态 $(x',y')$ 时，
+指示病例以式~\eqref{s2_model:eq:pairhazard} 中的速率 $h(x',y')=\beta q_{x'}P_{x'y'}/\rhobar$ 感染另一人，其中
+$\rhobar=(\Npop-1)/\ncell$。
+
+\begin{proposition}[配对感染概率]\label{s5_pair:prop:pair}
+  设 $p(x,y)$ 为在其他人都不传播时，指示病例在恢复之前感染该指定的另一人的概率。记
+  $\mathcal{M}=\gen\otimes\Id+\Id\otimes\gen$，并在 $\cells\times\cells$ 上记 $\mathbf{H}=\diag\,h$，则
+  \begin{equation}\label{s5_pair:eq:pair}
+     \one-p=\gamma\bigl(\gamma\Id+\mathbf{H}-\mathcal{M}^{\T}\bigr)^{-1}\one .
+  \end{equation}
+\end{proposition}
+
+式~\eqref{s5_pair:eq:pair} 就是以速率 $\gamma+h$ 消亡的配对链的费曼–卡茨公式
+$1-p(z)=\Exp_z\exp\bigl(-\int_0^{\tau}h(Z_t)\,\dd t\bigr)$：感染是双游走者过程的一个部分吸收缺陷。由于 $\gen$ 对称，
+式~\eqref{s5_pair:eq:pair} 中的矩阵对称正定，该方程组可在 $\ncell^2$ 个配对状态（办公室场景为 $54{,}756$ 个）上用
+共轭梯度法求解。
+
+\begin{definition}[配对层次再生数]\label{s5_pair:def:R1}
+  $\Rone(x)=(\Npop-1)\,\ncell^{-1}\sum_{y}p(x,y)$ 是产生于 $x$ 的单独传播的指示病例所致二代病例数的期望，其中其余
+  $\Npop-1$ 人均为易感者、相互独立且服从均匀分布，并且只有指示病例传播；$\Ronebar=\ncell^{-1}\sum_x\Rone(x)$。配对
+  层次下一代矩阵 $\ngmone$ 的元素 $(K_1)_{zx}$ 为该指示病例所感染的、\emph{被感染时位于格点 $z$} 的人数的期望；其列和
+  为 $\Rone(x)$。
+\end{definition}
+
+对基于个体的模型而言，$\Rone(x)$ 是精确的：指示病例与其余每个人构成的 $\Npop-1$ 个配对同分布；它们虽然相互依赖（共享
+指示病例的路径与感染期），期望仍然可以相加。当后续病例也传播时，指示病例感染的人数至多如此，因为有些人会先被他人感染。
+矩阵 $\ngmone$ 可由另外 $\ncell$ 次线性求解得到；对本文的各场景，全部求解只需数秒。
+% src: data/s5_pair_checks.json (saturation/*/seconds: 0.9-4.7 s for K, K1 and p)
+
+\begin{proposition}[饱和]\label{s5_pair:prop:saturation}
+  对任意场景、任意行随机接触核及任意 $\Npop\ge2$，对所有 $z,x$ 均有 $0\le(K_1)_{zx}\le K_{zx}$，且凡 $K_{zx}>0$ 处
+  不等式严格成立。因此对每个 $x$ 有 $\Rone(x)<\noff(x)$，并且 $\Ronebar<\beta\langle q\rangle/\gamma$，
+  $\srad(\ngmone)\le\Rz$。
+\end{proposition}
+
+由此可见，平均场矩阵计数的是暴露量，而配对层次矩阵扣除了已被感染者的暴露量。对同格接触核，定理~\ref{s3_r0:thm:bounds}
+给出 $\Ronebar<\beta\langle q\rangle/\gamma\le\Rz$：均匀放置的单独传播的指示病例所感染的人数，甚至少于 $\Rz$ 的均匀混合
+下界。
+
+\subsection{均匀周期房间：闭式解}\label{s5_pair:sec:closed}
+
+\begin{proposition}[均匀周期房间]\label{s5_pair:prop:torus}
+  在 $L_1\times L_2$ 周期格子上，设向四个相邻格点中每一个的跳跃率均为 $D$，$q$ 均匀，接触核为同格接触核，并令
+  $h_0=\beta q/\rhobar$。则 $p(x,y)=h_0\,g(y-x)/(1+h_0\,\gz)$，其中
+  $g(r)=\int_0^\infty\e^{-\gamma t}\,\Prob(\text{相对游走在时刻 }t\text{ 位于 }0\mid\text{从 }r\text{ 出发})\,\dd t$，
+  $\gz=g(0)$，且
+  \begin{equation}\label{s5_pair:eq:R1}
+     \Rone=\frac{\beta q/\gamma}{1+(\beta q/\rhobar)\,\gz},\qquad
+     \gz=\frac1{\ncell}\sum_{k}\frac{1}{\gamma+2\mu_k},\qquad
+     \mu_k=2D\,(2-\cos k_1-\cos k_2),
+  \end{equation}
+  其中 $k=(k_1,k_2)$ 取遍 $\tfrac{2\pi}{L_1}\{0,\dots,L_1-1\}\times\tfrac{2\pi}{L_2}\{0,\dots,L_2-1\}$。
+  $\Rone$ 关于 $D$ 和 $\rhobar$ 均递增。极限：在 $\ncell$ 固定时令 $D\to\infty$，则
+  $\Rone\to(\beta q/\gamma)/\bigl(1+\beta q/(\gamma(\Npop-1))\bigr)$；令 $D\to0$，则 $\Rone\to\rhobar h_0/(h_0+\gamma)$。
+\end{proposition}
+
+式~\eqref{s5_pair:eq:R1} 具有更新论证的结构。如果与该指定之人的传染性接触在其被感染之后仍继续发生，其期望次数将是
+$h_0\,g(r)$，即平均场暴露量。在至少发生一次接触的条件下，配对在该时刻同处一格，接触次数的期望为 $1+h_0\gz$。两者之比
+即为至少发生一次接触的概率。两个极限分别是：$\Npop$ 人均匀混合人群中的马尔可夫流行，其中每对人以速率
+$\beta q/(\Npop-1)$ 相互作用；以及冻结房间，其中指示病例只感染平均 $\rhobar$ 个与其同处一格的人，每人被感染的概率为
+$h_0/(h_0+\gamma)$。在四个周期格子上直接求解式~\eqref{s5_pair:eq:pair}，可再现式~\eqref{s5_pair:eq:R1}，精确到 13 位
+数字。
+% src: data/s5_pair_checks.json (torus: abs_err <= 7e-14); data/plan_theory_checks.json
+%      (checks/torus_L5_N11: 2.316775601727); code/bsc_sim/verify/v04_finite.json (torus_L6_D1.0, torus_L8_D0.51)
+
+\begin{corollary}[无限大地面]\label{s5_pair:cor:infinite}
+  在 $\rhobar$ 固定时令 $L_1,L_2\to\infty$，则
+  $\gz=\dfrac{2}{\pi}\,\dfrac{\mathcal{K}(k_*)}{\gamma+8D}$，模数为 $k_*=\dfrac{8D}{\gamma+8D}$，其中
+  $\mathcal{K}$ 为第一类完全椭圆积分。特别地，对任意有限的 $D$ 有 $\Rone<\beta q/\gamma$：对大房间，这一修正并不消失。
+\end{corollary}
+
+当 $8D\gg\gamma$ 时，由 $\mathcal{K}$ 的对数奇异性得 $\gz\approx\ln(64D/\gamma)/(8\pi D)$：修正随迁移率只按
+$\ln D/D$ 衰减，这反映了平面游走的常返性。
+
+\begin{observation}[反射壁]\label{s5_pair:obs:reflecting}
+  对带反射壁的矩形房间，在式~\eqref{s5_pair:eq:R1} 中取
+  $\mu_k=2D(2-\cos(k_1\pi/L_1)-\cos(k_2\pi/L_2))$，$k_i=0,\dots,L_i-1$（即按格点平均的 $\gz$），所得结果再现由精确配对
+  求解~\eqref{s5_pair:eq:pair} 得到的 $\Ronebar$，在 $L=4,\dots,28$ 与 $D=0.51,1,10$ 下误差在 $0.9\,\%$ 以内
+  （最大偏差出现在 $D=0.51$、$L=7$）。
+\end{observation}
+% src: data/bsc_sim/02_finite_size.json (pair_closed_form, pair_exact);
+%      data/s5_pair_checks.json (finite_size: max 0.90 % at D0.51_L7; by D: 0.90 %, 0.46 %, 0.02 %)
+
+\subsection{有限尺寸效应的形式}\label{s5_pair:sec:finite}
+
+对平均场模型而言，封闭房间不存在尺寸效应（定理~\ref{s4_geometry:thm:closed}）。离散的人确实表现出尺寸效应，其形式
+正是式~\eqref{s5_pair:eq:R1}。图~\ref{s5_pair:fig:finite}（数值见补充材料表~\ref{S-s5_pair:tab:finite}）在均匀
+$L\times L$ 房间中比较了平均场再生数、闭式解、精确配对求解与模拟，每格有 $0.381$ 个其他人（即无障碍物的 $20\times13$
+格子的 260 个格点上有 99 人；办公室场景有 234 个可行走格点，该值为 $0.423$）。
+% src: data/bsc_sim/02_finite_size.json (rho_bar = 99/260); data/s2_model_scenes.json -> scenes.office.rho_bar (0.4231)
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig5_1_finite_size_zh}
+\caption{离散个体的有限尺寸效应。带反射壁的均匀 $L\times L$ 房间，$q=1$，同格接触核，$\rhobar\approx0.381$（每格其他
+人数；$L=4$ 时 $\Npop=7$，至 $L=40$ 时为 $610$），迁移率 (a) $D=1$，(b) $D=10\cellday$。黑线：平均场
+$\Rz=\beta q/\gamma=3.571$。蓝线：采用反射壁谱的闭式解~\eqref{s5_pair:eq:R1}；叉号：精确配对求解~\eqref{s5_pair:eq:pair}
+（$L\le28$）；点线：无限格子（推论~\ref{s5_pair:cor:infinite}）。圆点：只有指示病例传播时，均匀放置的指示病例的二代病例
+计数值 $\Rhat$，每个点 20{,}000 次模拟，误差棒为 95\pct{} 置信区间。}
+\label{s5_pair:fig:finite}
+% src: data/bsc_sim/02_finite_size.json; figure script code/fig_finite_size.py
+\end{figure}
+
+在 $D=1$ 时，单独传播的指示病例在有 7 人的 $4\times4$ 房间中平均感染 $1.88$ 人，在有 153 人的 $20\times20$ 房间中平均
+感染 $2.60$ 人，在相同占据率的无限大地面上平均感染 $2.71$ 人；而平均场模型在任意尺寸下均为 $3.57$。修正项是一个格子
+格林函数。它随迁移率增大而减小：在 $L=10$ 时，计数值从 $D=1$ 时的 $2.46$ 升至 $D=10$ 时的 $3.10$。并且它在
+$L\to\infty$ 时并不消失：无限大地面上的值在 $D=1$ 时为 $\beta q/\gamma$ 的 $76\,\%$，在 $D=10$ 时为 $96\,\%$。原因在于
+反复遇到相同的人：在小房间中是因为人少，在大地面上是因为缓慢的平面游走者会回到其近邻身边；并没有任何东西从墙壁泄漏
+出去。在所扫描的 24 个房间中，闭式解在 23 个房间落在计数值的 95\,\% 区间内；精确求解在已计算的 21 个房间中有 19 个
+落在该区间内；第二模拟器在重新运行的七个房间（包括上述两个例外）中与精确求解相差均在 $1.7$ 个标准误以内。
+% src: data/bsc_sim/02_finite_size.json; data/s5_pair_checks.json
+%      (finite_size/ratio_to_meanfield: D1.0_Linf 0.759, D10.0_Linf 0.958; closed_outside_sim_ci, exact_outside_sim_ci;
+%      finite_size_check: z between -1.35 and 1.65); code/bsc_sim/verify/v04_finite.json
+
+\subsection{迁移率：两个层次上的相反趋势}\label{s5_pair:sec:mobility}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.72\textwidth]{fig5_5_R_vs_mobility_zh}
+\caption{办公室场景的各再生数随迁移率尺度 $\Dz$ 的变化（$\Npop=100$，同格接触核，$\beta=0.5\perday$，
+$\gamma=0.14\perday$）。黑线：平均场 $\Rz=\srad(\ngm)$；灰色带：其上下界 $\beta\langle q\rangle/\gamma=4.643$ 与
+$\beta\qmax/\gamma=5.357$。蓝色实线：配对层次下一代矩阵的谱半径 $\srad(\ngmone)$；蓝色虚线：对均匀放置的指示病例取平均的
+$\Ronebar$，它在 $\Dz$ 较小时更低。圆点：只有指示病例传播时，产生位置按 $\ngmone$ 的 Perron 向量分布的指示病例的二代
+病例计数值 $\Rhat$。三角：指示病例及其直接感染的病例都传播时，第二代病例数除以第一代病例数。误差棒为 95\pct{} 置信区间；
+模拟次数与数值见补充材料表~\ref{S-s5_pair:tab:mobility}。点线标出数值 1。}
+\label{s5_pair:fig:mobility}
+% src: data/bsc_sim/02_mobility.json; figure script code/bsc_sim/experiments/21_figures_more.py
+\end{figure}
+
+办公室场景的平均场 $\Rz$ 随迁移率减小（定理~\ref{s3_r0:thm:mobility}），从 $\Dz=0.03$ 时的 $5.35$ 降至 $\Dz=1000$ 时的
+$4.64$；配对层次的各数则增大，$\Ronebar$ 从 $0.59$ 增至 $4.42$：移动更快的指示病例会遇到更多不同的人
+（图~\ref{s5_pair:fig:mobility}）。在 $\Dz=1$ 时，$\Ronebar=2.27$ 为 $\Rz=5.11$ 的 $44\,\%$；在 $\Dz=10$ 时为 $81\,\%$，
+在 $\Dz=100$ 时为 $93\,\%$。在 $\Dz=1000$ 时，$\Ronebar=4.425$ 接近
+$(\beta\langle q\rangle/\gamma)/\bigl(1+\beta\langle q\rangle/(\gamma(\Npop-1))\bigr)=4.435$，即 100 人均匀混合人群的值
+（参见命题~\ref{s5_pair:prop:torus} 中 $D\to\infty$ 的极限）。计数得到的二代病例数与之相符：400{,}000、400{,}000 和
+100{,}000 次模拟的样本在 $\Dz=1$、$10$ 和 $100$ 时分别给出 $2.265\pm0.004$、$3.793\pm0.006$ 和 $4.340\pm0.015$，而
+$\Ronebar=2.266$、$3.793$ 和 $4.341$。
+% src: data/bsc_sim/02_mobility.json; data/s5_pair_checks.json (mobility: R1bar_over_R0
+%      0.444, 0.811, 0.934; office_wellmixed_finite_population 4.4349)
+% src: data/s5_pair_large_sample.json (office|D0=1: mean 2.2648, se 0.0039; office|D0=10: 3.7930, 0.0064; office|D0=100: 4.3399, 0.0145)
+在 $\rhobar=0.381$、$\beta q=0.5\perday$ 的无限均匀格子上，比值 $\Rone/\Rz$ 在 $D=0.24$ 时为 $0.5$，在 $D=3.5$ 时为
+$0.9$，在 $D=52\cellday$ 时为 $0.99$（补充材料图~\ref{S-s5_pair:fig:validity}）。因此，当许多人共享同一接触邻域，或者
+人们在一个感染期内移动得足够远、能遇到新的人时，平均场再生数是适用的；$\Dz=1$ 的各场景两个条件都不满足。在
+$\Dz\approx2.4\times10^3\cellday$（第~\ref{s2_model:sec:regime}~节）时，无限格子上的比值为 $0.9997$，有限房间中剩下的
+只是均匀混合的有限人群因子。
+% src: data/s5_pair_checks.json (infinite: D_for_ratio_*; D=2400 ratio 0.99970)
+
+\subsection{后续世代：不是阈值}\label{s5_pair:sec:threshold}
+
+配对层次对第一代是精确的，但也仅止于第一代。二代病例的处境不同于单独传播的指示病例：它从其传染者所在格点或相邻格点开始，而
+传染者不能再被感染；它也靠近其传染者已造成的其他病例，因此其邻域中已有一部分被用尽。在 $\Dz=1$ 的办公室中，第二代是
+第一代的 $1.63$ 倍（$1.61$--$1.65$），而 $\srad(\ngmone)=2.32$。这两个数之比在 $\Dz=0.03$ 时为 $0.50$，在 $\Dz=1$ 时为
+$0.70$，在 $\Dz\ge10$ 时为 $0.80$--$0.81$；最后这个值就是 100 人均匀混合人群的值，其中指示病例与其直接感染的病例争夺
+相同的易感者（用相同设计的均匀混合模型做 $200{,}000$ 次模拟，得 $0.81$）。
+% src: data/bsc_sim/02_mobility.json (sim_gen2_over_gen1, R1_pair_ngm); data/s5_pair_checks.json
+%      (mobility: gen_ratio_over_rhoK1; wellmixed_generation_ratio: 3.589 / 4.435 = 0.809)
+
+\begin{remark}[$\Rone$ 与 $\srad(\ngmone)$ 不是阈值量]\label{s5_pair:rem:threshold}
+无论 $\Ronebar>1$ 还是 $\srad(\ngmone)>1$，都不意味着可能发生大规模暴发。在采用同格接触核、$\Dz=1$ 的地铁车厢中
+（$270$ 个格点上 $310$ 人；按格点取中位数，乘客两次跳跃之间需等待 48 天），$\srad(\ngmone)=2.24$，$\Ronebar=1.51$，
+单独传播的指示病例的二代病例计数值为 $1.52$（$1.49$--$1.54$；20{,}000 次模拟）。然而第二代为第一代的 $0.61$ 倍；
+在一个模拟器的 2{,}000 次模拟和另一个模拟器的 3{,}000 次模拟中，没有一次暴发波及 $10\pct$ 的乘客（平均罹患率 $1.1\pct$）：
+指示病例感染的是与其同格的人，而这些人已无人可感染。同一情形下的平均场值为 $\Rz=9.84$。因此，不能以“$\Rone<1$”来评判
+干预措施，也不应把 $\srad(\ngmone)$ 理解为离散系统的基本再生数。格点随机游走者之间的感染存在阈值，这一点是已知的：
+对 $\mathbb{Z}^d$ 上带恢复与再感染的独立游走者有严格结果\citep{kesten2006phase}，对扩散流行过程（包括其具有永久免疫的
+变体）有模拟结果\citep{maia2007diffusive,carvalho2025generalized}。这些结果针对的是无限或大型的均匀格子，不能为本文所
+考虑的小型异质房间给出可计算的阈值。本文没有任何量能够预测低迁移率下基于个体的模型的阈值或最终规模；这些量在
+第~\ref{s6_scenes:sec}~节中通过模拟得到。
+\end{remark}
+% src: data/bsc_sim/03_scenes.json (metro|D0=1|samecell: R1_pair_ngm 2.2437, R1_pair_uniform_index 1.5138,
+%      R0_ngm 9.836, n_major 0 of 2000, attack_all_mean 0.0112, gen2_over_gen1 0.608);
+%      code/bsc_sim/verify/v05_scenes.json (metro|1.0|same: 0 of 3000, gen2_over_gen1 0.609);
+%      data/bsc_sim/01_validation.json (D_pair_theory, metro same cell: 1.517, 1.495-1.539);
+%      data/s5_pair_checks.json (saturation/metro: rho_K1 2.2437, R1bar 1.5138, median_cell_time_between_hops_days 48.5)
+
+总之，在低迁移率下，离散个体之间一次暴发的最初几步由三个数刻画，必须将它们区分开来：平均场 $\Rz$，它计数暴露量，其矩阵
+从上方界定配对层次的矩阵（命题~\ref{s5_pair:prop:saturation}）；配对层次的 $\Rone(x)$，它是单独传播的指示病例所感染
+人数的精确期望；以及从一代到下一代的增长，它还要更低，而我们没有它的公式。
